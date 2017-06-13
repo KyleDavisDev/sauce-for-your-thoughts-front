@@ -2,9 +2,10 @@
   "name": "dang-thats-delicious",
   "version": "1.0.0",
   "description": "Following Wes Bos's NodeJS course while using ReactJS instead of pug.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server",
+    "prod": "webpack -p"
   },
   "author": "Kyle Bonar",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "express": "^4.15.3",
     "express-session": "^1.15.3",
     "express-validator": "^3.2.0",
+    "mongoose": "^4.10.6",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-ga": "^2.2.0",
