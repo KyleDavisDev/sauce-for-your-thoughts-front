@@ -1,0 +1,32 @@
+.nav-container {
+    background-color: #515151;  
+
+    #navBar {
+        max-width: 1200px;
+        display: flex;
+        flex-direction: horizontal;
+
+
+
+        ul {
+            list-style-type: none;
+            margin: 0px;
+
+            li {
+                display: inline-flex;
+                flex-direction: column;
+                align-items: center;
+                //text-align: center;
+                padding: 10px;
+                border: 1px solid #fff;
+                fill: #fff;
+                color: #fff;
+
+                &:hover, &:focus {
+                    fill: #ff0000;
+                    color: #f00;
+                }
+            }
+        }
+    }
+}
