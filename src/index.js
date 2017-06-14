@@ -1,8 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const HelloWorld = () => {
-    return <div>Hello world!</div>
-}
-
-ReactDOM.render(<HelloWorld />, document.getElementById('app'))
+import Router from './components/Router/Router.js'
+ReactDOM.render(<Router />, document.getElementById('app'))
