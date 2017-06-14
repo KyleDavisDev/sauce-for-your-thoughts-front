@@ -11,6 +11,6 @@ const app = express()
 app.use(express.static(path.join(__dirname, 'dist')))
 
 //handle routes
-app.get('*', routes)
+app.use('/', routes)
 
 module.exports = app
