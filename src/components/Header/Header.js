@@ -75,56 +75,60 @@ class Header extends Component {
 			}
 		];
 		return (
-			<div className="nav-container">
-				<div id="navigation">
-					<div id="home-logo-container">
-						<NavLink
-							exact
-							className="home-link"
-							activeClassName="active"
-							to="/"
-						>
-							<MainLogo className="home-logo" />
-						</NavLink>
+			<header className="top">
+				<nav className="nav">
+					<div className="nav-section nav-pages">
+
+						<li className="nav-item">
+							<NavLink
+								exact
+								className="nav-link home-link"
+								activeClassName="active"
+								to="/"
+							>
+								<MainLogo className="home-logo" />
+							</NavLink>
+						</li>
+						{navigationItems.map(item => {
+							return (
+								<li key={item.text} className="nav-item">
+									<NavLink
+										className="nav-link"
+										activeClassName="active"
+										to={item.linkTo}
+									>
+										{item.img}
+										<span>
+											{item.text.toUpperCase()}
+										</span>
+									</NavLink>
+								</li>
+							);
+						})}
+
 					</div>
 
-					<div id="nav-items-container">
-						<ul>
-							{navigationItems.map(item => {
-								return (
-									<li key={item.text}>
-										<NavLink
-											className="nav-item-link"
-											activeClassName="active"
-											to={item.linkTo}
-										>
-											{item.img}
-											<span className="nav-item-text">
-												{item.text.toUpperCase()}
-											</span>
-										</NavLink>
-									</li>
-								);
-							})}
-						</ul>
+					<div className="nav-section nav-search">
+						<div className="search">
+							<form onSubmit={this.handleSubmit}>
+								<input
+									type="text"
+									placeholder="Coffee, beer..."
+									name="search"
+									onChange={this.handleSearchChange}
+									value={this.state.searchValue}
+								/>
+								<button type="submit" className="search"> Submit </button>
+							</form>
+						</div>
 					</div>
 
-					<div id="search-container">
-						<form onSubmit={this.handleSubmit}>
-							<input
-								type="text"
-								placeholder="Coffee, beer..."
-								name="search"
-								onChange={this.handleSearchChange}
-								value={this.state.searchValue}
-							/>
-							<button type="submit" className="search"> Submit </button>
-						</form>
+					<div id="nav-section nav-user">
+						<button type="button" className="button"> Register </button>
+						<button type="button" className="button"> Log In </button>
 					</div>
-				</div>
-
-				<div id="login-register" />
-			</div>
+				</nav>
+			</header>
 		);
 	}
 }

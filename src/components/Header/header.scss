@@ -1,100 +1,64 @@
-
-$nav-background-color: #333;
-
-.nav-container {
+header {
 	background: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%) fixed;
-	padding-top: 8px;
-
-	#navigation	{
+	.nav {
 		display: flex;
-		
-		#home-logo-container {            
-			background: $nav-background-color;
-			border-right: 1px solid #fff;
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			&:hover, &:focus {
-					background-color: transparent;
-			}
+		flex-direction: row;
+		justify-content: space-between;
+
+		svg {
+			width: 40px;
 		}
 
-		#nav-items-container {
-			ul {
-				list-style-type: none;
+		.nav-section {
+			display: flex;
+		}
+
+		.nav-item {
+			display: flex;
+		}
+
+		.nav-link {	
+			background: #303030;
+			color: #fff;
+			border-right: 1px solid rgba(255, 255, 255, 0.1);
+			padding: .9rem 1.5rem .7rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			transition: transform 0.2s;
+			border-bottom: 5px solid transparent;
+			text-decoration: none;
+
+			svg {
+				transition: all 0.2s;
+				fill: white;
+				margin-bottom: 1rem;
+			}
+
+			&.home-link svg {
+				width: 200px;
 				margin: 0px;
-				padding-left: 0px;
+			}
 
-				li {
-					display: inline-flex;
-
-					a {
-						display: flex;
-						flex-direction: column;
-						justify-content: center;
-						align-items: center;		
-						padding: 20px;
-						border-right: 1px solid #ccc;
-						fill: #fff;			
-						background-color: $nav-background-color;
-						text-decoration: none;
-
-						&:hover, &:focus {
-							background-color: transparent;
-						}
-
-						span.nav-item-text {
-								color: #fff;
-								padding: 10px 0px 0px;
-								border: 0px;
-
-						}
-
-					}         
+			&:hover, &:focus {
+				background: transparent;
+				svg {
+					transform: scale(1.2);
 				}
 			}
 		}
 
-		#search-container {
-			display: flex;
+		.nav-search {
+			flex: 1 1 auto;
 
-			form {
+			.search {
+				width: 100%;
 				display: flex;
 				flex-direction: row;
-				justify-content: center;
-				align-items: center;
-
-				input {
-					height: 100%;
-					padding: 0px 0px 0px 10px;
-					background-color: $nav-background-color;
-					border: 0px;
-					font-size: 35px;
-					color: #fff;
-
-					&:focus {
-							outline: 0px;
-					}
-				}
-
-				button {
-					background-color: $nav-background-color;
-					height: 100%;
-					border: 0px;
-					color: #fff;
-					font-size: 35px;
-
-					&:hover, &:focus {
-						background-color: transparent;
-						cursor: pointer;
-					}
-				}
 			}
-			
 		}
 	}
 
-	#login-register {
-		
-	}
+
 }
