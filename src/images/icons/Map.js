@@ -10,8 +10,6 @@ class Map extends Component {
         x="0px"
         y="0px"
         viewBox="0 0 100 100"
-        width={this.props.width || 50}
-        height={this.props.height || 50}
       >
         <title id="map-logo"> Map Logo </title>
         <g transform="translate(0,-952.36218)">

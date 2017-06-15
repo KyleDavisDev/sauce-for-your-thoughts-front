@@ -1,19 +1,25 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 class Logo extends Component {
 	render() {
 		return (
-			<svg
-				viewBox="0 0 606 239"
-				width={this.props.width || 100}
-				height={this.props.height || 100}
-				xmlns="http://www.w3.org/2000/svg"
-			>
+			<svg viewBox="0 0 606 239" xmlns="http://www.w3.org/2000/svg">
 				<title id="home-logo">Home Logo</title>
 				<defs>
-					<filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="a">
-						<feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
+					<filter
+						x="-50%"
+						y="-50%"
+						width="200%"
+						height="200%"
+						filterUnits="objectBoundingBox"
+						id="a"
+					>
+						<feOffset
+							dx="1"
+							dy="1"
+							in="SourceAlpha"
+							result="shadowOffsetOuter1"
+						/>
 						<feColorMatrix
 							values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.323001585 0"
 							in="shadowOffsetOuter1"
@@ -33,10 +39,5 @@ class Logo extends Component {
 		);
 	}
 }
-
-Logo.propTypes = {
-	height: PropTypes.string,
-	width: PropTypes.string
-};
 
 module.exports = Logo;

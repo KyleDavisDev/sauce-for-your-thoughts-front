@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 class Add extends Component {
 	render() {
@@ -10,10 +9,6 @@ class Add extends Component {
 				x="0px"
 				y="0px"
 				viewBox="0 0 100 100"
-				width={this.props.width || 50}
-				height={this.props.height || 50}
-				onMouseEnter={this.props.onMouseEnterHandler}
-				onMouseLeave={this.props.onMouseLeaveHandler}
 			>
 				<g transform="translate(0,-952.36218)">
 					<path
@@ -25,10 +20,5 @@ class Add extends Component {
 		);
 	}
 }
-
-Add.propTypes = {
-	height: PropTypes.string,
-	width: PropTypes.string
-};
 
 module.exports = Add;

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 class Tag extends Component {
 	render() {
@@ -9,8 +8,6 @@ class Tag extends Component {
 				version="1.1"
 				x="0px"
 				y="0px"
-				width={this.props.width || 50}
-				height={this.props.height || 50}
 				viewBox="0 0 100 100"
 			>
 				<title id="tag-icon">Tag Icon</title>
@@ -27,10 +24,5 @@ class Tag extends Component {
 		);
 	}
 }
-
-Tag.propTypes = {
-	height: PropTypes.string,
-	width: PropTypes.string
-};
 
 module.exports = Tag;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+
 
 class Top extends Component {
 	render() {
@@ -11,8 +11,6 @@ class Top extends Component {
 				y="0px"
 				viewBox="0 0 62 62"
 				enableBackground="new 0 0 62 62"
-				width={this.props.width || 50}
-				height={this.props.height || 50}
 			>
 				<g>
 					<g>
@@ -43,8 +41,5 @@ class Top extends Component {
 		);
 	}
 }
-Top.propTypes = {
-	height: PropTypes.string,
-	width: PropTypes.string
-};
+
 module.exports = Top;

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 class Store extends React.Component {
 	render() {
@@ -10,8 +9,6 @@ class Store extends React.Component {
 				x="0px"
 				y="0px"
 				viewBox="0 0 512 512"
-				width={this.props.width || 50}
-				height={this.props.height || 50}
 				enableBackground="new 0 0 512 512"
 			>
 				<title id="store-icon">Store Icon</title>
@@ -26,10 +23,5 @@ class Store extends React.Component {
 		);
 	}
 }
-
-Store.propTypes = {
-	height: PropTypes.string,
-	widthL: PropTypes.string
-};
 
 module.exports = Store;

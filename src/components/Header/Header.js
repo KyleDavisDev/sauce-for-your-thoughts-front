@@ -45,38 +45,46 @@ class Header extends Component {
 		const navigationItems = [
 			{
 				text: "Stores",
-				img: <StoresLogo height="40" width="40" />,
+				img: <StoresLogo />,
 				linkTo: "/stores",
 				imgTitle: "Stores"
 			},
 			{
 				text: "Tags",
-				img: <TagLogo height="40" width="40" />,
+				img: <TagLogo />,
 				linkTo: "/tags",
 				imgTitle: "Tags"
 			},
-			{ text: "Top", img: <TopLogo height="40" width="40" />, linkTo: "/top", imgTitle: "Top" },
+			{
+				text: "Top",
+				img: <TopLogo />,
+				linkTo: "/top",
+				imgTitle: "Top"
+			},
 			{
 				text: "Add",
-				img: (
-					<AddLogo
-						height="40"
-						width="40"
-						onMouseEnterHandler={this.handleMouseEnter}
-						onMouseLeaveHandler={this.handleMouseLeave}
-					/>
-				),
+				img: <AddLogo />,
 				linkTo: "/add",
 				imgTitle: "Add"
 			},
-			{ text: "Map", img: <MapLogo height="40" width="40" />, linkTo: "/map", imgTitle: "Map" }
+			{
+				text: "Map",
+				img: <MapLogo />,
+				linkTo: "/map",
+				imgTitle: "Map"
+			}
 		];
 		return (
 			<div className="nav-container">
 				<div id="navigation">
 					<div id="home-logo-container">
-						<NavLink exact className="home-link" activeClassName="active" to="/">
-							<MainLogo className="home-logo" height="83" width="200" />
+						<NavLink
+							exact
+							className="home-link"
+							activeClassName="active"
+							to="/"
+						>
+							<MainLogo className="home-logo" />
 						</NavLink>
 					</div>
 
@@ -85,9 +93,15 @@ class Header extends Component {
 							{navigationItems.map(item => {
 								return (
 									<li key={item.text}>
-										<NavLink className="nav-item-link" activeClassName="active" to={item.linkTo}>
+										<NavLink
+											className="nav-item-link"
+											activeClassName="active"
+											to={item.linkTo}
+										>
 											{item.img}
-											<span className="nav-item-text">{item.text.toUpperCase()}</span>
+											<span className="nav-item-text">
+												{item.text.toUpperCase()}
+											</span>
 										</NavLink>
 									</li>
 								);
@@ -109,9 +123,7 @@ class Header extends Component {
 					</div>
 				</div>
 
-				<div id="login-register" >
-					
-				</div>
+				<div id="login-register" />
 			</div>
 		);
 	}
