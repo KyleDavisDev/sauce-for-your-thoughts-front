@@ -1,9 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
 //component that handles all SPA routing
-import Router from './components/Router/Router.js'
+import Router from "./components/Router/Router.js";
 
 //general styles
-import './index.scss'
-ReactDOM.render(<Router />, document.getElementById('app'))
+import "./index.scss";
+ReactDOM.render(<Router />, document.getElementById("app"));
