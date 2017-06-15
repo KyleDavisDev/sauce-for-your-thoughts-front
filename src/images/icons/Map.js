@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Map extends Component {
   render() {
@@ -23,5 +24,8 @@ class Map extends Component {
     );
   }
 }
-
+Map.propTypes = {
+  height: PropTypes.string,
+  widthL: PropTypes.string
+};
 module.exports = Map;
