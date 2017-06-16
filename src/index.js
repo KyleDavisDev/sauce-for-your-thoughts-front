@@ -5,5 +5,5 @@ import ReactDOM from "react-dom";
 import Router from "./components/Router/Router.js";
 
 //general styles
-import "./index.scss";
+import "./scss/style.scss";
 ReactDOM.render(<Router />, document.getElementById("app"));
