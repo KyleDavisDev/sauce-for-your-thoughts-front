@@ -70,7 +70,6 @@ class Header extends Component {
 
             <li className="nav-item">
               <NavLink
-                exact
                 className="nav-link home-link"
                 activeClassName="active"
                 to="/"
@@ -99,22 +98,35 @@ class Header extends Component {
 
           <div className="nav-section nav-search">
             <div className="search">
-              <form onSubmit={this.handleSubmit} name="headerForm">
-                <input
-                  type="text"
-                  placeholder="Coffee, beer..."
-                  name="search"
-                  onChange={this.handleSearchChange}
-                  value={this.state.searchValue}
-                />
-                <button type="submit" className="search"> Submit </button>
-              </form>
+              <input
+                type="text"
+                placeholder="Coffee, beer..."
+                name="search"
+                onChange={this.handleSearchChange}
+                value={this.state.searchValue}
+              />
             </div>
           </div>
 
-          <div id="nav-section nav-user">
-            <button type="button" className="button"> Register </button>
-            <button type="button" className="button"> Log In </button>
+          <div className="nav-section nav-user">
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                activeClassName="active"
+                to="/register"
+              >
+                Register
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                activeClassName="active"
+                to="/login"
+              >
+                Login
+              </NavLink>
+            </li>
           </div>
         </nav>
       </header>
