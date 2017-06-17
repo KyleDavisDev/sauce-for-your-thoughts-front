@@ -41,7 +41,7 @@ class StoreForm extends Component {
       "Family Friendly"
     ];
     return (
-      <form onSubmit={this.handleSubmit} name="addForm" className="form card">
+      <form onSubmit={this.handleSubmit} name="addForm" className="form">
         <label htmlFor="storeName"> Name: </label>
         <input
           id="storeName"
@@ -52,14 +52,12 @@ class StoreForm extends Component {
 
         <label htmlFor="storeDescription">Description</label>
         <textarea
-          name=""
           id="storeDescription"
           onChange={this.handleDescriptionChange}
           cols="30"
           rows="10"
-        >
-          {this.state.addDescriptionValue}
-        </textarea>
+          value={this.state.addDescriptionValue}
+        />
 
         <ul className="tags">
           {choices.map(choice => {
@@ -71,7 +69,6 @@ class StoreForm extends Component {
             );
           })}
         </ul>
-        
       </form>
     );
   }
@@ -82,3 +79,33 @@ StoreForm.propTypes = {
 };
 
 module.exports = StoreForm;
+
+
+
+
+{/*<input
+          id="storeName"
+          type="text"
+          onChange={this.handleNameChange}
+          value={this.state.addNameValue}
+        />
+
+        <label htmlFor="storeDescription">Description</label>
+        <textarea
+          id="storeDescription"
+          onChange={this.handleDescriptionChange}
+          cols="30"
+          rows="10"
+          value={this.state.addDescriptionValue}
+        />
+
+        <ul className="tags">
+          {choices.map(choice => {
+            return (
+              <div key={choice} className="tag tag-choice">
+                <input type="checkbox" id={choice} value={choice} name="tags" />
+                <label htmlFor={choice}>{choice}</label>
+              </div>
+            );
+          })}
+        </ul>*/}
