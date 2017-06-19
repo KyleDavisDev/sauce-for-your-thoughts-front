@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 class StoreForm extends Component {
   constructor(props) {
@@ -26,9 +27,27 @@ class StoreForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    console.log(event);
-
-    //hit store api
+    axios({
+      method: "post",
+      url: "/store/add",
+      data: {
+        name: this.state.storeName,
+        description: this.state.storeDescription,
+        tags: this.state.tags
+          .filter(tag => {
+            return tag.isChecked;
+          })
+          .map(tag => {
+            return tag.name;
+          })
+      }
+    })
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
 
     //reset value of input on submit
     this.setState({ storeName: "", storeDescription: "" });
