@@ -6,69 +6,96 @@ class StoreForm extends Component {
     super(props);
 
     this.state = {
-      addNameValue: "",
-      addDescriptionValue: ""
+      storeName: "",
+      storeDescription: "",
+      tags: [
+        { name: "Wifi", isChecked: false },
+        { name: "Open Late", isChecked: false },
+        { name: "Vegatarian", isChecked: false },
+        { name: "Licensed", isChecked: false },
+        { name: "Family Friendly", isChecked: false }
+      ]
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
+    console.log(event);
+
     //hit store api
 
     //reset value of input on submit
-    this.setState({ addNameValue: "", addDescriptionValue: "" });
+    this.setState({ storeName: "", storeDescription: "" });
   }
 
   handleNameChange(event) {
-    this.setState({ addNameValue: event.target.value });
+    this.setState({ storeName: event.target.value });
   }
 
   handleDescriptionChange(event) {
-    this.setState({ addDescriptionValue: event.target.value });
+    this.setState({ storeDescription: event.target.value });
+  }
+
+  handleCheckboxChange(event) {
+    //find which array element was clicked and flip that elements isChecked value
+    const newTags = this.state.tags.map(tag => {
+      if (tag.name === event.target.name) {
+        tag.isChecked = !tag.isChecked;
+      }
+      return tag;
+    });
+
+    this.setState({
+      tags: newTags
+    });
   }
 
   render() {
-    const choices = [
-      "Wifi",
-      "Open Late",
-      "Vegatarian",
-      "Licensed",
-      "Family Friendly"
-    ];
     return (
       <form onSubmit={this.handleSubmit} name="addForm" className="form">
         <label htmlFor="storeName"> Name: </label>
         <input
           id="storeName"
+          name="storeName"
           type="text"
           onChange={this.handleNameChange}
-          value={this.state.addNameValue}
+          value={this.state.storeName}
         />
 
         <label htmlFor="storeDescription">Description</label>
         <textarea
           id="storeDescription"
+          name="storeDescription"
           onChange={this.handleDescriptionChange}
           cols="30"
           rows="10"
-          value={this.state.addDescriptionValue}
+          value={this.state.storeDescription}
         />
 
         <ul className="tags">
-          {choices.map(choice => {
+          {this.state.tags.map(tag => {
             return (
-              <div key={choice} className="tag tag-choice">
-                <input type="checkbox" id={choice} value={choice} name="tags" />
-                <label htmlFor={choice}>{choice}</label>
+              <div key={tag.name} className="tag tag-choice">
+                <input
+                  type="checkbox"
+                  id={tag.name}
+                  name={tag.name}
+                  value={tag.name}
+                  checked={tag.isChecked}
+                  onChange={this.handleCheckboxChange}
+                />
+                <label htmlFor={tag.name}>{tag.name}</label>
               </div>
             );
           })}
         </ul>
+        <button type="submit"> Save -> </button>
       </form>
     );
   }
@@ -79,33 +106,3 @@ StoreForm.propTypes = {
 };
 
 module.exports = StoreForm;
-
-
-
-
-{/*<input
-          id="storeName"
-          type="text"
-          onChange={this.handleNameChange}
-          value={this.state.addNameValue}
-        />
-
-        <label htmlFor="storeDescription">Description</label>
-        <textarea
-          id="storeDescription"
-          onChange={this.handleDescriptionChange}
-          cols="30"
-          rows="10"
-          value={this.state.addDescriptionValue}
-        />
-
-        <ul className="tags">
-          {choices.map(choice => {
-            return (
-              <div key={choice} className="tag tag-choice">
-                <input type="checkbox" id={choice} value={choice} name="tags" />
-                <label htmlFor={choice}>{choice}</label>
-              </div>
-            );
-          })}
-        </ul>*/}
