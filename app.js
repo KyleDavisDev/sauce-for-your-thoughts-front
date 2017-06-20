@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //populates req.cookies w/ any cookies that are w/ the req
 app.use(cookieParser());
 
+
 //handle routes
 app.use("/", routes);
 
