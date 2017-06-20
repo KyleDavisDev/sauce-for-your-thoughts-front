@@ -42,11 +42,13 @@ class StoreForm extends Component {
           })
       }
     })
-      .then(function(response) {
-        console.log(response);
+      .then(response => {
+        // console.log(response);
+        this.props.handleStoreAdded("success");
       })
-      .catch(function(error) {
-        console.log(error);
+      .catch(error => {
+        // console.log(error);
+        this.props.handleStoreAdded("error");
       });
 
     //reset value of input on submit
@@ -121,7 +123,7 @@ class StoreForm extends Component {
 }
 
 StoreForm.propTypes = {
-  name: PropTypes.string
+  handleStoreAdded: PropTypes.func.isRequired
 };
 
 module.exports = StoreForm;
