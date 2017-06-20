@@ -4,9 +4,11 @@ const Store = mongoose.model("Store");
 exports.addStore = async (req, res) => {
   try {
     const store = await new Store(req.body).save();
-    res.send("success")
+
+    //send back slug so we can link to it for user to rate
+    res.send(store.slug);
   } catch (err) {
-    console.log(err);
-    res.send("success")
+    // console.log(err);
+    res.send("error");
   }
 };
