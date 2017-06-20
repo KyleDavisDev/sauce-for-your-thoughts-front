@@ -16,11 +16,11 @@ class FlashMessage extends Component {
 
   render() {
     const slugLink = this.state.type === "success"
-      ? <Link to={`/store/${this.state.slug}`}>Click to rate!</Link>
+      ? <Link to={`/store/${this.state.slug}`}>Rate it!</Link>
       : "";
     return (
       <div className={`flash ${this.state.type}`}>
-        <p>{this.state.text}{slugLink}</p>
+        <p>{this.state.text}{" "}{slugLink}</p>
         <button onClick={this.props.closeFlashMessage}>X</button>
       </div>
     );
