@@ -8,34 +8,42 @@ class Add extends Component {
     super(props);
 
     this.state = {
-      showFlashMessage: false,
-      flashMessageType: ""
+      flashMessage: { isVisible: false, type: "", text: "", slug:"" }
     };
 
     this.handleStoreAdded = this.handleStoreAdded.bind(this);
     this.closeFlashMessage = this.closeFlashMessage.bind(this);
   }
 
-  handleStoreAdded(type) {
-    this.setState({ showFlashMessage: true, flashMessageType: type });
+  handleStoreAdded(type, slug = "") {
+    const text = type === "success"
+      ? "Your store was added!"
+      : "Something didn't work.... Try again!";
+    this.setState({ flashMessage: { isVisible: true, type, text, slug } });
   }
 
   closeFlashMessage() {
-    this.setState({ showFlashMessage: false, flashMessageType: "" });
+    const isVisible = false;
+    const type = "";
+    const text = "";
+    const slug = "";
+    this.setState({ flashMessage: { isVisible, type, text, slug} });
   }
 
   render() {
     return (
       <div className="inner">
-        <h2>Add Store</h2>
-        <StoreForm handleStoreAdded={this.handleStoreAdded} />
-        {this.state.showFlashMessage &&
+        {this.state.flashMessage.isVisible &&
           <FlashMessage
-            isVisible={true}
-            type={this.state.flashMessageType}
-            text={"it worked!"}
+            isVisible={this.state.flashMessage.isVisible}
+            type={this.state.flashMessage.type}
+            text={this.state.flashMessage.text}
+            slug={this.state.flashMessage.slug}
             closeFlashMessage={this.closeFlashMessage}
           />}
+        <h2>Add Store</h2>
+        <StoreForm handleStoreAdded={this.handleStoreAdded} />
+
       </div>
     );
   }
