@@ -43,16 +43,24 @@ class StoreForm extends Component {
       }
     })
       .then(response => {
-        // console.log(response);
-        this.props.handleStoreAdded("success");
+        //response.data only holds the slug of the store added
+        this.props.handleStoreAdded("success", response.data);
       })
       .catch(error => {
         // console.log(error);
         this.props.handleStoreAdded("error");
       });
 
-    //reset value of input on submit
-    this.setState({ storeName: "", storeDescription: "" });
+    //reset values of input on submit
+    const storeName = "";
+    const storeDescription = "";
+    const tags = this.state.tags.map(function(tag) {
+      if (tag.isChecked) {
+        tag.isChecked = !tag.isChecked;
+      }
+      return tag;
+    });
+    this.setState({ storeName, storeDescription, tags });
   }
 
   handleNameChange(event) {
