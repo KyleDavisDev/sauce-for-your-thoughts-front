@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "../Header/Header.js";
 import Holder from "../Holder/Holder.js";
 import Add from "../Add/Add.js"
+import Stores from "../Stores/Stores.js"
 
 class Router extends Component {
   render() {
@@ -16,6 +17,7 @@ class Router extends Component {
           <Switch>
             <Route exact path="/" component={Holder} />
             <Route exact path="/add" component={Add} />
+            <Route exact path="/stores" component={Stores} />
             <Route
               render={function() {
                 return <p> Page not found. Sorry! </p>;
