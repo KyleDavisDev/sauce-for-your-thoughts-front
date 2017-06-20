@@ -29,7 +29,7 @@ class StoreForm extends Component {
 
     axios({
       method: "post",
-      url: "/store/add",
+      url: "/api/store/add",
       data: {
         name: this.state.storeName,
         description: this.state.storeDescription,
