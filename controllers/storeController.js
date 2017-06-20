@@ -2,12 +2,11 @@ const mongoose = require("mongoose");
 const Store = mongoose.model("Store");
 
 exports.addStore = async (req, res) => {
-  // res.json(req.body);
   try {
-    const store = new Store(req.body);
-    await store.save();
-    // res.redirect('/');
+    const store = await new Store(req.body).save();
+    res.send("success")
   } catch (err) {
     console.log(err);
+    res.send("success")
   }
 };
