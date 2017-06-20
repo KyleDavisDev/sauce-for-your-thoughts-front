@@ -12,3 +12,15 @@ exports.addStore = async (req, res) => {
     res.send("error");
   }
 };
+
+exports.getStores = async (req, res) => {
+  try {
+    const store = await Store.find();
+
+    //TODO adjust query to not include ID maybe? 
+    res.send(store);
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
+};
