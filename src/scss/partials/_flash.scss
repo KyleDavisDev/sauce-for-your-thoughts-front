@@ -1,0 +1,29 @@
+.flash {
+  background: $content-background;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+
+  p {
+    display: inline;
+    margin: 0px;
+  }
+
+  button {
+    background: transparent;
+    border: none;
+    
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &.error {
+    border: 5px inset red;
+  }
+
+  &.success {
+    border: 5px inset green;
+  }
+}
