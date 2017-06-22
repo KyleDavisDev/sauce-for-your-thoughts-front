@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import StoreForm from "./StoreForm.js";
 import FlashMessage from "../FlashMessage/FlashMessage.js";
+import Pencil from "../../images/icons/Pencil.js"
 
 class Add extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class Add extends Component {
   render() {
     return (
       <div className="inner">
+        <Pencil />
         {this.state.flashMessage.isVisible &&
           <FlashMessage
             isVisible={this.state.flashMessage.isVisible}

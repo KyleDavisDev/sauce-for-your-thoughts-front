@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import storeImage from "../../images/photos/store.jpg";
+import Pencil from '../../images/icons/Pencil.js'
+
 class Stores extends Component {
   constructor(props) {
     super(props);
@@ -33,16 +36,26 @@ class Stores extends Component {
               <div className="store" key={store.slug}>
                 <div className="store-hero">
                   <div className="store-actions">
-                    {"<3"}
+                    <div className="store-action-edit" > 
+                      <Link to={`/store/${store._id}/edit`} >
+                        <Pencil />
+                      </Link>
+                    </div>
                   </div>
+                  <img
+                    src={storeImage}
+                    title={store.name}
+                    alt={store.name}
+                  />
                   <div className="store-title">
                     <Link to={`/store/${store.slug}`}>
                       {store.name}
                     </Link>
                   </div>
                 </div>
-                <div className="store-details" >
-                  <p>{store.description}</p>
+                <div className="store-details">
+                  {/*{limit description to 25 words }*/}
+                  <p>{store.description.split(" ").slice(0, 25).join(" ")}</p>
                 </div>
               </div>
             );
