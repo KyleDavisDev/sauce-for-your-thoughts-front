@@ -4,8 +4,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 //pull in other components for SPA
 import Header from "../Header/Header.js";
 import Holder from "../Holder/Holder.js";
-import Add from "../Add/Add.js"
-import Stores from "../Stores/Stores.js"
+import Add from "../Add/Add.js";
+import Stores from "../Stores/Stores.js";
+import Store from "../Store/Store.js";
 
 class Router extends Component {
   render() {
@@ -18,6 +19,7 @@ class Router extends Component {
             <Route exact path="/" component={Holder} />
             <Route exact path="/add" component={Add} />
             <Route exact path="/stores" component={Stores} />
+            <Route exact path="/store/:id/edit" component={Store} />
             <Route
               render={function() {
                 return <p> Page not found. Sorry! </p>;
