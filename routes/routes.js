@@ -5,7 +5,10 @@ const router = express.Router();
 const storeController = require("../controllers/storeController.js");
 
 router.post("/api/store/add", storeController.addStore);
+router.get("/api/store/:id/get", storeController.editStore)
+
 router.get("/api/stores/get", storeController.getStores)
+
 
 //let react handle rest
 router.get("*", (req, res) => {
