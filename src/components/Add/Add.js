@@ -18,6 +18,7 @@ class Add extends Component {
   }
 
   addStoreEntry(store) {
+    this.closeFlashMessage();
 
     //million ways to destructure the store object but I like this one
     const { storeName, storeDescription } = store;
@@ -34,8 +35,13 @@ class Add extends Component {
       }
     })
       .then(response => {
-        //response.data only holds the slug of the store added
-        this.createFlashMessage("success", response.data);
+        console.log(response)
+        if (response.data.errors) {
+          this.createFlashMessage("error");
+        } else {
+          //response.data holds the slug of the store added
+          this.createFlashMessage("success", response.data.slug);
+        }
       })
       .catch(error => {
         // console.log(error);
