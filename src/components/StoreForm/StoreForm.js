@@ -50,23 +50,26 @@ class StoreForm extends Component {
 
   componentWillReceiveProps(nextProps) {
     //update state if props updated otherwise keep as is
-    const { storeName, storeDescription } = nextProps;
+    //greater than 1 since "onFormSubmit" MUST be passed
+    if (Object.keys(this.props).length > 1) {
+      const { storeName, storeDescription } = nextProps;
 
-    //compare prop tags with current state tag to see which checkbox
-    //should be initiated as checked
-    const tags = this.state.tags.map(tag => {
-      if (nextProps.tags.includes(tag.name)) {
-        tag.isChecked = true;
-      }
-      return tag;
-    });
+      //compare prop tags with current state tag to see which checkbox
+      //should be initiated as checked
+      const tags = this.state.tags.map(tag => {
+        if (nextProps.tags.includes(tag.name)) {
+          tag.isChecked = true;
+        }
+        return tag;
+      });
 
-    //update state
-    this.setState({
-      storeName,
-      storeDescription,
-      tags
-    });
+      //update state
+      this.setState({
+        storeName,
+        storeDescription,
+        tags
+      });
+    }
   }
 
   handleSubmit(event) {
