@@ -14,6 +14,8 @@ class Store extends Component {
     };
 
     this.updateStoreEntry = this.updateStoreEntry.bind(this);
+    this.createFlashMessage = this.createFlashMessage.bind(this);
+    this.closeFlashMessage = this.closeFlashMessage.bind(this);
   }
 
   componentWillMount() {
@@ -33,49 +35,64 @@ class Store extends Component {
   }
 
   updateStoreEntry(store) {
-
     //million ways to destructure the store object but I like this one
     const { storeName, storeDescription } = store;
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
+    const storeID = this.props.match.params.id;
 
-    //TODO filter/sanitize user input
-    // axios({
-    //   method: "post",
-    //   url: "/api/store/add",
-    //   data: {
-    //     name: storeName,
-    //     description: storeDescription,
-    //     tags
-    //   }
-    // })
-    //   .then(response => {
-    //     //response.data only holds the slug of the store added
-    //     this.createFlashMessage("success", response.data);
-    //   })
-    //   .catch(error => {
-    //     // console.log(error);
-    //     this.createFlashMessage("error");
-    //   });
+    axios({
+      method: "post",
+      url: `/api/store/${storeID}/edit`,
+      data: {
+        name: storeName,
+        description: storeDescription,
+        tags
+      }
+    })
+      .then(response => {
+        this.setState({ store: response.data });
+        this.createFlashMessage("success", response.data.slug);
+      })
+      .catch(error => {
+        // console.log(error);
+        this.createFlashMessage("error");
+      });
+  }
+
+  createFlashMessage(type, slug = "") {
+    const text = type === "success"
+      ? "Your store has been updated!"
+      : "Something didn't work.... Try again!";
+    this.setState({ flashMessage: { isVisible: true, type, text, slug } });
+  }
+
+  closeFlashMessage() {
+    const isVisible = false;
+    const type = "";
+    const text = "";
+    const slug = "";
+    this.setState({ flashMessage: { isVisible, type, text, slug } });
   }
 
   render() {
     return (
       <div className="inner">
-        {/*{this.state.flashMessage.isVisible &&
+        {this.state.flashMessage.isVisible &&
         <FlashMessage
           isVisible={this.state.flashMessage.isVisible}
           type={this.state.flashMessage.type}
           text={this.state.flashMessage.text}
           slug={this.state.flashMessage.slug}
           closeFlashMessage={this.closeFlashMessage}
-        />}*/}
+        />}
         <h2>Add Store</h2>
-        <StoreForm
-          onFormSubmit={this.updateStoreEntry}
-          storeName={this.state.store.name}
-          storeDescription={this.state.store.description}
-          tags={this.state.store.tags}
-        />
+        {Object.keys(this.state.store).length > 0 &&
+          <StoreForm
+            onFormSubmit={this.updateStoreEntry}
+            storeName={this.state.store.name}
+            storeDescription={this.state.store.description}
+            tags={this.state.store.tags}
+          />}
 
       </div>
     );
