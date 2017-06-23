@@ -36,10 +36,10 @@ class Add extends Component {
     })
       .then(response => {
         if (response.data.errors) {
-          this.createFlashMessage("error");
+          this.createFlashMessage({type: "error", text: response.data.errors});
         } else {
           //response.data holds the slug of the store added
-          this.createFlashMessage("success", response.data.slug);
+          this.createFlashMessage({type: "success", slug: response.data.slug, text: "Your store was added!"});
         }
       })
       .catch(error => {
@@ -47,10 +47,7 @@ class Add extends Component {
       });
   }
 
-  createFlashMessage(type, slug = "") {
-    const text = type === "success"
-      ? "Your store was added!"
-      : "Something didn't work.... Try again!";
+  createFlashMessage({type, slug = "", text}) {
     this.setState({ flashMessage: { isVisible: true, type, text, slug } });
   }
 
@@ -67,7 +64,6 @@ class Add extends Component {
       <div className="inner">
         {this.state.flashMessage.isVisible &&
           <FlashMessage
-            isVisible={this.state.flashMessage.isVisible}
             type={this.state.flashMessage.type}
             text={this.state.flashMessage.text}
             slug={this.state.flashMessage.slug}
