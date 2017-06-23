@@ -35,7 +35,6 @@ class Add extends Component {
       }
     })
       .then(response => {
-        console.log(response)
         if (response.data.errors) {
           this.createFlashMessage("error");
         } else {
@@ -44,7 +43,6 @@ class Add extends Component {
         }
       })
       .catch(error => {
-        // console.log(error);
         this.createFlashMessage("error");
       });
   }

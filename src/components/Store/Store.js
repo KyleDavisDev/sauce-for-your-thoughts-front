@@ -60,7 +60,6 @@ class Store extends Component {
         }
       })
       .catch(error => {
-        // console.log(error);
         this.createFlashMessage("error");
       });
   }
