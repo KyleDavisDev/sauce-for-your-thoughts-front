@@ -35,6 +35,8 @@ class Store extends Component {
   }
 
   updateStoreEntry(store) {
+    this.closeFlashMessage();
+
     //million ways to destructure the store object but I like this one
     const { storeName, storeDescription } = store;
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
@@ -50,8 +52,12 @@ class Store extends Component {
       }
     })
       .then(response => {
-        this.setState({ store: response.data });
-        this.createFlashMessage("success", response.data.slug);
+        if (response.data.errors) {
+          this.createFlashMessage("error");
+        } else {
+          this.setState({ store: response.data });
+          this.createFlashMessage("success", response.data.slug);
+        }
       })
       .catch(error => {
         // console.log(error);
@@ -78,14 +84,14 @@ class Store extends Component {
     return (
       <div className="inner">
         {this.state.flashMessage.isVisible &&
-        <FlashMessage
-          isVisible={this.state.flashMessage.isVisible}
-          type={this.state.flashMessage.type}
-          text={this.state.flashMessage.text}
-          slug={this.state.flashMessage.slug}
-          closeFlashMessage={this.closeFlashMessage}
-        />}
-        <h2>Add Store</h2>
+          <FlashMessage
+            isVisible={this.state.flashMessage.isVisible}
+            type={this.state.flashMessage.type}
+            text={this.state.flashMessage.text}
+            slug={this.state.flashMessage.slug}
+            closeFlashMessage={this.closeFlashMessage}
+          />}
+        <h2>Edit Store</h2>
         {Object.keys(this.state.store).length > 0 &&
           <StoreForm
             onFormSubmit={this.updateStoreEntry}
