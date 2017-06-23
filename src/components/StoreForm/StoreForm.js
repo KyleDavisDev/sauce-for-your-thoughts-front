@@ -26,10 +26,46 @@ class StoreForm extends Component {
 
   componentWillMount() {
     //update state if props passed otherwise keep as is
-    const { storeName, storeDescription, tags } = this.props;
+    //greater than 1 since "onFormSubmit" MUST be passed
+    if (Object.keys(this.props).length > 1) {
+      const { storeName, storeDescription } = this.props;
+
+      //compare prop tags with inital state tag to see which checkbox
+      //should be initiated as checked
+      const tags = this.state.tags.map(tag => {
+        if (this.props.tags.includes(tag.name)) {
+          tag.isChecked = true;
+        }
+        return tag;
+      });
+
+      //update state
+      this.setState({
+        storeName,
+        storeDescription,
+        tags
+      });
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    //update state if props updated otherwise keep as is
+    const { storeName, storeDescription } = nextProps;
+
+    //compare prop tags with current state tag to see which checkbox
+    //should be initiated as checked
+    const tags = this.state.tags.map(tag => {
+      if (nextProps.tags.includes(tag.name)) {
+        tag.isChecked = true;
+      }
+      return tag;
+    });
+
+    //update state
     this.setState({
-      storeName: storeName,
-      storeDescription: storeDescription
+      storeName,
+      storeDescription,
+      tags
     });
   }
 
@@ -40,6 +76,9 @@ class StoreForm extends Component {
     //call function initally passed to component
     this.props.onFormSubmit(this.state);
 
+    //This part is needed bc this component is used for adding and editing
+    //Adding - reset state
+    //Editing - reset state then update state via componentWillReceiveProps
     //TODO reset state only if form submission fails
     this.resetState();
   }
