@@ -9,7 +9,7 @@ exports.addStore = async (req, res) => {
     //send back slug so we can link to it for user to rate
     res.send(store);
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     res.send(err);
   }
 };
