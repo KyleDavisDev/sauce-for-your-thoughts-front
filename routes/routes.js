@@ -5,7 +5,8 @@ const router = express.Router();
 const storeController = require("../controllers/storeController.js");
 
 router.post("/api/store/add", storeController.addStore);
-router.get("/api/store/:id/get", storeController.editStore)
+router.get("/api/store/:id/get", storeController.getStore)
+router.post("/api/store/:id/edit", storeController.editStore)
 
 router.get("/api/stores/get", storeController.getStores)
 
