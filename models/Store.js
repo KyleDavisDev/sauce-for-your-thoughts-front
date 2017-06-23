@@ -16,7 +16,6 @@ const storeSchema = new mongoose.Schema({
   tags: [String]
 });
 
-
 //TODO make more terse so slugs are unique
 storeSchema.pre("save", function(next) {
   if (!this.isModified("name")) {
