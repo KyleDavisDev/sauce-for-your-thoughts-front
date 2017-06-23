@@ -13,19 +13,7 @@ exports.addStore = async (req, res) => {
   }
 };
 
-exports.getStores = async (req, res) => {
-  try {
-    const store = await Store.find();
-
-    //send json of stores
-    res.send(store);
-  } catch (err) {
-    console.log(err);
-    res.send(err);
-  }
-};
-
-exports.editStore = async (req, res) => {
+exports.getStore = async (req, res) => {
   try {
     const store = await Store.findOne({ _id: req.params.id });
 
@@ -39,3 +27,31 @@ exports.editStore = async (req, res) => {
     res.send(err);
   }
 };
+
+exports.editStore = async (req, res) => {
+  try {
+    const store = await Store.findOneAndUpdate({ _id: req.params.id }, req.body, {
+      new: true, //return new store instead of old one -- we want updated data returned
+      runValidators: true, //force model to be sure required fields are still there
+    }).exec();
+
+    //send store to grab name and slug and create flash message
+    res.send(store)
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
+};
+
+exports.getStores = async (req, res) => {
+  try {
+    const stores = await Store.find();
+
+    //send json of stores
+    res.send(stores);
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
+};
+
