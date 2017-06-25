@@ -14,13 +14,21 @@ class StoreForm extends Component {
         { name: "Vegatarian", isChecked: false },
         { name: "Licensed", isChecked: false },
         { name: "Family Friendly", isChecked: false }
-      ]
+      ],
+      location: {
+        storeAddress: "",
+        storeLatitude: "",
+        storeLongitude: ""
+      }
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+    this.handleAddressChange = this.handleAddressChange.bind(this);
+    this.handleLongitudeChange = this.handleLongitudeChange.bind(this);
+    this.handleLatitudeChange = this.handleLatitudeChange.bind(this);
     this.resetState = this.resetState.bind(this);
   }
 
@@ -35,15 +43,25 @@ class StoreForm extends Component {
       const tags = this.state.tags.map(tag => {
         if (this.props.tags.includes(tag.name)) {
           tag.isChecked = true;
+        } else {
+          tag.isChecked = false;
         }
         return tag;
       });
+      const storeAddress = this.props.storeAddress;
+      const storeLongitude = this.props.storeLongitude;
+      const storeLatitude = this.props.storeLatitude;
 
       //update state
       this.setState({
         storeName,
         storeDescription,
-        tags
+        tags,
+        location: {
+          storeAddress,
+          storeLongitude,
+          storeLatitude
+        }
       });
     }
   }
@@ -59,15 +77,25 @@ class StoreForm extends Component {
       const tags = this.state.tags.map(tag => {
         if (nextProps.tags.includes(tag.name)) {
           tag.isChecked = true;
+        } else {
+          tag.isChecked = false;
         }
         return tag;
       });
+      const storeAddress = nextProps.storeAddress;
+      const storeLongitude = nextProps.storeLongitude;
+      const storeLatitude = nextProps.storeLatitude;
 
       //update state
       this.setState({
         storeName,
         storeDescription,
-        tags
+        tags,
+        location: {
+          storeAddress,
+          storeLongitude,
+          storeLatitude
+        }
       });
     }
   }
@@ -83,7 +111,7 @@ class StoreForm extends Component {
     //Adding - reset state
     //Editing - reset state then update state via componentWillReceiveProps
     //TODO reset state only if form submission fails
-    this.resetState();
+    // this.resetState();
   }
 
   handleNameChange(event) {
@@ -92,6 +120,24 @@ class StoreForm extends Component {
 
   handleDescriptionChange(event) {
     this.setState({ storeDescription: event.target.value });
+  }
+
+  handleAddressChange(event) {
+    let location = this.state.location;
+    location.storeAddress = event.target.value;
+    this.setState({ location });
+  }
+
+  handleLongitudeChange(event) {
+    let location = this.state.location;
+    location.storeLongitude = event.target.value;
+    this.setState({ location });
+  }
+
+  handleLatitudeChange(event) {
+    let location = this.state.location;
+    location.storeLatitude = event.target.value;
+    this.setState({ location });
   }
 
   handleCheckboxChange(event) {
@@ -119,7 +165,12 @@ class StoreForm extends Component {
         { name: "Vegatarian", isChecked: false },
         { name: "Licensed", isChecked: false },
         { name: "Family Friendly", isChecked: false }
-      ]
+      ],
+      location: {
+        storeAddress: "",
+        storeLatitude: "",
+        storeLongitude: ""
+      }
     });
   }
 
@@ -162,6 +213,34 @@ class StoreForm extends Component {
             );
           })}
         </ul>
+
+        <label htmlFor="storeAddress"> Address: </label>
+        <input
+          id="storeAddress"
+          name="storeAddress"
+          type="text"
+          onChange={this.handleAddressChange}
+          value={this.state.location.storeAddress}
+        />
+
+        <label htmlFor="storeLongitude"> Address Longitude: </label>
+        <input
+          id="storeLongitude"
+          name="storeLongitude"
+          type="text"
+          onChange={this.handleLongitudeChange}
+          value={this.state.location.storeLongitude}
+        />
+
+        <label htmlFor="storeLatitude"> Address Latitude: </label>
+        <input
+          id="storeLatitude"
+          name="storeLatitude"
+          type="text"
+          onChange={this.handleLatitudeChange}
+          value={this.state.location.storeLatitude}
+        />
+
         <button type="submit"> Save -> </button>
       </form>
     );

@@ -26,6 +26,7 @@ class Store extends Component {
       .get(`/api/store/${storeID}/get`)
       .then(response => {
         //response.data is store objects from DB
+        // console.log(response);
         this.setState({ store: response.data });
       })
       .catch(function(error) {
@@ -36,27 +37,41 @@ class Store extends Component {
 
   updateStoreEntry(store) {
     this.closeFlashMessage();
-
-    //million ways to destructure the store object but I like this one
-    const { storeName, storeDescription } = store;
-    const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
     const storeID = this.props.match.params.id;
+
+console.log(store)
+    //million ways to destructure the store object but I like this one
+    const { storeName: name, storeDescription: description } = store;
+    const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
+    const address = store.location.storeAddress;
+    const coordinates = [
+      parseInt(store.location.storeLongitude),
+      parseInt(store.location.storeLatitude)
+    ];
 
     axios({
       method: "post",
       url: `/api/store/${storeID}/edit`,
       data: {
-        name: storeName,
-        description: storeDescription,
-        tags
+        name,
+        description,
+        tags,
+        location: { address, coordinates }
       }
     })
       .then(response => {
         if (response.data.errors) {
-          this.createFlashMessage("error");
+          this.createFlashMessage({
+            type: "error",
+            text: response.data.errors
+          });
         } else {
           this.setState({ store: response.data });
-          this.createFlashMessage("success", response.data.slug);
+          this.createFlashMessage({
+            type: "success",
+            slug: response.data.slug,
+            text: "Your store was updated!"
+          });
         }
       })
       .catch(error => {
@@ -64,10 +79,7 @@ class Store extends Component {
       });
   }
 
-  createFlashMessage(type, slug = "") {
-    const text = type === "success"
-      ? "Your store has been updated!"
-      : "Something didn't work.... Try again!";
+  createFlashMessage({ type, slug = "", text }) {
     this.setState({ flashMessage: { isVisible: true, type, text, slug } });
   }
 
@@ -97,6 +109,9 @@ class Store extends Component {
             storeName={this.state.store.name}
             storeDescription={this.state.store.description}
             tags={this.state.store.tags}
+            storeAddress={this.state.store.location.address}
+            storeLongitude={this.state.store.location.coordinates[0]}
+            storeLatitude={this.state.store.location.coordinates[1]}
           />}
 
       </div>

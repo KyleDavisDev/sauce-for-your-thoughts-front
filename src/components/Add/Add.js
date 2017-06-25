@@ -19,27 +19,42 @@ class Add extends Component {
 
   addStoreEntry(store) {
     this.closeFlashMessage();
+    // console.log(store);
 
     //million ways to destructure the store object but I like this one
-    const { storeName, storeDescription } = store;
+    const { storeName: name, storeDescription: description } = store;
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
+    const address = store.location.storeAddress;
+    const coordinates = [
+      parseInt(store.location.storeLongitude),
+      parseInt(store.location.storeLatitude)
+    ];
 
     //TODO filter/sanitize user input
     axios({
       method: "post",
       url: "/api/store/add",
       data: {
-        name: storeName,
-        description: storeDescription,
-        tags
+        name,
+        description,
+        tags,
+        location: { address, coordinates }
       }
     })
       .then(response => {
         if (response.data.errors) {
-          this.createFlashMessage({type: "error", text: response.data.errors});
+          //we will be here if user didn't use all inputs correctly or didn't fill something out
+          this.createFlashMessage({
+            type: "error",
+            text: response.data.errors
+          });
         } else {
           //response.data holds the slug of the store added
-          this.createFlashMessage({type: "success", slug: response.data.slug, text: "Your store was added!"});
+          this.createFlashMessage({
+            type: "success",
+            slug: response.data.slug,
+            text: "Your store was added!"
+          });
         }
       })
       .catch(error => {
@@ -47,7 +62,7 @@ class Add extends Component {
       });
   }
 
-  createFlashMessage({type, slug = "", text}) {
+  createFlashMessage({ type, slug = "", text }) {
     this.setState({ flashMessage: { isVisible: true, type, text, slug } });
   }
 
