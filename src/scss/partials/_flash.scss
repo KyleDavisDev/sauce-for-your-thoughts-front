@@ -26,4 +26,10 @@
   &.success {
     border: 5px inset green;
   }
+
+  .error-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
 }
