@@ -24,7 +24,7 @@ class FlashMessage extends Component {
       return this.state.text[key].message;
     });
     return errorMessages.map(errorMessage => {
-      return <p className="error-item">{errorMessage}</p>;
+      return <p className="item">{errorMessage}</p>;
     });
   }
 
@@ -34,12 +34,19 @@ class FlashMessage extends Component {
       : "";
     return (
       <div className={`flash ${this.state.type}`}>
+
+        {/*if object, iterate over object*/}
         {typeof this.state.text === "object" &&
-          <div className="errors-list">{this.iterateObject()}</div>}
+          <div className="error-list">{this.iterateObject()}</div>}
+
+        {/*if string, output string*/}
         {typeof this.state.text === "string" &&
-          <div className="errors-list"><p>{this.state.text}</p></div>}
-        {slugLink && <p>{slugLink}</p>}
-        <button className="close-button" onClick={this.props.closeFlashMessage}>X</button>
+          <div className="success-list"><p className="item">{this.state.text}{" "}{slugLink}</p></div>}
+
+        <button className="close-button" onClick={this.props.closeFlashMessage}>
+          X
+        </button>
+
       </div>
     );
   }
