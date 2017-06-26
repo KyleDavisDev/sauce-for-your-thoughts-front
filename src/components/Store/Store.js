@@ -114,6 +114,7 @@ class Store extends Component {
             storeAddress={this.state.store.location.address}
             storeLongitude={this.state.store.location.coordinates[0]}
             storeLatitude={this.state.store.location.coordinates[1]}
+            didPostWork={false}
           />}
 
       </div>
