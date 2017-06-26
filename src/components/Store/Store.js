@@ -44,8 +44,8 @@ class Store extends Component {
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
     const address = store.location.storeAddress;
     const coordinates = [
-      parseInt(store.location.storeLongitude),
-      parseInt(store.location.storeLatitude)
+      parseFloat(store.location.storeLongitude),
+      parseFloat(store.location.storeLatitude)
     ];
 
     axios({
