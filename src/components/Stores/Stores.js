@@ -16,7 +16,7 @@ class Stores extends Component {
 
   componentWillMount() {
     axios
-      .get("/api/stores/get")
+      .get("http://localhost:7777/api/stores/get")
       .then(response => {
         //response.data is array of store objects from DB
         this.setState({ stores: response.data });
