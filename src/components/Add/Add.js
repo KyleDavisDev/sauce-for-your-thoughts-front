@@ -18,22 +18,22 @@ class Add extends Component {
   }
 
   addStoreEntry(store) {
+    let didPostWork = false;
     this.closeFlashMessage();
-    // console.log(store);
 
     //million ways to destructure the store object but I like this one
     const { storeName: name, storeDescription: description } = store;
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
     const address = store.location.storeAddress;
-    const coordinates = [
-      parseInt(store.location.storeLongitude),
-      parseInt(store.location.storeLatitude)
-    ];
+    const coordinates = {
+      longitude: parseInt(store.location.storeLongitude),
+      latitude: parseInt(store.location.storeLatitude)
+    };
 
     //TODO filter/sanitize user input
     axios({
       method: "post",
-      url: "/api/store/add",
+      url: "http://localhost:7777/api/store/add",
       data: {
         name,
         description,
@@ -55,11 +55,14 @@ class Add extends Component {
             slug: response.data.slug,
             text: "Your store was added!"
           });
+          didPostWork = true;
         }
       })
       .catch(error => {
         this.createFlashMessage("error");
       });
+
+    return didPostWork;
   }
 
   createFlashMessage({ type, slug = "", text }) {
