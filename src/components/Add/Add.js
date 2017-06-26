@@ -9,6 +9,7 @@ class Add extends Component {
     super(props);
 
     this.state = {
+      didPostWork: false,
       flashMessage: { isVisible: false, type: "", text: "", slug: "" }
     };
 
@@ -18,7 +19,6 @@ class Add extends Component {
   }
 
   addStoreEntry(store) {
-    let didPostWork = false;
     this.closeFlashMessage();
 
     //million ways to destructure the store object but I like this one
@@ -48,6 +48,7 @@ class Add extends Component {
             type: "error",
             text: response.data.errors
           });
+          this.setState({ didPostWork: false });
         } else {
           //response.data holds the slug of the store added
           this.createFlashMessage({
@@ -55,14 +56,13 @@ class Add extends Component {
             slug: response.data.slug,
             text: "Your store was added!"
           });
-          didPostWork = true;
+          this.setState({ didPostWork: true });
         }
       })
       .catch(error => {
         this.createFlashMessage("error");
+        this.setState({ didPostWork: false });
       });
-
-    return didPostWork;
   }
 
   createFlashMessage({ type, slug = "", text }) {
@@ -88,7 +88,10 @@ class Add extends Component {
             closeFlashMessage={this.closeFlashMessage}
           />}
         <h2>Add Store</h2>
-        <StoreForm onFormSubmit={this.addStoreEntry} />
+        <StoreForm
+          onFormSubmit={this.addStoreEntry}
+          didPostWork={this.state.didPostWork}
+        />
 
       </div>
     );
