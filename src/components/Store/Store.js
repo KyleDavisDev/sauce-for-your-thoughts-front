@@ -43,10 +43,10 @@ class Store extends Component {
     const { storeName: name, storeDescription: description } = store;
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
     const address = store.location.storeAddress;
-    const coordinates = {
-      longitude: parseInt(store.location.storeLongitude),
-      latitude: parseInt(store.location.storeLatitude)
-    };
+    const coordinates = [
+      parseInt(store.location.storeLongitude),
+      parseInt(store.location.storeLatitude)
+    ];
 
     axios({
       method: "post",
@@ -112,8 +112,8 @@ class Store extends Component {
             storeDescription={this.state.store.description}
             tags={this.state.store.tags}
             storeAddress={this.state.store.location.address}
-            storeLongitude={this.state.store.location.coordinates.longitude}
-            storeLatitude={this.state.store.location.coordinates.latitude}
+            storeLongitude={this.state.store.location.coordinates[0]}
+            storeLatitude={this.state.store.location.coordinates[1]}
           />}
 
       </div>
