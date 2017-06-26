@@ -23,10 +23,9 @@ class Store extends Component {
     const storeID = this.props.match.params.id;
 
     axios
-      .get(`/api/store/${storeID}/get`)
+      .get(`http://localhost:7777/api/store/${storeID}/get`)
       .then(response => {
         //response.data is store objects from DB
-        // console.log(response);
         this.setState({ store: response.data });
       })
       .catch(function(error) {
@@ -36,22 +35,22 @@ class Store extends Component {
   }
 
   updateStoreEntry(store) {
+    let didUpdateWork = false;
     this.closeFlashMessage();
     const storeID = this.props.match.params.id;
 
-console.log(store)
     //million ways to destructure the store object but I like this one
     const { storeName: name, storeDescription: description } = store;
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
     const address = store.location.storeAddress;
-    const coordinates = [
-      parseInt(store.location.storeLongitude),
-      parseInt(store.location.storeLatitude)
-    ];
+    const coordinates = {
+      longitude: parseInt(store.location.storeLongitude),
+      latitude: parseInt(store.location.storeLatitude)
+    };
 
     axios({
       method: "post",
-      url: `/api/store/${storeID}/edit`,
+      url: `http://localhost:7777/api/store/${storeID}/edit`,
       data: {
         name,
         description,
@@ -72,11 +71,14 @@ console.log(store)
             slug: response.data.slug,
             text: "Your store was updated!"
           });
+          didUpdateWork = true;
         }
       })
       .catch(error => {
         this.createFlashMessage("error");
       });
+
+    return didUpdateWork;
   }
 
   createFlashMessage({ type, slug = "", text }) {
@@ -110,8 +112,8 @@ console.log(store)
             storeDescription={this.state.store.description}
             tags={this.state.store.tags}
             storeAddress={this.state.store.location.address}
-            storeLongitude={this.state.store.location.coordinates[0]}
-            storeLatitude={this.state.store.location.coordinates[1]}
+            storeLongitude={this.state.store.location.coordinates.longitude}
+            storeLatitude={this.state.store.location.coordinates.latitude}
           />}
 
       </div>
