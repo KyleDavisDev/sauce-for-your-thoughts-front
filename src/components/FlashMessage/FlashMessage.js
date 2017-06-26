@@ -19,12 +19,13 @@ class FlashMessage extends Component {
     // the keys of this.state.text may change later depending on
     //the DB and this way of looping through the object will us to grab the messages
     //reguardless of what the key is
-    const errorKeys = Object.keys(this.state.text);
+    // .reverse() to get error message in correct order of form layout
+    const errorKeys = Object.keys(this.state.text).reverse();
     const errorMessages = errorKeys.map(key => {
       return this.state.text[key].message;
     });
     return errorMessages.map(errorMessage => {
-      return <p className="item">{errorMessage}</p>;
+      return <p key={errorMessage} className="item">{errorMessage}</p>;
     });
   }
 
@@ -41,7 +42,9 @@ class FlashMessage extends Component {
 
         {/*if string, output string*/}
         {typeof this.state.text === "string" &&
-          <div className="success-list"><p className="item">{this.state.text}{" "}{slugLink}</p></div>}
+          <div className="success-list">
+            <p className="item">{this.state.text}{" "}{slugLink}</p>
+          </div>}
 
         <button className="close-button" onClick={this.props.closeFlashMessage}>
           X
