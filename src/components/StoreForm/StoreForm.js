@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import PlacesAutocomplete, { geocodeByAddress } from "react-places-autocomplete";
 
 class StoreForm extends Component {
   constructor(props) {
@@ -66,6 +67,8 @@ class StoreForm extends Component {
     }
   }
 
+  componentDidMount() {}
+
   componentWillReceiveProps(nextProps) {
     //update state if props updated otherwise keep as is
     //greater than 1 since "onFormSubmit" MUST be passed
@@ -106,7 +109,7 @@ class StoreForm extends Component {
 
     //call function required to be passed to component
     //if post worked, we will reset state, otherwise keep state as is
-    if(this.props.onFormSubmit(this.state)) {
+    if (this.props.onFormSubmit(this.state)) {
       this.resetState();
     }
   }
@@ -136,8 +139,21 @@ class StoreForm extends Component {
 
   handleAddressChange(event) {
     let location = this.state.location;
-    location.storeAddress = event.target.value;
+    location.storeAddress = event;
     this.setState({ location });
+  }
+
+  handleAddressSelect(address, placeId) {
+    geocodeByAddress(address)
+      .then(results => {
+        console.log(results);
+        let location = this.state.location;
+        location.storeAddress = results[0].formatted_address;
+        location.storeLatitude = results[0].geometry.location.lat();
+        location.storeLongitude = results[0].geometry.location.lng();
+        this.setState({ location });
+      })
+      .catch(error => console.error("Error", error));
   }
 
   handleLongitudeChange(event) {
@@ -172,6 +188,10 @@ class StoreForm extends Component {
   }
 
   render() {
+    const inputProps = {
+      value: this.state.location.storeAddress,
+      onChange: this.handleAddressChange
+    };
     return (
       <form onSubmit={this.handleSubmit} name="addForm" className="form">
         <label htmlFor="storeName"> Name: </label>
@@ -212,12 +232,11 @@ class StoreForm extends Component {
         </ul>
 
         <label htmlFor="storeAddress"> Address: </label>
-        <input
+        <PlacesAutocomplete
+          inputProps={inputProps}
           id="storeAddress"
           name="storeAddress"
-          type="text"
-          onChange={this.handleAddressChange}
-          value={this.state.location.storeAddress}
+          onSelect={this.handleAddressSelect.bind(this)}
         />
 
         <label htmlFor="storeLongitude"> Address Longitude: </label>
@@ -227,6 +246,7 @@ class StoreForm extends Component {
           type="text"
           onChange={this.handleLongitudeChange}
           value={this.state.location.storeLongitude}
+          placeholder="Click or press enter in Address autocomplete to generate"
         />
 
         <label htmlFor="storeLatitude"> Address Latitude: </label>
@@ -236,6 +256,7 @@ class StoreForm extends Component {
           type="text"
           onChange={this.handleLatitudeChange}
           value={this.state.location.storeLatitude}
+          placeholder="Click or press enter in Address autocomplete to generate"
         />
 
         <button type="submit" className="button"> Save -> </button>
