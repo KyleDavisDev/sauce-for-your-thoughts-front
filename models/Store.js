@@ -23,7 +23,10 @@ const storeSchema = new mongoose.Schema({
       type: String,
       default: "Point"
     },
-    coordinates: [{ type: Number, required: "You must supply coordinates!" }],
+    coordinates: {
+      longitude: { type: Number, required: "You must supply store longitude" },
+      latitude: { type: Number, required: "You must supply store latitude!" }
+    },
     address: {
       type: String,
       required: "You must supply an address!"
