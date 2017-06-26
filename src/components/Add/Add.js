@@ -25,10 +25,10 @@ class Add extends Component {
     const { storeName: name, storeDescription: description } = store;
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
     const address = store.location.storeAddress;
-    const coordinates = {
-      longitude: parseInt(store.location.storeLongitude),
-      latitude: parseInt(store.location.storeLatitude)
-    };
+    const coordinates = [
+      parseInt(store.location.storeLongitude),
+      parseInt(store.location.storeLatitude)
+    ];
 
     //TODO filter/sanitize user input
     axios({
