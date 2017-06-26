@@ -35,8 +35,8 @@ class StoreForm extends Component {
 
   componentWillMount() {
     //update state if props passed otherwise keep as is
-    //greater than 1 since "onFormSubmit" MUST be passed
-    if (Object.keys(this.props).length > 1) {
+    //greater than 2 since "onFormSubmit" and didPostWork MUST be passed
+    if (Object.keys(this.props).length > 2) {
       const { storeName, storeDescription } = this.props;
 
       //compare prop tags with inital state tag to see which checkbox
@@ -67,12 +67,10 @@ class StoreForm extends Component {
     }
   }
 
-  componentDidMount() {}
-
   componentWillReceiveProps(nextProps) {
     //update state if props updated otherwise keep as is
-    //greater than 1 since "onFormSubmit" MUST be passed
-    if (Object.keys(this.props).length > 1) {
+    //greater than 2 since "onFormSubmit" and didPostWork MUST be passed
+    if (Object.keys(this.props).length > 2) {
       const { storeName, storeDescription } = nextProps;
 
       //compare prop tags with current state tag to see which checkbox
@@ -101,17 +99,21 @@ class StoreForm extends Component {
         }
       });
     }
+
+    //call function required to be passed to component
+    //if post worked, we will reset state, otherwise keep state as is
+    if(nextProps.didPostWork) {
+      this.resetState();
+    }
   }
 
   handleSubmit(event) {
     //prevent the normal submission of a submit to post
     event.preventDefault();
 
-    //call function required to be passed to component
-    //if post worked, we will reset state, otherwise keep state as is
-    if (this.props.onFormSubmit(this.state)) {
-      this.resetState();
-    }
+    //call function passed by parent
+    this.props.onFormSubmit(this.state)
+
   }
 
   handleNameChange(event) {
@@ -146,7 +148,6 @@ class StoreForm extends Component {
   handleAddressSelect(address, placeId) {
     geocodeByAddress(address)
       .then(results => {
-        console.log(results);
         let location = this.state.location;
         location.storeAddress = results[0].formatted_address;
         location.storeLatitude = results[0].geometry.location.lat();
@@ -267,6 +268,7 @@ class StoreForm extends Component {
 
 StoreForm.propTypes = {
   onFormSubmit: PropTypes.func.isRequired,
+  didPostWork: PropTypes.bool.isRequired,
   storeName: PropTypes.string,
   storeDescription: PropTypes.string,
   tags: PropTypes.array
