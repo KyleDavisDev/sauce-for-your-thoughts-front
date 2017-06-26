@@ -104,14 +104,11 @@ class StoreForm extends Component {
     //prevent the normal submission of a submit to post
     event.preventDefault();
 
-    //call function initally passed to component
-    this.props.onFormSubmit(this.state);
-
-    //This part is needed bc this component is used for adding and editing
-    //Adding - reset state
-    //Editing - reset state then update state via componentWillReceiveProps
-    //TODO reset state only if form submission fails
-    // this.resetState();
+    //call function required to be passed to component
+    //if post worked, we will reset state, otherwise keep state as is
+    if(this.props.onFormSubmit(this.state)) {
+      this.resetState();
+    }
   }
 
   handleNameChange(event) {
@@ -120,6 +117,21 @@ class StoreForm extends Component {
 
   handleDescriptionChange(event) {
     this.setState({ storeDescription: event.target.value });
+  }
+
+  handleCheckboxChange(event) {
+    //this could probably be much more elegant but works so I'll come back to this later
+    //find which array element was clicked and flip that elements isChecked value
+    const newTags = this.state.tags.map(tag => {
+      if (tag.name === event.target.name) {
+        tag.isChecked = !tag.isChecked;
+      }
+      return tag;
+    });
+
+    this.setState({
+      tags: newTags
+    });
   }
 
   handleAddressChange(event) {
@@ -138,21 +150,6 @@ class StoreForm extends Component {
     let location = this.state.location;
     location.storeLatitude = event.target.value;
     this.setState({ location });
-  }
-
-  handleCheckboxChange(event) {
-    //this could probably be much more elegant but works so I'll come back to this later
-    //find which array element was clicked and flip that elements isChecked value
-    const newTags = this.state.tags.map(tag => {
-      if (tag.name === event.target.name) {
-        tag.isChecked = !tag.isChecked;
-      }
-      return tag;
-    });
-
-    this.setState({
-      tags: newTags
-    });
   }
 
   resetState() {
@@ -241,7 +238,7 @@ class StoreForm extends Component {
           value={this.state.location.storeLatitude}
         />
 
-        <button type="submit"> Save -> </button>
+        <button type="submit" className="button"> Save -> </button>
       </form>
     );
   }
@@ -251,7 +248,7 @@ StoreForm.propTypes = {
   onFormSubmit: PropTypes.func.isRequired,
   storeName: PropTypes.string,
   storeDescription: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.object)
+  tags: PropTypes.array
 };
 
 module.exports = StoreForm;
