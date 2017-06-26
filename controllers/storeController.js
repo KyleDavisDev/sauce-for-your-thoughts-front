@@ -31,9 +31,11 @@ exports.getStore = async (req, res) => {
 
 exports.editStore = async (req, res) => {
   try {
-    //generate new slug 
-    //TODO place this step in the Model(?) to remove logic from controller
+    //generate new slug
     req.body.slug = slug(req.body.name);
+
+    //set location data to be point
+    req.body.location.type = "Point";
 
     const store = await Store.findOneAndUpdate(
       { _id: req.params.id },
