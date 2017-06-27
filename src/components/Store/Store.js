@@ -104,7 +104,7 @@ class Store extends Component {
             slug={this.state.flashMessage.slug}
             closeFlashMessage={this.closeFlashMessage}
           />}
-        <h2>Edit Store</h2>
+        <h2>Edit {this.state.store.name || "Store"}</h2>
         {Object.keys(this.state.store).length > 0 &&
           <StoreForm
             onFormSubmit={this.updateStoreEntry}
