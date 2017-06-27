@@ -56,7 +56,7 @@ class FlashMessage extends Component {
 }
 
 FlashMessage.propTypes = {
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   slug: PropTypes.string.isRequired
 };
