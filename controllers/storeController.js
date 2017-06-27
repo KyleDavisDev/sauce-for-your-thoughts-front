@@ -1,6 +1,34 @@
 const mongoose = require("mongoose");
 const Store = mongoose.model("Store");
 const slug = require("slugs"); //Hi there! How are you! --> hi-there-how-are-you
+const multer = require("multer"); //helps uploading images/files
+const jimp = require("jimp"); //helps with resizing photos
+const uuid = require("uuid"); //generated unique identifiers
+
+const multerOptions = {
+  storage: multer.memoryStorage(),
+  fileFilter(req, file, next) {
+    const isPhoto = file.mimetype.startsWith("image/");
+    if (isPhoto) {
+      next(null, true);
+    } else {
+      next({ message: "That filetype is not allowed" }, false);
+    }
+  }
+};
+
+exports.upload = multer(multerOptions).single("photo");
+
+exports.resize = async (req, res, next) => {
+  //check if new file to resize
+  if (!req.file) {
+    next(); //go to next middleware
+    return;
+  }
+
+  //Do something with this
+  console.log(req.file);
+};
 
 exports.addStore = async (req, res) => {
   try {
