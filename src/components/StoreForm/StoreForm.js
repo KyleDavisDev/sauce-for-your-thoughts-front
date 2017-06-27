@@ -20,16 +20,18 @@ class StoreForm extends Component {
         storeAddress: "",
         storeLatitude: "",
         storeLongitude: ""
-      }
+      },
+      storePhoto: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+    this.onFileUploadChange = this.onFileUploadChange.bind(this);
     this.handleAddressChange = this.handleAddressChange.bind(this);
     this.handleLongitudeChange = this.handleLongitudeChange.bind(this);
     this.handleLatitudeChange = this.handleLatitudeChange.bind(this);
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.resetState = this.resetState.bind(this);
   }
 
@@ -102,7 +104,7 @@ class StoreForm extends Component {
 
     //call function required to be passed to component
     //if post worked, we will reset state, otherwise keep state as is
-    if(nextProps.didPostWork) {
+    if (nextProps.didPostWork) {
       this.resetState();
     }
   }
@@ -112,8 +114,7 @@ class StoreForm extends Component {
     event.preventDefault();
 
     //call function passed by parent
-    this.props.onFormSubmit(this.state)
-
+    this.props.onFormSubmit(this.state);
   }
 
   handleNameChange(event) {
@@ -124,19 +125,20 @@ class StoreForm extends Component {
     this.setState({ storeDescription: event.target.value });
   }
 
-  handleCheckboxChange(event) {
-    //this could probably be much more elegant but works so I'll come back to this later
-    //find which array element was clicked and flip that elements isChecked value
-    const newTags = this.state.tags.map(tag => {
-      if (tag.name === event.target.name) {
-        tag.isChecked = !tag.isChecked;
-      }
-      return tag;
-    });
+  onFileUploadChange(event) {
+    event.preventDefault();
 
-    this.setState({
-      tags: newTags
-    });
+    const reader = new FileReader();
+    const file = event.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        storePhoto: file
+      });
+    };
+
+    //only execute if file actually has content
+    file && reader.readAsDataURL(file);
   }
 
   handleAddressChange(event) {
@@ -167,6 +169,21 @@ class StoreForm extends Component {
     let location = this.state.location;
     location.storeLatitude = event.target.value;
     this.setState({ location });
+  }
+
+  handleCheckboxChange(event) {
+    //this could probably be much more elegant but works so I'll come back to this later
+    //find which array element was clicked and flip that elements isChecked value
+    const newTags = this.state.tags.map(tag => {
+      if (tag.name === event.target.name) {
+        tag.isChecked = !tag.isChecked;
+      }
+      return tag;
+    });
+
+    this.setState({
+      tags: newTags
+    });
   }
 
   resetState() {
@@ -214,23 +231,14 @@ class StoreForm extends Component {
           value={this.state.storeDescription}
         />
 
-        <ul className="tags">
-          {this.state.tags.map(tag => {
-            return (
-              <div key={tag.name} className="tag tag-choice">
-                <input
-                  type="checkbox"
-                  id={tag.name}
-                  name={tag.name}
-                  value={tag.name}
-                  checked={tag.isChecked}
-                  onChange={this.handleCheckboxChange}
-                />
-                <label htmlFor={tag.name}>{tag.name}</label>
-              </div>
-            );
-          })}
-        </ul>
+        <label htmlFor="storePhoto"> Photo: </label>
+        <input
+          id="storePhoto"
+          name="storePhoto"
+          type="file"
+          onChange={this.onFileUploadChange}
+          accept="image/gif, image/png, image/jpeg"
+        />
 
         <label htmlFor="storeAddress"> Address: </label>
         <PlacesAutocomplete
@@ -260,7 +268,27 @@ class StoreForm extends Component {
           placeholder="Click or press enter in Address autocomplete to generate"
         />
 
+        <ul className="tags">
+          {this.state.tags.map(tag => {
+            return (
+              <div key={tag.name} className="tag tag-choice">
+                <input
+                  type="checkbox"
+                  id={tag.name}
+                  name={tag.name}
+                  value={tag.name}
+                  checked={tag.isChecked}
+                  onChange={this.handleCheckboxChange}
+                />
+                <label htmlFor={tag.name}>{tag.name}</label>
+              </div>
+            );
+          })}
+        </ul>
+
         <button type="submit" className="button"> Save -> </button>
+
+        {/*{this.state.storePhoto && <img src={this.state.storePhoto} />}*/}
       </form>
     );
   }
