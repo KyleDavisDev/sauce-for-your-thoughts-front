@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+// import FormData from "form-data";
 
 import StoreForm from "../StoreForm/StoreForm.js";
 import FlashMessage from "../FlashMessage/FlashMessage.js";
@@ -22,13 +23,18 @@ class Add extends Component {
     this.closeFlashMessage();
 
     //million ways to destructure the store object but I like this one
-    const { storeName: name, storeDescription: description } = store;
+    const {
+      storeName: name,
+      storeDescription: description,
+      storePhoto: photo
+    } = store;
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
     const address = store.location.storeAddress;
     const coordinates = [
       parseFloat(store.location.storeLongitude),
       parseFloat(store.location.storeLatitude)
     ];
+
 
     //TODO filter/sanitize user input
     axios({
@@ -38,7 +44,8 @@ class Add extends Component {
         name,
         description,
         tags,
-        location: { address, coordinates }
+        location: { address, coordinates },
+        photo
       }
     })
       .then(response => {
