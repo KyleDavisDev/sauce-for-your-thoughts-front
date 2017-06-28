@@ -33,7 +33,8 @@ const storeSchema = new mongoose.Schema({
       type: String,
       required: "You must supply an address!"
     }
-  }
+  },
+  photo: String
 });
 
 //TODO make more terse so slugs are unique
