@@ -7,7 +7,7 @@ require("dotenv").config({ path: "variables.env" });
 mongoose.connect(process.env.DATABASE);
 mongoose.Promise = global.Promise; //use ES6 promises
 mongoose.connection.on("error", error => {
-  console.log(err.message);
+  console.log(error.message);
 });
 
 //import models --only need to do once
