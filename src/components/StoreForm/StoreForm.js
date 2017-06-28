@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import PlacesAutocomplete, { geocodeByAddress } from "react-places-autocomplete";
+import PlacesAutocomplete, {
+  geocodeByAddress
+} from "react-places-autocomplete";
+import Dropzone from "react-dropzone";
 
 class StoreForm extends Component {
   constructor(props) {
@@ -125,20 +128,9 @@ class StoreForm extends Component {
     this.setState({ storeDescription: event.target.value });
   }
 
-  onFileUploadChange(event) {
-    event.preventDefault();
-
-    const reader = new FileReader();
-    const file = event.target.files[0];
-
-    reader.onloadend = () => {
-      this.setState({
-        storePhoto: file
-      });
-    };
-
-    //only execute if file actually has content
-    file && reader.readAsDataURL(file);
+  onFileUploadChange(files) {
+    var file = files[0];
+    this.setState({ storePhoto: file });
   }
 
   handleAddressChange(event) {
@@ -210,8 +202,14 @@ class StoreForm extends Component {
       value: this.state.location.storeAddress,
       onChange: this.handleAddressChange
     };
+    let dropzoneRef;
     return (
-      <form onSubmit={this.handleSubmit} name="addForm" className="form">
+      <form
+        onSubmit={this.handleSubmit}
+        name="addForm"
+        className="form"
+        encType="multipart/form-data"
+      >
         <label htmlFor="storeName"> Name: </label>
         <input
           id="storeName"
@@ -232,13 +230,25 @@ class StoreForm extends Component {
         />
 
         <label htmlFor="storePhoto"> Photo: </label>
-        <input
-          id="storePhoto"
-          name="storePhoto"
-          type="file"
-          onChange={this.onFileUploadChange}
-          accept="image/gif, image/png, image/jpeg"
-        />
+        <Dropzone
+          onDrop={this.onFileUploadChange}
+          size={150}
+          accept="image/jpeg, image/png"
+          ref={node => {
+            dropzoneRef = node;
+          }}
+        >
+          <div>Drop some files here!</div>
+          {this.state.storePhoto.name} - {this.state.storePhoto.size}
+        </Dropzone>
+        <button
+          type="button"
+          onClick={() => {
+            dropzoneRef.open();
+          }}
+        >
+          Open File Dialog
+        </button>
 
         <label htmlFor="storeAddress"> Address: </label>
         <PlacesAutocomplete
@@ -280,15 +290,17 @@ class StoreForm extends Component {
                   checked={tag.isChecked}
                   onChange={this.handleCheckboxChange}
                 />
-                <label htmlFor={tag.name}>{tag.name}</label>
+                <label htmlFor={tag.name}>
+                  {tag.name}
+                </label>
               </div>
             );
           })}
         </ul>
 
-        <button type="submit" className="button"> Save -> </button>
-
-        {/*{this.state.storePhoto && <img src={this.state.storePhoto} />}*/}
+        <button type="submit" className="button">
+          {" "}Save ->{" "}
+        </button>
       </form>
     );
   }
