@@ -11,7 +11,8 @@ router.post(
   storeController.stringToProperType,
   storeController.addStore
 );
-router.get("/api/store/:id/get", storeController.getStore);
+router.get("/api/store/:slug", storeController.getStoreBySlug)
+router.get("/api/store/:id/get", storeController.getStoreById);
 router.post("/api/store/:id/edit", storeController.editStore);
 
 router.get("/api/stores/get", storeController.getStores);
