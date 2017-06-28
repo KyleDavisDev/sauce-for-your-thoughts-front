@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import FormData from "form-data";
 
 import StoreForm from "../StoreForm/StoreForm.js";
 import FlashMessage from "../FlashMessage/FlashMessage.js";
@@ -22,7 +21,7 @@ class Add extends Component {
   addStoreEntry(store) {
     this.closeFlashMessage();
 
-    //million ways to destructure the store object but I like this one
+    //million ways to destructure the store object
     const {
       storeName: name,
       storeDescription: description,
@@ -35,19 +34,23 @@ class Add extends Component {
       parseFloat(store.location.storeLatitude)
     ];
 
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("image", photo);
+    formData.append("address", address);
+    formData.append("coordinates", coordinates)
+    formData.append("tags", tags)
+
+    var options = {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    };
 
     //TODO filter/sanitize user input
-    axios({
-      method: "post",
-      url: "http://localhost:7777/api/store/add",
-      data: {
-        name,
-        description,
-        tags,
-        location: { address, coordinates },
-        photo
-      }
-    })
+    axios
+      .post("http://localhost:7777/api/store/add", formData, options)
       .then(response => {
         if (response.data.errors) {
           //we will be here if user didn't use all inputs correctly or didn't fill something out
@@ -99,7 +102,6 @@ class Add extends Component {
           onFormSubmit={this.addStoreEntry}
           didPostWork={this.state.didPostWork}
         />
-
       </div>
     );
   }
