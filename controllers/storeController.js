@@ -14,10 +14,11 @@ const multerOptions = {
     } else {
       next({ message: "That filetype is not allowed" }, false);
     }
-  }
+  },
+  dest: "uploads/"
 };
 
-exports.upload = multer(multerOptions).single("photo");
+exports.upload = multer(multerOptions).single("image");
 
 exports.resize = async (req, res, next) => {
   //check if new file to resize
@@ -27,7 +28,31 @@ exports.resize = async (req, res, next) => {
   }
 
   //Do something with this
-  console.log(req.file);
+  next();
+};
+
+//when using FormData, which is needed to upload image, all data gets turned into
+//string so we need to reformat to match model
+exports.stringToProperType = (req, res, next) => {
+  if (!req.body.location) {
+    req.body.location = {};
+  }
+
+  if (typeof req.body.coordinates === "string") {
+    req.body.location.coordinates = req.body.coordinates.split(",");
+    delete req.body.coordinates;
+  }
+
+  if (typeof req.body.address === "string") {
+    req.body.location.address = req.body.address;
+    delete req.body.address;
+  }
+
+  if (typeof req.body.tags === "string") {
+    req.body.tags = req.body.tags.split(",");
+  }
+
+  next(); //next middleware
 };
 
 exports.addStore = async (req, res) => {
