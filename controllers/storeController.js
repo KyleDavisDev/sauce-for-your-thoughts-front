@@ -27,8 +27,19 @@ exports.resize = async (req, res, next) => {
     return;
   }
 
-  //Do something with this
-  next();
+  //get file extension and generate unique name
+  const extension = req.file.mimetype.split("/")[1];
+  req.body.photo = `${uuid.v4()}.${extension}`;
+
+  //resize photo
+  try {
+    const photo = await jimp.read(req.file.buffer);
+    await photo.resize(300, jimp.AUTO);
+    await photo.write(`./public/uploads/${req.body.photo}`);
+    next();
+  } catch (err) {
+    next({ message: "Image was unable to be saved" }, false);
+  }
 };
 
 //when using FormData, which is needed to upload image, all data gets turned into
@@ -67,7 +78,11 @@ exports.addStore = async (req, res) => {
   }
 };
 
-exports.getStore = async (req, res) => {
+exports.getStoreBySlug = async (req, res) => {
+  res.send("it works!");
+};
+
+exports.getStoreById = async (req, res) => {
   try {
     const store = await Store.findOne({ _id: req.params.id });
 
