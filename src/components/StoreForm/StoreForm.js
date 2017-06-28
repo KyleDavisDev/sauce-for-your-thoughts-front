@@ -193,7 +193,8 @@ class StoreForm extends Component {
         storeAddress: "",
         storeLatitude: "",
         storeLongitude: ""
-      }
+      },
+      storePhoto: ""
     });
   }
 
