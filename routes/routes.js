@@ -8,6 +8,7 @@ router.post(
   "/api/store/add",
   storeController.upload,
   storeController.resize,
+  storeController.stringToProperType,
   storeController.addStore
 );
 router.get("/api/store/:id/get", storeController.getStore);
