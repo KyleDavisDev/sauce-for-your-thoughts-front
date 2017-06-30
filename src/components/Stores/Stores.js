@@ -43,7 +43,12 @@ class Stores extends Component {
                         </Link>
                       </div>
                     </div>
-                    <img src={storeImage} title={store.name} alt={store.name} />
+                    <img
+                      src={`http://localhost:7777/public/uploads/${store.photo}`}
+                      onError={e => (e.target.src = storeImage)}
+                      title={store.name}
+                      alt={store.name}
+                    />
                     <div className="store-title">
                       <Link to={`/store/${store.slug}`}>
                         {store.name}
@@ -52,7 +57,9 @@ class Stores extends Component {
                   </div>
                   <div className="store-details">
                     {/*{limit description to 25 words }*/}
-                    <p>{store.description.split(" ").slice(0, 25).join(" ")}</p>
+                    <p>
+                      {store.description.split(" ").slice(0, 25).join(" ")}
+                    </p>
                   </div>
                 </div>
               );
