@@ -34,7 +34,7 @@ exports.resize = async (req, res, next) => {
   //resize photo
   try {
     const photo = await jimp.read(req.file.buffer);
-    await photo.resize(300, jimp.AUTO);
+    await photo.resize(800, jimp.AUTO);
     await photo.write(`./public/uploads/${req.body.photo}`);
     next();
   } catch (err) {
@@ -79,7 +79,12 @@ exports.addStore = async (req, res) => {
 };
 
 exports.getStoreBySlug = async (req, res) => {
-  res.send("it works!");
+  try {
+    const store = await Store.findOne({ slug: req.params.slug });
+    res.send(store);
+  } catch (err) {
+    res.send(err);
+  }
 };
 
 exports.getStoreById = async (req, res) => {
