@@ -15,6 +15,26 @@ class GenerateStaticGoogleMap extends Component {
   }
 }
 
+class GenerateTagsList extends Component {
+  render() {
+    return (
+      <ul className="tags">
+        {this.props.tags.map(tag => {
+          return (
+            <li className="tag" key={tag}>
+              <Link to={`/tags/${tag}`} className="tag-link">
+                <span className="tag-text">
+                  #{tag}
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
+}
+
 class StoreGet extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +58,7 @@ class StoreGet extends Component {
         console.log(error);
       });
   }
-  
+
   render() {
     return (
       <div className="inner">
@@ -65,6 +85,14 @@ class StoreGet extends Component {
               coordinates={this.state.store.location.coordinates}
               className="single-map"
             />
+            <p className="single-location">
+              {this.state.store.location.address}
+            </p>
+            <p>
+              {this.state.store.description}
+            </p>
+            {this.state.store.tags.length > 0 &&
+              <GenerateTagsList tags={this.state.store.tags} />}
           </div>}
       </div>
     );
