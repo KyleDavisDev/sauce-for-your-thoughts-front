@@ -24,6 +24,7 @@ class Router extends Component {
             <Route exact path="/store/:slug" component={StoreGet} />
             <Route exact path="/store/:id/edit" component={StoreEdit} />
             <Route exact path="/tags" component={Tags} />
+            <Route exact path="/tags/:tag" component={Tags} />
             <Route
               render={function() {
                 return <p> Page not found. Sorry! </p>;
