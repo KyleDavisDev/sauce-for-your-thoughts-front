@@ -24,6 +24,8 @@ router.post(
 
 router.get("/api/stores/get", storeController.getStores);
 
+router.get("/api/tags/:tag/get", storeController.getStoreByTag);
+
 //let react handle rest
 router.get("*", (req, res) => {
   res.sendFile(`${process.cwd()}/dist/index.html`);
