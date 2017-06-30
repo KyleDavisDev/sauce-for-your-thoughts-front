@@ -4,6 +4,7 @@ const router = express.Router();
 //grab controllers
 const storeController = require("../controllers/storeController.js");
 
+//APIs here
 router.post(
   "/api/store/add",
   storeController.upload,
@@ -11,9 +12,15 @@ router.post(
   storeController.stringToProperType,
   storeController.addStore
 );
-router.get("/api/store/:slug", storeController.getStoreBySlug)
+router.get("/api/store/:slug", storeController.getStoreBySlug);
 router.get("/api/store/:id/get", storeController.getStoreById);
-router.post("/api/store/:id/edit", storeController.editStore);
+router.post(
+  "/api/store/:id/edit",
+  storeController.upload,
+  storeController.resize,
+  storeController.stringToProperType,
+  storeController.editStore
+);
 
 router.get("/api/stores/get", storeController.getStores);
 
