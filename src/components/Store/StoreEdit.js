@@ -40,24 +40,39 @@ class StoreEdit extends Component {
     const storeID = this.props.match.params.id;
 
     //million ways to destructure the store object but I like this one
-    const { storeName: name, storeDescription: description } = store;
+    const {
+      storeName: name,
+      storeDescription: description,
+      storePhoto: photo
+    } = store;
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
     const address = store.location.storeAddress;
     const coordinates = [
-      parseFloat(store.location.storeLongitude),
-      parseFloat(store.location.storeLatitude)
+      parseFloat(store.location.storeLongitude).toFixed(7),
+      parseFloat(store.location.storeLatitude).toFixed(7)
     ];
 
-    axios({
-      method: "post",
-      url: `http://localhost:7777/api/store/${storeID}/edit`,
-      data: {
-        name,
-        description,
-        tags,
-        location: { address, coordinates }
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("image", photo);
+    formData.append("address", address);
+    formData.append("coordinates", coordinates);
+    formData.append("tags", tags);
+
+    var options = {
+      headers: {
+        "Content-Type": "multipart/form-data"
       }
-    })
+    };
+
+    //TODO filter/sanitize user input
+    axios
+      .post(
+        `http://localhost:7777/api/store/${storeID}/edit`,
+        formData,
+        options
+      )
       .then(response => {
         if (response.data.errors) {
           this.createFlashMessage({
@@ -104,7 +119,9 @@ class StoreEdit extends Component {
             slug={this.state.flashMessage.slug}
             closeFlashMessage={this.closeFlashMessage}
           />}
-        <h2>Edit {this.state.store.name || "Store"}</h2>
+        <h2>
+          Edit {this.state.store.name || "Store"}
+        </h2>
         {Object.keys(this.state.store).length > 0 &&
           <StoreForm
             onFormSubmit={this.updateStoreEntry}
@@ -116,7 +133,6 @@ class StoreEdit extends Component {
             storeLatitude={this.state.store.location.coordinates[1]}
             didPostWork={false}
           />}
-
       </div>
     );
   }
