@@ -62,4 +62,15 @@ storeSchema.pre("save", async function(next) {
   next();
 });
 
+storeSchema.statics.getTagsList = function() {
+  //split each store into an instance with a single tag as it's "tag" property
+  //group stores by the tag id, create new key called "count" and +1 to the $sum property
+  //sort by most popular descending
+  return this.aggregate([
+    { $unwind: "$tags" },
+    { $group: { _id: "$tags", count: { $sum: 1 } } },
+    { $sort: { count: -1 } }
+  ]);
+};
+
 module.exports = mongoose.model("Store", storeSchema);
