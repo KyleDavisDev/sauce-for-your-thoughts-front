@@ -300,7 +300,7 @@ class StoreForm extends Component {
         </ul>
 
         <button type="submit" className="button">
-          {" "}Save ->{" "}
+          Save ->
         </button>
       </form>
     );
