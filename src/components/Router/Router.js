@@ -9,6 +9,7 @@ import Stores from "../Stores/Stores.js";
 import StoreGet from "../Store/StoreGet.js";
 import StoreEdit from "../Store/StoreEdit.js";
 import Tags from "../Tags/Tags.js";
+import Login from "../Login/Login.js";
 
 class Router extends Component {
   render() {
@@ -25,6 +26,7 @@ class Router extends Component {
             <Route exact path="/store/:id/edit" component={StoreEdit} />
             <Route exact path="/tags" component={Tags} />
             <Route exact path="/tags/:tag" component={Tags} />
+            <Route exact path="/login" component={Login} />
             <Route
               render={function() {
                 return <p> Page not found. Sorry! </p>;
