@@ -3,6 +3,7 @@ const router = express.Router();
 
 //grab controllers
 const storeController = require("../controllers/storeController.js");
+const userController = require("../controllers/userController.js");
 
 //APIs here
 router.post(
