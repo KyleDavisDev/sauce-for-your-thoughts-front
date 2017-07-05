@@ -13,6 +13,7 @@ class FlashMessage extends Component {
     };
 
     this.iterateObject = this.iterateObject.bind(this);
+    this.iterateArray = this.iterateArray.bind(this);
   }
 
   iterateObject() {
@@ -24,32 +25,61 @@ class FlashMessage extends Component {
     const errorMessages = errorKeys.map(key => {
       return this.state.text[key].message;
     });
-    return errorMessages.map(errorMessage => {
-      return <p key={errorMessage} className="item">{errorMessage}</p>;
+    return errorMessages.map((errorMessage, index) => {
+      return (
+        <p key={index} className="item">
+          {errorMessage}
+        </p>
+      );
+    });
+  }
+
+  iterateArray() {
+    return this.state.text.map((txt, index) => {
+      return (
+        <p key={index} className="item">
+          {txt}
+        </p>
+      );
     });
   }
 
   render() {
-    const slugLink = this.state.type === "success"
-      ? <Link to={`/store/${this.state.slug}`}>Rate it!</Link>
-      : "";
+    const slugLink =
+      this.state.type === "success"
+        ? <Link to={`/store/${this.state.slug}`}>Rate it!</Link>
+        : "";
     return (
       <div className={`flash ${this.state.type}`}>
+        {/*Javascript makes checking between an object and an array incredibly*/}
+        {/*difficult to be 100% but this method seems to work*/}
+        {/*For more info:*/}
+        {/*https://javascriptweblog.wordpress.com/2011/08/08/fixing-the-javascript-typeof-operator/*/}
 
+        
         {/*if object, iterate over object*/}
-        {typeof this.state.text === "object" &&
-          <div className="error-list">{this.iterateObject()}</div>}
+        {Object.prototype.toString.call(this.state.text) === "[object Object]" &&
+          <div className="error-list">
+            {this.iterateObject()}
+          </div>}
+
+        {/*if array, iterate over array*/}
+        {Object.prototype.toString.call(this.state.text) === "[object Array]" &&
+          <div className="error-list">
+            {this.iterateArray()}
+          </div>}
 
         {/*if string, output string*/}
         {typeof this.state.text === "string" &&
           <div className="success-list">
-            <p className="item">{this.state.text}{" "}{slugLink}</p>
+            <p className="item">
+              {this.state.text} {slugLink}
+            </p>
           </div>}
 
         <button className="close-button" onClick={this.props.closeFlashMessage}>
           X
         </button>
-
       </div>
     );
   }
@@ -57,7 +87,11 @@ class FlashMessage extends Component {
 
 FlashMessage.propTypes = {
   type: PropTypes.string,
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  text: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.array
+  ]),
   slug: PropTypes.string.isRequired
 };
 
