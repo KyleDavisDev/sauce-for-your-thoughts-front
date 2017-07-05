@@ -11,15 +11,17 @@ const app = express();
 
 //serves up static files from distribution and images folder.
 app.use(express.static(path.join(__dirname, "dist")));
-app.use("/public/uploads", express.static(__dirname + '/public/uploads'));
+app.use("/public/uploads", express.static(__dirname + "/public/uploads"));
 
 // takes raw requests and attaches them to req.body for use later
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//Provides methods for validating data. Used mostly in userController.validateRegister
+app.use(expressValidator());
+
 //populates req.cookies w/ any cookies that are w/ the req
 app.use(cookieParser());
-
 
 //handle routes
 app.use("/", routes);
