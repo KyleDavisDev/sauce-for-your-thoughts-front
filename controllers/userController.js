@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const User = mongoose.model("User");
+const promisify = require("es6-promisify");
 
 exports.validateRegister = (req, res, next) => {
   req.sanitizeBody("name");
@@ -23,6 +25,17 @@ exports.validateRegister = (req, res, next) => {
     return;
   }
 
-  console.log("We made it through!")
   next();
+};
+
+exports.register = async (req, res, next) => {
+  const user = new User({ email: req.body.email, name: req.body.name });
+  const registerWithPromise = promisify(User.register, User); //not register method can be awaited
+  try {
+    await registerWithPromise(user, req.body.password);
+    res.send("it works!");
+  } catch(err) {
+    res.send(err)
+  }
+  next(); //go to authController.login
 };
