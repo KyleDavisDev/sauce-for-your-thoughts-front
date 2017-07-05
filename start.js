@@ -10,8 +10,9 @@ mongoose.connection.on("error", error => {
   console.log(error.message);
 });
 
-//import models --only need to do once
+//import models --only need to do once per model
 require("./models/Store.js");
+require("./models/User.js");
 
 //Start the app
 const app = require("./app.js");
