@@ -32,7 +32,11 @@ router.get("/api/tags/:tag/get", storeController.getStoreByTag);
 //1. Validate the data
 //2. register the user
 //3. Log user in
-router.post("/register", userController.validateRegister)
+router.post(
+  "/register",
+  userController.validateRegister,
+  userController.register
+);
 
 //END API ---
 
