@@ -48,8 +48,8 @@ class StoreEdit extends Component {
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
     const address = store.location.storeAddress;
     const coordinates = [
-      parseFloat(store.location.storeLongitude).toFixed(7),
-      parseFloat(store.location.storeLatitude).toFixed(7)
+      parseFloat(store.location.storeLongitude).toFixed(7) || "",
+      parseFloat(store.location.storeLatitude).toFixed(7) || ""
     ];
 
     const formData = new FormData();
