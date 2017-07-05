@@ -5,7 +5,8 @@ const router = express.Router();
 const storeController = require("../controllers/storeController.js");
 const userController = require("../controllers/userController.js");
 
-//APIs here
+//APIs here -----
+//Store(s)
 router.post(
   "/api/store/add",
   storeController.upload,
@@ -22,10 +23,18 @@ router.post(
   storeController.stringToProperType,
   storeController.editStore
 );
-
 router.get("/api/stores/get", storeController.getStores);
 
+//Tag(s)
 router.get("/api/tags/:tag/get", storeController.getStoreByTag);
+
+//User(s)
+//1. Validate the data
+//2. register the user
+//3. Log user in
+router.post("/register", userController.validateRegister)
+
+//END API ---
 
 //let react handle rest
 router.get("*", (req, res) => {
