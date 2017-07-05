@@ -21,7 +21,7 @@ class Add extends Component {
   addStoreEntry(store) {
     this.closeFlashMessage();
 
-    //million ways to destructure the store object
+    //grab info from store object and then put into FormData for AJAX post
     const {
       storeName: name,
       storeDescription: description,
@@ -30,8 +30,8 @@ class Add extends Component {
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
     const address = store.location.storeAddress;
     const coordinates = [
-      parseFloat(store.location.storeLongitude),
-      parseFloat(store.location.storeLatitude)
+      parseFloat(store.location.storeLongitude) || "",
+      parseFloat(store.location.storeLatitude) || ""
     ];
 
     const formData = new FormData();
@@ -39,8 +39,8 @@ class Add extends Component {
     formData.append("description", description);
     formData.append("image", photo);
     formData.append("address", address);
-    formData.append("coordinates", coordinates)
-    formData.append("tags", tags)
+    formData.append("coordinates", coordinates);
+    formData.append("tags", tags);
 
     var options = {
       headers: {
@@ -54,18 +54,24 @@ class Add extends Component {
       .then(response => {
         if (response.data.errors) {
           //we will be here if user didn't use all inputs correctly or didn't fill something out
+          //create error message
           this.createFlashMessage({
             type: "error",
             text: response.data.errors
           });
+
+          //making this false will keep data in the form and not reset it
           this.setState({ didPostWork: false });
         } else {
           //response.data holds the slug of the store added
+          //create success message
           this.createFlashMessage({
             type: "success",
             slug: response.data.slug,
             text: "Your store was added!"
           });
+
+          //reset form
           this.setState({ didPostWork: true });
         }
       })
