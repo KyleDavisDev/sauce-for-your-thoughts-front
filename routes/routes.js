@@ -4,6 +4,7 @@ const router = express.Router();
 //grab controllers
 const storeController = require("../controllers/storeController.js");
 const userController = require("../controllers/userController.js");
+const authController = require("../controllers/authController.js");
 
 //APIs here -----
 //Store(s)
@@ -35,7 +36,8 @@ router.get("/api/tags/:tag/get", storeController.getStoreByTag);
 router.post(
   "/register",
   userController.validateRegister,
-  userController.register
+  userController.register,
+  authController.login
 );
 
 //END API ---
