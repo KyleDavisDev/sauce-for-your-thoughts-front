@@ -6,13 +6,17 @@ const validator = require("validator");
 const mongodbErrorHandler = require("mongoose-mongodb-errors");
 const passportLocalMongoose = require("passport-local-mongoose");
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
     lowercase: true,
     trim: true,
-    validate: [validator.isEmail, "Invalid Email Address"],
+    validate: {
+      isAsync: true,
+      validator: validator.isEmail,
+      msg: "Invalid Email Address"
+    },
     required: "Please supply an email address"
   },
   name: {
