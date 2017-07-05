@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const routes = require("./routes/routes.js");
+const passport = require('passport');
+require("./handlers/passport.js");
 
 //create express app
 const app = express();
@@ -22,6 +24,10 @@ app.use(expressValidator());
 
 //populates req.cookies w/ any cookies that are w/ the req
 app.use(cookieParser());
+
+// Passport JS is what we use to handle our logins
+app.use(passport.initialize());
+app.use(passport.session());
 
 //handle routes
 app.use("/", routes);
