@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise; //surpresses error (?)
 const md5 = require("md5");
 const validator = require("validator");
 const mongodbErrorHandler = require("mongoose-mongodb-errors");
-const passportLocalMongoose = require("passport-local-mongoose");
+const passportLocalMongoose = require("passport-local-mongoose"); //takes care of salting pw
 
 const userSchema = new mongoose.Schema({
   email: {
