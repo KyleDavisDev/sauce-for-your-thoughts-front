@@ -1,39 +1,20 @@
 const passport = require("passport");
 
-exports.login = passport.authenticate("local", function(err, user) {
-  if (req.xhr) {
-    //thanks @jkevinburton
-    if (err) {
-      return res.json({ error: err.message });
-    }
-    if (!user) {
-      return res.json({ error: "Invalid Login" });
-    }
-    req.login(user, {}, function(err) {
-      if (err) {
-        return res.json({ error: err });
-      }
-      return res.json({
-        user: {
-          id: req.user.id,
-          email: req.user.email,
-          joined: req.user.joined
-        },
-        success: true
-      });
+exports.login = (req, res) => {
+  // generate the authenticate method and pass the req/res
+  passport.authenticate('local', function (err, user, info) {
+    if (err) { return res.send(err) }
+    if (!user) { return res.send("not a user") }
+
+    // req / res held in closure
+    req.logIn(user, function (err) {
+      if (err) { return res.send(err) }
+      return res.send(user);
     });
-  } else {
-    if (err) {
-      return res.redirect("/login");
-    }
-    if (!user) {
-      return res.redirect("/login");
-    }
-    req.login(user, {}, function(err) {
-      if (err) {
-        return res.redirect("/login");
-      }
-      return res.redirect("/");
-    });
-  }
-});
+
+  })(req, res);
+}
+
+exports.logout = (req, res) => {
+  req.logout();
+}
