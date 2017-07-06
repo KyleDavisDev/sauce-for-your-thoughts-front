@@ -41,6 +41,7 @@ class Register extends Component {
       }
     })
       .then(response => {
+        console.log(response)
         if (Array.isArray(response.data)) {
           //we will be here if user didn't use all inputs correctly or didn't fill something out
           this.createFlashMessage({
