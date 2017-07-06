@@ -33,7 +33,6 @@ exports.register = async (req, res, next) => {
   const registerWithPromise = promisify(User.register, User); //not register method can be awaited
   try {
     await registerWithPromise(user, req.body.password);
-    res.send("it works!");
   } catch(err) {
     res.send(err)
   }
