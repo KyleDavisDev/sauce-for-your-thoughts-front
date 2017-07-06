@@ -40,6 +40,9 @@ router.post(
   authController.login
 );
 
+router.post("/login", authController.login)
+router.post("/logout", authController.logout)
+
 //END API ---
 
 //let react handle rest
