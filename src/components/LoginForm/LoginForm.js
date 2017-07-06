@@ -13,7 +13,21 @@ class LoginForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+
+    axios({
+      method: "post",
+      url: "http://localhost:7777/login",
+      data: {
+        email: this.state.email,
+        password: this.state.password
+      }
+    })
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      });
   }
   render() {
     return (
