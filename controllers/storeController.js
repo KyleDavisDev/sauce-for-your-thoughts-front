@@ -142,16 +142,12 @@ exports.getStores = async (req, res) => {
 exports.getStoreByTag = async (req, res) => {
   try {
     const tag = req.params.tag;
-    console.log(typeof tag);
-    const tagQuery = tag==="undefined" ? { $exists: true } : tag
-    console.log(tagQuery)
+    const tagQuery = tag === "undefined" ? { $exists: true } : tag
     const tagsPromise = Store.getTagsList();
     const storesPromise = Store.find({ tags: tagQuery });
     const result = await Promise.all([tagsPromise, storesPromise]);
-
     res.send(result);
   } catch (err) {
-    console.log(err);
     res.send(err);
   }
 };
