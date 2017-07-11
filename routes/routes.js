@@ -7,20 +7,32 @@ const userController = require("../controllers/userController.js");
 const authController = require("../controllers/authController.js");
 
 //APIs here -----
+
 //Store(s)
+//upload must be called first for post that are "multipart/form-data"
+//multer will put data object onto req.body like normal
+
+//1. Check mimetype of image and set req.body
+//2. Verify if user is valid
+//3. Resize image and write to server
+//4. Conver req.body data to be proper format for DB
+//5. Write to DB
 router.post(
   "/api/store/add",
   storeController.upload,
+  authController.isLoggedIn,
   storeController.resize,
   storeController.stringToProperType,
-  authController.isLoggedIn,
   storeController.addStore
 );
 router.get("/api/store/:slug", storeController.getStoreBySlug);
 router.get("/api/store/:id/get", storeController.getStoreById);
+
+//See API for adding store
 router.post(
   "/api/store/:id/edit",
   storeController.upload,
+  authController.isLoggedIn,
   storeController.resize,
   storeController.stringToProperType,
   storeController.editStore
