@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+import Auth from "../Auth/Auth.js";
+
 //pull in other components for SPA
 import Header from "../Header/Header.js";
 import Holder from "../Holder/Holder.js";
@@ -13,12 +15,34 @@ import Register from "../Register/Register.js";
 import Login from "../Login/Login.js";
 
 class Router extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isUserLoggedIn: Auth.isUserAuthenticated()
+    };
+
+    this.logUserIn = this.logUserIn.bind(this);
+    this.logUserOut = this.logUserOut.bind(this);
+  }
+
+  logUserIn(token) {
+    Auth.authenticateUser(token);
+    this.setState({ isUserLoggedIn: Auth.isUserAuthenticated() });
+  }
+
+  logUserOut() {
+    Auth.deauthenticateUser();
+    this.setState({ isUserLoggedIn: Auth.isUserAuthenticated() });
+  }
+
   render() {
     return (
       <BrowserRouter>
         <div className="container">
-
-          <Header />
+          <Header
+            isUserLoggedIn={this.state.isUserLoggedIn}
+            handleLogout={this.logUserOut}
+          />
           <Switch>
             <Route exact path="/" component={Holder} />
             <Route exact path="/add" component={Add} />
@@ -28,14 +52,17 @@ class Router extends Component {
             <Route exact path="/tags" component={Tags} />
             <Route exact path="/tags/:tag" component={Tags} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
+            <Route
+              exact
+              path="/login"
+              render={() => <Login logUserIn={this.logUserIn} />}
+            />
             <Route
               render={function() {
                 return <p> Page not found. Sorry! </p>;
               }}
             />
           </Switch>
-
         </div>
       </BrowserRouter>
     );
