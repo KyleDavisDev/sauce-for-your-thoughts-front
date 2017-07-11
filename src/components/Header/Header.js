@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 
+import Auth from "../Auth/Auth.js";
+
 //pull in logos
 import MainLogo from "../../images/icons/Logo.js";
 import StoresLogo from "../../images/icons/Store.js";
@@ -14,11 +16,17 @@ class Header extends Component {
     super(props);
 
     this.state = {
-      searchValue: ""
+      searchValue: "",
+      isUserLoggedIn: Auth.isUserAuthenticated()
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isUserLoggedIn: nextProps.isUserLoggedIn });
   }
 
   handleSubmit(event) {
@@ -28,6 +36,10 @@ class Header extends Component {
 
   handleSearchChange(event) {
     this.setState({ searchValue: event.target.value });
+  }
+
+  handleLogout() {
+    this.props.handleLogout();
   }
 
   render() {
@@ -67,7 +79,7 @@ class Header extends Component {
       <header className="top">
         <nav className="nav">
           <div className="nav-section nav-pages">
-
+            {/*Home logo*/}
             <li className="nav-item">
               <NavLink
                 className="nav-link home-link"
@@ -77,6 +89,8 @@ class Header extends Component {
                 <MainLogo className="home-logo" />
               </NavLink>
             </li>
+
+            {/*Rest of nav items*/}
             {navigationItems.map(item => {
               return (
                 <li key={item.text} className="nav-item">
@@ -93,9 +107,9 @@ class Header extends Component {
                 </li>
               );
             })}
-
           </div>
 
+          {/*Search bar*/}
           <div className="nav-section nav-search">
             <div className="search">
               <input
@@ -108,6 +122,7 @@ class Header extends Component {
             </div>
           </div>
 
+          {/*Register/Login/Logout*/}
           <div className="nav-section nav-user">
             <li className="nav-item">
               <NavLink
@@ -118,14 +133,18 @@ class Header extends Component {
                 Register
               </NavLink>
             </li>
+
+            {/*Login/Logout based on token*/}
             <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                activeClassName="active"
-                to="/login"
-              >
-                Login
-              </NavLink>
+              {this.state.isUserLoggedIn
+                ? <button onClick={this.handleLogout}>Logout</button>
+                : <NavLink
+                    className="nav-link"
+                    activeClassName="active"
+                    to="/login"
+                  >
+                    Login
+                  </NavLink>}
             </li>
           </div>
         </nav>
