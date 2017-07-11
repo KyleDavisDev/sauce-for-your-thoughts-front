@@ -13,6 +13,7 @@ router.post(
   storeController.upload,
   storeController.resize,
   storeController.stringToProperType,
+  authController.isLoggedIn,
   storeController.addStore
 );
 router.get("/api/store/:slug", storeController.getStoreBySlug);
@@ -40,8 +41,8 @@ router.post(
   authController.login
 );
 
-router.post("/login", authController.login)
-router.post("/logout", authController.logout)
+router.post("/login", authController.login);
+router.post("/logout", authController.logout);
 
 //END API ---
 
