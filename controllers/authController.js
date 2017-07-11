@@ -9,7 +9,7 @@ exports.login = (req, res) => {
       return res.send(err);
     }
     if (!user) {
-      return res.send("not a user");
+      return res.send("Invalid email or password");
     }
 
     // req / res held in closure
@@ -39,7 +39,6 @@ exports.logout = (req, res) => {
 
 exports.isLoggedIn = (req, res, next) => {
   if (!req.body.token) {
-    console.log("inside if");
     return res.status(401).end();
   }
 
@@ -50,7 +49,6 @@ exports.isLoggedIn = (req, res, next) => {
   return jwt.verify(token, process.env.SECRET, (err, decoded) => {
     // the 401 code is for unauthorized status
     if (err) {
-      console.log("there was an error");
       return res.status(401).end();
     }
 
