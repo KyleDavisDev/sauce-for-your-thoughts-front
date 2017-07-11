@@ -49,13 +49,11 @@ storeSchema.pre("save", async function(next) {
   const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, "i");
   try {
     const storesWithSlug = await this.constructor.find({ slug: slugRegEx });
-    console.log("after regex");
     if (storesWithSlug.length) {
       this.slug = `${this.slug}-${storesWithSlug.length + 1}`;
     }
     next();
   } catch (err) {
-    console.log(err);
     next({ message: err }, false);
   }
 
