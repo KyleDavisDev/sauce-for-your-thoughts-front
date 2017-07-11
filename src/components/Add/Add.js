@@ -3,6 +3,7 @@ import axios from "axios";
 
 import StoreForm from "../StoreForm/StoreForm.js";
 import FlashMessage from "../FlashMessage/FlashMessage.js";
+import Auth from "../Auth/Auth.js";
 
 class Add extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class Add extends Component {
     formData.append("address", address);
     formData.append("coordinates", coordinates);
     formData.append("tags", tags);
+    formData.append("token", Auth.getToken());
 
     var options = {
       headers: {
