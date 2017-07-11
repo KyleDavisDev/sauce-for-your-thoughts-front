@@ -12,32 +12,24 @@ exports.login = (req, res) => {
       return res.send("Invalid email or password");
     }
 
-    // req / res held in closure
-    req.logIn(user, function(err) {
-      if (err) {
-        return res.send(err);
-      }
+    if (err) {
+      return res.send(err);
+    }
 
-      const payload = {
-        sub: user._id
-      };
+    const payload = {
+      sub: user._id
+    };
 
-      // create a token string
-      const token = jwt.sign(payload, process.env.SECRET);
-      const data = {
-        name: user.name,
-        token
-      };
-      return res.send(data);
-    });
+    //create a token string
+    const token = jwt.sign(payload, process.env.SECRET);
+    const data = { token };
+    //send back token
+    return res.send(data);
   })(req, res);
 };
 
-exports.logout = (req, res) => {
-  req.logout();
-};
-
 exports.isLoggedIn = (req, res, next) => {
+  console.log(req.body);
   if (!req.body.token) {
     return res.status(401).end();
   }
