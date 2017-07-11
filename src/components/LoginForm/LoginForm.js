@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import Auth from "../Auth/Auth.js";
+import FlashMessage from "../FlashMessage/FlashMessage.js";
+
 class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -23,10 +26,18 @@ class LoginForm extends Component {
       }
     })
       .then(response => {
-        console.log(response)
+        //if response.token exists then we know user was able to log in fully
+        if (response.data.token) {
+          this.props.logUserIn(response.data.token)
+
+          //set flash message here
+
+        } else {
+          console.log(response);
+        }
       })
       .catch(error => {
-        console.log(error)
+        console.log(error);
       });
   }
   render() {
@@ -40,6 +51,7 @@ class LoginForm extends Component {
           name="email"
           value={this.state.email}
           onChange={e => this.setState({ email: e.target.value })}
+          required
         />
         <label htmlFor="password"> Password: </label>
         <input
@@ -47,6 +59,7 @@ class LoginForm extends Component {
           id="password"
           value={this.state.password}
           onChange={e => this.setState({ password: e.target.value })}
+          required
         />
         <button type="submit" className="button">
           Save ->
