@@ -37,7 +37,7 @@ class Stores extends Component {
                   <StoreCard
                     ID={store._id}
                     name={store.name}
-                    image={store.image}
+                    image={store.photo}
                     slug={store.slug}
                     description={store.description}
                     key={store.slug}
