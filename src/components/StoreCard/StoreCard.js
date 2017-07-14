@@ -1,48 +1,51 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-import storeImage from "../../images/photos/store.jpg";
+import FillerImage from "../../images/photos/store.jpg";
 import Pencil from "../../images/icons/Pencil.js";
 
 class StoreCard extends Component {
   render() {
     return (
-      <div className="stores">
-        {this.props.stores.map(store => {
-          return (
-            <div className="store" key={store.slug}>
-              <div className="store-hero">
-                <div className="store-actions">
-                  <div className="store-action store-action-edit">
-                    <Link to={`/store/${store._id}/edit`}>
-                      <Pencil />
-                    </Link>
-                  </div>
-                </div>
-                <img
-                  src={`http://localhost:7777/public/uploads/${store.photo}`}
-                  onError={e => (e.target.src = storeImage)}
-                  title={store.name}
-                  alt={store.name}
-                />
-                <div className="store-title">
-                  <Link to={`/store/${store.slug}`}>
-                    {store.name}
-                  </Link>
-                </div>
-              </div>
-              <div className="store-details">
-                {/*{limit description to 25 words }*/}
-                <p>
-                  {store.description.split(" ").slice(0, 25).join(" ")}
-                </p>
-              </div>
+      <div className="store">
+        <div className="store-hero">
+          <div className="store-actions">
+            <div className="store-action store-action-edit">
+              <Link to={`/store/${this.props.ID}/edit`}>
+                <Pencil />
+              </Link>
             </div>
-          );
-        })}
+          </div>
+          <img
+            src={`http://localhost:7777/public/uploads/${this.props.image}`}
+            onError={e => (e.target.src = FillerImage)}
+            title={this.props.name}
+            alt={this.props.name}
+          />
+          <div className="store-title">
+            <Link to={`/store/${this.props.slug}`}>
+              {this.props.name}
+            </Link>
+          </div>
+        </div>
+        <div className="store-details">
+          {/*{limit description to 25 words }*/}
+          <p>
+            {this.props.description.split(" ").slice(0, 25).join(" ")}
+          </p>
+        </div>
       </div>
     );
   }
 }
+
+StoreCard.propTypes = {
+  ID: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  slug: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
+};
 
 module.exports = StoreCard;
