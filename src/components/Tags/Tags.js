@@ -66,7 +66,20 @@ class Tags extends Component {
             })}
           </ul>}
         {this.state.stores.length > 0 &&
-          <StoreCard stores={this.state.stores} />}
+          <div className="stores">
+            {this.state.stores.map(store => {
+              return (
+                <StoreCard
+                  ID={store._id}
+                  name={store.name}
+                  image={store.photo}
+                  slug={store.slug}
+                  description={store.description}
+                  key={store.slug}
+                />
+              );
+            })}
+          </div>}
       </div>
     );
   }
