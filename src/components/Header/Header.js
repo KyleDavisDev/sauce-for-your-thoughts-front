@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
-
-import Auth from "../Auth/Auth.js";
+import PropTypes from "prop-types";
 
 //pull in logos
 import MainLogo from "../../images/icons/Logo.js";
@@ -16,17 +15,12 @@ class Header extends Component {
     super(props);
 
     this.state = {
-      searchValue: "",
-      isUserLoggedIn: Auth.isUserAuthenticated()
+      searchValue: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ isUserLoggedIn: nextProps.isUserLoggedIn });
   }
 
   handleSubmit(event) {
@@ -136,8 +130,15 @@ class Header extends Component {
 
             {/*Login/Logout based on token*/}
             <li className="nav-item">
-              {this.state.isUserLoggedIn
-                ? <button onClick={this.handleLogout}>Logout</button>
+              {this.props.isUserLoggedIn
+                ? <NavLink
+                    onClick={this.handleLogout}
+                    to="/"
+                    className="nav-link"
+                    activeClassName="active"
+                  >
+                    Logout
+                  </NavLink>
                 : <NavLink
                     className="nav-link"
                     activeClassName="active"
@@ -152,5 +153,9 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  isUserLoggedIn: PropTypes.bool.isRequired
+};
 
 module.exports = Header;
