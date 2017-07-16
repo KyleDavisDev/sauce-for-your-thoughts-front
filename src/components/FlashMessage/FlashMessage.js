@@ -9,7 +9,7 @@ class FlashMessage extends Component {
     this.state = {
       type: this.props.type,
       text: this.props.text,
-      slug: this.props.slug
+      slug: this.props.slug || null
     };
 
     this.iterateObject = this.iterateObject.bind(this);
@@ -45,10 +45,9 @@ class FlashMessage extends Component {
   }
 
   render() {
-    const slugLink =
-      this.state.type === "success"
-        ? <Link to={`/store/${this.state.slug}`}>Rate it!</Link>
-        : "";
+    const slugLink = this.state.slug
+      ? <Link to={`/store/${this.state.slug}`}>Rate it!</Link>
+      : "";
     return (
       <div className={`flash ${this.state.type}`}>
         {/*Javascript makes checking between an object and an array incredibly*/}
@@ -56,9 +55,9 @@ class FlashMessage extends Component {
         {/*For more info:*/}
         {/*https://javascriptweblog.wordpress.com/2011/08/08/fixing-the-javascript-typeof-operator/*/}
 
-        
         {/*if object, iterate over object*/}
-        {Object.prototype.toString.call(this.state.text) === "[object Object]" &&
+        {Object.prototype.toString.call(this.state.text) ===
+          "[object Object]" &&
           <div className="error-list">
             {this.iterateObject()}
           </div>}
@@ -86,13 +85,13 @@ class FlashMessage extends Component {
 }
 
 FlashMessage.propTypes = {
-  type: PropTypes.string,
+  type: PropTypes.string.isRequired,
   text: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
     PropTypes.array
   ]),
-  slug: PropTypes.string.isRequired
+  slug: PropTypes.string
 };
 
 module.exports = FlashMessage;
