@@ -50,7 +50,7 @@ class Add extends Component {
       }
     };
 
-    //TODO filter/sanitize user input
+    //TODO filter/sanitize user input, focus top element on submit so flashmessage is in view
     axios
       .post("http://localhost:7777/api/store/add", formData, options)
       .then(response => {
@@ -88,11 +88,8 @@ class Add extends Component {
   }
 
   closeFlashMessage() {
-    const isVisible = false;
-    const type = "";
-    const text = "";
-    const slug = "";
-    this.setState({ flashMessage: { isVisible, type, text, slug } });
+    const flashMessage = { isVisible: false, type: "", text: "", slug: "" };
+    this.setState({ flashMessage });
   }
 
   render() {
