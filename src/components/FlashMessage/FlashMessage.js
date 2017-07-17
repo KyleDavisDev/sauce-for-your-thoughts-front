@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import Checker from '../../helper/Checker/Checker.js'
+import Checker from "../../helper/Checker/Checker.js";
 
 class FlashMessage extends Component {
   constructor(props) {
@@ -16,6 +16,46 @@ class FlashMessage extends Component {
 
     this.iterateObject = this.iterateObject.bind(this);
     this.iterateArray = this.iterateArray.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    //close flash on page change if flash currently visible.
+    if (this.state.type) {
+      this.props.closeFlashMessage();
+    }
+  }
+
+  render() {
+    const slugLink = this.state.slug
+      ? <Link to={`/store/${this.state.slug}`}>Rate it!</Link>
+      : "";
+    return (
+      <div className={`flash ${this.state.type}`}>
+        {/*if object, iterate over object*/}
+        {Checker.isObject(this.state.text) &&
+          <div className="error-list">
+            {this.iterateObject()}
+          </div>}
+
+        {/*if array, iterate over array*/}
+        {Checker.isArray(this.state.text) &&
+          <div className="error-list">
+            {this.iterateArray()}
+          </div>}
+
+        {/*if string, output string*/}
+        {Checker.isString(this.state.text) &&
+          <div className="success-list">
+            <p className="item">
+              {this.state.text} {slugLink}
+            </p>
+          </div>}
+
+        <button className="close-button" onClick={this.props.closeFlashMessage}>
+          X
+        </button>
+      </div>
+    );
   }
 
   iterateObject() {
@@ -44,40 +84,6 @@ class FlashMessage extends Component {
         </p>
       );
     });
-  }
-
-  render() {
-    const slugLink = this.state.slug
-      ? <Link to={`/store/${this.state.slug}`}>Rate it!</Link>
-      : "";
-    return (
-      <div className={`flash ${this.state.type}`}>
-
-        {/*if object, iterate over object*/}
-        {Checker.isObject(this.state.text) &&
-          <div className="error-list">
-            {this.iterateObject()}
-          </div>}
-
-        {/*if array, iterate over array*/}
-        {Checker.isArray(this.state.text) &&
-          <div className="error-list">
-            {this.iterateArray()}
-          </div>}
-
-        {/*if string, output string*/}
-        {Checker.isString(this.state.text) &&
-          <div className="success-list">
-            <p className="item">
-              {this.state.text} {slugLink}
-            </p>
-          </div>}
-
-        <button className="close-button" onClick={this.props.closeFlashMessage}>
-          X
-        </button>
-      </div>
-    );
   }
 }
 
