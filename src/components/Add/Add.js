@@ -19,6 +19,25 @@ class Add extends Component {
     this.closeFlashMessage = this.closeFlashMessage.bind(this);
   }
 
+  render() {
+    return (
+      <div className="inner">
+        {this.state.flashMessage.isVisible &&
+          <FlashMessage
+            type={this.state.flashMessage.type}
+            text={this.state.flashMessage.text}
+            slug={this.state.flashMessage.slug}
+            closeFlashMessage={this.closeFlashMessage}
+          />}
+        <h2>Add Store</h2>
+        <StoreForm
+          onFormSubmit={this.addStoreEntry}
+          didPostWork={this.state.didPostWork}
+        />
+      </div>
+    );
+  }
+
   addStoreEntry(store) {
     this.closeFlashMessage();
 
@@ -90,25 +109,6 @@ class Add extends Component {
   closeFlashMessage() {
     const flashMessage = { isVisible: false, type: "", text: "", slug: "" };
     this.setState({ flashMessage });
-  }
-
-  render() {
-    return (
-      <div className="inner">
-        {this.state.flashMessage.isVisible &&
-          <FlashMessage
-            type={this.state.flashMessage.type}
-            text={this.state.flashMessage.text}
-            slug={this.state.flashMessage.slug}
-            closeFlashMessage={this.closeFlashMessage}
-          />}
-        <h2>Add Store</h2>
-        <StoreForm
-          onFormSubmit={this.addStoreEntry}
-          didPostWork={this.state.didPostWork}
-        />
-      </div>
-    );
   }
 }
 
