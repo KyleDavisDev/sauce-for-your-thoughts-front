@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Auth from "../../helper/Auth/Auth.js";
 
@@ -14,6 +14,7 @@ import StoreEdit from "../Store/StoreEdit.js";
 import Tags from "../Tags/Tags.js";
 import Register from "../Register/Register.js";
 import Login from "../Login/Login.js";
+import Account from "../Account/Account.js";
 
 class Router extends Component {
   constructor(props) {
@@ -46,7 +47,12 @@ class Router extends Component {
             />}
           <Switch>
             <Route exact path="/" component={Holder} />
-            <Route exact path="/add" component={Add} />
+            <Route
+              exact
+              path="/add"
+              render={() =>
+                Auth.isUserAuthenticated() ? <Add /> : <Redirect to="/login" />}
+            />
             <Route exact path="/stores" component={Stores} />
             <Route exact path="/store/:slug" component={StoreGet} />
             <Route exact path="/store/:id/edit" component={StoreEdit} />
@@ -61,6 +67,7 @@ class Router extends Component {
                   createFlashMessage={this.createFlashMessage}
                 />}
             />
+            <Route exact path="/account" component={Account} />
             <Route
               exact
               path="/login"
@@ -92,6 +99,12 @@ class Router extends Component {
   }
 
   createFlashMessage({ type, slug = "", text }) {
+    //if flash message is visible, close it
+    if (this.state.flashMessage.isVisible) {
+      this.closeFlashMessage();
+    }
+
+    //create flash by setting state
     this.setState({ flashMessage: { isVisible: true, type, text, slug } });
   }
 
