@@ -10,6 +10,9 @@ import TopLogo from "../../images/icons/Top.js";
 import AddLogo from "../../images/icons/Add.js";
 import MapLogo from "../../images/icons/Map.js";
 
+//pull in avatar for logged in users
+import Avatar from "../Avatar/Avatar.js";
+
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -115,17 +118,25 @@ class Header extends Component {
               />
             </div>
           </div>
-
-          {/*Register/Login/Logout*/}
+          
+          {/* User section */}
           <div className="nav-section nav-user">
+            {/*Register/Update based on token*/}
             <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                activeClassName="active"
-                to="/register"
-              >
-                Register
-              </NavLink>
+              {this.props.isUserLoggedIn
+                ? <NavLink
+                    className="nav-link"
+                    activeClassName="active"
+                    to="/updateAccount"
+                  ><img src={Avatar.Boy10} />
+                  </NavLink>
+                : <NavLink
+                    className="nav-link"
+                    activeClassName="active"
+                    to="/register"
+                  >
+                    Register
+                  </NavLink>}
             </li>
 
             {/*Login/Logout based on token*/}
