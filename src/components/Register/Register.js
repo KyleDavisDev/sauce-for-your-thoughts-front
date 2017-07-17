@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import FlashMessage from "../FlashMessage/FlashMessage.js";
+import Checker from "../../Helper/Checker/Checker.js";
 
 class Register extends Component {
   constructor(props) {
@@ -11,9 +11,7 @@ class Register extends Component {
       name: "",
       email: "",
       password: "",
-      confirmPassword: "",
-      flashMessage: { isVisible: false, type: "", text: "", slug: "" },
-      didPostWork: false
+      confirmPassword: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,85 +21,11 @@ class Register extends Component {
     this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(
       this
     );
-    this.createFlashMessage = this.createFlashMessage.bind(this);
-    this.closeFlashMessage = this.closeFlashMessage.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-
-    axios({
-      method: "post",
-      url: "http://localhost:7777/register",
-      data: {
-        name: this.state.name,
-        email: this.state.email,
-        password: this.state.password,
-        "confirm-password": this.state.confirmPassword
-      }
-    })
-      .then(response => {
-        console.log(response)
-        if (Array.isArray(response.data)) {
-          //we will be here if user didn't use all inputs correctly or didn't fill something out
-          this.createFlashMessage({
-            type: "error",
-            text: response.data.map(data => data.msg)
-          });
-          this.setState({ didPostWork: false });
-        } else {
-          this.createFlashMessage({
-            type: "success",
-            slug: response.data.slug,
-            text: "Your store was added!"
-          });
-          this.setState({ didPostWork: true });
-        }
-      })
-      .catch(error => {
-        this.createFlashMessage("error");
-        this.setState({ didPostWork: false });
-      });
-  }
-
-  handleNameChange(e) {
-    this.setState({ name: e.target.value });
-  }
-
-  handleEmailChange(e) {
-    this.setState({ email: e.target.value });
-  }
-
-  handlePasswordChange(e) {
-    this.setState({ password: e.target.value });
-  }
-
-  handleConfirmPasswordChange(e) {
-    this.setState({ confirmPassword: e.target.value });
-  }
-
-  createFlashMessage({ type, slug = "", text }) {
-    this.setState({ flashMessage: { isVisible: true, type, text, slug } });
-  }
-
-  closeFlashMessage() {
-    const isVisible = false;
-    const type = "";
-    const text = "";
-    const slug = "";
-    this.setState({ flashMessage: { isVisible, type, text, slug } });
   }
 
   render() {
     return (
       <div className="inner">
-        {this.state.flashMessage.isVisible &&
-          <FlashMessage
-            type={this.state.flashMessage.type}
-            text={this.state.flashMessage.text}
-            slug={this.state.flashMessage.slug}
-            closeFlashMessage={this.closeFlashMessage}
-          />}
         <form className="form" onSubmit={this.handleSubmit}>
           <h2>Register</h2>
 
@@ -145,6 +69,73 @@ class Register extends Component {
         </form>
       </div>
     );
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    axios({
+      method: "post",
+      url: "http://localhost:7777/register",
+      data: {
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+        "confirm-password": this.state.confirmPassword
+      }
+    })
+      .then(response => {
+        if (Checker.isObject(response.data)) {
+          //use function defined in Router.js to log in user - this will cause
+          //Router.js to update state and force render() thus updating the navigation component
+          this.props.logUserIn(response.data.token);
+
+          //use prop from Router.js to create flash message
+          this.props.createFlashMessage({
+            type: "success",
+            slug: response.data.slug,
+            text: "Your store was added!"
+          });
+
+          //reset form data
+          this.setState({
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: ""
+          });
+        } else if (Checker.isArray(response.data)) {
+          //we will be here if user didn't use all inputs correctly or didn't fill something out
+
+          //use prop from Router.js to create flash message
+          this.props.createFlashMessage({
+            type: "error",
+            text: "something messed up"
+          });
+        }
+      })
+      .catch(error => {
+        this.props.createFlashMessage({
+          type: "error",
+          text: error
+        });
+      });
+  }
+
+  handleNameChange(e) {
+    this.setState({ name: e.target.value });
+  }
+
+  handleEmailChange(e) {
+    this.setState({ email: e.target.value });
+  }
+
+  handlePasswordChange(e) {
+    this.setState({ password: e.target.value });
+  }
+
+  handleConfirmPasswordChange(e) {
+    this.setState({ confirmPassword: e.target.value });
   }
 }
 
