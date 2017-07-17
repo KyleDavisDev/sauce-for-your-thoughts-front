@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Auth from "../../Helper/Auth/Auth.js";
+import Auth from "../../helper/Auth/Auth.js";
 
 //pull in other components for SPA
 import Header from "../Header/Header.js";

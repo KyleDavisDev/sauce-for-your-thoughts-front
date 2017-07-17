@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import Checker from '../../Helper/Checker/Checker.js'
+import Checker from '../../helper/Checker/Checker.js'
 
 class FlashMessage extends Component {
   constructor(props) {

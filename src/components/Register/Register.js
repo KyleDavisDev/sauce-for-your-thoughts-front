@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import Checker from "../../Helper/Checker/Checker.js";
+import Checker from "../../helper/Checker/Checker.js";
 
 class Register extends Component {
   constructor(props) {

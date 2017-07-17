@@ -11,7 +11,7 @@ import AddLogo from "../../images/icons/Add.js";
 import MapLogo from "../../images/icons/Map.js";
 
 //pull in avatar for logged in users
-import Avatar from "../Avatar/Avatar.js";
+import Avatar from "../../Helper/Avatar/Avatar.js"
 
 class Header extends Component {
   constructor(props) {

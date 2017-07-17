@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import Auth from "../Auth/Auth.js";
+import Auth from "../../helper/Auth/Auth.js";
 
 class LoginForm extends Component {
   constructor(props) {
