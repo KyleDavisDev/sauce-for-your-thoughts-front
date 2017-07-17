@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-//pull in logos
+//logos
 import MainLogo from "../../images/icons/Logo.js";
 import StoresLogo from "../../images/icons/Store.js";
 import TagLogo from "../../images/icons/Tag.js";
@@ -10,8 +10,11 @@ import TopLogo from "../../images/icons/Top.js";
 import AddLogo from "../../images/icons/Add.js";
 import MapLogo from "../../images/icons/Map.js";
 
-//pull in avatar for logged in users
-import Avatar from "../../Helper/Avatar/Avatar.js"
+//avatar for logged in users
+import Avatar from "../../Helper/Avatar/Avatar.js";
+
+//login/logout icon
+import Logout from "../../images/icons/Logout.js";
 
 class Header extends Component {
   constructor(props) {
@@ -24,19 +27,6 @@ class Header extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    this.setState({ searchValue: "" });
-  }
-
-  handleSearchChange(event) {
-    this.setState({ searchValue: event.target.value });
-  }
-
-  handleLogout() {
-    this.props.handleLogout();
   }
 
   render() {
@@ -118,7 +108,7 @@ class Header extends Component {
               />
             </div>
           </div>
-          
+
           {/* User section */}
           <div className="nav-section nav-user">
             {/*Register/Update based on token*/}
@@ -127,8 +117,10 @@ class Header extends Component {
                 ? <NavLink
                     className="nav-link"
                     activeClassName="active"
-                    to="/updateAccount"
-                  ><img src={Avatar.Boy10} />
+                    to="/account"
+                  >
+                    <img src={Avatar.Boy10} className="nav-avatar"/>
+                    Account
                   </NavLink>
                 : <NavLink
                     className="nav-link"
@@ -148,6 +140,7 @@ class Header extends Component {
                     className="nav-link"
                     activeClassName="active"
                   >
+                  <Logout />
                     Logout
                   </NavLink>
                 : <NavLink
@@ -162,6 +155,19 @@ class Header extends Component {
         </nav>
       </header>
     );
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.setState({ searchValue: "" });
+  }
+
+  handleSearchChange(event) {
+    this.setState({ searchValue: event.target.value });
+  }
+
+  handleLogout() {
+    this.props.handleLogout();
   }
 }
 
