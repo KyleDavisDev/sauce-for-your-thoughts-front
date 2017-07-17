@@ -77,6 +77,14 @@ header {
     display: flex;
     font-size: 2rem;
   }
+
+  .nav-avatar {
+    width: 29px;
+    margin-bottom: 10px;
+    background-color: #eee;
+    border-radius: 50%;
+    padding: 1px;
+  }
 }
 
 @media (max-width: 1200px) {
