@@ -9,7 +9,7 @@ class Login extends Component {
   render() {
     return (
         <div className="inner">
-            <LoginForm logUserIn={this.props.logUserIn}/>
+            <LoginForm logUserIn={this.props.logUserIn} createFlashMessage={this.props.createFlashMessage}/>
         </div>
     )
   }
