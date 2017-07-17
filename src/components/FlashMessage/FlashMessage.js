@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+import Checker from '../../Helper/Checker/Checker.js'
+
 class FlashMessage extends Component {
   constructor(props) {
     super(props);
@@ -50,26 +52,21 @@ class FlashMessage extends Component {
       : "";
     return (
       <div className={`flash ${this.state.type}`}>
-        {/*Javascript makes checking between an object and an array incredibly*/}
-        {/*difficult to be 100% but this method seems to work*/}
-        {/*For more info:*/}
-        {/*https://javascriptweblog.wordpress.com/2011/08/08/fixing-the-javascript-typeof-operator/*/}
 
         {/*if object, iterate over object*/}
-        {Object.prototype.toString.call(this.state.text) ===
-          "[object Object]" &&
+        {Checker.isObject(this.state.text) &&
           <div className="error-list">
             {this.iterateObject()}
           </div>}
 
         {/*if array, iterate over array*/}
-        {Object.prototype.toString.call(this.state.text) === "[object Array]" &&
+        {Checker.isArray(this.state.text) &&
           <div className="error-list">
             {this.iterateArray()}
           </div>}
 
         {/*if string, output string*/}
-        {typeof this.state.text === "string" &&
+        {Checker.isString(this.state.text) &&
           <div className="success-list">
             <p className="item">
               {this.state.text} {slugLink}
