@@ -1,0 +1,1 @@
+Credits for all avatar icons go to Freepik of Flaticon.com. I am, in no way, claiming ownership or creational rights to these avatars. You can find this avatar set at http://www.flaticon.com/packs/kids-avatars
