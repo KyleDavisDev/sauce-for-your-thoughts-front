@@ -3,7 +3,7 @@ import axios from "axios";
 
 import StoreForm from "../StoreForm/StoreForm.js";
 import FlashMessage from "../FlashMessage/FlashMessage.js";
-import Auth from "../Auth/Auth.js";
+import Auth from "../../Helper/Auth/Auth.js";
 
 class Add extends Component {
   constructor(props) {
