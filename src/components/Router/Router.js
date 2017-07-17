@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Auth from "../Auth/Auth.js";
+import Auth from "../../Helper/Auth/Auth.js";
 
 //pull in other components for SPA
 import Header from "../Header/Header.js";
+import FlashMessage from "../FlashMessage/FlashMessage.js";
 import Holder from "../Holder/Holder.js";
 import Add from "../Add/Add.js";
 import Stores from "../Stores/Stores.js";
@@ -18,11 +19,66 @@ class Router extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isUserLoggedIn: Auth.isUserAuthenticated()
+      isUserLoggedIn: Auth.isUserAuthenticated(),
+      flashMessage: { isVisible: false, type: "", text: "", slug: "" }
     };
 
     this.logUserIn = this.logUserIn.bind(this);
     this.logUserOut = this.logUserOut.bind(this);
+    this.createFlashMessage = this.createFlashMessage.bind(this);
+    this.closeFlashMessage = this.closeFlashMessage.bind(this);
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="container">
+          <Header
+            isUserLoggedIn={this.state.isUserLoggedIn}
+            handleLogout={this.logUserOut}
+          />
+          {this.state.flashMessage.isVisible &&
+            <FlashMessage
+              type={this.state.flashMessage.type}
+              text={this.state.flashMessage.text}
+              slug={this.state.flashMessage.slug}
+              closeFlashMessage={this.closeFlashMessage}
+            />}
+          <Switch>
+            <Route exact path="/" component={Holder} />
+            <Route exact path="/add" component={Add} />
+            <Route exact path="/stores" component={Stores} />
+            <Route exact path="/store/:slug" component={StoreGet} />
+            <Route exact path="/store/:id/edit" component={StoreEdit} />
+            <Route exact path="/tags" component={Tags} />
+            <Route exact path="/tags/:tag" component={Tags} />
+            <Route
+              exact
+              path="/register"
+              render={() =>
+                <Register
+                  logUserIn={this.logUserIn}
+                  createFlashMessage={this.createFlashMessage}
+                />}
+            />
+            <Route
+              exact
+              path="/login"
+              render={() =>
+                <Login
+                  logUserIn={this.logUserIn}
+                  createFlashMessage={this.createFlashMessage}
+                />}
+            />
+            <Route
+              render={function() {
+                return <p> Page not found. Sorry! </p>;
+              }}
+            />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
   }
 
   logUserIn(token) {
@@ -35,37 +91,13 @@ class Router extends Component {
     this.setState({ isUserLoggedIn: Auth.isUserAuthenticated() });
   }
 
-  render() {
-    return (
-      <BrowserRouter>
-        <div className="container">
-          <Header
-            isUserLoggedIn={this.state.isUserLoggedIn}
-            handleLogout={this.logUserOut}
-          />
-          <Switch>
-            <Route exact path="/" component={Holder} />
-            <Route exact path="/add" component={Add} />
-            <Route exact path="/stores" component={Stores} />
-            <Route exact path="/store/:slug" component={StoreGet} />
-            <Route exact path="/store/:id/edit" component={StoreEdit} />
-            <Route exact path="/tags" component={Tags} />
-            <Route exact path="/tags/:tag" component={Tags} />
-            <Route exact path="/register" component={Register} />
-            <Route
-              exact
-              path="/login"
-              render={() => <Login logUserIn={this.logUserIn} />}
-            />
-            <Route
-              render={function() {
-                return <p> Page not found. Sorry! </p>;
-              }}
-            />
-          </Switch>
-        </div>
-      </BrowserRouter>
-    );
+  createFlashMessage({ type, slug = "", text }) {
+    this.setState({ flashMessage: { isVisible: true, type, text, slug } });
+  }
+
+  closeFlashMessage() {
+    const flashMessage = { isVisible: false, type: "", text: "", slug: "" };
+    this.setState({ flashMessage });
   }
 }
 
