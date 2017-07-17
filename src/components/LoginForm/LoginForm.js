@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Auth from "../Auth/Auth.js";
-import FlashMessage from "../FlashMessage/FlashMessage.js";
 
 class LoginForm extends Component {
   constructor(props) {
@@ -10,69 +9,13 @@ class LoginForm extends Component {
 
     this.state = {
       email: "",
-      password: "",
-      flashMessage: { isVisible: false, type: "", text: "", slug: "" }
+      password: ""
     };
-
-    this.closeFlashMessage = this.closeFlashMessage.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-
-    axios({
-      method: "post",
-      url: "http://localhost:7777/login",
-      data: {
-        email: this.state.email,
-        password: this.state.password
-      }
-    })
-      .then(response => {
-        //if response.token exists then we know user was able to log in fully
-        if (response.data.token) {
-
-          //use function defined in Router.js to log in user - this will cause
-          //Router.js to update state and force render() thus updating the navigation component
-          this.props.logUserIn(response.data.token);
-
-          //set success flash and clear input fields
-          const flashMessage = {
-            isVisible: true,
-            type: "success",
-            text: "You are now logged in!"
-          };
-          this.setState({ email: "", password: "", flashMessage });
-        } else {
-          //set error flash message and maintain input fields
-          const flashMessage = {
-            isVisible: true,
-            type: "error",
-            text: response.data
-          };
-          this.setState({ flashMessage });
-          // console.log(response);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
-  closeFlashMessage() {
-    const flashMessage = { isVisible: false, type: "", text: "", slug: "" };
-    this.setState({ flashMessage });
   }
 
   render() {
     return (
       <div>
-        {this.state.flashMessage.isVisible &&
-          <FlashMessage
-            type={this.state.flashMessage.type}
-            text={this.state.flashMessage.text}
-            closeFlashMessage={this.closeFlashMessage}
-          />}
         <form className="form" onSubmit={this.handleSubmit.bind(this)}>
           <h2>Login</h2>
           <label htmlFor="email"> Email Address: </label>
@@ -98,6 +41,51 @@ class LoginForm extends Component {
         </form>
       </div>
     );
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    axios({
+      method: "post",
+      url: "http://localhost:7777/login",
+      data: {
+        email: this.state.email,
+        password: this.state.password
+      }
+    })
+      .then(response => {
+        //if response.token exists then we know user was able to log in fully
+        if (response.data.token) {
+          //use function defined in Router.js to log in user - this will cause
+          //Router.js to update state and force render() thus updating the navigation component
+          this.props.logUserIn(response.data.token);
+
+          //set success flash
+          this.props.createFlashMessage({
+            isVisible: true,
+            type: "success",
+            text: "You are now logged in!"
+          });
+          //clear input fields
+          this.setState({ email: "", password: "", flashMessage });
+        } else {
+          //set error flash message
+          this.props.createFlashMessage({
+            isVisible: true,
+            type: "error",
+            text: response.data
+          });
+        }
+      })
+      .catch(error => {
+        //set error flash message
+        this.props.createFlashMessage({
+          isVisible: true,
+          type: "error",
+          text: "Something broke. Try again!"
+        });
+      });
   }
 }
 
