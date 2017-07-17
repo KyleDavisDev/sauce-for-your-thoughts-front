@@ -11,6 +11,9 @@ class LoginForm extends Component {
       email: "",
       password: ""
     };
+
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
 
   render() {
@@ -24,7 +27,7 @@ class LoginForm extends Component {
             id="email"
             name="email"
             value={this.state.email}
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={this.handleEmailChange}
             required
           />
           <label htmlFor="password"> Password: </label>
@@ -32,7 +35,7 @@ class LoginForm extends Component {
             type="password"
             id="password"
             value={this.state.password}
-            onChange={e => this.setState({ password: e.target.value })}
+            onChange={this.handlePasswordChange}
             required
           />
           <button type="submit" className="button">
@@ -68,7 +71,7 @@ class LoginForm extends Component {
             text: "You are now logged in!"
           });
           //clear input fields
-          this.setState({ email: "", password: "", flashMessage });
+          this.setState({ email: "", password: ""});
         } else {
           //set error flash message
           this.props.createFlashMessage({
@@ -79,6 +82,7 @@ class LoginForm extends Component {
         }
       })
       .catch(error => {
+        console.log(error)
         //set error flash message
         this.props.createFlashMessage({
           isVisible: true,
@@ -86,6 +90,14 @@ class LoginForm extends Component {
           text: "Something broke. Try again!"
         });
       });
+  }
+
+  handleEmailChange(e) {
+    this.setState({ email: e.target.value });
+  }
+
+  handlePasswordChange(e) {
+    this.setState({ password: e.target.value });
   }
 }
 
