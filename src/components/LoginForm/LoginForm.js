@@ -18,31 +18,29 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div>
-        <form className="form" onSubmit={this.handleSubmit.bind(this)}>
-          <h2>Login</h2>
-          <label htmlFor="email"> Email Address: </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleEmailChange}
-            required
-          />
-          <label htmlFor="password"> Password: </label>
-          <input
-            type="password"
-            id="password"
-            value={this.state.password}
-            onChange={this.handlePasswordChange}
-            required
-          />
-          <button type="submit" className="button">
-            Save ->
-          </button>
-        </form>
-      </div>
+      <form className="form" onSubmit={this.handleSubmit.bind(this)}>
+        <h2>Login</h2>
+        <label htmlFor="email"> Email Address: </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={this.state.email}
+          onChange={this.handleEmailChange}
+          required
+        />
+        <label htmlFor="password"> Password: </label>
+        <input
+          type="password"
+          id="password"
+          value={this.state.password}
+          onChange={this.handlePasswordChange}
+          required
+        />
+        <button type="submit" className="button">
+          LOG IN ->
+        </button>
+      </form>
     );
   }
 
@@ -71,7 +69,7 @@ class LoginForm extends Component {
             text: "You are now logged in!"
           });
           //clear input fields
-          this.setState({ email: "", password: ""});
+          this.setState({ email: "", password: "" });
         } else {
           //set error flash message
           this.props.createFlashMessage({
@@ -82,7 +80,7 @@ class LoginForm extends Component {
         }
       })
       .catch(error => {
-        console.log(error)
+        console.log(error);
         //set error flash message
         this.props.createFlashMessage({
           isVisible: true,
