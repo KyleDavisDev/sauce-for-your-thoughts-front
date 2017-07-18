@@ -67,12 +67,18 @@ class Router extends Component {
                   createFlashMessage={this.createFlashMessage}
                 />}
             />
-            <Route exact path="/account" component={Account} />
+            <Route
+              exact
+              path="/account"
+              render={() =>
+                <Account createFlashMessage={this.createFlashMessage} />}
+            />
             <Route
               exact
               path="/login"
               render={() =>
                 <Login
+                  logUserOut={this.logUserOut}
                   logUserIn={this.logUserIn}
                   createFlashMessage={this.createFlashMessage}
                 />}
