@@ -29,7 +29,6 @@ exports.login = (req, res) => {
 };
 
 exports.isLoggedIn = (req, res, next) => {
-  console.log(req.body);
   if (!req.body.token) {
     return res.status(401).end();
   }
@@ -56,4 +55,31 @@ exports.isLoggedIn = (req, res, next) => {
       return next();
     });
   });
+};
+
+exports.forgot = async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) res.send("An email has been sent to you.");
+
+    //create a token string
+    const payload = {
+      sub: user._id
+    };
+    const token = jwt.sign(payload, process.env.SECRET);
+
+    //assign token and current date in DB to check against later
+    user.resetPasswordToken = token;
+    user.resetPasswordExpires = new Date().getTime().toString();
+    await user.save();
+
+    //create URL link to email to person
+    const resetURL = `https://${req.headers.host}/account/reset/${user.resetPasswordToken}`;
+    const data = { resetURL };
+
+    //send back URL
+    return res.send(data);
+  } catch (err) {
+    res.send(err);
+  }
 };
