@@ -7,6 +7,10 @@ label {
   background: $content-background;
   padding: 2rem;
 
+  & + .form {
+    margin-top: 4rem;
+  }
+
   input, textarea, button {
     width: 100%;
     max-width: 100%;
@@ -30,3 +34,4 @@ label {
     border-bottom: 1px solid $grey;
   }
 }
+
