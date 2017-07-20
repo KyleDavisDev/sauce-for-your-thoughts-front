@@ -53,7 +53,9 @@ module.exports = {
 	],
 	},
 	devServer: {
-		historyApiFallback: true
+		historyApiFallback: {
+			disableDotRule: true
+		}
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
