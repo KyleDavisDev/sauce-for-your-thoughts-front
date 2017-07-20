@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
     trim: true
   },
   resetPasswordToken: String,
-  resetPasswordExpires: String
+  resetPasswordExpires: Date
 });
 
 userSchema.plugin(passportLocalMongoose, { usernameField: "email" });
