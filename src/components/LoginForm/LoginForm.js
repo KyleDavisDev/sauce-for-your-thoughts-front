@@ -46,12 +46,13 @@ class LoginForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const email = this.state.email.trim().toLowerCase()
 
     axios({
       method: "post",
       url: "http://localhost:7777/login",
       data: {
-        email: this.state.email,
+        email,
         password: this.state.password
       }
     })
