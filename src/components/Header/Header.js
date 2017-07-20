@@ -11,7 +11,7 @@ import AddLogo from "../../images/icons/Add.js";
 import MapLogo from "../../images/icons/Map.js";
 
 //avatar for logged in users
-import Avatar from "../../Helper/Avatar/Avatar.js";
+import Avatar from "../../helper/Avatar/Avatar.js";
 
 //login/logout icon
 import Logout from "../../images/icons/Logout.js";
@@ -120,7 +120,7 @@ class Header extends Component {
                     to="/account"
                   >
                     <img src={Avatar.Boy10} className="nav-avatar"/>
-                    Account
+                    Settings
                   </NavLink>
                 : <NavLink
                     className="nav-link"
