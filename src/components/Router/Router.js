@@ -71,7 +71,18 @@ class Router extends Component {
               exact
               path="/account"
               render={() =>
-                <Account createFlashMessage={this.createFlashMessage} />}
+                Auth.isUserAuthenticated()
+                  ? <Account createFlashMessage={this.createFlashMessage} />
+                  : <Redirect to="/login" />}
+            />
+            <Route
+              exact
+              path="/account/reset/:token"
+              render={props =>
+                <Account
+                  token={props.match.params.token}
+                  createFlashMessage={this.createFlashMessage}
+                />}
             />
             <Route
               exact
