@@ -70,11 +70,12 @@ exports.forgot = async (req, res) => {
 
     //assign token and current date in DB to check against later
     user.resetPasswordToken = token;
-    user.resetPasswordExpires = new Date().getTime().toString();
+    user.resetPasswordExpires = Date.now() + 3600000;
     await user.save();
 
     //create URL link to email to person
-    const resetURL = `https://${req.headers.host}/account/reset/${user.resetPasswordToken}`;
+    const resetURL = `https://${req.headers
+      .host}/account/reset/${user.resetPasswordToken}`;
     const data = { resetURL };
 
     //send back URL
@@ -82,4 +83,8 @@ exports.forgot = async (req, res) => {
   } catch (err) {
     res.send(err);
   }
+};
+
+exports.reset = async (req, res) => {
+  console.log(req.body.token);
 };
