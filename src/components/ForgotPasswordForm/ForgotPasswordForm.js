@@ -40,7 +40,7 @@ class ForgotPasswordForm extends Component {
 
     axios({
       method: "post",
-      url: "http://localhost:7777/account/reset",
+      url: "http://localhost:7777/account/forgot",
       data: {
         email: this.state.email
       }
