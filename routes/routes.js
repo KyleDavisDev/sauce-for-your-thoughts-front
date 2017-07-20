@@ -55,7 +55,8 @@ router.post(
 router.post("/login", authController.login);
 router.post("/account/get", userController.getUser);
 router.post("/account/update", userController.updateUser)
-router.post("/account/reset", authController.forgot)
+router.post("/account/forgot", authController.forgot)
+router.post("/account/reset", authController.reset)
 
 //END API ---
 
