@@ -15,6 +15,7 @@ import Tags from "../Tags/Tags.js";
 import Register from "../Register/Register.js";
 import Login from "../Login/Login.js";
 import Account from "../Account/Account.js";
+import ResetPassword from "../ResetPassword/ResetPassword.js";
 
 class Router extends Component {
   constructor(props) {
@@ -75,14 +76,17 @@ class Router extends Component {
                   ? <Account createFlashMessage={this.createFlashMessage} />
                   : <Redirect to="/login" />}
             />
+
             <Route
               exact
               path="/account/reset/:token"
               render={props =>
-                <Account
-                  token={props.match.params.token}
-                  createFlashMessage={this.createFlashMessage}
-                />}
+                Auth.isUserAuthenticated()
+                  ? <Redirect to="/" />
+                  : <ResetPassword
+                      token={props.match.params.token}
+                      createFlashMessage={this.createFlashMessage}
+                    />}
             />
             <Route
               exact
