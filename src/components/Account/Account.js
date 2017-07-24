@@ -55,21 +55,14 @@ class Account extends Component {
       _id: ""
     };
 
-    this.resetUserPassword = this.resetUserPassword.bind(this);
     this.getUserInfo = this.getUserInfo.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
   }
 
-  componentWillMount() {
-    const token = this.props.token || null;
-
-    if (token) {
-      this.resetUserPassword(token);
-    } else {
-      this.getUserInfo();
-    }
+  componentDidMount() {
+    this.getUserInfo();
   }
 
   render() {
@@ -105,18 +98,6 @@ class Account extends Component {
       .catch(err => {
         //user failed to authenticate
       });
-  }
-
-  resetUserPassword(token) {
-    axios({
-      method: "post",
-      url: "http://localhost:7777/account/reset/",
-      data: { token }
-    })
-      .then(response => {
-        console.log(response);
-      })
-      .catch(err => console.log(err));
   }
 
   handleSubmit(e) {
