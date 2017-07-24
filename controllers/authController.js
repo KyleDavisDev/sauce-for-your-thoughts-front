@@ -1,6 +1,7 @@
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const User = require("mongoose").model("User");
+const promisify = require("es6-promisify");
 
 exports.login = (req, res) => {
   // generate the authenticate method and pass the req/res
@@ -22,7 +23,7 @@ exports.login = (req, res) => {
 
     //create a token string
     const token = jwt.sign(payload, process.env.SECRET);
-    const data = { token };
+    const data = { isGood: true, msg: "Successfully logged in.", token };
     //send back token
     return res.send(data);
   })(req, res);
@@ -74,8 +75,7 @@ exports.forgot = async (req, res) => {
     await user.save();
 
     //create URL link to email to person
-    const resetURL = `https://${req.headers
-      .host}/account/reset/${user.resetPasswordToken}`;
+    const resetURL = `http://localhost:8080/account/reset/${user.resetPasswordToken}`;
     const data = { resetURL };
 
     //send back URL
@@ -85,6 +85,78 @@ exports.forgot = async (req, res) => {
   }
 };
 
-exports.reset = async (req, res) => {
-  console.log(req.body.token);
+//called to verify if token is legit or not when user first lands on reset page
+exports.validateResetToken = async (req, res) => {
+  try {
+    //find if user exists w/ matching token and within time limit of 1hr
+    const user = await User.findOne({
+      resetPasswordToken: req.body.token,
+      resetPasswordExpires: { $gt: Date.now() }
+    });
+
+    if (!user) {
+      const data = {
+        isGood: false,
+        msg: "Password reset token has expired or is incorrect."
+      };
+      res.send(data);
+      return;
+    }
+
+    const data = { isGood: true, msg: "Please enter a new password." };
+    res.send(data);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+//checks if two submitted passwords are equal
+exports.confirmPasswords = (req, res, next) => {
+  if (req.body.password === req.body.confirmPassword) {
+    next(); //keep going
+    return;
+  }
+
+  //passwords didn't match
+  const data = {
+    isGood: false,
+    msg: "Passwords did not match. Please try again."
+  };
+  res.send(data);
+  return;
+};
+
+//reset password
+exports.updatePassword = async (req, res, next) => {
+  try {
+    const user = await User.findOne({
+      resetPasswordToken: req.body.token,
+      resetPasswordExpires: { $gt: Date.now() }
+    });
+
+    if (!user) {
+      res.send({
+        isGood: false,
+        msg: "User was not found or token has expired."
+      });
+      return;
+    }
+
+    //save pw
+    const setPassword = promisify(user.setPassword, user);
+    await setPassword(req.body.password);
+
+    //remove token and token expiration from db
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpires = undefined;
+    await user.save();
+
+    //log user in -- need to bind email to req.body first
+    req.body.email = user.email;
+    next();
+    return;
+  } catch (err) {
+    res.send(err);
+    return;
+  }
 };
