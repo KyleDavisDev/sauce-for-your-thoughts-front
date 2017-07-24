@@ -27,6 +27,10 @@
     border: 5px inset green;
   }
 
+  &.caution {
+    border: 5px inset yellow;
+  }
+
   .error-list {
     display: flex;
     flex-direction: column;
