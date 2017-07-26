@@ -42,7 +42,13 @@ class StoreForm extends Component {
     //update state if props passed otherwise keep as is
     //greater than 2 since "onFormSubmit" and didPostWork MUST be passed
     if (Object.keys(this.props).length > 2) {
-      const { storeName, storeDescription } = this.props;
+      const {
+        storeName,
+        storeDescription,
+        storeAddress,
+        storeLongitude,
+        storeLatitude
+      } = this.props;
 
       //compare prop tags with inital state tag to see which checkbox
       //should be initiated as checked
@@ -54,9 +60,6 @@ class StoreForm extends Component {
         }
         return tag;
       });
-      const storeAddress = this.props.storeAddress;
-      const storeLongitude = this.props.storeLongitude;
-      const storeLatitude = this.props.storeLatitude;
 
       //update state
       this.setState({
@@ -110,92 +113,6 @@ class StoreForm extends Component {
     if (nextProps.didPostWork) {
       this.resetState();
     }
-  }
-
-  handleSubmit(event) {
-    //prevent the normal submission of a submit to post
-    event.preventDefault();
-
-    //call function passed by parent
-    this.props.onFormSubmit(this.state);
-  }
-
-  handleNameChange(event) {
-    this.setState({ storeName: event.target.value });
-  }
-
-  handleDescriptionChange(event) {
-    this.setState({ storeDescription: event.target.value });
-  }
-
-  onFileUploadChange(files) {
-    var file = files[0];
-    this.setState({ storePhoto: file });
-  }
-
-  handleAddressChange(event) {
-    let location = this.state.location;
-    location.storeAddress = event;
-    this.setState({ location });
-  }
-
-  handleAddressSelect(address, placeId) {
-    geocodeByAddress(address)
-      .then(results => {
-        let location = this.state.location;
-        location.storeAddress = results[0].formatted_address;
-        location.storeLatitude = results[0].geometry.location.lat();
-        location.storeLongitude = results[0].geometry.location.lng();
-        this.setState({ location });
-      })
-      .catch(error => console.error("Error", error));
-  }
-
-  handleLongitudeChange(event) {
-    let location = this.state.location;
-    location.storeLongitude = event.target.value;
-    this.setState({ location });
-  }
-
-  handleLatitudeChange(event) {
-    let location = this.state.location;
-    location.storeLatitude = event.target.value;
-    this.setState({ location });
-  }
-
-  handleCheckboxChange(event) {
-    //this could probably be much more elegant but works so I'll come back to this later
-    //find which array element was clicked and flip that elements isChecked value
-    const newTags = this.state.tags.map(tag => {
-      if (tag.name === event.target.name) {
-        tag.isChecked = !tag.isChecked;
-      }
-      return tag;
-    });
-
-    this.setState({
-      tags: newTags
-    });
-  }
-
-  resetState() {
-    this.setState({
-      storeName: "",
-      storeDescription: "",
-      tags: [
-        { name: "Wifi", isChecked: false },
-        { name: "Open Late", isChecked: false },
-        { name: "Vegatarian", isChecked: false },
-        { name: "Licensed", isChecked: false },
-        { name: "Family Friendly", isChecked: false }
-      ],
-      location: {
-        storeAddress: "",
-        storeLatitude: "",
-        storeLongitude: ""
-      },
-      storePhoto: ""
-    });
   }
 
   render() {
@@ -305,11 +222,92 @@ class StoreForm extends Component {
       </form>
     );
   }
+
+  handleSubmit(event) {
+    //call function passed by parent
+    this.props.onFormSubmit(event, this.state);
+  }
+
+  handleNameChange(event) {
+    this.setState({ storeName: event.target.value });
+  }
+
+  handleDescriptionChange(event) {
+    this.setState({ storeDescription: event.target.value });
+  }
+
+  onFileUploadChange(files) {
+    this.setState({ storePhoto: files[0] });
+  }
+
+  handleAddressChange(event) {
+    let location = this.state.location;
+    location.storeAddress = event;
+    this.setState({ location });
+  }
+
+  handleAddressSelect(address, placeId) {
+    geocodeByAddress(address)
+      .then(results => {
+        let location = this.state.location;
+        location.storeAddress = results[0].formatted_address;
+        location.storeLatitude = results[0].geometry.location.lat();
+        location.storeLongitude = results[0].geometry.location.lng();
+        this.setState({ location });
+      })
+      .catch(error => console.error("Error", error));
+  }
+
+  handleLongitudeChange(event) {
+    let location = this.state.location;
+    location.storeLongitude = event.target.value;
+    this.setState({ location });
+  }
+
+  handleLatitudeChange(event) {
+    let location = this.state.location;
+    location.storeLatitude = event.target.value;
+    this.setState({ location });
+  }
+
+  handleCheckboxChange(event) {
+    //this could probably be much more elegant but works so I'll come back to this later
+    //find which array element was clicked and flip that elements isChecked value
+    const tags = this.state.tags.map(tag => {
+      if (tag.name === event.target.name) {
+        tag.isChecked = !tag.isChecked;
+      }
+      return tag;
+    });
+
+    this.setState({
+      tags
+    });
+  }
+
+  resetState() {
+    this.setState({
+      storeName: "",
+      storeDescription: "",
+      tags: [
+        { name: "Wifi", isChecked: false },
+        { name: "Open Late", isChecked: false },
+        { name: "Vegatarian", isChecked: false },
+        { name: "Licensed", isChecked: false },
+        { name: "Family Friendly", isChecked: false }
+      ],
+      location: {
+        storeAddress: "",
+        storeLatitude: "",
+        storeLongitude: ""
+      },
+      storePhoto: ""
+    });
+  }
 }
 
 StoreForm.propTypes = {
   onFormSubmit: PropTypes.func.isRequired,
-  didPostWork: PropTypes.bool.isRequired,
   storeName: PropTypes.string,
   storeDescription: PropTypes.string,
   tags: PropTypes.array

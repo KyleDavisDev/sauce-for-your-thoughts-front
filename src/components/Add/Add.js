@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 import StoreForm from "../StoreForm/StoreForm.js";
-import FlashMessage from "../FlashMessage/FlashMessage.js";
 import Auth from "../../helper/Auth/Auth.js";
 
 class Add extends Component {
@@ -10,73 +10,61 @@ class Add extends Component {
     super(props);
 
     this.state = {
-      didPostWork: false,
-      flashMessage: { isVisible: false, type: "", text: "", slug: "" }
+      store: {
+        name: "",
+        description: "",
+        tags: [""],
+        location: { address: "", coordinates: ["", ""] }
+      }
     };
 
-    this.addStoreEntry = this.addStoreEntry.bind(this);
-    this.createFlashMessage = this.createFlashMessage.bind(this);
-    this.closeFlashMessage = this.closeFlashMessage.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   render() {
     return (
       <div className="inner">
-        {this.state.flashMessage.isVisible &&
-          <FlashMessage
-            type={this.state.flashMessage.type}
-            text={this.state.flashMessage.text}
-            slug={this.state.flashMessage.slug}
-            closeFlashMessage={this.closeFlashMessage}
-          />}
         <h2>Add Store</h2>
         <StoreForm
-          onFormSubmit={this.addStoreEntry}
+          onFormSubmit={this.handleFormSubmit}
           didPostWork={this.state.didPostWork}
         />
       </div>
     );
   }
 
-  addStoreEntry(store) {
-    this.closeFlashMessage();
+  handleFormSubmit(e, store) {
+    e.preventDefault();
 
-    //grab info from store object and then put into FormData for AJAX post
-    const {
-      storeName: name,
-      storeDescription: description,
-      storePhoto: photo
-    } = store;
+    //make tags an array of checked tags
     const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
-    const address = store.location.storeAddress;
+    //round location to 6 decimal places and convert to string
     const coordinates = [
-      parseFloat(store.location.storeLongitude) || "",
-      parseFloat(store.location.storeLatitude) || ""
+      parseFloat(store.location.storeLongitude).toFixed(7) || "",
+      parseFloat(store.location.storeLatitude).toFixed(7) || ""
     ];
 
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("description", description);
-    formData.append("image", photo);
-    formData.append("address", address);
-    formData.append("coordinates", coordinates);
-    formData.append("tags", tags);
-    formData.append("token", Auth.getToken());
+    const data = new FormData();
+    data.append("name", store.storeName);
+    data.append("description", store.storeDescription);
+    data.append("image", store.storePhoto);
+    data.append("address", store.location.storeAddress);
+    data.append("coordinates", coordinates);
+    data.append("tags", tags);
+    data.append("token", Auth.getToken());
 
-    var options = {
-      headers: {
-        "Content-Type": "multipart/form-data"
-      }
-    };
-
-    //TODO filter/sanitize user input, focus top element on submit so flashmessage is in view
-    axios
-      .post("http://localhost:7777/api/store/add", formData, options)
+    //TODO filter/sanitize user input
+    axios({
+      method: "post",
+      url: "http://localhost:7777/api/store/add",
+      data,
+      options: { headers: { "Content-Type": "multipart/form-data" } }
+    })
       .then(response => {
         if (response.data.errors) {
           //we will be here if user didn't use all inputs correctly or didn't fill something out
           //create error message
-          this.createFlashMessage({
+          this.props.createFlashMessage({
             type: "error",
             text: response.data.errors
           });
@@ -86,7 +74,7 @@ class Add extends Component {
         } else {
           //response.data holds the slug of the store added
           //create success message
-          this.createFlashMessage({
+          this.props.createFlashMessage({
             type: "success",
             slug: response.data.slug,
             text: "Your store was added!"
@@ -97,19 +85,17 @@ class Add extends Component {
         }
       })
       .catch(error => {
-        this.createFlashMessage("error");
+        this.props.createFlashMessage({
+          type: "error",
+          text: "Something broke!"
+        });
         this.setState({ didPostWork: false });
       });
   }
-
-  createFlashMessage({ type, slug = "", text }) {
-    this.setState({ flashMessage: { isVisible: true, type, text, slug } });
-  }
-
-  closeFlashMessage() {
-    const flashMessage = { isVisible: false, type: "", text: "", slug: "" };
-    this.setState({ flashMessage });
-  }
 }
+
+Add.propTypes = {
+  createFlashMessage: PropTypes.func.isRequired
+};
 
 module.exports = Add;
