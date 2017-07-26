@@ -31,7 +31,12 @@ exports.login = (req, res) => {
 
 exports.isLoggedIn = (req, res, next) => {
   if (!req.body.token) {
-    return res.status(401).end();
+    const data = {
+      isGood: false,
+      msg: "You are not logged in or your token is invalid. Please try again."
+    };
+    res.send(data);
+    return;
   }
 
   // get token from post
@@ -41,7 +46,12 @@ exports.isLoggedIn = (req, res, next) => {
   return jwt.verify(token, process.env.SECRET, (err, decoded) => {
     // the 401 code is for unauthorized status
     if (err) {
-      return res.status(401).end();
+      const data = {
+        isGood: false,
+        msg: "You are not logged in or your token is invalid. Please try again."
+      };
+      res.send(data);
+      return;
     }
 
     const userId = decoded.sub;
@@ -49,7 +59,13 @@ exports.isLoggedIn = (req, res, next) => {
     // check if a user exists
     return User.findById(userId, (userErr, user) => {
       if (userErr || !user) {
-        return res.status(401).end();
+        const data = {
+          isGood: false,
+          msg:
+            "You are not logged in or your token is invalid. Please try again."
+        };
+        res.send(data);
+        return;
       }
 
       //user is legit
