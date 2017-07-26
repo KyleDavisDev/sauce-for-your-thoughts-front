@@ -52,11 +52,23 @@ class Router extends Component {
               exact
               path="/add"
               render={() =>
-                Auth.isUserAuthenticated() ? <Add /> : <Redirect to="/login" />}
+                Auth.isUserAuthenticated()
+                  ? <Add createFlashMessage={this.createFlashMessage} />
+                  : <Redirect to="/login" />}
             />
             <Route exact path="/stores" component={Stores} />
             <Route exact path="/store/:slug" component={StoreGet} />
-            <Route exact path="/store/:id/edit" component={StoreEdit} />
+            <Route
+              exact
+              path="/store/:id/edit"
+              render={props =>
+                Auth.isUserAuthenticated()
+                  ? <StoreEdit
+                      id={props.match.params.id}
+                      createFlashMessage={this.createFlashMessage}
+                    />
+                  : <Redirect to="/login" />}
+            />
             <Route exact path="/tags" component={Tags} />
             <Route exact path="/tags/:tag" component={Tags} />
             <Route
