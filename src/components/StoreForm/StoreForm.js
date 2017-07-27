@@ -38,47 +38,10 @@ class StoreForm extends Component {
     this.resetState = this.resetState.bind(this);
   }
 
-  componentWillMount() {
-    //update state if props passed otherwise keep as is
-    //greater than 2 since "onFormSubmit" and didPostWork MUST be passed
-    if (Object.keys(this.props).length > 2) {
-      const {
-        storeName,
-        storeDescription,
-        storeAddress,
-        storeLongitude,
-        storeLatitude
-      } = this.props;
-
-      //compare prop tags with inital state tag to see which checkbox
-      //should be initiated as checked
-      const tags = this.state.tags.map(tag => {
-        if (this.props.tags.includes(tag.name)) {
-          tag.isChecked = true;
-        } else {
-          tag.isChecked = false;
-        }
-        return tag;
-      });
-
-      //update state
-      this.setState({
-        storeName,
-        storeDescription,
-        tags,
-        location: {
-          storeAddress,
-          storeLongitude,
-          storeLatitude
-        }
-      });
-    }
-  }
-
   componentWillReceiveProps(nextProps) {
     //update state if props updated otherwise keep as is
-    //greater than 2 since "onFormSubmit" and didPostWork MUST be passed
-    if (Object.keys(this.props).length > 2) {
+    //greater than 1 since "onFormSubmit"  MUST be passed
+    if (Object.keys(this.props).length > 1) {
       const { storeName, storeDescription } = nextProps;
 
       //compare prop tags with current state tag to see which checkbox
@@ -94,6 +57,7 @@ class StoreForm extends Component {
       const storeAddress = nextProps.storeAddress;
       const storeLongitude = nextProps.storeLongitude;
       const storeLatitude = nextProps.storeLatitude;
+      const storePhoto = require(`../../../public/uploads/${nextProps.storePhoto}`);
 
       //update state
       this.setState({
@@ -104,7 +68,8 @@ class StoreForm extends Component {
           storeAddress,
           storeLongitude,
           storeLatitude
-        }
+        },
+        storePhoto
       });
     }
 
@@ -148,25 +113,33 @@ class StoreForm extends Component {
         />
 
         <label htmlFor="storePhoto"> Photo: </label>
-        <Dropzone
-          onDrop={this.onFileUploadChange}
-          size={150}
-          accept="image/jpeg, image/png"
-          ref={node => {
-            dropzoneRef = node;
-          }}
-        >
-          <div>Drop some files here!</div>
-          {this.state.storePhoto.name} - {this.state.storePhoto.size}
-        </Dropzone>
-        <button
-          type="button"
-          onClick={() => {
-            dropzoneRef.open();
-          }}
-        >
-          Open File Dialog
-        </button>
+        <div className="dropZoneHolder">
+          <div className="dropZoneArea">
+            <Dropzone
+              onDrop={this.onFileUploadChange}
+              className="dropZone"
+              accept="image/jpeg, image/png"
+              ref={node => {
+                dropzoneRef = node;
+              }}
+            >
+              <div>Drop some files here!</div>
+            </Dropzone>
+
+            <button
+              type="button"
+              onClick={() => {
+                dropzoneRef.open();
+              }}
+              className="button"
+            >
+              Open File Dialog
+            </button>
+          </div>
+          <div className="dropZoneImage">
+            <img src={this.state.storePhoto} />
+          </div>
+        </div>
 
         <label htmlFor="storeAddress"> Address: </label>
         <PlacesAutocomplete
@@ -310,7 +283,11 @@ StoreForm.propTypes = {
   onFormSubmit: PropTypes.func.isRequired,
   storeName: PropTypes.string,
   storeDescription: PropTypes.string,
-  tags: PropTypes.array
+  tags: PropTypes.array,
+  storePhoto: PropTypes.string,
+  storeAddress: PropTypes.string,
+  storeLongitude: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  storeLatitude: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 module.exports = StoreForm;
