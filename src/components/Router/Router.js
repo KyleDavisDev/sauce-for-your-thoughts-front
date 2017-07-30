@@ -98,6 +98,7 @@ class Router extends Component {
                   : <ResetPassword
                       token={props.match.params.token}
                       createFlashMessage={this.createFlashMessage}
+                      logUserIn={this.logUserIn}
                     />}
             />
             <Route
