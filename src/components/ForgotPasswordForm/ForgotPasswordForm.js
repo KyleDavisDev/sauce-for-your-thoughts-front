@@ -49,7 +49,7 @@ class ForgotPasswordForm extends Component {
 
         //will be object if successful else we will send fake success
         if (Checker.isObject(response.data)) {
-          Auth
+          
           this.props.createFlashMessage({
             isVisible: true,
             type: "success",
