@@ -5,6 +5,7 @@ const promisify = require("es6-promisify");
 
 exports.login = (req, res) => {
   // generate the authenticate method and pass the req/res
+  console.log(req.body);
   passport.authenticate("local", function(err, user, info) {
     if (err) {
       return res.send(err);
@@ -168,7 +169,11 @@ exports.updatePassword = async (req, res, next) => {
     await user.save();
 
     //log user in -- need to bind email to req.body first
+    //can clean up req.body too since local passport only needs email and password
     req.body.email = user.email;
+    req.body.confirmPassword = undefined;
+    req.body.token = undefined;
+
     next();
     return;
   } catch (err) {
