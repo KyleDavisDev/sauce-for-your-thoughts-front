@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 
-import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
 
 class ResetPasswordForm extends Component {
@@ -97,9 +96,9 @@ class ResetPassword extends Component {
       }
     })
       .then(response => {
-        if (response.data.isGood) {
+        if (Checker.isObject(response.data) && response.data.isGood) {
           //set token
-          Auth.authenticateUser(response.data.token);
+          this.props.logUserIn(response.data.token);
 
           //create flash
           this.props.createFlashMessage({
@@ -126,21 +125,30 @@ class ResetPassword extends Component {
       data: { token }
     })
       .then(response => {
-        console.log(response);
-        if (response.data.isGood) {
-          this.props.createFlashMessage({
-            type: "caution",
-            text: response.data.msg
-          });
+        if (Checker.isObject(response.data)) {
+          if (response.data.isGood) {
+            this.props.createFlashMessage({
+              type: "caution",
+              text: response.data.msg
+            });
+          } else {
+            this.props.createFlashMessage({
+              type: "error",
+              text: response.data.msg
+            });
+          }
         } else {
           this.props.createFlashMessage({
             type: "error",
-            text: response.data.msg
+            text: "Not sure what happened here.... Try again."
           });
         }
       })
       .catch(err => {
-        console.log(err);
+        this.props.createFlashMessage({
+          type: "error",
+          text: "Not sure what happened here.... Try again."
+        });
       });
   }
 
@@ -154,7 +162,9 @@ class ResetPassword extends Component {
 }
 
 ResetPassword.propTypes = {
-  createFlashMessage: PropTypes.func.isRequired
+  createFlashMessage: PropTypes.func.isRequired,
+  logUserIn: PropTypes.func.isRequired,
+  token: PropTypes.string.isRequired
 };
 
 module.exports = ResetPassword;
