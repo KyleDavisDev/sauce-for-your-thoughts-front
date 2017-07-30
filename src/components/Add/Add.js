@@ -14,7 +14,8 @@ class Add extends Component {
         name: "",
         description: "",
         tags: [""],
-        location: { address: "", coordinates: ["", ""] }
+        location: { address: "", coordinates: ["", ""] },
+        photo: ""
       }
     };
 
@@ -27,7 +28,13 @@ class Add extends Component {
         <h2>Add Store</h2>
         <StoreForm
           onFormSubmit={this.handleFormSubmit}
-          didPostWork={this.state.didPostWork}
+          storeName={this.state.store.name}
+          storeDescription={this.state.store.description}
+          storePhoto={this.state.store.photo}
+          tags={this.state.store.tags}
+          storeAddress={this.state.store.location.address}
+          storeLongitude={this.state.store.location.coordinates[0]}
+          storeLatitude={this.state.store.location.coordinates[1]}
         />
       </div>
     );
@@ -61,35 +68,26 @@ class Add extends Component {
       options: { headers: { "Content-Type": "multipart/form-data" } }
     })
       .then(response => {
+        console.log(response);
         if (response.data.errors) {
-          //we will be here if user didn't use all inputs correctly or didn't fill something out
-          //create error message
           this.props.createFlashMessage({
             type: "error",
             text: response.data.errors
           });
-
-          //making this false will keep data in the form and not reset it
-          this.setState({ didPostWork: false });
         } else {
-          //response.data holds the slug of the store added
-          //create success message
           this.props.createFlashMessage({
             type: "success",
             slug: response.data.slug,
-            text: "Your store was added!"
+            text: "Your store was updated!"
           });
-
-          //reset form
-          this.setState({ didPostWork: true });
         }
       })
       .catch(error => {
+        console.log("Errror");
         this.props.createFlashMessage({
           type: "error",
           text: "Something broke!"
         });
-        this.setState({ didPostWork: false });
       });
   }
 }

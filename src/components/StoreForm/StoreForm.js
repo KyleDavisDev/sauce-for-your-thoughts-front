@@ -5,6 +5,8 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 import Dropzone from "react-dropzone";
 
+import FillerImage from "../../images/photos/store.jpg";
+
 class StoreForm extends Component {
   constructor(props) {
     super(props);
@@ -35,49 +37,41 @@ class StoreForm extends Component {
     this.handleLongitudeChange = this.handleLongitudeChange.bind(this);
     this.handleLatitudeChange = this.handleLatitudeChange.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-    this.resetState = this.resetState.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    //update state if props updated otherwise keep as is
-    //greater than 1 since "onFormSubmit"  MUST be passed
-    if (Object.keys(this.props).length > 1) {
-      const { storeName, storeDescription } = nextProps;
+    const {
+      storeName,
+      storeDescription,
+      storeAddress,
+      storeLongitude,
+      storeLatitude,
+      storePhoto
+    } = nextProps;
 
-      //compare prop tags with current state tag to see which checkbox
-      //should be initiated as checked
-      const tags = this.state.tags.map(tag => {
-        if (nextProps.tags.includes(tag.name)) {
-          tag.isChecked = true;
-        } else {
-          tag.isChecked = false;
-        }
-        return tag;
-      });
-      const storeAddress = nextProps.storeAddress;
-      const storeLongitude = nextProps.storeLongitude;
-      const storeLatitude = nextProps.storeLatitude;
-      const storePhoto = require(`../../../public/uploads/${nextProps.storePhoto}`);
+    //compare prop tags with current state tag to see which checkbox
+    //should be initiated as checked
+    const tags = this.state.tags.map(tag => {
+      if (nextProps.tags.includes(tag.name)) {
+        tag.isChecked = true;
+      } else {
+        tag.isChecked = false;
+      }
+      return tag;
+    });
 
-      //update state
-      this.setState({
-        storeName,
-        storeDescription,
-        tags,
-        location: {
-          storeAddress,
-          storeLongitude,
-          storeLatitude
-        },
-        storePhoto
-      });
-    }
-
-    //call function required to be passed to component
-    //if post worked, we will reset state, otherwise keep state as is
-    if (nextProps.didPostWork) {
-      this.resetState();
-    }
+    //update state
+    this.setState({
+      storeName,
+      storeDescription,
+      tags,
+      location: {
+        storeAddress,
+        storeLongitude,
+        storeLatitude
+      },
+      storePhoto
+    });
   }
 
   render() {
@@ -123,7 +117,7 @@ class StoreForm extends Component {
                 dropzoneRef = node;
               }}
             >
-              <div>Drop some files here!</div>
+              <div>Drop your image here!</div>
             </Dropzone>
 
             <button
@@ -136,9 +130,16 @@ class StoreForm extends Component {
               Open File Dialog
             </button>
           </div>
-          <div className="dropZoneImage">
-            <img src={this.state.storePhoto} />
-          </div>
+          {this.state.storePhoto &&
+            <div className="dropZoneImage">
+              <img
+                src={
+                  `http://localhost:7777/public/uploads/${this.state
+                    .storePhoto}` || this.state.storePhoto.preview
+                }
+                onError={e => (e.target.src = FillerImage)}
+              />
+            </div>}
         </div>
 
         <label htmlFor="storeAddress"> Address: </label>
@@ -197,6 +198,11 @@ class StoreForm extends Component {
   }
 
   handleSubmit(event) {
+    //destroy object to avoid memory leaks -- suggested by Dropzone documentations
+    if (this.state.storePhoto.preview) {
+      window.URL.revokeObjectURL(this.state.storePhoto.preview);
+    }
+
     //call function passed by parent
     this.props.onFormSubmit(event, this.state);
   }
@@ -214,7 +220,7 @@ class StoreForm extends Component {
   }
 
   handleAddressChange(event) {
-    let location = this.state.location;
+    const location = this.state.location;
     location.storeAddress = event;
     this.setState({ location });
   }
@@ -222,7 +228,7 @@ class StoreForm extends Component {
   handleAddressSelect(address, placeId) {
     geocodeByAddress(address)
       .then(results => {
-        let location = this.state.location;
+        const location = this.state.location;
         location.storeAddress = results[0].formatted_address;
         location.storeLatitude = results[0].geometry.location.lat();
         location.storeLongitude = results[0].geometry.location.lng();
@@ -232,19 +238,18 @@ class StoreForm extends Component {
   }
 
   handleLongitudeChange(event) {
-    let location = this.state.location;
+    const location = this.state.location;
     location.storeLongitude = event.target.value;
     this.setState({ location });
   }
 
   handleLatitudeChange(event) {
-    let location = this.state.location;
+    const location = this.state.location;
     location.storeLatitude = event.target.value;
     this.setState({ location });
   }
 
   handleCheckboxChange(event) {
-    //this could probably be much more elegant but works so I'll come back to this later
     //find which array element was clicked and flip that elements isChecked value
     const tags = this.state.tags.map(tag => {
       if (tag.name === event.target.name) {
@@ -255,26 +260,6 @@ class StoreForm extends Component {
 
     this.setState({
       tags
-    });
-  }
-
-  resetState() {
-    this.setState({
-      storeName: "",
-      storeDescription: "",
-      tags: [
-        { name: "Wifi", isChecked: false },
-        { name: "Open Late", isChecked: false },
-        { name: "Vegatarian", isChecked: false },
-        { name: "Licensed", isChecked: false },
-        { name: "Family Friendly", isChecked: false }
-      ],
-      location: {
-        storeAddress: "",
-        storeLatitude: "",
-        storeLongitude: ""
-      },
-      storePhoto: ""
     });
   }
 }
