@@ -7,16 +7,15 @@ class Auth {
 
   //check if token exists and hasn't expired
   static isUserAuthenticated() {
+    //simple sanity checks before going much further:
     // if token doesn't exist, return false here
     if (!localStorage.getItem("key")) return false;
-
-    //set timelimit for token in minutes
-    const timeLimit = 60;
-
-    //get key time or return false if timestamp doesn't exist inside of key
+    //if timestamp doesn't exist inside of key, return false
     const keyTime = JSON.parse(localStorage.getItem("key")).timestamp;
     if (!keyTime) return false;
 
+    //set timelimit, in minutes, for token in minutes
+    const timeLimit = 60;
     //get current time
     const curTime = new Date().getTime().toString();
 
@@ -34,7 +33,6 @@ class Auth {
       this.deauthenticateUser();
       return false;
     }
-
   }
 
   //update existing token
