@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Checker from "../../helper/Checker/Checker.js";
-import Auth from "../../helper/Auth/Auth.js"
+import Auth from "../../helper/Auth/Auth.js";
 
 class ForgotPasswordForm extends Component {
   constructor(props) {
@@ -25,6 +25,7 @@ class ForgotPasswordForm extends Component {
           name="forgotEmail"
           id="forgotEmail"
           onChange={this.handleEmailChange}
+          value={this.state.email}
         />
         <button type="submit" className="button">
           SEND A RESET ->
@@ -47,30 +48,26 @@ class ForgotPasswordForm extends Component {
     })
       .then(response => {
 
-        //will be object if successful else we will send fake success
-        if (Checker.isObject(response.data)) {
-          
+        //check if data is object and isGood is true
+        if (Checker.isObject(response.data) && response.data.isGood) {
           this.props.createFlashMessage({
-            isVisible: true,
             type: "success",
-            text: response.data.resetURL
+            text: response.data.msg
           });
         } else {
-          //set success flash
+          //something isn't working correctly if we are here
           this.props.createFlashMessage({
-            isVisible: true,
-            type: "success",
-            text: response.data
+            type: "error",
+            text: "Not sure how you did this.... But you broke it. Congrats."
           });
         }
 
-        this.setState({email: ""})
+        this.setState({ email: "" });
       })
       .catch(error => {
         console.log(error);
         //set error flash message
         this.props.createFlashMessage({
-          isVisible: true,
           type: "error",
           text: "Oops! Try again please."
         });
