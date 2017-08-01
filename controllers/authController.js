@@ -2,6 +2,7 @@ const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const User = require("mongoose").model("User");
 const promisify = require("es6-promisify");
+const mail = require("../handlers/mail.js");
 
 exports.login = (req, res) => {
   // generate the authenticate method and pass the req/res
@@ -78,7 +79,12 @@ exports.isLoggedIn = (req, res, next) => {
 exports.forgot = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
-    if (!user) res.send("An email has been sent to you.");
+    //if user not found we will send false positive object but actually send no email
+    //doing this check early will also prevent server from having to use resouces to create new token
+    if (!user) {
+      const data = { isGood: true, msg: "An email has been sent to you." };
+      return res.send(data);
+    }
 
     //create a token string
     const payload = {
@@ -91,11 +97,17 @@ exports.forgot = async (req, res) => {
     user.resetPasswordExpires = Date.now() + 3600000;
     await user.save();
 
-    //create URL link to email to person
+    //create URL and email to user email
     const resetURL = `http://localhost:8080/account/reset/${user.resetPasswordToken}`;
-    const data = { resetURL };
+    await mail.send({
+      user,
+      subject: "Password reset",
+      resetURL,
+      filename: "password-reset"
+    });
 
-    //send back URL
+    //send legitmate data
+    const data = { isGood: true, msg: "An email has been sent to you." };
     return res.send(data);
   } catch (err) {
     res.send(err);
