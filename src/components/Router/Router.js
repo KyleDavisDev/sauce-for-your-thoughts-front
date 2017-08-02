@@ -133,6 +133,9 @@ class Router extends Component {
   }
 
   createFlashMessage({ type, slug = "", text }) {
+    //TODO Resolve issue with being able to set state only once here
+    //Maybe this isn't problem but something else is...?
+
     //if flash message is visible, close it
     if (this.state.flashMessage.isVisible) {
       this.closeFlashMessage();
@@ -143,8 +146,9 @@ class Router extends Component {
   }
 
   closeFlashMessage() {
-    const flashMessage = { isVisible: false, type: "", text: "", slug: "" };
-    this.setState({ flashMessage });
+    this.setState({
+      flashMessage: { isVisible: false, type: "", text: "", slug: "" }
+    });
   }
 }
 
