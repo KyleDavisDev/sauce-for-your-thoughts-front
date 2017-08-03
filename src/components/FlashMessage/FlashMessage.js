@@ -19,10 +19,9 @@ class FlashMessage extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    //close flash on page change if flash currently visible.
-    if (this.state.type) {
-      this.props.closeFlashMessage();
-    }
+    //close flash on page change if flash currently visible
+    //this is likely the result of user changing routes
+    this.props.closeFlashMessage();
   }
 
   render() {
