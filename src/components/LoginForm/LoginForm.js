@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 import Auth from "../../helper/Auth/Auth.js";
 
@@ -27,6 +28,7 @@ class LoginForm extends Component {
           name="email"
           value={this.state.email}
           onChange={this.handleEmailChange}
+          ref={(input) => { this.email = input;}}
           required
         />
         <label htmlFor="password"> Password: </label>
@@ -46,7 +48,10 @@ class LoginForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const email = this.state.email.trim().toLowerCase()
+    //close any flash message that may be visible
+    this.props.closeFlashMessage();
+
+    const email = this.state.email.trim().toLowerCase();
 
     axios({
       method: "post",
@@ -65,7 +70,6 @@ class LoginForm extends Component {
 
           //set success flash
           this.props.createFlashMessage({
-            isVisible: true,
             type: "success",
             text: "You are now logged in!"
           });
@@ -74,10 +78,15 @@ class LoginForm extends Component {
         } else {
           //set error flash message
           this.props.createFlashMessage({
-            isVisible: true,
             type: "error",
             text: response.data
           });
+
+           //clear input fields
+          this.setState({ email: "", password: "" });
+
+          //set focus
+          this.email.focus();
         }
       })
       .catch(error => {
@@ -99,5 +108,11 @@ class LoginForm extends Component {
     this.setState({ password: e.target.value });
   }
 }
+
+LoginForm.propTypes = {
+  logUserIn: PropTypes.func.isRequired,
+  createFlashMessage: PropTypes.func.isRequired,
+  closeFlashMessage: PropTypes.func.isRequired
+};
 
 module.exports = LoginForm;
