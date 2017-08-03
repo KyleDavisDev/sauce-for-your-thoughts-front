@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 import Checker from "../../helper/Checker/Checker.js";
 import Auth from "../../helper/Auth/Auth.js";
@@ -37,6 +38,9 @@ class ForgotPasswordForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    //close any flash message
+    this.props.closeFlashMessage();
+
     if (this.state.email.length === 0) return;
 
     axios({
@@ -47,7 +51,6 @@ class ForgotPasswordForm extends Component {
       }
     })
       .then(response => {
-
         //check if data is object and isGood is true
         if (Checker.isObject(response.data) && response.data.isGood) {
           this.props.createFlashMessage({
@@ -78,5 +81,11 @@ class ForgotPasswordForm extends Component {
     this.setState({ email: e.target.value });
   }
 }
+
+ForgotPasswordForm.propTypes = {
+  logUserIn: PropTypes.func.isRequired,
+  createFlashMessage: PropTypes.func.isRequired,
+  closeFlashMessage: PropTypes.func.isRequired
+};
 
 module.exports = ForgotPasswordForm;
