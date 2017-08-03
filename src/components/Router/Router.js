@@ -53,7 +53,10 @@ class Router extends Component {
               path="/add"
               render={() =>
                 Auth.isUserAuthenticated()
-                  ? <Add createFlashMessage={this.createFlashMessage} />
+                  ? <Add
+                      createFlashMessage={this.createFlashMessage}
+                      closeFlashMessage={this.closeFlashMessage}
+                    />
                   : <Redirect to="/login" />}
             />
             <Route exact path="/stores" component={Stores} />
@@ -66,6 +69,7 @@ class Router extends Component {
                   ? <StoreEdit
                       id={props.match.params.id}
                       createFlashMessage={this.createFlashMessage}
+                      closeFlashMessage={this.closeFlashMessage}
                     />
                   : <Redirect to="/login" />}
             />
@@ -78,6 +82,7 @@ class Router extends Component {
                 <Register
                   logUserIn={this.logUserIn}
                   createFlashMessage={this.createFlashMessage}
+                  closeFlashMessage={this.closeFlashMessage}
                 />}
             />
             <Route
@@ -85,7 +90,10 @@ class Router extends Component {
               path="/account"
               render={() =>
                 Auth.isUserAuthenticated()
-                  ? <Account createFlashMessage={this.createFlashMessage} />
+                  ? <Account
+                      createFlashMessage={this.createFlashMessage}
+                      closeFlashMessage={this.closeFlashMessage}
+                    />
                   : <Redirect to="/login" />}
             />
 
@@ -98,6 +106,7 @@ class Router extends Component {
                   : <ResetPassword
                       token={props.match.params.token}
                       createFlashMessage={this.createFlashMessage}
+                      closeFlashMessage={this.closeFlashMessage}
                       logUserIn={this.logUserIn}
                     />}
             />
@@ -109,6 +118,7 @@ class Router extends Component {
                   logUserOut={this.logUserOut}
                   logUserIn={this.logUserIn}
                   createFlashMessage={this.createFlashMessage}
+                  closeFlashMessage={this.closeFlashMessage}
                 />}
             />
             <Route
@@ -133,18 +143,11 @@ class Router extends Component {
   }
 
   createFlashMessage({ type, slug = "", text }) {
-    //TODO Resolve issue with being able to set state only once here
-    //Maybe this isn't problem but something else is...?
-
-    //if flash message is visible, close it
-    if (this.state.flashMessage.isVisible) {
-      this.closeFlashMessage();
-    }
-
     //create flash by setting state
     this.setState({ flashMessage: { isVisible: true, type, text, slug } });
   }
 
+  //function should be called before any component creates flash
   closeFlashMessage() {
     this.setState({
       flashMessage: { isVisible: false, type: "", text: "", slug: "" }
