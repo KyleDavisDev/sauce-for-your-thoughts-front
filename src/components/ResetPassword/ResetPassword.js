@@ -86,36 +86,45 @@ class ResetPassword extends Component {
 
     const { password, confirmPassword } = this.state;
 
-    axios({
-      method: "post",
-      url: "http://localhost:7777/account/reset",
-      data: {
-        token: this.props.token,
-        password,
-        confirmPassword
-      }
-    })
-      .then(response => {
-        if (Checker.isObject(response.data) && response.data.isGood) {
-          //set token
-          this.props.logUserIn(response.data.token);
-
-          //create flash
-          this.props.createFlashMessage({
-            type: "success",
-            text: response.data.msg
-          });
-
-          //at this point, we will be redirect via Router.js
-          return;
-        } else {
-          this.props.createFlashMessage({
-            type: "error",
-            text: response.data.msg
-          });
+    //basic client-side check.
+    //No reason to post to server if we can stop user right here.
+    if (password !== confirmPassword) {
+      this.props.createFlashMessage({
+        type: "error",
+        text: "Your passwords do not match!"
+      });
+    } else {
+      axios({
+        method: "post",
+        url: "http://localhost:7777/account/reset",
+        data: {
+          token: this.props.token,
+          password,
+          confirmPassword
         }
       })
-      .catch(err => console.log(err));
+        .then(response => {
+          if (Checker.isObject(response.data) && response.data.isGood) {
+            //set token
+            this.props.logUserIn(response.data.token);
+
+            //create flash
+            this.props.createFlashMessage({
+              type: "success",
+              text: response.data.msg
+            });
+
+            //at this point, we will be redirect via Router.js
+            return;
+          } else {
+            this.props.createFlashMessage({
+              type: "error",
+              text: response.data.msg
+            });
+          }
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   resetUserPassword(token) {
