@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import Checker from "../../helper/Checker/Checker.js"
+
 class GenerateStaticGoogleMap extends Component {
   render() {
     return (
@@ -48,10 +50,13 @@ class StoreGet extends Component {
       .get(`http://localhost:7777/api/store/${storeSlug}`)
       .then(response => {
         //if unable to find store, redirect to 404
-        if (response.data == "") {
-          this.props.history.push("/404");
+        if (Checker.isObject(response.data) && response.data.isGood) {
+          this.setState({
+            store: response.data.store,
+            author: response.data.author.name
+          });
         } else {
-          this.setState({ store: response.data });
+          this.props.history.push("/404");
         }
       })
       .catch(function(error) {
