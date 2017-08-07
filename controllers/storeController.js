@@ -81,7 +81,7 @@ exports.addStore = async (req, res) => {
     res.send(data);
   } catch (err) {
     //TODO log error somewhere so can be referenced later
-    
+
     const data = {
       isGood: false,
       msg: "There was an issue saving your store. Try again"
@@ -92,8 +92,17 @@ exports.addStore = async (req, res) => {
 
 exports.getStoreBySlug = async (req, res) => {
   try {
-    const store = await Store.findOne({ slug: req.params.slug });
-    res.send(store);
+    const store = await Store.findOne({ slug: req.params.slug }).populate(
+      "author"
+    );
+
+    //split author off from store
+    const { author } = store;
+    store.author = undefined;
+
+    //send store and only author name
+    const data = { isGood: true, store, author: { name: author.name } };
+    res.send(data);
   } catch (err) {
     res.send(err);
   }
