@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import StoreForm from "../StoreForm/StoreForm.js";
 import Auth from "../../helper/Auth/Auth.js";
+import Checker from "../../helper/Checker/Checker.js";
 
 class Add extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class Add extends Component {
   }
 
   handleFormSubmit(e, store) {
+    console.log(store);
     e.preventDefault();
 
     //make tags an array of checked tags
@@ -68,17 +70,22 @@ class Add extends Component {
       options: { headers: { "Content-Type": "multipart/form-data" } }
     })
       .then(response => {
-        console.log(response);
-        if (response.data.errors) {
-          this.props.createFlashMessage({
-            type: "error",
-            text: response.data.errors
-          });
-        } else {
+        if (Checker.isObject(response.data) && response.data.isGood) {
           this.props.createFlashMessage({
             type: "success",
             slug: response.data.slug,
-            text: "Your store was updated!"
+            text: response.data.msg
+          });
+        } else if (Checker.isObject(response.data) && !response.data.isGood) {
+          this.props.createFlashMessage({
+            type: "error",
+            text: response.data.msg
+          });
+        } else {
+          this.props.createFlashMessage({
+            type: "error",
+            text:
+              "You it. You have broken the page. I can't believe you did this...."
           });
         }
       })
