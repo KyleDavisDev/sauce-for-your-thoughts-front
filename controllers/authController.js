@@ -6,7 +6,6 @@ const mail = require("../handlers/mail.js");
 
 exports.login = (req, res) => {
   // generate the authenticate method and pass the req/res
-  console.log(req.body);
   passport.authenticate("local", function(err, user, info) {
     if (err) {
       return res.send(err);
@@ -60,6 +59,7 @@ exports.isLoggedIn = (req, res, next) => {
 
     // check if a user exists
     return User.findById(userId, (userErr, user) => {
+      //error or not user
       if (userErr || !user) {
         const data = {
           isGood: false,
@@ -70,6 +70,9 @@ exports.isLoggedIn = (req, res, next) => {
         return;
       }
 
+      //attach _id to body
+      req.body._id = user._id;
+      console.log("user is legit")
       //user is legit
       return next();
     });
