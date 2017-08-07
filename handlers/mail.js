@@ -11,12 +11,14 @@ const transport = nodemailer.createTransport({
 });
 
 exports.send = async options => {
+  const html = `<p>Howdy from Dang That's Delicious!</p><p>To reset your password, use the following link:</p><p><a href='${options.resetURL}'>${options.resetURL}</a></p><p>Thank you!</p>`;
+  const text = `Howdy from Dang That's Delicious! To reset your password, use the following link: ${options.resetURL}. Thank you!`;
   const mailOptions = {
     from: `Kyle Bonar <noreply@dangthatsdelicious.com>`,
     to: options.user.email,
     subject: options.subject,
-    html: "temp",
-    text: "temp"
+    html,
+    text
   };
   const sendMail = promisify(transport.sendMail, transport);
   return sendMail(mailOptions);
