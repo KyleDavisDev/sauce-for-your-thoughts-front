@@ -68,13 +68,25 @@ exports.stringToProperType = (req, res, next) => {
 
 exports.addStore = async (req, res) => {
   try {
+    req.body.author = req.body._id;
+    req.body._id = undefined;
     const store = await new Store(req.body).save();
 
     //send back slug so we can link to it for user to rate
-    res.send(store);
+    const data = {
+      isGood: true,
+      msg: "Store successfully added!",
+      slug: store.slug
+    };
+    res.send(data);
   } catch (err) {
-    // console.log(err);
-    res.send(err);
+    //TODO log error somewhere so can be referenced later
+    
+    const data = {
+      isGood: false,
+      msg: "There was an issue saving your store. Try again"
+    };
+    res.send(data);
   }
 };
 
@@ -142,7 +154,7 @@ exports.getStores = async (req, res) => {
 exports.getStoreByTag = async (req, res) => {
   try {
     const tag = req.params.tag;
-    const tagQuery = tag === "undefined" ? { $exists: true } : tag
+    const tagQuery = tag === "undefined" ? { $exists: true } : tag;
     const tagsPromise = Store.getTagsList();
     const storesPromise = Store.find({ tags: tagQuery });
     const result = await Promise.all([tagsPromise, storesPromise]);
