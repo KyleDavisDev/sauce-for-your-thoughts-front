@@ -44,7 +44,7 @@ router.post(
 //4. Conver req.body data to be proper format for DB
 //5. Write to DB
 router.post(
-  "/api/store/:id/edit",
+  "/api/store/id/edit",
   storeController.upload,
   authController.isLoggedIn,
   storeController.resize,
