@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import StoreForm from "../StoreForm/StoreForm.js";
 
 import Auth from "../../helper/Auth/Auth.js";
+import Checker from "../../helper/Checker/Checker";
 
 class StoreEdit extends Component {
   constructor(props) {
@@ -36,8 +37,23 @@ class StoreEdit extends Component {
       }
     })
       .then(response => {
-        //response.data is store objects from DB
-        this.setState({ store: response.data.store });
+        //only need to check if response is object once
+        //then see if isGood is true or false and go from there.
+        if (Checker.isObject(response)) {
+          if (response.data.isGood) {
+            this.setState({ store: response.data.store });
+          } else if (!response.data.isGood) {
+            this.props.createFlashMessage({
+              type: "caution",
+              msg: response.data.msg
+            });
+          }
+        } else {
+          this.props.createFlashMessage({
+            type: "error",
+            msg: "Something goof'd up. Try reloading the page."
+          });
+        }
       })
       .catch(function(error) {
         console.log(error);
