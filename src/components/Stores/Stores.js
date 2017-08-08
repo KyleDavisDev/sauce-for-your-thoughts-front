@@ -4,25 +4,29 @@ import axios from "axios";
 
 import StoreCard from "../StoreCard/StoreCard.js";
 
+import Auth from "../../helper/Auth/Auth.js";
+
 class Stores extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      stores: {}
+      stores: {},
+      userID: ""
     };
   }
 
   componentDidMount() {
+    //need this slight work around because "this" changes inside the .all scope
+    const that = this;
     axios
-      .get("http://localhost:7777/api/stores/get")
-      .then(response => {
-        //response.data is array of store objects from DB
-        this.setState({ stores: response.data });
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+      .all([that.getStores(), that.getUserID()])
+      .then(
+        axios.spread((stores, user) => {
+          this.setState({ stores: stores.data, userID: user.data.user._id });
+        })
+      )
+      .catch(error => console.log(error));
   }
 
   render() {
@@ -34,6 +38,7 @@ class Stores extends Component {
             this.state.stores.map(store => {
               return (
                 <StoreCard
+                  userID={this.state.userID}
                   ID={store._id}
                   name={store.name}
                   image={store.photo}
@@ -45,6 +50,21 @@ class Stores extends Component {
             })}
         </div>
       </div>
+    );
+  }
+
+  getStores() {
+    return axios.get("http://localhost:7777/api/stores/get");
+  }
+
+  getUserID() {
+    return (
+      Auth.isUserAuthenticated() &&
+      axios({
+        method: "post",
+        url: "http://localhost:7777/account/getInfo",
+        data: { token: Auth.getToken() }
+      })
     );
   }
 }
