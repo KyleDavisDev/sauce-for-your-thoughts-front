@@ -139,14 +139,21 @@ exports.getStoreById = async (req, res) => {
 
 exports.editStore = async (req, res) => {
   try {
+    console.log(req.body)
     //generate new slug
     req.body.slug = slug(req.body.name);
 
     //set location data to be point
     req.body.location.type = "Point";
 
+    //set _id to be store's ID instead of person's ID
+    //remove person's ID from req.body
+    req.body._id = req.body.storeID;
+    req.body.storeID = undefined;
+
+    //find store by _id and update
     const store = await Store.findOneAndUpdate(
-      { _id: req.params.id },
+      { _id: req.body._id },
       req.body,
       {
         new: true, //return new store instead of old one -- we want updated data returned
