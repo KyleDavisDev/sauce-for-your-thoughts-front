@@ -11,7 +11,9 @@ label {
     margin-top: 4rem;
   }
 
-  input, textarea, button {
+  input,
+  textarea,
+  button {
     width: 100%;
     max-width: 100%;
     padding: 10px;
@@ -36,10 +38,9 @@ label {
 
   .dropZoneHolder {
     display: flex;
-    flex-direction: horizontal;
+    flex-direction: row;
     justify-content: space-around;
-    
-  
+
     .dropZoneArea {
       display: flex;
       flex-direction: column;
@@ -56,11 +57,19 @@ label {
       }
     }
 
+    .dropZoneImage {
+      display: flex;
+      align-items: center;
+      
+      img {
+        max-width: 300px;
+      }
+    }
+
     @media (max-width: 680px) {
-      .dropZoneImage {    
+      .dropZoneImage {
         display: none;
       }
     }
   }
 }
-
