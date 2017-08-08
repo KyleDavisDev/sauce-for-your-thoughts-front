@@ -50,7 +50,7 @@ exports.getUser = (req, res, next) => {
     //only pass back relevant information
     const data = {
       isGood: true,
-      user: { name: user.name, email: user.email },
+      user: { name: user.name, email: user.email, _id: user._id },
       msg: "Successfully found user."
     };
     return res.send(data);
