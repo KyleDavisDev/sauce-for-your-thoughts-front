@@ -142,7 +142,10 @@ class Router extends Component {
     this.setState({ isUserLoggedIn: Auth.isUserAuthenticated() });
   }
 
-  createFlashMessage({ type, slug = "", text }) {
+  createFlashMessage({ type, slug = "", text = "", msg }) {
+    //text and msg are same thing so set text to msg if text is empty
+    text = text === "" ? msg : text;
+
     //create flash by setting state
     this.setState({ flashMessage: { isVisible: true, type, text, slug } });
   }
