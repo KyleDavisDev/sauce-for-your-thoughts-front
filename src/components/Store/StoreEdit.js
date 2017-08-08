@@ -27,14 +27,19 @@ class StoreEdit extends Component {
     //TODO sanity checks to be sure the ID passed is legit
     const storeID = this.props.id;
 
-    axios
-      .get(`http://localhost:7777/api/store/${storeID}/get`)
+    axios({
+      method: "post",
+      url: "http://localhost:7777/api/store/id/get",
+      data: {
+        storeID,
+        token: Auth.getToken()
+      }
+    })
       .then(response => {
         //response.data is store objects from DB
-        this.setState({ store: response.data });
+        this.setState({ store: response.data.store });
       })
       .catch(function(error) {
-        console.log("An error:");
         console.log(error);
       });
   }
