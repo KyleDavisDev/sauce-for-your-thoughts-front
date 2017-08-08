@@ -41,32 +41,19 @@ exports.register = async (req, res, next) => {
 };
 
 exports.getUser = (req, res, next) => {
-  if (!req.body.token) {
-    return res.status(401).end();
-  }
-
-  // get token from post
-  const token = req.body.token;
-
-  // decode the token using a secret key-phrase
-  return jwt.verify(token, process.env.SECRET, (err, decoded) => {
-    // the 401 code is for unauthorized status
-    if (err) {
+  // check if a user exists
+  return User.findById(req.body._id, (userErr, user) => {
+    if (userErr || !user) {
       return res.status(401).end();
     }
 
-    const userId = decoded.sub;
-
-    // check if a user exists
-    return User.findById(userId, (userErr, user) => {
-      if (userErr || !user) {
-        return res.status(401).end();
-      }
-
-      //only pass back relevant information
-      const data = { name: user.name, email: user.email, _id: user._id };
-      res.send(data);
-    });
+    //only pass back relevant information
+    const data = {
+      isGood: true,
+      user: { name: user.name, email: user.email },
+      msg: "Successfully found user."
+    };
+    return res.send(data);
   });
 };
 
@@ -75,7 +62,6 @@ exports.updateUser = async (req, res) => {
     name: req.body.name,
     email: req.body.email
   };
-  // console.log(updates);
 
   try {
     await User.findOneAndUpdate(
@@ -83,7 +69,7 @@ exports.updateUser = async (req, res) => {
       { $set: updates },
       { new: true, runValidators: true, context: "query" }
     );
-    res.send({message: "Success"});
+    res.send({ message: "Success" });
   } catch (err) {
     res.send(err);
   }
