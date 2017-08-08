@@ -13,7 +13,7 @@ class Stores extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios
       .get("http://localhost:7777/api/stores/get")
       .then(response => {
@@ -31,20 +31,18 @@ class Stores extends Component {
         <h2>Stores</h2>
         <div className="stores">
           {this.state.stores.length > 0 &&
-            <div className="stores">
-              {this.state.stores.map(store => {
-                return (
-                  <StoreCard
-                    ID={store._id}
-                    name={store.name}
-                    image={store.photo}
-                    slug={store.slug}
-                    description={store.description}
-                    key={store.slug}
-                  />
-                );
-              })}
-            </div>}
+            this.state.stores.map(store => {
+              return (
+                <StoreCard
+                  ID={store._id}
+                  name={store.name}
+                  image={store.photo}
+                  slug={store.slug}
+                  description={store.description}
+                  key={store.slug}
+                />
+              );
+            })}
         </div>
       </div>
     );
