@@ -94,7 +94,7 @@ class Register extends Component {
           this.props.createFlashMessage({
             type: "success",
             slug: response.data.slug,
-            text: "Thank you for registering! You are no logged in."
+            text: "Thank you for registering! You are now logged in."
           });
 
           //reset form data
