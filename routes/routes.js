@@ -26,7 +26,11 @@ router.post(
   storeController.addStore
 );
 router.get("/api/store/:slug", storeController.getStoreBySlug);
-router.get("/api/store/:id/get", storeController.getStoreById);
+router.post(
+  "/api/store/id/get",
+  authController.isLoggedIn,
+  storeController.getStoreById
+);
 
 //See API for adding store
 router.post(
