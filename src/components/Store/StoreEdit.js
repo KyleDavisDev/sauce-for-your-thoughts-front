@@ -22,9 +22,35 @@ class StoreEdit extends Component {
     };
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.getStoreInfo = this.getStoreInfo.bind(this);
   }
 
   componentDidMount() {
+    this.getStoreInfo();
+  }
+
+  render() {
+    return (
+      <div className="inner">
+        <h2>
+          Edit {this.state.store.name || "Store"}
+        </h2>
+        {Object.keys(this.state.store).length > 0 &&
+          <StoreForm
+            onFormSubmit={this.handleFormSubmit}
+            storeName={this.state.store.name}
+            storeDescription={this.state.store.description}
+            storePhoto={this.state.store.photo}
+            tags={this.state.store.tags}
+            storeAddress={this.state.store.location.address}
+            storeLongitude={this.state.store.location.coordinates[0]}
+            storeLatitude={this.state.store.location.coordinates[1]}
+          />}
+      </div>
+    );
+  }
+
+  getStoreInfo() {
     //TODO sanity checks to be sure the ID passed is legit
     const storeID = this.props.id;
 
@@ -60,27 +86,6 @@ class StoreEdit extends Component {
       });
   }
 
-  render() {
-    return (
-      <div className="inner">
-        <h2>
-          Edit {this.state.store.name || "Store"}
-        </h2>
-        {Object.keys(this.state.store).length > 0 &&
-          <StoreForm
-            onFormSubmit={this.handleFormSubmit}
-            storeName={this.state.store.name}
-            storeDescription={this.state.store.description}
-            storePhoto={this.state.store.photo}
-            tags={this.state.store.tags}
-            storeAddress={this.state.store.location.address}
-            storeLongitude={this.state.store.location.coordinates[0]}
-            storeLatitude={this.state.store.location.coordinates[1]}
-          />}
-      </div>
-    );
-  }
-
   handleFormSubmit(e, store) {
     e.preventDefault();
 
@@ -102,11 +107,12 @@ class StoreEdit extends Component {
     data.append("coordinates", coordinates);
     data.append("tags", tags);
     data.append("token", Auth.getToken());
+    data.append("storeID", storeID);
 
     //TODO filter/sanitize user input
     axios({
       method: "post",
-      url: `http://localhost:7777/api/store/${storeID}/edit`,
+      url: `http://localhost:7777/api/store/id/edit`,
       data,
       options: { headers: { "Content-Type": "multipart/form-data" } }
     })
