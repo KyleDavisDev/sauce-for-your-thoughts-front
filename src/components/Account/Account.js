@@ -51,8 +51,7 @@ class Account extends Component {
 
     this.state = {
       name: "",
-      email: "",
-      _id: ""
+      email: ""
     };
 
     this.getUserInfo = this.getUserInfo.bind(this);
@@ -82,21 +81,38 @@ class Account extends Component {
   getUserInfo() {
     axios({
       method: "post",
-      url: "http://localhost:7777/account/get",
+      url: "http://localhost:7777/account/getInfo",
       data: {
         token: Auth.getToken()
       }
     })
       .then(response => {
-        //user is authenticated
-        this.setState({
-          email: response.data.email,
-          name: response.data.name,
-          _id: response.data._id
-        });
+        if (Checker.isObject(response.data)) {
+          if (response.data.isGood) {
+            this.setState({
+              email: response.data.user.email,
+              name: response.data.user.name
+            });
+          } else {
+            this.props.createFlashMessage({
+              type: "caution",
+              msg: response.data.msg
+            });
+          }
+        } else {
+          this.props.createFlashMessage({
+            type: "error",
+            msg:
+              "Your account was unable to be found. Try logging out and back in."
+          });
+        }
       })
       .catch(err => {
-        //user failed to authenticate
+        this.props.createFlashMessage({
+            type: "error",
+            msg:
+              "Something goof'd up. Try logging out and back in."
+          });
       });
   }
 
@@ -107,9 +123,9 @@ class Account extends Component {
       method: "post",
       url: "http://localhost:7777/account/update",
       data: {
+        token: Auth.getToken(),
         name: this.state.name,
-        email: this.state.email,
-        _id: this.state._id
+        email: this.state.email
       }
     })
       .then(response => {
