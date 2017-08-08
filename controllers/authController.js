@@ -45,7 +45,6 @@ exports.isLoggedIn = (req, res, next) => {
 
   // decode the token using a secret key-phrase
   return jwt.verify(token, process.env.SECRET, (err, decoded) => {
-    // the 401 code is for unauthorized status
     if (err) {
       const data = {
         isGood: false,
@@ -72,7 +71,6 @@ exports.isLoggedIn = (req, res, next) => {
 
       //attach _id to body
       req.body._id = user._id;
-      console.log("user is legit")
       //user is legit
       return next();
     });
