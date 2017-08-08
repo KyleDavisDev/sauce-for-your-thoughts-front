@@ -110,16 +110,30 @@ exports.getStoreBySlug = async (req, res) => {
 
 exports.getStoreById = async (req, res) => {
   try {
-    const store = await Store.findOne({ _id: req.params.id });
+    const store = await Store.findOne({ _id: req.body.storeID });
 
-    //TODO make sure user is actual "owner" of store
-    //check here
+    //make sure user is actual "owner" of store
+    if (!store.author.equals(req.body._id)) {
+      const data = {
+        isGood: false,
+        msg: "You must be the owner to edit the store."
+      };
+      return res.send(data);
+    }
 
+    const data = {
+      isGood: true,
+      msg: "Successfully found your store.",
+      store
+    };
     //send store back for user to edit
-    res.send(store);
+    return res.send(data);
   } catch (err) {
-    // console.log(err);
-    res.send(err);
+    const data = {
+      isGood: false,
+      msg: "Something broke or your store was unable to be found, Try again."
+    };
+    return res.send(data);
   }
 };
 
