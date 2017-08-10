@@ -11,11 +11,12 @@ class StoreCard extends Component {
       <div className="store">
         <div className="store-hero">
           <div className="store-actions">
-            <div className="store-action store-action-edit">
-              <Link to={`/store/${this.props.ID}/edit`}>
-                <Pencil />
-              </Link>
-            </div>
+            {this.props.displayEditIcon &&
+              <div className="store-action store-action-edit">
+                <Link to={`/store/${this.props.ID}/edit`}>
+                  <Pencil />
+                </Link>
+              </div>}
           </div>
           <img
             src={`http://localhost:7777/public/uploads/${this.props.image}`}
@@ -45,7 +46,8 @@ StoreCard.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string,
   slug: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
+  displayEditIcon: PropTypes.bool.isRequired
 };
 
 module.exports = StoreCard;
