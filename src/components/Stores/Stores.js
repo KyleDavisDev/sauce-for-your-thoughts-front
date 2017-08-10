@@ -5,6 +5,7 @@ import axios from "axios";
 import StoreCard from "../StoreCard/StoreCard.js";
 
 import Auth from "../../helper/Auth/Auth.js";
+import Checker from "../../helper/Checker/Checker.js";
 
 class Stores extends Component {
   constructor(props) {
@@ -17,13 +18,17 @@ class Stores extends Component {
   }
 
   componentDidMount() {
-    //need this slight work around because "this" changes inside the .all scope
+    //need this slight work around because "this" is not Stores component inside the .all scope
     const that = this;
     axios
       .all([that.getStores(), that.getUserID()])
       .then(
         axios.spread((stores, user) => {
-          this.setState({ stores: stores.data, userID: user.data.user._id });
+          if (user) {
+            this.setState({ stores: stores.data, userID: user.data.user._id });
+          } else {
+            this.setState({ stores: stores.data });
+          }
         })
       )
       .catch(error => console.log(error));
@@ -38,7 +43,9 @@ class Stores extends Component {
             this.state.stores.map(store => {
               return (
                 <StoreCard
-                  userID={this.state.userID}
+                  displayEditIcon={
+                    this.state.userID === store.author ? true : false
+                  }
                   ID={store._id}
                   name={store.name}
                   image={store.photo}
