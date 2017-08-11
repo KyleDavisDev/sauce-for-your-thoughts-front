@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 import StoreCard from "../StoreCard/StoreCard.js";
 
@@ -24,14 +25,40 @@ class Stores extends Component {
       .all([that.getStores(), that.getUserID()])
       .then(
         axios.spread((stores, user) => {
-          if (user) {
-            this.setState({ stores: stores.data, userID: user.data.user._id });
+          //we will build state
+          let stateBuilder = {};
+          //check to make sure object returned
+          if (Checker.isObject(stores.data)) {
+            //success or not
+            if (stores.data.isGood) {
+              stateBuilder = { stores: stores.data.stores, ...stateBuilder };
+
+              //only if we make it here are we concerned whether or not person is logged in
+              if (Checker.isObject(user.data) && user.data.isGood) {
+                stateBuilder = { userID: user.data.user._id, ...stateBuilder };
+              }
+            } else {
+              this.props.createFlashMessage({
+                type: "error",
+                msg: stores.data.msg
+              });
+            }
           } else {
-            this.setState({ stores: stores.data });
+            this.props.createFlashMessage({
+              type: "error",
+              msg: "Something is broken! Try reloading the page."
+            });
           }
+
+          this.setState(stateBuilder);
         })
       )
-      .catch(error => console.log(error));
+      .catch(error => {
+        this.props.createFlashMessage({
+          type: "error",
+          msg: "Something is broken! Try reloading the page."
+        });
+      });
   }
 
   render() {
@@ -75,5 +102,10 @@ class Stores extends Component {
     );
   }
 }
+
+Stores.propTypes = {
+  createFlashMessage: PropTypes.func.isRequired,
+  closeFlashMessage: PropTypes.func.isRequired
+};
 
 module.exports = Stores;
