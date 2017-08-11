@@ -187,13 +187,38 @@ exports.getStores = async (req, res) => {
 
 exports.getStoreByTag = async (req, res) => {
   try {
-    const tag = req.params.tag;
-    const tagQuery = tag === "undefined" ? { $exists: true } : tag;
-    const tagsPromise = Store.getTagsList();
-    const storesPromise = Store.find({ tags: tagQuery });
-    const result = await Promise.all([tagsPromise, storesPromise]);
-    res.send(result);
+    //get tag from param
+    const tag = req.params.tag.toLowerCase();
+    //query to get all tags or regex for case insensitive specific ones
+    const tagQuery = tag === "all" ? { $exists: true } : new RegExp(tag, "i");
+
+    //dont do anything until both promises are returned
+    const result = await Promise.all([
+      Store.getTagsList(),
+      Store.find({ tags: tagQuery })
+    ]);
+
+    //send fail message if either promises fail
+    if (!result[0] || !result[1]) {
+      const data = {
+        isGood: false,
+        msg: "Unable to find tag count or tag-specific stores."
+      };
+      return res.send(data);
+    }
+
+    const data = {
+      isGood: true,
+      tags: result[0],
+      stores: result[1],
+      msg: "Successfuly found tag count and tag-specific stores."
+    };
+    return res.send(data);
   } catch (err) {
-    res.send(err);
+    const data = {
+      isGood: false,
+      msg: "You goof'd it. Try again."
+    };
+    return res.send(data);
   }
 };
