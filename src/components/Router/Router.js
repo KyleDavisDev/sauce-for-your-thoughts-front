@@ -59,7 +59,15 @@ class Router extends Component {
                     />
                   : <Redirect to="/login" />}
             />
-            <Route exact path="/stores" component={Stores} />
+            <Route
+              exact
+              path="/stores"
+              render={() =>
+                <Stores
+                  createFlashMessage={this.createFlashMessage}
+                  closeFlashMessage={this.closeFlashMessage}
+                />}
+            />
             <Route exact path="/store/:slug" component={StoreGet} />
             <Route
               exact
