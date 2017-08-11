@@ -139,7 +139,6 @@ exports.getStoreById = async (req, res) => {
 
 exports.editStore = async (req, res) => {
   try {
-    console.log(req.body)
     //generate new slug
     req.body.slug = slug(req.body.name);
 
@@ -173,11 +172,16 @@ exports.getStores = async (req, res) => {
   try {
     const stores = await Store.find();
 
-    //send json of stores
-    res.send(stores);
+    if (!stores) {
+      const data = { isGood: false, msg: "Unable to find any stores" };
+      return res.send(data);
+    }
+
+    const data = { isGood: true, stores, msg: "Successfully found sotres" };
+    return res.send(data);
   } catch (err) {
-    console.log(err);
-    res.send(err);
+    const data = { isGood: false, msg: "Unable to find any stores" };
+    res.send(data);
   }
 };
 
