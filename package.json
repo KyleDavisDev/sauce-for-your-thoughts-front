@@ -7,7 +7,9 @@
     "dev": "webpack-dev-server",
     "prod": "rm -rf dist/ && webpack -p",
     "watch": "nodemon ./start.js",
-    "prod-watch": "npm run prod && npm run watch"
+    "prod-watch": "npm run prod && npm run watch",
+    "sample": "node ./data/load-sample-data.js",
+    "blowitallaway": "node ./data/load-sample-data.js --delete"
   },
   "author": "Kyle Bonar",
   "license": "ISC",
