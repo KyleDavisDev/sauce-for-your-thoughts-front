@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 //logos
 import MainLogo from "../../images/icons/Logo.js";
@@ -119,7 +120,7 @@ class Header extends Component {
                     activeClassName="active"
                     to="/account"
                   >
-                    <img src={Avatar.Boy10} className="nav-avatar"/>
+                    <img src={Avatar.Boy10} className="nav-avatar" />
                     Settings
                   </NavLink>
                 : <NavLink
@@ -140,7 +141,7 @@ class Header extends Component {
                     className="nav-link"
                     activeClassName="active"
                   >
-                  <Logout />
+                    <Logout />
                     Logout
                   </NavLink>
                 : <NavLink
@@ -157,13 +158,17 @@ class Header extends Component {
     );
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    this.setState({ searchValue: "" });
+  handleSubmit(e) {
+    e.preventDefault();
   }
 
-  handleSearchChange(event) {
-    this.setState({ searchValue: event.target.value });
+  handleSearchChange(e) {
+    const temp = e.target.value;
+    this.setState({ searchValue: e.target.value });
+    axios({
+      method: "get",
+      url: `http://localhost:7777/api/stores/search/:${temp}`
+    }).then(response => console.log(response));
   }
 
   handleLogout() {
