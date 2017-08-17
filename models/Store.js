@@ -42,6 +42,13 @@ const storeSchema = new mongoose.Schema({
   }
 });
 
+//index name and desc for faster lookups
+storeSchema.index({
+  name: 'text',
+  description: 'text'
+})
+
+
 storeSchema.pre("save", async function(next) {
   if (!this.isModified("name")) {
     next(); //skip generating new slug
