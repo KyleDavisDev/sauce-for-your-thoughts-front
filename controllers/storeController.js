@@ -185,6 +185,15 @@ exports.getStores = async (req, res) => {
   }
 };
 
+exports.searchStores = async (req, res) => {
+  try {
+    console.log(req.params);
+    return res.send("Yay!")
+  } catch (err) {
+    return res.send(err);
+  }
+};
+
 exports.getStoreByTag = async (req, res) => {
   try {
     //get tag from param
