@@ -167,7 +167,7 @@ class Header extends Component {
     this.setState({ searchValue: e.target.value });
     axios({
       method: "get",
-      url: `http://localhost:7777/api/stores/search/:${temp}`
+      url: `http://localhost:7777/api/stores/search/${temp}`
     }).then(response => console.log(response));
   }
 
