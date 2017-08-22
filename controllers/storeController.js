@@ -185,10 +185,33 @@ exports.getStores = async (req, res) => {
   }
 };
 
+//TODO: Filter/sanitize user input
 exports.searchStores = async (req, res) => {
   try {
-    console.log(req.params);
-    return res.send("Yay!")
+    //search index by query param and score by relevancy
+    const stores = await Store.find(
+      {
+        $text: {
+          $search: req.params.q
+        }
+      },
+      {
+        score: { $meta: "textScore" }
+      }
+    )
+      .sort({ score: { $meta: "textScore" } })
+      .limit(5);
+
+    if (!stores) {
+      res.send();
+    }
+
+    const data = {
+      isGood: true,
+      msg: `Successfully found ${stores.length} stores!`,
+      stores
+    };
+    return res.send(data);
   } catch (err) {
     return res.send(err);
   }
