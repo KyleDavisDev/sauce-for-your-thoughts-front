@@ -202,8 +202,12 @@ exports.searchStores = async (req, res) => {
       .sort({ score: { $meta: "textScore" } })
       .limit(5);
 
-    if (!stores) {
-      res.send();
+    if (!stores || stores.length === 0) {
+      const data = {
+        isGood: false,
+        msg: `Unable to find any stores!`
+      };
+      res.send(data);
     }
 
     const data = {
