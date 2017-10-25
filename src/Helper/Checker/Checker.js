@@ -1,9 +1,5 @@
-{
-  /*Javascript makes checking between an object and an array incredibly*/
-  /*difficult to be 100% but this method seems to work*/
-  /*For more info:*/
-  /*https://javascriptweblog.wordpress.com/2011/08/08/fixing-the-javascript-typeof-operator/*/
-}
+/*For more info:*/
+/*https://javascriptweblog.wordpress.com/2011/08/08/fixing-the-javascript-typeof-operator/*/
 class Checker {
   //return bool of if input is an array or not
   static isArray(input) {
