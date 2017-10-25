@@ -4,18 +4,18 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Auth from "../../helper/Auth/Auth.js";
 
 //pull in other components for SPA
-import Header from "../Header/Header.js";
-import FlashMessage from "../FlashMessage/FlashMessage.js";
-import Holder from "../Holder/Holder.js";
-import Add from "../Add/Add.js";
-import Stores from "../Stores/Stores.js";
-import StoreGet from "../Store/StoreGet.js";
-import StoreEdit from "../Store/StoreEdit.js";
-import Tags from "../Tags/Tags.js";
-import Register from "../Register/Register.js";
-import Login from "../Login/Login.js";
 import Account from "../Account/Account.js";
+import Add from "../Add/Add.js";
+import FlashMessage from "../FlashMessage/FlashMessage.js";
+import Header from "../Header/Header.js";
+import Holder from "../Holder/Holder.js";
+import Login from "../Login/Login.js";
+import Register from "../Register/Register.js";
 import ResetPassword from "../ResetPassword/ResetPassword.js";
+import StoreEdit from "../Store/StoreEdit.js";
+import StoreGet from "../Store/StoreGet.js";
+import Stores from "../Stores/Stores.js";
+import Tags from "../Tags/Tags.js";
 
 class Router extends Component {
   constructor(props) {
