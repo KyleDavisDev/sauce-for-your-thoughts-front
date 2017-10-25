@@ -11,7 +11,8 @@ exports.login = (req, res) => {
       return res.send(err);
     }
     if (!user) {
-      return res.send("Invalid email or password");
+      const data = { isGood: false, msg: "Invalid email or password" };
+      return res.send(data);
     }
 
     if (err) {
