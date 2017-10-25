@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 
-import Checker from "../../helper/Checker/Checker.js";
 import Auth from "../../helper/Auth/Auth.js";
+import Checker from "../../helper/Checker/Checker.js";
+import TextInput from "../TextInput/TextInput.js";
 
 class ForgotPasswordForm extends Component {
   constructor(props) {
@@ -20,12 +21,12 @@ class ForgotPasswordForm extends Component {
     return (
       <form onSubmit={this.handleSubmit} className="form forgot-form">
         <h2>I forgot my password!</h2>
-        <label htmlFor="forgotEmail"> Email: </label>
-        <input
-          type="email"
-          name="forgotEmail"
-          id="forgotEmail"
+        <TextInput
+          id="email"
+          name="Email"
           onChange={this.handleEmailChange}
+          required={true}
+          type="email"
           value={this.state.email}
         />
         <button type="submit" className="button">
