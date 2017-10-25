@@ -3,6 +3,21 @@ import axios from "axios";
 
 import Checker from "../../helper/Checker/Checker.js";
 
+const TextInput = props => {
+  return (
+    <div>
+      <label htmlFor={props.name}> {props.name}: </label>
+      <input
+        type={props.type}
+        id={props.name}
+        name={props.name}
+        value={props.value}
+        onChange={props.onChange}
+      />
+    </div>
+  );
+};
+
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -29,38 +44,32 @@ class Register extends Component {
         <form className="form" onSubmit={this.handleSubmit}>
           <h2>Register</h2>
 
-          <label htmlFor="name"> Name: </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={this.state.name}
+          <TextInput
+            name="Name"
             onChange={this.handleNameChange}
+            value={this.state.name}
+            type="text"
           />
 
-          <label htmlFor="email"> Email Address: </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={this.state.email}
+          <TextInput
+            name="Email Address"
             onChange={this.handleEmailChange}
+            value={this.state.email}
+            type="email"
           />
 
-          <label htmlFor="password"> Password: </label>
-          <input
-            type="password"
-            id="password"
-            value={this.state.password}
+          <TextInput
+            name="Password"
             onChange={this.handlePasswordChange}
+            value={this.state.password}
+            type="password"
           />
 
-          <label htmlFor="confirm-password"> Confirm Password: </label>
-          <input
-            type="password"
-            id="confirm-password"
-            value={this.state.confirmPassword}
+          <TextInput
+            name="Confirm Password"
             onChange={this.handleConfirmPasswordChange}
+            value={this.state.confirmPassword}
+            type="password"
           />
 
           <button type="submit" className="button">
@@ -73,16 +82,19 @@ class Register extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.closeFlashMessage();
+
+    const data = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      confirmPassword: this.state.confirmPassword
+    };
 
     axios({
       method: "post",
       url: "http://localhost:7777/register",
-      data: {
-        name: this.state.name,
-        email: this.state.email,
-        password: this.state.password,
-        "confirm-password": this.state.confirmPassword
-      }
+      data
     })
       .then(response => {
         if (Checker.isObject(response.data)) {
@@ -90,7 +102,7 @@ class Register extends Component {
           //Router.js to update state and force render() thus updating the navigation component
           this.props.logUserIn(response.data.token);
 
-          //use prop from Router.js to create flash message
+          // use prop from Router.js to create flash message
           this.props.createFlashMessage({
             type: "success",
             slug: response.data.slug,
@@ -106,11 +118,13 @@ class Register extends Component {
           });
         } else if (Checker.isArray(response.data)) {
           //we will be here if user didn't use all inputs correctly or didn't fill something out
-
           //use prop from Router.js to create flash message
+          const text  = response.data.map(err => {
+            return err.msg;
+          })
           this.props.createFlashMessage({
             type: "error",
-            text: "something messed up"
+            text
           });
         }
       })
