@@ -79,12 +79,11 @@ class Account extends Component {
   }
 
   getUserInfo() {
+    const data = { token: Auth.getToken() };
     axios({
       method: "post",
       url: "http://localhost:7777/account/getInfo",
-      data: {
-        token: Auth.getToken()
-      }
+      data
     })
       .then(response => {
         if (Checker.isObject(response.data)) {
@@ -109,10 +108,9 @@ class Account extends Component {
       })
       .catch(err => {
         this.props.createFlashMessage({
-            type: "error",
-            msg:
-              "Something goof'd up. Try logging out and back in."
-          });
+          type: "error",
+          msg: "Your account was unable to be found. Try logging out and back in."
+        });
       });
   }
 
