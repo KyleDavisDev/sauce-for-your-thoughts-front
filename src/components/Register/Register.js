@@ -2,21 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Checker from "../../helper/Checker/Checker.js";
-
-const TextInput = props => {
-  return (
-    <div>
-      <label htmlFor={props.name}> {props.name}: </label>
-      <input
-        type={props.type}
-        id={props.name}
-        name={props.name}
-        value={props.value}
-        onChange={props.onChange}
-      />
-    </div>
-  );
-};
+import TextInput from '../TextInput/TextInput.js';
 
 class Register extends Component {
   constructor(props) {
