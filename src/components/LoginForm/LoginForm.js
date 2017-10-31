@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import Validator from "validator";
 
 import Auth from "../../helper/Auth/Auth.js";
 import TextInput from "../TextInput/TextInput.js";
@@ -11,17 +12,20 @@ class LoginForm extends Component {
     super(props);
 
     this.state = {
-      email: "1@gmail.com",
-      password: "1"
+      data: {
+        email: "1@gmail.com",
+        password: "1"
+      },
+      errors: {
+        email: "",
+        password: "",
+        submit: ""
+      }
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.clearInput = this.clearInput.bind(this);
   }
 
   render() {
+    const { email, password } = this.state.data;
     return (
       <form className="form" onSubmit={this.handleSubmit}>
         <h2>Login</h2>
@@ -29,18 +33,22 @@ class LoginForm extends Component {
           id="email"
           name="Email Adress"
           onChange={this.handleEmailChange}
-          required={true}
           type="email"
-          value={this.state.email}
+          value={email}
         />
+        {this.state.errors.email && (
+          <p style={{ color: "red" }}>{this.state.errors.email}</p>
+        )}
         <TextInput
           id="password"
           name="Password"
           onChange={this.handlePasswordChange}
-          required={true}
           type="password"
-          value={this.state.password}
+          value={password}
         />
+        {this.state.errors.password && (
+          <p style={{ color: "red" }}>{this.state.errors.password}</p>
+        )}
         <button type="submit" className="button">
           LOG IN ->
         </button>
@@ -48,27 +56,44 @@ class LoginForm extends Component {
     );
   }
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
-    //close any flash message that may be visible
-    // this.props.closeFlashMessage();
 
-    const email = this.state.email.trim().toLowerCase();
-    const data = { email, password: this.state.password };
-    this.props.submit(data);
-  }
+    const errors = this.validate(this.state.data);
+    // console.log(errors);
+    this.setState({ errors: Object.assign({}, this.state.errors, errors) });
 
-  handleEmailChange(e) {
-    this.setState({ email: e.target.value });
-  }
+    if (Object.keys(errors).length === 0) {
+      this.props.submit(this.state.data).catch(err =>
+        this.setState({
+          errors: { ...this.state.errors, submit: err.message }
+        })
+      );
+    }
+  };
 
-  handlePasswordChange(e) {
-    this.setState({ password: e.target.value });
-  }
+  handleEmailChange = e => {
+    this.setState({ data: { ...this.state.data, email: e.target.value } });
+  };
 
-  clearInput() {
+  handlePasswordChange = e => {
+    this.setState({ data: { ...this.state.data, password: e.target.value } });
+  };
+
+  clearInput = () => {
     this.setState({ email: "", password: "" });
-  }
+  };
+
+  validate = data => {
+    const errors = {};
+    if (!Validator.isEmail(data.email)) {
+      errors.email = "Invalid email";
+    }
+    if (!data.password) {
+      errors.password = "Cannot be empty";
+    }
+    return errors;
+  };
 }
 
 LoginForm.propTypes = {

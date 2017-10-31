@@ -10,8 +10,6 @@ import Auth from "./../../helper/Auth/Auth";
 class Login extends Component {
   constructor(props) {
     super(props);
-
-    this.submit = this.submit.bind(this);
   }
   componentWillMount() {
     //make sure user is logged out
@@ -26,10 +24,9 @@ class Login extends Component {
     );
   }
 
-  submit(data) {
-    // console.log(data);
+  submit = data =>
     this.props.login(data).then(() => this.props.history.push("/"));
-  }
+
   logUserOut() {
     Auth.deauthenticateUser();
     this.setState({ isUserLoggedIn: Auth.isUserAuthenticated() });
