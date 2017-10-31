@@ -15,11 +15,7 @@ class Login extends Component {
   }
   componentWillMount() {
     //make sure user is logged out
-    this.logUserOut();
-  }
-  logUserOut() {
-    Auth.deauthenticateUser();
-    this.setState({ isUserLoggedIn: Auth.isUserAuthenticated() });
+    //this.logUserOut();
   }
   render() {
     return (
@@ -32,8 +28,11 @@ class Login extends Component {
 
   submit(data) {
     // console.log(data);
-    this.props.login(data);
-    //.then(() => this.props.history.push("/"));
+    this.props.login(data).then(() => this.props.history.push("/"));
+  }
+  logUserOut() {
+    Auth.deauthenticateUser();
+    this.setState({ isUserLoggedIn: Auth.isUserAuthenticated() });
   }
 }
 

@@ -56,45 +56,6 @@ class LoginForm extends Component {
     const email = this.state.email.trim().toLowerCase();
     const data = { email, password: this.state.password };
     this.props.submit(data);
-    // axios({
-    //   method: "post",
-    //   url: "http://localhost:7777/login",
-    //   data
-    // })
-    //   .then(response => {
-    //     //if response.token exists then we know user was able to log in fully
-    //     if (Checker.isObject(response.data) && response.data.isGood) {
-    //       //use function defined in Router.js to log in user - this will cause
-    //       //Router.js to update state and force render() thus updating the navigation component
-    //       this.props.logUserIn(response.data.token);
-
-    //       //set success flash
-    //       // this.props.createFlashMessage({
-    //       //   type: "success",
-    //       //   text: "You are now logged in!"
-    //       // });
-    //       //clear input fields
-    //       this.clearInput();
-    //     } else {
-    //       //set error flash message
-    //       // this.props.createFlashMessage({
-    //       //   type: "error",
-    //       //   text: response.data.msg || "Please try again"
-    //       // });
-
-    //       //clear input fields
-    //       this.clearInput();
-    //     }
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //     //set error flash message
-    //     // this.props.createFlashMessage({
-    //     //   isVisible: true,
-    //     //   type: "error",
-    //     //   text: "Something broke. Try again!"
-    //     // });
-    //   });
   }
 
   handleEmailChange(e) {
