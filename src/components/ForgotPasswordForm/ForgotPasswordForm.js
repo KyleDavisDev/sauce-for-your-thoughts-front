@@ -83,10 +83,6 @@ class ForgotPasswordForm extends Component {
   }
 }
 
-ForgotPasswordForm.propTypes = {
-  logUserIn: PropTypes.func.isRequired,
-  createFlashMessage: PropTypes.func.isRequired,
-  closeFlashMessage: PropTypes.func.isRequired
-};
+ForgotPasswordForm.propTypes = {};
 
 module.exports = ForgotPasswordForm;

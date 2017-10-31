@@ -38,26 +38,26 @@ class Stores extends Component {
                 stateBuilder = { userID: user.data.user._id, ...stateBuilder };
               }
             } else {
-              this.props.createFlashMessage({
-                type: "error",
-                msg: stores.data.msg
-              });
+              // this.props.createFlashMessage({
+              //   type: "error",
+              //   msg: stores.data.msg
+              // });
             }
           } else {
-            this.props.createFlashMessage({
-              type: "error",
-              msg: "Something is broken! Try reloading the page."
-            });
+            // this.props.createFlashMessage({
+            //   type: "error",
+            //   msg: "Something is broken! Try reloading the page."
+            // });
           }
 
           this.setState(stateBuilder);
         })
       )
       .catch(error => {
-        this.props.createFlashMessage({
-          type: "error",
-          msg: "Something is broken! Try reloading the page."
-        });
+        // this.props.createFlashMessage({
+        //   type: "error",
+        //   msg: "Something is broken! Try reloading the page."
+        // });
       });
   }
 
@@ -104,8 +104,8 @@ class Stores extends Component {
 }
 
 Stores.propTypes = {
-  createFlashMessage: PropTypes.func.isRequired,
-  closeFlashMessage: PropTypes.func.isRequired
+  // createFlashMessage: PropTypes.func.isRequired,
+  // closeFlashMessage: PropTypes.func.isRequired
 };
 
 module.exports = Stores;

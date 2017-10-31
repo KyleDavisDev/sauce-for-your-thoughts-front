@@ -50,7 +50,7 @@ class LoginForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     //close any flash message that may be visible
-    this.props.closeFlashMessage();
+    // this.props.closeFlashMessage();
 
     const email = this.state.email.trim().toLowerCase();
     const data = { email, password: this.state.password };
@@ -67,18 +67,18 @@ class LoginForm extends Component {
           this.props.logUserIn(response.data.token);
 
           //set success flash
-          this.props.createFlashMessage({
-            type: "success",
-            text: "You are now logged in!"
-          });
+          // this.props.createFlashMessage({
+          //   type: "success",
+          //   text: "You are now logged in!"
+          // });
           //clear input fields
           this.clearInput();
         } else {
           //set error flash message
-          this.props.createFlashMessage({
-            type: "error",
-            text: response.data.msg || "Please try again"
-          });
+          // this.props.createFlashMessage({
+          //   type: "error",
+          //   text: response.data.msg || "Please try again"
+          // });
 
           //clear input fields
           this.clearInput();
@@ -87,11 +87,11 @@ class LoginForm extends Component {
       .catch(error => {
         console.log(error);
         //set error flash message
-        this.props.createFlashMessage({
-          isVisible: true,
-          type: "error",
-          text: "Something broke. Try again!"
-        });
+        // this.props.createFlashMessage({
+        //   isVisible: true,
+        //   type: "error",
+        //   text: "Something broke. Try again!"
+        // });
       });
   }
 
@@ -104,14 +104,10 @@ class LoginForm extends Component {
   }
 
   clearInput() {
-    this.setState({ email: "", password: "" })
+    this.setState({ email: "", password: "" });
   }
 }
 
-LoginForm.propTypes = {
-  logUserIn: PropTypes.func.isRequired,
-  createFlashMessage: PropTypes.func.isRequired,
-  closeFlashMessage: PropTypes.func.isRequired
-};
+LoginForm.propTypes = {};
 
 module.exports = LoginForm;

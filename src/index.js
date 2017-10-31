@@ -1,9 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-//component that handles all SPA routing
-import Router from "./components/Router/Router.js";
-
-//general styles
+import { BrowserRouter, Route } from "react-router-dom";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
+import RootReducer from "./reducers/rootReducer";
+import registerServiceWorker from "./registerServiceWorker";
+import App from "./components/App/App.js";
 import "./scss/style.scss";
-ReactDOM.render(<Router />, document.getElementById("app"));
+
+const store = createStore(
+  RootReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
+
+ReactDOM.render(
+  <BrowserRouter>
+    <Provider store={store}>
+      <Route component={App} />
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById("app")
+);
+registerServiceWorker();

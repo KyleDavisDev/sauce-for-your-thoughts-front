@@ -171,7 +171,6 @@ class ResetPassword extends Component {
 }
 
 ResetPassword.propTypes = {
-  createFlashMessage: PropTypes.func.isRequired,
   logUserIn: PropTypes.func.isRequired,
   token: PropTypes.string.isRequired
 };
