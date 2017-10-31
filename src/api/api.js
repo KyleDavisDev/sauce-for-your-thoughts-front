@@ -6,9 +6,12 @@ export default {
       return axios
         .post("http://localhost:7777/login", credentials)
         .then(res => {
-          return res.data.token;
-        })
-        .catch(err => console.log(err));
+          if (res.data.isGood) {
+            return res.data.token;
+          } else {
+            throw new Error(res.data.msg);
+          }
+        });
     }
   }
 };
