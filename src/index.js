@@ -10,8 +10,14 @@ import registerServiceWorker from "./registerServiceWorker";
 import App from "./components/App/App.js";
 import "./scss/style.scss";
 
+const initialState = {
+  user: { token: null },
+  flashMessage: { visible: false }
+};
+
 const store = createStore(
   RootReducer,
+  initialState,
   composeWithDevTools(applyMiddleware(thunk))
 );
 
