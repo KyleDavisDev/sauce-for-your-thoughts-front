@@ -1,17 +1,17 @@
 class Auth {
   //set local storage w/ token and datetime
   static authenticateUser(token) {
-    const key = { token, timestamp: new Date().getTime() };
-    localStorage.setItem("key", JSON.stringify(key));
+    const dtdkey = { token, timestamp: new Date().getTime() };
+    localStorage.setItem("dtdkey", JSON.stringify(dtdkey));
   }
 
   //check if token exists and hasn't expired
   static isUserAuthenticated() {
     //simple sanity checks before going much further:
     // if token doesn't exist, return false here
-    if (!localStorage.getItem("key")) return false;
+    if (!localStorage.getItem("dtdkey")) return false;
     //if timestamp doesn't exist inside of key, return false
-    const keyTime = JSON.parse(localStorage.getItem("key")).timestamp;
+    const keyTime = JSON.parse(localStorage.getItem("dtdkey")).timestamp;
     if (!keyTime) return false;
 
     //set timelimit, in minutes, for token in minutes
@@ -40,26 +40,26 @@ class Auth {
   //not be doing same sanity checks as above
   static updateUserToken() {
     const key = {
-      token: JSON.parse(localStorage.getItem("key")).token,
+      token: JSON.parse(localStorage.getItem("dtdkey")).token,
       timestamp: new Date().getTime()
     };
-    localStorage.setItem("key", JSON.stringify(key));
+    localStorage.setItem("dtdkey", JSON.stringify(key));
     return true;
   }
 
   //remove authentication token
   static deauthenticateUser() {
     //if exists, remove
-    if (localStorage.getItem("key")) {
-      localStorage.removeItem("key");
+    if (localStorage.getItem("dtdkey")) {
+      localStorage.removeItem("dtdkey");
     }
   }
 
   //return authentication token
   static getToken() {
     //if exists, send back
-    if (localStorage.getItem("key")) {
-      return JSON.parse(localStorage.getItem("key")).token || null;
+    if (localStorage.getItem("dtdkey")) {
+      return JSON.parse(localStorage.getItem("dtdkey")).token || null;
     }
     return null;
   }
