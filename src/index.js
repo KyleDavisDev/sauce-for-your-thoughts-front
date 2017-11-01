@@ -9,6 +9,8 @@ import RootReducer from "./reducers/rootReducer";
 import registerServiceWorker from "./registerServiceWorker";
 import App from "./components/App/App.js";
 import "./scss/style.scss";
+import { userLoggedIn } from "./actions/auth";
+import Auth from "./helper/Auth/Auth";
 
 const initialState = {
   user: { token: null },
@@ -20,6 +22,11 @@ const store = createStore(
   initialState,
   composeWithDevTools(applyMiddleware(thunk))
 );
+
+if (Auth.isUserAuthenticated()) {
+  const user = { token: localStorage.dtdkey };
+  store.dispatch(userLoggedIn(user));
+}
 
 ReactDOM.render(
   <BrowserRouter>
