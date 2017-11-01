@@ -12,7 +12,7 @@ import "./scss/style.scss";
 
 const initialState = {
   user: { token: null },
-  flashMessage: { visible: false }
+  flashMessage: { isVisible: false, type: null, text: null, slug: null }
 };
 
 const store = createStore(
