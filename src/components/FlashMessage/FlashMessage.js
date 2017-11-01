@@ -19,36 +19,35 @@ class FlashMessage extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    //close flash on page change if flash currently visible
-    //this is likely the result of user changing routes
-    this.props.closeFlashMessage();
+    this.setState(nextProps);
   }
 
   render() {
-    const slugLink = this.state.slug
-      ? <Link to={`/store/${this.state.slug}`}>Rate it!</Link>
-      : "";
+    const slugLink = this.state.slug ? (
+      <Link to={`/store/${this.state.slug}`}>Rate it!</Link>
+    ) : (
+      ""
+    );
     return (
       <div className={`flash ${this.state.type}`}>
         {/*if object, iterate over object*/}
-        {Checker.isObject(this.state.text) &&
-          <div className="error-list">
-            {this.iterateObject()}
-          </div>}
+        {Checker.isObject(this.state.text) && (
+          <div className="error-list">{this.iterateObject()}</div>
+        )}
 
         {/*if array, iterate over array*/}
-        {Checker.isArray(this.state.text) &&
-          <div className="error-list">
-            {this.iterateArray()}
-          </div>}
+        {Checker.isArray(this.state.text) && (
+          <div className="error-list">{this.iterateArray()}</div>
+        )}
 
         {/*if string, output string*/}
-        {Checker.isString(this.state.text) &&
+        {Checker.isString(this.state.text) && (
           <div className="success-list">
             <p className="item">
               {this.state.text} {slugLink}
             </p>
-          </div>}
+          </div>
+        )}
 
         <button className="close-button" onClick={this.props.closeFlashMessage}>
           X
