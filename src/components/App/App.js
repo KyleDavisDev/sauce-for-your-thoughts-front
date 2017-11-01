@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { flashClose } from "../../actions/flash";
+import PropTypes from "prop-types";
 
 import Auth from "../../helper/Auth/Auth.js";
 
@@ -23,19 +24,20 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isUserLoggedIn: Auth.isUserAuthenticated(),
+      isAuthenticated: false,
       flashMessage: { isVisible: false, type: null, text: null, slug: null }
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState(nextProps);
   }
 
   render() {
     const { isVisible, type, text, slug } = this.props.flashMessage;
     return (
       <div className="container">
-        <Header
-          isUserLoggedIn={this.state.isUserLoggedIn}
-          handleLogout={this.logUserOut}
-        />
+        <Header />
         {isVisible && (
           <FlashMessage
             type={type}
@@ -60,15 +62,18 @@ class App extends Component {
     );
   }
 
-  //function should be called before any component creates flash
   closeFlashMessage = () => {
     this.props.flashClose();
   };
 }
 
+App.PropTypes = {
+  isAuthenticated: PropTypes.bool
+};
+
 function mapStateToProps(state) {
   return {
-    isAuthenticated: !!state.user.email,
+    isAuthenticated: !!state.user.token,
     flashMessage: state.flashMessage
   };
 }
