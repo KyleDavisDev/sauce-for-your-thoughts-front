@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { flashClose } from "../../actions/flash";
 
 import Auth from "../../helper/Auth/Auth.js";
 
@@ -23,30 +24,26 @@ class App extends Component {
     super(props);
     this.state = {
       isUserLoggedIn: Auth.isUserAuthenticated(),
-      flashMessage: { isVisible: false, type: "", text: "", slug: "" }
+      flashMessage: { isVisible: false, type: null, text: null, slug: null }
     };
-
-    this.logUserIn = this.logUserIn.bind(this);
-    this.logUserOut = this.logUserOut.bind(this);
-    this.createFlashMessage = this.createFlashMessage.bind(this);
-    this.closeFlashMessage = this.closeFlashMessage.bind(this);
   }
 
   render() {
+    const { isVisible, type, text, slug } = this.props.flashMessage;
     return (
       <div className="container">
         <Header
           isUserLoggedIn={this.state.isUserLoggedIn}
           handleLogout={this.logUserOut}
         />
-        {/*this.state.flashMessage.isVisible && (
+        {isVisible && (
           <FlashMessage
-            type={this.state.flashMessage.type}
-            text={this.state.flashMessage.text}
-            slug={this.state.flashMessage.slug}
+            type={type}
+            text={text}
+            slug={slug}
             closeFlashMessage={this.closeFlashMessage}
           />
-        )*/}
+        )}
 
         <Route exact path="/" component={Holder} />
         <Route exact path="/add" component={Add} />
@@ -63,35 +60,17 @@ class App extends Component {
     );
   }
 
-  logUserIn(token) {
-    Auth.authenticateUser(token);
-    this.setState({ isUserLoggedIn: Auth.isUserAuthenticated() });
-  }
-
-  logUserOut() {
-    Auth.deauthenticateUser();
-    this.setState({ isUserLoggedIn: Auth.isUserAuthenticated() });
-  }
-
-  createFlashMessage({ type, slug = "", text = "", msg }) {
-    //text and msg are same thing so set text to msg if text is empty
-    text = text === "" ? msg : text;
-
-    //create flash by setting state
-    this.setState({ flashMessage: { isVisible: true, type, text, slug } });
-  }
-
   //function should be called before any component creates flash
-  closeFlashMessage() {
-    this.setState({
-      flashMessage: { isVisible: false, type: "", text: "", slug: "" }
-    });
-  }
-}
-function mapStateToProps(state) {
-  return {
-    isAuthenticated: !!state.user.email
+  closeFlashMessage = () => {
+    this.props.flashClose();
   };
 }
 
-export default connect(mapStateToProps)(App);
+function mapStateToProps(state) {
+  return {
+    isAuthenticated: !!state.user.email,
+    flashMessage: state.flashMessage
+  };
+}
+
+export default connect(mapStateToProps, { flashClose })(App);
