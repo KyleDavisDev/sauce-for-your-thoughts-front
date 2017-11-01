@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { login } from "../../actions/auth";
+import { flashError } from "../../actions/flash";
 
 import LoginForm from "../LoginForm/LoginForm.js";
 import ForgotPasswordForm from "../ForgotPasswordForm/ForgotPasswordForm.js";
@@ -11,10 +12,9 @@ class Login extends Component {
   constructor(props) {
     super(props);
   }
-  componentWillMount() {
-    //make sure user is logged out
-    //this.logUserOut();
-  }
+
+  componentDidMount() {}
+
   render() {
     return (
       <div className="inner">
@@ -25,7 +25,12 @@ class Login extends Component {
   }
 
   submit = data =>
-    this.props.login(data).then(() => this.props.history.push("/"));
+    this.props
+      .login(data)
+      .then(() => this.props.history.push("/"))
+      .catch(err => {
+        this.props.flashError({ text: err.message });
+      });
 
   logUserOut() {
     Auth.deauthenticateUser();
@@ -38,4 +43,4 @@ Login.propTypes = {
   login: PropTypes.func.isRequired
 };
 
-export default connect(null, { login })(Login);
+export default connect(null, { login, flashError })(Login);
