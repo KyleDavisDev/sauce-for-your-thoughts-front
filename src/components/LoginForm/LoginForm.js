@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import Validator from "validator";
+import { connect } from "react-redux";
 
 import Auth from "../../helper/Auth/Auth.js";
+import FlashMessage from "../FlashMessage/FlashMessage";
 import TextInput from "../TextInput/TextInput.js";
 import Checker from "../../helper/Checker/Checker.js";
 
@@ -18,8 +20,7 @@ class LoginForm extends Component {
       },
       errors: {
         email: "",
-        password: "",
-        submit: ""
+        password: ""
       }
     };
   }
@@ -60,15 +61,10 @@ class LoginForm extends Component {
     e.preventDefault();
 
     const errors = this.validate(this.state.data);
-    // console.log(errors);
-    this.setState({ errors: Object.assign({}, this.state.errors, errors) });
+    this.setState({ errors });
 
-    if (Object.keys(errors).length === 0) {
-      this.props.submit(this.state.data).catch(err =>
-        this.setState({
-          errors: { ...this.state.errors, submit: err.message }
-        })
-      );
+    if (errors.email.length === 0 && errors.password.length === 0) {
+      this.props.submit(this.state.data);
     }
   };
 
@@ -86,12 +82,8 @@ class LoginForm extends Component {
 
   validate = data => {
     const errors = {};
-    if (!Validator.isEmail(data.email)) {
-      errors.email = "Invalid email";
-    }
-    if (!data.password) {
-      errors.password = "Cannot be empty";
-    }
+    errors.email = !Validator.isEmail(data.email) ? "Invalid email" : "";
+    errors.password = !data.password ? "Cannot be empty" : "";
     return errors;
   };
 }
@@ -100,4 +92,4 @@ LoginForm.propTypes = {
   submit: PropTypes.func.isRequired
 };
 
-module.exports = LoginForm;
+export default LoginForm;
