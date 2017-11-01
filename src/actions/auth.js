@@ -3,7 +3,8 @@ import api from "../api/api";
 
 export const userLoggedIn = user => ({
   type: "USER_LOGGED_IN",
-  user
+  user,
+  text: "Successfully logged in. Thank you!"
 });
 
 export const login = credentials => dispatch => {
