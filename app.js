@@ -1,11 +1,11 @@
 const express = require("express");
 const expressValidator = require("express-validator");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const routes = require("./routes/routes.js");
-const passport = require('passport');
+const passport = require("passport");
 require("./handlers/passport.js");
 
 //create express app
