@@ -22,7 +22,12 @@ exports.validateRegister = (req, res, next) => {
 
   const errors = req.validationErrors();
   if (errors) {
-    return res.send(errors);
+    const data = {
+      isGood: false,
+      msg: errors
+    };
+    res.send(data);
+    return;
   }
   next();
 };
@@ -34,6 +39,7 @@ exports.register = async (req, res, next) => {
     await registerWithPromise(user, req.body.password);
   } catch (err) {
     res.send(err);
+    return;
   }
   next(); //go to authController.login
 };
