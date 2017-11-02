@@ -26,7 +26,6 @@ const UserLogInLogOut = ({ isAuthenticated, logout }) => {
             <NavLink
               onClick={e => {
                 e.preventDefault();
-                console.log(this);
                 logout();
               }}
               to="/"
@@ -62,7 +61,7 @@ const UserLogInLogOut = ({ isAuthenticated, logout }) => {
 
 UserLogInLogOut.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
-  logout: PropTypes.func
+  logout: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
