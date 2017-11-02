@@ -1,69 +1,20 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { flashClose } from "../../actions/flash";
 
 import Checker from "../../helper/Checker/Checker.js";
 
-class FlashMessage extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      type: this.props.type,
-      text: this.props.text,
-      slug: this.props.slug || null
-    };
-
-    this.iterateObject = this.iterateObject.bind(this);
-    this.iterateArray = this.iterateArray.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState(nextProps);
-  }
-
-  render() {
-    const slugLink = this.state.slug ? (
-      <Link to={`/store/${this.state.slug}`}>Rate it!</Link>
-    ) : (
-      ""
-    );
-    return (
-      <div className={`flash ${this.state.type}`}>
-        {/*if object, iterate over object*/}
-        {Checker.isObject(this.state.text) && (
-          <div className="error-list">{this.iterateObject()}</div>
-        )}
-
-        {/*if array, iterate over array*/}
-        {Checker.isArray(this.state.text) && (
-          <div className="error-list">{this.iterateArray()}</div>
-        )}
-
-        {/*if string, output string*/}
-        {Checker.isString(this.state.text) && (
-          <div className="success-list">
-            <p className="item">
-              {this.state.text} {slugLink}
-            </p>
-          </div>
-        )}
-
-        <button className="close-button" onClick={this.props.closeFlashMessage}>
-          X
-        </button>
-      </div>
-    );
-  }
-
-  iterateObject() {
+const FlashMessage = ({ flashMessage, flashClose }) => {
+  function iterateObject() {
     // the keys of this.state.text may change later depending on
     //the DB and this way of looping through the object will us to grab the messages
     //reguardless of what the key is
     // .reverse() to get error message in correct order of form layout
-    const errorKeys = Object.keys(this.state.text).reverse();
+    const errorKeys = Object.keys(flashMessage.text).reverse();
     const errorMessages = errorKeys.map(key => {
-      return this.state.text[key].message;
+      return flashMessage.text[key].message;
     });
     return errorMessages.map((errorMessage, index) => {
       return (
@@ -74,8 +25,8 @@ class FlashMessage extends Component {
     });
   }
 
-  iterateArray() {
-    return this.state.text.map((txt, index) => {
+  function iterateArray() {
+    return flashMessage.text.map((txt, index) => {
       return (
         <p key={index} className="item">
           {txt}
@@ -83,16 +34,54 @@ class FlashMessage extends Component {
       );
     });
   }
-}
 
-FlashMessage.propTypes = {
-  type: PropTypes.string.isRequired,
-  text: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-    PropTypes.array
-  ]),
-  slug: PropTypes.string
+  const slugLink = flashMessage.slug ? (
+    <Link to={`/store/${flashMessage.slug}`}>Rate it!</Link>
+  ) : (
+    ""
+  );
+
+  return (
+    <div className={`flash ${flashMessage.type}`}>
+      {/*if object, iterate over object*/}
+      {Checker.isObject(flashMessage.text) && (
+        <div className="error-list">{this.iterateObject()}</div>
+      )}
+
+      {/*if array, iterate over array*/}
+      {Checker.isArray(flashMessage.text) && (
+        <div className="error-list">{this.iterateArray()}</div>
+      )}
+
+      {/*if string, output string*/}
+      {Checker.isString(flashMessage.text) && (
+        <div className="success-list">
+          <p className="item">
+            {flashMessage.text} {slugLink}
+          </p>
+        </div>
+      )}
+      <button className="close-button" onClick={e => flashClose()}>
+        X
+      </button>
+    </div>
+  );
 };
 
-module.exports = FlashMessage;
+FlashMessage.propTypes = {
+  flashMessage: PropTypes.shape({
+    isVisible: PropTypes.bool.isRequired,
+    type: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
+  }).isRequired,
+  flashClose: PropTypes.func.isRequired
+};
+
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    flashMessage: state.flashMessage
+  };
+}
+
+export default connect(mapStateToProps, { flashClose })(FlashMessage);
