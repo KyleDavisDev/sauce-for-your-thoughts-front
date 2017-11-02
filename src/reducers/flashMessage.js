@@ -27,10 +27,13 @@ export default function flashMessage(state = {}, action) {
         ...state,
         isVisible: !state.isVisible
       };
+    case "USER_LOGGED_OUT":
     case "CLOSE_FLASH":
       return {
-        ...state,
-        isVisible: false
+        isVisible: false,
+        type: null,
+        text: null,
+        slug: null
       };
     default:
       return state;
