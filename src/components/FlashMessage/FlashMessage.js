@@ -82,7 +82,6 @@ FlashMessage.propTypes = {
 };
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     flashMessage: state.flashMessage
   };
