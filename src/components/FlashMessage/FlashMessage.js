@@ -72,7 +72,11 @@ FlashMessage.propTypes = {
   flashMessage: PropTypes.shape({
     isVisible: PropTypes.bool.isRequired,
     type: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired
+    text: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array,
+      PropTypes.object
+    ])
   }).isRequired,
   flashClose: PropTypes.func.isRequired
 };
