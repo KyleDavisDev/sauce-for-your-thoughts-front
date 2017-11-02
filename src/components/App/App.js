@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { flashClose } from "../../actions/flash";
 import PropTypes from "prop-types";
@@ -20,55 +20,54 @@ import StoreGet from "../Store/StoreGet.js";
 import Stores from "../Stores/Stores.js";
 import Tags from "../Tags/Tags.js";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isAuthenticated: false,
-      flashMessage: { isVisible: false, type: null, text: null, slug: null }
-    };
-  }
+const App = ({ isAuthenticated, flashMessage }) => {
+  // const { isAuthenticated } = this.state;
+  const { isVisible, type, text, slug } = flashMessage;
+  return (
+    <div className="container">
+      <Header />
+      {isVisible && (
+        <FlashMessage
+          type={type}
+          text={text}
+          slug={slug}
+          closeFlashMessage={e => {
+            e.preventDefault();
+            flashClose();
+          }}
+        />
+      )}
 
-  componentWillReceiveProps(nextProps) {
-    this.setState(nextProps);
-  }
-
-  render() {
-    const { isVisible, type, text, slug } = this.props.flashMessage;
-    return (
-      <div className="container">
-        <Header />
-        {isVisible && (
-          <FlashMessage
-            type={type}
-            text={text}
-            slug={slug}
-            closeFlashMessage={this.closeFlashMessage}
-          />
-        )}
-
-        <Route exact path="/" component={Holder} />
-        <Route exact path="/add" component={Add} />
-        <Route exact path="/stores" component={Stores} />
-        <Route exact path="/store/:slug" component={StoreGet} />
-        <Route exact path="/store/:id/edit" component={StoreEdit} />
-        <Route exact path="/tags" component={Tags} />
-        <Route exact path="/tags/:tag" component={Tags} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/account" component={Account} />
-        <Route exact path="/account/reset/:token" component={ResetPassword} />
-        <Route exact path="/login" component={Login} />
-      </div>
-    );
-  }
-
-  closeFlashMessage = () => {
-    this.props.flashClose();
-  };
-}
+      <Route exact path="/" component={Holder} />
+      <Route
+        exact
+        path="/add"
+        component={props =>
+          isAuthenticated ? <Add /> : <Redirect to="/login" />}
+      />
+      <Route
+        exact
+        path="/stores"
+        render={props =>
+          isAuthenticated ? <Stores /> : <Redirect to="/login" />}
+      />
+      <Route exact path="/store/:slug" component={StoreGet} />
+      <Route exact path="/store/:id/edit" component={StoreEdit} />
+      <Route exact path="/tags" component={Tags} />
+      <Route exact path="/tags/:tag" component={Tags} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/account" component={Account} />
+      <Route exact path="/account/reset/:token" component={ResetPassword} />
+      <Route exact path="/login" component={Login} />
+    </div>
+  );
+};
 
 App.PropTypes = {
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool.isRequired,
+  flashMessage: PropTypes.shape({
+    isVisible: PropTypes.bool.isRequired
+  }).isRequired
 };
 
 function mapStateToProps(state) {
