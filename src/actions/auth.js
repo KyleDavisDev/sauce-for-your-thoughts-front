@@ -12,6 +12,11 @@ export const userLoggedOut = user => ({
   type: "USER_LOGGED_OUT"
 });
 
+export const userRegistered = user => ({
+  type: "USER_REGISTERED",
+  text: "Thank you for registering! You are now logged in."
+});
+
 export const login = credentials => dispatch => {
   return api.user.login(credentials).then(user => {
     //save token to local storage and set timestamp
@@ -24,4 +29,11 @@ export const logout = () => dispatch => {
   //remove token and dispatch action
   Auth.deauthenticateUser();
   dispatch(userLoggedOut());
+};
+
+export const register = credentials => dispatch => {
+  return api.user.register(credentials).then(iser => {
+    Auth.authenticateUser(user);
+    dispatch(userLoggedIn(user));
+  });
 };
