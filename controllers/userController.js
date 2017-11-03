@@ -52,7 +52,11 @@ exports.getUser = (req, res, next) => {
   // check if a user exists
   return User.findById(req.body._id, (userErr, user) => {
     if (userErr || !user) {
-      return res.status(401).end();
+      const data = {
+        isGood: false,
+        msg: "Unable to find user. Please try again."
+      };
+      return res.status(401).send(data);
     }
 
     //only pass back relevant information
@@ -61,7 +65,7 @@ exports.getUser = (req, res, next) => {
       user: { name: user.name, email: user.email, _id: user._id },
       msg: "Successfully found user."
     };
-    return res.send(data);
+    return res.status(200).send(data);
   });
 };
 
@@ -77,8 +81,18 @@ exports.updateUser = async (req, res) => {
       { $set: updates },
       { new: true, runValidators: true, context: "query" }
     );
-    res.send({ message: "Success" });
-  } catch (err) {
-    res.send(err);
+    const data = {
+      isGood: true,
+      msg: "Successfully updated user information."
+    };
+    res.status(200).send(data);
+    return;
+  } catch (errors) {
+    const data = {
+      isGood: false,
+      msg: errors.message
+    };
+    res.status(401).send(data);
+    return;
   }
 };

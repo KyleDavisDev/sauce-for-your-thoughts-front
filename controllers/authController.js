@@ -37,7 +37,7 @@ exports.isLoggedIn = (req, res, next) => {
       isGood: false,
       msg: "You are not logged in or your token is invalid. Please try again."
     };
-    res.send(data);
+    res.status(401).send(data);
     return;
   }
 
@@ -51,8 +51,8 @@ exports.isLoggedIn = (req, res, next) => {
         isGood: false,
         msg: "You are not logged in or your token is invalid. Please try again."
       };
-      res.send(data);
-      return;
+
+      return res.status(401).send(data);
     }
 
     const userId = decoded.sub;
@@ -66,8 +66,7 @@ exports.isLoggedIn = (req, res, next) => {
           msg:
             "You are not logged in or your token is invalid. Please try again."
         };
-        res.send(data);
-        return;
+        res.status(401).send(data);
       }
 
       //attach _id to body

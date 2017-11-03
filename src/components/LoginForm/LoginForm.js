@@ -38,7 +38,7 @@ class LoginForm extends Component {
           value={email}
         />
         {this.state.errors.email && (
-          <p style={{ color: "red" }}>{this.state.errors.email}</p>
+          <p className="form-error">{this.state.errors.email}</p>
         )}
         <TextInput
           id="password"
@@ -48,7 +48,7 @@ class LoginForm extends Component {
           value={password}
         />
         {this.state.errors.password && (
-          <p style={{ color: "red" }}>{this.state.errors.password}</p>
+          <p className="form-error">{this.state.errors.password}</p>
         )}
         <button type="submit" className="button">
           LOG IN ->

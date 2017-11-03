@@ -1,6 +1,7 @@
 export default function flashMessage(state = {}, action) {
   switch (action.type) {
     case "USER_LOGGED_IN":
+    case "USER_UPDATED":
     case "SUCCESS_FLASH":
       return {
         isVisible: true,

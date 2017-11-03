@@ -29,6 +29,9 @@ class RegisterForm extends Component {
           value={this.state.data.name}
           type="text"
         />
+        {this.state.errors.name && (
+          <p className="form-error">*{this.state.errors.name}</p>
+        )}
 
         <TextInput
           name="Email Address"
@@ -36,6 +39,9 @@ class RegisterForm extends Component {
           value={this.state.data.email}
           type="email"
         />
+        {this.state.errors.email && (
+          <p className="form-error">*{this.state.errors.email}</p>
+        )}
 
         <TextInput
           name="Password"
@@ -43,6 +49,9 @@ class RegisterForm extends Component {
           value={this.state.data.password}
           type="password"
         />
+        {this.state.errors.password && (
+          <p className="form-error">*{this.state.errors.password}</p>
+        )}
 
         <TextInput
           name="Confirm Password"
@@ -50,6 +59,9 @@ class RegisterForm extends Component {
           value={this.state.data.confirmPassword}
           type="password"
         />
+        {this.state.errors.confirmPassword && (
+          <p className="form-error">*{this.state.errors.confirmPassword}</p>
+        )}
 
         <button type="submit" className="button">
           Register ->
