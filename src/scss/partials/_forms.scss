@@ -24,7 +24,7 @@ label {
     border: 0;
     background: $yellow;
     color: $black;
-    font-family: 'Panama';
+    font-family: "Panama";
     font-weight: 600;
   }
 
@@ -60,7 +60,7 @@ label {
     .dropZoneImage {
       display: flex;
       align-items: center;
-      
+
       img {
         max-width: 300px;
       }
@@ -71,5 +71,10 @@ label {
         display: none;
       }
     }
+  }
+
+  p.form-error {
+    margin: 0;
+    color: red;
   }
 }
