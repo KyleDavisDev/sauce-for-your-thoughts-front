@@ -32,50 +32,6 @@ class Register extends Component {
       .catch(err => {
         this.props.flashError({ text: err.message });
       });
-
-    // axios({
-    //   method: "post",
-    //   url: "http://localhost:7777/register",
-    //   data
-    // })
-    //   .then(response => {
-    //     if (Checker.isObject(response.data)) {
-    //       //use function defined in Router.js to log in user - this will cause
-    //       //Router.js to update state and force render() thus updating the navigation component
-    //       this.props.logUserIn(response.data.token);
-
-    //       // use prop from Router.js to create flash message
-    //       this.props.createFlashMessage({
-    //         type: "success",
-    //         slug: response.data.slug,
-    //         text: "Thank you for registering! You are now logged in."
-    //       });
-
-    //       //reset form data
-    //       this.setState({
-    //         name: "",
-    //         email: "",
-    //         password: "",
-    //         confirmPassword: ""
-    //       });
-    //     } else if (Checker.isArray(response.data)) {
-    //       //we will be here if user didn't use all inputs correctly or didn't fill something out
-    //       //use prop from Router.js to create flash message
-    //       const text = response.data.map(err => {
-    //         return err.msg;
-    //       });
-    //       this.props.createFlashMessage({
-    //         type: "error",
-    //         text
-    //       });
-    //     }
-    //   })
-    //   .catch(error => {
-    //     this.props.createFlashMessage({
-    //       type: "error",
-    //       text: error
-    //     });
-    //   });
   };
 }
 

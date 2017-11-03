@@ -32,7 +32,7 @@ export const logout = () => dispatch => {
 };
 
 export const register = credentials => dispatch => {
-  return api.user.register(credentials).then(iser => {
+  return api.user.register(credentials).then(user => {
     Auth.authenticateUser(user);
     dispatch(userLoggedIn(user));
   });

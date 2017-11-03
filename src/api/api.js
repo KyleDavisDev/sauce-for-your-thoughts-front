@@ -17,7 +17,6 @@ export default {
       return axios
         .post("http://localhost:7777/register", credentials)
         .then(res => {
-          console.log(res);
           if (res.data.isGood) {
             return res.data.token;
           } else {

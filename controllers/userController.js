@@ -37,8 +37,12 @@ exports.register = async (req, res, next) => {
   const registerWithPromise = promisify(User.register, User); //now register method can be awaited
   try {
     await registerWithPromise(user, req.body.password);
-  } catch (err) {
-    res.send(err);
+  } catch (errors) {
+    const data = {
+      isGood: false,
+      msg: errors.message
+    };
+    res.send(data);
     return;
   }
   next(); //go to authController.login
