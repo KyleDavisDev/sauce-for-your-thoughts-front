@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { flashClose } from "../../actions/flash";
 import PropTypes from "prop-types";
 
 import Auth from "../../helper/Auth/Auth.js";
@@ -21,35 +20,22 @@ import Stores from "../Stores/Stores.js";
 import Tags from "../Tags/Tags.js";
 
 const App = ({ isAuthenticated, flashMessage }) => {
-  // const { isAuthenticated } = this.state;
-  const { isVisible, type, text, slug } = flashMessage;
+  const { isVisible } = flashMessage;
   return (
     <div className="container">
       <Header />
-      {isVisible && (
-        <FlashMessage
-          type={type}
-          text={text}
-          slug={slug}
-          closeFlashMessage={e => {
-            e.preventDefault();
-            flashClose();
-          }}
-        />
-      )}
+      {isVisible && <FlashMessage />}
 
       <Route exact path="/" component={Holder} />
       <Route
         exact
         path="/add"
-        component={props =>
-          isAuthenticated ? <Add /> : <Redirect to="/login" />}
+        component={() => (isAuthenticated ? <Add /> : <Redirect to="/login" />)}
       />
       <Route
         exact
         path="/stores"
-        render={props =>
-          isAuthenticated ? <Stores /> : <Redirect to="/login" />}
+        render={() => (isAuthenticated ? <Stores /> : <Redirect to="/login" />)}
       />
       <Route exact path="/store/:slug" component={StoreGet} />
       <Route exact path="/store/:id/edit" component={StoreEdit} />
@@ -73,8 +59,8 @@ App.PropTypes = {
 function mapStateToProps(state) {
   return {
     isAuthenticated: !!state.user.token,
-    flashMessage: state.flashMessage
+    flashMessage: { isVisible: state.flashMessage.isVisible }
   };
 }
 
-export default connect(mapStateToProps, { flashClose })(App);
+export default connect(mapStateToProps)(App);
