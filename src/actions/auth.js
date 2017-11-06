@@ -1,11 +1,11 @@
 import Checker from "../helper/Checker/Checker";
 import api from "../api/api";
 import Auth from "../helper/Auth/Auth";
+import { flashSuccess } from "./flash";
 
 export const userLoggedIn = user => ({
   type: "USER_LOGGED_IN",
-  user,
-  text: "Successfully logged in. Thank you!"
+  user
 });
 
 export const userLoggedOut = user => ({
@@ -22,6 +22,7 @@ export const login = credentials => dispatch => {
     //save token to local storage and set timestamp
     Auth.authenticateUser(user);
     dispatch(userLoggedIn(user));
+    dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
   });
 };
 
@@ -35,5 +36,16 @@ export const register = credentials => dispatch => {
   return api.user.register(credentials).then(user => {
     Auth.authenticateUser(user);
     dispatch(userLoggedIn(user));
+    dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
+  });
+};
+
+export const isLoggedIn = credentials => dispatch => {
+  return api.user.isLoggedIn(credentials).then(user => {
+    user = { token: credentials.token };
+    dispatch(userLoggedIn(user));
+    dispatch(
+      flashSuccess({ text: "Restored your login from last time. Thank you!" })
+    );
   });
 };
