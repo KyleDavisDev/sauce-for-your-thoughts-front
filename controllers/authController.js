@@ -25,13 +25,13 @@ exports.login = (req, res) => {
 };
 
 exports.isLoggedIn = (req, res, next) => {
+  console.log(req.body);
   if (!req.body.token) {
     const data = {
       isGood: false,
       msg: "You are not logged in or your token is invalid. Please try again."
     };
-    res.status(401).send(data);
-    return;
+    return res.status(401).send(data);
   }
 
   // get token from post
@@ -40,11 +40,12 @@ exports.isLoggedIn = (req, res, next) => {
   // decode the token using a secret key-phrase
   return jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
+      console.log("heyasdfasd");
+
       const data = {
         isGood: false,
         msg: "You are not logged in or your token is invalid. Please try again."
       };
-
       return res.status(401).send(data);
     }
 
@@ -54,6 +55,7 @@ exports.isLoggedIn = (req, res, next) => {
     return User.findById(userId, (userErr, user) => {
       //error or not user
       if (userErr || !user) {
+        console.log("hey");
         const data = {
           isGood: false,
           msg:
@@ -64,6 +66,7 @@ exports.isLoggedIn = (req, res, next) => {
 
       //attach _id to body
       req.body._id = user._id;
+
       //user is legit
       return next();
     });
@@ -185,4 +188,9 @@ exports.updatePassword = async (req, res, next) => {
     res.send(err);
     return;
   }
+};
+
+exports.validateToken = (req, res) => {
+  const data = { isGood: true, msg: "Found user." };
+  return res.status(200).send(data);
 };
