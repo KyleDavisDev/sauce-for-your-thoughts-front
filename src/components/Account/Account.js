@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { flashError } from "../../actions/flash";
 
+import AccountForm from "./AccountForm";
 import api from "../../api/api";
-import { updateUser } from "../../actions/user";
 import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
-import AccountForm from "./AccountForm";
+import { flashError } from "../../actions/flash";
+import { updateUser } from "../../actions/user";
 
 class Account extends Component {
   constructor(props) {
@@ -64,4 +64,3 @@ Account.propType = {
 };
 
 export default connect(null, { updateUser, flashError })(Account);
-// "Your account was unable to be found. Try logging out and back in."
