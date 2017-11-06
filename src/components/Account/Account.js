@@ -62,8 +62,6 @@ class Account extends Component {
     //add token to data so we can look up user
     data = { ...data, token: Auth.getToken() };
     this.props.updateUser(data).catch(err => {
-      console.log(err);
-      console.log(err.response);
       this.props.flashError({ text: err.response.data.msg });
     });
   };
@@ -72,6 +70,7 @@ class Account extends Component {
 Account.propType = {
   updateUser: PropTypes.func.isRequired,
   flashError: PropTypes.func.isRequired,
+  flashClose: PropTypes.func.isRequired,
   history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired
 };
 
