@@ -76,23 +76,25 @@ exports.updateUser = async (req, res) => {
   };
 
   try {
-    await User.findOneAndUpdate(
+    const user = await User.findOneAndUpdate(
       { _id: req.body._id },
       { $set: updates },
       { new: true, runValidators: true, context: "query" }
     );
+
     const data = {
       isGood: true,
-      msg: "Successfully updated user information."
+      msg: "Successfully updated user information.",
+      user: { email: user.email, name: user.name }
     };
-    res.status(200).send(data);
-    return;
+
+    return res.status(200).send(data);
   } catch (errors) {
     const data = {
       isGood: false,
       msg: errors.message
     };
-    res.status(401).send(data);
-    return;
+
+    return res.status(401).send(data);
   }
 };
