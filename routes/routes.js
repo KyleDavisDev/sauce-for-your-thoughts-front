@@ -108,6 +108,13 @@ router.post(
   authController.login
 );
 
+//1. Check if token relates to a user
+router.post(
+  "/user/isloggedin",
+  authController.isLoggedIn,
+  authController.validateToken
+);
+
 //END API ---
 
 //let react handle rest
