@@ -9,7 +9,8 @@ import RootReducer from "./reducers/rootReducer";
 import registerServiceWorker from "./registerServiceWorker";
 import App from "./components/App/App.js";
 import "./scss/style.scss";
-import { userLoggedIn } from "./actions/auth";
+import { isLoggedIn } from "./actions/auth";
+
 import Auth from "./helper/Auth/Auth";
 
 const initialState = {
@@ -24,8 +25,8 @@ const store = createStore(
 );
 
 if (Auth.isUserAuthenticated()) {
-  const user = { token: localStorage.dtdkey };
-  store.dispatch(userLoggedIn(user));
+  const user = { token: Auth.getToken() };
+  store.dispatch(isLoggedIn(user));
 }
 
 ReactDOM.render(
