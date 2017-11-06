@@ -7,7 +7,7 @@ import AccountForm from "./AccountForm";
 import api from "../../api/api";
 import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
-import { flashError } from "../../actions/flash";
+import { flashError, flashClose } from "../../actions/flash";
 import { updateUser } from "../../actions/user";
 
 class Account extends Component {
@@ -18,6 +18,12 @@ class Account extends Component {
       name: "",
       email: ""
     };
+  }
+
+  componentWillMount() {
+    if (!Auth.isUserAuthenticated()) {
+      this.props.history.push("/login");
+    }
   }
 
   componentDidMount() {
@@ -50,9 +56,14 @@ class Account extends Component {
   };
 
   onSubmit = data => {
+    //close flash
+    this.props.flashClose();
+
     //add token to data so we can look up user
     data = { ...data, token: Auth.getToken() };
     this.props.updateUser(data).catch(err => {
+      console.log(err);
+      console.log(err.response);
       this.props.flashError({ text: err.response.data.msg });
     });
   };
@@ -60,7 +71,8 @@ class Account extends Component {
 
 Account.propType = {
   updateUser: PropTypes.func.isRequired,
-  flashError: PropTypes.func.isRequired
+  flashError: PropTypes.func.isRequired,
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired
 };
 
-export default connect(null, { updateUser, flashError })(Account);
+export default connect(null, { updateUser, flashError, flashClose })(Account);
