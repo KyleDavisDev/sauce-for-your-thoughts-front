@@ -8,26 +8,19 @@ exports.login = (req, res) => {
   // generate the authenticate method and pass the req/res
   passport.authenticate("local", function(err, user, info) {
     if (err) {
-      return res.send(err);
+      return res.status(401).send(err);
     }
+
     if (!user) {
       const data = { isGood: false, msg: "Invalid email or password" };
-      return res.send(data);
+      return res.status(401).send(data);
     }
 
-    if (err) {
-      return res.send(err);
-    }
-
-    const payload = {
-      sub: user._id
-    };
-
-    //create a token string
+    //create a token and send back
+    const payload = { sub: user._id };
     const token = jwt.sign(payload, process.env.SECRET);
     const data = { isGood: true, msg: "Successfully logged in.", token };
-    //send back token
-    return res.send(data);
+    return res.status(200).send(data);
   })(req, res);
 };
 
@@ -152,8 +145,7 @@ exports.confirmPasswords = (req, res, next) => {
     isGood: false,
     msg: "Passwords did not match. Please try again."
   };
-  res.send(data);
-  return;
+  return res.status(401).send(data);
 };
 
 //reset password
