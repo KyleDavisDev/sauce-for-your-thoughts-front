@@ -11,10 +11,6 @@ import Checker from "../../helper/Checker/Checker.js";
 import TextInput from "../TextInput/TextInput.js";
 
 class Register extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="inner">
@@ -22,22 +18,20 @@ class Register extends Component {
       </div>
     );
   }
-
   handleSubmit = data => {
-    // e.preventDefault();
-
     this.props
       .register(data)
       .then(() => this.props.history.push("/stores"))
       .catch(err => {
-        this.props.flashError({ text: err.message });
+        this.props.flashError({ text: err.response.data.msg });
       });
   };
 }
 
 Register.propType = {
   history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
-  register: PropTypes.func.isRequired
+  register: PropTypes.func.isRequired,
+  flashError: PropTypes.func.isRequired
 };
 
 export default connect(null, { register, flashError })(Register);
