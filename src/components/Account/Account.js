@@ -61,9 +61,12 @@ class Account extends Component {
 
     //add token to data so we can look up user
     data = { ...data, token: Auth.getToken() };
-    this.props.updateUser(data).catch(err => {
-      this.props.flashError({ text: err.response.data.msg });
-    });
+    this.props
+      .updateUser(data)
+      .then(res => this.setState({ name: res.name, email: res.email }))
+      .catch(err => {
+        this.props.flashError({ text: err.response.data.msg });
+      });
   };
 }
 
