@@ -20,8 +20,9 @@ export const userRegistered = user => ({
 export const login = credentials => dispatch => {
   return api.user.login(credentials).then(user => {
     //save token to local storage and set timestamp
-    Auth.authenticateUser(user);
-    dispatch(userLoggedIn(user));
+    const token = user.token;
+    Auth.authenticateUser(token);
+    dispatch(userLoggedIn(token));
     dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
   });
 };
@@ -34,16 +35,17 @@ export const logout = () => dispatch => {
 
 export const register = credentials => dispatch => {
   return api.user.register(credentials).then(user => {
-    Auth.authenticateUser(user);
-    dispatch(userLoggedIn(user));
+    const token = user.token;
+    Auth.authenticateUser(token);
+    dispatch(userLoggedIn(token));
     dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
   });
 };
 
 export const isLoggedIn = credentials => dispatch => {
   return api.user.isLoggedIn(credentials).then(user => {
-    user = { token: credentials.token };
-    dispatch(userLoggedIn(user));
+    const token = credentials.token;
+    dispatch(userLoggedIn(token));
     dispatch(
       flashSuccess({ text: "Restored your login from last time. Thank you!" })
     );
