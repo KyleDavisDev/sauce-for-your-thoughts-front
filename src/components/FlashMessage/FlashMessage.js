@@ -41,27 +41,29 @@ const FlashMessage = ({ flashMessage, flashClose }) => {
     ""
   );
 
+  const { text, type } = flashMessage;
+
   return (
-    <div className={`flash ${flashMessage.type}`}>
+    <div className={`flash ${type}`}>
       {/*if object, iterate over object*/}
-      {Checker.isObject(flashMessage.text) && (
+      {Checker.isObject(text) && (
         <div className="error-list">{this.iterateObject()}</div>
       )}
 
       {/*if array, iterate over array*/}
-      {Checker.isArray(flashMessage.text) && (
+      {Checker.isArray(text) && (
         <div className="error-list">{this.iterateArray()}</div>
       )}
 
       {/*if string, output string*/}
-      {Checker.isString(flashMessage.text) && (
+      {Checker.isString(text) && (
         <div className="success-list">
           <p className="item">
-            {flashMessage.text} {slugLink}
+            {text} {slugLink}
           </p>
         </div>
       )}
-      <button className="close-button" onClick={e => flashClose()}>
+      <button className="close-button" onClick={flashClose}>
         X
       </button>
     </div>
