@@ -26,8 +26,7 @@ exports.validateRegister = (req, res, next) => {
       isGood: false,
       msg: errors
     };
-    res.send(data);
-    return;
+    return res.status(401).send(data);
   }
   next();
 };
@@ -42,8 +41,7 @@ exports.register = async (req, res, next) => {
       isGood: false,
       msg: errors.message
     };
-    res.send(data);
-    return;
+    return res.status(401).send(data);
   }
   next(); //go to authController.login
 };
