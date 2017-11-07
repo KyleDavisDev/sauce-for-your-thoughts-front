@@ -12,5 +12,6 @@ export const updateUser = credentials => dispatch => {
     const text = `Your name was saved as: ${res.user
       .name} and your email was saved as: ${res.user.email}.`;
     dispatch(flashSuccess({ text }));
+    return res.user;
   });
 };
