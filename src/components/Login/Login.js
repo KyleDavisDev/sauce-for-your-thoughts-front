@@ -9,10 +9,6 @@ import ForgotPasswordForm from "../ForgotPasswordForm/ForgotPasswordForm.js";
 import Auth from "./../../helper/Auth/Auth";
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="inner">
@@ -29,11 +25,6 @@ class Login extends Component {
       .catch(err => {
         this.props.flashError({ text: err.message });
       });
-
-  logUserOut() {
-    Auth.deauthenticateUser();
-    this.setState({ isUserLoggedIn: Auth.isUserAuthenticated() });
-  }
 }
 
 Login.propTypes = {
