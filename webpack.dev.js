@@ -3,11 +3,16 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+  devtool: "eval-cheap-module-source-map",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js",
+    filename: "index_bundle.js",
     publicPath: "/"
+  },
+  devServer: {
+    port: 8080,
+    historyApiFallback: { disableDotRule: true }
   },
   module: {
     rules: [
@@ -15,14 +20,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["es2015", "react"],
-            plugins: [
-              "transform-object-rest-spread",
-              "transform-class-properties"
-            ]
-          }
+          loader: "babel-loader"
         }
       },
       {
@@ -39,7 +37,7 @@ module.exports = {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: ["css-loader", "sass-loader"],
+          use: ["css-loader", "resolve-url-loader", "sass-loader?sourceMap"],
           publicPath: "/"
         })
       },
@@ -54,11 +52,6 @@ module.exports = {
         }
       }
     ]
-  },
-  devServer: {
-    historyApiFallback: {
-      disableDotRule: true
-    }
   },
   plugins: [
     new HtmlWebpackPlugin({
