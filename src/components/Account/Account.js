@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -20,13 +19,10 @@ class Account extends Component {
     };
   }
 
-  componentWillMount() {
-    if (!Auth.isUserAuthenticated()) {
+  componentDidMount() {
+    if (!this.props.isAuthenticated) {
       this.props.history.push("/login");
     }
-  }
-
-  componentDidMount() {
     this.getUserInfo();
   }
 
@@ -71,10 +67,19 @@ class Account extends Component {
 }
 
 Account.propType = {
+  isAuthenticated: PropTypes.bool.isRequired,
   updateUser: PropTypes.func.isRequired,
   flashError: PropTypes.func.isRequired,
   flashClose: PropTypes.func.isRequired,
   history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired
 };
 
-export default connect(null, { updateUser, flashError, flashClose })(Account);
+function mapStateToProps(state) {
+  return {
+    isAuthenticated: !!state.user.token
+  };
+}
+
+export default connect(mapStateToProps, { updateUser, flashError, flashClose })(
+  Account
+);
