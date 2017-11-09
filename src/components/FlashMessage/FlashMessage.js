@@ -7,7 +7,7 @@ import { flashClose } from "../../actions/flash";
 import Checker from "../../helper/Checker/Checker.js";
 
 const FlashMessage = ({ flashMessage, flashClose }) => {
-  function iterateObject() {
+  const iterateObject = () => {
     // the keys of this.state.text may change later depending on
     //the DB and this way of looping through the object will us to grab the messages
     //reguardless of what the key is
@@ -23,9 +23,9 @@ const FlashMessage = ({ flashMessage, flashClose }) => {
         </p>
       );
     });
-  }
+  };
 
-  function iterateArray() {
+  const iterateArray = () => {
     return flashMessage.text.map((txt, index) => {
       return (
         <p key={index} className="item">
@@ -33,7 +33,7 @@ const FlashMessage = ({ flashMessage, flashClose }) => {
         </p>
       );
     });
-  }
+  };
 
   const slugLink = flashMessage.slug ? (
     <Link to={`/store/${flashMessage.slug}`}>Rate it!</Link>
