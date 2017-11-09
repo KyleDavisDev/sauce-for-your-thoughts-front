@@ -14,7 +14,7 @@ import { isLoggedIn } from "./actions/auth";
 import Auth from "./helper/Auth/Auth";
 
 const initialState = {
-  user: { token: null },
+  user: { token: Auth.getToken() },
   flashMessage: { isVisible: false, type: null, text: null, slug: null }
 };
 

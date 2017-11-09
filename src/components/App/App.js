@@ -27,7 +27,11 @@ const App = ({ isAuthenticated, flashMessage }) => {
       {isVisible && <FlashMessage />}
 
       <Route exact path="/" component={Holder} />
-      <Route exact path="/add" component={Add} />
+      <Route
+        exact
+        path="/add"
+        render={() => (isAuthenticated ? <Add /> : <Redirect to="/login" />)}
+      />
       <Route
         exact
         path="/stores"

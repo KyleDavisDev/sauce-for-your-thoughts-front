@@ -8,11 +8,7 @@ import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
 
 class Add extends Component {
-  componentDidMount() {
-    if (!this.props.isAuthenticated) {
-      this.props.history.push("/login");
-    }
-  }
+  componentDidMount() {}
 
   render() {
     return (
