@@ -3,7 +3,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { flashError } from "../../actions/flash";
+import { flashError, flashClose } from "../../actions/flash";
 import { register } from "../../actions/auth";
 
 import RegisterForm from "./RegisterForm";
@@ -19,6 +19,7 @@ class Register extends Component {
     );
   }
   handleSubmit = data => {
+    this.props.flashClose();
     this.props
       .register(data)
       .then(() => this.props.history.push("/stores"))
@@ -31,7 +32,8 @@ class Register extends Component {
 Register.propType = {
   history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
   register: PropTypes.func.isRequired,
-  flashError: PropTypes.func.isRequired
+  flashError: PropTypes.func.isRequired,
+  flashClose: PropTypes.func.isRequired
 };
 
-export default connect(null, { register, flashError })(Register);
+export default connect(null, { register, flashError, flashClose })(Register);
