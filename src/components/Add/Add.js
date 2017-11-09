@@ -1,47 +1,29 @@
 import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-import StoreForm from "../StoreForm/StoreForm.js";
+import AddForm from "./AddForm.js";
 import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
 
 class Add extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      store: {
-        name: "",
-        description: "",
-        tags: [""],
-        location: { address: "", coordinates: ["", ""] },
-        photo: ""
-      }
-    };
-
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+  componentWillMount() {
+    if (this.props.isAuthenticated) {
+      this.props.history.push("/login");
+    }
   }
 
   render() {
     return (
       <div className="inner">
         <h2>Add Store</h2>
-        <StoreForm
-          onFormSubmit={this.handleFormSubmit}
-          storeName={this.state.store.name}
-          storeDescription={this.state.store.description}
-          storePhoto={this.state.store.photo}
-          tags={this.state.store.tags}
-          storeAddress={this.state.store.location.address}
-          storeLongitude={this.state.store.location.coordinates[0]}
-          storeLatitude={this.state.store.location.coordinates[1]}
-        />
+        <AddForm />
       </div>
     );
   }
 
-  handleFormSubmit(e, store) {
+  handleFormSubmit = (e, store) => {
     console.log(store);
     e.preventDefault();
 
@@ -96,11 +78,16 @@ class Add extends Component {
           text: "Something broke!"
         });
       });
-  }
+  };
 }
 
 Add.propTypes = {
-  createFlashMessage: PropTypes.func.isRequired
+  isAuthenticated: PropTypes.bool.isRequired
 };
 
-module.exports = Add;
+function mapStateToProps(state) {
+  return {
+    isAuthenticated: !!state.user.token
+  };
+}
+export default connect(mapStateToProps, {})(Add);
