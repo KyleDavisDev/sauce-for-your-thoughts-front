@@ -1,9 +1,11 @@
 .flash {
   background: $content-background;
   padding: 1.5rem;
+  margin: 2rem auto 0 auto;
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  max-width: 900px;
+  box-sizing: border-box;
 
   p {
     display: inline;
@@ -13,7 +15,7 @@
   button {
     background: transparent;
     border: none;
-    
+
     &:hover {
       cursor: pointer;
     }
@@ -35,5 +37,4 @@
     display: flex;
     flex-direction: column;
   }
-  
 }
