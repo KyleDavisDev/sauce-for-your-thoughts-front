@@ -10,10 +10,10 @@ class RegisterForm extends Component {
     super(props);
     this.state = {
       data: {
-        name: "abc",
-        email: "abc@gmail.com",
-        password: "a",
-        confirmPassword: "a"
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
       },
       errors: {}
     };
