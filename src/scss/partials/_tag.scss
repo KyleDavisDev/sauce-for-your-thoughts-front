@@ -1,5 +1,5 @@
 .tags {
-  margin: 0;
+  margin: 5px 0px;
   padding: 0;
   list-style: none;
   display: flex;
@@ -30,12 +30,14 @@
     }
   }
   &-link {
-    background:$yellow;
-    color:$black;
+    background: $yellow;
+    color: $black;
     display: flex;
     padding-left: 10px;
     clip-path: polygon(10px 0%, 100% 1%, 100% 100%, 10px 100%, 0% 50%);
-    &-active, &:hover, &:focus {
+    &-active,
+    &:hover,
+    &:focus {
       background: lighten($purple, 40%);
       .tag-text {
         color: white;
@@ -49,7 +51,7 @@
   &-count {
     padding: 1rem 1rem;
     background: white;
-    border-left: 3px solid rgba(0,0,0,0.1);
+    border-left: 3px solid rgba(0, 0, 0, 0.1);
     margin-right: -1px; /* ugh */
     background-clip: padding-box;
   }
