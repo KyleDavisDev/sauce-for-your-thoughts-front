@@ -25,7 +25,6 @@ exports.login = (req, res) => {
 };
 
 exports.isLoggedIn = (req, res, next) => {
-  console.log(req.body);
   if (!req.body.token) {
     const data = {
       isGood: false,
@@ -40,8 +39,6 @@ exports.isLoggedIn = (req, res, next) => {
   // decode the token using a secret key-phrase
   return jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
-      console.log("heyasdfasd");
-
       const data = {
         isGood: false,
         msg: "You are not logged in or your token is invalid. Please try again."
@@ -55,7 +52,6 @@ exports.isLoggedIn = (req, res, next) => {
     return User.findById(userId, (userErr, user) => {
       //error or not user
       if (userErr || !user) {
-        console.log("hey");
         const data = {
           isGood: false,
           msg:
