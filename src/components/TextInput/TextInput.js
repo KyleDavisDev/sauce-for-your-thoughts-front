@@ -10,6 +10,7 @@ const TextInput = props => {
         id={props.id || ""}
         name={props.name}
         value={props.value}
+        placeholder={props.placeholder || ""}
         onChange={props.onChange}
         required={props.required || false}
       />
@@ -23,7 +24,8 @@ TextInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   required: PropTypes.bool,
   type: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
+  placeholder: PropTypes.string
 };
 
 export default TextInput;
