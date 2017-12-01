@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import PlacesAutocomplete, {
   geocodeByAddress
 } from "react-places-autocomplete";
-import Dropzone from "react-dropzone";
 
 import FillerImage from "../../images/photos/store.jpg";
 
@@ -107,40 +106,7 @@ class StoreForm extends Component {
         />
 
         <label htmlFor="storePhoto"> Photo: </label>
-        <div className="dropZoneHolder">
-          <div className="dropZoneArea">
-            <Dropzone
-              onDrop={this.onFileUploadChange}
-              className="dropZone"
-              accept="image/jpeg, image/png"
-              ref={node => {
-                dropzoneRef = node;
-              }}
-            >
-              <div>Drop your image here!</div>
-            </Dropzone>
-
-            <button
-              type="button"
-              onClick={() => {
-                dropzoneRef.open();
-              }}
-              className="button"
-            >
-              Open File Dialog
-            </button>
-          </div>
-          {this.state.storePhoto &&
-            <div className="dropZoneImage">
-              <img
-                src={
-                  `http://localhost:7777/public/uploads/${this.state
-                    .storePhoto}` || this.state.storePhoto.preview
-                }
-                onError={e => (e.target.src = FillerImage)}
-              />
-            </div>}
-        </div>
+        <div className="dropZoneHolder" />
 
         <label htmlFor="storeAddress"> Address: </label>
         <PlacesAutocomplete
@@ -182,9 +148,7 @@ class StoreForm extends Component {
                   checked={tag.isChecked}
                   onChange={this.handleCheckboxChange}
                 />
-                <label htmlFor={tag.name}>
-                  {tag.name}
-                </label>
+                <label htmlFor={tag.name}>{tag.name}</label>
               </div>
             );
           })}
