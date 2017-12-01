@@ -3,7 +3,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import AddForm from "./AddForm.js";
+import AddForm from "../AddForm/AddForm.js";
 import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
 
