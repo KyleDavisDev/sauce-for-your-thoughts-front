@@ -7,6 +7,57 @@ import TextInput from "../TextInput/TextInput.js";
 
 import FillerImage from "../../images/photos/store.jpg";
 
+const CheckBoxList = ({ tags, onChange }) => {
+  return (
+    <ul className="tags">
+      {tags.map(tag => {
+        return (
+          <div key={tag.name} className="tag tag-choice">
+            <input
+              type="checkbox"
+              id={tag.name}
+              name={tag.name}
+              value={tag.name}
+              checked={tag.isChecked}
+              onChange={onChange}
+            />
+            <label htmlFor={tag.name}>{tag.name}</label>
+          </div>
+        );
+      })}
+    </ul>
+  );
+};
+CheckBoxList.propTypes = {
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      isChecked: PropTypes.bool.isRequired
+    })
+  ),
+  onChange: PropTypes.func.isRequired
+};
+
+const PhotoUpload = ({ text, onChange }) => {
+  return (
+    <div className="input-group">
+      <span className="file-button">
+        Browse...<input
+          type="file"
+          name="photo"
+          accept=".png, .jpg"
+          onChange={onChange}
+        />
+      </span>
+      <input type="text" value={text || ""} readOnly />
+    </div>
+  );
+};
+PhotoUpload.propTypes = {
+  text: PropTypes.string,
+  onChange: PropTypes.func.isRequired
+};
+
 class StoreForm extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +78,9 @@ class StoreForm extends Component {
           latitude: "",
           longitude: ""
         },
-        photo: {}
+        photo: {
+          name: ""
+        }
       },
       errors: {
         name: "",
@@ -38,43 +91,7 @@ class StoreForm extends Component {
     };
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   const {
-  //     storeName,
-  //     storeDescription,
-  //     storeAddress,
-  //     storeLongitude,
-  //     storeLatitude,
-  //     storePhoto
-  //   } = nextProps;
-
-  //   //compare prop tags with current state tag to see which checkbox
-  //   //should be initiated as checked
-  //   const tags = this.state.tags.map(tag => {
-  //     if (nextProps.tags.includes(tag.name)) {
-  //       tag.isChecked = true;
-  //     } else {
-  //       tag.isChecked = false;
-  //     }
-  //     return tag;
-  //   });
-
-  //   //update state
-  //   this.setState({
-  //     storeName,
-  //     storeDescription,
-  //     tags,
-  //     location: {
-  //       storeAddress,
-  //       storeLongitude,
-  //       storeLatitude
-  //     },
-  //     storePhoto
-  //   });
-  // }
-
   render() {
-    let dropzoneRef;
     const { name, description, tags, location, photo } = this.state.data;
     return (
       <form
@@ -94,7 +111,7 @@ class StoreForm extends Component {
         <label htmlFor="description">Description: </label>
         <textarea
           id="description"
-          name="Description"
+          name="description"
           cols="30"
           rows="10"
           onChange={this.onChange}
@@ -102,6 +119,7 @@ class StoreForm extends Component {
         />
 
         <label htmlFor="photo"> Photo: </label>
+        <PhotoUpload text={photo.name} onChange={this.onPhotoUpload} />
 
         <label htmlFor="address"> Address: </label>
         <PlacesAutocomplete
@@ -111,7 +129,7 @@ class StoreForm extends Component {
           }}
           id="address"
           name="address"
-          onSelect={this.handleAddressSelect}
+          onSelect={this.onAddressSelect}
         />
 
         <TextInput
@@ -120,7 +138,7 @@ class StoreForm extends Component {
           type="text"
           onChange={this.onChangeLocation}
           value={location.longitude}
-          placeholder="Click or press enter in Address autocomplete to generate"
+          placeholder="Click or press enter in the Address bar to autofill"
         />
 
         <TextInput
@@ -129,29 +147,13 @@ class StoreForm extends Component {
           type="text"
           onChange={this.onChangeLocation}
           value={location.latitude}
-          placeholder="Click or press enter in Address autocomplete to generate"
+          placeholder="Click or press enter in the Address bar to autofill"
         />
 
-        <ul className="tags">
-          {tags.map(tag => {
-            return (
-              <div key={tag.name} className="tag tag-choice">
-                <input
-                  type="checkbox"
-                  id={tag.name}
-                  name={tag.name}
-                  value={tag.name}
-                  checked={tag.isChecked}
-                  onChange={this.handleCheckboxChange}
-                />
-                <label htmlFor={tag.name}>{tag.name}</label>
-              </div>
-            );
-          })}
-        </ul>
+        <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
 
         <button type="submit" className="button">
-          Save ->
+          Add ->
         </button>
       </form>
     );
@@ -170,9 +172,13 @@ class StoreForm extends Component {
   }
 
   onChange = e => {
+    console.log(e.target.name);
     this.setState({
       ...this.state,
-      data: { ...this.state.data, [e.target.name]: e.target.value }
+      data: {
+        ...this.state.data,
+        [e.target.name.toLowerCase()]: e.target.value
+      }
     });
   };
 
@@ -202,17 +208,15 @@ class StoreForm extends Component {
     });
   };
 
-  onFileUploadChange = (acceptedFile, rejectedFile) => {
-    const reader = new FileReader();
-    console.log(acceptedFiles);
-    console.log(rejectedFiles);
+  onPhotoUpload = e => {
+    const name = e.target.files[0].name;
     this.setState({
       ...this.state,
-      data: { ...this.state.data, photo: acceptedFile[0] }
+      data: { ...this.state.data, photo: { ...this.state.data.photo, name } }
     });
   };
 
-  handleAddressSelect = (address, placeId) => {
+  onAddressSelect = (address, placeId) => {
     geocodeByAddress(address)
       .then(results => {
         const address = results[0].formatted_address;
@@ -233,7 +237,7 @@ class StoreForm extends Component {
       .catch(error => console.error("Error", error));
   };
 
-  handleCheckboxChange = e => {
+  onCheckboxClick = e => {
     //find which array element was clicked and flip that elements isChecked value
     const tags = this.state.data.tags.map(tag => {
       if (tag.name === e.target.name) {
