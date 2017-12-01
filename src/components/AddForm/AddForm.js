@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import PlacesAutocomplete, {
   geocodeByAddress
 } from "react-places-autocomplete";
-import Dropzone from "react-dropzone";
+import TextInput from "../TextInput/TextInput.js";
 
 import FillerImage from "../../images/photos/store.jpg";
 
@@ -83,10 +83,9 @@ class StoreForm extends Component {
         className="form"
         encType="multipart/form-data"
       >
-        <label htmlFor="name"> Name: </label>
-        <input
+        <TextInput
           id="name"
-          name="name"
+          name="Name"
           type="text"
           onChange={this.onChange}
           value={name}
@@ -95,7 +94,7 @@ class StoreForm extends Component {
         <label htmlFor="description">Description: </label>
         <textarea
           id="description"
-          name="description"
+          name="Description"
           cols="30"
           rows="10"
           onChange={this.onChange}
@@ -103,40 +102,6 @@ class StoreForm extends Component {
         />
 
         <label htmlFor="photo"> Photo: </label>
-        {
-          <div className="dropZoneHolder">
-            <div className="dropZoneArea">
-              <Dropzone
-                onDrop={this.onFileUploadChange}
-                className="dropZone"
-                accept=".jpeg,.png"
-                ref={node => {
-                  dropzoneRef = node;
-                }}
-              >
-                <div>Drop your image here!</div>
-              </Dropzone>
-
-              <button
-                type="button"
-                onClick={() => {
-                  dropzoneRef.open();
-                }}
-                className="button"
-              >
-                Open File Dialog
-              </button>
-            </div>
-            {photo && (
-              <div className="dropZoneImage">
-                <img
-                  src={photo.preview}
-                  onError={e => (e.target.src = FillerImage)}
-                />
-              </div>
-            )}
-          </div>
-        }
 
         <label htmlFor="address"> Address: </label>
         <PlacesAutocomplete
@@ -149,20 +114,18 @@ class StoreForm extends Component {
           onSelect={this.handleAddressSelect}
         />
 
-        <label htmlFor="longitude"> Address Longitude: </label>
-        <input
+        <TextInput
           id="longitude"
-          name="longitude"
+          name="Address Longitude"
           type="text"
           onChange={this.onChangeLocation}
           value={location.longitude}
           placeholder="Click or press enter in Address autocomplete to generate"
         />
 
-        <label htmlFor="latitude"> Address Latitude: </label>
-        <input
+        <TextInput
           id="latitude"
-          name="latitude"
+          name="Address Latitude"
           type="text"
           onChange={this.onChangeLocation}
           value={location.latitude}
