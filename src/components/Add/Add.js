@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { addStore } from "../../actions/store";
 
 import AddForm from "../AddForm/AddForm.js";
 import Auth from "../../helper/Auth/Auth.js";
@@ -14,71 +15,39 @@ class Add extends Component {
     return (
       <div className="inner">
         <h2>Add Store</h2>
-        <AddForm />
+        <AddForm onSubmit={this.handleFormSubmit} />
       </div>
     );
   }
 
-  handleFormSubmit = (e, store) => {
-    console.log(store);
-    e.preventDefault();
-
+  handleFormSubmit = data => {
     //make tags an array of checked tags
-    const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
+    const tags = data.tags.filter(tag => tag.isChecked).map(tag => tag.name);
     //round location to 6 decimal places and convert to string
     const coordinates = [
-      parseFloat(store.location.storeLongitude).toFixed(7) || "",
-      parseFloat(store.location.storeLatitude).toFixed(7) || ""
+      parseFloat(data.location.longitude).toFixed(7) || "",
+      parseFloat(data.location.latitude).toFixed(7) || ""
     ];
 
-    const data = new FormData();
-    data.append("name", store.storeName);
-    data.append("description", store.storeDescription);
-    data.append("image", store.storePhoto);
-    data.append("address", store.location.storeAddress);
-    data.append("coordinates", coordinates);
-    data.append("tags", tags);
-    data.append("token", Auth.getToken());
+    //construct FormData object since we are passing image file
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("description", data.description);
+    formData.append("image", data.photo.file);
+    formData.append("address", data.location.address);
+    formData.append("coordinates", coordinates);
+    formData.append("tags", tags);
+    formData.append("token", Auth.getToken());
 
-    //TODO filter/sanitize user input
-    axios({
-      method: "post",
-      url: "http://localhost:7777/api/store/add",
-      data,
-      options: { headers: { "Content-Type": "multipart/form-data" } }
-    })
-      .then(response => {
-        if (Checker.isObject(response.data) && response.data.isGood) {
-          this.props.createFlashMessage({
-            type: "success",
-            slug: response.data.slug,
-            text: response.data.msg
-          });
-        } else if (Checker.isObject(response.data) && !response.data.isGood) {
-          this.props.createFlashMessage({
-            type: "error",
-            text: response.data.msg
-          });
-        } else {
-          this.props.createFlashMessage({
-            type: "error",
-            text:
-              "You it. You have broken the page. I can't believe you did this...."
-          });
-        }
-      })
-      .catch(error => {
-        console.log("Errror");
-        this.props.createFlashMessage({
-          type: "error",
-          text: "Something broke!"
-        });
-      });
+    this.props
+      .addStore(formData)
+      .then(res => console.log(res).catch(err => console.log(err)));
   };
 }
 
 Add.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired
+  isAuthenticated: PropTypes.bool.isRequired,
+  addStore: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -86,4 +55,4 @@ function mapStateToProps(state) {
     isAuthenticated: !!state.user.token
   };
 }
-export default connect(mapStateToProps, {})(Add);
+export default connect(mapStateToProps, { addStore })(Add);
