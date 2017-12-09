@@ -213,6 +213,8 @@ class StoreForm extends Component {
   };
 
   onAddressSelect = (address, placeId) => {
+    //get the formatted address, associated lat/long points, limit length of lat/long
+    //set state with info
     geocodeByAddress(address)
       .then(results => {
         const address = results[0].formatted_address;
