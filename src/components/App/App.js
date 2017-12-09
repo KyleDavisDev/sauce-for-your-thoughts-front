@@ -30,12 +30,16 @@ const App = ({ isAuthenticated, flashMessage }) => {
       <Route
         exact
         path="/add"
-        render={() => (isAuthenticated ? <Add /> : <Redirect to="/login" />)}
+        render={() =>
+          isAuthenticated ? <Add /> : <Redirect to="/login" push />
+        }
       />
       <Route
         exact
         path="/stores"
-        render={() => (isAuthenticated ? <Stores /> : <Redirect to="/login" />)}
+        render={() =>
+          isAuthenticated ? <Stores /> : <Redirect to="/login" push />
+        }
       />
       <Route exact path="/store/:slug" component={StoreGet} />
       <Route exact path="/store/:id/edit" component={StoreEdit} />
