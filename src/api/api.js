@@ -58,5 +58,19 @@ export default {
         });
     }
   },
-  store: {}
+  store: {
+    add: data => {
+      return axios
+        .post("http://localhost:7777/api/store/add", data, {
+          headers: { "Content-Type": "multipart/form-data" }
+        })
+        .then(res => {
+          if (res.data.isGood) {
+            return res.data;
+          } else {
+            throw new Error(res.data.msg);
+          }
+        });
+    }
+  }
 };
