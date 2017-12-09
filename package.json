@@ -1,7 +1,8 @@
 {
   "name": "now-thats-delicious",
-  "version": "1.0.0",
-  "description": "Following Wes Bos's NodeJS course but using react/redux instead of pug.",
+  "version": "2.0.0",
+  "description":
+    "Following Wes Bos's NodeJS course but using react/redux instead of pug.",
   "main": "app.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
