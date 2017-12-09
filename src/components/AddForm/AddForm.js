@@ -159,20 +159,13 @@ class StoreForm extends Component {
     );
   }
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
-
-    //destroy object to avoid memory leaks -- suggested by Dropzone documentations
-    if (this.state.data.photo.preview) {
-      window.URL.revokeObjectURL(this.state.data.photo.preview);
-    }
-
-    const data = this.state.store;
-    this.props.onFormSubmit(data);
-  }
+    const data = this.state.data;
+    this.props.onSubmit(data);
+  };
 
   onChange = e => {
-    console.log(e.target.name);
     this.setState({
       ...this.state,
       data: {
@@ -212,7 +205,10 @@ class StoreForm extends Component {
     const name = e.target.files[0].name;
     this.setState({
       ...this.state,
-      data: { ...this.state.data, photo: { ...this.state.data.photo, name } }
+      data: {
+        ...this.state.data,
+        photo: { ...this.state.data.photo, name, file: e.target.files[0] }
+      }
     });
   };
 
@@ -252,7 +248,8 @@ class StoreForm extends Component {
     });
   };
 }
-
-StoreForm.propTypes = {};
+StoreForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
 
 module.exports = StoreForm;
