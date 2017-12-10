@@ -33,7 +33,13 @@ class Login extends Component {
 
 Login.propTypes = {
   history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
-  login: PropTypes.func.isRequired
+  login: PropTypes.func.isRequired,
+  flashError: PropTypes.func.isRequired
 };
 
-export default connect(null, { login, flashError })(Login);
+const matchDispatchToProps = {
+  login,
+  flashError
+};
+
+export default connect(null, matchDispatchToProps)(Login);
