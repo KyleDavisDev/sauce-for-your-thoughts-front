@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import Checker from "../../helper/Checker/Checker.js"
+import Checker from "../../helper/Checker/Checker.js";
 
 class GenerateStaticGoogleMap extends Component {
   render() {
@@ -25,9 +25,7 @@ class GenerateTagsList extends Component {
           return (
             <li className="tag" key={tag}>
               <Link to={`/tags/${tag}`} className="tag-link">
-                <span className="tag-text">
-                  #{tag}
-                </span>
+                <span className="tag-text">#{tag}</span>
               </Link>
             </li>
           );
@@ -67,24 +65,26 @@ class StoreGet extends Component {
   render() {
     return (
       <div className="inner">
-        {this.state.store &&
+        {this.state.store && (
           <div className="single">
             <div className="single-hero">
               <img
                 className="single-image"
-                src={`http://localhost:7777/uploads/public/${this.state.store
-                  .photo}`}
+                src={`http://localhost:7777/public/uploads/${
+                  this.state.store.photo
+                }`}
                 onError={e =>
-                  (e.target.src = "http://localhost:7777/images/store.jpg")}
+                  (e.target.src =
+                    "http://localhost:7777/public/uploads/store.jpg")
+                }
               />
               <h2 className="title title-single">
-                <Link to={this.state.store.slug}>
-                  {this.state.store.name}
-                </Link>
+                <Link to={this.state.store.slug}>{this.state.store.name}</Link>
               </h2>
             </div>
-          </div>}
-        {this.state.store &&
+          </div>
+        )}
+        {this.state.store && (
           <div className="single-details inner">
             <GenerateStaticGoogleMap
               coordinates={this.state.store.location.coordinates}
@@ -93,12 +93,12 @@ class StoreGet extends Component {
             <p className="single-location">
               {this.state.store.location.address}
             </p>
-            <p>
-              {this.state.store.description}
-            </p>
-            {this.state.store.tags.length > 0 &&
-              <GenerateTagsList tags={this.state.store.tags} />}
-          </div>}
+            <p>{this.state.store.description}</p>
+            {this.state.store.tags.length > 0 && (
+              <GenerateTagsList tags={this.state.store.tags} />
+            )}
+          </div>
+        )}
       </div>
     );
   }
