@@ -4,9 +4,9 @@ html {
 
 body {
   margin: 0px;
-  background:#efefef;
+  background: #efefef;
   &:before {
-    content: '';
+    content: "";
     display: block;
     background: $grad;
     height: 10px;
@@ -20,4 +20,8 @@ body {
   @media all and (max-width: 900px) {
     padding: 2rem;
   }
+}
+
+h2 {
+  margin-top: 0px;
 }
