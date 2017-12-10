@@ -41,12 +41,15 @@ class Add extends Component {
 
     this.props
       .addStore(formData)
-      .then(res => console.log(res).catch(err => console.log(err)));
+      .then(res => {
+        this.props.history.push(`/store/${res.slug}`);
+      })
+      .catch(err => console.log(err.response.msg));
   };
 }
 
 Add.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
   addStore: PropTypes.func.isRequired
 };
 
