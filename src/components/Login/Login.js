@@ -23,7 +23,11 @@ class Login extends Component {
       .login(data)
       .then(() => this.props.history.push("/"))
       .catch(err => {
-        this.props.flashError({ text: err.message });
+        if (err.response) {
+          this.props.flashError({ text: err.response.data.msg });
+        } else {
+          this.props.flashError({ text: err.msg });
+        }
       });
 }
 
