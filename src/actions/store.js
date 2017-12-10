@@ -8,9 +8,8 @@ export const storeAdded = () => ({
 
 export const addStore = data => dispatch => {
   return api.store.add(data).then(res => {
-    console.log(res);
     // dispatch(storeAdded())
-    dispatch(flashSuccess({ text: res.msg, slug: res.slug }));
+    dispatch(flashSuccess({ text: res.msg }));
     return res;
   });
 };
