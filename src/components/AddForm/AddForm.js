@@ -58,7 +58,7 @@ PhotoUpload.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
-class StoreForm extends Component {
+class AddForm extends Component {
   constructor(props) {
     super(props);
 
@@ -250,8 +250,8 @@ class StoreForm extends Component {
     });
   };
 }
-StoreForm.propTypes = {
+AddForm.propTypes = {
   onSubmit: PropTypes.func.isRequired
 };
 
-module.exports = StoreForm;
+export default AddForm;
