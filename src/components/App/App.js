@@ -30,8 +30,12 @@ const App = ({ isAuthenticated, flashMessage }) => {
       <Route
         exact
         path="/add"
-        render={() =>
-          isAuthenticated ? <Add /> : <Redirect to="/login" push />
+        render={e =>
+          isAuthenticated ? (
+            <Add history={e.history} />
+          ) : (
+            <Redirect to="/login" push />
+          )
         }
       />
       <Route
