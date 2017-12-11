@@ -72,5 +72,16 @@ export default {
           }
         });
     }
+  },
+  stores: {
+    get: range => {
+      return axios.get("http://localhost:7777/api/stores/get").then(res => {
+        if (res.data.isGood) {
+          return res.data;
+        } else {
+          throw new Error(res.data.msg);
+        }
+      });
+    }
   }
 };

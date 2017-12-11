@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
+import { getStores } from "../../actions/stores";
 
 import StoreCard from "../StoreCard/StoreCard.js";
 
@@ -13,61 +16,34 @@ class Stores extends Component {
     super(props);
 
     this.state = {
-      stores: {},
-      userID: ""
+      stores: [],
+      user: {
+        id: ""
+      }
     };
   }
 
+  //make sure user is allowed to be here
+  componentWillMount() {}
+
   componentDidMount() {
-    //need this slight work around because "this" is not Stores component inside the .all scope
-    const that = this;
     axios
-      .all([that.getStores(), that.getUserID()])
-      .then(
-        axios.spread((stores, user) => {
-          //we will build state
-          let stateBuilder = {};
-          //check to make sure object returned
-          if (Checker.isObject(stores.data)) {
-            //success or not
-            if (stores.data.isGood) {
-              stateBuilder = { stores: stores.data.stores, ...stateBuilder };
-
-              //only if we make it here are we concerned whether or not person is logged in
-              if (Checker.isObject(user.data) && user.data.isGood) {
-                stateBuilder = { userID: user.data.user._id, ...stateBuilder };
-              }
-            } else {
-              // this.props.createFlashMessage({
-              //   type: "error",
-              //   msg: stores.data.msg
-              // });
-            }
-          } else {
-            // this.props.createFlashMessage({
-            //   type: "error",
-            //   msg: "Something is broken! Try reloading the page."
-            // });
-          }
-
-          this.setState(stateBuilder);
-        })
-      )
+      .all([this.getStores()])
+      .then(axios.spread(stores => {}))
       .catch(error => {
-        // this.props.createFlashMessage({
-        //   type: "error",
-        //   msg: "Something is broken! Try reloading the page."
-        // });
+        console.log("hello");
+        console.log(error);
       });
   }
 
   render() {
+    const stores = this.props.stores || [];
     return (
       <div className="inner">
         <h2>Stores</h2>
         <div className="stores">
-          {this.state.stores.length > 0 &&
-            this.state.stores.map(store => {
+          {stores.length > 0 &&
+            stores.map(store => {
               return (
                 <StoreCard
                   displayEditIcon={
@@ -87,25 +63,43 @@ class Stores extends Component {
     );
   }
 
-  getStores() {
-    return axios.get("http://localhost:7777/api/stores/get");
-  }
+  getStores = range => {
+    return this.props.getStores(range);
+  };
 
-  getUserID() {
-    return (
-      Auth.isUserAuthenticated() &&
-      axios({
-        method: "post",
-        url: "http://localhost:7777/account/getInfo",
-        data: { token: Auth.getToken() }
-      })
-    );
-  }
+  getUserID = () => {
+    return axios;
+  };
 }
 
 Stores.propTypes = {
-  // createFlashMessage: PropTypes.func.isRequired,
-  // closeFlashMessage: PropTypes.func.isRequired
+  stores: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      photo: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired
+    })
+  ),
+  user: PropTypes.shape({
+    id: PropTypes.bool.isRequired
+  }),
+  getStores: PropTypes.func.isRequired
 };
 
-module.exports = Stores;
+const mapStateToProps = state => {
+  return {
+    stores: state.stores,
+    user: {
+      id: !!state.user.token
+    }
+  };
+};
+
+const mapDispatchToProps = {
+  getStores
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Stores);
