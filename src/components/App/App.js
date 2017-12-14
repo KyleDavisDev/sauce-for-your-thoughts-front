@@ -50,7 +50,17 @@ const App = ({ isAuthenticated, flashMessage }) => {
       <Route exact path="/tags" component={Tags} />
       <Route exact path="/tags/:tag" component={Tags} />
       <Route exact path="/register" component={Register} />
-      <Route exact path="/account" component={Account} />
+      <Route
+        exact
+        path="/account"
+        render={e =>
+          isAuthenticated ? (
+            <Account history={e.history} />
+          ) : (
+            <Redirect to="/login" push />
+          )
+        }
+      />
       <Route exact path="/account/reset/:token" component={ResetPassword} />
       <Route exact path="/login" component={Login} />
     </div>
