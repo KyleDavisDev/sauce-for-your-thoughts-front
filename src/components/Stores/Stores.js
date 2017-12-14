@@ -6,20 +6,16 @@ import { connect } from "react-redux";
 
 import { getStores } from "../../actions/stores";
 import { getInfo } from "../../actions/user";
-
+import { flashError } from "../../actions/flash";
 import StoreCard from "../StoreCard/StoreCard.js";
 
 import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
 
 class Stores extends Component {
-  //make sure user is allowed to be here
-  componentWillMount() {}
-
   componentDidMount() {
     axios.all([this.getStores(), this.getUserID()]).catch(error => {
-      console.log("hello");
-      console.log(error);
+      this.props.flashError({ text: error.response.data.msg });
     });
   }
 
@@ -50,10 +46,14 @@ class Stores extends Component {
   }
 
   getStores = range => {
+    //check to see if stores have already been passed to component to save an api call
+    if (this.props.stores) return;
     return this.props.getStores(range);
   };
 
   getUserID = () => {
+    //check if _id already passed to component to save api call
+    if (this.props._id) return;
     const data = { token: this.props.user.token };
     return this.props.getInfo(data);
   };
@@ -75,7 +75,8 @@ Stores.propTypes = {
     _id: PropTypes.string
   }),
   getStores: PropTypes.func.isRequired,
-  getInfo: PropTypes.func.isRequired
+  getInfo: PropTypes.func.isRequired,
+  flashError: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -90,7 +91,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   getStores,
-  getInfo
+  getInfo,
+  flashError
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Stores);
