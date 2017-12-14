@@ -7,33 +7,19 @@ import api from "../../api/api";
 import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
 import { flashError, flashClose } from "../../actions/flash";
-import { updateUser } from "../../actions/user";
+import { getInfo, updateUser } from "../../actions/user";
 
 class Account extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: "",
-      email: ""
-    };
-  }
-
   componentDidMount() {
-    if (!this.props.isAuthenticated) {
-      this.props.history.push("/login");
-    }
     this.getUserInfo();
   }
 
   render() {
+    const name = this.props.name || "";
+    const email = this.props.email || "";
     return (
       <div className="inner">
-        <AccountForm
-          name={this.state.name}
-          email={this.state.email}
-          onSubmit={this.onSubmit}
-        />
+        <AccountForm name={name} email={email} onSubmit={this.onSubmit} />
       </div>
     );
   }
@@ -41,14 +27,9 @@ class Account extends Component {
   getUserInfo = () => {
     const data = { token: Auth.getToken() };
 
-    api.user
-      .getInfo(data)
-      .then(res => {
-        this.setState({ name: res.user.name, email: res.user.email });
-      })
-      .catch(err => {
-        this.props.flashError({ text: err.response.data.msg });
-      });
+    this.props.getInfo(data).catch(err => {
+      this.props.flashError({ text: err.response.data.msg });
+    });
   };
 
   onSubmit = data => {
@@ -67,7 +48,7 @@ class Account extends Component {
 }
 
 Account.propType = {
-  isAuthenticated: PropTypes.bool.isRequired,
+  getInfo: PropTypes.func.isRequired,
   updateUser: PropTypes.func.isRequired,
   flashError: PropTypes.func.isRequired,
   flashClose: PropTypes.func.isRequired,
@@ -76,10 +57,16 @@ Account.propType = {
 
 function mapStateToProps(state) {
   return {
-    isAuthenticated: !!state.user.token
+    name: state.user.name,
+    email: state.user.email
   };
 }
 
-export default connect(mapStateToProps, { updateUser, flashError, flashClose })(
-  Account
-);
+const mapDispatchToProps = {
+  getInfo,
+  updateUser,
+  flashError,
+  flashClose
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Account);
