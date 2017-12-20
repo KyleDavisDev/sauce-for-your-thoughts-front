@@ -42,7 +42,7 @@ class Stores extends Component {
       <div className="inner">
         <h2>Stores</h2>
         <div className="stores">
-          {stores.length > 0 &&
+          {/* {stores.length > 0 &&
             stores.map(store => {
               return (
                 <StoreCard
@@ -57,14 +57,14 @@ class Stores extends Component {
                   key={store.slug}
                 />
               );
-            })}
+            })} */}
         </div>
       </div>
     );
   }
 
   getStores = range => {
-    return this.props.getStores(range);
+    return this.props.getStores(range).then(res => console.log(res));
   };
 
   getUserID = () => {
@@ -75,12 +75,12 @@ class Stores extends Component {
 Stores.propTypes = {
   stores: PropTypes.arrayOf(
     PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      photo: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired
+      _id: PropTypes.string,
+      author: PropTypes.string,
+      description: PropTypes.string,
+      name: PropTypes.string,
+      photo: PropTypes.string,
+      slug: PropTypes.string
     })
   ),
   user: PropTypes.shape({

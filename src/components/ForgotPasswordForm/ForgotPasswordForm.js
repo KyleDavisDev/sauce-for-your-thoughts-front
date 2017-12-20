@@ -22,7 +22,7 @@ class ForgotPasswordForm extends Component {
       <form onSubmit={this.handleSubmit} className="form forgot-form">
         <h2>I forgot my password!</h2>
         <TextInput
-          id="email"
+          id="forgot_email"
           name="Email"
           onChange={this.handleEmailChange}
           required={true}
