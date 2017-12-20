@@ -5,39 +5,23 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { getStores } from "../../actions/stores";
-
+import { getInfo } from "../../actions/user";
+import { flashError } from "../../actions/flash";
 import StoreCard from "../StoreCard/StoreCard.js";
 
 import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
 
 class Stores extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      stores: [],
-      user: {
-        id: ""
-      }
-    };
-  }
-
-  //make sure user is allowed to be here
-  componentWillMount() {}
-
   componentDidMount() {
-    axios
-      .all([this.getStores()])
-      .then(axios.spread(stores => {}))
-      .catch(error => {
-        console.log("hello");
-        console.log(error);
-      });
+    axios.all([this.getStores(), this.getUserID()]).catch(error => {
+      this.props.flashError({ text: error.response.data.msg });
+    });
   }
 
   render() {
     const stores = this.props.stores || [];
+    const _id = this.props.user._id || "";
     return (
       <div className="inner">
         <h2>Stores</h2>
@@ -46,9 +30,7 @@ class Stores extends Component {
             stores.map(store => {
               return (
                 <StoreCard
-                  displayEditIcon={
-                    this.state.userID === store.author ? true : false
-                  }
+                  displayEditIcon={_id === store.author ? true : false}
                   ID={store._id}
                   name={store.name}
                   image={store.photo}
@@ -64,11 +46,16 @@ class Stores extends Component {
   }
 
   getStores = range => {
-    return this.props.getStores(range).then(res => console.log(res));
+    //check to see if stores have already been passed to component to save an api call
+    if (this.props.stores) return;
+    return this.props.getStores(range);
   };
 
   getUserID = () => {
-    return axios;
+    //check if _id already passed to component to save api call
+    if (this.props._id) return;
+    const data = { token: this.props.user.token };
+    return this.props.getInfo(data);
   };
 }
 
@@ -84,22 +71,28 @@ Stores.propTypes = {
     })
   ),
   user: PropTypes.shape({
-    id: PropTypes.bool.isRequired
+    token: PropTypes.string.isRequired,
+    _id: PropTypes.string
   }),
-  getStores: PropTypes.func.isRequired
+  getStores: PropTypes.func.isRequired,
+  getInfo: PropTypes.func.isRequired,
+  flashError: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
   return {
     stores: state.stores,
     user: {
-      id: !!state.user.token
+      token: state.user.token,
+      _id: state.user._id
     }
   };
 };
 
 const mapDispatchToProps = {
-  getStores
+  getStores,
+  getInfo,
+  flashError
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Stores);
