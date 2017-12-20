@@ -5,6 +5,19 @@ export default function user(state = {}, action) {
         ...state,
         token: action.user
       };
+    case "USER_SET_INFO":
+      return {
+        ...state,
+        email: action.email,
+        _id: action._id,
+        name: action.name
+      };
+    case "USER_UPDATED":
+      return {
+        ...state,
+        email: action.email,
+        name: action.name
+      };
     case "USER_LOGGED_OUT":
       return {};
     default:
