@@ -8,9 +8,7 @@ export default function user(state = {}, action) {
     case "USER_SET_INFO":
       return {
         ...state,
-        email: action.email,
-        _id: action._id,
-        name: action.name
+        email: action.email
       };
     case "USER_UPDATED":
       return {
