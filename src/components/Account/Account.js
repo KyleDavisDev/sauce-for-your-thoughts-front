@@ -15,7 +15,8 @@ class Account extends Component {
   }
 
   render() {
-    const name = this.props.name || "";
+    //check if state exists at all first
+    const name = this.state ? this.state.name : "";
     const email = this.props.email || "";
     return (
       <div className="inner">
@@ -27,9 +28,15 @@ class Account extends Component {
   getUserInfo = () => {
     const data = { token: Auth.getToken() };
 
-    this.props.getInfo(data).catch(err => {
-      this.props.flashError({ text: err.response.data.msg });
-    });
+    this.props
+      .getInfo(data)
+      .then(res => {
+        //this will initilize state
+        this.setState({ name: res.name });
+      })
+      .catch(err => {
+        this.props.flashError({ text: err.response.data.msg });
+      });
   };
 
   onSubmit = data => {
@@ -57,7 +64,6 @@ Account.propType = {
 
 function mapStateToProps(state) {
   return {
-    name: state.user.name,
     email: state.user.email
   };
 }
