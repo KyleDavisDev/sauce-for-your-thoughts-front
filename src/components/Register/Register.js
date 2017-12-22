@@ -10,24 +10,22 @@ import RegisterForm from "./RegisterForm";
 import Checker from "../../helper/Checker/Checker.js";
 import TextInput from "../TextInput/TextInput.js";
 
-class Register extends Component {
-  render() {
-    return (
-      <div className="inner">
-        <RegisterForm onSubmit={this.handleSubmit} />
-      </div>
-    );
-  }
-  handleSubmit = data => {
-    this.props.flashClose();
-    this.props
-      .register(data)
-      .then(() => this.props.history.push("/stores"))
+const Register = ({ register, flashError, flashClose, history }) => {
+  return (
+    <div className="inner">
+      <RegisterForm onSubmit={handleSubmit} />
+    </div>
+  );
+
+  function handleSubmit(data) {
+    flashClose();
+    register(data)
+      .then(() => history.push("/stores"))
       .catch(err => {
-        this.props.flashError({ text: err.response.data.msg });
+        flashError({ text: err.response.data.msg });
       });
-  };
-}
+  }
+};
 
 Register.propType = {
   history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
@@ -36,4 +34,6 @@ Register.propType = {
   flashClose: PropTypes.func.isRequired
 };
 
-export default connect(null, { register, flashError, flashClose })(Register);
+const mapDispatchToProps = { register, flashError, flashClose };
+
+export default connect(null, mapDispatchToProps)(Register);
