@@ -8,11 +8,9 @@ export const userUpdated = ({ email, name }) => ({
   name
 });
 
-export const userSetInfo = ({ email, _id, name }) => ({
+export const userSetInfo = ({ email }) => ({
   type: "USER_SET_INFO",
-  email,
-  _id,
-  name
+  email
 });
 
 export const updateUser = credentials => dispatch => {
@@ -27,8 +25,8 @@ export const updateUser = credentials => dispatch => {
 
 export const getInfo = credentials => dispatch => {
   return api.user.getInfo(credentials).then(res => {
-    const { email, _id, name } = res.user;
-    dispatch(userSetInfo({ email, _id, name }));
+    const { email } = res.user;
+    dispatch(userSetInfo({ email }));
     return res.user;
   });
 };
