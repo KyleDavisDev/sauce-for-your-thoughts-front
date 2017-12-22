@@ -21,16 +21,16 @@ class Stores extends Component {
 
   render() {
     const stores = this.props.stores || [];
-    const _id = this.props.user._id || "";
+    const email = this.props.user.email || "";
     return (
       <div className="inner">
         <h2>Stores</h2>
         <div className="stores">
-          {/* {stores.length > 0 &&
+          {stores.length > 0 &&
             stores.map(store => {
               return (
                 <StoreCard
-                  displayEditIcon={_id === store.author ? true : false}
+                  displayEditIcon={email === store.author ? true : false}
                   ID={store._id}
                   name={store.name}
                   image={store.photo}
@@ -39,7 +39,7 @@ class Stores extends Component {
                   key={store.slug}
                 />
               );
-            })} */}
+            })}
         </div>
       </div>
     );
@@ -52,8 +52,8 @@ class Stores extends Component {
   };
 
   getUserID = () => {
-    //check if _id already passed to component to save api call
-    if (this.props._id) return;
+    //check if email already passed to component to save api call
+    if (this.props.user.email) return;
     const data = { token: this.props.user.token };
     return this.props.getInfo(data);
   };
@@ -62,17 +62,17 @@ class Stores extends Component {
 Stores.propTypes = {
   stores: PropTypes.arrayOf(
     PropTypes.shape({
-      _id: PropTypes.string,
-      author: PropTypes.string,
-      description: PropTypes.string,
-      name: PropTypes.string,
-      photo: PropTypes.string,
-      slug: PropTypes.string
+      _id: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      photo: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired
     })
   ),
   user: PropTypes.shape({
     token: PropTypes.string.isRequired,
-    _id: PropTypes.string
+    email: PropTypes.string
   }),
   getStores: PropTypes.func.isRequired,
   getInfo: PropTypes.func.isRequired,
@@ -84,7 +84,7 @@ const mapStateToProps = state => {
     stores: state.stores,
     user: {
       token: state.user.token,
-      _id: state.user._id
+      email: state.user.email
     }
   };
 };
