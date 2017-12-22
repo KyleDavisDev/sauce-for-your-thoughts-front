@@ -26,7 +26,7 @@ export default {
     },
     getInfo: credentials => {
       return axios
-        .post("http://localhost:7777/account/getInfo", credentials)
+        .post("http://localhost:7777/api/user/getInfo", credentials)
         .then(res => {
           if (res.status === 200 && res.data.isGood) {
             return res.data;
