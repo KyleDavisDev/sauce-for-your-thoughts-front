@@ -28,6 +28,7 @@ class RegisterForm extends Component {
           onChange={this.handleNameChange}
           value={this.state.data.name}
           type="text"
+          id="name"
         />
         {this.state.errors.name && (
           <p className="form-error">*{this.state.errors.name}</p>
@@ -38,6 +39,7 @@ class RegisterForm extends Component {
           onChange={this.handleEmailChange}
           value={this.state.data.email}
           type="email"
+          id="email"
         />
         {this.state.errors.email && (
           <p className="form-error">*{this.state.errors.email}</p>
@@ -48,6 +50,7 @@ class RegisterForm extends Component {
           onChange={this.handlePasswordChange}
           value={this.state.data.password}
           type="password"
+          id="password"
         />
         {this.state.errors.password && (
           <p className="form-error">*{this.state.errors.password}</p>
@@ -58,6 +61,7 @@ class RegisterForm extends Component {
           onChange={this.handleConfirmPasswordChange}
           value={this.state.data.confirmPassword}
           type="password"
+          id="confirmPassword"
         />
         {this.state.errors.confirmPassword && (
           <p className="form-error">*{this.state.errors.confirmPassword}</p>
