@@ -81,41 +81,10 @@ label {
     border-bottom: 1px solid $grey;
   }
 
-  .dropZoneHolder {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
-    .dropZoneArea {
-      display: flex;
-      flex-direction: column;
-
-      .dropZone {
-        border: 2px dashed $grey;
-        height: 300px;
-        width: 300px;
-        border-radius: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 25px;
-      }
-    }
-
-    .dropZoneImage {
-      display: flex;
-      align-items: center;
-
-      img {
-        max-width: 300px;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .dropZoneImage {
-        display: none;
-      }
-    }
+  .places {
+    z-index: 2;
+    background-color: white;
+    border: 1px solid rgb(85, 85, 85);
   }
 
   p.form-error {

@@ -74,7 +74,7 @@ class AddForm extends Component {
           { name: "Family Friendly", isChecked: false }
         ],
         location: {
-          address: "a",
+          address: "",
           latitude: "",
           longitude: ""
         },
@@ -130,6 +130,7 @@ class AddForm extends Component {
           id="address"
           name="address"
           onSelect={this.onAddressSelect}
+          classNames={{ autocompleteContainer: "places" }}
         />
 
         <TextInput
