@@ -4,7 +4,7 @@ export default {
   user: {
     login: credentials => {
       return axios
-        .post("http://localhost:7777/login", credentials)
+        .post("http://localhost:7777/api/user/login", credentials)
         .then(res => {
           if (res.data.isGood) {
             return res.data;
@@ -15,7 +15,7 @@ export default {
     },
     register: credentials => {
       return axios
-        .post("http://localhost:7777/register", credentials)
+        .post("http://localhost:7777/api/user/register", credentials)
         .then(res => {
           if (res.data.isGood) {
             return res.data;
@@ -37,7 +37,7 @@ export default {
     },
     update: credentials => {
       return axios
-        .post("http://localhost:7777/account/update", credentials)
+        .post("http://localhost:7777/api/user/update", credentials)
         .then(res => {
           if (res.status === 200 && res.data.isGood) {
             return res.data;
@@ -48,7 +48,7 @@ export default {
     },
     isLoggedIn: credentials => {
       return axios
-        .post("http://localhost:7777/user/isloggedin", credentials)
+        .post("http://localhost:7777/api/user/isloggedin", credentials)
         .then(res => {
           if (res.status === 200 && res.data.isGood) {
             return res.data;
