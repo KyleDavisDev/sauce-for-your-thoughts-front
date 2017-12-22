@@ -4,8 +4,7 @@ import { flashSuccess } from "./flash";
 
 export const userUpdated = ({ email, name }) => ({
   type: "USER_UPDATED",
-  email,
-  name
+  email
 });
 
 export const userSetInfo = ({ email }) => ({
@@ -16,7 +15,7 @@ export const userSetInfo = ({ email }) => ({
 export const updateUser = credentials => dispatch => {
   return api.user.update(credentials).then(res => {
     const { email, name } = res.user;
-    dispatch(userUpdated({ email, name }));
+    dispatch(userUpdated({ email }));
     const text = `Your name was saved as: ${name} and your email was saved as: ${email}.`;
     dispatch(flashSuccess({ text }));
     return res.user;
