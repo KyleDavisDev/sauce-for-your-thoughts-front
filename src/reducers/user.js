@@ -13,8 +13,7 @@ export default function user(state = {}, action) {
     case "USER_UPDATED":
       return {
         ...state,
-        email: action.email,
-        name: action.name
+        email: action.email
       };
     case "USER_LOGGED_OUT":
       return {};
