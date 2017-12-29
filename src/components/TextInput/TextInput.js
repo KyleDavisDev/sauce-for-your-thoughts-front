@@ -1,18 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TextInput = props => {
+const TextInput = ({ id, name, onChange, required, type, value, placeholder }) => {
   return (
     <div>
-      <label htmlFor={props.name}> {props.name}: </label>
+      <label htmlFor={name}> {name}: </label>
       <input
-        type={props.type || "text"}
-        id={props.id || ""}
-        name={props.name}
-        value={props.value}
-        placeholder={props.placeholder || ""}
-        onChange={props.onChange}
-        required={props.required || false}
+        type={type || "text"}
+        id={id || ""}
+        name={name}
+        value={value}
+        placeholder={placeholder || ""}
+        onChange={onChange}
+        required={required || false}
       />
     </div>
   );
