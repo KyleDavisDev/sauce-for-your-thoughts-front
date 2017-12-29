@@ -6,14 +6,14 @@ import { connect } from "react-redux";
 import { flashError, flashClose } from "../../actions/flash";
 import { register } from "../../actions/auth";
 
-import RegisterForm from "./RegisterForm";
+import Form from "./Form";
 import Checker from "../../helper/Checker/Checker.js";
 import TextInput from "../TextInput/TextInput.js";
 
 const Register = ({ register, flashError, flashClose, history }) => {
   return (
     <div className="inner">
-      <RegisterForm onSubmit={handleSubmit} />
+      <Form onSubmit={handleSubmit} />
     </div>
   );
 

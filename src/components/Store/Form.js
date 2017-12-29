@@ -6,7 +6,7 @@ import PlacesAutocomplete, {
 
 import FillerImage from "../../images/photos/store.jpg";
 
-class StoreForm extends Component {
+class Form extends Component {
   constructor(props) {
     super(props);
 
@@ -78,7 +78,7 @@ class StoreForm extends Component {
       value: this.state.location.storeAddress,
       onChange: this.handleAddressChange
     };
-    let dropzoneRef;
+
     return (
       <form
         onSubmit={this.handleSubmit}
@@ -228,7 +228,7 @@ class StoreForm extends Component {
   }
 }
 
-StoreForm.propTypes = {
+Form.propTypes = {
   onFormSubmit: PropTypes.func.isRequired,
   storeName: PropTypes.string,
   storeDescription: PropTypes.string,
@@ -239,4 +239,4 @@ StoreForm.propTypes = {
   storeLatitude: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
-module.exports = StoreForm;
+module.exports = Form;

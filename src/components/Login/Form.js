@@ -9,7 +9,7 @@ import FlashMessage from "../FlashMessage/FlashMessage";
 import TextInput from "../TextInput/TextInput.js";
 import Checker from "../../helper/Checker/Checker.js";
 
-class LoginForm extends Component {
+class Form extends Component {
   constructor(props) {
     super(props);
 
@@ -88,8 +88,8 @@ class LoginForm extends Component {
   };
 }
 
-LoginForm.propTypes = {
+Form.propTypes = {
   submit: PropTypes.func.isRequired
 };
 
-export default LoginForm;
+export default Form;

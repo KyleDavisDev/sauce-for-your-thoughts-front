@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import FillerImage from "../../images/photos/store.jpg";
 import Pencil from "../../images/icons/Pencil.js";
 
-const StoreCard = (store) => {
+const Card = (store) => {
   return (
     <div className="store">
       <div className="store-hero">
@@ -42,7 +42,7 @@ const StoreCard = (store) => {
   );
 };
 
-StoreCard.propTypes = {
+Card.propTypes = {
   ID: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string,
@@ -51,4 +51,4 @@ StoreCard.propTypes = {
   displayEditIcon: PropTypes.bool.isRequired
 };
 
-module.exports = StoreCard;
+export default Card;

@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { getStores } from "../../actions/stores";
 import { getInfo } from "../../actions/user";
 import { flashError } from "../../actions/flash";
-import StoreCard from "../StoreCard/StoreCard.js";
+import Card from "../Store/Card.js";
 
 import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
@@ -29,7 +29,7 @@ class Stores extends Component {
           {stores.length > 0 &&
             stores.map(store => {
               return (
-                <StoreCard
+                <Card
                   displayEditIcon={email === store.author ? true : false}
                   ID={store._id}
                   name={store.name}

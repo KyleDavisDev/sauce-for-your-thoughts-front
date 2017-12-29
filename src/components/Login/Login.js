@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { login } from "../../actions/auth";
 import { flashError } from "../../actions/flash";
 
-import LoginForm from "../LoginForm/LoginForm.js";
-import ForgotPasswordForm from "../ForgotPasswordForm/ForgotPasswordForm.js";
+import LoginForm from "./Form.js";
+import ForgotPasswordForm from "../ForgotPassword/Form.js";
 import Auth from "./../../helper/Auth/Auth";
 
 class Login extends Component {

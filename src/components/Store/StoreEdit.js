@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 
-import StoreForm from "../StoreForm/StoreForm.js";
+import Form from "./Form.js";
 
 import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker";
@@ -36,7 +36,7 @@ class StoreEdit extends Component {
           Edit {this.state.store.name || "Store"}
         </h2>
         {Object.keys(this.state.store).length > 0 &&
-          <StoreForm
+          <Form
             onFormSubmit={this.handleFormSubmit}
             storeName={this.state.store.name}
             storeDescription={this.state.store.description}
@@ -81,7 +81,7 @@ class StoreEdit extends Component {
           });
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }

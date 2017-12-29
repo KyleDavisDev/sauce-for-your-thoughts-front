@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 
-import StoreCard from "../StoreCard/StoreCard.js";
+import Card from "../Store/Card.js";
 
 import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
@@ -69,7 +69,7 @@ class Tags extends Component {
           <div className="stores">
             {this.state.stores.map(store => {
               return (
-                <StoreCard
+                <Card
                   displayEditIcon={
                     this.state.userID === store.author ? true : false
                   }

@@ -6,7 +6,7 @@ import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
 import TextInput from "../TextInput/TextInput.js";
 
-class ForgotPasswordForm extends Component {
+class Form extends Component {
   constructor(props) {
     super(props);
 
@@ -83,6 +83,6 @@ class ForgotPasswordForm extends Component {
   }
 }
 
-ForgotPasswordForm.propTypes = {};
+Form.propTypes = {};
 
-module.exports = ForgotPasswordForm;
+export default Form;

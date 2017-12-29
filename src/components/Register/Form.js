@@ -5,7 +5,7 @@ import Validator from "validator";
 
 import TextInput from "../TextInput/TextInput";
 
-class RegisterForm extends Component {
+class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,6 +18,7 @@ class RegisterForm extends Component {
       errors: {}
     };
   }
+
   render() {
     return (
       <form className="form" onSubmit={this.handleSubmit}>
@@ -121,4 +122,8 @@ class RegisterForm extends Component {
   };
 }
 
-export default RegisterForm;
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+}
+
+export default Form;
