@@ -14,7 +14,7 @@ import Holder from "../Holder/Holder.js";
 import Login from "../Login/Login.js";
 import Register from "../Register/Register.js";
 import ResetPassword from "../ResetPassword/ResetPassword.js";
-import StoreEdit from "../Store/StoreEdit.js";
+import StoreEdit from "../Store/Edit.js";
 import StoreGet from "../Store/StoreGet.js";
 import Stores from "../Stores/Stores.js";
 import Tags from "../Tags/Tags.js";
@@ -34,8 +34,8 @@ const App = ({ isAuthenticated, flashMessage }) => {
           isAuthenticated ? (
             <Add history={e.history} />
           ) : (
-            <Redirect to="/login" push />
-          )
+              <Redirect to="/login" push />
+            )
         }
       />
       <Route
@@ -57,8 +57,8 @@ const App = ({ isAuthenticated, flashMessage }) => {
           isAuthenticated ? (
             <Account history={e.history} />
           ) : (
-            <Redirect to="/login" push />
-          )
+              <Redirect to="/login" push />
+            )
         }
       />
       <Route exact path="/account/reset/:token" component={ResetPassword} />
