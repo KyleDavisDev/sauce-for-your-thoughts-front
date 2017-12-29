@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import FillerImage from "../../images/photos/store.jpg";
 import Pencil from "../../images/icons/Pencil.js";
 
-const StoreCard = store => {
+const StoreCard = (store) => {
   return (
     <div className="store">
       <div className="store-hero">
@@ -19,8 +19,9 @@ const StoreCard = store => {
           )}
         </div>
         <img
-          src={`http://localhost:7777/public/uploads/${store.image}`}
+          src={FillerImage}
           onError={e => (e.target.src = FillerImage)}
+          onLoad={e => e.target.src = `http://localhost:7777/public/uploads/${store.image}`}
           title={store.name}
           alt={store.name}
         />
