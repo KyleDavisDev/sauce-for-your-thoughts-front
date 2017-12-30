@@ -9,7 +9,11 @@ export const storeAdded = () => ({
 export const storeFound = ({ store }) => ({
   type: "STORE_FOUND",
   store
-})
+});
+
+export const storeUpdated = () => ({
+  type: "STORE_UPDATED"
+});
 
 export const addStore = data => dispatch => {
   return api.store.add(data).then(res => {
@@ -23,5 +27,12 @@ export const getStore = data => dispatch => {
   return api.store.get(data).then(res => {
     dispatch(storeFound({ store: res.store }));
     return res;
-  })
-}
+  });
+};
+
+export const updateStore = data => dispatch => {
+  return api.store.update(data).then(res => {
+    dispatch(storeUpdated());
+    return res;
+  });
+};
