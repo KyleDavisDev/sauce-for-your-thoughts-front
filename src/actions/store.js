@@ -6,7 +6,7 @@ export const storeAdded = () => ({
   type: "STORE_ADDED"
 });
 
-export const storeFound = (store) => ({
+export const storeFound = ({ store }) => ({
   type: "STORE_FOUND",
   store
 })
@@ -20,8 +20,8 @@ export const addStore = data => dispatch => {
 };
 
 export const getStore = data => dispatch => {
-  return api.store.getStore(data).then(res => {
-    dispatchEvent(foundStore(res.store));
+  return api.store.get(data).then(res => {
+    dispatch(storeFound({ store: res.store }));
     return res;
   })
 }

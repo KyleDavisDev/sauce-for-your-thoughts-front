@@ -71,6 +71,16 @@ export default {
             throw new Error(res.data.msg);
           }
         });
+    },
+    get: data => {
+      return axios.post("http://localhost:7777/api/store/get", data)
+        .then(res => {
+          if (res.data.isGood) {
+            return res.data;
+          } else {
+            throw new Error(res.data.msg)
+          }
+        })
     }
   },
   stores: {
