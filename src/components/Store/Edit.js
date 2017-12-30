@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-import { connect } from 'react-redux';
-import { getInfo as getUserInfo } from '../../actions/user';
-import { getStore as getStoreInfo } from '../../actions/store';
-import { flashError } from '../../actions/flash';
+import { connect } from "react-redux";
+import { getInfo as getUserInfo } from "../../actions/user";
+import { getStore as getStoreInfo, updateStore } from "../../actions/store";
+import { flashError } from "../../actions/flash";
 
 import Form from "./Form.js";
 
@@ -15,45 +15,57 @@ class Edit extends Component {
   constructor(props) {
     super(props);
 
+    //This state will only be used to set default data for the form component
     this.state = {
       store: {
-        name: "",
-        description: "",
+        name: "Name",
+        description: "Description",
+        photo: "Str",
         tags: [""],
-        location: { address: "", coordinates: ["", ""] },
-        photo: ""
+        location: { address: "", coordinates: [] }
       }
     };
   }
 
   componentDidMount() {
     axios.all([this.getStoreInfo(), this.getUserInfo()]).catch(error => {
-      console.log(error)
+      console.log(error);
       // this.props.flashError({ text: error.response.data.msg });
     });
   }
 
   render() {
+    const {
+      name,
+      description,
+      photo,
+      tags,
+      location: { address, coordinates: [longitude, latitude] }
+    } =
+      Object.keys(this.props.store).length > 0
+        ? this.props.store
+        : this.state.store;
+
     return (
       <div className="inner">
-        <h2>
-          Edit {this.state.store.name || "Store"}
-        </h2>
-        {/* {Object.keys(this.state.store).length > 0 &&
+        <h2>Edit {name || "Store"}</h2>
+        {Object.keys(this.props.store).length > 0 && (
           <Form
-            onFormSubmit={this.handleFormSubmit}
-            storeName={this.state.store.name}
-            storeDescription={this.state.store.description}
-            storePhoto={this.state.store.photo}
-            tags={this.state.store.tags}
-            storeAddress={this.state.store.location.address}
-            storeLongitude={this.state.store.location.coordinates[0]}
-            storeLatitude={this.state.store.location.coordinates[1]}
-          />} */}
+            onSubmit={this.handleSubmit}
+            name={name}
+            description={description}
+            photo={photo}
+            tags={tags}
+            address={address}
+            longitude={longitude}
+            latitude={latitude}
+          />
+        )}
       </div>
     );
   }
 
+  //get information about user
   getUserInfo = () => {
     //check if email already passed to component to save api call
     if (this.props.user.email) return;
@@ -61,85 +73,60 @@ class Edit extends Component {
     return this.props.getUserInfo(data);
   };
 
+  //get single store information
+  //must pass user token and ID we are looking for
   getStoreInfo = () => {
     //check to see if stores have already been passed to component to save an api call
-    if (this.props.store) return;
+    if (this.props.store && Object.keys(this.props.store).length > 0) return;
     const storeID = this.props.match.params.id;
-    const token = this.props.user.token
-    const data = { token, storeID }
+    const token = this.props.user.token;
+    const data = { token, storeID };
     return this.props.getStoreInfo(data);
-  }
+  };
 
-  // handleFormSubmit(e, store) {
-  //   e.preventDefault();
+  handleSubmit = data => {
+    //make tags an array of checked tags
+    const tags = data.tags.filter(tag => tag.isChecked).map(tag => tag.name);
+    //round location to 6 decimal places and convert to string
+    const coordinates = [
+      parseFloat(data.location.longitude).toFixed(7) || "",
+      parseFloat(data.location.latitude).toFixed(7) || ""
+    ];
 
-  //   const storeID = this.props.id;
+    //construct FormData object since we are passing image file
+    const formData = new FormData();
+    formData.append("storeID", this.props.match.params.id);
+    formData.append("name", data.name);
+    formData.append("description", data.description);
+    formData.append("image", data.photo.file);
+    formData.append("address", data.location.address);
+    formData.append("coordinates", coordinates);
+    formData.append("tags", tags);
+    formData.append("token", Auth.getToken());
 
-  //   //make tags an array of checked tags
-  //   const tags = store.tags.filter(tag => tag.isChecked).map(tag => tag.name);
-  //   //round location to 6 decimal places and convert to string
-  //   const coordinates = [
-  //     parseFloat(store.location.storeLongitude).toFixed(7) || "",
-  //     parseFloat(store.location.storeLatitude).toFixed(7) || ""
-  //   ];
-
-  //   const data = new FormData();
-  //   data.append("name", store.storeName);
-  //   data.append("description", store.storeDescription);
-  //   data.append("image", store.storePhoto);
-  //   data.append("address", store.location.storeAddress);
-  //   data.append("coordinates", coordinates);
-  //   data.append("tags", tags);
-  //   data.append("token", Auth.getToken());
-  //   data.append("storeID", storeID);
-
-  //   //TODO filter/sanitize user input
-  //   axios({
-  //     method: "post",
-  //     url: `http://localhost:7777/api/store/id/edit`,
-  //     data,
-  //     options: { headers: { "Content-Type": "multipart/form-data" } }
-  //   })
-  //     .then(response => {
-  //       if (response.data.errors) {
-  //         this.props.createFlashMessage({
-  //           type: "error",
-  //           text: response.data.errors
-  //         });
-  //       } else {
-  //         this.setState({ store: response.data });
-  //         this.props.createFlashMessage({
-  //           type: "success",
-  //           slug: response.data.slug,
-  //           text: "Your store was updated!"
-  //         });
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //       this.props.createFlashMessage({
-  //         type: "error",
-  //         text: "Try again."
-  //       });
-  //     });
-  // }
+    this.props
+      .updateStore(formData)
+      .then(res => {
+        this.props.history.push(`/store/${res.store.slug}`);
+      })
+      .catch(err => console.log(err));
+  };
 }
 
-Edit.propTypes = {
-
-};
+Edit.propTypes = {};
 
 const mapStateToProps = state => {
   return {
-    store: state.stores,
+    store: state.store,
     user: { token: state.user.token, email: state.user.email }
-  }
-}
+  };
+};
 
 const mapDispatchToProps = {
   getStoreInfo,
   getUserInfo,
-  flashError
+  flashError,
+  updateStore
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Edit);
