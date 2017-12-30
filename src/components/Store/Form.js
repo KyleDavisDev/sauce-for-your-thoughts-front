@@ -3,82 +3,152 @@ import PropTypes from "prop-types";
 import PlacesAutocomplete, {
   geocodeByAddress
 } from "react-places-autocomplete";
+import TextInput from "../TextInput/TextInput.js";
 
 import FillerImage from "../../images/photos/store.jpg";
+
+const CheckBoxList = ({ tags, onChange }) => {
+  return (
+    <ul className="tags">
+      {tags.map(tag => {
+        return (
+          <div key={tag.name} className="tag tag-choice">
+            <input
+              type="checkbox"
+              id={tag.name}
+              name={tag.name}
+              value={tag.name}
+              checked={tag.isChecked}
+              onChange={onChange}
+            />
+            <label htmlFor={tag.name}>{tag.name}</label>
+          </div>
+        );
+      })}
+    </ul>
+  );
+};
+CheckBoxList.propTypes = {
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      isChecked: PropTypes.bool.isRequired
+    })
+  ),
+  onChange: PropTypes.func.isRequired
+};
+
+const PhotoUpload = ({ text, onChange }) => {
+  return (
+    <div className="input-group">
+      <span className="file-button">
+        Browse...<input
+          type="file"
+          name="photo"
+          accept=".png, .jpg"
+          onChange={onChange}
+        />
+      </span>
+      <input type="text" value={text || ""} readOnly />
+    </div>
+  );
+};
+PhotoUpload.propTypes = {
+  text: PropTypes.string,
+  onChange: PropTypes.func.isRequired
+};
 
 class Form extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      storeName: "",
-      storeDescription: "",
-      tags: [
-        { name: "Wifi", isChecked: false },
-        { name: "Open Late", isChecked: false },
-        { name: "Vegatarian", isChecked: false },
-        { name: "Licensed", isChecked: false },
-        { name: "Family Friendly", isChecked: false }
-      ],
-      location: {
-        storeAddress: "",
-        storeLatitude: "",
-        storeLongitude: ""
+      data: {
+        name: "",
+        description: "",
+        tags: [
+          { name: "Wifi", isChecked: false },
+          { name: "Open Late", isChecked: false },
+          { name: "Vegatarian", isChecked: false },
+          { name: "Licensed", isChecked: false },
+          { name: "Family Friendly", isChecked: false }
+        ],
+        location: {
+          address: "",
+          latitude: "",
+          longitude: ""
+        },
+        photo: {
+          name: ""
+        }
       },
-      storePhoto: ""
+      errors: {
+        name: "",
+        description: "",
+        location: "",
+        photo: ""
+      }
     };
+  }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    this.onFileUploadChange = this.onFileUploadChange.bind(this);
-    this.handleAddressChange = this.handleAddressChange.bind(this);
-    this.handleLongitudeChange = this.handleLongitudeChange.bind(this);
-    this.handleLatitudeChange = this.handleLatitudeChange.bind(this);
-    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+  componentWillMount(e) {
+    const {
+      name,
+      description,
+      photo,
+      address,
+      longitude,
+      latitude
+    } = this.props;
+
+    const tags = this.getProperTags(this.props.tags);
+    this.setState({
+      ...this.state,
+      data: {
+        name,
+        description,
+        photo: { name: photo },
+        tags,
+        location: {
+          address,
+          longitude,
+          latitude
+        }
+      }
+    });
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log("inwillrecieve");
     const {
-      storeName,
-      storeDescription,
-      storeAddress,
-      storeLongitude,
-      storeLatitude,
-      storePhoto
+      name,
+      description,
+      photo,
+      address,
+      longitude,
+      latitude
     } = nextProps;
 
-    //compare prop tags with current state tag to see which checkbox
-    //should be initiated as checked
-    const tags = this.state.tags.map(tag => {
-      if (nextProps.tags.includes(tag.name)) {
-        tag.isChecked = true;
-      } else {
-        tag.isChecked = false;
-      }
-      return tag;
-    });
+    const tags = this.getProperTags(nextProps.tags);
 
-    //update state
     this.setState({
-      storeName,
-      storeDescription,
-      tags,
-      location: {
-        storeAddress,
-        storeLongitude,
-        storeLatitude
-      },
-      storePhoto
+      ...this.state,
+      data: {
+        name,
+        description,
+        photo: { name: photo },
+        tags,
+        location: {
+          address,
+          longitude,
+          latitude
+        }
+      }
     });
   }
 
   render() {
-    const inputProps = {
-      value: this.state.location.storeAddress,
-      onChange: this.handleAddressChange
-    };
-
+    const { name, description, tags, location, photo } = this.state.data;
     return (
       <form
         onSubmit={this.handleSubmit}
@@ -86,157 +156,176 @@ class Form extends Component {
         className="form"
         encType="multipart/form-data"
       >
-        <label htmlFor="storeName"> Name: </label>
-        <input
-          id="storeName"
-          name="storeName"
+        <TextInput
+          id="name"
+          name="Name"
           type="text"
-          onChange={this.handleNameChange}
-          value={this.state.storeName}
+          onChange={this.onChange}
+          value={name}
         />
 
-        <label htmlFor="storeDescription">Description: </label>
+        <label htmlFor="description">Description: </label>
         <textarea
-          id="storeDescription"
-          name="storeDescription"
+          id="description"
+          name="description"
           cols="30"
           rows="10"
-          onChange={this.handleDescriptionChange}
-          value={this.state.storeDescription}
+          onChange={this.onChange}
+          value={description}
         />
 
-        <label htmlFor="storePhoto"> Photo: </label>
-        <div className="dropZoneHolder" />
+        <label htmlFor="photo"> Photo: </label>
+        <PhotoUpload text={photo.name} onChange={this.onPhotoUpload} />
 
-        <label htmlFor="storeAddress"> Address: </label>
+        <label htmlFor="address"> Address: </label>
         <PlacesAutocomplete
-          inputProps={inputProps}
-          id="storeAddress"
-          name="storeAddress"
-          onSelect={this.handleAddressSelect.bind(this)}
+          inputProps={{
+            value: location.address,
+            onChange: this.onChangeAddress
+          }}
+          id="address"
+          name="address"
+          onSelect={this.onAddressSelect}
+          classNames={{ autocompleteContainer: "places" }}
         />
 
-        <label htmlFor="storeLongitude"> Address Longitude: </label>
-        <input
-          id="storeLongitude"
-          name="storeLongitude"
+        <TextInput
+          id="longitude"
+          name="Address Longitude"
           type="text"
-          onChange={this.handleLongitudeChange}
-          value={this.state.location.storeLongitude}
-          placeholder="Click or press enter in Address autocomplete to generate"
+          onChange={this.onChangeLocation}
+          value={location.longitude}
+          placeholder="Click or press enter in the Address bar to autofill"
         />
 
-        <label htmlFor="storeLatitude"> Address Latitude: </label>
-        <input
-          id="storeLatitude"
-          name="storeLatitude"
+        <TextInput
+          id="latitude"
+          name="Address Latitude"
           type="text"
-          onChange={this.handleLatitudeChange}
-          value={this.state.location.storeLatitude}
-          placeholder="Click or press enter in Address autocomplete to generate"
+          onChange={this.onChangeLocation}
+          value={location.latitude}
+          placeholder="Click or press enter in the Address bar to autofill"
         />
 
-        <ul className="tags">
-          {this.state.tags.map(tag => {
-            return (
-              <div key={tag.name} className="tag tag-choice">
-                <input
-                  type="checkbox"
-                  id={tag.name}
-                  name={tag.name}
-                  value={tag.name}
-                  checked={tag.isChecked}
-                  onChange={this.handleCheckboxChange}
-                />
-                <label htmlFor={tag.name}>{tag.name}</label>
-              </div>
-            );
-          })}
-        </ul>
+        <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
 
         <button type="submit" className="button">
-          Save ->
+          Add ->
         </button>
       </form>
     );
   }
 
-  handleSubmit(event) {
-    //destroy object to avoid memory leaks -- suggested by Dropzone documentations
-    if (this.state.storePhoto.preview) {
-      window.URL.revokeObjectURL(this.state.storePhoto.preview);
-    }
+  handleSubmit = e => {
+    e.preventDefault();
+    const data = this.state.data;
+    this.props.onSubmit(data);
+  };
 
-    //call function passed by parent
-    this.props.onFormSubmit(event, this.state);
-  }
+  onChange = e => {
+    this.setState({
+      ...this.state,
+      data: {
+        ...this.state.data,
+        [e.target.name.toLowerCase()]: e.target.value
+      }
+    });
+  };
 
-  handleNameChange(event) {
-    this.setState({ storeName: event.target.value });
-  }
+  onChangeLocation = e => {
+    this.setState({
+      ...this.state,
+      data: {
+        ...this.state.data,
+        location: {
+          ...this.state.data.location,
+          [e.target.name]: e.target.value
+        }
+      }
+    });
+  };
 
-  handleDescriptionChange(event) {
-    this.setState({ storeDescription: event.target.value });
-  }
+  onChangeAddress = address => {
+    this.setState({
+      ...this.state,
+      data: {
+        ...this.state.data,
+        location: {
+          ...this.state.data.location,
+          address
+        }
+      }
+    });
+  };
 
-  onFileUploadChange(files) {
-    this.setState({ storePhoto: files[0] });
-  }
+  onPhotoUpload = e => {
+    const name = e.target.files[0].name;
+    this.setState({
+      ...this.state,
+      data: {
+        ...this.state.data,
+        photo: { ...this.state.data.photo, name, file: e.target.files[0] }
+      }
+    });
+  };
 
-  handleAddressChange(event) {
-    const location = this.state.location;
-    location.storeAddress = event;
-    this.setState({ location });
-  }
-
-  handleAddressSelect(address, placeId) {
+  onAddressSelect = (address, placeId) => {
+    //get the formatted address, associated lat/long points, limit length of lat/long
+    //set state with info
     geocodeByAddress(address)
       .then(results => {
-        const location = this.state.location;
-        location.storeAddress = results[0].formatted_address;
-        location.storeLatitude = results[0].geometry.location.lat();
-        location.storeLongitude = results[0].geometry.location.lng();
-        this.setState({ location });
+        const address = results[0].formatted_address;
+        const latitude = parseFloat(results[0].geometry.location.lat()).toFixed(
+          7
+        );
+        const longitude = parseFloat(
+          results[0].geometry.location.lng()
+        ).toFixed(7);
+        this.setState({
+          ...this.state,
+          data: {
+            ...this.state.data,
+            location: { address, latitude, longitude }
+          }
+        });
       })
       .catch(error => console.error("Error", error));
-  }
+  };
 
-  handleLongitudeChange(event) {
-    const location = this.state.location;
-    location.storeLongitude = event.target.value;
-    this.setState({ location });
-  }
-
-  handleLatitudeChange(event) {
-    const location = this.state.location;
-    location.storeLatitude = event.target.value;
-    this.setState({ location });
-  }
-
-  handleCheckboxChange(event) {
+  onCheckboxClick = e => {
     //find which array element was clicked and flip that elements isChecked value
-    const tags = this.state.tags.map(tag => {
-      if (tag.name === event.target.name) {
+    const tags = this.state.data.tags.map(tag => {
+      if (tag.name === e.target.name) {
         tag.isChecked = !tag.isChecked;
       }
       return tag;
     });
 
     this.setState({
-      tags
+      ...this.state,
+      data: { ...this.state.data, tags }
     });
-  }
+  };
+
+  getProperTags = tags => {
+    return this.state.data.tags.map(tag => {
+      if (tags.includes(tag.name)) {
+        tag.isChecked = true;
+      }
+      return tag;
+    });
+  };
 }
 
 Form.propTypes = {
-  onFormSubmit: PropTypes.func.isRequired,
-  storeName: PropTypes.string,
-  storeDescription: PropTypes.string,
+  onSubmit: PropTypes.func.isRequired,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  photo: PropTypes.string,
   tags: PropTypes.array,
-  storePhoto: PropTypes.string,
-  storeAddress: PropTypes.string,
-  storeLongitude: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  storeLatitude: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  address: PropTypes.string,
+  longitude: PropTypes.number,
+  latitude: PropTypes.number
 };
 
-module.exports = Form;
+export default Form;
