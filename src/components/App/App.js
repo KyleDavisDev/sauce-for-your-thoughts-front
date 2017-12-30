@@ -48,7 +48,7 @@ const App = ({ isAuthenticated, flashMessage }) => {
       <Route exact path="/store/:slug" component={StoreGet} />
       <Route exact path="/store/:id/edit" render={e =>
         isAuthenticated ? (
-          <StoreEdit history={e.history} />
+          <StoreEdit history={e.history} history={e.history} match={e.match} />
         ) : (
             <Redirect to="/login" push />
           )
