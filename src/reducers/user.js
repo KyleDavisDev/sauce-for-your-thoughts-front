@@ -5,7 +5,7 @@ export default function user(state = {}, action) {
         ...state,
         token: action.user
       };
-    case "USER_SET_INFO":
+    case "USER_GOT_INFO":
       return {
         ...state,
         email: action.email

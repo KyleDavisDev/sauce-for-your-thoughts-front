@@ -27,8 +27,9 @@ class Edit extends Component {
   }
 
   componentDidMount() {
-    axios.all([this.getStore(), this.getUserID()]).catch(error => {
-      this.props.flashError({ text: error.response.data.msg });
+    axios.all([this.getStoreInfo(), this.getUserInfo()]).catch(error => {
+      console.log(error)
+      // this.props.flashError({ text: error.response.data.msg });
     });
   }
 
@@ -53,32 +54,20 @@ class Edit extends Component {
     );
   }
 
-  getStoreInfo = () => {
-
-    //TODO sanity checks to be sure the ID passed is legit
-
-    // const store = this.state.stores.find(store => {
-    //   return _id === store._id;
-    // });
-
-    // this.setState({ store })
-
-
-    console.log(_id, this.props)
-  }
-
-  getUserID = () => {
+  getUserInfo = () => {
     //check if email already passed to component to save api call
     if (this.props.user.email) return;
     const data = { token: this.props.user.token };
-    return this.props.getInfo(data);
+    return this.props.getUserInfo(data);
   };
 
-  getStore = () => {
+  getStoreInfo = () => {
     //check to see if stores have already been passed to component to save an api call
     if (this.props.store) return;
-    const _id = this.props.match.params.id;
-    return this.props.getStore(_id);
+    const storeID = this.props.match.params.id;
+    const token = this.props.user.token
+    const data = { token, storeID }
+    return this.props.getStoreInfo(data);
   }
 
   // handleFormSubmit(e, store) {
@@ -143,7 +132,7 @@ Edit.propTypes = {
 const mapStateToProps = state => {
   return {
     store: state.stores,
-    user: { email: state.user.email }
+    user: { token: state.user.token, email: state.user.email }
   }
 }
 
