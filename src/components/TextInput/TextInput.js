@@ -1,7 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TextInput = ({ id, name, onChange, required, type, value, placeholder }) => {
+const TextInput = ({
+  id,
+  name,
+  onChange,
+  required,
+  type,
+  value,
+  placeholder
+}) => {
   return (
     <div>
       <label htmlFor={name}> {name}: </label>
@@ -24,7 +32,7 @@ TextInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   required: PropTypes.bool,
   type: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string
 };
 
