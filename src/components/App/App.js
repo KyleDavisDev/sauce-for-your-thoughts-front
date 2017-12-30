@@ -46,7 +46,13 @@ const App = ({ isAuthenticated, flashMessage }) => {
         }
       />
       <Route exact path="/store/:slug" component={StoreGet} />
-      <Route exact path="/store/:id/edit" component={StoreEdit} />
+      <Route exact path="/store/:id/edit" render={e =>
+        isAuthenticated ? (
+          <StoreEdit history={e.history} />
+        ) : (
+            <Redirect to="/login" push />
+          )
+      } />
       <Route exact path="/tags" component={Tags} />
       <Route exact path="/tags/:tag" component={Tags} />
       <Route exact path="/register" component={Register} />
