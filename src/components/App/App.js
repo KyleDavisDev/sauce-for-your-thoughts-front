@@ -15,7 +15,7 @@ import Login from "../Login/Login.js";
 import Register from "../Register/Register.js";
 import ResetPassword from "../ResetPassword/ResetPassword.js";
 import StoreEdit from "../Store/Edit.js";
-import StoreGet from "../Store/StoreGet.js";
+import StoreGet from "../Store/Single.js";
 import Stores from "../Stores/Stores.js";
 import Tags from "../Tags/Tags.js";
 
@@ -34,8 +34,8 @@ const App = ({ isAuthenticated, flashMessage }) => {
           isAuthenticated ? (
             <Add history={e.history} />
           ) : (
-              <Redirect to="/login" push />
-            )
+            <Redirect to="/login" push />
+          )
         }
       />
       <Route
@@ -46,13 +46,21 @@ const App = ({ isAuthenticated, flashMessage }) => {
         }
       />
       <Route exact path="/store/:slug" component={StoreGet} />
-      <Route exact path="/store/:id/edit" render={e =>
-        isAuthenticated ? (
-          <StoreEdit history={e.history} history={e.history} match={e.match} />
-        ) : (
+      <Route
+        exact
+        path="/store/:id/edit"
+        render={e =>
+          isAuthenticated ? (
+            <StoreEdit
+              history={e.history}
+              history={e.history}
+              match={e.match}
+            />
+          ) : (
             <Redirect to="/login" push />
           )
-      } />
+        }
+      />
       <Route exact path="/tags" component={Tags} />
       <Route exact path="/tags/:tag" component={Tags} />
       <Route exact path="/register" component={Register} />
@@ -63,8 +71,8 @@ const App = ({ isAuthenticated, flashMessage }) => {
           isAuthenticated ? (
             <Account history={e.history} />
           ) : (
-              <Redirect to="/login" push />
-            )
+            <Redirect to="/login" push />
+          )
         }
       />
       <Route exact path="/account/reset/:token" component={ResetPassword} />
