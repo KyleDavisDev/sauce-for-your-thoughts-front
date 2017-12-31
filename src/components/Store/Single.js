@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getStoreBySlug as getStore } from "../../actions/store";
 
 import Checker from "../../helper/Checker/Checker.js";
 import FillerImage from "../../images/photos/store.jpg";
@@ -40,74 +42,85 @@ GenerateTagsList.proptypes = {
 };
 
 class Single extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  componentWillMount() {
-    const storeSlug = this.props.match.params.slug;
-
-    axios
-      .get(`http://localhost:7777/api/store/${storeSlug}`)
-      .then(response => {
-        //if unable to find store, redirect to 404
-        if (Checker.isObject(response.data) && response.data.isGood) {
-          this.setState({
-            store: response.data.store,
-            author: response.data.author.name
-          });
-        } else {
-          this.props.history.push("/404");
-        }
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+  componentDidMount() {
+    this.getStore();
   }
 
   render() {
     return (
       <div className="inner">
-        {this.state.store && (
+        {Object.keys(this.props.store).length > 0 && (
           <div className="single">
             <div className="single-hero">
               <img
                 className="single-image"
                 onLoad={e =>
                   (e.target.src = `http://localhost:7777/public/uploads/${
-                    this.state.store.photo
+                    this.props.store.photo
                   }`)
                 }
                 src={FillerImage}
                 onError={e => (e.target.src = FillerImage)}
               />
               <h2 className="title title-single">
-                <Link to={this.state.store.slug}>{this.state.store.name}</Link>
+                <Link to={this.props.store.slug}>{this.props.store.name}</Link>
               </h2>
             </div>
           </div>
         )}
 
-        {this.state.store && (
+        {Object.keys(this.props.store).length > 0 && (
           <div className="single-details inner">
             <GenerateStaticGoogleMap
-              longitude={this.state.store.location.coordinates[0]}
-              latitude={this.state.store.location.coordinates[1]}
+              longitude={this.props.store.location.coordinates[0]}
+              latitude={this.props.store.location.coordinates[1]}
               className="single-map"
             />
             <p className="single-location">
-              {this.state.store.location.address}
+              {this.props.store.location.address}
             </p>
-            <p>{this.state.store.description}</p>
-            {this.state.store.tags.length > 0 && (
-              <GenerateTagsList tags={this.state.store.tags} />
+            <p>{this.props.store.description}</p>
+            {this.props.store.tags.length > 0 && (
+              <GenerateTagsList tags={this.props.store.tags} />
             )}
           </div>
         )}
       </div>
     );
   }
-}
 
-module.exports = Single;
+  getStore = () => {
+    if (this.props.store && Object.keys(this.props.store).length > 0) return;
+
+    const slug = this.props.match.params.slug;
+    this.props
+      .getStore(slug)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
+}
+Single.proptypes = {
+  store: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    photo: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf([PropTypes.string]).isRequired,
+    location: PropTypes.shape({
+      address: PropTypes.string.isRequired,
+      coordinates: PropTypes.arrayOf([PropTypes.number.isRequired]).isRequired
+    }).isRequired
+  }).isRequired,
+  getStore: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => {
+  return {
+    store: state.store
+  };
+};
+
+const mapDispatchToProps = {
+  getStore
+};
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(Single);
