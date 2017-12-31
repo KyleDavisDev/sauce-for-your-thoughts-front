@@ -35,7 +35,7 @@ class GenerateTagsList extends Component {
   }
 }
 
-class StoreGet extends Component {
+class Single extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -104,4 +104,4 @@ class StoreGet extends Component {
   }
 }
 
-module.exports = StoreGet;
+module.exports = Single;
