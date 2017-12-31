@@ -91,7 +91,7 @@ class Form extends Component {
     };
   }
 
-  componentWillMount(e) {
+  componentWillMount() {
     const {
       name,
       description,
@@ -119,7 +119,6 @@ class Form extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("inwillrecieve");
     const {
       name,
       description,

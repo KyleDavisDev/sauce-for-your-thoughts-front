@@ -1,5 +1,6 @@
 import api from "../api/api";
 import { flashSuccess } from "./flash";
+import { updateStoresItem } from "./stores";
 
 //Not sure what I want to do with this yet...
 export const storeAdded = () => ({
@@ -32,7 +33,10 @@ export const getStore = data => dispatch => {
 
 export const updateStore = data => dispatch => {
   return api.store.update(data).then(res => {
+    //remove store from redux
     dispatch(storeUpdated());
+    //update store in redux stores array
+    dispatch(updateStoresItem(res.store));
     return res;
   });
 };
