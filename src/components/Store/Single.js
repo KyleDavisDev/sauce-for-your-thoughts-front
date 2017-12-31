@@ -1,39 +1,43 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import Checker from "../../helper/Checker/Checker.js";
+import FillerImage from "../../images/photos/store.jpg";
 
-class GenerateStaticGoogleMap extends Component {
-  render() {
-    return (
-      <img
-        className={this.props.className}
-        src={`https://maps.googleapis.com/maps/api/staticmap?center=${this.props.coordinates
-          .reverse()
-          .join()}&zoom=14&size=800x150&key=AIzaSyBjyKevCZH8vO5TOByZaH37d--miW703f8&markers=${this.props.coordinates.join()}&scale=2`}
-      />
-    );
-  }
-}
+const GenerateStaticGoogleMap = ({ className, longitude, latitude }) => {
+  return (
+    <img
+      className={className}
+      src={`https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=14&size=800x150&key=AIzaSyBjyKevCZH8vO5TOByZaH37d--miW703f8&markers=${latitude},${longitude}&scale=2`}
+    />
+  );
+};
+GenerateStaticGoogleMap.proptypes = {
+  className: PropTypes.string.isRequired,
+  longitude: PropTypes.oneOf([PropTypes.string, PropTypes.number]).isRequired,
+  latitude: PropTypes.oneOf([PropTypes.string, PropTypes.number]).isRequired
+};
 
-class GenerateTagsList extends Component {
-  render() {
-    return (
-      <ul className="tags">
-        {this.props.tags.map(tag => {
-          return (
-            <li className="tag" key={tag}>
-              <Link to={`/tags/${tag}`} className="tag-link">
-                <span className="tag-text">#{tag}</span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  }
-}
+const GenerateTagsList = ({ tags }) => {
+  return (
+    <ul className="tags">
+      {tags.map(tag => {
+        return (
+          <li className="tag" key={tag}>
+            <Link to={`/tags/${tag}`} className="tag-link">
+              <span className="tag-text">#{tag}</span>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+GenerateTagsList.proptypes = {
+  tags: PropTypes.arrayOf([PropTypes.string]).isRequired
+};
 
 class Single extends Component {
   constructor(props) {
@@ -70,13 +74,13 @@ class Single extends Component {
             <div className="single-hero">
               <img
                 className="single-image"
-                src={`http://localhost:7777/public/uploads/${
-                  this.state.store.photo
-                }`}
-                onError={e =>
-                  (e.target.src =
-                    "http://localhost:7777/public/uploads/store.jpg")
+                onLoad={e =>
+                  (e.target.src = `http://localhost:7777/public/uploads/${
+                    this.state.store.photo
+                  }`)
                 }
+                src={FillerImage}
+                onError={e => (e.target.src = FillerImage)}
               />
               <h2 className="title title-single">
                 <Link to={this.state.store.slug}>{this.state.store.name}</Link>
@@ -84,10 +88,12 @@ class Single extends Component {
             </div>
           </div>
         )}
+
         {this.state.store && (
           <div className="single-details inner">
             <GenerateStaticGoogleMap
-              coordinates={this.state.store.location.coordinates}
+              longitude={this.state.store.location.coordinates[0]}
+              latitude={this.state.store.location.coordinates[1]}
               className="single-map"
             />
             <p className="single-location">
