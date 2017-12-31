@@ -24,8 +24,8 @@ export const addStore = data => dispatch => {
   });
 };
 
-export const getStore = data => dispatch => {
-  return api.store.get(data).then(res => {
+export const getStoreById = data => dispatch => {
+  return api.store.getById(data).then(res => {
     dispatch(storeFound({ store: res.store }));
     return res;
   });

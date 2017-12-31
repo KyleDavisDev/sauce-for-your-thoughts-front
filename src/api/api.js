@@ -72,9 +72,9 @@ export default {
           }
         });
     },
-    get: data => {
+    getById: data => {
       return axios
-        .post("http://localhost:7777/api/store/get", data)
+        .post("http://localhost:7777/api/store/get/id", data)
         .then(res => {
           if (res.data.isGood) {
             return res.data;

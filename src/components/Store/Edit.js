@@ -3,7 +3,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getInfo as getUserInfo } from "../../actions/user";
-import { getStore as getStoreInfo, updateStore } from "../../actions/store";
+import { getStoreById as getStoreInfo, updateStore } from "../../actions/store";
 import { flashError } from "../../actions/flash";
 
 import Form from "./Form.js";
