@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getStoreBySlug as getStore } from "../../actions/store";
+import { flashError } from "../../actions/flash";
 
 import Checker from "../../helper/Checker/Checker.js";
 import FillerImage from "../../images/photos/store.jpg";
@@ -95,8 +96,7 @@ class Single extends Component {
     const slug = this.props.match.params.slug;
     this.props
       .getStore(slug)
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+      .catch(err => this.props.flashError({ text: err.response.data.msg }));
   };
 }
 Single.proptypes = {
@@ -110,7 +110,8 @@ Single.proptypes = {
       coordinates: PropTypes.arrayOf([PropTypes.number.isRequired]).isRequired
     }).isRequired
   }).isRequired,
-  getStore: PropTypes.func.isRequired
+  getStore: PropTypes.func.isRequired,
+  flashError: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -120,7 +121,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  getStore
+  getStore,
+  flashError
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Single);
