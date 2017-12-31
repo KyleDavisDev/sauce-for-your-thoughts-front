@@ -31,6 +31,13 @@ export const getStoreById = data => dispatch => {
   });
 };
 
+export const getStoreBySlug = data => dispatch => {
+  return api.store.getBySlug(data).then(res => {
+    dispatch(storeFound({ store: res.store }));
+    return res;
+  });
+};
+
 export const updateStore = data => dispatch => {
   return api.store.update(data).then(res => {
     //remove store from redux
