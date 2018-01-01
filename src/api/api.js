@@ -128,6 +128,19 @@ export default {
             throw new Error(res.data.msg);
           }
         });
+    },
+    search: searchValue => {
+      return axios
+        .get(`http://localhost:7777/api/stores/search/${searchValue}`)
+        .then(res => {
+          if (res.data.isGood) {
+            return res.data;
+          } else {
+            //this false error will be handled in SearchBar component
+            console.log("inside api", res.data.msg);
+            throw new Error(res.data.msg);
+          }
+        });
     }
   },
   tags: {
