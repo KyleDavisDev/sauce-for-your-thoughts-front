@@ -44,7 +44,15 @@ GenerateTagsList.proptypes = {
 
 class Single extends Component {
   componentDidMount() {
-    this.getStore();
+    const slug = this.props.match.params.slug;
+    this.getStore(slug);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const slug = nextProps.match.params.slug;
+    if (slug && slug !== this.props.match.params.tag) {
+      this.getStore(slug);
+    }
   }
 
   render() {
@@ -90,13 +98,11 @@ class Single extends Component {
     );
   }
 
-  getStore = () => {
-    if (this.props.store && Object.keys(this.props.store).length > 0) return;
-
-    const slug = this.props.match.params.slug;
-    this.props
-      .getStore(slug)
-      .catch(err => this.props.flashError({ text: err.response.data.msg }));
+  getStore = slug => {
+    this.props.getStore(slug).catch(err => {
+      // console.log(err.response);
+      this.props.flashError({ text: err.response.data.msg });
+    });
   };
 }
 Single.proptypes = {
