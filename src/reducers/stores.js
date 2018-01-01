@@ -13,6 +13,8 @@ export default function stores(state = [], action) {
             return store;
           })
         : [];
+    case "STORES_BY_TAG_GOT":
+      return action.stores;
     default:
       return state;
   }
