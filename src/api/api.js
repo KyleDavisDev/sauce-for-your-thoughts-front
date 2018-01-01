@@ -137,7 +137,6 @@ export default {
             return res.data;
           } else {
             //this false error will be handled in SearchBar component
-            console.log("inside api", res.data.msg);
             throw new Error(res.data.msg);
           }
         });
