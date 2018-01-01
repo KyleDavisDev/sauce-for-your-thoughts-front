@@ -7,7 +7,6 @@ export const gotTagsList = ({ tags }) => ({
 
 export const getTagsList = () => dispatch => {
   return api.tags.getList().then(res => {
-    console.log(res);
     dispatch(gotTagsList({ tags: res.tags }));
     return res;
   });
