@@ -10,6 +10,11 @@ export const updatedStoresItems = ({ store }) => ({
   store
 });
 
+export const storesByTagGot = ({ stores }) => ({
+  type: "STORES_BY_TAG_GOT",
+  stores
+});
+
 export const getStores = selection => dispatch => {
   return api.stores.get(selection).then(res => {
     dispatch(storesGot({ stores: res.stores }));
@@ -20,4 +25,11 @@ export const getStores = selection => dispatch => {
 export const updateStoresItem = store => dispatch => {
   dispatch(updatedStoresItems({ store }));
   return;
+};
+
+export const getStoresByTag = tag => dispatch => {
+  return api.stores.getByTag(tag).then(res => {
+    dispatch(storesByTagGot({ stores: res.stores }));
+    return res;
+  });
 };
