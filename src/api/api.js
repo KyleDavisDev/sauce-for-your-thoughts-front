@@ -117,6 +117,28 @@ export default {
           throw new Error(res.data.msg);
         }
       });
+    },
+    getByTag: tag => {
+      return axios
+        .get(`http://localhost:7777/api/stores/get/tag/${tag}`)
+        .then(res => {
+          if (res.data.isGood) {
+            return res.data;
+          } else {
+            throw new Error(res.data.msg);
+          }
+        });
+    }
+  },
+  tags: {
+    getList: () => {
+      return axios.get("http://localhost:7777/api/tags/get").then(res => {
+        if (res.data.isGood) {
+          return res.data;
+        } else {
+          throw new Error(res.data.msg);
+        }
+      });
     }
   }
 };
