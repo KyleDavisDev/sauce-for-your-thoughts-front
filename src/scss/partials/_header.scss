@@ -71,22 +71,6 @@ header {
   .nav-search {
     display: flex;
     flex: 1 1 auto;
-
-    .search {
-      background: #303030;
-      position: relative;
-      width: 100%;
-      display: flex;
-
-      input {
-        padding-left: 10px;
-        font-size: 30px;
-        background: none;
-        color: white;
-        outline: 0;
-        border: 0;
-      }
-    }
   }
   .nav-user {
     display: flex;
