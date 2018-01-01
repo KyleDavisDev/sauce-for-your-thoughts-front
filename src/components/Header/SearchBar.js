@@ -13,6 +13,8 @@ class SearchBar extends Component {
       results: [],
       searchValue: ""
     };
+
+    this.searchResultRefs = [];
   }
 
   render() {
@@ -30,17 +32,18 @@ class SearchBar extends Component {
           />
           <div className="search-results">
             {results.length > 0 &&
-              results.map(result => {
+              results.map((result, ind) => {
                 return (
-                  <NavLink
+                  <a
                     className="search-result"
-                    to={`/store/${result.slug}`}
+                    href={`/store/${result.slug}`}
                     key={result.slug}
-                    activeClassName="active"
                     onClick={this.handleClick}
+                    ref={this.addItemToRefList(ind)}
+                    onKeyDown={this.changeFocus(ind)}
                   >
                     <strong>{result.name}</strong>
-                  </NavLink>
+                  </a>
                 );
               })}
           </div>
@@ -74,20 +77,30 @@ class SearchBar extends Component {
     //40 = down arrow
     if (![13, 38, 40].includes(e.keyCode)) return;
 
-    const index = this.state.results.find(store => store.focus === true);
-    if (index === undefined) {
-      if (e.keyCode === 40) {
-      }
+    if (e.keyCode === 40) {
+      this.searchResultRefs[0].focus();
+    } else {
+      this.searchResultRefs[this.state.results.length - 1].focus();
     }
-    // if(e.keyCode === 40) {
-    //   const results = this.state.results.map((result,ind) => {
-    //     if(ind === index) {
-    //       result.focus = false
-    //     }
-    //   })
-    //   this.setState({ results:   })
-    // }
   };
+
+  changeFocus = index => {
+    return e => {
+      const len = this.searchResultRefs.length;
+      let newIndex;
+      if (e.keyCode === 40) {
+        newIndex = (index + 1) % len;
+      } else if (e.keyCode === 38) {
+        newIndex = index === 0 ? len - 1 : index - 1;
+      }
+      this.searchResultRefs[newIndex].focus();
+    };
+  };
+  addItemToRefList(index) {
+    return input => {
+      this.searchResultRefs[index] = input;
+    };
+  }
 
   handleClick = () =>
     this.setState({
