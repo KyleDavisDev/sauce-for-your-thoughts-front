@@ -33,3 +33,11 @@ export const getStoresByTag = tag => dispatch => {
     return res;
   });
 };
+
+export const getStoresBySearch = searchValue => dispatch => {
+  return api.stores.search(searchValue).then(res => {
+    //dipatch event here in future (?)
+
+    return res;
+  });
+};
