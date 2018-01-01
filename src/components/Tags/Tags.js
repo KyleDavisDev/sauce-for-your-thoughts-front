@@ -1,145 +1,151 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getInfo } from "../../actions/user";
+import { getStoresByTag as getStores } from "../../actions/stores";
+import { flashError } from "../../actions/flash";
+import { getTagsList } from "../../actions/tags";
 
 import Card from "../Store/Card.js";
 
 import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
 
+const Title = ({ title }) => {
+  return <h2>{title}</h2>;
+};
+Title.proptypes = {
+  title: PropTypes.string.isRequired
+};
 
-//TODO: Configure API calls such that any time the user decides to change tag filter, we do not have
-//post the token and see if person owns the store or not.
+const StoresList = ({ stores, email }) => {
+  return (
+    <div className="stores">
+      {stores.map(store => {
+        return (
+          <Card
+            displayEditIcon={email === store.author}
+            ID={store._id}
+            name={store.name}
+            image={store.photo}
+            slug={store.slug}
+            description={store.description}
+            key={store.slug}
+          />
+        );
+      })}
+    </div>
+  );
+};
+StoresList.proptypes = {
+  stores: PropTypes.arrayOf([
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      photo: PropTypes.string.isRequired,
+      tags: PropTypes.arrayOf([PropTypes.string]).isRequired,
+      location: PropTypes.shape({
+        address: PropTypes.string.isRequired,
+        coordinates: PropTypes.arrayOf([PropTypes.number.isRequired]).isRequired
+      }).isRequired
+    }).isRequired
+  ]).isRequired
+};
+
+const TagsList = ({ tags }) => {
+  return (
+    <ul className="tags">
+      {tags.map(tag => {
+        return (
+          <li key={tag._id} className="tag">
+            <NavLink
+              activeClassName="tag-link-active"
+              to={`/tags/${tag._id}`}
+              className="tag-link"
+            >
+              <span className="tag-text">{tag._id}</span>
+              <span className="tag-count">{tag.count}</span>
+            </NavLink>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+TagsList.proptypes = {
+  tags: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    count: PropTypes.number.isRequired
+  }).isRequired
+};
 
 class Tags extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      title: "",
-      tags: {},
-      stores: {}
-    };
-
-    this.apiGetStoresAndUserID = this.apiGetStoresAndUserID.bind(this);
-  }
-
   componentDidMount() {
-    const tag = this.props.match.params.tag || "";
-    this.setState({ title: tag });
+    const tag = this.props.match.params.tag || "All";
 
-    this.apiGetStoresAndUserID(tag);
+    axios
+      .all([this.getStores(tag), this.getUserInfo(), this.getTagsList()])
+      .catch(err => console.log(err));
   }
 
   componentWillReceiveProps(nextProps) {
     const tag = nextProps.match.params.tag;
-    this.setState({ title: tag });
-
-    this.apiGetStoresAndUserID(tag);
+    if (tag && tag !== this.props.match.params.tag) {
+      this.getStores(tag);
+    }
   }
 
   render() {
+    const title = this.props.match.params.tag || "Tags";
+    const { tags = [], stores = [] } = this.props;
+    // const stores = this.props.stores || [];
+    const { email } = this.props.user || "";
     return (
       <div className="inner">
-        <h2>
-          {this.state.title ? this.state.title : "Tags"}
-        </h2>
-        {this.state.tags.length > 0 &&
-          <ul className="tags">
-            {this.state.tags.map(tag => {
-              return (
-                <li key={tag._id} className="tag">
-                  <NavLink
-                    activeClassName="tag-link-active"
-                    to={`/tags/${tag._id}`}
-                    className="tag-link"
-                  >
-                    <span className="tag-text">
-                      {tag._id}
-                    </span>
-                    <span className="tag-count">
-                      {tag.count}
-                    </span>
-                  </NavLink>
-                </li>
-              );
-            })}
-          </ul>}
-        {this.state.stores.length > 0 &&
-          <div className="stores">
-            {this.state.stores.map(store => {
-              return (
-                <Card
-                  displayEditIcon={
-                    this.state.userID === store.author ? true : false
-                  }
-                  ID={store._id}
-                  name={store.name}
-                  image={store.photo}
-                  slug={store.slug}
-                  description={store.description}
-                  key={store.slug}
-                />
-              );
-            })}
-          </div>}
+        <Title title={title} />
+        {tags.length > 0 && <TagsList tags={tags} />}
+        {stores.length > 0 && <StoresList stores={stores} email={email} />}
       </div>
     );
   }
 
-  getStores(tag) {
-    tag = tag === "" ? "all" : tag;
-    return axios.get(`http://localhost:7777/api/tags/${tag}/get`);
-  }
+  getStores = tag => {
+    //Sanity check for bogus tag values
+    // if (!Object.keys(this.props.tags).includes(tag)) return;
 
-  getUserID() {
-    return (
-      Auth.isUserAuthenticated() &&
-      axios({
-        method: "post",
-        url: "http://localhost:7777/account/getInfo",
-        data: { token: Auth.getToken() }
-      })
-    );
-  }
+    return this.props.getStores(tag);
+  };
 
-  apiGetStoresAndUserID(tag) {
-    //need this slight work around because "this" is not Stores component inside the .all scope
-    let that = this;
-    axios.all([that.getStores(tag), that.getUserID()]).then(
-      axios.spread((response, user) => {
-        //we will build state
-        let stateBuilder = {};
-        //check to make sure object returned
-        if (Checker.isObject(response.data)) {
-          //success or not
-          if (response.data.isGood) {
-            stateBuilder = {
-              tags: response.data.tags,
-              stores: response.data.stores,
-              ...stateBuilder
-            };
+  getUserInfo = () => {
+    //check if email already passed to component to save api call
+    if (this.props.user.email) return;
+    const data = { token: this.props.user.token };
+    return this.props.getInfo(data);
+  };
 
-            //only if we make it here are we concerned whether or not person is logged in
-            if (Checker.isObject(user.data) && user.data.isGood) {
-              stateBuilder = { userID: user.data.user._id, ...stateBuilder };
-            }
-          } else {
-            this.props.createFlashMessage({
-              type: "error",
-              msg: stores.data.msg
-            });
-          }
-        } else {
-          this.props.createFlashMessage({
-            type: "error",
-            msg: "Something is broken! Try reloading the page."
-          });
-        }
-        this.setState(stateBuilder);
-      })
-    );
-  }
+  getTagsList = () => {
+    return this.props.getTagsList();
+  };
 }
 
-module.exports = Tags;
+const mapStateToProps = state => {
+  return {
+    stores: state.stores,
+    user: {
+      token: state.user.token,
+      email: state.user.email
+    },
+    tags: state.tags
+  };
+};
+
+const mapDispatchToProps = {
+  flashError,
+  getStores,
+  getInfo,
+  getTagsList
+};
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(Tags);
