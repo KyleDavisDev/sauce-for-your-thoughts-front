@@ -46,8 +46,6 @@ class Stores extends Component {
   }
 
   getStores = range => {
-    //check to see if stores have already been passed to component to save an api call
-    if (this.props.stores) return;
     return this.props.getStores(range);
   };
 
