@@ -11,14 +11,15 @@ class SearchBar extends Component {
 
     this.state = {
       results: [],
-      searchValue: ""
+      searchValue: "",
+      noResults: ""
     };
 
     this.searchResultRefs = [];
   }
 
   render() {
-    const { results } = this.state;
+    const { results, noResults } = this.state;
     return (
       <div className="nav-section nav-search">
         <div className="search">
@@ -46,6 +47,11 @@ class SearchBar extends Component {
                   </a>
                 );
               })}
+            {noResults.length > 0 && (
+              <a className="search-result" href={`#`}>
+                No results for <strong>{noResults}</strong> found
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -63,10 +69,10 @@ class SearchBar extends Component {
           store.focus = false;
           return store;
         });
-        this.setState({ results });
+        this.setState({ results, noResults: "" });
       })
       .catch(err => {
-        this.setState({ results: [] });
+        this.setState({ results: [], noResults: searchValue });
         //err.message hold human-readable text
       });
   };
