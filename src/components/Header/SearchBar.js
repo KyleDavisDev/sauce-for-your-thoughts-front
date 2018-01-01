@@ -29,6 +29,7 @@ class SearchBar extends Component {
             onChange={this.handleSearchChange}
             value={this.state.searchValue}
             onKeyDown={this.handleKeyPress}
+            onBlur={this.handleBlur}
           />
           <div className="search-results">
             {results.length > 0 &&
@@ -38,7 +39,6 @@ class SearchBar extends Component {
                     className="search-result"
                     href={`/store/${result.slug}`}
                     key={result.slug}
-                    onClick={this.handleClick}
                     ref={this.addItemToRefList(ind)}
                     onKeyDown={this.changeFocus(ind)}
                   >
@@ -86,6 +86,10 @@ class SearchBar extends Component {
 
   changeFocus = index => {
     return e => {
+      //38 = up arrow
+      //40 = down arrow
+      if (![38, 40].includes(e.keyCode)) return;
+
       const len = this.searchResultRefs.length;
       let newIndex;
       if (e.keyCode === 40) {
@@ -102,11 +106,14 @@ class SearchBar extends Component {
     };
   }
 
-  handleClick = () =>
+  handleBlur = e => {
+    if (e.relatedTarget.classList.contains("search-result")) return;
+
     this.setState({
       searchValue: "",
       results: []
     });
+  };
 }
 SearchBar.propTypes = {
   getStores: PropTypes.func.isRequired
