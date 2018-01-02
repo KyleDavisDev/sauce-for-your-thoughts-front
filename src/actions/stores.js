@@ -41,3 +41,11 @@ export const getStoresBySearch = searchValue => dispatch => {
     return res;
   });
 };
+
+export const getStoresByMap = coordinates => dispatch => {
+  return api.stores.searchByMap(coordinates).then(res => {
+    //dispatch event here in future (?)
+
+    return res;
+  });
+};
