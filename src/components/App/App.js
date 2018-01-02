@@ -12,6 +12,7 @@ import FlashMessage from "../FlashMessage/FlashMessage.js";
 import Header from "../Header/Header.js";
 import Holder from "../Holder/Holder.js";
 import Login from "../Login/Login.js";
+import Map from "../Map/Map.js";
 import Register from "../Register/Register.js";
 import ResetPassword from "../ResetPassword/ResetPassword.js";
 import StoreEdit from "../Store/Edit.js";
@@ -38,6 +39,7 @@ const App = ({ isAuthenticated, flashMessage }) => {
           )
         }
       />
+      <Route path="/map" component={Map} />
       <Route
         exact
         path="/stores"
