@@ -140,6 +140,22 @@ export default {
             throw new Error(res.data.msg);
           }
         });
+    },
+    searchByMap: coordinates => {
+      return axios
+        .get(
+          `http://localhost:7777/api/stores/map/lng=${coordinates.lng}&lat=${
+            coordinates.lat
+          }`
+        )
+        .then(res => {
+          if (res.data.isGood) {
+            return res.data;
+          } else {
+            //this false error will be handled in SearchBar component
+            throw new Error(res.data.msg);
+          }
+        });
     }
   },
   tags: {
