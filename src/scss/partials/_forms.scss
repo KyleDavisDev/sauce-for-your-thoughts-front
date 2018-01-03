@@ -3,6 +3,15 @@ label {
   display: block;
 }
 
+input,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ababab;
+}
+
 .form {
   background: $content-background;
   padding: 2rem;
@@ -11,8 +20,6 @@ label {
     margin-top: 4rem;
   }
 
-  input,
-  textarea,
   button {
     width: 100%;
     max-width: 100%;
@@ -79,12 +86,6 @@ label {
     padding-bottom: 2rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid $grey;
-  }
-
-  .places {
-    z-index: 2;
-    background-color: white;
-    border: 1px solid rgb(85, 85, 85);
   }
 
   p.form-error {
