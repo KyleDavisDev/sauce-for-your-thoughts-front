@@ -5,23 +5,10 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getStoreBySlug as getStore } from "../../actions/store";
 import { flashError } from "../../actions/flash";
+import { GenerateStaticGoogleMap } from "../Map/GenerateMap";
 
 import Checker from "../../helper/Checker/Checker.js";
 import FillerImage from "../../images/photos/store.jpg";
-
-const GenerateStaticGoogleMap = ({ className, longitude, latitude }) => {
-  return (
-    <img
-      className={className}
-      src={`https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=14&size=800x150&key=AIzaSyBjyKevCZH8vO5TOByZaH37d--miW703f8&markers=${latitude},${longitude}&scale=2`}
-    />
-  );
-};
-GenerateStaticGoogleMap.proptypes = {
-  className: PropTypes.string.isRequired,
-  longitude: PropTypes.oneOf([PropTypes.string, PropTypes.number]).isRequired,
-  latitude: PropTypes.oneOf([PropTypes.string, PropTypes.number]).isRequired
-};
 
 const GenerateTagsList = ({ tags }) => {
   return (
