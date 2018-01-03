@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import queryString from "query-string";
 import { connect } from "react-redux";
-import { getStoresByMap as getStores } from "../../actions/sauces";
+import { getSaucesByMap as getSauces } from "../../actions/sauces";
 import { GenerateStaticGoogleMap } from "./GenerateMap";
 import PlacesAutocomplete, {
   geocodeByAddress
@@ -83,7 +83,7 @@ class Map extends Component {
 
   getLocation = coordinates => {
     return this.props
-      .getStores(coordinates)
+      .getSauces(coordinates)
       .then(res => console.log(res))
       .catch(err => console.log(err.response));
   };
@@ -125,7 +125,7 @@ class Map extends Component {
   };
 }
 Map.propTypes = {
-  getStores: PropTypes.func.isRequired
+  getSauces: PropTypes.func.isRequired
 };
 
-export default connect(null, { getStores })(Map);
+export default connect(null, { getSauces })(Map);

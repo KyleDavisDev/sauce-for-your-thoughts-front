@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { getSauces } from "../../actions/sauces";
 import { getInfo } from "../../actions/user";
 import { flashError } from "../../actions/flash";
-import Card from "../Store/Card.js";
+import Card from "../Sauce/Card.js";
 
 import Auth from "../../helper/Auth/Auth.js";
 
@@ -24,7 +24,7 @@ class Sauces extends Component {
     return (
       <div className="inner">
         <h2>Sauces</h2>
-        <div className="stores">
+        <div className="sauces">
           {sauces.length > 0 &&
             sauces.map(sauce => {
               return (

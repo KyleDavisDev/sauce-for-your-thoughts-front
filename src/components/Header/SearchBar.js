@@ -65,7 +65,7 @@ class SearchBar extends Component {
       .getSauces(searchValue)
       .then(res => {
         //When found a store
-        const results = res.stores.map(store => {
+        const results = res.sauces.map(store => {
           store.focus = false;
           return store;
         });

@@ -3,7 +3,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getInfo as getUserInfo } from "../../actions/user";
-import { getStoreById as getStoreInfo, updateStore } from "../../actions/sauce";
+import { getSauceById as getSauceInfo, updateSauce } from "../../actions/sauce";
 import { flashError } from "../../actions/flash";
 
 import Form from "./Form.js";
@@ -27,7 +27,7 @@ class Edit extends Component {
   }
 
   componentDidMount() {
-    axios.all([this.getStoreInfo(), this.getUserInfo()]).catch(error => {
+    axios.all([this.getSauceInfo(), this.getUserInfo()]).catch(error => {
       console.log(error);
       // this.props.flashError({ text: error.response.data.msg });
     });
@@ -47,7 +47,7 @@ class Edit extends Component {
 
     return (
       <div className="inner">
-        <h2>Edit {name || "Store"}</h2>
+        <h2>Edit {name || "Sauce"}</h2>
         {Object.keys(this.props.store).length > 0 && (
           <Form
             onSubmit={this.handleSubmit}
@@ -74,13 +74,13 @@ class Edit extends Component {
 
   //get single store information
   //must pass user token and ID we are looking for
-  getStoreInfo = () => {
-    //check to see if stores have already been passed to component to save an api call
+  getSauceInfo = () => {
+    //check to see if sauces have already been passed to component to save an api call
     if (this.props.store && Object.keys(this.props.store).length > 0) return;
     const storeID = this.props.match.params.id;
     const token = this.props.user.token;
     const data = { token, storeID };
-    return this.props.getStoreInfo(data);
+    return this.props.getSauceInfo(data);
   };
 
   handleSubmit = data => {
@@ -104,7 +104,7 @@ class Edit extends Component {
     formData.append("token", Auth.getToken());
 
     this.props
-      .updateStore(formData)
+      .updateSauce(formData)
       .then(res => {
         this.props.history.push(`/store/${res.store.slug}`);
       })
@@ -122,10 +122,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  getStoreInfo,
+  getSauceInfo,
   getUserInfo,
   flashError,
-  updateStore
+  updateSauce
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Edit);

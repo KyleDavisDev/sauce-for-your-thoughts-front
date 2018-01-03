@@ -19,7 +19,7 @@ const Register = ({ register, flashError, flashClose, history }) => {
   function handleSubmit(data) {
     flashClose();
     register(data)
-      .then(() => history.push("/stores"))
+      .then(() => history.push("/sauces"))
       .catch(err => {
         flashError({ text: err.response.data.msg });
       });

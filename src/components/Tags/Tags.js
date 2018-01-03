@@ -4,11 +4,11 @@ import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getInfo } from "../../actions/user";
-import { getStoresByTag as getStores } from "../../actions/sauces";
+import { getSaucesByTag as getSauce } from "../../actions/sauces";
 import { flashError } from "../../actions/flash";
 import { getTagsList } from "../../actions/tags";
 
-import Card from "../Store/Card.js";
+import Card from "../Sauce/Card.js";
 
 import Auth from "../../helper/Auth/Auth.js";
 import Checker from "../../helper/Checker/Checker.js";
@@ -20,27 +20,27 @@ Title.proptypes = {
   title: PropTypes.string.isRequired
 };
 
-const StoresList = ({ stores, email }) => {
+const SauceList = ({ sauces, email }) => {
   return (
-    <div className="stores">
-      {stores.map(store => {
+    <div className="sauces">
+      {sauces.map(sauce => {
         return (
           <Card
-            displayEditIcon={email === store.author}
-            ID={store._id}
-            name={store.name}
-            image={store.photo}
-            slug={store.slug}
-            description={store.description}
-            key={store.slug}
+            displayEditIcon={email === sauce.author}
+            ID={sauce._id}
+            name={sauce.name}
+            image={sauce.photo}
+            slug={sauce.slug}
+            description={sauce.description}
+            key={sauce.slug}
           />
         );
       })}
     </div>
   );
 };
-StoresList.proptypes = {
-  stores: PropTypes.arrayOf([
+SauceList.proptypes = {
+  sauces: PropTypes.arrayOf([
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
@@ -86,36 +86,36 @@ class Tags extends Component {
     const tag = this.props.match.params.tag || "All";
 
     axios
-      .all([this.getStores(tag), this.getUserInfo(), this.getTagsList()])
+      .all([this.getSauce(tag), this.getUserInfo(), this.getTagsList()])
       .catch(err => console.log(err));
   }
 
   componentWillReceiveProps(nextProps) {
     const tag = nextProps.match.params.tag;
     if (tag && tag !== this.props.match.params.tag) {
-      this.getStores(tag);
+      this.getSauce(tag);
     }
   }
 
   render() {
     const title = this.props.match.params.tag || "Tags";
-    const { tags = [], stores = [] } = this.props;
-    // const stores = this.props.stores || [];
+    const { tags = [], sauces = [] } = this.props;
+    // const sauces = this.props.sauces || [];
     const { email } = this.props.user || "";
     return (
       <div className="inner">
         <Title title={title} />
         {tags.length > 0 && <TagsList tags={tags} />}
-        {stores.length > 0 && <StoresList stores={stores} email={email} />}
+        {sauces.length > 0 && <SauceList sauces={sauces} email={email} />}
       </div>
     );
   }
 
-  getStores = tag => {
+  getSauce = tag => {
     //Sanity check for bogus tag values
     // if (!Object.keys(this.props.tags).includes(tag)) return;
 
-    return this.props.getStores(tag);
+    return this.props.getSauce(tag);
   };
 
   getUserInfo = () => {
@@ -132,7 +132,7 @@ class Tags extends Component {
 
 const mapStateToProps = state => {
   return {
-    stores: state.stores,
+    sauces: state.sauces,
     user: {
       token: state.user.token,
       email: state.user.email
@@ -143,7 +143,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   flashError,
-  getStores,
+  getSauce,
   getInfo,
   getTagsList
 };

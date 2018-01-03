@@ -3,22 +3,22 @@ import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import Auth from "../../helper/Auth/Auth.js";
+import Auth from "../../helper/Auth/Auth";
 
 //pull in other components for SPA
-import Account from "../Account/Account.js";
-import Add from "../Add/Add.js";
-import FlashMessage from "../FlashMessage/FlashMessage.js";
-import Header from "../Header/Header.js";
-import Holder from "../Holder/Holder.js";
-import Login from "../Login/Login.js";
-import Map from "../Map/Map.js";
-import Register from "../Register/Register.js";
-import ResetPassword from "../ResetPassword/ResetPassword.js";
-import StoreEdit from "../Store/Edit.js";
-import StoreGet from "../Store/Single.js";
-import Sauces from "../Sauces/Sauces.js";
-import Tags from "../Tags/Tags.js";
+import Account from "../Account/Account";
+import Add from "../Add/Add";
+import FlashMessage from "../FlashMessage/FlashMessage";
+import Header from "../Header/Header";
+import Holder from "../Holder/Holder";
+import Login from "../Login/Login";
+import Map from "../Map/Map";
+import Register from "../Register/Register";
+import ResetPassword from "../ResetPassword/ResetPassword";
+import SauceEdit from "../Sauce/Edit";
+import SauceGet from "../Sauce/Single";
+import Sauces from "../Sauces/Sauces";
+import Tags from "../Tags/Tags";
 
 const App = ({ isAuthenticated, flashMessage }) => {
   const { isVisible } = flashMessage;
@@ -47,13 +47,13 @@ const App = ({ isAuthenticated, flashMessage }) => {
           isAuthenticated ? <Sauces /> : <Redirect to="/login" push />
         }
       />
-      <Route exact path="/store/:slug" component={StoreGet} />
+      <Route exact path="/store/:slug" component={SauceGet} />
       <Route
         exact
         path="/store/:id/edit"
         render={e =>
           isAuthenticated ? (
-            <StoreEdit
+            <SauceEdit
               history={e.history}
               history={e.history}
               match={e.match}

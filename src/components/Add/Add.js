@@ -13,7 +13,7 @@ class Add extends Component {
   render() {
     return (
       <div className="inner">
-        <h2>Add Store</h2>
+        <h2>Add Sauce</h2>
         <AddForm onSubmit={this.handleFormSubmit} />
       </div>
     );

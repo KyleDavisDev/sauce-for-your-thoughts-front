@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getStoreBySlug as getStore } from "../../actions/sauce";
+import { getSauceBySlug as getSauce } from "../../actions/sauce";
 import { flashError } from "../../actions/flash";
 import { GenerateStaticGoogleMap } from "../Map/GenerateMap";
 
@@ -32,13 +32,13 @@ GenerateTagsList.proptypes = {
 class Single extends Component {
   componentDidMount() {
     const slug = this.props.match.params.slug;
-    this.getStore(slug);
+    this.getSauce(slug);
   }
 
   componentWillReceiveProps(nextProps) {
     const slug = nextProps.match.params.slug;
     if (slug && slug !== this.props.match.params.tag) {
-      this.getStore(slug);
+      this.getSauce(slug);
     }
   }
 
@@ -85,8 +85,8 @@ class Single extends Component {
     );
   }
 
-  getStore = slug => {
-    this.props.getStore(slug).catch(err => {
+  getSauce = slug => {
+    this.props.getSauce(slug).catch(err => {
       // console.log(err.response);
       this.props.flashError({ text: err.response.data.msg });
     });
@@ -103,7 +103,7 @@ Single.proptypes = {
       coordinates: PropTypes.arrayOf([PropTypes.number.isRequired]).isRequired
     }).isRequired
   }).isRequired,
-  getStore: PropTypes.func.isRequired,
+  getSauce: PropTypes.func.isRequired,
   flashError: PropTypes.func.isRequired
 };
 
@@ -114,7 +114,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  getStore,
+  getSauce,
   flashError
 };
 
