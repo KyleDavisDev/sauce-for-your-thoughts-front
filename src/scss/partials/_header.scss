@@ -10,11 +10,17 @@ header {
   background: #303030;
 
   svg {
-    width: 40px;
+    width: 50px;
+
+    &.svg-maxHeight {
+      width: auto;
+      height: 50px;
+    }
   }
 
   .nav-section {
     display: flex;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.15);
   }
 
   .item-holder {
@@ -37,7 +43,6 @@ header {
     align-items: center;
     justify-content: center;
     transition: transform 0.2s;
-    border-bottom: 5px solid transparent;
     text-decoration: none;
 
     svg {
@@ -94,6 +99,10 @@ header {
 
       svg {
         width: 30px;
+        &.svg-maxHeight {
+          width: auto;
+          height: 30px;
+        }
       }
 
       &.home-link svg {
@@ -114,6 +123,7 @@ header {
 
     .nav-section {
       width: auto;
+      border-bottom: 0;
     }
     .nav-link {
       padding-left: 1rem;
@@ -146,8 +156,12 @@ header {
 
 @media (max-width: 600px) {
   .nav {
+    .item-holder {
+      flex: 1;
+    }
     .nav-section {
       width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .nav-link {
