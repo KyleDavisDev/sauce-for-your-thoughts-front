@@ -2,19 +2,26 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import StoresLogo from "../../images/icons/Store.js";
-import TagLogo from "../../images/icons/Tag.js";
-import TopLogo from "../../images/icons/Top.js";
-import AddLogo from "../../images/icons/Add.js";
-import MapLogo from "../../images/icons/Map.js";
+import StoresLogo from "../../images/icons/Store";
+import TagLogo from "../../images/icons/Tag";
+import TopLogo from "../../images/icons/Top";
+import AddLogo from "../../images/icons/Add";
+import MapLogo from "../../images/icons/Map";
+import SauceLogo from "../../images/icons/Sauce";
 
 const NavItems = () => {
   const navigationItems = [
+    // {
+    //   text: "Stores",
+    //   img: <StoresLogo />,
+    //   linkTo: "stores",
+    //   imgTitle: "Stores"
+    // },
     {
-      text: "Stores",
-      img: <StoresLogo />,
-      linkTo: "stores",
-      imgTitle: "Stores"
+      text: "Sauces",
+      img: <SauceLogo />,
+      linkTo: "sauces",
+      imgTitle: "Sauces"
     },
     {
       text: "Tags",
