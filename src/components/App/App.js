@@ -17,7 +17,7 @@ import Register from "../Register/Register.js";
 import ResetPassword from "../ResetPassword/ResetPassword.js";
 import StoreEdit from "../Store/Edit.js";
 import StoreGet from "../Store/Single.js";
-import Stores from "../Stores/Stores.js";
+import Sauces from "../Sauces/Sauces.js";
 import Tags from "../Tags/Tags.js";
 
 const App = ({ isAuthenticated, flashMessage }) => {
@@ -42,9 +42,9 @@ const App = ({ isAuthenticated, flashMessage }) => {
       <Route path="/map" component={Map} />
       <Route
         exact
-        path="/stores"
+        path="/sauces"
         render={() =>
-          isAuthenticated ? <Stores /> : <Redirect to="/login" push />
+          isAuthenticated ? <Sauces /> : <Redirect to="/login" push />
         }
       />
       <Route exact path="/store/:slug" component={StoreGet} />

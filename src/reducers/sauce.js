@@ -1,7 +1,7 @@
-export default function store(state = {}, action) {
+export default function sauce(state = {}, action) {
   switch (action.type) {
     case "STORE_FOUND":
-      return action.store;
+      return action.sauce;
     case "STORE_UPDATED":
       return {};
     default:

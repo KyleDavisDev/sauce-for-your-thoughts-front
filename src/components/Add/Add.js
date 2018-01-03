@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addStore } from "../../actions/store";
+import { addSauce } from "../../actions/sauce";
 
 import AddForm from "../AddForm/AddForm.js";
 import Auth from "../../helper/Auth/Auth.js";
@@ -39,7 +39,7 @@ class Add extends Component {
     formData.append("token", Auth.getToken());
 
     this.props
-      .addStore(formData)
+      .addSauce(formData)
       .then(res => {
         this.props.history.push(`/store/${res.slug}`);
       })
@@ -49,7 +49,7 @@ class Add extends Component {
 
 Add.propTypes = {
   history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
-  addStore: PropTypes.func.isRequired
+  addSauce: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -57,4 +57,4 @@ function mapStateToProps(state) {
     isAuthenticated: !!state.user.token
   };
 }
-export default connect(mapStateToProps, { addStore })(Add);
+export default connect(mapStateToProps, { addSauce })(Add);

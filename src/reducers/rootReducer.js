@@ -2,8 +2,8 @@ import { combineReducers } from "redux";
 
 import user from "./user";
 import flashMessage from "./flashMessage";
-import stores from "./stores";
-import store from "./store";
+import sauces from "./sauces";
+import sauce from "./sauce";
 import tags from "./tags";
 
-export default combineReducers({ user, flashMessage, stores, store, tags });
+export default combineReducers({ user, flashMessage, sauces, sauce, tags });

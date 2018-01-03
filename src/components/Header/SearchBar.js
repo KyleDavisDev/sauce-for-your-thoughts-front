@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { getStoresBySearch as getStores } from "../../actions/stores";
+import { getSaucesBySearch as getSauces } from "../../actions/sauces";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
@@ -62,7 +62,7 @@ class SearchBar extends Component {
     const searchValue = e.target.value;
     this.setState({ searchValue });
     this.props
-      .getStores(searchValue)
+      .getSauces(searchValue)
       .then(res => {
         //When found a store
         const results = res.stores.map(store => {
@@ -113,7 +113,8 @@ class SearchBar extends Component {
   }
 
   handleBlur = e => {
-    if (e.relatedTarget.classList.contains("search-result")) return;
+    if (e.relatedTarget && e.relatedTarget.classList.contains("search-result"))
+      return;
 
     this.setState({
       searchValue: "",
@@ -122,7 +123,7 @@ class SearchBar extends Component {
   };
 }
 SearchBar.propTypes = {
-  getStores: PropTypes.func.isRequired
+  getSauces: PropTypes.func.isRequired
 };
 
-export default connect(null, { getStores })(SearchBar);
+export default connect(null, { getSauces })(SearchBar);

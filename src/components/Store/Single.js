@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getStoreBySlug as getStore } from "../../actions/store";
+import { getStoreBySlug as getStore } from "../../actions/sauce";
 import { flashError } from "../../actions/flash";
 import { GenerateStaticGoogleMap } from "../Map/GenerateMap";
 

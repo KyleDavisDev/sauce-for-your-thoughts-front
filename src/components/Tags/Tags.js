@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getInfo } from "../../actions/user";
-import { getStoresByTag as getStores } from "../../actions/stores";
+import { getStoresByTag as getStores } from "../../actions/sauces";
 import { flashError } from "../../actions/flash";
 import { getTagsList } from "../../actions/tags";
 

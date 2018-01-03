@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import StoresLogo from "../../images/icons/Store";
 import TagLogo from "../../images/icons/Tag";
 import TopLogo from "../../images/icons/Top";
 import AddLogo from "../../images/icons/Add";
@@ -11,12 +10,6 @@ import SauceLogo from "../../images/icons/Sauce";
 
 const NavItems = () => {
   const navigationItems = [
-    // {
-    //   text: "Stores",
-    //   img: <StoresLogo />,
-    //   linkTo: "stores",
-    //   imgTitle: "Stores"
-    // },
     {
       text: "Sauces",
       img: <SauceLogo />,

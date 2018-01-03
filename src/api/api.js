@@ -58,10 +58,10 @@ export default {
         });
     }
   },
-  store: {
+  sauce: {
     add: data => {
       return axios
-        .post("http://localhost:7777/api/store/add", data, {
+        .post("http://localhost:7777/api/sauce/add", data, {
           headers: { "Content-Type": "multipart/form-data" }
         })
         .then(res => {
@@ -74,7 +74,7 @@ export default {
     },
     getById: data => {
       return axios
-        .post("http://localhost:7777/api/store/get/id", data)
+        .post("http://localhost:7777/api/sauce/get/id", data)
         .then(res => {
           if (res.data.isGood) {
             return res.data;
@@ -85,7 +85,7 @@ export default {
     },
     getBySlug: data => {
       return axios
-        .get(`http://localhost:7777/api/store/get/${data}`)
+        .get(`http://localhost:7777/api/sauce/get/${data}`)
         .then(res => {
           if (res.data.isGood) {
             return res.data;
@@ -96,7 +96,7 @@ export default {
     },
     update: data => {
       return axios
-        .post("http://localhost:7777/api/store/update", data, {
+        .post("http://localhost:7777/api/sauce/update", data, {
           headers: { "Content-Type": "multipart/form-data" }
         })
         .then(res => {
@@ -108,9 +108,9 @@ export default {
         });
     }
   },
-  stores: {
+  sauces: {
     get: range => {
-      return axios.get("http://localhost:7777/api/stores/get").then(res => {
+      return axios.get("http://localhost:7777/api/sauces/get").then(res => {
         if (res.data.isGood) {
           return res.data;
         } else {
@@ -120,7 +120,7 @@ export default {
     },
     getByTag: tag => {
       return axios
-        .get(`http://localhost:7777/api/stores/get/tag/${tag}`)
+        .get(`http://localhost:7777/api/sauces/get/tag/${tag}`)
         .then(res => {
           if (res.data.isGood) {
             return res.data;
@@ -131,7 +131,7 @@ export default {
     },
     search: searchValue => {
       return axios
-        .get(`http://localhost:7777/api/stores/search/${searchValue}`)
+        .get(`http://localhost:7777/api/sauces/search/${searchValue}`)
         .then(res => {
           if (res.data.isGood) {
             return res.data;
@@ -144,7 +144,7 @@ export default {
     searchByMap: coordinates => {
       return axios
         .get(
-          `http://localhost:7777/api/stores/map/lng=${coordinates.lng}&lat=${
+          `http://localhost:7777/api/sauces/map/lng=${coordinates.lng}&lat=${
             coordinates.lat
           }`
         )

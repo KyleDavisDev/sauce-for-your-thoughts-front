@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import queryString from "query-string";
 import { connect } from "react-redux";
-import { getStoresByMap as getStores } from "../../actions/stores";
+import { getStoresByMap as getStores } from "../../actions/sauces";
 import { GenerateStaticGoogleMap } from "./GenerateMap";
 import PlacesAutocomplete, {
   geocodeByAddress

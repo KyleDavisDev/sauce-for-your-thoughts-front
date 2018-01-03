@@ -15,8 +15,8 @@ import Auth from "./helper/Auth/Auth";
 const initialState = {
   user: { token: null },
   flashMessage: { isVisible: false, type: null, text: null, slug: null },
-  stores: [],
-  store: {},
+  sauces: [],
+  sauce: {},
   tags: []
 };
 
