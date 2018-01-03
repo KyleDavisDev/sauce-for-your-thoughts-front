@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import AccountForm from "./AccountForm";
 import api from "../../api/api";
 import Auth from "../../helper/Auth/Auth.js";
-import Checker from "../../helper/Checker/Checker.js";
 import { flashError, flashClose } from "../../actions/flash";
 import { getInfo, updateUser } from "../../actions/user";
 

@@ -10,7 +10,6 @@ import { flashError } from "../../actions/flash";
 import Card from "../Store/Card.js";
 
 import Auth from "../../helper/Auth/Auth.js";
-import Checker from "../../helper/Checker/Checker.js";
 
 class Stores extends Component {
   componentDidMount() {

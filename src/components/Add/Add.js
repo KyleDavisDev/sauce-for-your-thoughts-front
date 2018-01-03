@@ -6,7 +6,6 @@ import { addStore } from "../../actions/store";
 
 import AddForm from "../AddForm/AddForm.js";
 import Auth from "../../helper/Auth/Auth.js";
-import Checker from "../../helper/Checker/Checker.js";
 
 class Add extends Component {
   componentDidMount() {}

@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 import Auth from "../../helper/Auth/Auth.js";
 import FlashMessage from "../FlashMessage/FlashMessage";
 import TextInput from "../TextInput/TextInput.js";
-import Checker from "../../helper/Checker/Checker.js";
 
 class Form extends Component {
   constructor(props) {

@@ -9,7 +9,6 @@ import { flashError } from "../../actions/flash";
 import Form from "./Form.js";
 
 import Auth from "../../helper/Auth/Auth.js";
-import Checker from "../../helper/Checker/Checker";
 
 class Edit extends Component {
   constructor(props) {
