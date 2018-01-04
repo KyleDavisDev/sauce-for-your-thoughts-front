@@ -4,7 +4,7 @@
   justify-content: space-between;
 }
 
-.store {
+.sauce {
   background: white;
   margin: 10px 0;
   width: 30%;
@@ -27,7 +27,7 @@
   }
 }
 
-.store-actions {
+.sauce-actions {
   position: relative;
   z-index: 2;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -41,7 +41,7 @@
   justify-content: space-around;
 }
 
-.store-action {
+.sauce-action {
   font-size: 10px;
   svg {
     width: 25px;
@@ -61,7 +61,7 @@
   }
 }
 
-.store-hero {
+.sauce-hero {
   position: relative;
   padding: 0 10px 0 10px;
   text-align: right;

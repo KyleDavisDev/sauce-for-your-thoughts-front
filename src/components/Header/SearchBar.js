@@ -38,7 +38,7 @@ class SearchBar extends Component {
                 return (
                   <a
                     className="search-result"
-                    href={`/store/${result.slug}`}
+                    href={`/sauce/${result.slug}`}
                     key={result.slug}
                     ref={this.addItemToRefList(ind)}
                     onKeyDown={this.changeFocus(ind)}
@@ -64,10 +64,10 @@ class SearchBar extends Component {
     this.props
       .getSauces(searchValue)
       .then(res => {
-        //When found a store
-        const results = res.sauces.map(store => {
-          store.focus = false;
-          return store;
+        //When found a sauce
+        const results = res.sauces.map(sauce => {
+          sauce.focus = false;
+          return sauce;
         });
         this.setState({ results, noResults: "" });
       })

@@ -41,7 +41,7 @@ class Add extends Component {
     this.props
       .addSauce(formData)
       .then(res => {
-        this.props.history.push(`/store/${res.slug}`);
+        this.props.history.push(`/sauce/${res.slug}`);
       })
       .catch(err => console.log(err.response.msg));
   };

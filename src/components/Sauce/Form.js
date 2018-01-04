@@ -5,7 +5,7 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 import TextInput from "../TextInput/TextInput.js";
 
-import FillerImage from "../../images/photos/store.jpg";
+import FillerImage from "../../images/photos/sauce.jpg";
 
 const CheckBoxList = ({ tags, onChange }) => {
   return (

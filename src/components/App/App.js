@@ -47,10 +47,10 @@ const App = ({ isAuthenticated, flashMessage }) => {
           isAuthenticated ? <Sauces /> : <Redirect to="/login" push />
         }
       />
-      <Route exact path="/store/:slug" component={SauceGet} />
+      <Route exact path="/sauce/:slug" component={SauceGet} />
       <Route
         exact
-        path="/store/:id/edit"
+        path="/sauce/:id/edit"
         render={e =>
           isAuthenticated ? (
             <SauceEdit

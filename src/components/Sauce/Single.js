@@ -7,7 +7,7 @@ import { getSauceBySlug as getSauce } from "../../actions/sauce";
 import { flashError } from "../../actions/flash";
 import { GenerateStaticGoogleMap } from "../Map/GenerateMap";
 
-import FillerImage from "../../images/photos/store.jpg";
+import FillerImage from "../../images/photos/sauce.jpg";
 
 const GenerateTagsList = ({ tags }) => {
   return (
@@ -44,39 +44,39 @@ class Single extends Component {
   render() {
     return (
       <div className="inner">
-        {Object.keys(this.props.store).length > 0 && (
+        {Object.keys(this.props.sauce).length > 0 && (
           <div className="single">
             <div className="single-hero">
               <img
                 className="single-image"
                 onLoad={e =>
                   (e.target.src = `http://localhost:7777/public/uploads/${
-                    this.props.store.photo
+                    this.props.sauce.photo
                   }`)
                 }
                 src={FillerImage}
                 onError={e => (e.target.src = FillerImage)}
               />
               <h2 className="title title-single">
-                <Link to={this.props.store.slug}>{this.props.store.name}</Link>
+                <Link to={this.props.sauce.slug}>{this.props.sauce.name}</Link>
               </h2>
             </div>
           </div>
         )}
 
-        {Object.keys(this.props.store).length > 0 && (
+        {Object.keys(this.props.sauce).length > 0 && (
           <div className="single-details inner">
             <GenerateStaticGoogleMap
-              longitude={this.props.store.location.coordinates[0]}
-              latitude={this.props.store.location.coordinates[1]}
+              longitude={this.props.sauce.location.coordinates[0]}
+              latitude={this.props.sauce.location.coordinates[1]}
               className="single-map"
             />
             <p className="single-location">
-              {this.props.store.location.address}
+              {this.props.sauce.location.address}
             </p>
-            <p>{this.props.store.description}</p>
-            {this.props.store.tags.length > 0 && (
-              <GenerateTagsList tags={this.props.store.tags} />
+            <p>{this.props.sauce.description}</p>
+            {this.props.sauce.tags.length > 0 && (
+              <GenerateTagsList tags={this.props.sauce.tags} />
             )}
           </div>
         )}
@@ -92,7 +92,7 @@ class Single extends Component {
   };
 }
 Single.proptypes = {
-  store: PropTypes.shape({
+  sauce: PropTypes.shape({
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     photo: PropTypes.string.isRequired,
@@ -108,7 +108,7 @@ Single.proptypes = {
 
 const mapStateToProps = state => {
   return {
-    store: state.store
+    sauce: state.sauce
   };
 };
 

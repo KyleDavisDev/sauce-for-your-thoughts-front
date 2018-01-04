@@ -16,7 +16,7 @@ class Edit extends Component {
 
     //This state will only be used to set default data for the form component
     this.state = {
-      store: {
+      sauce: {
         name: "Name",
         description: "Description",
         photo: "Str",
@@ -41,14 +41,14 @@ class Edit extends Component {
       tags,
       location: { address, coordinates: [longitude, latitude] }
     } =
-      Object.keys(this.props.store).length > 0
-        ? this.props.store
-        : this.state.store;
+      Object.keys(this.props.sauce).length > 0
+        ? this.props.sauce
+        : this.state.sauce;
 
     return (
       <div className="inner">
         <h2>Edit {name || "Sauce"}</h2>
-        {Object.keys(this.props.store).length > 0 && (
+        {Object.keys(this.props.sauce).length > 0 && (
           <Form
             onSubmit={this.handleSubmit}
             name={name}
@@ -72,14 +72,14 @@ class Edit extends Component {
     return this.props.getUserInfo(data);
   };
 
-  //get single store information
+  //get single sauce information
   //must pass user token and ID we are looking for
   getSauceInfo = () => {
     //check to see if sauces have already been passed to component to save an api call
-    if (this.props.store && Object.keys(this.props.store).length > 0) return;
-    const storeID = this.props.match.params.id;
+    if (this.props.sauce && Object.keys(this.props.sauce).length > 0) return;
+    const sauceID = this.props.match.params.id;
     const token = this.props.user.token;
-    const data = { token, storeID };
+    const data = { token, sauceID };
     return this.props.getSauceInfo(data);
   };
 
@@ -94,7 +94,7 @@ class Edit extends Component {
 
     //construct FormData object since we are passing image file
     const formData = new FormData();
-    formData.append("storeID", this.props.match.params.id);
+    formData.append("sauceID", this.props.match.params.id);
     formData.append("name", data.name);
     formData.append("description", data.description);
     formData.append("image", data.photo.file);
@@ -106,7 +106,7 @@ class Edit extends Component {
     this.props
       .updateSauce(formData)
       .then(res => {
-        this.props.history.push(`/store/${res.store.slug}`);
+        this.props.history.push(`/sauce/${res.sauce.slug}`);
       })
       .catch(err => console.log(err));
   };
@@ -116,7 +116,7 @@ Edit.propTypes = {};
 
 const mapStateToProps = state => {
   return {
-    store: state.store,
+    sauce: state.sauce,
     user: { token: state.user.token, email: state.user.email }
   };
 };

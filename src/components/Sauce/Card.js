@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import FillerImage from "../../images/photos/store.jpg";
+import FillerImage from "../../images/photos/sauce.jpg";
 import Pencil from "../../images/icons/Pencil.js";
 
-const Card = (store) => {
+const Card = sauce => {
   return (
-    <div className="store">
-      <div className="store-hero">
-        <div className="store-actions">
-          {store.displayEditIcon && (
-            <div className="store-action store-action-edit">
-              <Link to={`/store/${store.ID}/edit`}>
+    <div className="sauce">
+      <div className="sauce-hero">
+        <div className="sauce-actions">
+          {sauce.displayEditIcon && (
+            <div className="sauce-action sauce-action-edit">
+              <Link to={`/sauce/${sauce.ID}/edit`}>
                 <Pencil />
               </Link>
             </div>
@@ -21,18 +21,22 @@ const Card = (store) => {
         <img
           src={FillerImage}
           onError={e => (e.target.src = FillerImage)}
-          onLoad={e => e.target.src = `http://localhost:7777/public/uploads/${store.image}`}
-          title={store.name}
-          alt={store.name}
+          onLoad={e =>
+            (e.target.src = `http://localhost:7777/public/uploads/${
+              sauce.image
+            }`)
+          }
+          title={sauce.name}
+          alt={sauce.name}
         />
-        <div className="store-title">
-          <Link to={`/store/${store.slug}`}>{store.name}</Link>
+        <div className="sauce-title">
+          <Link to={`/sauce/${sauce.slug}`}>{sauce.name}</Link>
         </div>
       </div>
-      <div className="store-details">
+      <div className="sauce-details">
         {/*{limit description to 25 words }*/}
         <p>
-          {store.description
+          {sauce.description
             .split(" ")
             .slice(0, 25)
             .join(" ")}

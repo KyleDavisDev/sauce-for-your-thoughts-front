@@ -36,7 +36,7 @@ const FlashMessage = ({ flashMessage, flashClose }) => {
   };
 
   const slugLink = flashMessage.slug ? (
-    <Link to={`/store/${flashMessage.slug}`}>Rate it!</Link>
+    <Link to={`/sauce/${flashMessage.slug}`}>Rate it!</Link>
   ) : (
     ""
   );
