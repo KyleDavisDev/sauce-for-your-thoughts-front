@@ -9,8 +9,6 @@ import { getInfo } from "../../actions/user";
 import { flashError } from "../../actions/flash";
 import Card from "../Sauce/Card.js";
 
-import Auth from "../../helper/Auth/Auth.js";
-
 class Sauces extends Component {
   componentDidMount() {
     axios.all([this.getSauces(), this.getUserID()]).catch(error => {

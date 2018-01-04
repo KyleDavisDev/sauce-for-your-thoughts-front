@@ -1,5 +1,4 @@
 import api from "../api/api";
-import Auth from "../helper/Auth/Auth";
 import { flashSuccess } from "./flash";
 
 export const userUpdated = ({ email, name }) => ({

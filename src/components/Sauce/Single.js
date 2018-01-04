@@ -7,7 +7,6 @@ import { getSauceBySlug as getSauce } from "../../actions/sauce";
 import { flashError } from "../../actions/flash";
 import { GenerateStaticGoogleMap } from "../Map/GenerateMap";
 
-import Checker from "../../helper/Checker/Checker.js";
 import FillerImage from "../../images/photos/store.jpg";
 
 const GenerateTagsList = ({ tags }) => {

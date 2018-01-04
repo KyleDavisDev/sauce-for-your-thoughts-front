@@ -6,7 +6,6 @@ import { flashError } from "../../actions/flash";
 
 import LoginForm from "./Form.js";
 import ForgotPasswordForm from "../ForgotPassword/Form.js";
-import Auth from "./../../helper/Auth/Auth";
 
 class Login extends Component {
   render() {

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import Auth from "../../helper/Auth/Auth";
+import Auth from "../../Helper/Auth/Auth";
 
 //pull in other components for SPA
 import Account from "../Account/Account";

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logout } from "../../actions/auth";
 
-import Avatar from "../../helper/Avatar/Avatar.js";
+import Avatar from "../../Helper/Avatar/Avatar.js";
 import Logout from "../../images/icons/Logout.js";
 
 const LoggedIn = ({ onClick }) => {

@@ -7,13 +7,7 @@ import { logout } from "../../actions/auth";
 import UserLogInLogOut from "./UserLogInLogOut";
 import NavItems from "./NavItems";
 import SearchBar from "./SearchBar";
-
 import MainLogo from "../../images/icons/Logo.js";
-
-//avatar for logged in users
-import Avatar from "../../helper/Avatar/Avatar.js";
-
-//login/logout icon
 import Logout from "../../images/icons/Logout.js";
 
 const HomeLogo = () => {

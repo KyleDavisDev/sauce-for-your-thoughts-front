@@ -10,7 +10,7 @@ import App from "./components/App/App.js";
 import "./scss/style.scss";
 import { isLoggedIn } from "./actions/auth";
 
-import Auth from "./helper/Auth/Auth";
+import Auth from "./Helper/Auth/Auth";
 
 const initialState = {
   user: { token: Auth.getToken() },

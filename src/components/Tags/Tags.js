@@ -7,11 +7,7 @@ import { getInfo } from "../../actions/user";
 import { getSaucesByTag as getSauce } from "../../actions/sauces";
 import { flashError } from "../../actions/flash";
 import { getTagsList } from "../../actions/tags";
-
 import Card from "../Sauce/Card.js";
-
-import Auth from "../../helper/Auth/Auth.js";
-import Checker from "../../helper/Checker/Checker.js";
 
 const Title = ({ title }) => {
   return <h2>{title}</h2>;

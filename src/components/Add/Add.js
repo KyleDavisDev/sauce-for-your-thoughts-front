@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { addSauce } from "../../actions/sauce";
 
 import AddForm from "../AddForm/AddForm.js";
-import Auth from "../../helper/Auth/Auth.js";
+import Auth from "../../Helper/Auth/Auth.js";
 
 class Add extends Component {
   componentDidMount() {}

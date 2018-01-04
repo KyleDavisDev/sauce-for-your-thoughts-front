@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { flashClose } from "../../actions/flash";
 
-import Checker from "../../helper/Checker/Checker.js";
+import Checker from "../../Helper/Checker/Checker.js";
 
 const FlashMessage = ({ flashMessage, flashClose }) => {
   const iterateObject = () => {

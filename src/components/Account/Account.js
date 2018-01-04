@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import AccountForm from "./AccountForm";
 import api from "../../api/api";
-import Auth from "../../helper/Auth/Auth.js";
+import Auth from "../../Helper/Auth/Auth.js";
 import { flashError, flashClose } from "../../actions/flash";
 import { getInfo, updateUser } from "../../actions/user";
 

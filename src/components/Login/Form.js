@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import Validator from "validator";
 import { connect } from "react-redux";
 
-import Auth from "../../helper/Auth/Auth.js";
 import FlashMessage from "../FlashMessage/FlashMessage";
 import TextInput from "../TextInput/TextInput.js";
 

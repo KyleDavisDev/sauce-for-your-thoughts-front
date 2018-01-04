@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 
-import Auth from "../../helper/Auth/Auth.js";
-import Checker from "../../helper/Checker/Checker.js";
+import Auth from "../../Helper/Auth/Auth.js";
+import Checker from "../../Helper/Checker/Checker.js";
 import TextInput from "../TextInput/TextInput.js";
 
 class Form extends Component {
