@@ -1,4 +1,5 @@
 const path = require("path");
+
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -101,7 +102,7 @@ module.exports = {
       // Inject the html into the html-webpack-plugin
       inject: true,
       background: "#fff",
-      title: "Sons of Vidya",
+      title: "Sauce For Your Thoughts",
       icons: {
         android: true,
         appleIcon: true,
