@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logout } from "../../actions/auth";
 
-import Avatar from "../../Helper/Avatar/Avatar.js";
+const Avatar = require("../../images/avatars/boy-10.png");
 import Logout from "../../images/icons/Logout.js";
 
 const LoggedIn = ({ onClick }) => {
@@ -12,7 +12,7 @@ const LoggedIn = ({ onClick }) => {
     <div className="item-holder">
       <li className="nav-item">
         <NavLink className="nav-link" activeClassName="active" to="/account">
-          <img src={Avatar.Boy10} className="nav-avatar" />
+          <img src={Avatar} className="nav-avatar" />
           Settings
         </NavLink>
       </li>
