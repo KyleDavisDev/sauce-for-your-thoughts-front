@@ -15,7 +15,7 @@ class Account extends Component {
 
   render() {
     //check if state exists at all first
-    const name = this.state ? this.state.name : "";
+    const name = this.props.name || "";
     const email = this.props.email || "";
     return (
       <div className="inner">
@@ -30,8 +30,7 @@ class Account extends Component {
     this.props
       .getInfo(data)
       .then(res => {
-        //this will initilize state
-        this.setState({ name: res.name });
+        //do something here...?
       })
       .catch(err => {
         this.props.flashError({ text: err.response.data.msg });
@@ -63,7 +62,8 @@ Account.propType = {
 
 function mapStateToProps(state) {
   return {
-    email: state.user.email
+    email: state.user.email,
+    name: state.user.name
   };
 }
 

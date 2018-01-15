@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Validator from "validator";
+import TextInput from '../TextInput/TextInput'
 
 export class AccountForm extends Component {
   constructor(props) {
@@ -27,11 +28,10 @@ export class AccountForm extends Component {
       <form className="form" onSubmit={this.onSubmit}>
         <h2>Settings</h2>
 
-        <label htmlFor="name"> Name: </label>
-        <input
+        <TextInput
           type="text"
           id="name"
-          name="name"
+          name="Name"
           value={name}
           onChange={this.handleNameChange}
         />
@@ -39,11 +39,10 @@ export class AccountForm extends Component {
           <p className="form-error">*{this.state.errors.name}</p>
         )}
 
-        <label htmlFor="email"> Email Address: </label>
-        <input
+        <TextInput
           type="email"
           id="email"
-          name="email"
+          name="Email"
           value={email}
           onChange={this.handleEmailChange}
         />
