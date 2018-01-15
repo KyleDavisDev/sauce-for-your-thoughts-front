@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import PlacesAutocomplete, {
-  geocodeByAddress
-} from "react-places-autocomplete";
 import TextInput from "../TextInput/TextInput.js";
 
 import FillerImage from "../../images/photos/sauce.jpg";
@@ -73,11 +70,6 @@ class Form extends Component {
           { name: "Licensed", isChecked: false },
           { name: "Family Friendly", isChecked: false }
         ],
-        location: {
-          address: "",
-          latitude: "",
-          longitude: ""
-        },
         photo: {
           name: ""
         }
@@ -95,10 +87,7 @@ class Form extends Component {
     const {
       name,
       description,
-      photo,
-      address,
-      longitude,
-      latitude
+      photo
     } = this.props;
 
     const tags = this.getProperTags(this.props.tags);
@@ -108,12 +97,7 @@ class Form extends Component {
         name,
         description,
         photo: { name: photo },
-        tags,
-        location: {
-          address,
-          longitude,
-          latitude
-        }
+        tags
       }
     });
   }
@@ -122,10 +106,7 @@ class Form extends Component {
     const {
       name,
       description,
-      photo,
-      address,
-      longitude,
-      latitude
+      photo
     } = nextProps;
 
     const tags = this.getProperTags(nextProps.tags);
@@ -136,18 +117,13 @@ class Form extends Component {
         name,
         description,
         photo: { name: photo },
-        tags,
-        location: {
-          address,
-          longitude,
-          latitude
-        }
+        tags
       }
     });
   }
 
   render() {
-    const { name, description, tags, location, photo } = this.state.data;
+    const { name, description, tags, photo } = this.state.data;
     return (
       <form
         onSubmit={this.handleSubmit}
@@ -176,36 +152,6 @@ class Form extends Component {
         <label htmlFor="photo"> Photo: </label>
         <PhotoUpload text={photo.name} onChange={this.onPhotoUpload} />
 
-        <label htmlFor="address"> Address: </label>
-        <PlacesAutocomplete
-          inputProps={{
-            value: location.address,
-            onChange: this.onChangeAddress
-          }}
-          id="address"
-          name="address"
-          onSelect={this.onAddressSelect}
-          classNames={{ autocompleteContainer: "places" }}
-        />
-
-        <TextInput
-          id="longitude"
-          name="Address Longitude"
-          type="text"
-          onChange={this.onChangeLocation}
-          value={location.longitude}
-          placeholder="Click or press enter in the Address bar to autofill"
-        />
-
-        <TextInput
-          id="latitude"
-          name="Address Latitude"
-          type="text"
-          onChange={this.onChangeLocation}
-          value={location.latitude}
-          placeholder="Click or press enter in the Address bar to autofill"
-        />
-
         <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
 
         <button type="submit" className="button">
@@ -231,32 +177,6 @@ class Form extends Component {
     });
   };
 
-  onChangeLocation = e => {
-    this.setState({
-      ...this.state,
-      data: {
-        ...this.state.data,
-        location: {
-          ...this.state.data.location,
-          [e.target.name]: e.target.value
-        }
-      }
-    });
-  };
-
-  onChangeAddress = address => {
-    this.setState({
-      ...this.state,
-      data: {
-        ...this.state.data,
-        location: {
-          ...this.state.data.location,
-          address
-        }
-      }
-    });
-  };
-
   onPhotoUpload = e => {
     const name = e.target.files[0].name;
     this.setState({
@@ -266,29 +186,6 @@ class Form extends Component {
         photo: { ...this.state.data.photo, name, file: e.target.files[0] }
       }
     });
-  };
-
-  onAddressSelect = (address, placeId) => {
-    //get the formatted address, associated lat/long points, limit length of lat/long
-    //set state with info
-    geocodeByAddress(address)
-      .then(results => {
-        const address = results[0].formatted_address;
-        const latitude = parseFloat(results[0].geometry.location.lat()).toFixed(
-          7
-        );
-        const longitude = parseFloat(
-          results[0].geometry.location.lng()
-        ).toFixed(7);
-        this.setState({
-          ...this.state,
-          data: {
-            ...this.state.data,
-            location: { address, latitude, longitude }
-          }
-        });
-      })
-      .catch(error => console.error("Error", error));
   };
 
   onCheckboxClick = e => {
@@ -322,9 +219,6 @@ Form.propTypes = {
   description: PropTypes.string,
   photo: PropTypes.string,
   tags: PropTypes.array,
-  address: PropTypes.string,
-  longitude: PropTypes.number,
-  latitude: PropTypes.number
 };
 
 export default Form;

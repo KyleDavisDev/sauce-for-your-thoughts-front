@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getSauceBySlug as getSauce } from "../../actions/sauce";
 import { flashError } from "../../actions/flash";
-import { GenerateStaticGoogleMap } from "../Map/GenerateMap";
 
 import FillerImage from "../../images/photos/sauce.jpg";
 
@@ -66,14 +65,6 @@ class Single extends Component {
 
         {Object.keys(this.props.sauce).length > 0 && (
           <div className="single-details inner">
-            <GenerateStaticGoogleMap
-              longitude={this.props.sauce.location.coordinates[0]}
-              latitude={this.props.sauce.location.coordinates[1]}
-              className="single-map"
-            />
-            <p className="single-location">
-              {this.props.sauce.location.address}
-            </p>
             <p>{this.props.sauce.description}</p>
             {this.props.sauce.tags.length > 0 && (
               <GenerateTagsList tags={this.props.sauce.tags} />
@@ -97,10 +88,6 @@ Single.proptypes = {
     description: PropTypes.string.isRequired,
     photo: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf([PropTypes.string]).isRequired,
-    location: PropTypes.shape({
-      address: PropTypes.string.isRequired,
-      coordinates: PropTypes.arrayOf([PropTypes.number.isRequired]).isRequired
-    }).isRequired
   }).isRequired,
   getSauce: PropTypes.func.isRequired,
   flashError: PropTypes.func.isRequired

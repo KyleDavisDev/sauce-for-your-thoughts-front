@@ -1,11 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-
 import TagLogo from "../../images/icons/Tag";
 import TopLogo from "../../images/icons/Top";
 import AddLogo from "../../images/icons/Add";
-import MapLogo from "../../images/icons/Map";
 import SauceLogo from "../../images/icons/Sauce";
 
 const NavItems = () => {
@@ -33,12 +31,6 @@ const NavItems = () => {
       img: <AddLogo />,
       linkTo: "add",
       imgTitle: "Add"
-    },
-    {
-      text: "Map",
-      img: <MapLogo />,
-      linkTo: "map",
-      imgTitle: "Map"
     }
   ];
   return (

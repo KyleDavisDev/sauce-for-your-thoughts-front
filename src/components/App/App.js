@@ -12,7 +12,6 @@ import FlashMessage from "../FlashMessage/FlashMessage";
 import Header from "../Header/Header";
 import Holder from "../Holder/Holder";
 import Login from "../Login/Login";
-import Map from "../Map/Map";
 import Register from "../Register/Register";
 import ResetPassword from "../ResetPassword/ResetPassword";
 import SauceEdit from "../Sauce/Edit";
@@ -39,7 +38,6 @@ const App = ({ isAuthenticated, flashMessage }) => {
           )
         }
       />
-      <Route path="/map" component={Map} />
       <Route
         exact
         path="/sauces"
