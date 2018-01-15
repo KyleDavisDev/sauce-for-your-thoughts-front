@@ -16,8 +16,8 @@ const TextInput = ({
       <input
         type={type || "text"}
         id={id || ""}
-        name={name}
-        value={value}
+        name={name || ""}
+        value={value || ""}
         placeholder={placeholder || ""}
         onChange={onChange}
         required={required || false}
