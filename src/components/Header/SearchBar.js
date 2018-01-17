@@ -48,7 +48,7 @@ class SearchBar extends Component {
                 );
               })}
             {noResults.length > 0 && (
-              <a className="search-result" href={`#`}>
+              <a className="search-result" href={`#`} onBlur={this.handleBlur}>
                 No results for <strong>{noResults}</strong> found
               </a>
             )}
