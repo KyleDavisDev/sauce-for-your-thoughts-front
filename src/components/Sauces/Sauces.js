@@ -8,23 +8,39 @@ import { getSauces } from "../../actions/sauces";
 import { getInfo } from "../../actions/user";
 import { flashError } from "../../actions/flash";
 import Card from "../Sauce/Card.js";
+import Pagination from "./Pagination"
 
 class Sauces extends Component {
+  constructor(props) {
+    super(props);
+
+    //page and saucePerPage will be held in local state since it will only be used here and by Pagination
+    this.state = {
+      page: 1,
+      saucePerPage: 6
+    }
+  }
   componentDidMount() {
     axios.all([this.getSauces(), this.getUserID()]).catch(error => {
       this.props.flashError({ text: error.response.data.msg });
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    const page = parseInt(nextProps.match.params.pageNum) || this.state.page;
+    this.setState({ page })
+  }
+
   render() {
     const sauces = this.props.sauces || [];
     const email = this.props.user.email || "";
+    const { page, saucePerPage } = this.state;
     return (
       <div className="inner">
         <h2>Sauces</h2>
         <div className="sauces">
           {sauces.length > 0 &&
-            sauces.map(sauce => {
+            sauces.slice((page - 1) * saucePerPage, page * saucePerPage).map(sauce => {
               return (
                 <Card
                   displayEditIcon={email === sauce.author ? true : false}
@@ -38,6 +54,7 @@ class Sauces extends Component {
               );
             })}
         </div>
+        <Pagination total={sauces.length} page={this.state.page} saucePerPage={this.state.saucePerPage} />
       </div>
     );
   }

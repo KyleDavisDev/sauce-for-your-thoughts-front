@@ -34,15 +34,16 @@ const App = ({ isAuthenticated, flashMessage }) => {
           isAuthenticated ? (
             <Add history={e.history} />
           ) : (
-            <Redirect to="/login" push />
-          )
+              <Redirect to="/login" push />
+            )
         }
       />
       <Route
         exact
-        path="/sauces"
-        render={() =>
-          isAuthenticated ? <Sauces /> : <Redirect to="/login" push />
+        path="/sauces/:page?/:pageNum?"
+        render={(e) =>
+          isAuthenticated ? (<Sauces history={e.history}
+            match={e.match} />) : (<Redirect to="/login" push />)
         }
       />
       <Route exact path="/sauce/:slug" component={SauceGet} />
@@ -53,12 +54,11 @@ const App = ({ isAuthenticated, flashMessage }) => {
           isAuthenticated ? (
             <SauceEdit
               history={e.history}
-              history={e.history}
               match={e.match}
             />
           ) : (
-            <Redirect to="/login" push />
-          )
+              <Redirect to="/login" push />
+            )
         }
       />
       <Route exact path="/tags" component={Tags} />
@@ -71,8 +71,8 @@ const App = ({ isAuthenticated, flashMessage }) => {
           isAuthenticated ? (
             <Account history={e.history} />
           ) : (
-            <Redirect to="/login" push />
-          )
+              <Redirect to="/login" push />
+            )
         }
       />
       <Route exact path="/account/reset/:token" component={ResetPassword} />
