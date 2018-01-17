@@ -117,8 +117,8 @@ class SearchBar extends Component {
       return;
 
     this.setState({
-      searchValue: "",
-      results: []
+      results: [],
+      noResults: ""
     });
   };
 }
