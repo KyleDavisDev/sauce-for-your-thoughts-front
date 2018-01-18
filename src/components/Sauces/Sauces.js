@@ -27,7 +27,7 @@ class Sauces extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const page = parseInt(nextProps.match.params.pageNum) || this.state.page;
+    const page = parseInt(nextProps.match.params.pageNum) || 1;
     this.setState({ page })
   }
 
