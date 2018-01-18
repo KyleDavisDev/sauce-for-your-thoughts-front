@@ -8,6 +8,7 @@
 
 html {
   font-size: 10px;
+  font-family: sans-serif;
 }
 
 body {
@@ -72,6 +73,7 @@ p {
     border-bottom: 0;
     $yellowa: rgba($yellow, 0.8);
     background-image: linear-gradient(to right, $yellowa 100%, $yellowa 50%);
+    font-weight: 600;
   }
 }
 
