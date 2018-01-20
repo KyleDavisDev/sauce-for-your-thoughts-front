@@ -4,7 +4,7 @@ import PlacesAutocomplete, {
   geocodeByAddress
 } from "react-places-autocomplete";
 import TextInput from "../TextInput/TextInput.js";
-
+import Template from '../Sauce/template'
 import FillerImage from "../../images/photos/sauce.jpg";
 
 const CheckBoxList = ({ tags, onChange }) => {
@@ -63,20 +63,7 @@ class AddForm extends Component {
     super(props);
 
     this.state = {
-      data: {
-        name: "",
-        description: "",
-        tags: [
-          { name: "Wifi", isChecked: false },
-          { name: "Open Late", isChecked: false },
-          { name: "Vegatarian", isChecked: false },
-          { name: "Licensed", isChecked: false },
-          { name: "Family Friendly", isChecked: false }
-        ],
-        photo: {
-          name: ""
-        }
-      },
+      data: Template,
       errors: {
         name: "",
         description: "",

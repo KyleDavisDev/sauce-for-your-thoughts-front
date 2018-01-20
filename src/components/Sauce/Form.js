@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import TextInput from "../TextInput/TextInput.js";
+import Template from './template'
 
-import FillerImage from "../../images/photos/sauce.jpg";
 
 const CheckBoxList = ({ tags, onChange }) => {
   return (
@@ -60,20 +60,7 @@ class Form extends Component {
     super(props);
 
     this.state = {
-      data: {
-        name: "",
-        description: "",
-        tags: [
-          { name: "Wifi", isChecked: false },
-          { name: "Open Late", isChecked: false },
-          { name: "Vegatarian", isChecked: false },
-          { name: "Licensed", isChecked: false },
-          { name: "Family Friendly", isChecked: false }
-        ],
-        photo: {
-          name: ""
-        }
-      },
+      data: Template,
       errors: {
         name: "",
         description: "",
@@ -132,7 +119,7 @@ class Form extends Component {
         encType="multipart/form-data"
       >
         <TextInput
-          id="name"
+          id="Name"
           name="Name"
           type="text"
           onChange={this.onChange}
@@ -152,6 +139,7 @@ class Form extends Component {
         <label htmlFor="photo"> Photo: </label>
         <PhotoUpload text={photo.name} onChange={this.onPhotoUpload} />
 
+        <label>Tags:</label>
         <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
 
         <button type="submit" className="button">
