@@ -109,7 +109,7 @@ export default {
     }
   },
   sauces: {
-    get: range => {
+    get: () => {
       return axios.get("http://localhost:7777/api/sauces/get").then(res => {
         if (res.data.isGood) {
           return res.data;

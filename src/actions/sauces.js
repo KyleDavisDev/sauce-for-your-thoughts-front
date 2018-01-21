@@ -15,8 +15,8 @@ export const saucesByTagGot = ({ sauces }) => ({
   sauces
 });
 
-export const getSauces = selection => dispatch => {
-  return api.sauces.get(selection).then(res => {
+export const getSauces = () => dispatch => {
+  return api.sauces.get().then(res => {
     dispatch(saucesGot({ sauces: res.sauces }));
     return res;
   });
