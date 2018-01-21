@@ -8,7 +8,7 @@ import { getSauces } from "../../actions/sauces";
 import { getInfo } from "../../actions/user";
 import { flashError } from "../../actions/flash";
 import Card from "../Sauce/Card.js";
-import Pagination from "./Pagination"
+import Pagination from "./Pagination";
 
 class Sauces extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class Sauces extends Component {
     this.state = {
       page: 1,
       saucePerPage: 6
-    }
+    };
   }
   componentDidMount() {
     axios.all([this.getSauces(), this.getUserID()]).catch(error => {
@@ -28,7 +28,7 @@ class Sauces extends Component {
 
   componentWillReceiveProps(nextProps) {
     const page = parseInt(nextProps.match.params.pageNum) || 1;
-    this.setState({ page })
+    this.setState({ page });
   }
 
   render() {
@@ -40,27 +40,33 @@ class Sauces extends Component {
         <h2>Sauces</h2>
         <div className="sauces">
           {sauces.length > 0 &&
-            sauces.slice((page - 1) * saucePerPage, page * saucePerPage).map(sauce => {
-              return (
-                <Card
-                  displayEditIcon={email === sauce.author ? true : false}
-                  ID={sauce._id}
-                  name={sauce.name}
-                  image={sauce.photo}
-                  slug={sauce.slug}
-                  description={sauce.description}
-                  key={sauce.slug}
-                />
-              );
-            })}
+            sauces
+              .slice((page - 1) * saucePerPage, page * saucePerPage)
+              .map(sauce => {
+                return (
+                  <Card
+                    displayEditIcon={email === sauce.author ? true : false}
+                    ID={sauce._id}
+                    name={sauce.name}
+                    image={sauce.photo}
+                    slug={sauce.slug}
+                    description={sauce.description}
+                    key={sauce.slug}
+                  />
+                );
+              })}
         </div>
-        <Pagination total={sauces.length} page={this.state.page} saucePerPage={this.state.saucePerPage} />
+        <Pagination
+          total={sauces.length}
+          page={this.state.page}
+          saucePerPage={this.state.saucePerPage}
+        />
       </div>
     );
   }
 
-  getSauces = range => {
-    return this.props.getSauces(range);
+  getSauces = () => {
+    return this.props.getSauces();
   };
 
   getUserID = () => {
