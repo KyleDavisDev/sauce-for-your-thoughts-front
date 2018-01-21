@@ -12,6 +12,12 @@ export default {
             name: "Creamy", isChecked: false
         },
         {
+          name: "Thin", isChecked: false
+        },
+        {
+          name: "Thicc", isChecked: false
+        },
+        {
             name: "Mild", isChecked: false
         },
         {
@@ -21,7 +27,7 @@ export default {
             name: "Hot", isChecked: false
         },
         {
-            name: "Very Hot", isChecked: false
+            name: "Explosion", isChecked: false
         }
     ],
     photo: {
