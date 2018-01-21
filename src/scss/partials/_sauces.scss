@@ -38,15 +38,23 @@
   display: flex;
   color: white;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .sauce-action {
   font-size: 10px;
   svg {
     width: 25px;
+    margin: 0 5px;
     fill: white;
     transition: all 0.2s;
+  }
+  &-heart {
+    &:hover svg,
+      &:focus svg {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
   }
   &-edit {
     a {
