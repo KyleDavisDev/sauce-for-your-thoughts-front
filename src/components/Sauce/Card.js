@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import FillerImage from "../../images/photos/sauce.jpg";
 import Pencil from "../../images/icons/Pencil.js";
+import { Heart, FilledHeart } from "../../images/icons/Heart";
 
 const Card = sauce => {
   return (
@@ -17,6 +18,9 @@ const Card = sauce => {
               </Link>
             </div>
           )}
+          <div className="sauce-action sauce-action-heart">
+            <Heart onClick={toggleStoreHeart} />
+          </div>
         </div>
         <img
           src={FillerImage}
@@ -44,6 +48,8 @@ const Card = sauce => {
       </div>
     </div>
   );
+
+  const toggleStoreHeart = e => {};
 };
 
 Card.propTypes = {
