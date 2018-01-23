@@ -106,12 +106,23 @@ export default {
             throw new Error(res.data.msg);
           }
         });
+    },
+    toggleHeart: ID => {
+      return axios
+        .post("http://localhost:7777/api/user/toggleheart", data)
+        .then(res => {
+          if (res.data.isGood && res.status === 200) {
+            return res.data;
+          } else {
+            throw new Error(res.data.msg);
+          }
+        });
     }
   },
   sauces: {
     get: () => {
       return axios.get("http://localhost:7777/api/sauces/get").then(res => {
-        if (res.data.isGood) {
+        if (res.data.isGood && res.status === 200) {
           return res.data;
         } else {
           throw new Error(res.data.msg);

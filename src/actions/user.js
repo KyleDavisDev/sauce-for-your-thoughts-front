@@ -30,3 +30,9 @@ export const getInfo = credentials => dispatch => {
     return res.user;
   });
 };
+
+export const toggleHeart = ID => dispatch => {
+  return api.user.toggleHeart(ID).then(res => {
+    console.log(res);
+  });
+};
