@@ -46,6 +46,7 @@ class Sauces extends Component {
                 return (
                   <Card
                     displayEditIcon={email === sauce.author ? true : false}
+                    heart={sauce.heart}
                     ID={sauce._id}
                     name={sauce.name}
                     image={sauce.photo}
