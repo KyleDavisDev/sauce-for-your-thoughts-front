@@ -27,7 +27,7 @@
   }
 }
 
-.sauce-actions {
+.sauce--actions {
   position: relative;
   z-index: 2;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -41,7 +41,7 @@
   justify-content: center;
 }
 
-.sauce-action {
+.sauce--action {
   font-size: 10px;
   svg {
     width: 25px;
@@ -49,17 +49,16 @@
     fill: white;
     transition: all 0.2s;
   }
-  &-heart {
+  &__heart {
     &:hover svg,
     &:focus svg {
       transform: scale(1.2);
       cursor: pointer;
     }
   }
-  &-edit {
+  &__edit {
     a {
       border-bottom: 0;
-
       &:hover svg,
       &:focus svg {
         transform: scale(1.2);
@@ -69,12 +68,19 @@
   }
 
   button {
+    padding: 0;
     background: transparent;
     border: transparent;
+    &.button--action__active {
+      svg {
+        fill: red;
+      }
+    }
     &:focus,
     &:hover {
       background: transparent;
       border: transparent;
+      outline: none;
     }
   }
 }
