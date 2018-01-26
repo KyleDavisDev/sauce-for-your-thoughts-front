@@ -51,10 +51,10 @@
   }
   &-heart {
     &:hover svg,
-      &:focus svg {
-        transform: scale(1.2);
-        cursor: pointer;
-      }
+    &:focus svg {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
   }
   &-edit {
     a {
@@ -65,6 +65,16 @@
         transform: scale(1.2);
         fill: white;
       }
+    }
+  }
+
+  button {
+    background: transparent;
+    border: transparent;
+    &:focus,
+    &:hover {
+      background: transparent;
+      border: transparent;
     }
   }
 }
