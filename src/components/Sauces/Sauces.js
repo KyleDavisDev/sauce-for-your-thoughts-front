@@ -83,18 +83,12 @@ class Sauces extends Component {
 
   heartSauce = ID => {
     const data = { token: this.props.user.token, sauce: { _id: ID } };
-    this.props
-      .heartSauce(data)
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+    this.props.heartSauce(data).catch(err => console.log(err));
   };
 
   unHeartSauce = ID => {
     const data = { token: this.props.user.token, sauce: { _id: ID } };
-    this.props
-      .unHeartSauce(data)
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+    this.props.unHeartSauce(data).catch(err => console.log(err));
   };
 }
 
