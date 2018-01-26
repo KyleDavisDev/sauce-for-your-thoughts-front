@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { getSauces } from "../../actions/sauces";
 import { getInfo } from "../../actions/user";
 import { flashError } from "../../actions/flash";
+import { heartSauce, unHeartSauce } from "../../actions/user";
 import Card from "../Sauce/Card.js";
 import Pagination from "./Pagination";
 
@@ -47,6 +48,8 @@ class Sauces extends Component {
                   <Card
                     displayEditIcon={email === sauce.author ? true : false}
                     heart={sauce.heart}
+                    heartSauce={this.heartSauce}
+                    unHeartSauce={this.unHeartSauce}
                     ID={sauce._id}
                     name={sauce.name}
                     image={sauce.photo}
@@ -67,7 +70,8 @@ class Sauces extends Component {
   }
 
   getSauces = () => {
-    return this.props.getSauces();
+    const data = { token: this.props.user.token };
+    return this.props.getSauces(data);
   };
 
   getUserID = () => {
@@ -75,6 +79,14 @@ class Sauces extends Component {
     if (this.props.user.email) return;
     const data = { token: this.props.user.token };
     return this.props.getInfo(data);
+  };
+
+  heartSauce = ID => {
+    const data = { token: this.props.user.token, sauce: { ID } };
+    this.props
+      .heartSauce(data)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   };
 }
 
@@ -94,6 +106,8 @@ Sauces.propTypes = {
     email: PropTypes.string
   }),
   getSauces: PropTypes.func.isRequired,
+  unHeartSauce: PropTypes.func.isRequired,
+  heartSauce: PropTypes.func.isRequired,
   getInfo: PropTypes.func.isRequired,
   flashError: PropTypes.func.isRequired
 };
@@ -111,7 +125,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   getSauces,
   getInfo,
-  flashError
+  flashError,
+  heartSauce,
+  unHeartSauce
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sauces);
