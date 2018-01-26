@@ -39,7 +39,7 @@ export const heartSauce = data => dispatch => {
 };
 
 export const unHeartSauce = data => dispatch => {
-  return api.user.heartSauce(data).then(res => {
-    console.log(res);
+  return api.user.unHeartSauce(data).then(res => {
+    dispatch(sauceUnHearted({ sauce: res.data.sauce }));
   });
 };
