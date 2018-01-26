@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import FillerImage from "../../images/photos/sauce.jpg";
 import Pencil from "../../images/icons/Pencil.js";
 import { Heart, FilledHeart } from "../../images/icons/Heart";
-import { toggleHeart } from "../../actions/user";
 
 const Card = ({
   ID,
@@ -15,12 +14,8 @@ const Card = ({
   description,
   displayEditIcon,
   heart,
-  toggleHeart
+  heartSauce
 }) => {
-  const toggleStoreHeart = () => {
-    console.log(ID);
-  };
-
   return (
     <div className="sauce">
       <div className="sauce-hero">
@@ -34,11 +29,11 @@ const Card = ({
           )}
           <div className="sauce-action sauce-action-heart">
             {heart ? (
-              <button onClick={toggleStoreHeart}>
+              <button onClick={e => heartSauce(ID)}>
                 <FilledHeart />
               </button>
             ) : (
-              <button onClick={toggleStoreHeart}>
+              <button onClick={e => heartSauce(ID)}>
                 <Heart />
               </button>
             )}
@@ -77,11 +72,8 @@ Card.propTypes = {
   slug: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   displayEditIcon: PropTypes.bool.isRequired,
-  heart: PropTypes.bool.isRequired
+  heart: PropTypes.bool.isRequired,
+  heartSauce: PropTypes.func.isRequired
 };
 
-const mapDistpatchToProps = {
-  toggleHeart
-};
-
-export default connect(null, mapDistpatchToProps)(Card);
+export default connect(null, {})(Card);
