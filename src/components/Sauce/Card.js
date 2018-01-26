@@ -14,26 +14,33 @@ const Card = ({
   description,
   displayEditIcon,
   heart,
-  heartSauce
+  heartSauce,
+  unHeartSauce
 }) => {
   return (
     <div className="sauce">
       <div className="sauce-hero">
-        <div className="sauce-actions">
+        <div className="sauce--actions">
           {displayEditIcon && (
-            <div className="sauce-action sauce-action-edit">
+            <div className="sauce--action sauce--action__edit">
               <Link to={`/sauce/${ID}/edit`}>
                 <Pencil />
               </Link>
             </div>
           )}
-          <div className="sauce-action sauce-action-heart">
+          <div className="sauce--action sauce--action__heart">
             {heart ? (
-              <button onClick={e => heartSauce(ID)}>
+              <button
+                onClick={e => unHeartSauce(ID)}
+                className="button--action__active"
+              >
                 <FilledHeart />
               </button>
             ) : (
-              <button onClick={e => heartSauce(ID)}>
+              <button
+                onClick={e => heartSauce(ID)}
+                className="button--action__inactive"
+              >
                 <Heart />
               </button>
             )}
@@ -73,7 +80,8 @@ Card.propTypes = {
   description: PropTypes.string.isRequired,
   displayEditIcon: PropTypes.bool.isRequired,
   heart: PropTypes.bool.isRequired,
-  heartSauce: PropTypes.func.isRequired
+  heartSauce: PropTypes.func.isRequired,
+  unHeartSauce: PropTypes.func.isRequired
 };
 
 export default connect(null, {})(Card);
