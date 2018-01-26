@@ -15,6 +15,15 @@ export default function sauces(state = [], action) {
         : [];
     case "STORES_BY_TAG_GOT":
       return action.sauces;
+    case "SAUCE_HEARTED":
+      return state
+        ? state.map(sauce => {
+            if (sauce._id === action.sauce._id) {
+              sauce.hearted = true;
+            }
+            return sauce;
+          })
+        : [];
     default:
       return state;
   }
