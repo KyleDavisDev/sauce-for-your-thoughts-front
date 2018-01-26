@@ -1,5 +1,6 @@
 import api from "../api/api";
 import { flashSuccess } from "./flash";
+import { sauceHearted, sauceUnHearted } from "./sauces";
 
 export const userUpdated = ({ email, name }) => ({
   type: "USER_UPDATED",
@@ -31,8 +32,14 @@ export const getInfo = credentials => dispatch => {
   });
 };
 
-export const toggleHeart = ID => dispatch => {
-  return api.user.toggleHeart(ID).then(res => {
+export const heartSauce = data => dispatch => {
+  return api.user.heartSauce(data).then(res => {
+    dispatch(sauceHearted({ sauce: res.data.sauce }));
+  });
+};
+
+export const unHeartSauce = data => dispatch => {
+  return api.user.heartSauce(data).then(res => {
     console.log(res);
   });
 };
