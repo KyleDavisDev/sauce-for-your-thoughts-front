@@ -56,6 +56,28 @@ export default {
             throw new Error(res.data.msg);
           }
         });
+    },
+    heartSauce: data => {
+      return axios
+        .post("http://localhost:7777/api/user/heartSauce", data)
+        .then(res => {
+          if (res.data.isGood && res.status === 200) {
+            return res.data;
+          } else {
+            throw new Error(res.data.msg);
+          }
+        });
+    },
+    unHeartSauce: data => {
+      return axios
+        .post("http://localhost:7777/api/user/unHeartSauce", data)
+        .then(res => {
+          if (res.data.isGood && res.status === 200) {
+            return res.data;
+          } else {
+            throw new Error(res.data.msg);
+          }
+        });
     }
   },
   sauce: {
@@ -106,10 +128,12 @@ export default {
             throw new Error(res.data.msg);
           }
         });
-    },
-    toggleHeart: ID => {
+    }
+  },
+  sauces: {
+    get: credentials => {
       return axios
-        .post("http://localhost:7777/api/user/toggleheart", data)
+        .post("http://localhost:7777/api/sauces/get", credentials)
         .then(res => {
           if (res.data.isGood && res.status === 200) {
             return res.data;
@@ -117,17 +141,6 @@ export default {
             throw new Error(res.data.msg);
           }
         });
-    }
-  },
-  sauces: {
-    get: () => {
-      return axios.get("http://localhost:7777/api/sauces/get").then(res => {
-        if (res.data.isGood && res.status === 200) {
-          return res.data;
-        } else {
-          throw new Error(res.data.msg);
-        }
-      });
     },
     getByTag: tag => {
       return axios
