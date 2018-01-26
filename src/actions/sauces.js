@@ -15,8 +15,18 @@ export const saucesByTagGot = ({ sauces }) => ({
   sauces
 });
 
-export const getSauces = () => dispatch => {
-  return api.sauces.get().then(res => {
+export const sauceHearted = ({ sauce }) => ({
+  type: "SAUCE_HEARTED",
+  sauce
+});
+
+export const sauceUnHearted = ({ sauce }) => ({
+  type: "SAUCE_UNHEARTED",
+  sauce
+});
+
+export const getSauces = credentials => dispatch => {
+  return api.sauces.get(credentials).then(res => {
     dispatch(saucesGot({ sauces: res.sauces }));
     return res;
   });
