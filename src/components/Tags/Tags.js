@@ -88,7 +88,7 @@ class Tags extends Component {
   componentWillReceiveProps(nextProps) {
     const tag = nextProps.match.params.tag;
     if (tag && tag !== this.props.match.params.tag) {
-      this.getSauce(tag);
+      this.getSaucesByTag(tag);
     }
   }
 
