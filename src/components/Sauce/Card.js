@@ -18,17 +18,17 @@ const Card = ({
   unHeartSauce
 }) => {
   return (
-    <div className="sauce">
-      <div className="sauce-hero">
-        <div className="sauce--actions">
+    <div className="card">
+      <div className="card-hero">
+        <div className="card--actions">
           {displayEditIcon && (
-            <div className="sauce--action sauce--action__edit">
+            <div className="card--action card--action__edit">
               <Link to={`/sauce/${ID}/edit`}>
                 <Pencil />
               </Link>
             </div>
           )}
-          <div className="sauce--action sauce--action__heart">
+          <div className="card--action card--action__heart">
             {heart ? (
               <button
                 onClick={e => unHeartSauce(ID)}
@@ -59,7 +59,7 @@ const Card = ({
           <Link to={`/sauce/${slug}`}>{name}</Link>
         </div>
       </div>
-      <div className="sauce-details">
+      <div className="card-details">
         {/*{limit description to 25 words }*/}
         <p>
           {description

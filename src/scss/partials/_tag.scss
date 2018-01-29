@@ -10,11 +10,11 @@
 .tag {
   display: block;
   margin-right: 1rem;
+  margin-bottom: 0.5rem;
   &-choice {
     display: flex;
     justify-content: center;
     align-items: center;
-    
 
     input {
       width: auto;
@@ -25,7 +25,8 @@
       & + label {
         background: $grey;
         padding: 1rem 1rem 1rem 4rem;
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           cursor: pointer;
         }
       }
