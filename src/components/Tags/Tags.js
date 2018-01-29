@@ -114,10 +114,12 @@ class Tags extends Component {
     return this.props.getSauce(tag);
   };
 
+  //this will pass email to api and store userID into redux store on success
   getUserInfo = () => {
     //check if email already passed to component to save api call
     if (this.props.user.email) return;
     const data = { token: this.props.user.token };
+
     return this.props.getInfo(data);
   };
 

@@ -74,6 +74,7 @@ class Sauces extends Component {
     return this.props.getSauces(data);
   };
 
+  //this will pass email to api and store userID into redux store on success
   getUserID = () => {
     //check if email already passed to component to save api call
     if (this.props.user.email) return;
