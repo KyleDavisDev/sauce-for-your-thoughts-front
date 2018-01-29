@@ -142,9 +142,9 @@ export default {
           }
         });
     },
-    getByTag: tag => {
+    getSaucesByTag: data => {
       return axios
-        .get(`http://localhost:7777/api/sauces/get/tag/${tag}`)
+        .post(`http://localhost:7777/api/sauces/get/by/tag`, data)
         .then(res => {
           if (res.data.isGood) {
             return res.data;

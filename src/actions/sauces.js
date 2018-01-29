@@ -37,8 +37,8 @@ export const updateSaucesItem = store => dispatch => {
   return;
 };
 
-export const getSaucesByTag = tag => dispatch => {
-  return api.sauces.getByTag(tag).then(res => {
+export const getSaucesByTag = data => dispatch => {
+  return api.sauces.getSaucesByTag(data).then(res => {
     dispatch(saucesByTagGot({ sauces: res.sauces }));
     return res;
   });

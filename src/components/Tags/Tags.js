@@ -3,8 +3,8 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getInfo } from "../../actions/user";
-import { getSaucesByTag as getSauce } from "../../actions/sauces";
+import { getInfo, heartSauce, unHeartSauce } from "../../actions/user";
+import { getSaucesByTag } from "../../actions/sauces";
 import { flashError } from "../../actions/flash";
 import { getTagsList } from "../../actions/tags";
 import Card from "../Sauce/Card.js";
@@ -16,13 +16,16 @@ Title.proptypes = {
   title: PropTypes.string.isRequired
 };
 
-const SauceList = ({ sauces, email }) => {
+const Cards = ({ sauces, email, heartSauce, unHeartSauce }) => {
   return (
     <div className="sauces">
       {sauces.map(sauce => {
         return (
           <Card
-            displayEditIcon={email === sauce.author}
+            displayEditIcon={email === sauce.author ? true : false}
+            heart={sauce.heart}
+            heartSauce={heartSauce}
+            unHeartSauce={unHeartSauce}
             ID={sauce._id}
             name={sauce.name}
             image={sauce.photo}
@@ -35,17 +38,13 @@ const SauceList = ({ sauces, email }) => {
     </div>
   );
 };
-SauceList.proptypes = {
+Cards.proptypes = {
   sauces: PropTypes.arrayOf([
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       photo: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf([PropTypes.string]).isRequired,
-      location: PropTypes.shape({
-        address: PropTypes.string.isRequired,
-        coordinates: PropTypes.arrayOf([PropTypes.number.isRequired]).isRequired
-      }).isRequired
+      tags: PropTypes.arrayOf([PropTypes.string]).isRequired
     }).isRequired
   ]).isRequired
 };
@@ -82,8 +81,8 @@ class Tags extends Component {
     const tag = this.props.match.params.tag || "All";
 
     axios
-      .all([this.getSauce(tag), this.getUserInfo(), this.getTagsList()])
-      .catch(err => console.log(err));
+      .all([this.getSaucesByTag(tag), this.getTagsList()])
+      .catch(err => console.log(err.response));
   }
 
   componentWillReceiveProps(nextProps) {
@@ -102,19 +101,26 @@ class Tags extends Component {
       <div className="inner">
         <Title title={title} />
         {tags.length > 0 && <TagsList tags={tags} />}
-        {sauces.length > 0 && <SauceList sauces={sauces} email={email} />}
+        {sauces.length > 0 && (
+          <Cards
+            sauces={sauces}
+            email={email}
+            heartSauce={this.heartSauce}
+            unHeartSauce={this.unHeartSauce}
+          />
+        )}
       </div>
     );
   }
 
-  getSauce = tag => {
+  getSaucesByTag = tag => {
     //Sanity check for bogus tag values
     // if (!Object.keys(this.props.tags).includes(tag)) return;
-
-    return this.props.getSauce(tag);
+    const data = { token: this.props.user.token, tag };
+    return this.props.getSaucesByTag(data);
   };
 
-  //this will pass email to api and store userID into redux store on success
+  //this will pass token to api and store email/name into redux store on success
   getUserInfo = () => {
     //check if email already passed to component to save api call
     if (this.props.user.email) return;
@@ -126,7 +132,41 @@ class Tags extends Component {
   getTagsList = () => {
     return this.props.getTagsList();
   };
+
+  //'like' specific sauce
+  heartSauce = ID => {
+    const data = { token: this.props.user.token, sauce: { _id: ID } };
+    this.props.heartSauce(data).catch(err => console.log(err));
+  };
+
+  //'unlike' specific sauce
+  unHeartSauce = ID => {
+    const data = { token: this.props.user.token, sauce: { _id: ID } };
+    this.props.unHeartSauce(data).catch(err => console.log(err));
+  };
 }
+Tags.propTypes = {
+  sauces: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      photo: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired
+    })
+  ),
+  user: PropTypes.shape({
+    token: PropTypes.string.isRequired,
+    email: PropTypes.string
+  }),
+  flashError: PropTypes.func.isRequired,
+  getSaucesByTag: PropTypes.func.isRequired,
+  getInfo: PropTypes.func.isRequired,
+  getTagsList: PropTypes.func.isRequired,
+  heartSauce: PropTypes.func.isRequired,
+  unHeartSauce: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
   return {
@@ -141,9 +181,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   flashError,
-  getSauce,
+  getSaucesByTag,
   getInfo,
-  getTagsList
+  getTagsList,
+  heartSauce,
+  unHeartSauce
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Tags);
