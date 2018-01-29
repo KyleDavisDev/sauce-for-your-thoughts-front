@@ -34,16 +34,19 @@ const App = ({ isAuthenticated, flashMessage }) => {
           isAuthenticated ? (
             <Add history={e.history} />
           ) : (
-              <Redirect to="/login" push />
-            )
+            <Redirect to="/login" push />
+          )
         }
       />
       <Route
         exact
         path="/sauces/:page?/:pageNum?"
-        render={(e) =>
-          isAuthenticated ? (<Sauces history={e.history}
-            match={e.match} />) : (<Redirect to="/login" push />)
+        render={e =>
+          isAuthenticated ? (
+            <Sauces history={e.history} match={e.match} />
+          ) : (
+            <Redirect to="/login" push />
+          )
         }
       />
       <Route exact path="/sauce/:slug" component={SauceGet} />
@@ -52,17 +55,34 @@ const App = ({ isAuthenticated, flashMessage }) => {
         path="/sauce/:id/edit"
         render={e =>
           isAuthenticated ? (
-            <SauceEdit
-              history={e.history}
-              match={e.match}
-            />
+            <SauceEdit history={e.history} match={e.match} />
           ) : (
-              <Redirect to="/login" push />
-            )
+            <Redirect to="/login" push />
+          )
         }
       />
-      <Route exact path="/tags" component={Tags} />
-      <Route exact path="/tags/:tag" component={Tags} />
+      <Route
+        exact
+        path="/tags"
+        render={e =>
+          isAuthenticated ? (
+            <Tags match={e.match} />
+          ) : (
+            <Redirect to="/login" push />
+          )
+        }
+      />
+      <Route
+        exact
+        path="/tags/:tag"
+        render={e =>
+          isAuthenticated ? (
+            <Tags match={e.match} />
+          ) : (
+            <Redirect to="/login" push />
+          )
+        }
+      />
       <Route exact path="/register" component={Register} />
       <Route
         exact
@@ -71,8 +91,8 @@ const App = ({ isAuthenticated, flashMessage }) => {
           isAuthenticated ? (
             <Account history={e.history} />
           ) : (
-              <Redirect to="/login" push />
-            )
+            <Redirect to="/login" push />
+          )
         }
       />
       <Route exact path="/account/reset/:token" component={ResetPassword} />
