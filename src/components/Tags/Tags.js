@@ -49,9 +49,21 @@ Cards.proptypes = {
   ]).isRequired
 };
 
-const TagsList = ({ tags }) => {
+const TagsList = ({ tags, count }) => {
   return (
     <ul className="tags">
+      <li className="tag">
+        <NavLink
+          activeClassName="tag-link-active"
+          to={"/tags"}
+          className="tag-link"
+          exact
+        >
+          <span className="tag-text">All</span>
+          <span className="tag-count">{count}</span>
+          {console.log(tags)}
+        </NavLink>
+      </li>
       {tags.map(tag => {
         return (
           <li key={tag._id} className="tag">
@@ -73,7 +85,8 @@ TagsList.proptypes = {
   tags: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     count: PropTypes.number.isRequired
-  }).isRequired
+  }).isRequired,
+  count: PropTypes.number.isRequired
 };
 
 class Tags extends Component {
@@ -100,7 +113,7 @@ class Tags extends Component {
     return (
       <div className="inner">
         <Title title={title} />
-        {tags.length > 0 && <TagsList tags={tags} />}
+        {tags.length > 0 && <TagsList tags={tags} count={sauces.length} />}
         {sauces.length > 0 && (
           <Cards
             sauces={sauces}
