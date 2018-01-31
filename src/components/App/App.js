@@ -2,22 +2,56 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import Loadable from "react-loadable";
+import Loading from "../Holder/Holder";
 
 import Auth from "../../Helper/Auth/Auth";
 
 //pull in other components for SPA
-import Account from "../Account/Account";
-import Add from "../Add/Add";
-import FlashMessage from "../FlashMessage/FlashMessage";
-import Header from "../Header/Header";
-import Holder from "../Holder/Holder";
-import Login from "../Login/Login";
-import Register from "../Register/Register";
-import ResetPassword from "../ResetPassword/ResetPassword";
-import SauceEdit from "../Sauce/Edit";
-import SauceGet from "../Sauce/Single";
-import Sauces from "../Sauces/Sauces";
-import Tags from "../Tags/Tags";
+const Account = Loadable({
+  loader: () => System.import("../Account/Account"),
+  loading: Loading
+});
+const Add = Loadable({
+  loader: () => System.import("../Add/Add"),
+  loading: Loading
+});
+const FlashMessage = Loadable({
+  loader: () => System.import("../FlashMessage/FlashMessage"),
+  loading: Loading
+});
+const Header = Loadable({
+  loader: () => System.import("../Header/Header"),
+  loading: Loading
+});
+const Login = Loadable({
+  loader: () => System.import("../Login/Login"),
+  loading: Loading
+});
+const Register = Loadable({
+  loader: () => System.import("../Register/Register"),
+  loading: Loading
+});
+const ResetPassword = Loadable({
+  loader: () => System.import("../ResetPassword/ResetPassword"),
+  loading: Loading
+});
+const SauceEdit = Loadable({
+  loader: () => System.import("../Sauce/Edit"),
+  loading: Loading
+});
+const SauceGet = Loadable({
+  loader: () => System.import("../Sauce/Single"),
+  loading: Loading
+});
+const Sauces = Loadable({
+  loader: () => System.import("../Sauces/Sauces"),
+  loading: Loading
+});
+const Tags = Loadable({
+  loader: () => System.import("../Tags/Tags"),
+  loading: Loading
+});
 
 const App = ({ isAuthenticated, flashMessage }) => {
   const { isVisible } = flashMessage;
@@ -26,7 +60,7 @@ const App = ({ isAuthenticated, flashMessage }) => {
       <Header />
       {isVisible && <FlashMessage />}
 
-      <Route exact path="/" component={Holder} />
+      <Route exact path="/" component={Loading} />
       <Route
         exact
         path="/add"
