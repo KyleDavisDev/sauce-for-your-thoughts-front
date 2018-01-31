@@ -10,7 +10,7 @@ import { getTagsList } from "../../actions/tags";
 import Card from "../Sauce/Card.js";
 
 const Title = ({ title }) => {
-  return <h2>{title}</h2>;
+  return <h2>Tags - {title}</h2>;
 };
 Title.proptypes = {
   title: PropTypes.string.isRequired
@@ -46,7 +46,10 @@ Cards.proptypes = {
       photo: PropTypes.string.isRequired,
       tags: PropTypes.arrayOf([PropTypes.string]).isRequired
     }).isRequired
-  ]).isRequired
+  ]).isRequired,
+  email: PropTypes.string.isRequired,
+  heartSauce: PropTypes.func.isRequired,
+  unHeartSauce: PropTypes.func.isRequired
 };
 
 const TagsList = ({ tags, count }) => {
@@ -60,8 +63,7 @@ const TagsList = ({ tags, count }) => {
           exact
         >
           <span className="tag-text">All</span>
-          <span className="tag-count">{count}</span>
-          {console.log(tags)}
+          {/* <span className="tag-count">{count}</span> */}
         </NavLink>
       </li>
       {tags.map(tag => {
@@ -94,7 +96,7 @@ class Tags extends Component {
     const tag = this.props.match.params.tag || "All";
 
     axios
-      .all([this.getSaucesByTag(tag), this.getTagsList()])
+      .all([this.getSaucesByTag(tag), this.getTagsList(), this.getUserInfo()])
       .catch(err => console.log(err.response));
   }
 
@@ -106,10 +108,9 @@ class Tags extends Component {
   }
 
   render() {
-    const title = this.props.match.params.tag || "Tags";
+    const title = this.props.match.params.tag || "All";
     const { tags = [], sauces = [] } = this.props;
-    // const sauces = this.props.sauces || [];
-    const { email } = this.props.user || "";
+    const email = this.props.user.email || "";
     return (
       <div className="inner">
         <Title title={title} />
