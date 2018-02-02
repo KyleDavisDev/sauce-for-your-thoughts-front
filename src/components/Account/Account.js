@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 import AccountForm from "./AccountForm";
 import api from "../../api/api";
-import Auth from "../../Helper/Auth/Auth.js";
 import { flashError, flashClose } from "../../actions/flash";
 import { getInfo, updateUser } from "../../actions/user";
 
@@ -15,8 +14,7 @@ class Account extends Component {
 
   render() {
     //check if state exists at all first
-    const name = this.props.name || "";
-    const email = this.props.email || "";
+    const { name = "", email = "" } = this.props.user;
     return (
       <div className="inner">
         <AccountForm name={name} email={email} onSubmit={this.onSubmit} />
@@ -25,7 +23,7 @@ class Account extends Component {
   }
 
   getUserInfo = () => {
-    const data = { token: Auth.getToken() };
+    const data = { token: this.props.user.token };
 
     this.props
       .getInfo(data)
@@ -42,13 +40,10 @@ class Account extends Component {
     this.props.flashClose();
 
     //add token to data so we can look up user
-    data = { ...data, token: Auth.getToken() };
-    this.props
-      .updateUser(data)
-      .then(res => this.setState({ name: res.name, email: res.email }))
-      .catch(err => {
-        this.props.flashError({ text: err.response.data.msg });
-      });
+    data = { ...data, token: this.props.user.token };
+    this.props.updateUser(data).catch(err => {
+      this.props.flashError({ text: err.response.data.msg });
+    });
   };
 }
 
@@ -62,8 +57,11 @@ Account.propType = {
 
 function mapStateToProps(state) {
   return {
-    email: state.user.email,
-    name: state.user.name
+    user: {
+      email: state.user.email,
+      name: state.user.name,
+      token: state.user.token
+    }
   };
 }
 

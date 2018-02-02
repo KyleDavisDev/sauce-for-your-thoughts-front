@@ -43,22 +43,7 @@ class Sauces extends Component {
           {sauces.length > 0 &&
             sauces
               .slice((page - 1) * saucePerPage, page * saucePerPage)
-              .map(sauce => {
-                return (
-                  <Card
-                    displayEditIcon={email === sauce.author ? true : false}
-                    heart={sauce.heart}
-                    heartSauce={this.heartSauce}
-                    unHeartSauce={this.unHeartSauce}
-                    ID={sauce._id}
-                    name={sauce.name}
-                    image={sauce.photo}
-                    slug={sauce.slug}
-                    description={sauce.description}
-                    key={sauce.slug}
-                  />
-                );
-              })}
+              .map(sauce => this.renderCards({ sauce, email }))}
         </div>
         <Pagination
           total={sauces.length}
@@ -68,6 +53,23 @@ class Sauces extends Component {
       </div>
     );
   }
+
+  renderCards = ({ sauce, email }) => {
+    return (
+      <Card
+        displayEditIcon={email === sauce.author ? true : false}
+        heart={sauce.heart}
+        heartSauce={this.heartSauce}
+        unHeartSauce={this.unHeartSauce}
+        ID={sauce._id}
+        name={sauce.name}
+        image={sauce.photo}
+        slug={sauce.slug}
+        description={sauce.description}
+        key={sauce.slug}
+      />
+    );
+  };
 
   getSauces = () => {
     const data = { token: this.props.user.token };
