@@ -39,14 +39,14 @@ const Cards = ({ sauces, email, heartSauce, unHeartSauce }) => {
   );
 };
 Cards.proptypes = {
-  sauces: PropTypes.arrayOf([
+  sauces: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       photo: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf([PropTypes.string]).isRequired
+      tags: PropTypes.arrayOf(PropTypes.string).isRequired
     }).isRequired
-  ]).isRequired,
+  ).isRequired,
   email: PropTypes.string.isRequired,
   heartSauce: PropTypes.func.isRequired,
   unHeartSauce: PropTypes.func.isRequired

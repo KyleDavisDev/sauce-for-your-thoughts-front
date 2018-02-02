@@ -47,9 +47,9 @@ class Add extends Component {
 }
 
 Add.propTypes = {
-  user: {
+  user: PropTypes.shape({
     token: PropTypes.string
-  },
+  }),
   addSauce: PropTypes.func.isRequired
 };
 

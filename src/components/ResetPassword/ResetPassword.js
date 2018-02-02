@@ -176,9 +176,9 @@ class ResetPassword extends Component {
 }
 
 ResetPassword.propTypes = {
-  user: {
+  user: PropTypes.shape({
     token: PropTypes.string
-  },
+  }),
   logUserIn: PropTypes.func.isRequired,
   token: PropTypes.string.isRequired
 };
