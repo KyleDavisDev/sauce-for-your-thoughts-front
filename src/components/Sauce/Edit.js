@@ -8,23 +8,7 @@ import { flashError } from "../../actions/flash";
 
 import Form from "./Form.js";
 
-import Auth from "../../Helper/Auth/Auth.js";
-
 class Edit extends Component {
-  constructor(props) {
-    super(props);
-
-    //This state will only be used to set default data for the form component
-    this.state = {
-      sauce: {
-        name: "Name",
-        description: "Description",
-        photo: "Str",
-        tags: [""]
-      }
-    };
-  }
-
   componentWillMount() {
     if (!this.props.user.token) this.props.history.push("/login");
   }
@@ -38,10 +22,12 @@ class Edit extends Component {
   }
 
   render() {
-    const { name, description, photo, tags } =
-      Object.keys(this.props.sauce).length > 0
-        ? this.props.sauce
-        : this.state.sauce;
+    const {
+      name = "",
+      description = "",
+      photo = "",
+      tags = []
+    } = this.props.sauce;
 
     return (
       <div className="inner">
@@ -70,11 +56,10 @@ class Edit extends Component {
   //get single sauce information
   //must pass user token and ID we are looking for
   getSauceInfo = () => {
-    //check to see if sauces have already been passed to component to save an api call
-    if (this.props.sauce && Object.keys(this.props.sauce).length > 0) return;
-    const sauceID = this.props.match.params.id;
-    const token = this.props.user.token;
-    const data = { token, sauceID };
+    const data = {
+      token: this.props.user.token,
+      sauceID: this.props.match.params.id
+    };
     return this.props.getSauceInfo(data);
   };
 
@@ -89,7 +74,7 @@ class Edit extends Component {
     formData.append("description", data.description);
     formData.append("image", data.photo.file);
     formData.append("tags", tags);
-    formData.append("token", Auth.getToken());
+    formData.append("token", this.props.user.token);
 
     this.props
       .updateSauce(formData)
@@ -100,7 +85,22 @@ class Edit extends Component {
   };
 }
 
-Edit.propTypes = {};
+Edit.propTypes = {
+  user: PropTypes.shape({
+    token: PropTypes.string
+  }).isRequired,
+  sauce: PropTypes.shape({
+    description: PropTypes.string,
+    name: PropTypes.string,
+    photo: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string),
+    slug: PropTypes.string
+  }),
+  getSauceInfo: PropTypes.func.isRequired,
+  getUserInfo: PropTypes.func.isRequired,
+  flashError: PropTypes.func.isRequired,
+  updateSauce: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
   return {
