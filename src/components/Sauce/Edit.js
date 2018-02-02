@@ -20,13 +20,17 @@ class Edit extends Component {
         name: "Name",
         description: "Description",
         photo: "Str",
-        tags: [""],
-        location: { address: "", coordinates: [] }
+        tags: [""]
       }
     };
   }
 
+  componentWillMount() {
+    if (!this.props.user.token) this.props.history.push("/login");
+  }
+
   componentDidMount() {
+    if (!this.props.user.token) return;
     axios.all([this.getSauceInfo(), this.getUserInfo()]).catch(error => {
       console.log(error);
       // this.props.flashError({ text: error.response.data.msg });
@@ -34,13 +38,7 @@ class Edit extends Component {
   }
 
   render() {
-    const {
-      name,
-      description,
-      photo,
-      tags,
-      location: { address, coordinates: [longitude, latitude] }
-    } =
+    const { name, description, photo, tags } =
       Object.keys(this.props.sauce).length > 0
         ? this.props.sauce
         : this.state.sauce;
@@ -55,9 +53,6 @@ class Edit extends Component {
             description={description}
             photo={photo}
             tags={tags}
-            address={address}
-            longitude={longitude}
-            latitude={latitude}
           />
         )}
       </div>
@@ -109,8 +104,8 @@ Edit.propTypes = {};
 
 const mapStateToProps = state => {
   return {
-    sauce: state.sauce,
-    user: { token: state.user.token, email: state.user.email }
+    user: { token: state.user.token, email: state.user.email },
+    sauce: state.sauce
   };
 };
 

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-
 import Checker from "../../Helper/Checker/Checker.js";
+import { connect } from "react-redux";
 
 class ResetPasswordForm extends Component {
   render() {
@@ -62,7 +62,12 @@ class ResetPassword extends Component {
     );
   }
 
+  componentWillMount() {
+    if (!this.props.user.token) this.props.history.push("/login");
+  }
+
   componentDidMount() {
+    if (!this.props.user.token) return;
     const token = this.props.token;
     this.resetUserPassword(token);
   }
@@ -171,8 +176,17 @@ class ResetPassword extends Component {
 }
 
 ResetPassword.propTypes = {
+  user: {
+    token: PropTypes.string
+  },
   logUserIn: PropTypes.func.isRequired,
   token: PropTypes.string.isRequired
 };
 
-module.exports = ResetPassword;
+const mapStateToProps = state => {
+  user: {
+    token: state.user.token;
+  }
+};
+
+module.exports = connect(mapStateToProps, {})(ResetPassword);

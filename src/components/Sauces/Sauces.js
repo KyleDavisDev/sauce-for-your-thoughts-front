@@ -21,7 +21,13 @@ class Sauces extends Component {
       saucePerPage: 6
     };
   }
+
+  componentWillMount() {
+    if (!this.props.user.token) this.props.history.push("/login");
+  }
+
   componentDidMount() {
+    if (!this.props.user.token) return;
     axios.all([this.getSauces(), this.getUserID()]).catch(error => {
       this.props.flashError({ text: error.response.data.msg });
     });
@@ -107,7 +113,7 @@ Sauces.propTypes = {
     })
   ),
   user: PropTypes.shape({
-    token: PropTypes.string.isRequired,
+    token: PropTypes.string,
     email: PropTypes.string
   }),
   getSauces: PropTypes.func.isRequired,

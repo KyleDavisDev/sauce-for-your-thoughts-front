@@ -5,10 +5,15 @@ import { connect } from "react-redux";
 import { addSauce } from "../../actions/sauce";
 
 import AddForm from "../AddForm/AddForm.js";
-import Auth from "../../Helper/Auth/Auth.js";
 
 class Add extends Component {
-  componentDidMount() {}
+  componentWillMount() {
+    if (!this.props.user.token) this.props.history.push("/login");
+  }
+
+  componentDidMount() {
+    if (!this.props.user.token) return;
+  }
 
   render() {
     return (
@@ -30,7 +35,7 @@ class Add extends Component {
     formData.append("image", data.photo.file);
     formData.append("coordinates", coordinates);
     formData.append("tags", tags);
-    formData.append("token", Auth.getToken());
+    formData.append("token", this.props.user.token);
 
     this.props
       .addSauce(formData)
@@ -42,13 +47,15 @@ class Add extends Component {
 }
 
 Add.propTypes = {
-  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  user: {
+    token: PropTypes.string
+  },
   addSauce: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    isAuthenticated: !!state.user.token
+    user: { token: state.user.token }
   };
 }
 export default connect(mapStateToProps, { addSauce })(Add);

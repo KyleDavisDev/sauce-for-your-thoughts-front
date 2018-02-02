@@ -8,7 +8,12 @@ import { flashError, flashClose } from "../../actions/flash";
 import { getInfo, updateUser } from "../../actions/user";
 
 class Account extends Component {
+  componentWillMount() {
+    if (!this.props.user.token) this.props.history.push("/login");
+  }
+
   componentDidMount() {
+    if (!this.props.user.token) return;
     this.getUserInfo();
   }
 
@@ -48,11 +53,15 @@ class Account extends Component {
 }
 
 Account.propType = {
+  user: {
+    email: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    token: PropTypes.string.isRequired
+  },
   getInfo: PropTypes.func.isRequired,
   updateUser: PropTypes.func.isRequired,
   flashError: PropTypes.func.isRequired,
-  flashClose: PropTypes.func.isRequired,
-  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired
+  flashClose: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {

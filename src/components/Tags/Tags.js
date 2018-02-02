@@ -92,9 +92,12 @@ TagsList.proptypes = {
 };
 
 class Tags extends Component {
+  componentWillMount() {
+    if (!this.props.user.token) this.props.history.push("/login");
+  }
   componentDidMount() {
+    if (!this.props.user.token) return;
     const tag = this.props.match.params.tag || "All";
-
     axios
       .all([this.getSaucesByTag(tag), this.getTagsList(), this.getUserInfo()])
       .catch(err => console.log(err.response));
@@ -171,7 +174,7 @@ Tags.propTypes = {
     })
   ),
   user: PropTypes.shape({
-    token: PropTypes.string.isRequired,
+    token: PropTypes.string,
     email: PropTypes.string
   }),
   flashError: PropTypes.func.isRequired,

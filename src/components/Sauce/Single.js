@@ -28,7 +28,12 @@ GenerateTagsList.proptypes = {
 };
 
 class Single extends Component {
+  componentWillMount() {
+    if (!this.props.user.token) this.props.history.push("/login");
+  }
+
   componentDidMount() {
+    if (!this.props.user.token) return;
     const slug = this.props.match.params.slug;
     this.getSauce(slug);
   }
@@ -77,7 +82,6 @@ class Single extends Component {
 
   getSauce = slug => {
     this.props.getSauce(slug).catch(err => {
-      // console.log(err.response);
       this.props.flashError({ text: err.response.data.msg });
     });
   };
@@ -87,14 +91,20 @@ Single.proptypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     photo: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf([PropTypes.string]).isRequired,
+    tags: PropTypes.arrayOf([PropTypes.string]).isRequired
   }).isRequired,
+  user: {
+    token: PropTypes.string
+  },
   getSauce: PropTypes.func.isRequired,
   flashError: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
   return {
+    user: {
+      token: state.user.token
+    },
     sauce: state.sauce
   };
 };
