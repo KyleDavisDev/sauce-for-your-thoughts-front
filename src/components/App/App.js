@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Loadable from "react-loadable";
 import Loading from "../Holder/Holder";
+import Header from "../Header/Header";
 
 import Auth from "../../Helper/Auth/Auth";
 
-//pull in other components for SPA
 const Account = Loadable({
   loader: () => System.import("../Account/Account"),
   loading: Loading
@@ -18,10 +18,6 @@ const Add = Loadable({
 });
 const FlashMessage = Loadable({
   loader: () => System.import("../FlashMessage/FlashMessage"),
-  loading: Loading
-});
-const Header = Loadable({
-  loader: () => System.import("../Header/Header"),
   loading: Loading
 });
 const Login = Loadable({
@@ -40,7 +36,7 @@ const SauceEdit = Loadable({
   loader: () => System.import("../Sauce/Edit"),
   loading: Loading
 });
-const SauceGet = Loadable({
+const Single = Loadable({
   loader: () => System.import("../Sauce/Single"),
   loading: Loading
 });
@@ -53,82 +49,20 @@ const Tags = Loadable({
   loading: Loading
 });
 
-const App = ({ isAuthenticated, flashMessage }) => {
-  const { isVisible } = flashMessage;
+const App = ({ flashMessageVisible }) => {
   return (
     <div className="container">
       <Header />
-      {isVisible && <FlashMessage />}
-
+      {flashMessageVisible && <FlashMessage />}
       <Route exact path="/" component={Loading} />
-      <Route
-        exact
-        path="/add"
-        render={e =>
-          isAuthenticated ? (
-            <Add history={e.history} />
-          ) : (
-            <Redirect to="/login" push />
-          )
-        }
-      />
-      <Route
-        exact
-        path="/sauces/:page?/:pageNum?"
-        render={e =>
-          isAuthenticated ? (
-            <Sauces history={e.history} match={e.match} />
-          ) : (
-            <Redirect to="/login" push />
-          )
-        }
-      />
-      <Route exact path="/sauce/:slug" component={SauceGet} />
-      <Route
-        exact
-        path="/sauce/:id/edit"
-        render={e =>
-          isAuthenticated ? (
-            <SauceEdit history={e.history} match={e.match} />
-          ) : (
-            <Redirect to="/login" push />
-          )
-        }
-      />
-      <Route
-        exact
-        path="/tags"
-        render={e =>
-          isAuthenticated ? (
-            <Tags match={e.match} />
-          ) : (
-            <Redirect to="/login" push />
-          )
-        }
-      />
-      <Route
-        exact
-        path="/tags/:tag"
-        render={e =>
-          isAuthenticated ? (
-            <Tags match={e.match} />
-          ) : (
-            <Redirect to="/login" push />
-          )
-        }
-      />
+      <Route exact path="/add" component={Add} />
+      <Route exact path="/sauces/:page?/:pageNum?" component={Sauces} />
+      <Route exact path="/sauce/:slug" component={Single} />
+      <Route exact path="/sauce/:id/edit" component={SauceEdit} />
+      <Route exact path="/tags" component={Tags} />
+      <Route exact path="/tags/:tag" component={Tags} />
       <Route exact path="/register" component={Register} />
-      <Route
-        exact
-        path="/account"
-        render={e =>
-          isAuthenticated ? (
-            <Account history={e.history} />
-          ) : (
-            <Redirect to="/login" push />
-          )
-        }
-      />
+      <Route exact path="/account" component={Account} />
       <Route exact path="/account/reset/:token" component={ResetPassword} />
       <Route exact path="/login" component={Login} />
     </div>
@@ -136,17 +70,13 @@ const App = ({ isAuthenticated, flashMessage }) => {
 };
 
 App.PropTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
-  flashMessage: PropTypes.shape({
-    isVisible: PropTypes.bool.isRequired
-  }).isRequired
+  flashMessageVisible: PropTypes.bool.isRequired
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
-    isAuthenticated: !!state.user.token,
-    flashMessage: { isVisible: state.flashMessage.isVisible }
+    flashMessageVisible: !!state.flashMessage.isVisible
   };
-}
+};
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {})(App);
