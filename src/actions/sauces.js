@@ -1,17 +1,17 @@
 import api from "../api/api";
 
 export const saucesGot = ({ sauces }) => ({
-  type: "STORES_GOT",
+  type: "SAUCE_GOT",
   sauces
 });
 
 export const updatedSaucesItems = ({ store }) => ({
-  type: "UPDATED_STORES_ITEM",
+  type: "UPDATED_SAUCE_ITEM",
   store
 });
 
 export const saucesByTagGot = ({ sauces }) => ({
-  type: "STORES_BY_TAG_GOT",
+  type: "SAUCE_BY_TAG_GOT",
   sauces
 });
 

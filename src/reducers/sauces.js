@@ -1,8 +1,8 @@
 export default function sauces(state = [], action) {
   switch (action.type) {
-    case "STORES_GOT":
+    case "SAUCE_GOT":
       return action.sauces;
-    case "UPDATED_STORES_ITEM":
+    case "UPDATED_SAUCE_ITEM":
       //update single sauces item if sauces is already set
       return state
         ? state.map(sauce => {
@@ -13,7 +13,7 @@ export default function sauces(state = [], action) {
             return sauce;
           })
         : [];
-    case "STORES_BY_TAG_GOT":
+    case "SAUCE_BY_TAG_GOT":
       return action.sauces;
     case "SAUCE_HEARTED":
       //update single sauce
