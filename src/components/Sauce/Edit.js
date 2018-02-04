@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getInfo as getUserInfo } from "../../actions/user";
-import { getSauceById as getSauceInfo, updateSauce } from "../../actions/sauce";
-import { flashError } from "../../actions/flash";
+import { getInfo as getUserInfo } from "../../redux/actions/user";
+import {
+  getSauceById as getSauceInfo,
+  updateSauce
+} from "../../redux/actions/sauce";
+import { flashError } from "../../redux/actions/flash";
 
-import Form from "./Form.js";
+import Form from "./AddEditForm";
 
 class Edit extends Component {
   componentWillMount() {

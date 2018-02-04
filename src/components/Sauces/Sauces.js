@@ -4,11 +4,11 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { getSauces } from "../../actions/sauces";
-import { getInfo } from "../../actions/user";
-import { flashError } from "../../actions/flash";
-import { heartSauce, unHeartSauce } from "../../actions/user";
-import Card from "../Sauce/Card.js";
+import { getSauces } from "../../redux/actions/sauces";
+import { getInfo } from "../../redux/actions/user";
+import { flashError } from "../../redux/actions/flash";
+import { heartSauce, unHeartSauce } from "../../redux/actions/user";
+import Card from "../Card/Card.js";
 import Pagination from "./Pagination";
 
 class Sauces extends Component {

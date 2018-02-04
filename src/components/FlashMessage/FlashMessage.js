@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { flashClose } from "../../actions/flash";
+import { flashClose } from "../../redux/actions/flash";
 
 import Checker from "../../Helper/Checker/Checker.js";
 

@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addSauce } from "../../actions/sauce";
+import { addSauce } from "../../redux/actions/sauce";
 
-import AddForm from "../AddForm/AddForm.js";
+import Form from "./AddEditForm";
 
 class Add extends Component {
   componentWillMount() {
@@ -19,7 +19,7 @@ class Add extends Component {
     return (
       <div className="inner">
         <h2>Add Sauce</h2>
-        <AddForm onSubmit={this.handleFormSubmit} />
+        <Form onSubmit={this.handleFormSubmit} />
       </div>
     );
   }
@@ -33,7 +33,6 @@ class Add extends Component {
     formData.append("name", data.name);
     formData.append("description", data.description);
     formData.append("image", data.photo.file);
-    formData.append("coordinates", coordinates);
     formData.append("tags", tags);
     formData.append("token", this.props.user.token);
 

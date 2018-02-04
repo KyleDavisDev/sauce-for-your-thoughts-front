@@ -3,8 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getSauceBySlug as getSauce } from "../../actions/sauce";
-import { flashError } from "../../actions/flash";
+import { getSauceBySlug as getSauce } from "../../redux/actions/sauce";
+import { flashError } from "../../redux/actions/flash";
 
 import FillerImage from "../../images/photos/sauce.jpg";
 
@@ -39,10 +39,10 @@ class Single extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const slug = nextProps.match.params.slug;
-    if (slug && slug !== this.props.match.params.tag) {
-      this.getSauce(slug);
-    }
+    // const slug = nextProps.match.params.slug;
+    // if (slug && slug !== this.props.match.params.tag) {
+    //   this.getSauce(slug);
+    // }
   }
 
   render() {

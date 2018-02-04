@@ -3,8 +3,8 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { flashError, flashClose } from "../../actions/flash";
-import { register } from "../../actions/auth";
+import { flashError, flashClose } from "../../redux/actions/flash";
+import { register } from "../../redux/actions/auth";
 
 import Form from "./Form";
 import TextInput from "../TextInput/TextInput.js";

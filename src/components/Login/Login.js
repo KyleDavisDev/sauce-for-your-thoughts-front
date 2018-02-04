@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { login } from "../../actions/auth";
-import { flashError } from "../../actions/flash";
+import { login } from "../../redux/actions/auth";
+import { flashError } from "../../redux/actions/flash";
 
-import LoginForm from "./Form.js";
-import ForgotPasswordForm from "../ForgotPassword/Form.js";
+import LoginForm from "./LoginForm.js";
+import ForgotPasswordForm from "./ForgotPasswordForm";
 
 class Login extends Component {
   render() {

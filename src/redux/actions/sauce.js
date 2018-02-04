@@ -1,19 +1,19 @@
-import api from "../api/api";
+import api from "../../api/api";
 import { flashSuccess } from "./flash";
 import { updateSaucesItem } from "./sauces";
 
 //Not sure what I want to do with this yet...
 export const sauceAdded = () => ({
-  type: "STORE_ADDED"
+  type: "SAUCE_ADDED"
 });
 
 export const sauceFound = ({ sauce }) => ({
-  type: "STORE_FOUND",
+  type: "SAUCE_FOUND",
   sauce
 });
 
 export const sauceUpdated = () => ({
-  type: "STORE_UPDATED"
+  type: "SAUCE_UPDATED"
 });
 
 export const addSauce = data => dispatch => {
@@ -43,7 +43,7 @@ export const updateSauce = data => dispatch => {
     //remove sauce from redux
     dispatch(sauceUpdated());
     //update sauce in redux sauces array
-    dispatch(updateSaucesItem(res.sauce));
+    dispatch(updateSaucesItem({ sauce: res.sauce }));
     return res;
   });
 };

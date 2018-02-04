@@ -1,6 +1,6 @@
-import Checker from "../Helper/Checker/Checker";
-import api from "../api/api";
-import Auth from "../Helper/Auth/Auth";
+import Checker from "../../Helper/Checker/Checker";
+import api from "../../api/api";
+import Auth from "../../Helper/Auth/Auth";
 import { flashSuccess } from "./flash";
 
 export const userLoggedIn = user => ({

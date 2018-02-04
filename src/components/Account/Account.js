@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 
 import AccountForm from "./AccountForm";
 import api from "../../api/api";
-import { flashError, flashClose } from "../../actions/flash";
-import { getInfo, updateUser } from "../../actions/user";
+import { flashError, flashClose } from "../../redux/actions/flash";
+import { getInfo, updateUser } from "../../redux/actions/user";
 
 class Account extends Component {
   componentWillMount() {

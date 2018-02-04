@@ -1,17 +1,17 @@
-import api from "../api/api";
+import api from "../../api/api";
 
-export const saucesGot = ({ sauces }) => ({
-  type: "SAUCE_GOT",
+export const saucesFound = ({ sauces }) => ({
+  type: "SAUCES_FOUND",
   sauces
 });
 
-export const updatedSaucesItems = ({ store }) => ({
-  type: "UPDATED_SAUCE_ITEM",
-  store
+export const updatedSaucesItems = ({ sauce }) => ({
+  type: "UPDATED_SAUCES_ITEM",
+  sauce
 });
 
-export const saucesByTagGot = ({ sauces }) => ({
-  type: "SAUCE_BY_TAG_GOT",
+export const saucesByTagFound = ({ sauces }) => ({
+  type: "SAUCES_BY_TAG_FOUND",
   sauces
 });
 
@@ -27,19 +27,19 @@ export const sauceUnHearted = ({ sauce }) => ({
 
 export const getSauces = credentials => dispatch => {
   return api.sauces.get(credentials).then(res => {
-    dispatch(saucesGot({ sauces: res.sauces }));
+    dispatch(saucesFound({ sauces: res.sauces }));
     return res;
   });
 };
 
-export const updateSaucesItem = store => dispatch => {
-  dispatch(updatedSaucesItems({ store }));
+export const updateSaucesItem = ({ sauce }) => dispatch => {
+  dispatch(updatedSaucesItems({ sauce }));
   return;
 };
 
 export const getSaucesByTag = data => dispatch => {
   return api.sauces.getSaucesByTag(data).then(res => {
-    dispatch(saucesByTagGot({ sauces: res.sauces }));
+    dispatch(saucesByTagFound({ sauces: res.sauces }));
     return res;
   });
 };
@@ -47,15 +47,6 @@ export const getSaucesByTag = data => dispatch => {
 export const getSaucesBySearch = searchValue => dispatch => {
   return api.sauces.search(searchValue).then(res => {
     //dipatch event here in future (?)
-
-    return res;
-  });
-};
-
-export const getSaucesByMap = coordinates => dispatch => {
-  return api.sauces.searchByMap(coordinates).then(res => {
-    //dispatch event here in future (?)
-
     return res;
   });
 };

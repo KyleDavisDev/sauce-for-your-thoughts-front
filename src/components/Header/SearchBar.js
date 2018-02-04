@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { getSaucesBySearch as getSauces } from "../../actions/sauces";
+import { getSaucesBySearch as getSauces } from "../../redux/actions/sauces";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 

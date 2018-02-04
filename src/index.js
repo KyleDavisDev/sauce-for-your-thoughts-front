@@ -8,7 +8,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import RootReducer from "./reducers/rootReducer";
 import App from "./components/App/App.js";
 import "./scss/style.scss";
-import { isLoggedIn } from "./actions/auth";
+import { isLoggedIn } from "./redux/actions/auth";
 
 import Auth from "./Helper/Auth/Auth";
 

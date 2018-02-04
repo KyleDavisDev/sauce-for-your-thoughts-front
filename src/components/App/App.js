@@ -13,7 +13,7 @@ const Account = Loadable({
   loading: Loading
 });
 const Add = Loadable({
-  loader: () => System.import("../Add/Add"),
+  loader: () => System.import("../Sauce/Add"),
   loading: Loading
 });
 const FlashMessage = Loadable({

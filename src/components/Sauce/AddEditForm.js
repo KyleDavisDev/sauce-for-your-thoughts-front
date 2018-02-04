@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import TextInput from "../TextInput/TextInput.js";
-import Template from './template'
-
+import Template from "./template";
 
 const CheckBoxList = ({ tags, onChange }) => {
   return (
@@ -64,18 +63,16 @@ class Form extends Component {
       errors: {
         name: "",
         description: "",
-        location: "",
         photo: ""
       }
     };
   }
 
   componentWillMount() {
-    const {
-      name,
-      description,
-      photo
-    } = this.props;
+    const { name, description, photo } = this.props;
+
+    if (name === undefined || description === undefined || photo === undefined)
+      return;
 
     const tags = this.getProperTags(this.props.tags);
     this.setState({
@@ -90,11 +87,10 @@ class Form extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {
-      name,
-      description,
-      photo
-    } = nextProps;
+    const { name, description, photo } = nextProps;
+
+    if (name === undefined || description === undefined || photo === undefined)
+      return;
 
     const tags = this.getProperTags(nextProps.tags);
 
@@ -206,7 +202,7 @@ Form.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
   photo: PropTypes.string,
-  tags: PropTypes.array,
+  tags: PropTypes.array
 };
 
 export default Form;

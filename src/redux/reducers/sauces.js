@@ -1,9 +1,10 @@
 export default function sauces(state = [], action) {
   switch (action.type) {
-    case "SAUCE_GOT":
+    case "SAUCES_FOUND":
       return action.sauces;
-    case "UPDATED_SAUCE_ITEM":
+    case "UPDATED_SAUCES_ITEM":
       //update single sauces item if sauces is already set
+      console.log(action);
       return state
         ? state.map(sauce => {
             if (sauce._id === action.sauce._id) {
@@ -13,7 +14,7 @@ export default function sauces(state = [], action) {
             return sauce;
           })
         : [];
-    case "SAUCE_BY_TAG_GOT":
+    case "SAUCES_BY_TAG_FOUND":
       return action.sauces;
     case "SAUCE_HEARTED":
       //update single sauce

@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { connect } from "react-redux";
-import { logout } from "../../actions/auth";
+import { logout } from "../../redux/actions/auth";
 import UserLogInLogOut from "./UserLogInLogOut";
 import NavItems from "./NavItems";
 import SearchBar from "./SearchBar";

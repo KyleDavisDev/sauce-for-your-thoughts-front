@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logout } from "../../actions/auth";
+import { logout } from "../../redux/actions/auth";
 
 const Avatar = require("../../images/avatars/boy-10.png");
 import Logout from "../../images/icons/Logout.js";

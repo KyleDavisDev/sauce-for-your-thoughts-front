@@ -3,11 +3,11 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getInfo, heartSauce, unHeartSauce } from "../../actions/user";
-import { getSaucesByTag } from "../../actions/sauces";
-import { flashError } from "../../actions/flash";
-import { getTagsList } from "../../actions/tags";
-import Card from "../Sauce/Card.js";
+import { getInfo, heartSauce, unHeartSauce } from "../../redux/actions/user";
+import { getSaucesByTag } from "../../redux/actions/sauces";
+import { flashError } from "../../redux/actions/flash";
+import { getTagsList } from "../../redux/actions/tags";
+import Card from "../Card/Card.js";
 
 const Title = ({ title }) => {
   return <h2>Tags - {title}</h2>;
