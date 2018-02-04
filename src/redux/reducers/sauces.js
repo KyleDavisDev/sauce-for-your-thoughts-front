@@ -4,7 +4,6 @@ export default function sauces(state = [], action) {
       return action.sauces;
     case "UPDATED_SAUCES_ITEM":
       //update single sauces item if sauces is already set
-      console.log(action);
       return state
         ? state.map(sauce => {
             if (sauce._id === action.sauce._id) {
