@@ -4,7 +4,7 @@ import PlacesAutocomplete, {
   geocodeByAddress
 } from "react-places-autocomplete";
 import TextInput from "../TextInput/TextInput.js";
-import Template from '../Sauce/template'
+import Template from "../Sauce/template";
 import FillerImage from "../../images/photos/sauce.jpg";
 
 const CheckBoxList = ({ tags, onChange }) => {
@@ -102,6 +102,7 @@ class AddForm extends Component {
         <label htmlFor="photo"> Photo: </label>
         <PhotoUpload text={photo.name} onChange={this.onPhotoUpload} />
 
+        <label>Tags:</label>
         <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
 
         <button type="submit" className="button">
