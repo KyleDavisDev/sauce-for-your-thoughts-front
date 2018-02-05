@@ -14,8 +14,7 @@ const Card = ({
   description,
   displayEditIcon,
   heart,
-  heartSauce,
-  unHeartSauce
+  toggleSauce
 }) => {
   return (
     <div className="card">
@@ -31,14 +30,14 @@ const Card = ({
           <div className="card--action card--action__heart">
             {heart ? (
               <button
-                onClick={e => unHeartSauce(ID)}
+                onClick={e => toggleSauce(ID)}
                 className="button--action__active"
               >
                 <FilledHeart />
               </button>
             ) : (
               <button
-                onClick={e => heartSauce(ID)}
+                onClick={e => toggleSauce(ID)}
                 className="button--action__inactive"
               >
                 <Heart />
@@ -80,8 +79,7 @@ Card.propTypes = {
   description: PropTypes.string.isRequired,
   displayEditIcon: PropTypes.bool.isRequired,
   heart: PropTypes.bool.isRequired,
-  heartSauce: PropTypes.func.isRequired,
-  unHeartSauce: PropTypes.func.isRequired
+  toggleSauce: PropTypes.func.isRequired
 };
 
 export default connect(null, {})(Card);

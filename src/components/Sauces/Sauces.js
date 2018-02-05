@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { getSauces } from "../../redux/actions/sauces";
 import { getInfo } from "../../redux/actions/user";
 import { flashError } from "../../redux/actions/flash";
-import { heartSauce, unHeartSauce } from "../../redux/actions/user";
+import { toggleSauce } from "../../redux/actions/user";
 import Card from "../Card/Card.js";
 import Pagination from "./Pagination";
 
@@ -22,12 +22,7 @@ class Sauces extends Component {
     };
   }
 
-  componentWillMount() {
-    if (!this.props.user.token) this.props.history.push("/login");
-  }
-
   componentDidMount() {
-    if (!this.props.user.token) return;
     axios.all([this.getSauces(), this.getUserID()]).catch(error => {
       this.props.flashError({ text: error.response.data.msg });
     });
@@ -65,8 +60,7 @@ class Sauces extends Component {
       <Card
         displayEditIcon={email === sauce.author ? true : false}
         heart={sauce.heart}
-        heartSauce={this.heartSauce}
-        unHeartSauce={this.unHeartSauce}
+        toggleSauce={this.toggleSauce}
         ID={sauce._id}
         name={sauce.name}
         image={sauce.photo}
@@ -84,20 +78,19 @@ class Sauces extends Component {
 
   //this will pass token to api and store email/name into redux store on success
   getUserID = () => {
+    //make sure user is logged in
+    if (!this.props.user.token) return;
     //check if email already passed to component to save api call
     if (this.props.user.email) return;
     const data = { token: this.props.user.token };
     return this.props.getInfo(data);
   };
 
-  heartSauce = ID => {
+  toggleSauce = ID => {
     const data = { token: this.props.user.token, sauce: { _id: ID } };
-    this.props.heartSauce(data).catch(err => console.log(err));
-  };
-
-  unHeartSauce = ID => {
-    const data = { token: this.props.user.token, sauce: { _id: ID } };
-    this.props.unHeartSauce(data).catch(err => console.log(err));
+    this.props
+      .toggleSauce(data)
+      .catch(err => this.props.flashError({ text: err.response }));
   };
 }
 
@@ -117,8 +110,7 @@ Sauces.propTypes = {
     email: PropTypes.string
   }),
   getSauces: PropTypes.func.isRequired,
-  unHeartSauce: PropTypes.func.isRequired,
-  heartSauce: PropTypes.func.isRequired,
+  toggleSauce: PropTypes.func.isRequired,
   getInfo: PropTypes.func.isRequired,
   flashError: PropTypes.func.isRequired
 };
@@ -137,8 +129,7 @@ const mapDispatchToProps = {
   getSauces,
   getInfo,
   flashError,
-  heartSauce,
-  unHeartSauce
+  toggleSauce
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sauces);

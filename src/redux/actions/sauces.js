@@ -15,13 +15,8 @@ export const saucesByTagFound = ({ sauces }) => ({
   sauces
 });
 
-export const sauceHearted = ({ sauce }) => ({
-  type: "SAUCE_HEARTED",
-  sauce
-});
-
-export const sauceUnHearted = ({ sauce }) => ({
-  type: "SAUCE_UNHEARTED",
+export const toggleHearted = ({ sauce }) => ({
+  type: "TOGGLE_HEARTED",
   sauce
 });
 

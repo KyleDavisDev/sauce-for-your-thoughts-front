@@ -51,17 +51,8 @@ export default {
           }
         });
     },
-    heartSauce: data => {
-      return axios.post(`${host}/api/user/heartSauce`, data).then(res => {
-        if (res.data.isGood && res.status === 200) {
-          return res.data;
-        } else {
-          throw new Error(res.data.msg);
-        }
-      });
-    },
-    unHeartSauce: data => {
-      return axios.post(`${host}/api/user/unHeartSauce`, data).then(res => {
+    toggleSauce: data => {
+      return axios.post(`${host}/api/user/toggleSauce`, data).then(res => {
         if (res.data.isGood && res.status === 200) {
           return res.data;
         } else {

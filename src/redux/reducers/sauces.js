@@ -15,12 +15,12 @@ export default function sauces(state = [], action) {
         : [];
     case "SAUCES_BY_TAG_FOUND":
       return action.sauces;
-    case "SAUCE_HEARTED":
+    case "TOGGLE_HEARTED":
       //update single sauce
       return state
         ? state.map(sauce => {
             if (sauce._id === action.sauce._id) {
-              sauce.heart = true;
+              sauce.heart = !sauce.heart;
             }
             return sauce;
           })
