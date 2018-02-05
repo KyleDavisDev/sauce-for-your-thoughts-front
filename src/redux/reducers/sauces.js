@@ -20,7 +20,7 @@ export default function sauces(state = [], action) {
       return state
         ? state.map(sauce => {
             if (sauce._id === action.sauce._id) {
-              sauce.heart = !sauce.heart;
+              sauce.heart = !sauce.heart; //flip bool value
             }
             return sauce;
           })
