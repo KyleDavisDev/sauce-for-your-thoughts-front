@@ -59,6 +59,15 @@ export default {
           throw new Error(res.data.msg);
         }
       });
+    },
+    getHearts: credentials => {
+      return axios.post(`${host}/api/user/getHearts`, credentials).then(res => {
+        if (res.data.isGood && res.status === 200) {
+          return res.data;
+        } else {
+          throw new Error(res.data.msg);
+        }
+      });
     }
   },
   sauce: {

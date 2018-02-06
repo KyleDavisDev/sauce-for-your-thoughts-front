@@ -28,7 +28,7 @@ const Card = ({
             </div>
           )}
           <div className="card--action card--action__heart">
-            {heart ? (
+            {/* {heart ? (
               <button
                 onClick={e => toggleSauce(ID)}
                 className="button--action__active"
@@ -42,7 +42,7 @@ const Card = ({
               >
                 <Heart />
               </button>
-            )}
+            )} */}
           </div>
         </div>
         <img
@@ -78,7 +78,7 @@ Card.propTypes = {
   slug: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   displayEditIcon: PropTypes.bool.isRequired,
-  heart: PropTypes.bool.isRequired,
+  // heart: PropTypes.bool.isRequired,
   toggleSauce: PropTypes.func.isRequired
 };
 

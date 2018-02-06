@@ -19,6 +19,11 @@ export default function user(state = {}, action) {
       };
     case "USER_LOGGED_OUT":
       return {};
+    case "GOT_HEARTS":
+      return {
+        ...state,
+        hearts: action.hearts
+      };
     default:
       return state;
   }

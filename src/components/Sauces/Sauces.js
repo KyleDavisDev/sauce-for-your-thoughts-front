@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { getSauces } from "../../redux/actions/sauces";
 import { getInfo } from "../../redux/actions/user";
 import { flashError } from "../../redux/actions/flash";
-import { toggleSauce } from "../../redux/actions/user";
+import { toggleSauce, getHearts } from "../../redux/actions/user";
 import Card from "../Card/Card.js";
 import Pagination from "./Pagination";
 
@@ -23,9 +23,12 @@ class Sauces extends Component {
   }
 
   componentDidMount() {
-    axios.all([this.getSauces(), this.getUserID()]).catch(error => {
-      this.props.flashError({ text: error.response.data.msg });
-    });
+    axios
+      .all([this.getSauces(), this.getUserID(), this.getHearts()])
+      .catch(error => {
+        console.log(error);
+        // this.props.flashError({ text: error.response.data.msg });
+      });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -59,7 +62,7 @@ class Sauces extends Component {
     return (
       <Card
         displayEditIcon={email === sauce.author ? true : false}
-        heart={sauce.heart}
+        // heart={sauce.heart}
         toggleSauce={this.toggleSauce}
         ID={sauce._id}
         name={sauce.name}
@@ -84,6 +87,14 @@ class Sauces extends Component {
     if (this.props.user.email) return;
     const data = { token: this.props.user.token };
     return this.props.getInfo(data);
+  };
+
+  getHearts = () => {
+    //make sure user is logged in
+    if (!this.props.user.token) return;
+
+    const credentials = { token: this.props.user.token };
+    return this.props.getHearts(credentials);
   };
 
   toggleSauce = ID => {
@@ -112,7 +123,8 @@ Sauces.propTypes = {
   getSauces: PropTypes.func.isRequired,
   toggleSauce: PropTypes.func.isRequired,
   getInfo: PropTypes.func.isRequired,
-  flashError: PropTypes.func.isRequired
+  flashError: PropTypes.func.isRequired,
+  getHearts: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -129,7 +141,8 @@ const mapDispatchToProps = {
   getSauces,
   getInfo,
   flashError,
-  toggleSauce
+  toggleSauce,
+  getHearts
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sauces);
