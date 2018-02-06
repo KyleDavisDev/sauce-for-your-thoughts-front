@@ -3,7 +3,7 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getInfo, heartSauce, unHeartSauce } from "../../redux/actions/user";
+import { getInfo, toggleSauce, getHearts } from "../../redux/actions/user";
 import { getSaucesByTag } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
 import { getTagsList } from "../../redux/actions/tags";
@@ -16,16 +16,15 @@ Title.proptypes = {
   title: PropTypes.string.isRequired
 };
 
-const Cards = ({ sauces, email, heartSauce, unHeartSauce }) => {
+const Cards = ({ sauces, email, toggleSauce, hearts }) => {
   return (
     <div className="sauces">
       {sauces.map(sauce => {
         return (
           <Card
             displayEditIcon={email === sauce.author ? true : false}
-            heart={sauce.heart}
-            heartSauce={heartSauce}
-            unHeartSauce={unHeartSauce}
+            heart={hearts.includes(sauce._id)}
+            toggleSauce={toggleSauce}
             ID={sauce._id}
             name={sauce.name}
             image={sauce.photo}
@@ -99,7 +98,12 @@ class Tags extends Component {
     if (!this.props.user.token) return;
     const tag = this.props.match.params.tag || "All";
     axios
-      .all([this.getSaucesByTag(tag), this.getTagsList(), this.getUserInfo()])
+      .all([
+        this.getSaucesByTag(tag),
+        this.getTagsList(),
+        this.getUserInfo(),
+        this.getHearts()
+      ])
       .catch(err => console.log(err.response));
   }
 
@@ -113,7 +117,7 @@ class Tags extends Component {
   render() {
     const title = this.props.match.params.tag || "All";
     const { tags = [], sauces = [] } = this.props;
-    const email = this.props.user.email || "";
+    const { email = [], hearts = [] } = this.props.user;
     return (
       <div className="inner">
         <Title title={title} />
@@ -122,8 +126,8 @@ class Tags extends Component {
           <Cards
             sauces={sauces}
             email={email}
-            heartSauce={this.heartSauce}
-            unHeartSauce={this.unHeartSauce}
+            toggleSauce={this.toggleSauce}
+            hearts={hearts}
           />
         )}
       </div>
@@ -150,16 +154,19 @@ class Tags extends Component {
     return this.props.getTagsList();
   };
 
-  //'like' specific sauce
-  heartSauce = ID => {
-    const data = { token: this.props.user.token, sauce: { _id: ID } };
-    this.props.heartSauce(data).catch(err => console.log(err));
+  getHearts = () => {
+    //make sure user is logged in
+    if (!this.props.user.token) return;
+
+    const credentials = { token: this.props.user.token };
+    return this.props.getHearts(credentials);
   };
 
-  //'unlike' specific sauce
-  unHeartSauce = ID => {
+  toggleSauce = ID => {
     const data = { token: this.props.user.token, sauce: { _id: ID } };
-    this.props.unHeartSauce(data).catch(err => console.log(err));
+    this.props
+      .toggleSauce(data)
+      .catch(err => this.props.flashError({ text: err.response }));
   };
 }
 Tags.propTypes = {
@@ -175,14 +182,14 @@ Tags.propTypes = {
   ),
   user: PropTypes.shape({
     token: PropTypes.string,
-    email: PropTypes.string
+    email: PropTypes.string,
+    hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
   }),
   flashError: PropTypes.func.isRequired,
   getSaucesByTag: PropTypes.func.isRequired,
   getInfo: PropTypes.func.isRequired,
   getTagsList: PropTypes.func.isRequired,
-  heartSauce: PropTypes.func.isRequired,
-  unHeartSauce: PropTypes.func.isRequired
+  toggleSauce: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -190,7 +197,8 @@ const mapStateToProps = state => {
     sauces: state.sauces,
     user: {
       token: state.user.token,
-      email: state.user.email
+      email: state.user.email,
+      hearts: state.user.hearts
     },
     tags: state.tags
   };
@@ -201,8 +209,8 @@ const mapDispatchToProps = {
   getSaucesByTag,
   getInfo,
   getTagsList,
-  heartSauce,
-  unHeartSauce
+  toggleSauce,
+  getHearts
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Tags);
