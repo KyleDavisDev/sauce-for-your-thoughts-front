@@ -15,26 +15,6 @@ export default function sauces(state = [], action) {
         : [];
     case "SAUCES_BY_TAG_FOUND":
       return action.sauces;
-    case "TOGGLE_HEARTED":
-      //update single sauce
-      return state
-        ? state.map(sauce => {
-            if (sauce._id === action.sauce._id) {
-              sauce.heart = !sauce.heart; //flip bool value
-            }
-            return sauce;
-          })
-        : [];
-    case "SAUCE_UNHEARTED":
-      //update single sauce
-      return state
-        ? state.map(sauce => {
-            if (sauce._id === action.sauce._id) {
-              sauce.heart = false;
-            }
-            return sauce;
-          })
-        : [];
     default:
       return state;
   }
