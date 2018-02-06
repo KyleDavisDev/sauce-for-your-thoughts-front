@@ -59,10 +59,11 @@ class Sauces extends Component {
   }
 
   renderCards = ({ sauce, email }) => {
+    const hearts = this.props.user.hearts || [];
     return (
       <Card
         displayEditIcon={email === sauce.author ? true : false}
-        // heart={sauce.heart}
+        heart={hearts.includes(sauce._id)}
         toggleSauce={this.toggleSauce}
         ID={sauce._id}
         name={sauce.name}
@@ -118,7 +119,8 @@ Sauces.propTypes = {
   ),
   user: PropTypes.shape({
     token: PropTypes.string,
-    email: PropTypes.string
+    email: PropTypes.string,
+    hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
   }),
   getSauces: PropTypes.func.isRequired,
   toggleSauce: PropTypes.func.isRequired,
@@ -132,7 +134,8 @@ const mapStateToProps = state => {
     sauces: state.sauces,
     user: {
       token: state.user.token,
-      email: state.user.email
+      email: state.user.email,
+      hearts: state.user.hearts
     }
   };
 };
