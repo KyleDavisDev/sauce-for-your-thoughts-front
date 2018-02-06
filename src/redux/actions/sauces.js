@@ -15,11 +15,6 @@ export const saucesByTagFound = ({ sauces }) => ({
   sauces
 });
 
-export const toggleHearted = ({ sauce }) => ({
-  type: "TOGGLE_HEARTED",
-  sauce
-});
-
 export const getSauces = credentials => dispatch => {
   return api.sauces.get(credentials).then(res => {
     dispatch(saucesFound({ sauces: res.sauces }));

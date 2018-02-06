@@ -78,7 +78,7 @@ Card.propTypes = {
   slug: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   displayEditIcon: PropTypes.bool.isRequired,
-  heart: PropTypes.bool.isRequired,
+  // heart: PropTypes.bool.isRequired,
   toggleSauce: PropTypes.func.isRequired
 };
 
