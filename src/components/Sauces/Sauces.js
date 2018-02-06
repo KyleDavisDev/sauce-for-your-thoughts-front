@@ -5,9 +5,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { getSauces } from "../../redux/actions/sauces";
-import { getInfo } from "../../redux/actions/user";
 import { flashError } from "../../redux/actions/flash";
-import { toggleSauce, getHearts } from "../../redux/actions/user";
+import { getInfo, toggleSauce, getHearts } from "../../redux/actions/user";
 import Card from "../Card/Card.js";
 import Pagination from "./Pagination";
 
