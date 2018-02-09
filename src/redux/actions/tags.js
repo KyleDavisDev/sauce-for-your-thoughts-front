@@ -5,9 +5,17 @@ export const gotTagsList = ({ tags }) => ({
   tags
 });
 
+export const cleanedUpTags = () => ({
+  type: "CLEANED_UP_TAGS"
+});
+
 export const getTagsList = () => dispatch => {
   return api.tags.getList().then(res => {
     dispatch(gotTagsList({ tags: res.tags }));
     return res;
   });
+};
+
+export const cleanUpTags = () => dispatch => {
+  dispatch(cleanedUpTags());
 };
