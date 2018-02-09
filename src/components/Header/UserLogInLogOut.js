@@ -13,7 +13,7 @@ const LoggedIn = ({ onClick }) => {
       <li className="nav-item">
         <NavLink className="nav-link" activeClassName="active" to="/account">
           <img src={Avatar} className="nav-avatar" />
-          Settings
+          SETTINGS
         </NavLink>
       </li>
       <li className="nav-item">
@@ -24,7 +24,7 @@ const LoggedIn = ({ onClick }) => {
           activeClassName="active"
         >
           <Logout />
-          Logout
+          LOGOUT
         </NavLink>
       </li>
     </div>
@@ -39,12 +39,12 @@ const NotLoggedIn = () => {
     <div className="item-holder">
       <li className="nav-item">
         <NavLink className="nav-link" activeClassName="active" to="/register">
-          Register
+          REGISTER
         </NavLink>
       </li>
       <li className="nav-item">
         <NavLink className="nav-link" activeClassName="active" to="/login">
-          Login
+          LOGIN
         </NavLink>
       </li>
     </div>
