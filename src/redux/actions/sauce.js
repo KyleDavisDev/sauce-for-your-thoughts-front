@@ -16,6 +16,11 @@ export const sauceUpdated = () => ({
   type: "SAUCE_UPDATED"
 });
 
+//clear sauce from redux store
+export const cleanedUpSauce = () => ({
+  type: "CLEANED_UP_SAUCE"
+});
+
 export const addSauce = data => dispatch => {
   return api.sauce.add(data).then(res => {
     // dispatch(sauceAdded())
@@ -46,4 +51,8 @@ export const updateSauce = data => dispatch => {
     dispatch(updateSaucesItem({ sauce: res.sauce }));
     return res;
   });
+};
+
+export const cleanUpSauce = () => dispatch => {
+  dispatch(cleanedUpSauce());
 };
