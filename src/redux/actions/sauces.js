@@ -15,6 +15,10 @@ export const saucesByTagFound = ({ sauces }) => ({
   sauces
 });
 
+export const cleanedUpSauces = () => ({
+  type: "CLEANED_UP_SAUCES"
+});
+
 export const getSauces = credentials => dispatch => {
   return api.sauces.get(credentials).then(res => {
     dispatch(saucesFound({ sauces: res.sauces }));
@@ -39,4 +43,8 @@ export const getSaucesBySearch = searchValue => dispatch => {
     //dipatch event here in future (?)
     return res;
   });
+};
+
+export const cleanUpSauces = () => dispatch => {
+  dispatch(cleanedUpSauces());
 };
