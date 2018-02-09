@@ -15,6 +15,8 @@ export default function sauces(state = [], action) {
         : [];
     case "SAUCES_BY_TAG_FOUND":
       return action.sauces;
+    case "CLEANED_UP_SAUCES":
+      return [];
     default:
       return state;
   }
