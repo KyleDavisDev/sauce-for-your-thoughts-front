@@ -13,6 +13,7 @@ const Card = ({
   slug,
   description,
   displayEditIcon,
+  displayHeartIcon,
   heart,
   toggleSauce
 }) => {
@@ -28,21 +29,7 @@ const Card = ({
             </div>
           )}
           <div className="card--action card--action__heart">
-            {heart ? (
-              <button
-                onClick={e => toggleSauce(ID)}
-                className="button--action__active"
-              >
-                <FilledHeart />
-              </button>
-            ) : (
-              <button
-                onClick={e => toggleSauce(ID)}
-                className="button--action__inactive"
-              >
-                <Heart />
-              </button>
-            )}
+            {handleHeartIcon()}
           </div>
         </div>
         <img
@@ -69,6 +56,29 @@ const Card = ({
       </div>
     </div>
   );
+
+  //only render appropriate heart icon if displayHeartIcon is true
+  //function declaration so we can write it below our 'render' and it will still be hoisted
+  function handleHeartIcon() {
+    if (!displayHeartIcon) return;
+    {
+      return heart ? (
+        <button
+          onClick={e => toggleSauce(ID)}
+          className="button--action__active"
+        >
+          <FilledHeart />
+        </button>
+      ) : (
+        <button
+          onClick={e => toggleSauce(ID)}
+          className="button--action__inactive"
+        >
+          <Heart />
+        </button>
+      );
+    }
+  }
 };
 
 Card.propTypes = {
@@ -78,6 +88,7 @@ Card.propTypes = {
   slug: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   displayEditIcon: PropTypes.bool.isRequired,
+  displayHeartIcon: PropTypes.bool.isRequired,
   heart: PropTypes.bool.isRequired,
   toggleSauce: PropTypes.func.isRequired
 };
