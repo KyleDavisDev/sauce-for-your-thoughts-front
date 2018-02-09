@@ -4,7 +4,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { getSauces } from "../../redux/actions/sauces";
+import { getSauces, cleanUpSauces } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
 import { getInfo, toggleSauce, getHearts } from "../../redux/actions/user";
 import Card from "../Card/Card.js";
@@ -35,6 +35,10 @@ class Sauces extends Component {
     this.setState({ page });
   }
 
+  componentWillUnmount() {
+    this.props.cleanUpSauces();
+  }
+
   render() {
     const sauces = this.props.sauces || [];
     const email = this.props.user.email || "";
@@ -59,9 +63,11 @@ class Sauces extends Component {
 
   renderCards = ({ sauce, email }) => {
     const hearts = this.props.user.hearts || [];
+    const displayHeartIcon = !!this.props.user.token;
     return (
       <Card
         displayEditIcon={email === sauce.author ? true : false}
+        displayHeartIcon={displayHeartIcon}
         heart={hearts.includes(sauce._id)}
         toggleSauce={this.toggleSauce}
         ID={sauce._id}
@@ -85,6 +91,7 @@ class Sauces extends Component {
     if (!this.props.user.token) return;
     //check if email already passed to component to save api call
     if (this.props.user.email) return;
+
     const data = { token: this.props.user.token };
     return this.props.getInfo(data);
   };
@@ -122,6 +129,7 @@ Sauces.propTypes = {
     hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
   }),
   getSauces: PropTypes.func.isRequired,
+  cleanUpSauces: PropTypes.func.isRequired,
   toggleSauce: PropTypes.func.isRequired,
   getInfo: PropTypes.func.isRequired,
   flashError: PropTypes.func.isRequired,
@@ -141,6 +149,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   getSauces,
+  cleanUpSauces,
   getInfo,
   flashError,
   toggleSauce,
