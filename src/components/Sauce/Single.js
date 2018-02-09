@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getSauceBySlug as getSauce } from "../../redux/actions/sauce";
+import { getSauceBySlug, cleanUpSauce } from "../../redux/actions/sauce";
 import { flashError } from "../../redux/actions/flash";
 
 import FillerImage from "../../images/photos/sauce.jpg";
@@ -28,21 +28,14 @@ GenerateTagsList.proptypes = {
 };
 
 class Single extends Component {
-  componentWillMount() {
-    if (!this.props.user.token) this.props.history.push("/login");
-  }
-
   componentDidMount() {
-    if (!this.props.user.token) return;
     const slug = this.props.match.params.slug;
-    this.getSauce(slug);
+    this.getSauceBySlug(slug);
   }
 
-  componentWillReceiveProps(nextProps) {
-    // const slug = nextProps.match.params.slug;
-    // if (slug && slug !== this.props.match.params.tag) {
-    //   this.getSauce(slug);
-    // }
+  componentWillUnmount() {
+    //clear sauce from redux store
+    this.props.cleanUpSauce();
   }
 
   render() {
@@ -80,8 +73,8 @@ class Single extends Component {
     );
   }
 
-  getSauce = slug => {
-    this.props.getSauce(slug).catch(err => {
+  getSauceBySlug = slug => {
+    this.props.getSauceBySlug(slug).catch(err => {
       this.props.flashError({ text: err.response.data.msg });
     });
   };
@@ -96,8 +89,9 @@ Single.proptypes = {
   user: {
     token: PropTypes.string
   },
-  getSauce: PropTypes.func.isRequired,
-  flashError: PropTypes.func.isRequired
+  getSauceBySlug: PropTypes.func.isRequired,
+  flashError: PropTypes.func.isRequired,
+  cleanUpSauce: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -110,8 +104,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  getSauce,
-  flashError
+  getSauceBySlug,
+  flashError,
+  cleanUpSauce
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Single);
