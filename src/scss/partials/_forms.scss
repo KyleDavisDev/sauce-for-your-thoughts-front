@@ -92,4 +92,17 @@ textarea {
     margin: 0;
     color: red;
   }
+
+  svg {
+    height: 50px;
+    width: 50px;
+
+    .border {
+      fill: $yellow;
+    }
+
+    .center {
+      fill: $white;
+    }
+  }
 }
