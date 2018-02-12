@@ -55,12 +55,29 @@ PhotoUpload.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
-const Rating = ({ onClick }) => {
-  return (
-    <div>
-      <Star />
-    </div>
-  );
+const RatingSection = ({ onClick }) => {
+  //create array of length 10, w/ each index having a <Star /> value
+  const starArray = Array.apply(null, Array(10)).map((x, ind) => <Star />);
+  const createTenStars = () => {
+    return starArray.map((star, ind) => {
+      return (
+        <button
+          type="button"
+          className="star"
+          key={ind}
+          onClick={e => onHover(ind)}
+        >
+          {star}
+        </button>
+      );
+    });
+
+    function onHover(ind) {
+      console.log(ind);
+    }
+  };
+
+  return <div className="star--container">{createTenStars()}</div>;
 };
 
 class Form extends Component {
@@ -117,17 +134,13 @@ class Form extends Component {
   render() {
     const { name, description, tags, photo } = this.state.data;
     return (
-      <form
-        onSubmit={this.handleSubmit}
-        name="addForm"
-        className="form"
-        encType="multipart/form-data"
-      >
+      <form name="addForm" className="form" encType="multipart/form-data">
         <TextInput
           id="Name"
           name="Name"
           type="text"
           onChange={this.onChange}
+          onSubmit={this.handleSubmit}
           value={name}
         />
 
@@ -147,9 +160,11 @@ class Form extends Component {
         <label>Tags:</label>
         <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
 
-        <label>Rating</label>
-        {/* <Rating onClick={this.onRatingClick} /> */}
-        <Star />
+        <label className="rating--label">
+          Rating: {this.state.data.rating}
+        </label>
+        <RatingSection onClick={this.onRatingClick} />
+
         <button type="submit" className="button">
           Add ->
         </button>
@@ -207,6 +222,8 @@ class Form extends Component {
       return tag;
     });
   };
+
+  onRatingClick = () => {};
 }
 
 Form.propTypes = {
