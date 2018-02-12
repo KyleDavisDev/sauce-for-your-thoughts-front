@@ -55,30 +55,76 @@ PhotoUpload.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
-const RatingSection = ({ onClick }) => {
-  //create array of length 10, w/ each index having a <Star /> value
-  const starArray = Array.apply(null, Array(10)).map((x, ind) => <Star />);
-  const createTenStars = () => {
-    return starArray.map((star, ind) => {
+class RatingSection extends Component {
+  constructor(props) {
+    super(props);
+
+    //create array of length 10, w/ each index having a <Star /> value
+    this.state = {
+      ratingSet: false,
+      starArray: Array.apply(null, Array(10)).map((x, ind) => {
+        const classVal = ind < this.props.rating ? "filled" : "empty";
+        return { logo: <Star />, classVal };
+      })
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("nextprps", nextProps.rating);
+    this.toggleStars(nextProps.rating - 1);
+  }
+
+  render() {
+    return <div className="star--container">{this.createTenStars()}</div>;
+  }
+
+  toggleStars = ind => {
+    if (this.state.ratingSet) return;
+    this.setState(prevState => {
+      return {
+        starArray: prevState.starArray.map((star, i) => {
+          const classVal = i <= ind ? "filled" : "empty";
+          return { ...star, classVal };
+        })
+      };
+    });
+  };
+
+  //TODO: Debugg this
+  //ratingSet not hold correct value after multiple stars have been clicked
+  onClick = rating => {
+    console.log(rating);
+    console.log(this.props.rating);
+    //togle ratingSet
+    if (rating === this.props.rating) {
+      this.setState({ ratingSet: false });
+    } else {
+      this.setState({ ratingSet: true });
+    }
+
+    //emit onClick from parent
+    //this will cause this.props.rating to change and make this component call
+    //componWillReceiveProps
+    this.props.onClick(rating);
+  };
+
+  createTenStars = () => {
+    return this.state.starArray.map((star, ind) => {
       return (
         <button
           type="button"
-          className="star"
+          className={`star star--${star.classVal}`}
           key={ind}
-          onClick={e => onHover(ind)}
+          onClick={e => this.onClick(ind + 1)}
+          onMouseEnter={e => this.toggleStars(ind)}
+          onMouseLeave={e => this.toggleStars(-1)}
         >
-          {star}
+          {star.logo}
         </button>
       );
     });
-
-    function onHover(ind) {
-      console.log(ind);
-    }
   };
-
-  return <div className="star--container">{createTenStars()}</div>;
-};
+}
 
 class Form extends Component {
   constructor(props) {
@@ -163,7 +209,10 @@ class Form extends Component {
         <label className="rating--label">
           Rating: {this.state.data.rating}
         </label>
-        <RatingSection onClick={this.onRatingClick} />
+        <RatingSection
+          onClick={this.onRatingClick}
+          rating={this.state.data.rating}
+        />
 
         <button type="submit" className="button">
           Add ->
@@ -223,7 +272,15 @@ class Form extends Component {
     });
   };
 
-  onRatingClick = () => {};
+  onRatingClick = val => {
+    this.setState({
+      ...this.state,
+      data: {
+        ...this.state.data,
+        rating: val
+      }
+    });
+  };
 }
 
 Form.propTypes = {
