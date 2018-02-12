@@ -93,16 +93,41 @@ textarea {
     color: red;
   }
 
-  svg {
-    height: 50px;
-    width: 50px;
+  .rating--label {
+    padding-bottom: 0px;
+  }
 
-    .border {
-      fill: $yellow;
-    }
+  .star--container {
+    display: flex;
 
-    .center {
-      fill: $white;
+    button.star {
+      background: $white;
+      border: none;
+      padding: 10px 0px;
+      width: inherit;
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        border: none;
+        outline-color: $white;
+
+        .center {
+          fill: $yellow;
+        }
+      }
+
+      svg {
+        height: 50px;
+        width: 50px;
+
+        .border {
+          fill: $yellow;
+        }
+
+        .center {
+          fill: $white;
+        }
+      }
     }
   }
 }
