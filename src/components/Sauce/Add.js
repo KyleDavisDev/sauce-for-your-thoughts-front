@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addSauce } from "../../redux/actions/sauce";
 
-import Form from "./AddEditForm";
+import Form from "./Form";
 
 class Add extends Component {
   componentWillMount() {
