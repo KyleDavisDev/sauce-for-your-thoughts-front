@@ -105,13 +105,34 @@ textarea {
       border: none;
       padding: 10px 0px;
       width: inherit;
+
       &:hover,
       &:focus {
         cursor: pointer;
         border: none;
         outline-color: $white;
+      }
 
+      &.star--empty {
         .center {
+          fill: $white;
+        }
+        .border {
+          fill: $yellow;
+        }
+
+        &:hover,
+        &:focus {
+          .center,
+          .border {
+            fill: $yellow;
+          }
+        }
+      }
+
+      &.star--filled {
+        .center,
+        .border {
           fill: $yellow;
         }
       }
@@ -119,14 +140,6 @@ textarea {
       svg {
         height: 50px;
         width: 50px;
-
-        .border {
-          fill: $yellow;
-        }
-
-        .center {
-          fill: $white;
-        }
       }
     }
   }
