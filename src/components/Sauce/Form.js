@@ -61,7 +61,7 @@ class RatingSection extends Component {
 
     //create array of length 10, w/ each index having a <Star /> value
     this.state = {
-      ratingSet: false,
+      rating: this.props.rating,
       starArray: Array.apply(null, Array(10)).map((x, ind) => {
         const classVal = ind < this.props.rating ? "filled" : "empty";
         return { logo: <Star />, classVal };
@@ -70,8 +70,7 @@ class RatingSection extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("nextprps", nextProps.rating);
-    this.toggleStars(nextProps.rating - 1);
+    this.toggleStars(nextProps.rating);
   }
 
   render() {
@@ -79,11 +78,11 @@ class RatingSection extends Component {
   }
 
   toggleStars = ind => {
-    if (this.state.ratingSet) return;
     this.setState(prevState => {
       return {
+        rating: ind,
         starArray: prevState.starArray.map((star, i) => {
-          const classVal = i <= ind ? "filled" : "empty";
+          const classVal = i < ind ? "filled" : "empty";
           return { ...star, classVal };
         })
       };
@@ -93,14 +92,14 @@ class RatingSection extends Component {
   //TODO: Debugg this
   //ratingSet not hold correct value after multiple stars have been clicked
   onClick = rating => {
-    console.log(rating);
-    console.log(this.props.rating);
-    //togle ratingSet
-    if (rating === this.props.rating) {
-      this.setState({ ratingSet: false });
-    } else {
-      this.setState({ ratingSet: true });
-    }
+    // console.log(rating);
+    // console.log(this.props.rating);
+    // //togle ratingSet
+    // if (rating === this.props.rating) {
+    //   this.setState({ ratingSet: false });
+    // } else {
+    //   this.setState({ ratingSet: true });
+    // }
 
     //emit onClick from parent
     //this will cause this.props.rating to change and make this component call
@@ -211,7 +210,8 @@ class Form extends Component {
         </label>
         <RatingSection
           onClick={this.onRatingClick}
-          rating={this.state.data.rating}
+          rating={3}
+          // rating={this.state.data.rating}
         />
 
         <button type="submit" className="button">
