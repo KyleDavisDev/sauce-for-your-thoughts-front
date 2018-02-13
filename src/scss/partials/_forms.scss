@@ -106,8 +106,11 @@ textarea {
       padding: 10px 0px;
       width: inherit;
 
-      &:hover,
       &:focus {
+        outline-width: 0px;
+      }
+
+      &:hover {
         cursor: pointer;
         border: none;
         outline-color: $white;
@@ -121,8 +124,7 @@ textarea {
           fill: $yellow;
         }
 
-        &:hover,
-        &:focus {
+        &:hover {
           .center,
           .border {
             fill: $yellow;
