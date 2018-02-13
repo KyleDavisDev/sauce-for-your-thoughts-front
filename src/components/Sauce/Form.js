@@ -61,6 +61,7 @@ class RatingSection extends Component {
 
     //create array of length 10, w/ each index having a <Star /> value
     this.state = {
+      hold: false,
       rating: this.props.rating,
       starArray: Array.apply(null, Array(10)).map((x, ind) => {
         const classVal = ind < this.props.rating ? "filled" : "empty";
@@ -70,7 +71,25 @@ class RatingSection extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.toggleStars(nextProps.rating);
+    console.log(nextProps, this.state);
+    if (nextProps.rating === 0) return;
+
+    const rating =
+      nextProps.rating === this.state.rating ? 0 : nextProps.rating;
+    const hold = nextProps.rating === this.state.rating ? false : true;
+    const starArray = this.state.starArray.map((x, ind) => {
+      const classVal = ind < nextProps.rating ? "filled" : "empty";
+      return { logo: <Star />, classVal };
+    });
+    this.setState(prevState => ({
+      rating,
+      hold,
+      starArray
+    }));
+
+    //this will reset the value next to "Rating:" in Form component
+    //will also cause componentWillReiveProps to trigger again which should possibly be looked into later
+    if (rating === 0) this.props.onClick(0);
   }
 
   render() {
@@ -89,22 +108,19 @@ class RatingSection extends Component {
     });
   };
 
-  //TODO: Debugg this
-  //ratingSet not hold correct value after multiple stars have been clicked
   onClick = rating => {
-    // console.log(rating);
-    // console.log(this.props.rating);
-    // //togle ratingSet
-    // if (rating === this.props.rating) {
-    //   this.setState({ ratingSet: false });
-    // } else {
-    //   this.setState({ ratingSet: true });
-    // }
-
-    //emit onClick from parent
-    //this will cause this.props.rating to change and make this component call
-    //componWillReceiveProps
+    const curRating = this.state.rating;
     this.props.onClick(rating);
+  };
+
+  onMouseLeave = ind => {
+    if (this.state.hold) return;
+    this.toggleStars(0);
+  };
+
+  onMouseEnter = ind => {
+    if (this.state.hold) return;
+    this.toggleStars(ind);
   };
 
   createTenStars = () => {
@@ -115,8 +131,8 @@ class RatingSection extends Component {
           className={`star star--${star.classVal}`}
           key={ind}
           onClick={e => this.onClick(ind + 1)}
-          onMouseEnter={e => this.toggleStars(ind)}
-          onMouseLeave={e => this.toggleStars(-1)}
+          onMouseEnter={e => this.onMouseEnter(ind)}
+          onMouseLeave={e => this.onMouseLeave(ind)}
         >
           {star.logo}
         </button>
@@ -210,8 +226,7 @@ class Form extends Component {
         </label>
         <RatingSection
           onClick={this.onRatingClick}
-          rating={3}
-          // rating={this.state.data.rating}
+          rating={this.state.data.rating}
         />
 
         <button type="submit" className="button">
