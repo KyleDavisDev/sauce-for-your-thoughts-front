@@ -12,10 +12,18 @@ textarea {
   border: 1px solid #ababab;
 }
 
+textarea {
+  min-width: 100%;
+  min-height: 35px;
+}
+
 .form {
   background: $content-background;
   padding: 2rem;
 
+  .tags {
+    margin-bottom: 0px;
+  }
   & + .form {
     margin-top: 4rem;
   }
@@ -99,6 +107,7 @@ textarea {
 
   .star--container {
     display: flex;
+    flex-wrap: wrap;
 
     button.star {
       background: $white;
