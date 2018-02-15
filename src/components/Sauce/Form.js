@@ -71,7 +71,6 @@ class RatingSection extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps, this.state);
     if (nextProps.rating === 0) return;
 
     const rating =
@@ -140,6 +139,10 @@ class RatingSection extends Component {
     });
   };
 }
+RatingSection.propTypes = {
+  rating: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired
+};
 
 class Form extends Component {
   constructor(props) {
@@ -155,28 +158,15 @@ class Form extends Component {
     };
   }
 
-  componentWillMount() {
-    const { name, description, photo } = this.props;
-
-    if (name === undefined || description === undefined || photo === undefined)
-      return;
-
-    const tags = this.getProperTags(this.props.tags);
-    this.setState({
-      ...this.state,
-      data: {
-        name,
-        description,
-        photo: { name: photo },
-        tags
-      }
-    });
-  }
-
   componentWillReceiveProps(nextProps) {
-    const { name, description, photo } = nextProps;
+    const { name, description, photo, rating } = nextProps;
 
-    if (name === undefined || description === undefined || photo === undefined)
+    if (
+      name === undefined ||
+      description === undefined ||
+      photo === undefined ||
+      rating === undefined
+    )
       return;
 
     const tags = this.getProperTags(nextProps.tags);
@@ -187,13 +177,14 @@ class Form extends Component {
         name,
         description,
         photo: { name: photo },
-        tags
+        tags,
+        rating
       }
     });
   }
 
   render() {
-    const { name, description, tags, photo } = this.state.data;
+    const { name, description, tags, photo, rating } = this.state.data;
     return (
       <form name="addForm" className="form" encType="multipart/form-data">
         <TextInput
@@ -221,13 +212,8 @@ class Form extends Component {
         <label>Tags:</label>
         <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
 
-        <label className="rating--label">
-          Rating: {this.state.data.rating}
-        </label>
-        <RatingSection
-          onClick={this.onRatingClick}
-          rating={this.state.data.rating}
-        />
+        <label className="rating--label">Rating: {rating}</label>
+        <RatingSection onClick={this.onRatingClick} rating={rating} />
 
         <button type="submit" className="button">
           Add ->
