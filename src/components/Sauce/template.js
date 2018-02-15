@@ -42,5 +42,6 @@ export default {
   photo: {
     name: ""
   },
+  review: "",
   rating: 0
 };
