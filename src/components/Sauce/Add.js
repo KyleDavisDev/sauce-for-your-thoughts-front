@@ -34,6 +34,7 @@ class Add extends Component {
     formData.append("description", data.description);
     formData.append("image", data.photo.file);
     formData.append("tags", tags);
+    formData.append("rating", data.rating);
     formData.append("token", this.props.user.token);
 
     this.props
