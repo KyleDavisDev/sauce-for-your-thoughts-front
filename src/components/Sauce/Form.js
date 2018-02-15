@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import TextInput from "../TextInput/TextInput.js";
 import Template from "./template";
+import Star from "../../images/icons/Star";
 
 const CheckBoxList = ({ tags, onChange }) => {
   return (
@@ -54,6 +55,95 @@ PhotoUpload.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
+class RatingSection extends Component {
+  constructor(props) {
+    super(props);
+
+    //create array of length 10, w/ each index having a <Star /> value
+    this.state = {
+      hold: false,
+      rating: this.props.rating,
+      starArray: Array.apply(null, Array(10)).map((x, ind) => {
+        const classVal = ind < this.props.rating ? "filled" : "empty";
+        return { logo: <Star />, classVal };
+      })
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.rating === 0) return;
+
+    const rating =
+      nextProps.rating === this.state.rating ? 0 : nextProps.rating;
+    const hold = nextProps.rating === this.state.rating ? false : true;
+    const starArray = this.state.starArray.map((x, ind) => {
+      const classVal = ind < nextProps.rating ? "filled" : "empty";
+      return { logo: <Star />, classVal };
+    });
+    this.setState(prevState => ({
+      rating,
+      hold,
+      starArray
+    }));
+
+    //this will reset the value next to "Rating:" in Form component
+    //will also cause componentWillReiveProps to trigger again which should possibly be looked into later
+    if (rating === 0) this.props.onClick(0);
+  }
+
+  render() {
+    return <div className="star--container">{this.createTenStars()}</div>;
+  }
+
+  toggleStars = ind => {
+    this.setState(prevState => {
+      return {
+        rating: ind,
+        starArray: prevState.starArray.map((star, i) => {
+          const classVal = i < ind ? "filled" : "empty";
+          return { ...star, classVal };
+        })
+      };
+    });
+  };
+
+  onClick = rating => {
+    const curRating = this.state.rating;
+    this.props.onClick(rating);
+  };
+
+  onMouseLeave = ind => {
+    if (this.state.hold) return;
+    this.toggleStars(0);
+  };
+
+  onMouseEnter = ind => {
+    if (this.state.hold) return;
+    this.toggleStars(ind);
+  };
+
+  createTenStars = () => {
+    return this.state.starArray.map((star, ind) => {
+      return (
+        <button
+          type="button"
+          className={`star star--${star.classVal}`}
+          key={ind}
+          onClick={e => this.onClick(ind + 1)}
+          onMouseEnter={e => this.onMouseEnter(ind)}
+          onMouseLeave={e => this.onMouseLeave(ind)}
+        >
+          {star.logo}
+        </button>
+      );
+    });
+  };
+}
+RatingSection.propTypes = {
+  rating: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired
+};
+
 class Form extends Component {
   constructor(props) {
     super(props);
@@ -68,28 +158,16 @@ class Form extends Component {
     };
   }
 
-  componentWillMount() {
-    const { name, description, photo } = this.props;
-
-    if (name === undefined || description === undefined || photo === undefined)
-      return;
-
-    const tags = this.getProperTags(this.props.tags);
-    this.setState({
-      ...this.state,
-      data: {
-        name,
-        description,
-        photo: { name: photo },
-        tags
-      }
-    });
-  }
-
   componentWillReceiveProps(nextProps) {
-    const { name, description, photo } = nextProps;
+    const { name, description, photo, review, rating } = nextProps;
 
-    if (name === undefined || description === undefined || photo === undefined)
+    if (
+      name === undefined ||
+      description === undefined ||
+      photo === undefined ||
+      review === undefined ||
+      rating === undefined
+    )
       return;
 
     const tags = this.getProperTags(nextProps.tags);
@@ -100,25 +178,27 @@ class Form extends Component {
         name,
         description,
         photo: { name: photo },
-        tags
+        tags,
+        rating
       }
     });
   }
 
   render() {
-    const { name, description, tags, photo } = this.state.data;
+    const { name, description, tags, photo, review, rating } = this.state.data;
     return (
       <form
-        onSubmit={this.handleSubmit}
         name="addForm"
         className="form"
         encType="multipart/form-data"
+        onSubmit={this.handleSubmit}
       >
         <TextInput
           id="Name"
           name="Name"
           type="text"
           onChange={this.onChange}
+          onSubmit={this.handleSubmit}
           value={name}
         />
 
@@ -132,11 +212,24 @@ class Form extends Component {
           value={description}
         />
 
-        <label htmlFor="photo"> Photo: </label>
+        <label htmlFor="photo">Photo: </label>
         <PhotoUpload text={photo.name} onChange={this.onPhotoUpload} />
 
         <label>Tags:</label>
         <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
+
+        <label htmlFor="review">Review: </label>
+        <textarea
+          id="review"
+          name="review"
+          cols="30"
+          rows="10"
+          onChange={this.onChange}
+          value={review}
+        />
+
+        <label className="rating--label">Overal Rating: {rating}</label>
+        <RatingSection onClick={this.onRatingClick} rating={rating} />
 
         <button type="submit" className="button">
           Add ->
@@ -193,6 +286,16 @@ class Form extends Component {
         tag.isChecked = true;
       }
       return tag;
+    });
+  };
+
+  onRatingClick = val => {
+    this.setState({
+      ...this.state,
+      data: {
+        ...this.state.data,
+        rating: val
+      }
     });
   };
 }

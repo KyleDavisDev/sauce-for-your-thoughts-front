@@ -9,7 +9,7 @@ import {
 } from "../../redux/actions/sauce";
 import { flashError } from "../../redux/actions/flash";
 
-import Form from "./AddEditForm";
+import Form from "./Form";
 
 class Edit extends Component {
   componentWillMount() {

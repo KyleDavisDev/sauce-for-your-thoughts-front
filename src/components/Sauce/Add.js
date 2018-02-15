@@ -3,8 +3,9 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addSauce } from "../../redux/actions/sauce";
+import Auth from "../../Helper/Auth/Auth";
 
-import Form from "./AddEditForm";
+import Form from "./Form";
 
 class Add extends Component {
   componentWillMount() {
@@ -28,18 +29,24 @@ class Add extends Component {
     //make tags an array of checked tags
     const tags = data.tags.filter(tag => tag.isChecked).map(tag => tag.name);
 
+    //make sure token is still good/not expired
+    if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
+
+    //TODO: pass data by sending better thought-out objects
     //construct FormData object since we are passing image file
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("description", data.description);
     formData.append("image", data.photo.file);
     formData.append("tags", tags);
+    formData.append("review", data.review);
+    formData.append("rating", data.rating);
     formData.append("token", this.props.user.token);
 
     this.props
       .addSauce(formData)
       .then(res => {
-        this.props.history.push(`/sauce/${res.slug}`);
+        this.props.history.push(`/sauce/${res.data.slug}`);
       })
       .catch(err => console.log(err.response.msg));
   };
