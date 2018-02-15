@@ -159,12 +159,13 @@ class Form extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { name, description, photo, rating } = nextProps;
+    const { name, description, photo, review, rating } = nextProps;
 
     if (
       name === undefined ||
       description === undefined ||
       photo === undefined ||
+      review === undefined ||
       rating === undefined
     )
       return;
@@ -184,9 +185,14 @@ class Form extends Component {
   }
 
   render() {
-    const { name, description, tags, photo, rating } = this.state.data;
+    const { name, description, tags, photo, review, rating } = this.state.data;
     return (
-      <form name="addForm" className="form" encType="multipart/form-data">
+      <form
+        name="addForm"
+        className="form"
+        encType="multipart/form-data"
+        onSubmit={this.handleSubmit}
+      >
         <TextInput
           id="Name"
           name="Name"
@@ -206,13 +212,23 @@ class Form extends Component {
           value={description}
         />
 
-        <label htmlFor="photo"> Photo: </label>
+        <label htmlFor="photo">Photo: </label>
         <PhotoUpload text={photo.name} onChange={this.onPhotoUpload} />
 
         <label>Tags:</label>
         <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
 
-        <label className="rating--label">Rating: {rating}</label>
+        <label htmlFor="review">Review: </label>
+        <textarea
+          id="review"
+          name="review"
+          cols="30"
+          rows="10"
+          onChange={this.onChange}
+          value={review}
+        />
+
+        <label className="rating--label">Overal Rating: {rating}</label>
         <RatingSection onClick={this.onRatingClick} rating={rating} />
 
         <button type="submit" className="button">
