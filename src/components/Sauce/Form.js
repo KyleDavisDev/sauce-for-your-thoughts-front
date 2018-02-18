@@ -223,7 +223,7 @@ class Form extends Component {
         <label className="rating--label">Overal Rating: {rating}</label>
         <RatingSection onClick={this.onRatingClick} rating={rating} />
 
-        <button type="submit" className="button">
+        <button type="submit" className="button button--submit">
           Add ->
         </button>
       </form>
