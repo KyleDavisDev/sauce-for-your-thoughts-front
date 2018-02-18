@@ -33,15 +33,20 @@ class UserReview extends Component {
           rows="10"
           onChange={this.onChange}
           value={description}
-          placeholder="Did you try this place? Have something to say? Leave a review..."
+          placeholder="Did you try this sauce? Have something to say? Leave a review..."
         />
-        <div className="reviewer__meta">
+        <div className="reviewer__actions">
           <div className="reviewer__stars">
             <RatingSection
               rating={stars}
               onClick={this.onRatingClick}
               height={25}
             />
+          </div>
+          <div className="reviewer__submit">
+            <button type="submit" className="button button--submit">
+              Submit Review ->
+            </button>
           </div>
         </div>
       </form>
