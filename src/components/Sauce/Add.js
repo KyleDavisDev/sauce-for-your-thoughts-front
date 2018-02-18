@@ -39,16 +39,19 @@ class Add extends Component {
     formData.append("description", data.description);
     formData.append("image", data.photo.file);
     formData.append("tags", tags);
-    formData.append("review", data.review);
     formData.append("rating", data.rating);
     formData.append("token", this.props.user.token);
 
     this.props
       .addSauce(formData)
       .then(res => {
-        this.props.history.push(`/sauce/${res.data.slug}`);
+        console.log(res);
+        this.props.history.push(`/sauce/${res.sauce.slug}`);
       })
-      .catch(err => console.log(err.response.msg));
+      .catch(err => {
+        console.log(err.response);
+        console.log(err.response.msg);
+      });
   };
 }
 
