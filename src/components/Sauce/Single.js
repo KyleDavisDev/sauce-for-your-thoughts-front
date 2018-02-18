@@ -5,8 +5,53 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getSauceBySlug, cleanUpSauce } from "../../redux/actions/sauce";
 import { flashError } from "../../redux/actions/flash";
+import { RatingSection } from "./Form";
 
 import FillerImage from "../../images/photos/sauce.jpg";
+
+class UserReview extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: {
+        descriptions: "",
+        stars: 1
+      },
+      errors: { description: "", stars: "" }
+    };
+  }
+
+  render() {
+    const { description, stars } = this.state.data;
+    return (
+      <form onSubmit={this.onSubmit} className="reviewer">
+        <textarea
+          id="description"
+          name="description"
+          cols="30"
+          rows="10"
+          onChange={this.onChange}
+          value={description}
+          placeholder="Did you try this place? Have something to say? Leave a review..."
+        />
+        <div className="reviewer__meta">
+          <div className="reviewer__stars">
+            <RatingSection
+              rating={stars}
+              onClick={this.onRatingClick}
+              height={25}
+            />
+          </div>
+        </div>
+      </form>
+    );
+  }
+
+  onRatingClick = val => {
+    this.setState({ ...this.state, data: { ...this.state.data, stars: val } });
+  };
+}
 
 const GenerateTagsList = ({ tags }) => {
   return (
@@ -61,14 +106,20 @@ class Single extends Component {
           </div>
         )}
 
-        {Object.keys(this.props.sauce).length > 0 && (
-          <div className="single-details inner">
-            <p>{this.props.sauce.description}</p>
-            {this.props.sauce.tags.length > 0 && (
-              <GenerateTagsList tags={this.props.sauce.tags} />
-            )}
-          </div>
-        )}
+        <div className="single--details">
+          {/* description & tags */}
+          {Object.keys(this.props.sauce).length > 0 && (
+            <div className="inner">
+              <p>{this.props.sauce.description}</p>
+              {this.props.sauce.tags.length > 0 && (
+                <GenerateTagsList tags={this.props.sauce.tags} />
+              )}
+            </div>
+          )}
+
+          {/* Add review */}
+          <UserReview />
+        </div>
       </div>
     );
   }
