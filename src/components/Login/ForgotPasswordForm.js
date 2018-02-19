@@ -29,7 +29,7 @@ class Form extends Component {
           type="email"
           value={this.state.email}
         />
-        <button type="submit" className="button">
+        <button type="submit" className="button button--submit">
           SEND A RESET ->
         </button>
       </form>
