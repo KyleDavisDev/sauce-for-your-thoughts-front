@@ -18,7 +18,15 @@ class Register extends Component {
     );
   }
 
-  handleSubmit = data => {
+  handleSubmit = e => {
+    const data = {
+      user: {
+        email: e.email,
+        name: e.name,
+        password: e.password,
+        confirmPassword: e.confirmPassword
+      }
+    };
     this.props.flashClose();
     this.props
       .register(data)
