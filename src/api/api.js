@@ -117,8 +117,8 @@ export default {
     }
   },
   sauces: {
-    get: credentials => {
-      return axios.post(`${host}/api/sauces/get`, credentials).then(res => {
+    get: () => {
+      return axios.get(`${host}/api/sauces/get`).then(res => {
         if (res.data.isGood && res.status === 200) {
           return res.data;
         } else {
