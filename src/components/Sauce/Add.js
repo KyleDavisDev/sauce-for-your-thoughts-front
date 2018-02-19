@@ -25,22 +25,31 @@ class Add extends Component {
     );
   }
 
-  handleFormSubmit = data => {
+  handleFormSubmit = e => {
     //make tags an array of checked tags
-    const tags = data.tags.filter(tag => tag.isChecked).map(tag => tag.name);
+    const tags = e.tags.filter(tag => tag.isChecked).map(tag => tag.name);
 
     //make sure token is still good/not expired
     if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
 
-    //TODO: pass data by sending better thought-out objects
     //construct FormData object since we are passing image file
+    const data = JSON.stringify({
+      sauce: {
+        name: e.name,
+        description: e.description,
+        image: e.photo.file,
+        tags: e.tags
+      },
+      review: {
+        rating: e.rating
+      },
+      user: {
+        token: this.props.user.token
+      }
+    });
+
     const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("description", data.description);
-    formData.append("image", data.photo.file);
-    formData.append("tags", tags);
-    formData.append("rating", data.rating);
-    formData.append("token", this.props.user.token);
+    formData.append("data", data);
 
     this.props
       .addSauce(formData)
