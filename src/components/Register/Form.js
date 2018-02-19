@@ -68,7 +68,7 @@ class Form extends Component {
           <p className="form-error">*{this.state.errors.confirmPassword}</p>
         )}
 
-        <button type="submit" className="button">
+        <button type="submit" className="button button--submit">
           Register ->
         </button>
       </form>
@@ -124,6 +124,6 @@ class Form extends Component {
 
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired
-}
+};
 
 export default Form;
