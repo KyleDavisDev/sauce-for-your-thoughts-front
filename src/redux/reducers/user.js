@@ -3,7 +3,7 @@ export default function user(state = {}, action) {
     case "USER_LOGGED_IN":
       return {
         ...state,
-        token: action.user
+        token: action.token
       };
     case "USER_GOT_INFO":
       return {
