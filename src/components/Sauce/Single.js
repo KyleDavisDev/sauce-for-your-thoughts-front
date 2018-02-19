@@ -6,57 +6,9 @@ import { connect } from "react-redux";
 import { getSauceBySlug, cleanUpSauce } from "../../redux/actions/sauce";
 import { flashError } from "../../redux/actions/flash";
 import { RatingSection } from "./Form";
+import UserReview from "./UserReview";
 
 import FillerImage from "../../images/photos/sauce.jpg";
-
-class UserReview extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      data: {
-        descriptions: "",
-        stars: 1
-      },
-      errors: { description: "", stars: "" }
-    };
-  }
-
-  render() {
-    const { description, stars } = this.state.data;
-    return (
-      <form onSubmit={this.onSubmit} className="reviewer">
-        <textarea
-          id="description"
-          name="description"
-          cols="30"
-          rows="10"
-          onChange={this.onChange}
-          value={description}
-          placeholder="Did you try this sauce? Have something to say? Leave a review..."
-        />
-        <div className="reviewer__actions">
-          <div className="reviewer__stars">
-            <RatingSection
-              rating={stars}
-              onClick={this.onRatingClick}
-              height={25}
-            />
-          </div>
-          <div className="reviewer__submit">
-            <button type="submit" className="button button--submit">
-              Submit Review ->
-            </button>
-          </div>
-        </div>
-      </form>
-    );
-  }
-
-  onRatingClick = val => {
-    this.setState({ ...this.state, data: { ...this.state.data, stars: val } });
-  };
-}
 
 const GenerateTagsList = ({ tags }) => {
   return (
