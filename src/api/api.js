@@ -156,5 +156,16 @@ export default {
         }
       });
     }
+  },
+  review: {
+    add: data => {
+      return axios.post(`${host}/api/review/add`, FormData).then(res => {
+        if (res.data.isGood && res.status === 200) {
+          return res.data;
+        } else {
+          throw new Error(res.data.msg);
+        }
+      });
+    }
   }
 };
