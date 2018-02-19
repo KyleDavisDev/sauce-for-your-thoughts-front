@@ -77,7 +77,7 @@ export default {
           headers: { "Content-Type": "multipart/form-data" }
         })
         .then(res => {
-          if (res.data.isGood) {
+          if (res.data.isGood && res.status === 200) {
             return res.data;
           } else {
             throw new Error(res.data.msg);
