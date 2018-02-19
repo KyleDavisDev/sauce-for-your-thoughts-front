@@ -40,7 +40,7 @@ export const logout = () => dispatch => {
 export const register = credentials => dispatch => {
   return api.user.register(credentials).then(user => {
     const token = user.token;
-    Auth.authenticateUser(token);
+    Auth.authenticateUser({ token });
     dispatch(userLoggedIn(token));
     dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
   });
