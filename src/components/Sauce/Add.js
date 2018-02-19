@@ -37,8 +37,7 @@ class Add extends Component {
       sauce: {
         name: e.name,
         description: e.description,
-        image: e.photo.file,
-        tags: e.tags
+        tags
       },
       review: {
         rating: e.rating
@@ -50,14 +49,15 @@ class Add extends Component {
 
     const formData = new FormData();
     formData.append("data", data);
+    formData.append("image", e.photo.file);
 
     this.props
       .addSauce(formData)
       .then(res => {
-        console.log(res);
-        this.props.history.push(`/sauce/${res.sauce.slug}`);
+        this.props.history.push(`/sauce/${res.data.sauce.slug}`);
       })
       .catch(err => {
+        //TODO: Better error handling
         console.log(err.response);
         console.log(err.response.msg);
       });
