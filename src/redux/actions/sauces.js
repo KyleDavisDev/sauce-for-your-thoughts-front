@@ -19,8 +19,8 @@ export const cleanedUpSauces = () => ({
   type: "CLEANED_UP_SAUCES"
 });
 
-export const getSauces = credentials => dispatch => {
-  return api.sauces.get(credentials).then(res => {
+export const getSauces = () => dispatch => {
+  return api.sauces.get().then(res => {
     dispatch(saucesFound({ sauces: res.sauces }));
     return res;
   });
