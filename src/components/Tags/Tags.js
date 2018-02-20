@@ -92,7 +92,7 @@ class Tags extends Component {
   getSaucesByTag = tag => {
     //Sanity check for bogus tag values
     // if (!Object.keys(this.props.tags).includes(tag)) return;
-    const data = { token: this.props.user.token, tag };
+    const data = { user: { token: this.props.user.token }, tag };
     return this.props.getSaucesByTag(data);
   };
 
@@ -103,7 +103,7 @@ class Tags extends Component {
     //check if email already passed to component to save api call
     if (this.props.user.email) return;
 
-    const data = { token: this.props.user.token };
+    const data = { user: { token: this.props.user.token } };
     return this.props.getInfo(data);
   };
 
@@ -115,12 +115,12 @@ class Tags extends Component {
     //make sure user is logged in
     if (!this.props.user.token) return;
 
-    const credentials = { token: this.props.user.token };
+    const credentials = { user: { token: this.props.user.token } };
     return this.props.getHearts(credentials);
   };
 
   toggleSauce = ID => {
-    const data = { token: this.props.user.token, sauce: { _id: ID } };
+    const data = { user: { token: this.props.user.token }, sauce: { _id: ID } };
     this.props
       .toggleSauce(data)
       .catch(err => this.props.flashError({ text: err.response }));
