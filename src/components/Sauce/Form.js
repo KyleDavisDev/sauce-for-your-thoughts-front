@@ -161,17 +161,15 @@ class Form extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { name, description, photo, review, rating } = nextProps;
-
+    const { name, description, photo, rating } = nextProps;
     if (
       name === undefined ||
       description === undefined ||
       photo === undefined ||
-      review === undefined ||
       rating === undefined
-    )
+    ) {
       return;
-
+    }
     const tags = this.getProperTags(nextProps.tags);
 
     this.setState({
