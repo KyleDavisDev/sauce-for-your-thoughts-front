@@ -17,7 +17,8 @@ class Login extends Component {
     );
   }
 
-  submit = data =>
+  submit = e => {
+    const data = { user: e };
     this.props
       .login(data)
       .then(() => this.props.history.push("/"))
@@ -28,6 +29,7 @@ class Login extends Component {
           this.props.flashError({ text: err.msg });
         }
       });
+  };
 }
 
 Login.propTypes = {
