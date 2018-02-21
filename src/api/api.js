@@ -159,7 +159,7 @@ export default {
   },
   review: {
     add: data => {
-      return axios.post(`${host}/api/review/add`, FormData).then(res => {
+      return axios.post(`${host}/api/review/add`, data).then(res => {
         if (res.data.isGood && res.status === 200) {
           return res.data;
         } else {
