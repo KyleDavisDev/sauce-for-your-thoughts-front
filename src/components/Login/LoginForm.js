@@ -48,7 +48,7 @@ class Form extends Component {
         {this.state.errors.password && (
           <p className="form-error">{this.state.errors.password}</p>
         )}
-        <button type="submit" className="button">
+        <button type="submit" className="button button--submit">
           LOG IN ->
         </button>
       </form>

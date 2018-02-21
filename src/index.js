@@ -27,8 +27,8 @@ const store = createStore(
 );
 
 if (Auth.isUserAuthenticated()) {
-  const user = { token: Auth.getToken() };
-  store.dispatch(isLoggedIn(user));
+  const data = { user: { token: Auth.getToken() } };
+  store.dispatch(isLoggedIn(data));
 }
 
 ReactDOM.render(

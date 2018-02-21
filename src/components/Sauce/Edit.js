@@ -29,9 +29,10 @@ class Edit extends Component {
       name = "",
       description = "",
       photo = "",
-      tags = []
+      tags = [],
+      rating = 0
     } = this.props.sauce;
-
+    console.log(this.props.sauce);
     return (
       <div className="inner">
         <h2>Edit {name || "Sauce"}</h2>
@@ -42,6 +43,7 @@ class Edit extends Component {
             description={description}
             photo={photo}
             tags={tags}
+            rating={rating}
           />
         )}
       </div>
@@ -52,7 +54,7 @@ class Edit extends Component {
   getUserInfo = () => {
     //check if email already passed to component to save api call
     if (this.props.user.email) return;
-    const data = { token: this.props.user.token };
+    const data = { user: { token: this.props.user.token } };
     return this.props.getUserInfo(data);
   };
 
@@ -60,24 +62,34 @@ class Edit extends Component {
   //must pass user token and ID we are looking for
   getSauceInfo = () => {
     const data = {
-      token: this.props.user.token,
-      sauceID: this.props.match.params.id
+      user: { token: this.props.user.token },
+      sauce: { _id: this.props.match.params.id }
     };
     return this.props.getSauceInfo(data);
   };
 
-  handleSubmit = data => {
+  handleSubmit = e => {
     //make tags an array of checked tags
     const tags = data.tags.filter(tag => tag.isChecked).map(tag => tag.name);
 
     //construct FormData object since we are passing image file
+    const data = JSON.stringify({
+      sauce: {
+        name: e.name,
+        description: e.description,
+        tags
+      },
+      review: {
+        rating: e.rating
+      },
+      user: {
+        token: this.props.user.token
+      }
+    });
+
     const formData = new FormData();
-    formData.append("sauceID", this.props.match.params.id);
-    formData.append("name", data.name);
-    formData.append("description", data.description);
-    formData.append("image", data.photo.file);
-    formData.append("tags", tags);
-    formData.append("token", this.props.user.token);
+    formData.append("data", data);
+    formData.append("image", e.photo.file);
 
     this.props
       .updateSauce(formData)

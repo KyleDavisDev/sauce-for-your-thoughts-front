@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Validator from "validator";
-import TextInput from '../TextInput/TextInput'
+import TextInput from "../TextInput/TextInput";
 
 export class AccountForm extends Component {
   constructor(props) {
@@ -50,7 +50,7 @@ export class AccountForm extends Component {
           <p className="form-error">*{this.state.errors.email}</p>
         )}
 
-        <button type="submit" className="button">
+        <button type="submit" className="button button--submit">
           Save ->
         </button>
       </form>

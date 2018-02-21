@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getSauceBySlug, cleanUpSauce } from "../../redux/actions/sauce";
 import { flashError } from "../../redux/actions/flash";
+import { RatingSection } from "./Form";
+import UserReview from "./UserReview";
 
 import FillerImage from "../../images/photos/sauce.jpg";
 
@@ -61,14 +63,22 @@ class Single extends Component {
           </div>
         )}
 
-        {Object.keys(this.props.sauce).length > 0 && (
-          <div className="single-details inner">
-            <p>{this.props.sauce.description}</p>
-            {this.props.sauce.tags.length > 0 && (
-              <GenerateTagsList tags={this.props.sauce.tags} />
-            )}
-          </div>
-        )}
+        <div className="single--details">
+          {/* description & tags */}
+          {Object.keys(this.props.sauce).length > 0 && (
+            <div className="inner">
+              <p>{this.props.sauce.description}</p>
+              {this.props.sauce.tags.length > 0 && (
+                <GenerateTagsList tags={this.props.sauce.tags} />
+              )}
+            </div>
+          )}
+
+          {/* Add review */}
+          {Object.keys(this.props.sauce).length > 0 && (
+            <UserReview sauceID={this.props.sauce._id} />
+          )}
+        </div>
       </div>
     );
   }
@@ -81,10 +91,12 @@ class Single extends Component {
 }
 Single.proptypes = {
   sauce: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     photo: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf([PropTypes.string]).isRequired
+    tags: PropTypes.arrayOf([PropTypes.string]).isRequired,
+    rating: PropTypes.number.isRequired
   }).isRequired,
   user: {
     token: PropTypes.string

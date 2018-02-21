@@ -31,7 +31,7 @@ export const addSauce = data => dispatch => {
 
 export const getSauceById = data => dispatch => {
   return api.sauce.getById(data).then(res => {
-    dispatch(sauceFound({ sauce: res.sauce }));
+    dispatch(sauceFound({ sauce: res.data.sauce }));
     return res;
   });
 };

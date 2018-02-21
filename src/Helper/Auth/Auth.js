@@ -24,10 +24,9 @@ class Auth {
       (parseInt(curTime) - parseInt(keyTime)) / 60000
     );
 
-    //token is good, update token and return true
+    //token hasn't expired yet, update token and return true
     if (diffInMinutes < timeLimit) {
-      this.updateUserToken();
-      return true;
+      return this.updateUserToken();
     } else {
       //token exists but is old, should remove
       this.deauthenticateUser();
@@ -39,12 +38,26 @@ class Auth {
   //should ONLY be called from isUserAuthenticated so will
   //not be doing same sanity checks as above
   static updateUserToken() {
-    const key = {
-      token: JSON.parse(localStorage.getItem("sfytKey")).token,
-      timestamp: new Date().getTime()
-    };
-    localStorage.setItem("sfytKey", JSON.stringify(key));
-    return true;
+    //grab token
+    const token = JSON.parse(localStorage.getItem("sfytKey")).token;
+    //make sure token is string and not empty
+    if (
+      Object.prototype.toString.call(token) === "[object String]" &&
+      token.length > 0
+    ) {
+      //apply new time to key
+      const key = {
+        token,
+        timestamp: new Date().getTime()
+      };
+      //set key
+      localStorage.setItem("sfytKey", JSON.stringify(key));
+      return true;
+    } else {
+      //remove local storage item
+      this.deauthenticateUser();
+      return false;
+    }
   }
 
   //remove authentication token

@@ -28,7 +28,7 @@ class Account extends Component {
   }
 
   getUserInfo = () => {
-    const data = { token: this.props.user.token };
+    const data = { user: { token: this.props.user.token } };
 
     this.props
       .getInfo(data)
@@ -40,12 +40,15 @@ class Account extends Component {
       });
   };
 
-  onSubmit = data => {
+  onSubmit = e => {
     //close flash
     this.props.flashClose();
 
     //add token to data so we can look up user
-    data = { ...data, token: this.props.user.token };
+    const data = {
+      update: { name: e.name, email: e.email },
+      user: { token: this.props.user.token }
+    };
     this.props.updateUser(data).catch(err => {
       this.props.flashError({ text: err.response.data.msg });
     });

@@ -55,7 +55,7 @@ PhotoUpload.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
-class RatingSection extends Component {
+export class RatingSection extends Component {
   constructor(props) {
     super(props);
 
@@ -65,7 +65,7 @@ class RatingSection extends Component {
       rating: this.props.rating,
       starArray: Array.apply(null, Array(10)).map((x, ind) => {
         const classVal = ind < this.props.rating ? "filled" : "empty";
-        return { logo: <Star />, classVal };
+        return { logo: <Star height={this.props.height || 50} />, classVal };
       })
     };
   }
@@ -78,7 +78,7 @@ class RatingSection extends Component {
     const hold = nextProps.rating === this.state.rating ? false : true;
     const starArray = this.state.starArray.map((x, ind) => {
       const classVal = ind < nextProps.rating ? "filled" : "empty";
-      return { logo: <Star />, classVal };
+      return { logo: <Star height={nextProps.height || 50} />, classVal };
     });
     this.setState(prevState => ({
       rating,
@@ -141,8 +141,10 @@ class RatingSection extends Component {
 }
 RatingSection.propTypes = {
   rating: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  height: PropTypes.number
 };
+// module.export = RatingSection
 
 class Form extends Component {
   constructor(props) {
@@ -159,17 +161,15 @@ class Form extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { name, description, photo, review, rating } = nextProps;
-
+    const { name, description, photo, rating } = nextProps;
     if (
       name === undefined ||
       description === undefined ||
       photo === undefined ||
-      review === undefined ||
       rating === undefined
-    )
+    ) {
       return;
-
+    }
     const tags = this.getProperTags(nextProps.tags);
 
     this.setState({
@@ -218,20 +218,10 @@ class Form extends Component {
         <label>Tags:</label>
         <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
 
-        <label htmlFor="review">Review: </label>
-        <textarea
-          id="review"
-          name="review"
-          cols="30"
-          rows="10"
-          onChange={this.onChange}
-          value={review}
-        />
-
         <label className="rating--label">Overal Rating: {rating}</label>
         <RatingSection onClick={this.onRatingClick} rating={rating} />
 
-        <button type="submit" className="button">
+        <button type="submit" className="button button--submit">
           Add ->
         </button>
       </form>

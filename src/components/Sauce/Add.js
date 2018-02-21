@@ -25,30 +25,42 @@ class Add extends Component {
     );
   }
 
-  handleFormSubmit = data => {
+  handleFormSubmit = e => {
     //make tags an array of checked tags
-    const tags = data.tags.filter(tag => tag.isChecked).map(tag => tag.name);
+    const tags = e.tags.filter(tag => tag.isChecked).map(tag => tag.name);
 
     //make sure token is still good/not expired
     if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
 
-    //TODO: pass data by sending better thought-out objects
     //construct FormData object since we are passing image file
+    const data = JSON.stringify({
+      sauce: {
+        name: e.name,
+        description: e.description,
+        tags
+      },
+      review: {
+        rating: e.rating
+      },
+      user: {
+        token: this.props.user.token
+      }
+    });
+
     const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("description", data.description);
-    formData.append("image", data.photo.file);
-    formData.append("tags", tags);
-    formData.append("review", data.review);
-    formData.append("rating", data.rating);
-    formData.append("token", this.props.user.token);
+    formData.append("data", data);
+    formData.append("image", e.photo.file);
 
     this.props
       .addSauce(formData)
       .then(res => {
-        this.props.history.push(`/sauce/${res.data.slug}`);
+        this.props.history.push(`/sauce/${res.data.sauce.slug}`);
       })
-      .catch(err => console.log(err.response.msg));
+      .catch(err => {
+        //TODO: Better error handling
+        console.log(err.response);
+        console.log(err.response.msg);
+      });
   };
 }
 

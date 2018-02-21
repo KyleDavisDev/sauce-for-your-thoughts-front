@@ -77,7 +77,7 @@ export default {
           headers: { "Content-Type": "multipart/form-data" }
         })
         .then(res => {
-          if (res.data.isGood) {
+          if (res.data.isGood && res.status === 200) {
             return res.data;
           } else {
             throw new Error(res.data.msg);
@@ -117,8 +117,8 @@ export default {
     }
   },
   sauces: {
-    get: credentials => {
-      return axios.post(`${host}/api/sauces/get`, credentials).then(res => {
+    get: () => {
+      return axios.get(`${host}/api/sauces/get`).then(res => {
         if (res.data.isGood && res.status === 200) {
           return res.data;
         } else {
@@ -150,6 +150,17 @@ export default {
     getList: () => {
       return axios.get(`${host}/api/tags/get`).then(res => {
         if (res.data.isGood) {
+          return res.data;
+        } else {
+          throw new Error(res.data.msg);
+        }
+      });
+    }
+  },
+  review: {
+    add: data => {
+      return axios.post(`${host}/api/review/add`, FormData).then(res => {
+        if (res.data.isGood && res.status === 200) {
           return res.data;
         } else {
           throw new Error(res.data.msg);

@@ -81,8 +81,7 @@ class Sauces extends Component {
   };
 
   getSauces = () => {
-    const data = { token: this.props.user.token };
-    return this.props.getSauces(data);
+    return this.props.getSauces();
   };
 
   //this will pass token to api and store email/name into redux store on success
@@ -92,7 +91,7 @@ class Sauces extends Component {
     //check if email already passed to component to save api call
     if (this.props.user.email) return;
 
-    const data = { token: this.props.user.token };
+    const data = { user: { token: this.props.user.token } };
     return this.props.getInfo(data);
   };
 
@@ -100,12 +99,12 @@ class Sauces extends Component {
     //make sure user is logged in
     if (!this.props.user.token) return;
 
-    const credentials = { token: this.props.user.token };
+    const credentials = { user: { token: this.props.user.token } };
     return this.props.getHearts(credentials);
   };
 
   toggleSauce = ID => {
-    const data = { token: this.props.user.token, sauce: { _id: ID } };
+    const data = { user: { token: this.props.user.token }, sauce: { _id: ID } };
     this.props
       .toggleSauce(data)
       .catch(err => this.props.flashError({ text: err.response }));

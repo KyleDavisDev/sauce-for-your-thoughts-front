@@ -3,9 +3,9 @@ import api from "../../api/api";
 import Auth from "../../Helper/Auth/Auth";
 import { flashSuccess } from "./flash";
 
-export const userLoggedIn = user => ({
+export const userLoggedIn = ({ token }) => ({
   type: "USER_LOGGED_IN",
-  user
+  token
 });
 
 export const userLoggedOut = user => ({
@@ -18,11 +18,15 @@ export const userRegistered = user => ({
 });
 
 export const login = credentials => dispatch => {
-  return api.user.login(credentials).then(user => {
+  return api.user.login(credentials).then(res => {
+    const token = res.user.token;
     //save token to local storage and set timestamp
-    const token = user.token;
     Auth.authenticateUser(token);
-    dispatch(userLoggedIn(token));
+
+    //save token to user in store
+    dispatch(userLoggedIn({ token }));
+
+    //dispatch successfull flash
     dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
   });
 };
@@ -36,16 +40,16 @@ export const logout = () => dispatch => {
 export const register = credentials => dispatch => {
   return api.user.register(credentials).then(user => {
     const token = user.token;
-    Auth.authenticateUser(token);
+    Auth.authenticateUser({ token });
     dispatch(userLoggedIn(token));
     dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
   });
 };
 
 export const isLoggedIn = credentials => dispatch => {
-  return api.user.isLoggedIn(credentials).then(user => {
-    const token = credentials.token;
-    dispatch(userLoggedIn(token));
+  return api.user.isLoggedIn(credentials).then(res => {
+    //token is good if we are here
+    dispatch(userLoggedIn({ token: credentials.user.token }));
     dispatch(
       flashSuccess({ text: "Restored your login from last time. Thank you!" })
     );
