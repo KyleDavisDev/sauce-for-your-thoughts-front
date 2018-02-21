@@ -75,7 +75,9 @@ class Single extends Component {
           )}
 
           {/* Add review */}
-          <UserReview />
+          {Object.keys(this.props.sauce).length > 0 && (
+            <UserReview sauceID={this.props.sauce._id} />
+          )}
         </div>
       </div>
     );
@@ -89,10 +91,12 @@ class Single extends Component {
 }
 Single.proptypes = {
   sauce: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     photo: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf([PropTypes.string]).isRequired
+    tags: PropTypes.arrayOf([PropTypes.string]).isRequired,
+    rating: PropTypes.number.isRequired
   }).isRequired,
   user: {
     token: PropTypes.string
