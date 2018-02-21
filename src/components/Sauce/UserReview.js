@@ -84,6 +84,16 @@ class UserReview extends Component {
   onRatingClick = val => {
     this.setState({ ...this.state, data: { ...this.state.data, stars: val } });
   };
+
+  onChange = e => {
+    this.setState({
+      ...this.state,
+      data: {
+        ...this.state.data,
+        [e.target.name.toLowerCase()]: e.target.value
+      }
+    });
+  };
 }
 UserReview.propTypes = {
   user: PropTypes.shape({
