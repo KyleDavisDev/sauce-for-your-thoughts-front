@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addReview } from "../../redux/actions/review";
 import { RatingSection } from "./Form";
+import Auth from "../../Helper/Auth/Auth";
 
 class UserReview extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class UserReview extends Component {
 
   render() {
     const { description, stars } = this.state.data;
-    return (
+    return this.props.user.token ? (
       <form onSubmit={this.onSubmit} className="reviewer">
         <textarea
           id="description"
@@ -45,17 +46,34 @@ class UserReview extends Component {
           </div>
         </div>
       </form>
-    );
+    ) : null;
   }
 
   onSubmit = e => {
     e.preventDefault();
+
+    //make sure token is still legit
+    //1. make sure user exists in props
+    //2. make sure token exists in user
+    //3. make sure token is not empty
+    //4. make sure token is still legit
+    //TODO: Determine if this is massive overkill.
+    if (
+      !this.props.user ||
+      !this.props.user.token ||
+      this.props.user.token.length === 0 ||
+      !Auth.isUserAuthenticated(this.props.user.token)
+    ) {
+    }
+
+    //construct our API object
     const data = {
-      token: this.props.user.token,
+      user: { token: this.props.user.token },
       review: {
         text: this.state.data.description,
         rating: this.state.data.stars
-      }
+      },
+      sauce: { _id: this.props.sauceID }
     };
     this.props
       .addReview(data)
@@ -69,8 +87,9 @@ class UserReview extends Component {
 }
 UserReview.propTypes = {
   user: PropTypes.shape({
-    token: PropTypes.string.isRequired
+    token: PropTypes.string
   }),
+  sauceID: PropTypes.string.isRequired,
   addReview: PropTypes.func.isRequired
 };
 
