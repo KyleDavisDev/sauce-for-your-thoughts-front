@@ -6,6 +6,6 @@ app.get("*", function(req, res) {
   res.sendFile(`${process.cwd()}/dist/index.html`);
 });
 
-app.listen(5000, function() {
-  console.log("Example app listening on port 5000!");
+app.listen(4000, function() {
+  console.log("Example app listening on port 4000!");
 });
