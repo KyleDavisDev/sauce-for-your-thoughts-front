@@ -14,7 +14,8 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: buildPath,
-    filename: "[name].[hash:20].js"
+    filename: "[name].[hash:20].js",
+    publicPath: "/"
   },
   module: {
     rules: [
