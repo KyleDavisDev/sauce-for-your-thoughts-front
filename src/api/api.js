@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const host = "http://localhost:7777";
+const host = "https://sauceforyourthoughts.com";
 
 export default {
   user: {

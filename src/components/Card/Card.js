@@ -36,7 +36,7 @@ const Card = ({
           src={FillerImage}
           onError={e => (e.target.src = FillerImage)}
           onLoad={e =>
-            (e.target.src = `http://localhost:7777/public/uploads/${image}`)
+            (e.target.src = `http://sauceforyourthoughts.com/public/uploads/${image}`)
           }
           title={name}
           alt={name}
