@@ -1,11 +1,14 @@
 {
   "name": "now-thats-delicious",
   "version": "2.0.0",
-  "description": "Following Wes Bos's NodeJS course but using react/redux instead of pug.",
+  "description":
+    "Following Wes Bos's NodeJS course but using react/redux instead of pug.",
   "main": "app.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js",
-    "prod": "webpack -p --config webpack.prod.js",
+    "dev":
+      "webpack-dev-server --config webpack.dev.js --define process.env.API_ENV='\"dev\"'",
+    "prod":
+      "webpack -p --config webpack.prod.js process.env.API_ENV='\"prod\"'",
     "watch": "nodemon ./start.js",
     "sample": "node ./data/load-sample-data.js",
     "blowitallaway": "node ./data/load-sample-data.js --delete"

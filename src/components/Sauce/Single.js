@@ -7,6 +7,7 @@ import { getSauceBySlug, cleanUpSauce } from "../../redux/actions/sauce";
 import { flashError } from "../../redux/actions/flash";
 import { RatingSection } from "./Form";
 import UserReview from "./UserReview";
+import { host } from "../../api/api";
 
 import FillerImage from "../../images/photos/sauce.jpg";
 
@@ -49,7 +50,7 @@ class Single extends Component {
               <img
                 className="single-image"
                 onLoad={e =>
-                  (e.target.src = `http://localhost:7777/public/uploads/${
+                  (e.target.src = `${host}/public/uploads/${
                     this.props.sauce.photo
                   }`)
                 }

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import FillerImage from "../../images/photos/sauce.jpg";
 import Pencil from "../../images/icons/Pencil.js";
 import { Heart, FilledHeart } from "../../images/icons/Heart";
+import { host } from "../../api/api";
 
 const Card = ({
   ID,
@@ -35,9 +36,7 @@ const Card = ({
         <img
           src={FillerImage}
           onError={e => (e.target.src = FillerImage)}
-          onLoad={e =>
-            (e.target.src = `https://sauceforyourthoughts.com/public/uploads/${image}`)
-          }
+          onLoad={e => (e.target.src = `${host}/public/uploads/${image}`)}
           title={name}
           alt={name}
         />

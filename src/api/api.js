@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const host = "https://sauceforyourthoughts.com";
+export const host =
+  process.env.API_ENV === "prod"
+    ? "https://sauceforyourthoughts.com"
+    : "http://localhost:7777";
 
 export default {
   user: {
