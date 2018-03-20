@@ -9,14 +9,16 @@ import NavItems from "./NavItems";
 import SearchBar from "./SearchBar";
 import MainLogo from "../../images/icons/Logo.js";
 import Logout from "../../images/icons/Logout.js";
-const LogoSFYT = require("../../images/icons/LogoSFYT.png");
+import LogoSFYT from "../../images/icons/LogoSFYT.js";
+// const LogoSFYT = require("../../images/icons/LogoSFYT.png");
 
 const HomeLogo = () => {
   return (
     <li className="nav-item">
       <NavLink className="nav-link home-link" activeClassName="active" to="/">
         {/* <MainLogo className="home-logo" /> */}
-        <img src={LogoSFYT} className="home-logo" />
+        <LogoSFYT />
+        {/* <img src={LogoSFYT} className="home-logo" /> */}
       </NavLink>
     </li>
   );
