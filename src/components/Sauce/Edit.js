@@ -3,10 +3,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getInfo as getUserInfo } from "../../redux/actions/user";
-import {
-  getSauceById as getSauceInfo,
-  updateSauce
-} from "../../redux/actions/sauce";
+import { getSauceById, updateSauce } from "../../redux/actions/sauce";
 import { flashError } from "../../redux/actions/flash";
 
 import Form from "./Form";
@@ -18,7 +15,7 @@ class Edit extends Component {
 
   componentDidMount() {
     if (!this.props.user.token) return;
-    axios.all([this.getSauceInfo(), this.getUserInfo()]).catch(error => {
+    axios.all([this.getSauceById(), this.getUserInfo()]).catch(error => {
       console.log(error);
       // this.props.flashError({ text: error.response.data.msg });
     });
@@ -60,12 +57,12 @@ class Edit extends Component {
 
   //get single sauce information
   //must pass user token and ID we are looking for
-  getSauceInfo = () => {
+  getSauceById = () => {
     const data = {
       user: { token: this.props.user.token },
       sauce: { _id: this.props.match.params.id }
     };
-    return this.props.getSauceInfo(data);
+    return this.props.getSauceById(data);
   };
 
   handleSubmit = e => {
@@ -111,7 +108,7 @@ Edit.propTypes = {
     tags: PropTypes.arrayOf(PropTypes.string),
     slug: PropTypes.string
   }),
-  getSauceInfo: PropTypes.func.isRequired,
+  getSauceById: PropTypes.func.isRequired,
   getUserInfo: PropTypes.func.isRequired,
   flashError: PropTypes.func.isRequired,
   updateSauce: PropTypes.func.isRequired
@@ -125,7 +122,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  getSauceInfo,
+  getSauceById,
   getUserInfo,
   flashError,
   updateSauce
