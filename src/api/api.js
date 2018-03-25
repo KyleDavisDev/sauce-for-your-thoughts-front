@@ -87,6 +87,12 @@ export default {
           }
         });
     },
+
+    /** @description Get sauce related data by using single sauce id
+     *  @param Object, API expects user.token and sauce._id
+     *  @returns Promise
+     *  @returns Object, sauce specific data
+     */
     getById: data => {
       return axios.post(`${host}/api/sauce/get/id`, data).then(res => {
         if (res.data.isGood) {
