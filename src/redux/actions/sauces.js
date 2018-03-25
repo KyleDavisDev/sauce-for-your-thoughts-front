@@ -23,8 +23,8 @@ export const cleanedUpSauces = () => ({
  *  @param Object, sauce to be added to redux store
  *  @return Object, sauce and action type
  */
-export const addSauce = ({ sauce }) => ({
-  type: "SAUCE_ADDED",
+export const addSingleSauce = ({ sauce }) => ({
+  type: "SINGLE_SAUCE_ADDED",
   sauce
 });
 
