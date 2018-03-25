@@ -1,7 +1,8 @@
 import api from "../../api/api";
 import { flashSuccess } from "./flash";
-import { addSingleSauce, updateSaucesItem } from "./sauces";
+import { addedSingleSauce, updateSaucesItem } from "./sauces";
 import { addReviews } from "./review";
+import { addUsers } from "./users";
 import { flattenSauces } from "./helper";
 
 //Not sure what I want to do with this yet...
@@ -35,7 +36,7 @@ export const cleanedUpSauce = () => ({
 export const getSauceById = data => dispatch => {
   return api.sauce.getById(data).then(res => {
     const { sauces, reviews, authors } = flattenSauces([res.data]);
-    dispatch(addSingleSauce({ sauce: sauces }));
+    dispatch(addedSingleSauce({ sauce: sauces }));
     dispatch(addReviews({ reviews }));
     dispatch(addUsers({ users: authors }));
     return res;
