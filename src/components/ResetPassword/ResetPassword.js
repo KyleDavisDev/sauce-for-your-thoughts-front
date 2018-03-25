@@ -185,7 +185,7 @@ ResetPassword.propTypes = {
 
 const mapStateToProps = state => {
   user: {
-    token: state.user.token;
+    token: state.users.self.token;
   }
 };
 

@@ -73,7 +73,7 @@ Add.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    user: { token: state.user.token }
+    user: { token: state.users.self.token }
   };
 }
 export default connect(mapStateToProps, { addSauce })(Add);

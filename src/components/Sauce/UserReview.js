@@ -106,7 +106,7 @@ UserReview.propTypes = {
 const mapStateToProps = state => {
   return {
     user: {
-      token: state.user.token
+      token: state.users.self.token
     }
   };
 };

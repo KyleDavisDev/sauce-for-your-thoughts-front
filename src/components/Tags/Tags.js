@@ -174,7 +174,7 @@ const mapStateToProps = state => {
   return {
     sauces: state.sauces,
     user: {
-      token: state.user.token,
+      token: state.users.self.token,
       email: state.user.email,
       hearts: state.user.hearts
     },
