@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import user from "./user";
+// import user from "./user";
 import flashMessage from "./flashMessage";
 import sauces from "./sauces";
 import sauce from "./sauce";
@@ -9,7 +9,6 @@ import reviews from "./reviews";
 import users from "./users";
 
 export default combineReducers({
-  user,
   flashMessage,
   sauces,
   sauce,
