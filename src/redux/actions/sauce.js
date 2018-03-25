@@ -1,7 +1,8 @@
 import api from "../../api/api";
 import { flashSuccess } from "./flash";
-import { addSingleSauce, updateSaucesItem, flattenSauces } from "./sauces";
+import { addSingleSauce, updateSaucesItem } from "./sauces";
 import { addReviews } from "./review";
+import { flattenSauces } from "./helper";
 
 //Not sure what I want to do with this yet...
 export const sauceAdded = () => ({
@@ -36,6 +37,7 @@ export const getSauceById = data => dispatch => {
     const { sauces, reviews, authors } = flattenSauces([res.data]);
     dispatch(addSingleSauce({ sauce: sauces }));
     dispatch(addReviews({ reviews }));
+    dispatch(addUsers({ users: authors }));
     return res;
   });
 };
