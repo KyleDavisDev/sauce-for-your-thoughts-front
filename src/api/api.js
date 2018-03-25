@@ -74,6 +74,19 @@ export default {
     }
   },
   sauce: {
+    /** @description Add sauce to DB
+     *  @param {Object} data object
+     *  @param {Object} data.user object
+     *    @param {String} data.user.token - user token
+     *  @param {Object} data.sauce - sauce object
+     *    @param {String} data.sauce.name - sauce name
+     *    @param {String[]} data.sauce.tags[] - tags
+     *    @param {Blob} data.sauce.photo - photo blog
+     *  @param {Object} data.review - review object
+     *    @param {String} data.review.text - authors's review
+     *    @param {Integer} data.review.rating - author's rating for sauce
+     *  @returns {Promise} represents
+     */
     add: data => {
       return axios
         .post(`${host}/api/sauce/add`, data, {
