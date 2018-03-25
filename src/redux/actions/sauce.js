@@ -1,6 +1,7 @@
 import api from "../../api/api";
 import { flashSuccess } from "./flash";
-import { addSauce as somethingsomething, updateSaucesItem } from "./sauces";
+import { addSingleSauce, updateSaucesItem, flattenSauces } from "./sauces";
+import { addReviews } from "./review";
 
 //Not sure what I want to do with this yet...
 export const sauceAdded = () => ({
@@ -25,14 +26,6 @@ export const cleanedUpSauce = () => ({
   type: "CLEANED_UP_SAUCE"
 });
 
-export const addSauce = data => dispatch => {
-  return api.sauce.add(data).then(res => {
-    // dispatch(sauceAdded())
-    dispatch(flashSuccess({ text: res.msg }));
-    return res;
-  });
-};
-
 /** @description Get relevant sauce information from sauce id. Dispatches redux action emitter.
  *  @param Object, pass to API class
  *  @returns Promise
@@ -40,7 +33,9 @@ export const addSauce = data => dispatch => {
  */
 export const getSauceById = data => dispatch => {
   return api.sauce.getById(data).then(res => {
-    dispatch(somethingsomething({ sauce: res.data }));
+    const { sauces, reviews, authors } = flattenSauces([res.data]);
+    dispatch(addSingleSauce({ sauce: sauces }));
+    dispatch(addReviews({ reviews }));
     return res;
   });
 };
