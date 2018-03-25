@@ -1,12 +1,16 @@
 import api from "../../api/api";
 import { flashSuccess } from "./flash";
-import { updateSaucesItem } from "./sauces";
+import { addSauce as somethingsomething, updateSaucesItem } from "./sauces";
 
 //Not sure what I want to do with this yet...
 export const sauceAdded = () => ({
   type: "SAUCE_ADDED"
 });
 
+/** @description Action emitter for when a single sauce is found
+ *  @param Object, sauce related information
+ *  @returns Object, has sauce info and action type
+ */
 export const sauceFound = ({ sauce }) => ({
   type: "SAUCE_FOUND",
   sauce
@@ -29,9 +33,14 @@ export const addSauce = data => dispatch => {
   });
 };
 
+/** @description Get relevant sauce information from sauce id. Dispatches redux action emitter.
+ *  @param Object, pass to API class
+ *  @returns Promise
+ *  @returns Object, sauce
+ */
 export const getSauceById = data => dispatch => {
   return api.sauce.getById(data).then(res => {
-    dispatch(sauceFound({ sauce: res.data.sauce }));
+    dispatch(somethingsomething({ sauce: res.data }));
     return res;
   });
 };
