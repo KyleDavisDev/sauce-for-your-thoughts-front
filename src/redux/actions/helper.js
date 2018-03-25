@@ -39,6 +39,7 @@ export const flattenSauces = sauces => {
     res.sauces.byId[sauce._id] = {
       _id: sauce._id,
       name: sauce.name,
+      slug: sauce.slug,
       description: sauce.description,
       photo: sauce.photo,
       tags: sauce.tags,
