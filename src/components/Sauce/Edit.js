@@ -10,13 +10,23 @@ import Form from "./Form";
 
 class Edit extends Component {
   componentWillMount() {
-    if (!this.props.user.token) this.props.history.push("/login");
+    //Make sanitiy checks before we move on
+    if (
+      !this.props.user &&
+      !this.props.user.token &&
+      !this.props.match &&
+      !this.props.match.param &&
+      !this.props.match.param.id
+    )
+      this.props.history.push("/login");
   }
 
   componentDidMount() {
-    if (!this.props.user.token) return;
-    axios.all([this.getSauceById(), this.getUserInfo()]).catch(error => {
-      console.log(error);
+    //grab sauce _id to pass to function
+    const _id = this.props.match.params.id;
+
+    //grab sauce information
+    this.getSauceById({ _id }).catch(error => {
       // this.props.flashError({ text: error.response.data.msg });
     });
   }
@@ -29,7 +39,6 @@ class Edit extends Component {
       tags = [],
       rating = 0
     } = this.props.sauce;
-    console.log(this.props.sauce);
     return (
       <div className="inner">
         <h2>Edit {name || "Sauce"}</h2>
@@ -47,24 +56,34 @@ class Edit extends Component {
     );
   }
 
-  //get information about user
+  /** @description Gets user email and name
+   *  @param none
+   *  @returns Promise
+   */
   getUserInfo = () => {
     //check if email already passed to component to save api call
     if (this.props.user.email) return;
+
     const data = { user: { token: this.props.user.token } };
     return this.props.getUserInfo(data);
   };
 
-  //get single sauce information
-  //must pass user token and ID we are looking for
-  getSauceById = () => {
+  /** @description Gets information related to specific sauce
+   *  @param Integer sauce _id
+   *  @returns Promise
+   */
+  getSauceById = ({ _id }) => {
     const data = {
       user: { token: this.props.user.token },
-      sauce: { _id: this.props.match.params.id }
+      sauce: { _id }
     };
     return this.props.getSauceById(data);
   };
 
+  /** @description Organize data to api-consumable format and pass to API. Redirect on success.
+   *  @param Object form data
+   *  @returns null
+   */
   handleSubmit = e => {
     //make tags an array of checked tags
     const tags = data.tags.filter(tag => tag.isChecked).map(tag => tag.name);
