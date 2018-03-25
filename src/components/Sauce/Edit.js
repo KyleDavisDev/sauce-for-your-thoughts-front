@@ -136,7 +136,7 @@ Edit.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    user: { token: state.users.self.token, email: state.user.email },
+    user: { token: state.users.self.token /* email: state.user.email */ },
     sauce: state.sauce
   };
 };
