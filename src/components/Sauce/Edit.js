@@ -73,6 +73,7 @@ class Edit extends Component {
    *  @returns Promise
    */
   getSauceById = ({ _id }) => {
+    //construct expected API data object here
     const data = {
       user: { token: this.props.user.token },
       sauce: { _id }
