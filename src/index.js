@@ -17,7 +17,8 @@ const initialState = {
   flashMessage: { isVisible: false, type: null, text: null, slug: null },
   sauces: {},
   sauce: {},
-  tags: []
+  tags: [],
+  users: {}
 };
 
 const store = createStore(
