@@ -1,31 +1,29 @@
-export const flattenSauce = ({ sauce }) => {
-  //TODO figure out flattening sauce
-  const key = sauce._id;
-  const temp = {
-    key: {
-      name: sauce.name,
-      description: sauce.description,
-      photo: sauce.photo,
-      tags: sauce.tags,
-      author: { _id: sauce.author._id },
-      reviews: sauce.rewiews.map(x => x._id)
-    }
-  };
-  console.log("i");
-  return temp;
-};
-
-export default function sauces(state = [], action) {
+export default function sauces(state = {}, action) {
   switch (action.type) {
     case "SAUCES_FOUND":
       return action.sauces;
 
-    case "SAUCE_ADDED":
-      console.log("sauce found");
-      console.log(action);
-      action.sauce = flattenSauce({ sauce: action.sauce });
-      console.log("yo");
-      console.log(action);
+    case "SINGLE_SAUCE_ADDED":
+      //make sure action contains a sauce in .byId and .allIds else return
+      if (
+        Object.keys(action.sauce.byId).length === 0 ||
+        action.sauce.allIds.length === 0
+      )
+        return {};
+      console.log(state);
+
+      //construct return object
+      return {
+        byId:
+          "byId" in state && Object.keys(state.byId).length > 0
+            ? Object.assign({}, state.byId, action.sauce.byId)
+            : Object.assign({}, action.sauce.byId),
+        allIds:
+          "allIds" in state && state.allIds.length > 0
+            ? state.allIds.concat(action.sauce.allIds)
+            : [].concat(action.sauce.allIds)
+      };
+
     case "UPDATED_SAUCES_ITEM":
       //update single sauces item if sauces is already set
       return state
