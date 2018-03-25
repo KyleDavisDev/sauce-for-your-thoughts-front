@@ -19,6 +19,15 @@ export const cleanedUpSauces = () => ({
   type: "CLEANED_UP_SAUCES"
 });
 
+/** @description Add single sauce to array of sauces
+ *  @param Object, sauce to be added to redux store
+ *  @return Object, sauce and action type
+ */
+export const addSauce = ({ sauce }) => ({
+  type: "SAUCE_ADDED",
+  sauce
+});
+
 export const getSauces = () => dispatch => {
   return api.sauces.get().then(res => {
     dispatch(saucesFound({ sauces: res.sauces }));
