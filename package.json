@@ -1,14 +1,11 @@
 {
   "name": "now-thats-delicious",
   "version": "2.0.0",
-  "description":
-    "Following Wes Bos's NodeJS course but using react/redux instead of pug.",
+  "description": "Following Wes Bos's NodeJS course but using react/redux instead of pug.",
   "main": "app.js",
   "scripts": {
-    "dev":
-      "webpack-dev-server --config webpack.dev.js --define process.env.API_ENV='\"dev\"'",
-    "prod":
-      "webpack -p --config webpack.prod.js --define process.env.API_ENV='\"prod\"'",
+    "dev": "webpack-dev-server --config webpack.dev.js --define process.env.API_ENV='\"dev\"'",
+    "prod": "webpack -p --config webpack.prod.js --define process.env.API_ENV='\"prod\"'",
     "watch": "nodemon ./start.js",
     "sample": "node ./data/load-sample-data.js",
     "blowitallaway": "node ./data/load-sample-data.js --delete"
@@ -19,6 +16,7 @@
     "axios": "^0.16.2",
     "dotenv": "^4.0.0",
     "es6-promisify": "^5.0.0",
+    "hashmap-prop-type": "^1.0.4",
     "md5": "^2.2.1",
     "prop-types": "^15.5.10",
     "query-string": "^5.0.1",
