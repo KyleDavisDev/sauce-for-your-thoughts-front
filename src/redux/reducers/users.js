@@ -19,6 +19,14 @@ export default function user(state = {}, action) {
             ? state.allIds.concat(action.users.allIds)
             : [].concat(action.users.allIds)
       };
+
+    /** @description assigns token value to users.self.token */
+    case "USER_LOGGED_IN":
+      return Object.assign({}, state, { self: { token: action.token } });
+
+    /** @description clears .self of users */
+    case "USER_LOGGED_OUT":
+      return Object.assign({}, state, { self: {} });
     default:
       return state;
   }
