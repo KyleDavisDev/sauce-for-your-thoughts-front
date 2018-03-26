@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import PropTypes from "prop-types";
+import hashmapPropType from "hashmap-proptype";
 import { connect } from "react-redux";
 
 import { getSauces, cleanUpSauces } from "../../redux/actions/sauces";
@@ -112,20 +113,23 @@ class Sauces extends Component {
 }
 
 Sauces.propTypes = {
-  sauces: PropTypes.arrayOf(
-    PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      photo: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired
-    })
-  ),
+  sauces: PropTypes.shape({
+    byId: hashmapPropType(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        _id: PropTypes.string.isRequired,
+        photo: PropTypes.string.isRequired,
+        slug: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        author: PropTypes.shape({ _id: PropTypes.string.isRequired })
+      })
+    ).isRequired,
+    allIds: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+  }),
   user: PropTypes.shape({
     token: PropTypes.string,
     email: PropTypes.string,
-    hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
+    hearts: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
   }),
   getSauces: PropTypes.func.isRequired,
   cleanUpSauces: PropTypes.func.isRequired,
@@ -140,8 +144,8 @@ const mapStateToProps = state => {
     sauces: state.sauces,
     user: {
       token: state.users.self.token,
-      email: state.user.email,
-      hearts: state.user.hearts
+      email: state.users.email || "",
+      hearts: state.users.hearts || []
     }
   };
 };
