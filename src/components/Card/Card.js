@@ -7,17 +7,20 @@ import Pencil from "../../images/icons/Pencil.js";
 import { Heart, FilledHeart } from "../../images/icons/Heart";
 import { host } from "../../api/api";
 
-const Card = ({
-  ID,
-  name,
-  image,
-  slug,
-  description,
-  displayEditIcon,
-  displayHeartIcon,
-  heart,
-  toggleSauce
-}) => {
+// {
+//   ID,
+//   name,
+//   image,
+//   slug,
+//   description,
+//   displayEditIcon,
+//   displayHeartIcon,
+//   heart,
+//   toggleSauce
+// }
+
+const Card = props => {
+  console.log(props);
   return (
     <div className="card">
       <div className="card-hero">
@@ -81,15 +84,27 @@ const Card = ({
 };
 
 Card.propTypes = {
-  ID: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string,
-  slug: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  displayEditIcon: PropTypes.bool.isRequired,
-  displayHeartIcon: PropTypes.bool.isRequired,
-  heart: PropTypes.bool.isRequired,
+  sauce: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
+    photo: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    author: PropTypes.shape({ _id: PropTypes.string.isRequired })
+  }),
+  author: PropTypes.shape({
+    _id: PropTypes.string.isRequired
+  }),
+  _id: PropTypes.string.isRequired,
+  // displayHeartIcon: PropTypes.bool.isRequired,
+  // heart: PropTypes.bool.isRequired,
   toggleSauce: PropTypes.func.isRequired
 };
 
-export default connect(null, {})(Card);
+const mapStateToProps = (state, ownProps) => ({
+  user: { token: state.users.self.token },
+  sauce: state.sauce.byId[ownProps._id],
+  author: state.author.byId[state.sauce.byId[ownProps._id].author._id]
+});
+
+export default connect(mapStateToProps, {})(Card);
