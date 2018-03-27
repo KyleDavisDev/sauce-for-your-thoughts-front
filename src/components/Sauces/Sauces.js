@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import PropTypes from "prop-types";
-import hashmapPropType from "hashmap-proptype";
+import hashmapPropType from "hashmap-prop-type";
 import { connect } from "react-redux";
-
 import { getSauces, cleanUpSauces } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
 import { getInfo, toggleSauce, getHearts } from "../../redux/actions/user";
@@ -48,10 +47,14 @@ class Sauces extends Component {
       <div className="inner">
         <h2>Sauces</h2>
         <div className="sauces">
-          {sauces.length > 0 &&
+          {/* {sauces.allIds.length > 0 &&
             sauces
               .slice((page - 1) * saucePerPage, page * saucePerPage)
-              .map(sauce => this.renderCards({ sauce, email }))}
+              .map(sauce => {
+                console.log("hi");
+                // this.renderCards({ sauce, email })
+                return <Card _id={sauce} toggleSauce={this.toggleSauce} />;
+              })} */}
         </div>
         <Pagination
           total={sauces.length}
@@ -113,19 +116,7 @@ class Sauces extends Component {
 }
 
 Sauces.propTypes = {
-  sauces: PropTypes.shape({
-    byId: hashmapPropType(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        _id: PropTypes.string.isRequired,
-        photo: PropTypes.string.isRequired,
-        slug: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        author: PropTypes.shape({ _id: PropTypes.string.isRequired })
-      })
-    ).isRequired,
-    allIds: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
-  }),
+  sauces: PropTypes.arrayOf(PropTypes.string.isRequired),
   user: PropTypes.shape({
     token: PropTypes.string,
     email: PropTypes.string,
@@ -141,7 +132,7 @@ Sauces.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    sauces: state.sauces,
+    sauces: state.sauces.allIds,
     user: {
       token: state.users.self.token,
       email: state.users.email || "",
