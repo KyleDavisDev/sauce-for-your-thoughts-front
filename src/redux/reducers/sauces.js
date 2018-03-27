@@ -1,16 +1,11 @@
 export default function sauces(state = {}, action) {
   switch (action.type) {
-    case "SAUCES_FOUND":
+    case "SAUCES_ADDED":
+      //action.sauces === {sauce, sauce, sauce}
       return action.sauces;
 
     case "SINGLE_SAUCE_ADDED":
-      //make sure action contains a sauce in .byId and .allIds else return
-      if (
-        Object.keys(action.sauce.byId).length === 0 ||
-        action.sauce.allIds.length === 0
-      )
-        return {};
-      console.log(state);
+      // action.sauce === {sauce}
 
       //construct return object
       return {
