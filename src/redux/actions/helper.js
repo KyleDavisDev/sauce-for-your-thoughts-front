@@ -77,3 +77,21 @@ export const flattenSauces = sauces => {
 
   return res;
 };
+
+/** @description  checks to make sure object has data inside .byId and .allIds
+ *  @param {Object} obj - object to check
+ *    @param {Object} obj.allIds - object of normalized keys
+ *    @param {String[]} obj.allIds[] - array of normalized keys
+ *  @returns {Boolean} if obj has both
+ */
+
+export const flatChecker = obj => {
+  //make sauces were flattened
+  if (Object.keys(obj.byId).length === 0 || obj.allIds.length === 0) {
+    //TODO: proper error here
+    console.log("no sauces found");
+    return false;
+  }
+
+  return true;
+};
