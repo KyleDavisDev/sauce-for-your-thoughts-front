@@ -1,7 +1,8 @@
 import api from "../../api/api";
+import { flattenSauces, flatChecker } from "./helper";
 
-export const saucesFound = ({ sauces }) => ({
-  type: "SAUCES_FOUND",
+export const addedSauces = ({ sauces }) => ({
+  type: "SAUCES_ADDED",
   sauces
 });
 
@@ -34,9 +35,28 @@ export const addSauce = data => dispatch => {
   });
 };
 
+/** @description Grab all sauces available (will limit this to only set amount at a time in future)
+ *  @return {Object} response data
+ */
 export const getSauces = () => dispatch => {
   return api.sauces.get().then(res => {
-    dispatch(saucesFound({ sauces: res.sauces }));
+    const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
+
+    //make sauces were flattened
+    if (flatChecker(sauces)) {
+      dispatch(addedSauces({ sauces }));
+    }
+
+    //make sure review were flattened
+    if (flatChecker(reviews)) {
+      dispatch(addReviews({ reviews }));
+    }
+
+    //make sure users were flattened
+    if (flatChecker(authors)) {
+      dispatch(addUsers({ users: authors }));
+    }
+
     return res;
   });
 };
