@@ -1,15 +1,16 @@
 export default function user(state = {}, action) {
   switch (action.type) {
     case "USERS_ADDED":
-      //make sure action contains users .byId and .allIds else return
+      // make sure action contains users .byId and .allIds else return
       if (
         Object.keys(action.users.byId).length === 0 ||
         action.users.allIds.length === 0
       )
         return {};
 
-      //construct return object
+      // construct return object
       return {
+        ...state,
         byId:
           "byId" in state && Object.keys(state.byId).length > 0
             ? Object.assign({}, state.byId, action.users.byId)
