@@ -15,27 +15,27 @@
  *  @returns {Object} sauces, authors, reviews
  */
 export const flattenSauces = sauces => {
-  //hold all results
+  // hold all results
   const res = {};
 
-  //init sauces
+  // init sauces
   res.sauces = {};
   res.sauces.byId = {};
   res.sauces.allIds = [];
 
-  //init authors
+  // init authors
   res.authors = {};
   res.authors.byId = {};
   res.authors.allIds = [];
 
-  //init reviews
+  // init reviews
   res.reviews = {};
   res.reviews.byId = {};
   res.reviews.allIds = [];
 
-  //loop through sauces
+  // loop through sauces
   sauces.forEach(sauce => {
-    //flatten sauce
+    // flatten sauce
     res.sauces.byId[sauce._id] = {
       _id: sauce._id,
       name: sauce.name,
@@ -47,21 +47,24 @@ export const flattenSauces = sauces => {
       reviews: sauce.reviews.map(x => x._id)
     };
 
-    //add sauce id to array
-    res.sauces.allIds.push(sauce._id);
+    // add sauce id to array so long as it doesn't already exist in the array
+    // (there should never be two sauces with same _id but this is inexpensive safety check)
+    if (!res.sauces.allIds.includes(sauce._id))
+      res.sauces.allIds.push(sauce._id);
 
-    //flatten authors
+    // flatten authors
     res.authors.byId[sauce.author._id] = {
       _id: sauce.author._id,
       name: sauce.author.name
     };
 
-    //add author id to array
-    res.authors.allIds.push(sauce.author._id);
+    // add author id to array if doesn't already exist in array
+    if (!res.authors.allIds.includes(sauce.author._id))
+      res.authors.allIds.push(sauce.author._id);
 
-    //loop through array of reviews
+    // loop through array of reviews
     sauce.reviews.forEach(review => {
-      //flatten review
+      // flatten review
       res.reviews.byId[review._id] = {
         _id: review._id,
         text: review.text,
@@ -70,8 +73,9 @@ export const flattenSauces = sauces => {
         sauce: { _id: sauce._id }
       };
 
-      //add review id to array
-      res.reviews.allIds.push(review._id);
+      // add review id to array if it doesn't already exist in array
+      if (!res.reviews.allIds.includes(review._id))
+        res.reviews.allIds.push(review._id);
     });
   });
 
@@ -86,9 +90,9 @@ export const flattenSauces = sauces => {
  */
 
 export const flatChecker = obj => {
-  //make sauces were flattened
+  // make sauces were flattened
   if (Object.keys(obj.byId).length === 0 || obj.allIds.length === 0) {
-    //TODO: proper error here
+    // TODO: proper error here
     console.log("no sauces found");
     return false;
   }
