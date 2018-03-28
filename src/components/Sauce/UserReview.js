@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addReview } from "../../redux/actions/review";
+import { addReviews } from "../../redux/actions/reviews";
 import { RatingSection } from "./Form";
 import Auth from "../../Helper/Auth/Auth";
 
@@ -52,12 +52,12 @@ class UserReview extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    //make sure token is still legit
-    //1. make sure user exists in props
-    //2. make sure token exists in user
-    //3. make sure token is not empty
-    //4. make sure token is still legit
-    //TODO: Determine if this is massive overkill.
+    // make sure token is still legit
+    // 1. make sure user exists in props
+    // 2. make sure token exists in user
+    // 3. make sure token is not empty
+    // 4. make sure token is still legit
+    // TODO: Determine if this is massive overkill.
     if (
       !this.props.user ||
       !this.props.user.token ||
@@ -66,7 +66,7 @@ class UserReview extends Component {
     ) {
     }
 
-    //construct our API object
+    // construct our API object
     const data = {
       user: { token: this.props.user.token },
       review: {
@@ -97,19 +97,17 @@ class UserReview extends Component {
 }
 UserReview.propTypes = {
   user: PropTypes.shape({
-    token: PropTypes.string
+    token: PropTypes.string.isRequired
   }),
   sauceID: PropTypes.string.isRequired,
   addReview: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => {
-  return {
-    user: {
-      token: state.users.self.token
-    }
-  };
-};
+const mapStateToProps = state => ({
+  user: {
+    token: state.users.self.token
+  }
+});
 
 const mapDispatchToProps = {
   addReview
