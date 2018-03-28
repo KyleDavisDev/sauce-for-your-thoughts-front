@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export const host =
   process.env.API_ENV === "prod"
     ? "https://sauceforyourthoughts.com"
