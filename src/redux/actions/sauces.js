@@ -1,5 +1,7 @@
 import api from "../../api/api";
 import { flattenSauces, flatChecker } from "./helper";
+import { addReviews } from "./reviews";
+import { addUsers } from "./users";
 
 export const addedSauces = ({ sauces }) => ({
   type: "SAUCES_ADDED",
@@ -29,56 +31,52 @@ export const addedSingleSauce = ({ sauce }) => ({
   sauce
 });
 
-export const addSauce = data => dispatch => {
-  return api.sauce.add(data).then(res => {
+export const addSauce = data => dispatch =>
+  api.sauce.add(data).then(res => {
     dispatch(addedSingleSauce({ sauce: res.data.sauce }));
   });
-};
 
 /** @description Grab all sauces available (will limit this to only set amount at a time in future)
  *  @return {Object} response data
  */
-export const getSauces = () => dispatch => {
-  return api.sauces.get().then(res => {
+export const getSauces = () => dispatch =>
+  api.sauces.get().then(res => {
     const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
 
-    //make sauces were flattened
+    // make sauces were flattened
     if (flatChecker(sauces)) {
       dispatch(addedSauces({ sauces }));
     }
 
-    //make sure review were flattened
+    // make sure review were flattened
     if (flatChecker(reviews)) {
       dispatch(addReviews({ reviews }));
     }
 
-    //make sure users were flattened
+    // make sure users were flattened
     if (flatChecker(authors)) {
       dispatch(addUsers({ users: authors }));
     }
 
     return res;
   });
-};
 
 export const updateSaucesItem = ({ sauce }) => dispatch => {
   dispatch(updatedSaucesItems({ sauce }));
-  return;
 };
 
-export const getSaucesByTag = data => dispatch => {
-  return api.sauces.getSaucesByTag(data).then(res => {
+export const getSaucesByTag = data => dispatch =>
+  api.sauces.getSaucesByTag(data).then(res => {
     dispatch(saucesByTagFound({ sauces: res.sauces }));
     return res;
   });
-};
 
-export const getSaucesBySearch = searchValue => dispatch => {
-  return api.sauces.search(searchValue).then(res => {
-    //dipatch event here in future (?)
-    return res;
-  });
-};
+export const getSaucesBySearch = searchValue => dispatch =>
+  api.sauces.search(searchValue).then(
+    res =>
+      // dipatch event here in future (?)
+      res
+  );
 
 export const cleanUpSauces = () => dispatch => {
   dispatch(cleanedUpSauces());
