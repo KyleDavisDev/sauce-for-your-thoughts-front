@@ -11,10 +11,24 @@ import Card from "../Card/Card.js";
 import Pagination from "./Pagination";
 
 class Sauces extends Component {
+  static propTypes = {
+    sauces: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    user: PropTypes.shape({
+      token: PropTypes.string,
+      email: PropTypes.string,
+      hearts: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+    }).isRequired,
+    getSauces: PropTypes.func.isRequired,
+    cleanUpSauces: PropTypes.func.isRequired,
+    toggleSauce: PropTypes.func.isRequired,
+    getInfo: PropTypes.func.isRequired,
+    flashError: PropTypes.func.isRequired,
+    getHearts: PropTypes.func.isRequired
+  };
   constructor(props) {
     super(props);
 
-    //page and saucePerPage will be held in local state since it will only be used here and by Pagination
+    // page and saucePerPage will be held in local state since it will only be used here and by Pagination
     this.state = {
       page: 1,
       saucePerPage: 6
@@ -58,8 +72,8 @@ class Sauces extends Component {
         </div>
         <Pagination
           total={sauces.length}
-          page={this.state.page}
-          saucePerPage={this.state.saucePerPage}
+          page={page}
+          saucePerPage={saucePerPage}
         />
       </div>
     );
@@ -70,7 +84,7 @@ class Sauces extends Component {
     const displayHeartIcon = !!this.props.user.token;
     return (
       <Card
-        displayEditIcon={email === sauce.author ? true : false}
+        displayEditIcon={email === sauce.author}
         displayHeartIcon={displayHeartIcon}
         heart={hearts.includes(sauce._id)}
         toggleSauce={this.toggleSauce}
@@ -84,15 +98,13 @@ class Sauces extends Component {
     );
   };
 
-  getSauces = () => {
-    return this.props.getSauces();
-  };
+  getSauces = () => this.props.getSauces();
 
-  //this will pass token to api and store email/name into redux store on success
+  // this will pass token to api and store email/name into redux store on success
   getUserID = () => {
-    //make sure user is logged in
+    // make sure user is logged in
     if (!this.props.user.token) return;
-    //check if email already passed to component to save api call
+    // check if email already passed to component to save api call
     if (this.props.user.email) return;
 
     const data = { user: { token: this.props.user.token } };
@@ -100,7 +112,7 @@ class Sauces extends Component {
   };
 
   getHearts = () => {
-    //make sure user is logged in
+    // make sure user is logged in
     if (!this.props.user.token) return;
 
     const credentials = { user: { token: this.props.user.token } };
@@ -115,31 +127,14 @@ class Sauces extends Component {
   };
 }
 
-Sauces.propTypes = {
-  sauces: PropTypes.arrayOf(PropTypes.string.isRequired),
-  user: PropTypes.shape({
-    token: PropTypes.string,
-    email: PropTypes.string,
-    hearts: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
-  }),
-  getSauces: PropTypes.func.isRequired,
-  cleanUpSauces: PropTypes.func.isRequired,
-  toggleSauce: PropTypes.func.isRequired,
-  getInfo: PropTypes.func.isRequired,
-  flashError: PropTypes.func.isRequired,
-  getHearts: PropTypes.func.isRequired
-};
-
-const mapStateToProps = state => {
-  return {
-    sauces: state.sauces.allIds,
-    user: {
-      token: state.users.self.token,
-      email: state.users.email || "",
-      hearts: state.users.hearts || []
-    }
-  };
-};
+const mapStateToProps = state => ({
+  sauces: state.sauces.allIds,
+  user: {
+    token: state.users.self.token,
+    email: state.users.email || "",
+    hearts: state.users.hearts || []
+  }
+});
 
 const mapDispatchToProps = {
   getSauces,
