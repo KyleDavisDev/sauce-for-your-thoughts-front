@@ -1,44 +1,34 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import FillerImage from "../../images/photos/sauce.jpg";
-import Pencil from "../../images/icons/Pencil.js";
 import { Heart, FilledHeart } from "../../images/icons/Heart";
 import { host } from "../../api/api";
+import Actions from "./Actions";
 
-const Card = props => {
-  const { _id, name, image, slug, description } = props.sauce;
+const index = props => {
+  const { sauce, reviews } = props;
+
   return (
     <div className="card">
       <div className="card-hero">
-        {/* <div className="card--actions">
-          {displayEditIcon && (
-            <div className="card--action card--action__edit">
-              <Link to={`/sauce/${_id}/edit`}>
-                <Pencil />
-              </Link>
-            </div>
-          )}
-          <div className="card--action card--action__heart">
-            {handleHeartIcon()}
-          </div>
-        </div> */}
+        <Actions sauce={sauce._id} />
         <img
           src={FillerImage}
           onError={e => (e.target.src = FillerImage)}
-          onLoad={e => (e.target.src = `${host}/public/uploads/${image}`)}
-          title={name}
-          alt={name}
+          onLoad={e => (e.target.src = `${host}/public/uploads/${sauce.photo}`)}
+          title={sauce.name}
+          alt={sauce.name}
         />
         <div className="sauce-title">
-          <Link to={`/sauce/${slug}`}>{name}</Link>
+          <Link to={`/sauce/${sauce.slug}`}>{sauce.name}</Link>
         </div>
       </div>
       <div className="card-details">
         {/* {limit description to 25 words } */}
         <p>
-          {description
+          {sauce.description
             .split(" ")
             .slice(0, 25)
             .join(" ")}
@@ -71,7 +61,7 @@ const Card = props => {
   }
 };
 
-Card.propTypes = {
+index.propTypes = {
   sauce: PropTypes.shape({
     name: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired,
@@ -79,11 +69,9 @@ Card.propTypes = {
     slug: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     author: PropTypes.shape({ _id: PropTypes.string.isRequired })
-  }).isRequired,
-  // author: PropTypes.shape({
-  //   _id: PropTypes.string.isRequired
-  // }).isRequired,
-  _id: PropTypes.string.isRequired
+  }).isRequired
+
+  // _id: PropTypes.string.isRequired
   // displayHeartIcon: PropTypes.bool.isRequired,
   // heart: PropTypes.bool.isRequired,
   // toggleSauce: PropTypes.func.isRequired
@@ -93,7 +81,7 @@ Card.propTypes = {
 const mapStateToProps = (state, ownProps) => ({
   user: { token: state.users.self.token },
   sauce: state.sauces.byId[ownProps._id]
-  // author: state.users.byId[state.sauce.byId[ownProps._id].author._id] || ""
+  // reviews: {}
 });
 
-export default connect(mapStateToProps, {})(Card);
+export default connect(mapStateToProps, {})(index);
