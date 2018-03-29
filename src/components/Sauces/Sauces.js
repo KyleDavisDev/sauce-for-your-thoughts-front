@@ -16,7 +16,7 @@ class Sauces extends Component {
     user: PropTypes.shape({
       token: PropTypes.string,
       email: PropTypes.string,
-      hearts: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+      hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
     }).isRequired,
     getSauces: PropTypes.func.isRequired,
     cleanUpSauces: PropTypes.func.isRequired,
@@ -25,6 +25,7 @@ class Sauces extends Component {
     flashError: PropTypes.func.isRequired,
     getHearts: PropTypes.func.isRequired
   };
+
   constructor(props) {
     super(props);
 
@@ -37,7 +38,7 @@ class Sauces extends Component {
 
   componentDidMount() {
     axios
-      .all([this.getSauces(), this.getUserID(), this.getHearts()])
+      .all([this.getSauces() /* this.getUserID(), this.getHearts() */])
       .catch(error => {
         console.log(error);
         // this.props.flashError({ text: error.response.data.msg });
@@ -61,14 +62,10 @@ class Sauces extends Component {
       <div className="inner">
         <h2>Sauces</h2>
         <div className="sauces">
-          {/* {sauces.allIds.length > 0 &&
+          {sauces.length > 0 &&
             sauces
               .slice((page - 1) * saucePerPage, page * saucePerPage)
-              .map(sauce => {
-                console.log("hi");
-                // this.renderCards({ sauce, email })
-                return <Card _id={sauce} toggleSauce={this.toggleSauce} />;
-              })} */}
+              .map(sauce => <Card _id={sauce} key={sauce} />)}
         </div>
         <Pagination
           total={sauces.length}
