@@ -17,7 +17,8 @@ const initialState = {
   sauces: { byId: {}, allIds: [] },
   sauce: {},
   tags: [],
-  users: { self: { token: Auth.getToken() }, byId: {}, allIds: [] }
+  users: { self: { token: Auth.getToken() }, byId: {}, allIds: [] },
+  reviews: { byId: {}, allIds: [] }
 };
 
 const store = createStore(
