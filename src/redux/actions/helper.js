@@ -99,3 +99,14 @@ export const flatChecker = obj => {
 
   return true;
 };
+
+/** @description removes duplicate values from array
+ *  @param {String|Integer[]} arr - array to remove duplciates from
+ *  @returns {String|Integer[]} array of only uniques
+ */
+export const uniq = arr => {
+  const seen = {};
+  return arr.filter(
+    item => (seen[item] === true ? false : (seen[item] = true))
+  );
+};
