@@ -7,17 +7,14 @@ import { getInfo, toggleSauce, getHearts } from "../../redux/actions/user";
 import { getSaucesByTag, cleanUpSauces } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
 import { getTagsList, cleanUpTags } from "../../redux/actions/tags";
-import Card from "../Card/Card.js";
+import Card from "../Card/index.js";
 
-const Title = ({ title }) => {
-  return <h2>Tags - {title}</h2>;
-};
+const Title = ({ title }) => <h2>Tags - {title}</h2>;
 Title.proptypes = {
   title: PropTypes.string.isRequired
 };
 
-const TagsList = ({ tags, count }) => {
-  return (
+const TagsList = ({ tags, count }) => (
     <ul className="tags">
       <li className="tag">
         <NavLink
@@ -46,7 +43,6 @@ const TagsList = ({ tags, count }) => {
       })}
     </ul>
   );
-};
 TagsList.proptypes = {
   tags: PropTypes.shape({
     _id: PropTypes.string.isRequired,
@@ -90,29 +86,27 @@ class Tags extends Component {
   }
 
   getSaucesByTag = tag => {
-    //Sanity check for bogus tag values
+    // Sanity check for bogus tag values
     // if (!Object.keys(this.props.tags).includes(tag)) return;
     const data = { user: { token: this.props.user.token }, tag };
     return this.props.getSaucesByTag(data);
   };
 
-  //this will pass token to api and store email/name into redux store on success
+  // this will pass token to api and store email/name into redux store on success
   getUserInfo = () => {
-    //make sure user is logged in
+    // make sure user is logged in
     if (!this.props.user.token) return;
-    //check if email already passed to component to save api call
+    // check if email already passed to component to save api call
     if (this.props.user.email) return;
 
     const data = { user: { token: this.props.user.token } };
     return this.props.getInfo(data);
   };
 
-  getTagsList = () => {
-    return this.props.getTagsList();
-  };
+  getTagsList = () => this.props.getTagsList();
 
   getHearts = () => {
-    //make sure user is logged in
+    // make sure user is logged in
     if (!this.props.user.token) return;
 
     const credentials = { user: { token: this.props.user.token } };
@@ -131,7 +125,7 @@ class Tags extends Component {
     const displayHeartIcon = !!this.props.user.token;
     return (
       <Card
-        displayEditIcon={email === sauce.author ? true : false}
+        displayEditIcon={email === sauce.author}
         displayHeartIcon={displayHeartIcon}
         heart={hearts.includes(sauce._id)}
         toggleSauce={this.toggleSauce}
@@ -170,8 +164,7 @@ Tags.propTypes = {
   toggleSauce: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => {
-  return {
+const mapStateToProps = state => ({
     sauces: state.sauces,
     user: {
       token: state.users.self.token,
@@ -179,8 +172,7 @@ const mapStateToProps = state => {
       hearts: state.user.hearts
     },
     tags: state.tags
-  };
-};
+  });
 
 const mapDispatchToProps = {
   flashError,
