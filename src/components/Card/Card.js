@@ -7,27 +7,15 @@ import Pencil from "../../images/icons/Pencil.js";
 import { Heart, FilledHeart } from "../../images/icons/Heart";
 import { host } from "../../api/api";
 
-// {
-//   ID,
-//   name,
-//   image,
-//   slug,
-//   description,
-//   displayEditIcon,
-//   displayHeartIcon,
-//   heart,
-//   toggleSauce
-// }
-
 const Card = props => {
-  console.log(props);
+  const { _id, name, image, slug, description } = props.sauce;
   return (
     <div className="card">
       <div className="card-hero">
-        <div className="card--actions">
+        {/* <div className="card--actions">
           {displayEditIcon && (
             <div className="card--action card--action__edit">
-              <Link to={`/sauce/${ID}/edit`}>
+              <Link to={`/sauce/${_id}/edit`}>
                 <Pencil />
               </Link>
             </div>
@@ -35,7 +23,7 @@ const Card = props => {
           <div className="card--action card--action__heart">
             {handleHeartIcon()}
           </div>
-        </div>
+        </div> */}
         <img
           src={FillerImage}
           onError={e => (e.target.src = FillerImage)}
@@ -48,7 +36,7 @@ const Card = props => {
         </div>
       </div>
       <div className="card-details">
-        {/*{limit description to 25 words }*/}
+        {/* {limit description to 25 words } */}
         <p>
           {description
             .split(" ")
@@ -59,8 +47,8 @@ const Card = props => {
     </div>
   );
 
-  //only render appropriate heart icon if displayHeartIcon is true
-  //function declaration so we can write it below our 'render' and it will still be hoisted
+  // only render appropriate heart icon if displayHeartIcon is true
+  // function declaration so we can write it below our 'render' and it will still be hoisted
   function handleHeartIcon() {
     if (!displayHeartIcon) return;
     {
@@ -91,20 +79,21 @@ Card.propTypes = {
     slug: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     author: PropTypes.shape({ _id: PropTypes.string.isRequired })
-  }),
-  author: PropTypes.shape({
-    _id: PropTypes.string.isRequired
-  }),
-  _id: PropTypes.string.isRequired,
+  }).isRequired,
+  // author: PropTypes.shape({
+  //   _id: PropTypes.string.isRequired
+  // }).isRequired,
+  _id: PropTypes.string.isRequired
   // displayHeartIcon: PropTypes.bool.isRequired,
   // heart: PropTypes.bool.isRequired,
-  toggleSauce: PropTypes.func.isRequired
+  // toggleSauce: PropTypes.func.isRequired
 };
 
+// TODO figure out how to access author ID before redux sets users
 const mapStateToProps = (state, ownProps) => ({
   user: { token: state.users.self.token },
-  sauce: state.sauce.byId[ownProps._id],
-  author: state.author.byId[state.sauce.byId[ownProps._id].author._id]
+  sauce: state.sauces.byId[ownProps._id]
+  // author: state.users.byId[state.sauce.byId[ownProps._id].author._id] || ""
 });
 
 export default connect(mapStateToProps, {})(Card);
