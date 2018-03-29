@@ -5,12 +5,12 @@ import PropTypes from "prop-types";
 import Pencil from "../../images/icons/Pencil.js";
 
 const Actions = props => {
-  const { sauce, author } = props;
+  const { sauce, user } = props;
   return (
     <div className="card--actions">
       {sauce &&
-        author &&
-        sauce.author._id === author._id && (
+        user &&
+        sauce.author._id === user._id && (
           <div className="card--action card--action__edit">
             <Link to={`/sauce/${sauce._id}/edit`}>
               <Pencil />
@@ -26,17 +26,19 @@ const Actions = props => {
 
 Actions.propTypes = {
   sauce: PropTypes.shape({
-    _id: PropTypes.string.isRequired
+    _id: PropTypes.string.isRequired,
+    author: PropTypes.shape({
+      _id: PropTypes.string.isRequired
+    }).isRequired
   }).isRequired,
-  author: PropTypes.shape({
+  user: PropTypes.shape({
     _id: PropTypes.string.isRequired
   }).isRequired
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  author: state.users.byId[state.sauces.byId[ownProps._id].author._id] || {
-    _id: ""
-  }
+// TODO: See if assigning temp value here is anti-pattern
+const mapStateToProps = state => ({
+  user: { _id: state.users.self._id || "" }
 });
 
 export default connect(mapStateToProps, {})(Actions);
