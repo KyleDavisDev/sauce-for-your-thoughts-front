@@ -13,7 +13,7 @@ const index = props => {
   return (
     <div className="card">
       <div className="card-hero">
-        <Actions sauce={sauce._id} />
+        <Actions sauce={sauce} />
         <img
           src={FillerImage}
           onError={e => (e.target.src = FillerImage)}
