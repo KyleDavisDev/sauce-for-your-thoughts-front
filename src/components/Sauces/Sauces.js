@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { getSauces, cleanUpSauces } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
 import { getInfo, toggleSauce, getHearts } from "../../redux/actions/user";
-import Card from "../Card/Card.js";
+import Card from "../Card/index.js";
 import Pagination from "./Pagination";
 
 class Sauces extends Component {
@@ -51,7 +51,7 @@ class Sauces extends Component {
   }
 
   componentWillUnmount() {
-    this.props.cleanUpSauces();
+    // this.props.cleanUpSauces();
   }
 
   render() {
