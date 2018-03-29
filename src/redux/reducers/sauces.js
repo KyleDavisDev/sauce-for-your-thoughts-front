@@ -1,13 +1,22 @@
 export default function sauces(state = {}, action) {
   switch (action.type) {
     case "SAUCES_ADDED":
-      //action.sauces === {sauce, sauce, sauce}
-      return action.sauces;
+      // action.sauces === {sauce, sauce, sauce}
+
+      return {
+        byId:
+          "byId" in state && Object.keys(state.byId).length > 0
+            ? Object.assign({}, state.byId, action.sauces.byId)
+            : Object.assign({}, action.sauces.byId),
+        allIds:
+          "allIds" in state && state.allIds.length > 0
+            ? state.allIds.concat(action.sauces.allIds)
+            : [].concat(action.sauces.allIds)
+      };
 
     case "SINGLE_SAUCE_ADDED":
       // action.sauce === {sauce}
 
-      //construct return object
       return {
         byId:
           "byId" in state && Object.keys(state.byId).length > 0
@@ -20,7 +29,7 @@ export default function sauces(state = {}, action) {
       };
 
     case "UPDATED_SAUCES_ITEM":
-      //update single sauces item if sauces is already set
+      // update single sauces item if sauces is already set
       return state
         ? state.map(sauce => {
             if (sauce._id === action.sauce._id) {
