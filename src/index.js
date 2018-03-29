@@ -14,10 +14,10 @@ import Auth from "./Helper/Auth/Auth";
 
 const initialState = {
   flashMessage: { isVisible: false, type: null, text: null, slug: null },
-  sauces: {},
+  sauces: { byId: {}, allIds: [] },
   sauce: {},
   tags: [],
-  users: { self: { token: Auth.getToken() } }
+  users: { self: { token: Auth.getToken() }, byId: {}, allIds: [] }
 };
 
 const store = createStore(
