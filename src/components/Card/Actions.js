@@ -24,29 +24,38 @@ class Actions extends Component {
             </div>
           )}
         <div className="card--action card--action__heart">
-          {/* {handleHeartIcon()} */}
+          {this.handleHeartIcon(sauce._id)}
         </div>
       </div>
     );
   }
 
-  // only render appropriate heart icon if displayHeartIcon is true
-  // function declaration so we can write it below our 'render' and it will still be hoisted
-  handleHeartIcon = () => {
-    if (!displayHeartIcon) return;
-
-    return heart ? (
-      <button onClick={e => toggleSauce(ID)} className="button--action__active">
+  /** @description figures out which heart icon should be loaded
+   *  @param {String} _id - store identification
+   *  @returns {JSX} appropriate button/heart
+   */
+  handleHeartIcon = _id =>
+    this.props.user.hearts.includes(_id) ? (
+      <button
+        onClick={() => toggleSauce(ID)}
+        className="button--action__active"
+      >
         <FilledHeart />
       </button>
     ) : (
       <button
-        onClick={e => toggleSauce(ID)}
+        onClick={() => toggleSauce(ID)}
         className="button--action__inactive"
       >
         <Heart />
       </button>
     );
+
+  toggleSauce = ID => {
+    const data = { user: { token: this.props.user.token }, sauce: { _id: ID } };
+    this.props
+      .toggleSauce(data)
+      .catch(err => this.props.flashError({ text: err.response }));
   };
 }
 
@@ -59,7 +68,8 @@ Actions.propTypes = {
   }).isRequired,
   user: PropTypes.shape({
     token: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired
+    _id: PropTypes.string.isRequired,
+    hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
   }).isRequired
 };
 
@@ -67,7 +77,8 @@ Actions.propTypes = {
 const mapStateToProps = state => ({
   user: {
     token: state.users.self.token,
-    _id: state.users.self._id || ""
+    _id: state.users.self._id || "",
+    hearts: state.users.self.hearts || []
   }
 });
 
