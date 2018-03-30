@@ -37,7 +37,8 @@ class Sauces extends Component {
   }
 
   componentDidMount() {
-    axios.all([this.getSauces(), this.getHearts()]).catch(error => {
+    const { token } = this.props.user;
+    axios.all([this.getSauces(), this.getHearts(token)]).catch(error => {
       console.log(error);
       // this.props.flashError({ text: error.response.data.msg });
     });
