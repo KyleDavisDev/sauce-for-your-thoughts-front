@@ -6,7 +6,7 @@ import hashmapPropType from "hashmap-prop-type";
 import { connect } from "react-redux";
 import { getSauces, cleanUpSauces } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
-import { getInfo, toggleSauce, getHearts } from "../../redux/actions/user";
+import { getInfo, toggleSauce } from "../../redux/actions/user";
 import Card from "../Card/index.js";
 import Pagination from "./Pagination";
 
@@ -22,8 +22,7 @@ class Sauces extends Component {
     cleanUpSauces: PropTypes.func.isRequired,
     toggleSauce: PropTypes.func.isRequired,
     getInfo: PropTypes.func.isRequired,
-    flashError: PropTypes.func.isRequired,
-    getHearts: PropTypes.func.isRequired
+    flashError: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -108,14 +107,6 @@ class Sauces extends Component {
     return this.props.getInfo(data);
   };
 
-  getHearts = () => {
-    // make sure user is logged in
-    if (!this.props.user.token) return;
-
-    const credentials = { user: { token: this.props.user.token } };
-    return this.props.getHearts(credentials);
-  };
-
   toggleSauce = ID => {
     const data = { user: { token: this.props.user.token }, sauce: { _id: ID } };
     this.props
@@ -138,8 +129,7 @@ const mapDispatchToProps = {
   cleanUpSauces,
   getInfo,
   flashError,
-  toggleSauce,
-  getHearts
+  toggleSauce
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sauces);
