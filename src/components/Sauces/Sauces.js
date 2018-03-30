@@ -20,10 +20,14 @@ class Sauces extends Component {
       hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
     }).isRequired,
     getSauces: PropTypes.func.isRequired,
-    toggleSauce: PropTypes.func.isRequired,
     getInfo: PropTypes.func.isRequired,
     flashError: PropTypes.func.isRequired,
-    getHearts: PropTypes.func.isRequired
+    getHearts: PropTypes.func.isRequired,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        pageNum: PropTypes.string
+      }).isRequired
+    }).isRequired
   };
 
   constructor(props) {
@@ -40,7 +44,7 @@ class Sauces extends Component {
     const { token } = this.props.user;
     axios.all([this.getSauces(), this.getHearts(token)]).catch(error => {
       console.log(error);
-      // this.props.flashError({ text: error.response.data.msg });
+      this.props.flashError({ text: error.response.data.msg });
     });
   }
 
@@ -121,13 +125,6 @@ class Sauces extends Component {
     // construct API-required data
     const credentials = { user: { token } };
     return this.props.getHearts(credentials);
-  };
-
-  toggleSauce = ID => {
-    const data = { user: { token: this.props.user.token }, sauce: { _id: ID } };
-    this.props
-      .toggleSauce(data)
-      .catch(err => this.props.flashError({ text: err.response }));
   };
 }
 
