@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Pencil from "../../images/icons/Pencil.js";
+import { Heart, FilledHeart } from "../../images/icons/Heart";
 
 const Actions = props => {
   const { sauce, user } = props;
@@ -22,6 +23,29 @@ const Actions = props => {
       </div>
     </div>
   );
+
+  // only render appropriate heart icon if displayHeartIcon is true
+  // function declaration so we can write it below our 'render' and it will still be hoisted
+  function handleHeartIcon() {
+    if (!displayHeartIcon) return;
+    {
+      return heart ? (
+        <button
+          onClick={e => toggleSauce(ID)}
+          className="button--action__active"
+        >
+          <FilledHeart />
+        </button>
+      ) : (
+        <button
+          onClick={e => toggleSauce(ID)}
+          className="button--action__inactive"
+        >
+          <Heart />
+        </button>
+      );
+    }
+  }
 };
 
 Actions.propTypes = {
