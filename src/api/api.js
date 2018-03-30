@@ -48,6 +48,13 @@ export default {
         }
         throw new Error(res.data.msg);
       }),
+
+    /** @description Get the hearts of a user
+     *  @param {Object} user object
+     *    @param {String} user.token - JWT string
+     *  @returns {Promise}
+     *    @returns {String[]} array of store _ids
+     */
     getHearts: credentials =>
       axios.post(`${host}/api/user/getHearts`, credentials).then(res => {
         if (res.data.isGood && res.status === 200) {
