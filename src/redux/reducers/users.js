@@ -1,5 +1,6 @@
 export default function user(state = {}, action) {
   switch (action.type) {
+    /** @description add users.byId{} and users.allIds[] to users store */
     case "USERS_ADDED":
       // make sure action contains users .byId and .allIds else return
       if (
@@ -28,6 +29,18 @@ export default function user(state = {}, action) {
     /** @description clears .self of users */
     case "USER_LOGGED_OUT":
       return Object.assign({}, state, { self: {} });
+
+    case "GOT_HEARTS":
+      return {
+        ...state,
+        self: {
+          ...state.self,
+          hearts:
+            "hearts" in state.self && state.self.hearts.length > 0
+              ? [...state.self.hearts, action.hearts]
+              : [].concat(action.hearts)
+        }
+      };
     default:
       return state;
   }
