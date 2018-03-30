@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getHearts } from "../../redux/actions/users";
 import PropTypes from "prop-types";
 import Pencil from "../../images/icons/Pencil.js";
 import { Heart, FilledHeart } from "../../images/icons/Heart";
 
 class Actions extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    // this.getHearts(this.props.user.token);
+  }
 
   render() {
     const { sauce, user } = this.props;
@@ -47,14 +48,6 @@ class Actions extends Component {
       </button>
     );
   };
-
-  getHearts = () => {
-    // make sure user is logged in
-    if (!this.props.user.token) return;
-
-    const credentials = { user: { token: this.props.user.token } };
-    return this.props.getHearts(credentials);
-  };
 }
 
 Actions.propTypes = {
@@ -65,18 +58,19 @@ Actions.propTypes = {
     }).isRequired
   }).isRequired,
   user: PropTypes.shape({
+    token: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired
-  }).isRequired,
-  getHearts: PropTypes.func.isRequired
+  }).isRequired
 };
 
 // TODO: See if assigning temp value here is anti-pattern
 const mapStateToProps = state => ({
-  user: { _id: state.users.self._id || "" }
+  user: {
+    token: state.users.self.token,
+    _id: state.users.self._id || ""
+  }
 });
 
-const mapDispatchToProps = {
-  getHearts
-};
+const mapDispatchToProps = {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Actions);

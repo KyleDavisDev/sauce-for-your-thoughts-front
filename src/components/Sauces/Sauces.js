@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { getSauces, cleanUpSauces } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
 import { getInfo, toggleSauce } from "../../redux/actions/user";
+import { getHearts } from "../../redux/actions/users";
 import Card from "../Card/index.js";
 import Pagination from "./Pagination";
 
@@ -19,10 +20,10 @@ class Sauces extends Component {
       hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
     }).isRequired,
     getSauces: PropTypes.func.isRequired,
-    cleanUpSauces: PropTypes.func.isRequired,
     toggleSauce: PropTypes.func.isRequired,
     getInfo: PropTypes.func.isRequired,
-    flashError: PropTypes.func.isRequired
+    flashError: PropTypes.func.isRequired,
+    getHearts: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -36,12 +37,10 @@ class Sauces extends Component {
   }
 
   componentDidMount() {
-    axios
-      .all([this.getSauces() /* this.getUserID(), this.getHearts() */])
-      .catch(error => {
-        console.log(error);
-        // this.props.flashError({ text: error.response.data.msg });
-      });
+    axios.all([this.getSauces(), this.getHearts()]).catch(error => {
+      console.log(error);
+      // this.props.flashError({ text: error.response.data.msg });
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -94,6 +93,9 @@ class Sauces extends Component {
     );
   };
 
+  /** @description Grabs all sauces, related reviews, and related users
+   *  @returns {Promise}
+   */
   getSauces = () => this.props.getSauces();
 
   // this will pass token to api and store email/name into redux store on success
@@ -105,6 +107,19 @@ class Sauces extends Component {
 
     const data = { user: { token: this.props.user.token } };
     return this.props.getInfo(data);
+  };
+
+  /** @description Grabs token for logged in users
+   *  @param {String} token - JWT to pass to server
+   *  @returns {Promise}
+   */
+  getHearts = (token = null) => {
+    // make sure user is logged in
+    if (!token) return;
+
+    // construct API-required data
+    const credentials = { user: { token } };
+    return this.props.getHearts(credentials);
   };
 
   toggleSauce = ID => {
@@ -129,7 +144,8 @@ const mapDispatchToProps = {
   cleanUpSauces,
   getInfo,
   flashError,
-  toggleSauce
+  toggleSauce,
+  getHearts
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sauces);
