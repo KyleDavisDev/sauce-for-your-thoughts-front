@@ -6,6 +6,24 @@ import Pencil from "../../images/icons/Pencil.js";
 import { Heart, FilledHeart } from "../../images/icons/Heart";
 
 class Actions extends Component {
+  static propTypes = {
+    sauce: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      author: PropTypes.shape({
+        _id: PropTypes.string.isRequired
+      }).isRequired
+    }).isRequired,
+    user: PropTypes.shape({
+      token: PropTypes.string.isRequired,
+      _id: PropTypes.string.isRequired,
+      hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
+    })
+  };
+
+  static defaultProps = {
+    user: { token: null, _id: null, hearts: null }
+  };
+
   componentDidMount() {
     // this.getHearts(this.props.user.token);
   }
@@ -34,8 +52,15 @@ class Actions extends Component {
    *  @param {String} _id - store identification
    *  @returns {JSX} appropriate button/heart
    */
-  handleHeartIcon = _id =>
-    this.props.user.hearts.includes(_id) ? (
+  handleHeartIcon = _id => {
+    if (
+      this.props.user.hearts === null ||
+      this.props.user.hearts.length === 0
+    ) {
+      return;
+    }
+
+    return this.props.user.hearts.includes(_id) ? (
       <button
         onClick={() => toggleSauce(ID)}
         className="button--action__active"
@@ -50,6 +75,7 @@ class Actions extends Component {
         <Heart />
       </button>
     );
+  };
 
   toggleSauce = ID => {
     const data = { user: { token: this.props.user.token }, sauce: { _id: ID } };
@@ -58,20 +84,6 @@ class Actions extends Component {
       .catch(err => this.props.flashError({ text: err.response }));
   };
 }
-
-Actions.propTypes = {
-  sauce: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    author: PropTypes.shape({
-      _id: PropTypes.string.isRequired
-    }).isRequired
-  }).isRequired,
-  user: PropTypes.shape({
-    token: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired,
-    hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
-  }).isRequired
-};
 
 // TODO: See if assigning temp value here is anti-pattern
 const mapStateToProps = state => ({
