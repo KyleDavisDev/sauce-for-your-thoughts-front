@@ -17,41 +17,38 @@ export const userRegistered = user => ({
   text: "Thank you for registering! You are now logged in."
 });
 
-export const login = credentials => dispatch => {
-  return api.user.login(credentials).then(res => {
+export const login = credentials => dispatch =>
+  api.user.login(credentials).then(res => {
     const token = res.user.token;
-    //save token to local storage and set timestamp
+    // save token to local storage and set timestamp
     Auth.authenticateUser(token);
 
-    //save token to user in store
+    // save token to user in store
     dispatch(userLoggedIn({ token }));
 
-    //dispatch successfull flash
+    // dispatch successfull flash
     dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
   });
-};
 
 export const logout = () => dispatch => {
-  //remove token and dispatch action
+  // remove token and dispatch action
   Auth.deauthenticateUser();
   dispatch(userLoggedOut());
 };
 
-export const register = credentials => dispatch => {
-  return api.user.register(credentials).then(user => {
-    const token = user.token;
+export const register = credentials => dispatch =>
+  api.user.register(credentials).then(user => {
+    const { token } = user;
     Auth.authenticateUser({ token });
     dispatch(userLoggedIn(token));
     dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
   });
-};
 
-export const isLoggedIn = credentials => dispatch => {
-  return api.user.isLoggedIn(credentials).then(res => {
-    //token is good if we are here
+export const isLoggedIn = credentials => dispatch =>
+  api.user.isLoggedIn(credentials).then(res => {
+    // token is good if we are here
     dispatch(userLoggedIn({ token: credentials.user.token }));
     dispatch(
       flashSuccess({ text: "Restored your login from last time. Thank you!" })
     );
   });
-};
