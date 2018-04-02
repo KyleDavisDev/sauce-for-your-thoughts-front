@@ -41,6 +41,21 @@ export default function user(state = {}, action) {
               : [].concat(action.hearts)
         }
       };
+
+    /** @description add/remove action.sauce._id from self.hearts[] */
+    case "TOGGLED_HEART":
+      return {
+        ...state,
+        self: {
+          ...state.self,
+          hearts:
+            "hearts" in state.self &&
+            state.self.hearts.length > 0 &&
+            state.self.hearts.includes(action.sauce._id) // sanity checks
+              ? state.self.hearts.filter(x => x !== action.sauce._id) // remove from array
+              : [...state.self.hearts, action.sauce._id] // add
+        }
+      };
     default:
       return state;
   }
