@@ -13,11 +13,6 @@ export const userGotInfo = ({ email, name }) => ({
   name
 });
 
-export const toggledHeart = ({ sauce }) => ({
-  type: "TOGGLE_HEARTED",
-  sauce
-});
-
 export const updateUser = credentials => dispatch =>
   api.user.update(credentials).then(res => {
     const { email, name } = res.user;
@@ -32,9 +27,4 @@ export const getInfo = credentials => dispatch =>
     const { email, name } = res.user;
     dispatch(userGotInfo({ email, name }));
     return res.user;
-  });
-
-export const toggleSauce = data => dispatch =>
-  api.user.toggleSauce(data).then(res => {
-    dispatch(toggledHeart({ sauce: res.data.sauce }));
   });
