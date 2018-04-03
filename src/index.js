@@ -13,11 +13,12 @@ import { isLoggedIn } from "./redux/actions/auth";
 import Auth from "./Helper/Auth/Auth";
 
 const initialState = {
-  user: { token: Auth.getToken() },
   flashMessage: { isVisible: false, type: null, text: null, slug: null },
-  sauces: [],
+  sauces: { byId: {}, allIds: [] },
   sauce: {},
-  tags: []
+  tags: [],
+  users: { self: { token: Auth.getToken() }, byId: {}, allIds: [] },
+  reviews: { byId: {}, allIds: [] }
 };
 
 const store = createStore(

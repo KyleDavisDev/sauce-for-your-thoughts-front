@@ -72,7 +72,7 @@ function mapStateToProps(state) {
     user: {
       email: state.user.email,
       name: state.user.name,
-      token: state.user.token
+      token: state.users.self.token
     }
   };
 }

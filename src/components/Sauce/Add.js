@@ -2,18 +2,14 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addSauce } from "../../redux/actions/sauce";
+import { addSauce } from "../../redux/actions/sauces";
 import Auth from "../../Helper/Auth/Auth";
 
 import Form from "./Form";
 
 class Add extends Component {
-  componentWillMount() {
-    if (!this.props.user.token) this.props.history.push("/login");
-  }
-
   componentDidMount() {
-    if (!this.props.user.token) return;
+    if (!this.props.user.token) this.props.history.push("/login");
   }
 
   render() {
@@ -40,7 +36,8 @@ class Add extends Component {
         tags
       },
       review: {
-        rating: e.rating
+        rating: e.rating,
+        text: e.description
       },
       user: {
         token: this.props.user.token
@@ -57,6 +54,7 @@ class Add extends Component {
         this.props.history.push(`/sauce/${res.data.sauce.slug}`);
       })
       .catch(err => {
+        console.log(err);
         //TODO: Better error handling
         console.log(err.response);
         console.log(err.response.msg);
@@ -66,14 +64,19 @@ class Add extends Component {
 
 Add.propTypes = {
   user: PropTypes.shape({
-    token: PropTypes.string
+    token: PropTypes.string.isRequired
   }),
   addSauce: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    user: { token: state.user.token }
+    user: { token: state.users.self.token }
   };
 }
-export default connect(mapStateToProps, { addSauce })(Add);
+
+const mapDispatchToProps = {
+  addSauce
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Add);

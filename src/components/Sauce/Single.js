@@ -110,7 +110,7 @@ Single.proptypes = {
 const mapStateToProps = state => {
   return {
     user: {
-      token: state.user.token
+      token: state.users.self.token
     },
     sauce: state.sauce
   };

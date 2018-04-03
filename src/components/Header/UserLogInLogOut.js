@@ -73,7 +73,7 @@ UserLogInLogOut.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    isAuthenticated: !!state.user.token
+    isAuthenticated: !!state.users.self.token
   };
 }
 
