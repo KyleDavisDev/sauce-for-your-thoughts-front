@@ -41,6 +41,10 @@ export default function sauces(state = {}, action) {
         : [];
     case "SAUCES_BY_TAG_FOUND":
       return action.sauces;
+
+    // TODO: add sauce to .byIds and add id to .allIds
+    case "SAUCE_FOUND":
+      return {};
     case "CLEANED_UP_SAUCES":
       return [];
     default:
