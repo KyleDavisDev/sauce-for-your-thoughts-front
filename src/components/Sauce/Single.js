@@ -3,42 +3,39 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getSauceBySlug, cleanUpSauce } from "../../redux/actions/sauce";
+// import { cleanUpSauce } from "../../redux/actions/sauce";
+import { getSauceBySlug } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
 import { RatingSection } from "./Form";
-import UserReview from "./UserReview";
+// import UserReview from "./UserReview";
 import { host } from "../../api/api";
 
 import FillerImage from "../../images/photos/sauce.jpg";
 
-const GenerateTagsList = ({ tags }) => {
-  return (
-    <ul className="tags">
-      {tags.map(tag => {
-        return (
-          <li className="tag" key={tag}>
-            <Link to={`/tags/${tag}`} className="tag-link">
-              <span className="tag-text">#{tag}</span>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
-GenerateTagsList.proptypes = {
+const GenerateTagsList = ({ tags }) => (
+  <ul className="tags">
+    {tags.map(tag => (
+      <li className="tag" key={tag}>
+        <Link to={`/tags/${tag}`} className="tag-link">
+          <span className="tag-text">#{tag}</span>
+        </Link>
+      </li>
+    ))}
+  </ul>
+);
+GenerateTagsList.propTypes = {
   tags: PropTypes.arrayOf([PropTypes.string]).isRequired
 };
 
 class Single extends Component {
   componentDidMount() {
-    const slug = this.props.match.params.slug;
-    this.getSauceBySlug(slug);
+    const { slug } = this.props.match.params;
+    this.getSauceBySlug({ slug });
   }
 
   componentWillUnmount() {
-    //clear sauce from redux store
-    this.props.cleanUpSauce();
+    // clear sauce from redux store
+    // this.props.cleanUpSauce();
   }
 
   render() {
@@ -48,11 +45,12 @@ class Single extends Component {
           <div className="single">
             <div className="single-hero">
               <img
+                alt={`User-submitted ${this.props.sauce.name}`}
                 className="single-image"
                 onLoad={e =>
                   (e.target.src = `${host}/public/uploads/${
                     this.props.sauce.photo
-                  }`)
+                    }`)
                 }
                 src={FillerImage}
                 onError={e => (e.target.src = FillerImage)}
@@ -76,45 +74,59 @@ class Single extends Component {
           )}
 
           {/* Add review */}
-          {Object.keys(this.props.sauce).length > 0 && (
+          {/* {Object.keys(this.props.sauce).length > 0 && (
             <UserReview sauceID={this.props.sauce._id} />
-          )}
+          )} */}
         </div>
       </div>
     );
   }
 
-  getSauceBySlug = slug => {
+  getSauceBySlug = ({ slug }) => {
     this.props.getSauceBySlug(slug).catch(err => {
       this.props.flashError({ text: err.response.data.msg });
     });
   };
 }
-Single.proptypes = {
+Single.propTypes = {
   sauce: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     photo: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf([PropTypes.string]).isRequired,
+    slug: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     rating: PropTypes.number.isRequired
   }).isRequired,
-  user: {
-    token: PropTypes.string
-  },
+  // user: {
+  //   token: PropTypes.string.isRequired || ""
+  // }.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      slug: PropTypes.string
+    }).isRequired
+  }).isRequired,
   getSauceBySlug: PropTypes.func.isRequired,
   flashError: PropTypes.func.isRequired,
   cleanUpSauce: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => {
-  return {
-    user: {
-      token: state.users.self.token
-    },
-    sauce: state.sauce
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  user: {
+    token: state.users.self.token || ""
+  },
+  sauce: state.sauces.allIds.filter(
+    x => this.state.sauces.byId[x].slug === ownProps.sauce
+  )[0] || {
+      _id: "",
+      name: "",
+      description: "",
+      photo: "",
+      slug: "",
+      tags: [],
+      rating: 0
+    }
+});
 
 const mapDispatchToProps = {
   getSauceBySlug,
