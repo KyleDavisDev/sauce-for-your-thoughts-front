@@ -31,6 +31,15 @@ export const addedSingleSauce = ({ sauce }) => ({
   sauce
 });
 
+/** @description Action emitter for when a single sauce is found
+ *  @param Object, sauce related information
+ *  @returns Object, has sauce info and action type
+ */
+export const sauceFound = ({ sauce }) => ({
+  type: "SAUCE_FOUND",
+  sauce
+});
+
 export const addSauce = data => dispatch =>
   api.sauce.add(data).then(res => {
     dispatch(addedSingleSauce({ sauce: res.data.sauce }));
@@ -81,3 +90,10 @@ export const getSaucesBySearch = searchValue => dispatch =>
 export const cleanUpSauces = () => dispatch => {
   dispatch(cleanedUpSauces());
 };
+
+export const getSauceBySlug = data => dispatch =>
+  api.sauce.getBySlug(data).then(res => {
+    console.log(res);
+    dispatch(sauceFound({ sauce: res.sauce }));
+    return res;
+  });
