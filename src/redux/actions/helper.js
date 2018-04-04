@@ -14,7 +14,7 @@
  *    @param {Integer} sauces[].reviews[].rating - number of stars given
  *  @returns {Object} sauces, authors, reviews
  */
-export const flattenSauces = sauces => {
+export const flattenResponse = sauces => {
   // hold all results
   const res = {};
 
