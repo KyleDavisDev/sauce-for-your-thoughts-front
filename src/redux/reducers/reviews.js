@@ -9,8 +9,13 @@ export default function sauce(state = {}, action) {
             : Object.assign({}, action.reviews.byId),
         allIds:
           "allIds" in state && state.allIds.length > 0
-            ? state.allIds.concat(action.reviews.allIds)
-            : [].concat(action.reviews.allIds)
+            ? [
+                ...state.allIds,
+                action.reviews.allIds.filter(
+                  x => state.allIds.indexOf(x) === -1
+                )
+              ]
+            : [...action.reviews.allIds]
       };
 
     default:

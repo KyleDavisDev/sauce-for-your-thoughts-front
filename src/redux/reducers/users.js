@@ -18,8 +18,13 @@ export default function user(state = {}, action) {
             : Object.assign({}, action.users.byId),
         allIds:
           "allIds" in state && state.allIds.length > 0
-            ? state.allIds.concat(action.users.allIds)
-            : [].concat(action.users.allIds)
+            ? [
+                ...state.allIds,
+                ...action.users.allIds.filter(
+                  x => state.allIds.indexOf(x) === -1
+                )
+              ]
+            : [...action.users.allIds]
       };
 
     /** @description assigns token value to users.self.token */
