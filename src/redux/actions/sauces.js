@@ -1,5 +1,5 @@
 import api from "../../api/api";
-import { flattenSauces, flatChecker } from "./helper";
+import { flattenResponse, flatChecker } from "./helper";
 import { addReviews } from "./reviews";
 import { addUsers } from "./users";
 
@@ -46,11 +46,11 @@ export const addSauce = data => dispatch =>
   });
 
 /** @description Grab all sauces available (will limit this to only set amount at a time in future)
- *  @return {Object} response data
+ *  @return {NULL}
  */
 export const getSauces = () => dispatch =>
   api.sauces.get().then(res => {
-    const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
+    const { sauces, reviews, authors } = flattenResponse(res.data.sauces);
 
     // make sauces were flattened
     if (flatChecker(sauces)) {
@@ -91,9 +91,22 @@ export const cleanUpSauces = () => dispatch => {
   dispatch(cleanedUpSauces());
 };
 
-export const getSauceBySlug = data => dispatch =>
-  api.sauce.getBySlug(data).then(res => {
-    console.log(res);
-    dispatch(sauceFound({ sauce: res.sauce }));
-    return res;
+/** @description grab single sauce related to slug
+ *  @param {String} slug - keyword to lookup
+ *  @returns {NULL}
+ */
+export const getSauceBySlug = slug => dispatch =>
+  api.sauce.getBySlug(slug).then(res => {
+    // flatten response obj
+    const { sauces, reviews, authors } = flattenResponse([res.data.sauce]);
+
+    // make sauces were flattened
+    if (flatChecker(sauces)) {
+      dispatch(addedSingleSauce({ sauce: sauces }));
+    }
+
+    // make sure users were flattened
+    if (flatChecker(authors)) {
+      dispatch(addUsers({ users: authors }));
+    }
   });
