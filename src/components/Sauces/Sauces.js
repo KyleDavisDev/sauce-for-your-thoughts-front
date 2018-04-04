@@ -53,7 +53,7 @@ class Sauces extends Component {
     this.setState({ page });
   }
 
-  componentWillUnmount() {}
+  componentWillUnmount() { }
 
   render() {
     const sauces = this.props.sauces || [];
@@ -137,7 +137,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   getSauces,
-  cleanUpSauces,
   getInfo,
   flashError,
   toggleSauce,
