@@ -44,7 +44,10 @@ export const flattenResponse = sauces => {
       photo: sauce.photo,
       tags: sauce.tags,
       author: { _id: sauce.author._id },
-      reviews: sauce.reviews.map(x => x._id)
+      reviews:
+        sauce.length && sauce.reviews.length > 0
+          ? sauce.reviews.map(x => x._id)
+          : []
     };
 
     // add sauce id to array so long as it doesn't already exist in the array
@@ -62,21 +65,24 @@ export const flattenResponse = sauces => {
     if (!res.authors.allIds.includes(sauce.author._id))
       res.authors.allIds.push(sauce.author._id);
 
-    // loop through array of reviews
-    sauce.reviews.forEach(review => {
-      // flatten review
-      res.reviews.byId[review._id] = {
-        _id: review._id,
-        text: review.text,
-        rating: review.rating,
-        author: { _id: review.author._id },
-        sauce: { _id: sauce._id }
-      };
+    if (sauce.reviews && sauce.reviews.length > 0) {
+      // loop through array of reviews
+      sauce.reviews.forEach(review => {
+        // flatten review
+        res.reviews.byId[review._id] = {
+          _id: review._id,
+          text: review.text,
+          rating: review.rating,
+          author: { _id: review.author._id },
+          sauce: { _id: sauce._id }
+        };
 
-      // add review id to array if it doesn't already exist in array
-      if (!res.reviews.allIds.includes(review._id))
-        res.reviews.allIds.push(review._id);
-    });
+        // add review id to array if it doesn't already exist in array
+        if (!res.reviews.allIds.includes(review._id)) {
+          res.reviews.allIds.push(review._id);
+        }
+      });
+    }
   });
 
   return res;
