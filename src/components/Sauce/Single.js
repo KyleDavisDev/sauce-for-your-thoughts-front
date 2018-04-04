@@ -23,13 +23,16 @@ const GenerateTagsList = ({ tags }) => (
   </ul>
 );
 GenerateTagsList.propTypes = {
-  tags: PropTypes.arrayOf([PropTypes.string]).isRequired
+  tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
 };
 
 class Single extends Component {
   componentDidMount() {
-    const { slug } = this.props.match.params;
-    this.getSauceBySlug({ slug });
+    // save API call if we already have sauce in redux store
+    if (this.props.sauce._id.length === 0) {
+      const { slug } = this.props.match.params;
+      this.getSauceBySlug({ slug });
+    }
   }
 
   componentWillUnmount() {}
@@ -107,25 +110,35 @@ Single.propTypes = {
   flashError: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  user: {
-    token: state.users.self.token || ""
-  },
-  sauce: state.sauces.allIds.map(x => {
-    if (state.sauces.byId[x].slug === ownProps.match.params.slug) {
-      return state.sauces.byId[x];
-    }
-    return null;
-  })[0] || {
-    _id: "",
-    name: "",
-    description: "",
-    photo: "",
-    slug: "",
-    tags: [],
-    rating: 0
-  }
-});
+// TODO figure out better way to organize this
+const mapStateToProps = (state, ownProps) => {
+  // get the ID of the sauce that matches the page slug
+  const sauceID =
+    state.sauces.allIds &&
+    state.sauces.allIds.length > 0 &&
+    state.sauces.byId &&
+    Object.keys(state.sauces.byId).length > 0 &&
+    state.sauces.allIds.find(
+      x => state.sauces.byId[x].slug === ownProps.match.params.slug
+    );
+
+  return {
+    user: {
+      token: state.users.self.token || ""
+    },
+    sauce: sauceID
+      ? state.sauces.byId[sauceID]
+      : {
+          _id: "",
+          name: "",
+          description: "",
+          photo: "",
+          slug: "",
+          tags: [""],
+          rating: 0
+        }
+  };
+};
 
 const mapDispatchToProps = {
   getSauceBySlug,
