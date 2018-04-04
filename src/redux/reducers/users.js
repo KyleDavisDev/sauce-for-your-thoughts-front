@@ -37,7 +37,12 @@ export default function user(state = {}, action) {
           ...state.self,
           hearts:
             "hearts" in state.self && state.self.hearts.length > 0
-              ? [...state.self.hearts, action.hearts]
+              ? [
+                  ...state.self.hearts,
+                  ...action.hearts.filter(
+                    x => state.self.hearts.indexOf(x) === -1
+                  )
+                ]
               : [].concat(action.hearts)
         }
       };

@@ -10,8 +10,13 @@ export default function sauces(state = {}, action) {
             : Object.assign({}, action.sauces.byId),
         allIds:
           "allIds" in state && state.allIds.length > 0
-            ? state.allIds.concat(action.sauces.allIds)
-            : [].concat(action.sauces.allIds)
+            ? [
+                ...state.allIds,
+                ...action.sauces.allIds.filter(
+                  x => state.allIds.indexOf(x) === -1
+                )
+              ]
+            : [...action.sauces.allIds]
       };
 
     case "SINGLE_SAUCE_ADDED":
@@ -24,8 +29,13 @@ export default function sauces(state = {}, action) {
             : Object.assign({}, action.sauce.byId),
         allIds:
           "allIds" in state && state.allIds.length > 0
-            ? state.allIds.concat(action.sauce.allIds)
-            : [].concat(action.sauce.allIds)
+            ? [
+                ...state.allIds,
+                ...action.sauces.allIds.filter(
+                  x => state.allIds.indexOf(x) === -1
+                )
+              ]
+            : [...action.sauce.allIds]
       };
 
     case "UPDATED_SAUCES_ITEM":
