@@ -102,7 +102,7 @@ export const getSauceBySlug = slug => dispatch =>
 
     // make sauces were flattened
     if (flatChecker(sauces)) {
-      dispatch(addedSingleSauce({ sauce: sauces }));
+      dispatch(addedSauces({ sauces }));
     }
 
     // make sure users were flattened
