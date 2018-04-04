@@ -80,7 +80,8 @@ class Single extends Component {
 
   getSauceBySlug = ({ slug }) => {
     this.props.getSauceBySlug(slug).catch(err => {
-      this.props.flashError({ text: err.response.data.msg });
+      console.log(err);
+      // this.props.flashError({ text: err.response.data.msg });
     });
   };
 }
@@ -92,7 +93,7 @@ Single.propTypes = {
     photo: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    rating: PropTypes.number.isRequired
+    rating: PropTypes.number
   }).isRequired,
   // user: {
   //   token: PropTypes.string.isRequired || ""
@@ -110,9 +111,12 @@ const mapStateToProps = (state, ownProps) => ({
   user: {
     token: state.users.self.token || ""
   },
-  sauce: state.sauces.allIds.filter(
-    x => this.state.sauces.byId[x].slug === ownProps.sauce
-  )[0] || {
+  sauce: state.sauces.allIds.map(x => {
+    if (state.sauces.byId[x].slug === ownProps.match.params.slug) {
+      return state.sauces.byId[x];
+    }
+    return null;
+  })[0] || {
     _id: "",
     name: "",
     description: "",
