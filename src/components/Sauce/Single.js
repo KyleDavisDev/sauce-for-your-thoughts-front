@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-// import { cleanUpSauce } from "../../redux/actions/sauce";
 import { getSauceBySlug } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
 import { RatingSection } from "./Form";
@@ -33,10 +32,7 @@ class Single extends Component {
     this.getSauceBySlug({ slug });
   }
 
-  componentWillUnmount() {
-    // clear sauce from redux store
-    // this.props.cleanUpSauce();
-  }
+  componentWillUnmount() {}
 
   render() {
     return (
@@ -45,12 +41,12 @@ class Single extends Component {
           <div className="single">
             <div className="single-hero">
               <img
-                alt={`User-submitted ${this.props.sauce.name}`}
+                alt={`User-submitted background for ${this.props.sauce.name}`}
                 className="single-image"
                 onLoad={e =>
                   (e.target.src = `${host}/public/uploads/${
                     this.props.sauce.photo
-                    }`)
+                  }`)
                 }
                 src={FillerImage}
                 onError={e => (e.target.src = FillerImage)}
@@ -107,8 +103,7 @@ Single.propTypes = {
     }).isRequired
   }).isRequired,
   getSauceBySlug: PropTypes.func.isRequired,
-  flashError: PropTypes.func.isRequired,
-  cleanUpSauce: PropTypes.func.isRequired
+  flashError: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -118,20 +113,19 @@ const mapStateToProps = (state, ownProps) => ({
   sauce: state.sauces.allIds.filter(
     x => this.state.sauces.byId[x].slug === ownProps.sauce
   )[0] || {
-      _id: "",
-      name: "",
-      description: "",
-      photo: "",
-      slug: "",
-      tags: [],
-      rating: 0
-    }
+    _id: "",
+    name: "",
+    description: "",
+    photo: "",
+    slug: "",
+    tags: [],
+    rating: 0
+  }
 });
 
 const mapDispatchToProps = {
   getSauceBySlug,
-  flashError,
-  cleanUpSauce
+  flashError
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Single);
