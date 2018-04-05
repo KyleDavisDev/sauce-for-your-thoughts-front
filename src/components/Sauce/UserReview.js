@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addReviews } from "../../redux/actions/reviews";
+import { addReview } from "../../redux/actions/reviews";
 import { RatingSection } from "./Form";
 import Auth from "../../Helper/Auth/Auth";
 

@@ -18,8 +18,13 @@ export default function user(state = {}, action) {
             : Object.assign({}, action.users.byId),
         allIds:
           "allIds" in state && state.allIds.length > 0
-            ? state.allIds.concat(action.users.allIds)
-            : [].concat(action.users.allIds)
+            ? [
+                ...state.allIds,
+                ...action.users.allIds.filter(
+                  x => state.allIds.indexOf(x) === -1
+                )
+              ]
+            : [...action.users.allIds]
       };
 
     /** @description assigns token value to users.self.token */
@@ -37,7 +42,12 @@ export default function user(state = {}, action) {
           ...state.self,
           hearts:
             "hearts" in state.self && state.self.hearts.length > 0
-              ? [...state.self.hearts, action.hearts]
+              ? [
+                  ...state.self.hearts,
+                  ...action.hearts.filter(
+                    x => state.self.hearts.indexOf(x) === -1
+                  )
+                ]
               : [].concat(action.hearts)
         }
       };

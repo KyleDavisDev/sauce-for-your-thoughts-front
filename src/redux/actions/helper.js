@@ -1,20 +1,20 @@
 /** @description Flattens sauce as per https://redux.js.org/recipes/structuring-reducers/normalizing-state-shape.
  *  @param {Object[]} sauces[]  - to be flattened
- *  @param {String} sauces[]._id - unique identifier
- *  @param {String} sauces[].description - description of sauce
- *  @param {String} sauces[].name - name of the sauce
- *  @param {String} sauces[].photo - name of the photo
- *  @param {String[]} sauces[].tags[] - tags assigned to sauce
- *  @param {String} sauces[].author - author of sauce
- *    @param {String} sauces[].author._id - unique identifier
- *    @param {String} sauces[].author.name - author name
- *  @param {Object[]} sauces[].reviews[] - reviews for sauce
- *    @param {String} sauces[].reviews[]._id - unique identifier
- *    @param {String} sauces[].reviews[].text - actual review
- *    @param {Integer} sauces[].reviews[].rating - number of stars given
+ *    @param {String} sauces[]._id - unique identifier
+ *    @param {String} sauces[].description - description of sauce
+ *    @param {String} sauces[].name - name of the sauce
+ *    @param {String} sauces[].photo - name of the photo
+ *    @param {String[]} sauces[].tags[] - tags assigned to sauce
+ *    @param {String} sauces[].author - author of sauce
+ *      @param {String} sauces[].author._id - unique identifier
+ *      @param {String} sauces[].author.name - author name
+ *    @param {Object[]} sauces[].reviews[] - reviews for sauce
+ *      @param {String} sauces[].reviews[]._id - unique identifier
+ *      @param {String} sauces[].reviews[].text - actual review
+ *      @param {Integer} sauces[].reviews[].rating - number of stars given
  *  @returns {Object} sauces, authors, reviews
  */
-export const flattenSauces = sauces => {
+export const flattenResponse = sauces => {
   // hold all results
   const res = {};
 
@@ -33,7 +33,7 @@ export const flattenSauces = sauces => {
   res.reviews.byId = {};
   res.reviews.allIds = [];
 
-  // loop through sauces
+  // loop through sauces[]
   sauces.forEach(sauce => {
     // flatten sauce
     res.sauces.byId[sauce._id] = {
@@ -44,7 +44,10 @@ export const flattenSauces = sauces => {
       photo: sauce.photo,
       tags: sauce.tags,
       author: { _id: sauce.author._id },
-      reviews: sauce.reviews.map(x => x._id)
+      reviews:
+        sauce.length && sauce.reviews.length > 0
+          ? sauce.reviews.map(x => x._id)
+          : []
     };
 
     // add sauce id to array so long as it doesn't already exist in the array
@@ -62,21 +65,24 @@ export const flattenSauces = sauces => {
     if (!res.authors.allIds.includes(sauce.author._id))
       res.authors.allIds.push(sauce.author._id);
 
-    // loop through array of reviews
-    sauce.reviews.forEach(review => {
-      // flatten review
-      res.reviews.byId[review._id] = {
-        _id: review._id,
-        text: review.text,
-        rating: review.rating,
-        author: { _id: review.author._id },
-        sauce: { _id: sauce._id }
-      };
+    if (sauce.reviews && sauce.reviews.length > 0) {
+      // loop through array of reviews
+      sauce.reviews.forEach(review => {
+        // flatten review
+        res.reviews.byId[review._id] = {
+          _id: review._id,
+          text: review.text,
+          rating: review.rating,
+          author: { _id: review.author._id },
+          sauce: { _id: sauce._id }
+        };
 
-      // add review id to array if it doesn't already exist in array
-      if (!res.reviews.allIds.includes(review._id))
-        res.reviews.allIds.push(review._id);
-    });
+        // add review id to array if it doesn't already exist in array
+        if (!res.reviews.allIds.includes(review._id)) {
+          res.reviews.allIds.push(review._id);
+        }
+      });
+    }
   });
 
   return res;

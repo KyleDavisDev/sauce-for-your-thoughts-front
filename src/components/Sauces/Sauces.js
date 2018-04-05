@@ -4,7 +4,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import hashmapPropType from "hashmap-prop-type";
 import { connect } from "react-redux";
-import { getSauces, cleanUpSauces } from "../../redux/actions/sauces";
+import { getSauces } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
 import { getInfo, toggleSauce } from "../../redux/actions/user";
 import { getHearts } from "../../redux/actions/users";
@@ -53,9 +53,7 @@ class Sauces extends Component {
     this.setState({ page });
   }
 
-  componentWillUnmount() {
-    // this.props.cleanUpSauces();
-  }
+  componentWillUnmount() { }
 
   render() {
     const sauces = this.props.sauces || [];
@@ -139,7 +137,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   getSauces,
-  cleanUpSauces,
   getInfo,
   flashError,
   toggleSauce,

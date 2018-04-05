@@ -10,15 +10,6 @@ export const sauceAdded = () => ({
   type: "SAUCE_ADDED"
 });
 
-/** @description Action emitter for when a single sauce is found
- *  @param Object, sauce related information
- *  @returns Object, has sauce info and action type
- */
-export const sauceFound = ({ sauce }) => ({
-  type: "SAUCE_FOUND",
-  sauce
-});
-
 export const sauceUpdated = () => ({
   type: "SAUCE_UPDATED"
 });
@@ -39,12 +30,6 @@ export const getSauceById = data => dispatch =>
     dispatch(addedSingleSauce({ sauce: sauces }));
     dispatch(addReviews({ reviews }));
     dispatch(addUsers({ users: authors }));
-    return res;
-  });
-
-export const getSauceBySlug = data => dispatch =>
-  api.sauce.getBySlug(data).then(res => {
-    dispatch(sauceFound({ sauce: res.sauce }));
     return res;
   });
 

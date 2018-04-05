@@ -1,5 +1,5 @@
 import api from "../../api/api";
-import { flattenSauces, flatChecker } from "./helper";
+import { flattenResponse, flatChecker } from "./helper";
 import { addReviews } from "./reviews";
 import { addUsers } from "./users";
 
@@ -31,17 +31,26 @@ export const addedSingleSauce = ({ sauce }) => ({
   sauce
 });
 
+/** @description Action emitter for when a single sauce is found
+ *  @param Object, sauce related information
+ *  @returns Object, has sauce info and action type
+ */
+export const sauceFound = ({ sauce }) => ({
+  type: "SAUCE_FOUND",
+  sauce
+});
+
 export const addSauce = data => dispatch =>
   api.sauce.add(data).then(res => {
     dispatch(addedSingleSauce({ sauce: res.data.sauce }));
   });
 
 /** @description Grab all sauces available (will limit this to only set amount at a time in future)
- *  @return {Object} response data
+ *  @return {NULL}
  */
 export const getSauces = () => dispatch =>
   api.sauces.get().then(res => {
-    const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
+    const { sauces, reviews, authors } = flattenResponse(res.data.sauces);
 
     // make sauces were flattened
     if (flatChecker(sauces)) {
@@ -81,3 +90,28 @@ export const getSaucesBySearch = searchValue => dispatch =>
 export const cleanUpSauces = () => dispatch => {
   dispatch(cleanedUpSauces());
 };
+
+/** @description grab single sauce related to slug
+ *  @param {String} slug - keyword to lookup
+ *  @returns {NULL}
+ */
+export const getSauceBySlug = slug => dispatch =>
+  api.sauce.getBySlug(slug).then(res => {
+    // flatten response obj
+    const { sauces, reviews, authors } = flattenResponse(res.data.sauces);
+
+    // make sauces were flattened
+    if (flatChecker(sauces)) {
+      dispatch(addedSauces({ sauces }));
+    }
+
+    // make sure review were flattened
+    if (flatChecker(reviews)) {
+      dispatch(addReviews({ reviews }));
+    }
+
+    // make sure users were flattened
+    if (flatChecker(authors)) {
+      dispatch(addUsers({ users: authors }));
+    }
+  });
