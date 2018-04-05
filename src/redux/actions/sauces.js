@@ -98,11 +98,16 @@ export const cleanUpSauces = () => dispatch => {
 export const getSauceBySlug = slug => dispatch =>
   api.sauce.getBySlug(slug).then(res => {
     // flatten response obj
-    const { sauces, reviews, authors } = flattenResponse([res.data.sauce]);
+    const { sauces, reviews, authors } = flattenResponse(res.data.sauces);
 
     // make sauces were flattened
     if (flatChecker(sauces)) {
       dispatch(addedSauces({ sauces }));
+    }
+
+    // make sure review were flattened
+    if (flatChecker(reviews)) {
+      dispatch(addReviews({ reviews }));
     }
 
     // make sure users were flattened
