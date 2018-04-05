@@ -1,17 +1,17 @@
 /** @description Flattens sauce as per https://redux.js.org/recipes/structuring-reducers/normalizing-state-shape.
  *  @param {Object[]} sauces[]  - to be flattened
- *  @param {String} sauces[]._id - unique identifier
- *  @param {String} sauces[].description - description of sauce
- *  @param {String} sauces[].name - name of the sauce
- *  @param {String} sauces[].photo - name of the photo
- *  @param {String[]} sauces[].tags[] - tags assigned to sauce
- *  @param {String} sauces[].author - author of sauce
- *    @param {String} sauces[].author._id - unique identifier
- *    @param {String} sauces[].author.name - author name
- *  @param {Object[]} sauces[].reviews[] - reviews for sauce
- *    @param {String} sauces[].reviews[]._id - unique identifier
- *    @param {String} sauces[].reviews[].text - actual review
- *    @param {Integer} sauces[].reviews[].rating - number of stars given
+ *    @param {String} sauces[]._id - unique identifier
+ *    @param {String} sauces[].description - description of sauce
+ *    @param {String} sauces[].name - name of the sauce
+ *    @param {String} sauces[].photo - name of the photo
+ *    @param {String[]} sauces[].tags[] - tags assigned to sauce
+ *    @param {String} sauces[].author - author of sauce
+ *      @param {String} sauces[].author._id - unique identifier
+ *      @param {String} sauces[].author.name - author name
+ *    @param {Object[]} sauces[].reviews[] - reviews for sauce
+ *      @param {String} sauces[].reviews[]._id - unique identifier
+ *      @param {String} sauces[].reviews[].text - actual review
+ *      @param {Integer} sauces[].reviews[].rating - number of stars given
  *  @returns {Object} sauces, authors, reviews
  */
 export const flattenResponse = sauces => {
@@ -33,7 +33,7 @@ export const flattenResponse = sauces => {
   res.reviews.byId = {};
   res.reviews.allIds = [];
 
-  // loop through sauces
+  // loop through sauces[]
   sauces.forEach(sauce => {
     // flatten sauce
     res.sauces.byId[sauce._id] = {
