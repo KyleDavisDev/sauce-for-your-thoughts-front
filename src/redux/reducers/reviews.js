@@ -11,7 +11,7 @@ export default function sauce(state = {}, action) {
           "allIds" in state && state.allIds.length > 0
             ? [
                 ...state.allIds,
-                action.reviews.allIds.filter(
+                ...action.reviews.allIds.filter(
                   x => state.allIds.indexOf(x) === -1
                 )
               ]
