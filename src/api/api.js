@@ -4,7 +4,7 @@ export const host =
     ? "https://sauceforyourthoughts.com"
     : "http://localhost:7777";
 
-export default {
+const api = {
   user: {
     login: credentials =>
       axios.post(`${host}/api/user/login`, credentials).then(res => {
@@ -163,3 +163,5 @@ export default {
       })
   }
 };
+
+export default api;
