@@ -14,7 +14,7 @@
  *      @param {Integer} sauces[].reviews[].rating - number of stars given
  *  @returns {Object} sauces, authors, reviews
  */
-export const flattenResponse = sauces => {
+export const flattenSauces = sauces => {
   // hold all results
   const res = {};
 
@@ -32,8 +32,6 @@ export const flattenResponse = sauces => {
   res.reviews = {};
   res.reviews.byId = {};
   res.reviews.allIds = [];
-
-  // loop through sauces[]
   sauces.forEach(sauce => {
     // flatten sauce
     res.sauces.byId[sauce._id] = {
@@ -45,7 +43,7 @@ export const flattenResponse = sauces => {
       tags: sauce.tags,
       author: { _id: sauce.author._id },
       reviews:
-        sauce.length && sauce.reviews.length > 0
+        sauce.reviews && sauce.reviews.length > 0
           ? sauce.reviews.map(x => x._id)
           : []
     };
@@ -94,12 +92,11 @@ export const flattenResponse = sauces => {
  *    @param {String[]} obj.allIds[] - array of normalized keys
  *  @returns {Boolean} if obj has both
  */
-
 export const flatChecker = obj => {
   // make sauces were flattened
   if (Object.keys(obj.byId).length === 0 || obj.allIds.length === 0) {
     // TODO: proper error here
-    console.log("no sauces found");
+    console.log("object is not flattened");
     return false;
   }
 
