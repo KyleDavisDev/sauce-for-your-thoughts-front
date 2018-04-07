@@ -19,8 +19,6 @@ export const addReviews = ({ reviews }) => ({
  */
 export const addReview = data => dispatch =>
   api.review.add(data).then(res => {
-    console.log(res.data);
-
     // format review so reducer can understand it
     const review = {
       byId: {
