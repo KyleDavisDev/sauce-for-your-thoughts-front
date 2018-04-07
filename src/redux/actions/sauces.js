@@ -40,9 +40,39 @@ export const sauceFound = ({ sauce }) => ({
   sauce
 });
 
+/** @description Add sauce to DB
+ *  @param {FormData} data - Form Data that has been JSONified
+ *    @param {Object} data.user - author of the sauce
+ *      @param {String} data.user.token - unique string
+ *    @param {Object} data.sauce - sauce object
+ *      @param {String} data.sauce.name - name of the sauce
+ *      @param {String} data.sauce.description - description of sauce
+ *      @param {String[]} data.sauce.tags[] - user selected tags to catagorize sauce
+ *    @param {Object} review - user review object
+ *      @param {String} text - user's review of sauce
+ *      @param {Number} rating - 0-10 value
+ *    @param {Image} photo - actual photo to upload
+ *      @param {String} photo.name - name of the photo
+ *  @returns {NULL}
+ */
 export const addSauce = data => dispatch =>
   api.sauce.add(data).then(res => {
-    dispatch(addedSingleSauce({ sauce: res.data.sauce }));
+    const { sauces, reviews, authors } = flattenResponse([res.data.sauces]);
+
+    // make sauces were flattened
+    if (flatChecker(sauces)) {
+      dispatch(addedSauces({ sauces }));
+    }
+
+    // make sure review were flattened
+    if (flatChecker(reviews)) {
+      dispatch(addReviews({ reviews }));
+    }
+
+    // make sure users were flattened
+    if (flatChecker(authors)) {
+      dispatch(addUsers({ users: authors }));
+    }
   });
 
 /** @description Grab all sauces available (will limit this to only set amount at a time in future)
