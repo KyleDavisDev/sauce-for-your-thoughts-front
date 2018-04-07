@@ -8,6 +8,7 @@ export const addReviews = ({ reviews }) => ({
 export const addReview = data => dispatch =>
   api.review.add(data).then(
     res =>
-      // update store here...?
+    //add review to redux store
+      dispatch(addReviews({reviews: [res.data.review]}))
       res.data
   );
