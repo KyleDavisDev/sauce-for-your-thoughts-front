@@ -1,5 +1,5 @@
 import api from "../../api/api";
-import { flattenResponse, flatChecker } from "./helper";
+import { flattenSauces, flatChecker } from "./helper";
 import { addReviews } from "./reviews";
 import { addUsers } from "./users";
 
@@ -57,7 +57,7 @@ export const sauceFound = ({ sauce }) => ({
  */
 export const addSauce = data => dispatch =>
   api.sauce.add(data).then(res => {
-    const { sauces, reviews, authors } = flattenResponse([res.data.sauces]);
+    const { sauces, reviews, authors } = flattenSauces([res.data.sauces]);
 
     // make sauces were flattened
     if (flatChecker(sauces)) {
@@ -80,7 +80,7 @@ export const addSauce = data => dispatch =>
  */
 export const getSauces = () => dispatch =>
   api.sauces.get().then(res => {
-    const { sauces, reviews, authors } = flattenResponse(res.data.sauces);
+    const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
 
     // make sauces were flattened
     if (flatChecker(sauces)) {
@@ -128,7 +128,7 @@ export const cleanUpSauces = () => dispatch => {
 export const getSauceBySlug = slug => dispatch =>
   api.sauce.getBySlug(slug).then(res => {
     // flatten response obj
-    const { sauces, reviews, authors } = flattenResponse(res.data.sauces);
+    const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
 
     // make sauces were flattened
     if (flatChecker(sauces)) {
