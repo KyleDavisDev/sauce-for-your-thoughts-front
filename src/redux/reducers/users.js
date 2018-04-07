@@ -7,7 +7,7 @@ export default function user(state = {}, action) {
         Object.keys(action.users.byId).length === 0 ||
         action.users.allIds.length === 0
       )
-        return {};
+        return { ...state }; // abort - dont do anything
 
       // construct return object
       return {
@@ -45,10 +45,10 @@ export default function user(state = {}, action) {
               ? [
                   ...state.self.hearts,
                   ...action.hearts.filter(
-                    x => state.self.hearts.indexOf(x) === -1
+                    x => state.self.hearts.indexOf(x) === -1 // only add hearts not already in state
                   )
                 ]
-              : [].concat(action.hearts)
+              : [...action.hearts]
         }
       };
 
@@ -59,11 +59,11 @@ export default function user(state = {}, action) {
         self: {
           ...state.self,
           hearts:
-            "hearts" in state.self &&
-            state.self.hearts.length > 0 &&
+            "hearts" in state.self && // make sure .hearts is defined
+            state.self.hearts.length > 0 && // make sure hearts
             state.self.hearts.includes(action.sauce._id) // sanity checks
               ? state.self.hearts.filter(x => x !== action.sauce._id) // remove from array
-              : [...state.self.hearts, action.sauce._id] // add
+              : [...state.self.hearts, action.sauce._id] // add to array
         }
       };
     default:
