@@ -13,7 +13,7 @@ const UserReview = props => {
             alt="submitter's icon"
             src="https://gravatar.com/avatar/9efd86dfb66394fae773919df6a9c0fb?s=200"
           />
-          <p>Wes Bos</p>
+          <p>{props.author.name}</p>
         </div>
         <div className="review__stars" title="Rated 5 our of 5 stars">
           ★★★★★
@@ -23,7 +23,7 @@ const UserReview = props => {
         </time>
       </div>
       <div className="review__body">
-        <p>Always a great spot to grab a coffee with a friend. </p>
+        <p>{props.review.text}</p>
       </div>
     </div>
   );
@@ -36,13 +36,29 @@ UserReview.propTypes = {
     text: PropTypes.string.isRequired,
     sauce: PropTypes.shape({ _id: PropTypes.string.isRequired }).isRequired,
     author: PropTypes.shape({ _id: PropTypes.string.isRequired }).isRequired
+  }).isRequired,
+  author: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
   }).isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
+  // Grab the specific review from redux using the reviews' _id
   const review = ownProps._id ? state.reviews.byId[ownProps._id] : {};
+
+  // Grab the author of the review
+  const author =
+    Object.keys(review).length > 0 &&
+    state.users &&
+    state.users.byId !== undefined &&
+    Object.keys(state.users.byId).length > 0
+      ? state.users.byId[review.author._id]
+      : { _id: "", name: "" };
+
   return {
-    review
+    review,
+    author
   };
 };
 export default connect(mapStateToProps, null)(UserReview);
