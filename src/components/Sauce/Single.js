@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { getSauceBySlug } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
 import { RatingSection } from "./Form";
-import UserReview from "./UserReview";
+import SubmitReview from "./SubmitReview";
 import { host } from "../../api/api";
 
 import FillerImage from "../../images/photos/sauce.jpg";
@@ -74,7 +74,7 @@ class Single extends Component {
 
           {/* Add review */}
           {Object.keys(this.props.sauce).length > 0 && (
-            <UserReview sauceID={this.props.sauce._id} />
+            <SubmitReview sauceID={this.props.sauce._id} />
           )}
         </div>
       </div>
@@ -145,4 +145,4 @@ const mapDispatchToProps = {
   flashError
 };
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(Single);
+export default connect(mapStateToProps, mapDispatchToProps)(Single);

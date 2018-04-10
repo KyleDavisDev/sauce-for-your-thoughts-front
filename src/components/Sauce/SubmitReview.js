@@ -5,7 +5,7 @@ import { addReview } from "../../redux/actions/reviews";
 import { RatingSection } from "./Form";
 import Auth from "../../Helper/Auth/Auth";
 
-class UserReview extends Component {
+class SubmitReview extends Component {
   constructor(props) {
     super(props);
 
@@ -95,7 +95,7 @@ class UserReview extends Component {
     });
   };
 }
-UserReview.propTypes = {
+SubmitReview.propTypes = {
   user: PropTypes.shape({
     token: PropTypes.string.isRequired
   }),
@@ -113,4 +113,4 @@ const mapDispatchToProps = {
   addReview
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserReview);
+export default connect(mapStateToProps, mapDispatchToProps)(SubmitReview);
