@@ -1,3 +1,4 @@
+// TODO: Refactor this monster.
 /** @description Flattens sauce as per https://redux.js.org/recipes/structuring-reducers/normalizing-state-shape.
  *  @param {Object[]} sauces[]  - to be flattened
  *    @param {String} sauces[]._id - unique identifier
@@ -78,6 +79,19 @@ export const flattenSauces = sauces => {
         // add review id to array if it doesn't already exist in array
         if (!res.reviews.allIds.includes(review._id)) {
           res.reviews.allIds.push(review._id);
+        }
+
+        // check to see if any authors are attached to reviews
+        // TODO: add more sanity checks to make sure .author is legit
+        if ("author" in review && Object.keys(review.author).length > 0) {
+          // found an author, lets push to our res.authors object
+          res.authors.byId[review.author._id] = {
+            _id: review.author._id,
+            name: review.author.name
+          };
+          // add author id to array if doesn't already exist in array
+          if (!res.authors.allIds.includes(review.author._id))
+            res.authors.allIds.push(review.author._id);
         }
       });
     }
