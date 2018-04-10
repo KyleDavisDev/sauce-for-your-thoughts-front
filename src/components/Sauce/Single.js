@@ -7,6 +7,7 @@ import { getSauceBySlug } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
 import { RatingSection } from "./Form";
 import SubmitReview from "./SubmitReview";
+import UserReview from "./UserReview";
 import { host } from "../../api/api";
 
 import FillerImage from "../../images/photos/sauce.jpg";
@@ -79,11 +80,12 @@ class Single extends Component {
             )}
 
           {/* All of the user reviews */}
-          {this.props.reviews &&
-            this.props.reviews.length > 0 &&
-            this.props.reviews.map(review => {
-              <UserReview _id={review._id} key={review._id} />;
-            })}
+
+          <div className="reviews">
+            {this.props.reviews &&
+              this.props.reviews.length > 0 &&
+              this.props.reviews.map(review => <UserReview _id={review._id} key={review._id} />)}
+          </div>
         </div>
       </div>
     );
@@ -105,16 +107,16 @@ Single.propTypes = {
     slug: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
   }).isRequired,
-  user: {
-    token: PropTypes.string.isRequired || ""
-  }.isRequired,
+  user: PropTypes.shape({
+    token: PropTypes.string.isRequired
+  }).isRequired,
   reviews: PropTypes.arrayOf(
     PropTypes.shape({
       _id: PropTypes.string.isRequired,
       rating: PropTypes.number.isRequired,
       text: PropTypes.string.isRequired,
-      sauce: PropTypes.shape({ _id: PropTypes.string.isRequired }),
-      author: PropTypes.shape({ _id: PropTypes.string.isRequired })
+      sauce: PropTypes.shape({ _id: PropTypes.string.isRequired }).isRequired,
+      author: PropTypes.shape({ _id: PropTypes.string.isRequired }).isRequired
     }).isRequired
   ).isRequired,
   match: PropTypes.shape({
@@ -149,20 +151,24 @@ const mapStateToProps = (state, ownProps) => {
     });
   }
 
+  const sauce = sauceID // find specific sauce or set default values
+    ? state.sauces.byId[sauceID]
+    : {
+        _id: "",
+        name: "",
+        description: "",
+        photo: "",
+        slug: "",
+        tags: [""]
+      };
+
+  const user = {
+    token: state.users.self.token || ""
+  };
+
   return {
-    user: {
-      token: state.users.self.token || ""
-    },
-    sauce: sauceID // find specific sauce or set default values
-      ? state.sauces.byId[sauceID]
-      : {
-          _id: "",
-          name: "",
-          description: "",
-          photo: "",
-          slug: "",
-          tags: [""]
-        },
+    user,
+    sauce,
     reviews
   };
 };
