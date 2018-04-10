@@ -73,9 +73,17 @@ class Single extends Component {
           )}
 
           {/* Add review */}
-          {Object.keys(this.props.sauce).length > 0 && (
-            <SubmitReview sauceID={this.props.sauce._id} />
-          )}
+          {Object.keys(this.props.sauce).length > 0 &&
+            this.props.user.token && (
+              <SubmitReview sauceID={this.props.sauce._id} />
+            )}
+
+          {/* All of the user reviews */}
+          {this.props.reviews &&
+            this.props.reviews.length > 0 &&
+            this.props.reviews.map(review => {
+              <UserReview _id={review._id} key={review._id} />;
+            })}
         </div>
       </div>
     );
@@ -95,12 +103,20 @@ Single.propTypes = {
     description: PropTypes.string.isRequired,
     photo: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    rating: PropTypes.number
+    tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
   }).isRequired,
-  // user: {
-  //   token: PropTypes.string.isRequired || ""
-  // }.isRequired,
+  user: {
+    token: PropTypes.string.isRequired || ""
+  }.isRequired,
+  reviews: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      text: PropTypes.string.isRequired,
+      sauce: PropTypes.shape({ _id: PropTypes.string.isRequired }),
+      author: PropTypes.shape({ _id: PropTypes.string.isRequired })
+    }).isRequired
+  ).isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       slug: PropTypes.string
@@ -122,11 +138,22 @@ const mapStateToProps = (state, ownProps) => {
       x => state.sauces.byId[x].slug === ownProps.match.params.slug
     );
 
+  // init reviews
+  const reviews = [];
+  // push reviews that are related to the current page's sauce
+  if (sauceID && state.reviews) {
+    state.reviews.allIds.forEach(x => {
+      if (state.reviews.byId[x].sauce._id === sauceID) {
+        reviews.push(state.reviews.byId[x]);
+      }
+    });
+  }
+
   return {
     user: {
       token: state.users.self.token || ""
     },
-    sauce: sauceID
+    sauce: sauceID // find specific sauce or set default values
       ? state.sauces.byId[sauceID]
       : {
           _id: "",
@@ -134,9 +161,9 @@ const mapStateToProps = (state, ownProps) => {
           description: "",
           photo: "",
           slug: "",
-          tags: [""],
-          rating: 0
-        }
+          tags: [""]
+        },
+    reviews
   };
 };
 
