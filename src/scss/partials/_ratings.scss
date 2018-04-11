@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  button.star {
+  .star {
     background: $white;
     border: none;
     padding: 10px 0px;
@@ -35,10 +35,7 @@
     }
 
     &.star--filled {
-      .center,
-      .border {
-        fill: $yellow;
-      }
+      fill: $yellow;
     }
   }
 }
