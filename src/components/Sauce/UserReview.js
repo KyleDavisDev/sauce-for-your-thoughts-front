@@ -1,9 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import Star from "../../images/icons/Star";
 
 const UserReview = props => {
-  const { _id } = props.review;
+  // Generate 10 stars, and 'fill' the number based on the rating
+  const generateStars = rating => {
+    // make sure rating is a number
+    if (Object.prototype.toString.call(rating) !== "[object Number]") return;
+    return Array(...Array(10)).map((x, ind) => {
+      const classVal = ind < rating ? "filled" : "empty";
+      return (
+        <div className={`star star--${classVal}`} key={ind}>
+          <Star height={20} />
+        </div>
+      );
+    });
+  };
   return (
     <div className="review">
       <div className="review__header">
@@ -15,9 +28,18 @@ const UserReview = props => {
           />
           <p>{props.author.name}</p>
         </div>
-        <div className="review__stars" title="Rated 5 our of 5 stars">
-          ★★★★★
+
+        {/* Stars sections */}
+        <div
+          className="review__stars"
+          title={`Rated ${props.review.rating} our of 10 stars`}
+        >
+          <div className="star--container">
+            {generateStars(props.review.rating, props.review._id)}
+          </div>
         </div>
+
+        {/* Date of the review */}
         <time className="review__time" dateTime="2017-03-08T22:36:48.575Z">
           a year ago
         </time>
@@ -50,9 +72,9 @@ const mapStateToProps = (state, ownProps) => {
   // Grab the author of the review
   const author =
     Object.keys(review).length > 0 &&
-    state.users &&
-    state.users.byId !== undefined &&
-    Object.keys(state.users.byId).length > 0
+      state.users &&
+      state.users.byId !== undefined &&
+      Object.keys(state.users.byId).length > 0
       ? state.users.byId[review.author._id]
       : { _id: "", name: "" };
 
