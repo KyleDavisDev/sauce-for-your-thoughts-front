@@ -11,6 +11,7 @@ const UserReview = props => {
     return Array(...Array(10)).map((x, ind) => {
       const classVal = ind < rating ? "filled" : "empty";
       return (
+        // TODO: Switch key to use author _id once users can only have one review per sauce
         <div className={`star star--${classVal}`} key={ind}>
           <Star height={20} />
         </div>
@@ -45,7 +46,7 @@ const UserReview = props => {
         </time>
       </div>
       <div className="review__body">
-        <p>{props.review.text}</p>
+        <p> {props.review.text} </p>
       </div>
     </div>
   );
@@ -72,9 +73,9 @@ const mapStateToProps = (state, ownProps) => {
   // Grab the author of the review
   const author =
     Object.keys(review).length > 0 &&
-      state.users &&
-      state.users.byId !== undefined &&
-      Object.keys(state.users.byId).length > 0
+    state.users &&
+    state.users.byId !== undefined &&
+    Object.keys(state.users.byId).length > 0
       ? state.users.byId[review.author._id]
       : { _id: "", name: "" };
 
