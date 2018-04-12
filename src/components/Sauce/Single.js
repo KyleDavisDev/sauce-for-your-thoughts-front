@@ -80,11 +80,12 @@ class Single extends Component {
             )}
 
           {/* All of the user reviews */}
-
           <div className="reviews">
             {this.props.reviews &&
               this.props.reviews.length > 0 &&
-              this.props.reviews.map(review => <UserReview _id={review._id} key={review._id} />)}
+              this.props.reviews.map(review => (
+                <UserReview _id={review._id} key={review._id} />
+              ))}
           </div>
         </div>
       </div>
