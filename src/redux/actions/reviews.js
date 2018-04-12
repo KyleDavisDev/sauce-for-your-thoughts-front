@@ -24,7 +24,6 @@ export const addReview = data => dispatch =>
       byId: {
         [res.data.review._id]: {
           _id: res.data.review._id,
-
           rating: res.data.review.rating,
           text: res.data.review.text,
           author: { _id: res.data.review.author },
