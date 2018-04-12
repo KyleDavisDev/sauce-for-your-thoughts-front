@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getSauceBySlug } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
-import { RatingSection } from "./Form";
 import SubmitReview from "./SubmitReview";
 import UserReview from "./UserReview";
 import { host } from "../../api/api";
@@ -28,6 +26,36 @@ GenerateTagsList.propTypes = {
 };
 
 class Single extends Component {
+  static propTypes = {
+    sauce: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      photo: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
+      tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+    }).isRequired,
+    user: PropTypes.shape({
+      token: PropTypes.string.isRequired
+    }).isRequired,
+    reviews: PropTypes.arrayOf(
+      PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        rating: PropTypes.number.isRequired,
+        text: PropTypes.string.isRequired,
+        sauce: PropTypes.shape({ _id: PropTypes.string.isRequired }).isRequired,
+        author: PropTypes.shape({ _id: PropTypes.string.isRequired }).isRequired
+      }).isRequired
+    ).isRequired,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        slug: PropTypes.string
+      }).isRequired
+    }).isRequired,
+    getSauceBySlug: PropTypes.func.isRequired,
+    flashError: PropTypes.func.isRequired
+  };
+
   componentDidMount() {
     // save API call if we already have sauce in redux store
     if (this.props.sauce._id.length === 0) {
@@ -35,8 +63,6 @@ class Single extends Component {
       this.getSauceBySlug({ slug });
     }
   }
-
-  componentWillUnmount() {}
 
   render() {
     return (
@@ -99,35 +125,6 @@ class Single extends Component {
     });
   };
 }
-Single.propTypes = {
-  sauce: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    photo: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
-  }).isRequired,
-  user: PropTypes.shape({
-    token: PropTypes.string.isRequired
-  }).isRequired,
-  reviews: PropTypes.arrayOf(
-    PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      rating: PropTypes.number.isRequired,
-      text: PropTypes.string.isRequired,
-      sauce: PropTypes.shape({ _id: PropTypes.string.isRequired }).isRequired,
-      author: PropTypes.shape({ _id: PropTypes.string.isRequired }).isRequired
-    }).isRequired
-  ).isRequired,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      slug: PropTypes.string
-    }).isRequired
-  }).isRequired,
-  getSauceBySlug: PropTypes.func.isRequired,
-  flashError: PropTypes.func.isRequired
-};
 
 // TODO figure out better way to organize this
 const mapStateToProps = (state, ownProps) => {
