@@ -102,7 +102,7 @@ class Actions extends Component {
 // TODO: See if assigning temp value here is anti-pattern
 const mapStateToProps = state => ({
   user: {
-    token: state.users.self.token,
+    token: state.users.self.token || "",
     _id: state.users.self._id || "",
     hearts: state.users.self.hearts || []
   }
