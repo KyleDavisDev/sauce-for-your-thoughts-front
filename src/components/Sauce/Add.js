@@ -22,13 +22,13 @@ class Add extends Component {
   }
 
   handleFormSubmit = e => {
-    //make tags an array of checked tags
+    // make tags an array of checked tags
     const tags = e.tags.filter(tag => tag.isChecked).map(tag => tag.name);
 
-    //make sure token is still good/not expired
+    // make sure token is still good/not expired
     if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
 
-    //construct FormData object since we are passing image file
+    // construct FormData object since we are passing image file
     const data = JSON.stringify({
       sauce: {
         name: e.name,
@@ -55,7 +55,7 @@ class Add extends Component {
       })
       .catch(err => {
         console.log(err);
-        //TODO: Better error handling
+        // TODO: Better error handling
         console.log(err.response);
         console.log(err.response.msg);
       });
@@ -65,13 +65,13 @@ class Add extends Component {
 Add.propTypes = {
   user: PropTypes.shape({
     token: PropTypes.string.isRequired
-  }),
+  }).isRequired,
   addSauce: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    user: { token: state.users.self.token }
+    user: { token: state.users.self.token || "" }
   };
 }
 
