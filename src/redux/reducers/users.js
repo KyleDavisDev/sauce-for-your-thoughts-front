@@ -31,9 +31,9 @@ export default function user(state = {}, action) {
     case "USER_LOGGED_IN":
       return Object.assign({}, state, { self: { token: action.token } });
 
-    /** @description clears .self of users */
+    /** @description clears .self of user info */
     case "USER_LOGGED_OUT":
-      return Object.assign({}, state, { self: {} });
+      return { ...state, self: {} }; // keep all users stuff but reset .self
 
     case "GOT_HEARTS":
       return {
