@@ -8,18 +8,18 @@ export const userLoggedIn = ({ token }) => ({
   token
 });
 
-export const userLoggedOut = user => ({
+export const userLoggedOut = () => ({
   type: "USER_LOGGED_OUT"
 });
 
-export const userRegistered = user => ({
+export const userRegistered = () => ({
   type: "USER_REGISTERED",
   text: "Thank you for registering! You are now logged in."
 });
 
 export const login = credentials => dispatch =>
   api.user.login(credentials).then(res => {
-    const token = res.user.token;
+    const { token } = res.data.user;
     // save token to local storage and set timestamp
     Auth.authenticateUser(token);
 
@@ -37,10 +37,10 @@ export const logout = () => dispatch => {
 };
 
 export const register = credentials => dispatch =>
-  api.user.register(credentials).then(user => {
-    const { token } = user;
+  api.user.register(credentials).then(res => {
+    const { token } = res.data.user.token;
     Auth.authenticateUser({ token });
-    dispatch(userLoggedIn(token));
+    dispatch(userLoggedIn({ token }));
     dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
   });
 
