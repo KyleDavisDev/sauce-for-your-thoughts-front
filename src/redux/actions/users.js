@@ -15,6 +15,13 @@ export const toggledHeart = ({ sauce }) => ({
   sauce
 });
 
+export const gotUserInfo = ({ _id, email, name }) => ({
+  type: "USERS_SET_INFO",
+  _id,
+  email,
+  name
+});
+
 /** @description Grab all sauces available (will limit this to only set amount at a time in future)
  *  @param {Object} user - API expects a specific format
  *    @param {String} user.token - JWT string
@@ -37,4 +44,28 @@ export const getHearts = credentials => dispatch =>
 export const toggleHeart = data => dispatch =>
   api.user.toggleSauce(data).then(res => {
     dispatch(toggledHeart({ sauce: res.data.sauce }));
+  });
+
+// TODO: Add description comments
+export const updateUser = credentials => dispatch =>
+  api.user.update(credentials).then(res => {
+    const { email, name } = res.user;
+    dispatch(userUpdated({ email, name }));
+    const text = `Your name was saved as: ${name} and your email was saved as: ${email}.`;
+    dispatch(flashSuccess({ text }));
+    return res.user;
+  });
+
+/** @description gets basic information on a specifc user
+ *  @param {Object} credentials - container
+ *  @param {Object} credentials.user - user information container
+ *    @param {String} credentials.user.token - unique user identifier
+ *  @fires users#gotUserInfo - set user.self properties
+ *  @returns {Promise}
+ *    @returns {NULL}
+ */
+export const getInfo = credentials => dispatch =>
+  api.user.getInfo(credentials).then(res => {
+    const { _id, email, name } = res.user;
+    dispatch(gotUserInfo({ _id, email, name }));
   });
