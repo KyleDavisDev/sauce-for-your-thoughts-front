@@ -4,15 +4,15 @@ import { connect } from "react-redux";
 
 import AccountForm from "./AccountForm";
 import { flashError, flashClose } from "../../redux/actions/flash";
-import { getInfo, updateUser } from "../../redux/actions/user";
+import { getInfo, updateUser } from "../../redux/actions/users";
 
 class Account extends Component {
   static propTypes = {
-    user: {
+    user: PropTypes.shape({
       email: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       token: PropTypes.string.isRequired
-    }.isRequired,
+    }).isRequired,
     history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
     getInfo: PropTypes.func.isRequired,
     updateUser: PropTypes.func.isRequired,
@@ -25,8 +25,9 @@ class Account extends Component {
   }
 
   componentDidMount() {
-    if (!this.props.user.token) return;
-    this.getUserInfo();
+    const { token } = this.props.user;
+    if (!token) return;
+    this.getUserInfo(token);
   }
 
   render() {
@@ -53,17 +54,17 @@ class Account extends Component {
     });
   };
 
-  getUserInfo = () => {
-    const data = { user: { token: this.props.user.token } };
+  /** @description fires action dispatch to get user information
+   *  @param {String} token - unique user identifier
+   *  @fires users#getInfo - get specific user information
+   *  @return {NULL}
+   */
+  getUserInfo = token => {
+    const data = { user: { token } };
 
-    this.props
-      .getInfo(data)
-      .then(res => {
-        // do something here...?
-      })
-      .catch(err => {
-        this.props.flashError({ text: err.response.data.msg });
-      });
+    this.props.getInfo(data).catch(err => {
+      this.props.flashError({ text: err.response.data.msg });
+    });
   };
 }
 
@@ -71,8 +72,8 @@ class Account extends Component {
 function mapStateToProps(state) {
   return {
     user: {
-      email: state.user.email || "",
-      name: state.user.name || "",
+      email: state.users.self.email || "",
+      name: state.users.self.name || "",
       token: state.users.self.token || ""
     }
   };
@@ -84,5 +85,5 @@ const mapDispatchToProps = {
   flashError,
   flashClose
 };
-
+// export default Account;
 export default connect(mapStateToProps, mapDispatchToProps)(Account);
