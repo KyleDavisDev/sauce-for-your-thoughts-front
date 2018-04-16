@@ -66,6 +66,12 @@ export default function user(state = {}, action) {
               : [...state.self.hearts, action.sauce._id] // add to array
         }
       };
+    /** @description set user.self properties */
+    case "USERS_SET_INFO":
+      return {
+        ...state,
+        self: { ...state.self, email: action.email, name: action.name }
+      };
     default:
       return state;
   }
