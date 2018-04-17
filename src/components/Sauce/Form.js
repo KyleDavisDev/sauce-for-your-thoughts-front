@@ -4,27 +4,23 @@ import TextInput from "../TextInput/TextInput.js";
 import Template from "./template";
 import Star from "../../images/icons/Star";
 
-const CheckBoxList = ({ tags, onChange }) => {
-  return (
-    <ul className="tags">
-      {tags.map(tag => {
-        return (
-          <div key={tag.name} className="tag tag-choice">
-            <input
-              type="checkbox"
-              id={tag.name}
-              name={tag.name}
-              value={tag.name}
-              checked={tag.isChecked}
-              onChange={onChange}
-            />
-            <label htmlFor={tag.name}>{tag.name}</label>
-          </div>
-        );
-      })}
-    </ul>
-  );
-};
+const CheckBoxList = ({ tags, onChange }) => (
+  <ul className="tags">
+    {tags.map(tag => (
+      <div key={tag.name} className="tag tag-choice">
+        <input
+          type="checkbox"
+          id={tag.name}
+          name={tag.name}
+          value={tag.name}
+          checked={tag.isChecked}
+          onChange={onChange}
+        />
+        <label htmlFor={tag.name}>{tag.name}</label>
+      </div>
+    ))}
+  </ul>
+);
 CheckBoxList.propTypes = {
   tags: PropTypes.arrayOf(
     PropTypes.shape({
@@ -35,21 +31,19 @@ CheckBoxList.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
-const PhotoUpload = ({ text, onChange }) => {
-  return (
-    <div className="input-group">
-      <span className="file-button">
-        Browse...<input
-          type="file"
-          name="photo"
-          accept=".png, .jpg"
-          onChange={onChange}
-        />
-      </span>
-      <input type="text" value={text || ""} readOnly />
-    </div>
-  );
-};
+const PhotoUpload = ({ text, onChange }) => (
+  <div className="input-group">
+    <span className="file-button">
+      Browse...<input
+        type="file"
+        name="photo"
+        accept=".png, .jpg"
+        onChange={onChange}
+      />
+    </span>
+    <input type="text" value={text || ""} readOnly />
+  </div>
+);
 PhotoUpload.propTypes = {
   text: PropTypes.string,
   onChange: PropTypes.func.isRequired
@@ -59,11 +53,11 @@ export class RatingSection extends Component {
   constructor(props) {
     super(props);
 
-    //create array of length 10, w/ each index having a <Star /> value
+    // create array of length 10, w/ each index having a <Star /> value
     this.state = {
       hold: false,
       rating: this.props.rating,
-      starArray: Array.apply(null, Array(10)).map((x, ind) => {
+      starArray: Array(...Array(10)).map((x, ind) => {
         const classVal = ind < this.props.rating ? "filled" : "empty";
         return { logo: <Star height={this.props.height || 50} />, classVal };
       })
@@ -75,7 +69,7 @@ export class RatingSection extends Component {
 
     const rating =
       nextProps.rating === this.state.rating ? 0 : nextProps.rating;
-    const hold = nextProps.rating === this.state.rating ? false : true;
+    const hold = nextProps.rating !== this.state.rating;
     const starArray = this.state.starArray.map((x, ind) => {
       const classVal = ind < nextProps.rating ? "filled" : "empty";
       return { logo: <Star height={nextProps.height || 50} />, classVal };
@@ -86,8 +80,8 @@ export class RatingSection extends Component {
       starArray
     }));
 
-    //this will reset the value next to "Rating:" in Form component
-    //will also cause componentWillReiveProps to trigger again which should possibly be looked into later
+    // this will reset the value next to "Rating:" in Form component
+    // will also cause componentWillReiveProps to trigger again which should possibly be looked into later
     if (rating === 0) this.props.onClick(0);
   }
 
@@ -96,15 +90,13 @@ export class RatingSection extends Component {
   }
 
   toggleStars = ind => {
-    this.setState(prevState => {
-      return {
-        rating: ind,
-        starArray: prevState.starArray.map((star, i) => {
-          const classVal = i < ind ? "filled" : "empty";
-          return { ...star, classVal };
-        })
-      };
-    });
+    this.setState(prevState => ({
+      rating: ind,
+      starArray: prevState.starArray.map((star, i) => {
+        const classVal = i < ind ? "filled" : "empty";
+        return { ...star, classVal };
+      })
+    }));
   };
 
   onClick = rating => {
@@ -122,22 +114,19 @@ export class RatingSection extends Component {
     this.toggleStars(ind);
   };
 
-  createTenStars = () => {
-    return this.state.starArray.map((star, ind) => {
-      return (
-        <button
-          type="button"
-          className={`star star--${star.classVal}`}
-          key={ind}
-          onClick={e => this.onClick(ind + 1)}
-          onMouseEnter={e => this.onMouseEnter(ind)}
-          onMouseLeave={e => this.onMouseLeave(ind)}
-        >
-          {star.logo}
-        </button>
-      );
-    });
-  };
+  createTenStars = () =>
+    this.state.starArray.map((star, ind) => (
+      <button
+        type="button"
+        className={`star star--${star.classVal}`}
+        key={ind}
+        onClick={e => this.onClick(ind + 1)}
+        onMouseEnter={e => this.onMouseEnter(ind)}
+        onMouseLeave={e => this.onMouseLeave(ind)}
+      >
+        {star.logo}
+      </button>
+    ));
 }
 RatingSection.propTypes = {
   rating: PropTypes.number.isRequired,
@@ -256,7 +245,7 @@ class Form extends Component {
   };
 
   onCheckboxClick = e => {
-    //find which array element was clicked and flip that elements isChecked value
+    // find which array element was clicked and flip that elements isChecked value
     const tags = this.state.data.tags.map(tag => {
       if (tag.name === e.target.name) {
         tag.isChecked = !tag.isChecked;
@@ -270,14 +259,13 @@ class Form extends Component {
     });
   };
 
-  getProperTags = tags => {
-    return this.state.data.tags.map(tag => {
+  getProperTags = tags =>
+    this.state.data.tags.map(tag => {
       if (tags.includes(tag.name)) {
         tag.isChecked = true;
       }
       return tag;
     });
-  };
 
   onRatingClick = val => {
     this.setState({
