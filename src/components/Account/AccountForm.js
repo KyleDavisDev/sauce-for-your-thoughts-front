@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Validator from "validator";
 import TextInput from "../TextInput/TextInput";
 
-export class AccountForm extends Component {
+class AccountForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
