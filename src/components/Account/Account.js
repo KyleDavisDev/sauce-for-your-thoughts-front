@@ -44,10 +44,9 @@ class Account extends Component {
     // close flash
     this.props.flashClose();
 
-    // add token to data so we can look up user
+    // construct API object
     const data = {
-      update: { name: e.name, email: e.email },
-      user: { token: this.props.user.token }
+      user: { token: this.props.user.token, name: e.name, email: e.email }
     };
     this.props.updateUser(data).catch(err => {
       this.props.flashError({ text: err.response.data.msg });
