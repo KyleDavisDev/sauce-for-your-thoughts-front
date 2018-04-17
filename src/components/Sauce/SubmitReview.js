@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addReview } from "../../redux/actions/reviews";
-import { RatingSection } from "./Form";
+import Rating from "../Rating/Rating";
 import Auth from "../../Helper/Auth/Auth";
 
 class SubmitReview extends Component {
@@ -33,11 +33,7 @@ class SubmitReview extends Component {
         />
         <div className="reviewer__actions">
           <div className="reviewer__stars">
-            <RatingSection
-              rating={stars}
-              onClick={this.onRatingClick}
-              height={25}
-            />
+            <Rating rating={stars} onClick={this.onRatingClick} height={25} />
           </div>
           <div className="reviewer__submit">
             <button type="submit" className="button button--submit">
