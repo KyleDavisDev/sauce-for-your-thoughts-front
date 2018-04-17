@@ -20,6 +20,21 @@ const api = {
         }
         throw new Error(res.data.msg);
       }),
+
+    /** @description get user-specific info from DB
+     *  @param {Object} credentials - object container
+     *    @param {Object} credentials.user - user container
+     *      @param {String} credentials.user.token - unique user string
+     *  @returns {Promise} res
+     *    @returns {Number} res.status - status of request
+     *    @return {Object} res.data - container object
+     *      @return {Boolean} res.data.isGood - whether user was able to be found or not
+     *      @return {String} res.data.msg - small blurb about isGood bool
+     *      @return {Object} res.data.user - user container
+     *        @return {String} res.data.user._id - unique person identifier
+     *        @return {String} res.data.user.email - user email
+     *        @return {String} res.data.user.name - user's name (first last)
+     */
     getInfo: credentials =>
       axios.post(`${host}/api/user/getInfo`, credentials).then(res => {
         if (res.status === 200 && res.data.isGood) {
