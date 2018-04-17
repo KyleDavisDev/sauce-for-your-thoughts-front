@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import PropTypes from "prop-types";
-import hashmapPropType from "hashmap-prop-type";
 import { connect } from "react-redux";
 import { getSauces } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
-import { getInfo, toggleSauce } from "../../redux/actions/user";
-import { getHearts } from "../../redux/actions/users";
+import { getInfo, toggleSauce, getHearts } from "../../redux/actions/users";
 import Card from "../Card/index.js";
 import Pagination from "./Pagination";
 
@@ -53,7 +50,7 @@ class Sauces extends Component {
     this.setState({ page });
   }
 
-  componentWillUnmount() { }
+  componentWillUnmount() {}
 
   render() {
     const sauces = this.props.sauces || [];
