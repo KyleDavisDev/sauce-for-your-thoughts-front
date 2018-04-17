@@ -66,6 +66,6 @@ export const updateUser = credentials => dispatch =>
  */
 export const getInfo = credentials => dispatch =>
   api.user.getInfo(credentials).then(res => {
-    const { _id, email, name } = res.user;
+    const { _id, email, name } = res.data.user;
     dispatch(gotUserInfo({ _id, email, name }));
   });
