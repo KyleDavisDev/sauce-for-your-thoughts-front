@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import TextInput from "../TextInput/TextInput.js";
 import Template from "./template";
-import Star from "../../images/icons/Star";
+import Rating from "../Rating/Rating.js";
 
 const CheckBoxList = ({ tags, onChange }) => (
   <ul className="tags">
@@ -48,92 +48,6 @@ PhotoUpload.propTypes = {
   text: PropTypes.string,
   onChange: PropTypes.func.isRequired
 };
-
-export class RatingSection extends Component {
-  constructor(props) {
-    super(props);
-
-    // create array of length 10, w/ each index having a <Star /> value
-    this.state = {
-      hold: false,
-      rating: this.props.rating,
-      starArray: Array(...Array(10)).map((x, ind) => {
-        const classVal = ind < this.props.rating ? "filled" : "empty";
-        return { logo: <Star height={this.props.height || 50} />, classVal };
-      })
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.rating === 0) return;
-
-    const rating =
-      nextProps.rating === this.state.rating ? 0 : nextProps.rating;
-    const hold = nextProps.rating !== this.state.rating;
-    const starArray = this.state.starArray.map((x, ind) => {
-      const classVal = ind < nextProps.rating ? "filled" : "empty";
-      return { logo: <Star height={nextProps.height || 50} />, classVal };
-    });
-    this.setState(prevState => ({
-      rating,
-      hold,
-      starArray
-    }));
-
-    // this will reset the value next to "Rating:" in Form component
-    // will also cause componentWillReiveProps to trigger again which should possibly be looked into later
-    if (rating === 0) this.props.onClick(0);
-  }
-
-  render() {
-    return <div className="star--container">{this.createTenStars()}</div>;
-  }
-
-  toggleStars = ind => {
-    this.setState(prevState => ({
-      rating: ind,
-      starArray: prevState.starArray.map((star, i) => {
-        const classVal = i < ind ? "filled" : "empty";
-        return { ...star, classVal };
-      })
-    }));
-  };
-
-  onClick = rating => {
-    const curRating = this.state.rating;
-    this.props.onClick(rating);
-  };
-
-  onMouseLeave = ind => {
-    if (this.state.hold) return;
-    this.toggleStars(0);
-  };
-
-  onMouseEnter = ind => {
-    if (this.state.hold) return;
-    this.toggleStars(ind);
-  };
-
-  createTenStars = () =>
-    this.state.starArray.map((star, ind) => (
-      <button
-        type="button"
-        className={`star star--${star.classVal}`}
-        key={ind}
-        onClick={e => this.onClick(ind + 1)}
-        onMouseEnter={e => this.onMouseEnter(ind)}
-        onMouseLeave={e => this.onMouseLeave(ind)}
-      >
-        {star.logo}
-      </button>
-    ));
-}
-RatingSection.propTypes = {
-  rating: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired,
-  height: PropTypes.number
-};
-// module.export = RatingSection
 
 class Form extends Component {
   constructor(props) {
@@ -208,7 +122,7 @@ class Form extends Component {
         <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
 
         <label className="rating--label">Overal Rating: {rating}</label>
-        <RatingSection onClick={this.onRatingClick} rating={rating} />
+        <Rating onClick={this.onRatingClick} rating={rating} />
 
         <button type="submit" className="button button--submit">
           Add ->
