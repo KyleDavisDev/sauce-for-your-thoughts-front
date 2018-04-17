@@ -1,4 +1,5 @@
 import api from "../../api/api";
+import { flashSuccess } from "./flash";
 
 export const addUsers = ({ users }) => ({
   type: "USERS_ADDED",
@@ -46,11 +47,23 @@ export const toggleHeart = data => dispatch =>
     dispatch(toggledHeart({ sauce: res.data.sauce }));
   });
 
-// TODO: Add description comments
+/** @description update a specific user's DB info
+ *  @param {Object} credentials - data container
+ *    @param {Object} credentials.user - user container
+ *      @param {String} credentials.user.token - unique user identifier
+ *      @param {String} credentials.user.name - new name to update to
+ *      @param {String} credentials.user.email - new email to update to
+ *  @fires users#gotUserInfo - set user.self properties
+ *  @fires flash#flashSuccess - show user success message
+ *  @returns {Promise}
+ *    @returns {NULL}
+ */
 export const updateUser = credentials => dispatch =>
   api.user.update(credentials).then(res => {
+    console.log("credentials", credentials);
     const { email, name } = res.user;
-    dispatch(userUpdated({ email, name }));
+    // update by setting again
+    dispatch(gotUserInfo({ email, name }));
     const text = `Your name was saved as: ${name} and your email was saved as: ${email}.`;
     dispatch(flashSuccess({ text }));
     return res.user;
