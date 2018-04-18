@@ -35,14 +35,20 @@ class Rating extends Component {
 
     // 1. init array of undefined the size of total number needed
     // 2. map over array
-    const symbols = [...Array(total)].map(x => console.log("hi"));
+    const symbols = [...Array(total)].map((val, ind) => {
+      const className = `star`;
+      return (
+        <button type="button" key={ind} onClick={e => this.onClick(ind, e)}>
+          <Star height={height} className={className} />
+        </button>
+      );
+    });
 
-    return <div className="star--container">yo</div>;
+    return <div className="star--container">{symbols}</div>;
   }
 
-  onClick = rating => {
-    const curRating = this.state.rating;
-    this.props.onClick(rating);
+  onClick = (index, event) => {
+    this.props.onClick(index, event);
   };
 
   onMouseEnter = () => {
