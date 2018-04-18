@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  .star {
+  button {
     background: $white;
     border: none;
     padding: 10px 0px;
@@ -18,7 +18,7 @@
       outline-color: $white;
     }
 
-    &.star--empty {
+    .star--empty {
       .center {
         fill: $white;
       }
@@ -34,7 +34,7 @@
       }
     }
 
-    &.star--filled {
+    .star--filled {
       fill: $yellow;
     }
   }
