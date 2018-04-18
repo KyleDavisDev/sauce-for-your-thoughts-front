@@ -1,8 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Star = ({ height }) => (
-  <svg width={height} height={height} viewBox="0 0 500 500">
+const Star = ({ height, className }) => (
+  <svg
+    width={height}
+    height={height}
+    className={className}
+    viewBox="0 0 500 500"
+  >
     <g transform="matrix(1,0,0,1,51.9678,93.7364)">
       <path
         d="M198.032,-70.062L254.21,102.835L436.005,102.835L288.93,209.692L345.108,382.589L198.032,275.733L50.957,382.589L107.135,209.692L-39.941,102.835L141.854,102.835L198.032,-70.062Z"
@@ -16,7 +21,12 @@ const Star = ({ height }) => (
   </svg>
 );
 Star.propTypes = {
-  height: PropTypes.number.isRequired
+  height: PropTypes.number,
+  className: PropTypes.string
+};
+Star.defaultProps = {
+  height: 50,
+  className: "star"
 };
 
 export default Star;
