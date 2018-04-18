@@ -76,7 +76,7 @@
     "no-shadow": [
       2,
       {
-        "hoist": "all",
+        "hoist": "functions",
         "allow": ["resolve", "reject", "done", "next", "err", "error"]
       }
     ],
