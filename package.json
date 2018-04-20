@@ -1,18 +1,15 @@
 {
   "name": "now-thats-delicious",
   "version": "2.0.0",
-  "description":
-    "Following Wes Bos's NodeJS course but using react/redux instead of pug.",
+  "description": "Following Wes Bos's NodeJS course but using react/redux instead of pug.",
   "main": "app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/KyleBonar/now-thats-delicious-front.git"
   },
   "scripts": {
-    "dev":
-      "webpack-dev-server --config webpack.dev.js --define process.env.API_ENV='\"dev\"'",
-    "prod":
-      "webpack -p --config webpack.prod.js --define process.env.API_ENV='\"prod\"'",
+    "dev": "webpack-dev-server --config webpack.dev.js --define process.env.API_ENV='\"dev\"'",
+    "prod": "webpack -p --config webpack.prod.js --define process.env.API_ENV='\"prod\"'",
     "watch": "nodemon ./start.js",
     "sample": "node ./data/load-sample-data.js",
     "blowitallaway": "node ./data/load-sample-data.js --delete"
@@ -37,6 +34,7 @@
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
+    "shortid": "^2.2.8",
     "validator": "^7.2.0"
   },
   "devDependencies": {
