@@ -122,7 +122,7 @@ class Form extends Component {
         <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
 
         <label className="rating--label">Overal Rating: {rating}</label>
-        <Rating onClick={this.onRatingClick} rating={rating} />
+        <Rating onClick={this.onRatingClick} value={rating} />
 
         <button type="submit" className="button button--submit">
           Add ->
@@ -135,6 +135,13 @@ class Form extends Component {
     e.preventDefault();
     const data = this.state.data;
     this.props.onSubmit(data);
+  };
+
+  onRatingClick = (index, event) => {
+    this.setState({
+      ...this.state,
+      data: { ...this.state.data, rating: index }
+    });
   };
 
   onChange = e => {
