@@ -1,33 +1,35 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import shortid from "shortid";
 import Star from "../../images/icons/Star";
 
 class Rating extends Component {
   static propTypes = {
     value: PropTypes.number,
     displayValue: PropTypes.number,
-    onClick: PropTypes.func.isRequired,
+    total: PropTypes.number,
     height: PropTypes.number,
-    total: PropTypes.number
+    readOnly: PropTypes.bool,
+    onClick: PropTypes.func.isRequired
   };
 
   static defaultProps = {
     value: 0,
     displayValue: 0,
     total: 10,
-    height: 50
+    height: 50,
+    readOnly: false
   };
 
   constructor(props) {
     super(props);
 
-    // create array of length 10, w/ each index having a <Star /> value
+    // Set state
     this.state = {
       // Indicated the 'offical' value of the component
       value: this.props.value,
-
       // Indicated the 'working' value of the component
-      displayValue: this.props.value,
+      displayValue: this.props.displayValue || this.props.value,
       // Indicates if the user is currently hovering over the rating element
       interacting: false
     };
@@ -36,8 +38,7 @@ class Rating extends Component {
   componentWillReceiveProps(nextProps) {
     const valueChanged = this.props.value !== nextProps.value;
     this.setState(prevState => ({
-      // Update if component has updated even once
-      dirty: valueChanged || prevState.dirty,
+      value: valueChanged ? nextProps.value : prevState.value,
       // Update to newest value if different
       displayValue: valueChanged ? nextProps.value : prevState.displayValue
     }));
@@ -45,15 +46,18 @@ class Rating extends Component {
 
   render() {
     // grab from props
-    const { value, height, total } = this.props;
+    const { height, total } = this.props;
     // grab from state
-    const { displayValue, interacting } = this.state;
+    const { value, displayValue, interacting, readOnly } = this.state;
 
+    // Figure out which value we should be displaying
     const renderedValue = interacting ? displayValue : value;
-    console.log(renderedValue);
 
     // 1. init array of undefined the size of total number needed
     // 2. map over array
+    // 3. Find appropriate class name
+    // 4. Create button and assign properties
+    // 5. Create Star and assign properties
     const symbols = [...Array(total)].map((val, ind) => {
       const className = `star star--${
         renderedValue > ind ? "filled" : "empty"
@@ -61,10 +65,14 @@ class Rating extends Component {
       return (
         <button
           type="button"
-          key={ind}
-          onClick={e => this.onClick(ind, e)}
-          onMouseEnter={e => this.onMouseEnter(ind, e)}
-          onMouseLeave={e => this.onMouseLeave(ind, e)}
+          key={shortid.generate()}
+          onClick={!readOnly ? this.onClick.bind(this, ind) : this.doNothing}
+          onMouseEnter={
+            !readOnly ? this.onMouseEnter.bind(this, ind) : this.doNothing
+          }
+          onMouseLeave={
+            !readOnly ? this.onMouseLeave.bind(this, ind) : this.doNothing
+          }
         >
           <Star height={height} className={className} />
         </button>
@@ -75,6 +83,7 @@ class Rating extends Component {
   }
 
   onClick = (index, event) => {
+    // Need to add 1 to the index b/c arrays start at 0
     this.props.onClick(index + 1, event);
   };
 
@@ -88,6 +97,8 @@ class Rating extends Component {
       displayValue: prevState.value
     }));
   };
+
+  doNothing = () => {};
 }
 
 export default Rating;
