@@ -44,11 +44,23 @@ class Rating extends Component {
     }));
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    // Only update if:
+    // 1. The display value has been updated OR
+    // 2. The component is currently being interacted with OR
+    // 3. The value has been updated
+    return (
+      this.state.displayValue !== nextState.displayValue ||
+      nextState.interacting ||
+      this.props.value !== nextProps.value
+    );
+  }
+
   render() {
     // grab from props
-    const { height, total } = this.props;
+    const { height, total, readOnly } = this.props;
     // grab from state
-    const { value, displayValue, interacting, readOnly } = this.state;
+    const { value, displayValue, interacting } = this.state;
 
     // Figure out which value we should be displaying
     const renderedValue = interacting ? displayValue : value;
@@ -88,7 +100,11 @@ class Rating extends Component {
   };
 
   onMouseEnter = (index, event) => {
-    this.setState({ interacting: true, displayValue: index });
+    // if we are in readOnly mode, then do not do anything
+    if (this.props.readOnly) return;
+
+    // Need to add 1 to the index b/c arrays start at 0
+    this.setState({ interacting: true, displayValue: index + 1 });
   };
 
   onMouseLeave = (index, event) => {
