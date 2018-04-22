@@ -122,7 +122,7 @@ class Form extends Component {
         <CheckBoxList tags={tags} onChange={this.onCheckboxClick} />
 
         <label className="rating--label">Overal Rating: {rating}</label>
-        <Rating onClick={this.onRatingClick} value={rating} readOnly={true} />
+        <Rating onClick={this.onRatingClick} value={rating} />
 
         <button type="submit" className="button button--submit">
           Add ->
