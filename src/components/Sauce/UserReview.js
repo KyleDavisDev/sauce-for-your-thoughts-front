@@ -1,56 +1,40 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Star from "../../images/icons/Star";
+import Rating from "../Rating/Rating";
 
-const UserReview = props => {
-  // Generate 10 stars, and 'fill' the number based on the rating
-  const generateStars = rating => {
-    // make sure rating is a number
-    if (Object.prototype.toString.call(rating) !== "[object Number]") return;
-    return Array(...Array(10)).map((x, ind) => {
-      const classVal = ind < rating ? "filled" : "empty";
-      return (
-        // TODO: Switch key to use author _id once users can only have one review per sauce
-        <div className={`star star--${classVal}`} key={ind}>
-          <Star height={20} />
-        </div>
-      );
-    });
-  };
-  return (
-    <div className="review">
-      <div className="review__header">
-        <div className="review__author">
-          <img
-            className="avatar"
-            alt="submitter's icon"
-            src="https://gravatar.com/avatar/9efd86dfb66394fae773919df6a9c0fb?s=200"
-          />
-          <p>{props.author.name}</p>
-        </div>
-
-        {/* Stars sections */}
-        <div
-          className="review__stars"
-          title={`Rated ${props.review.rating} our of 10 stars`}
-        >
-          <div className="star--container">
-            {generateStars(props.review.rating, props.review._id)}
-          </div>
-        </div>
-
-        {/* Date of the review */}
-        <time className="review__time" dateTime="2017-03-08T22:36:48.575Z">
-          a year ago
-        </time>
+const UserReview = props => (
+  <div className="review">
+    <div className="review__header">
+      <div className="review__author">
+        <img
+          className="avatar"
+          alt="submitter's icon"
+          src="https://gravatar.com/avatar/9efd86dfb66394fae773919df6a9c0fb?s=200"
+        />
+        <p>{props.author.name}</p>
       </div>
-      <div className="review__body">
-        <p> {props.review.text} </p>
+
+      {/* Stars sections */}
+      <div
+        className="review__stars"
+        title={`Rated ${props.review.rating} our of 10 stars`}
+      >
+        <div className="star--container">
+          <Rating value={props.review.rating} readOnly={true} height={20} />
+        </div>
       </div>
+
+      {/* Date of the review */}
+      <time className="review__time" dateTime="2017-03-08T22:36:48.575Z">
+        a year ago
+      </time>
     </div>
-  );
-};
+    <div className="review__body">
+      <p> {props.review.text} </p>
+    </div>
+  </div>
+);
 
 UserReview.propTypes = {
   review: PropTypes.shape({
