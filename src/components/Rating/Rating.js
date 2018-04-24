@@ -10,7 +10,7 @@ class Rating extends Component {
     total: PropTypes.number,
     height: PropTypes.number,
     readOnly: PropTypes.bool,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func
   };
 
   static defaultProps = {
@@ -18,7 +18,8 @@ class Rating extends Component {
     displayValue: 0,
     total: 10,
     height: 50,
-    readOnly: false
+    readOnly: false,
+    onClick() {}
   };
 
   constructor(props) {
@@ -85,6 +86,8 @@ class Rating extends Component {
           onMouseLeave={
             !readOnly ? this.onMouseLeave.bind(this, ind) : this.doNothing
           }
+          disabled={readOnly}
+          className={readOnly ? "disabled" : ""}
         >
           <Star height={height} className={className} />
         </button>
