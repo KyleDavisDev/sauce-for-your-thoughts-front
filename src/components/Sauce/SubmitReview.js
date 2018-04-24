@@ -33,7 +33,7 @@ class SubmitReview extends Component {
         />
         <div className="reviewer__actions">
           <div className="reviewer__stars">
-            <Rating rating={stars} onClick={this.onRatingClick} height={25} />
+            <Rating value={stars} onClick={this.onRatingClick} height={25} />
           </div>
           <div className="reviewer__submit">
             <button type="submit" className="button button--submit">
