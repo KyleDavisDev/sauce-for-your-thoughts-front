@@ -18,6 +18,13 @@
       outline-color: $white;
     }
 
+    // Don't change cursor if button is disabled
+    &.disabled {
+      &:hover {
+        cursor: default;
+      }
+    }
+
     .star--empty {
       .center {
         fill: $white;
