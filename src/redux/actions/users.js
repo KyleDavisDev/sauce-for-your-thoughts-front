@@ -31,7 +31,8 @@ export const gotUserInfo = ({ _id, email, name }) => ({
  */
 export const getHearts = credentials => dispatch =>
   api.user.getHearts(credentials).then(res => {
-    dispatch(gotHearts({ hearts: res.data.hearts }));
+    const hearts = res.data.hearts.map(heart => heart._id);
+    dispatch(gotHearts({ hearts }));
   });
 
 /** @description add/remove sauce from user's array of hearted sauces
