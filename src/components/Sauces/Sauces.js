@@ -119,7 +119,9 @@ class Sauces extends Component {
 
     // construct API-required data
     const credentials = { user: { token } };
-    return this.props.getHearts(credentials);
+    return this.props
+      .getHearts(credentials)
+      .catch(err => console.log(err.message));
   };
 }
 
