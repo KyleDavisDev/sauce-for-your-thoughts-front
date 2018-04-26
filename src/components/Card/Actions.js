@@ -56,11 +56,7 @@ class Actions extends Component {
    */
   handleHeartIcon = _id => {
     // sanity check -- maybe we dont show anything at all
-    if (
-      this.props.user.hearts === null ||
-      this.props.user.hearts.length === 0 ||
-      this.props.user.token === null
-    ) {
+    if (this.props.user.hearts === null || this.props.user.token === null) {
       return;
     }
 
