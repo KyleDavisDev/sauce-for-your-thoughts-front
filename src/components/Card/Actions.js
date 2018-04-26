@@ -55,14 +55,14 @@ class Actions extends Component {
    *  @returns {JSX} appropriate button/heart
    */
   handleHeartIcon = _id => {
+    const { hearts, token } = this.props.user;
     // sanity check -- maybe we dont show anything at all
-    if (this.props.user.hearts === null || this.props.user.token === null) {
+    if (hearts === null || token === null || token.length === 0) {
       return;
     }
 
-    const { token } = this.props.user;
     // render correct heart based on hearts arr
-    return this.props.user.hearts.includes(_id) ? (
+    return hearts.includes(_id) ? (
       <button
         onClick={() => this.toggleHeart({ token, _id })}
         className="button--action__active"
