@@ -51,7 +51,7 @@ class Add extends Component {
     this.props
       .addSauce(formData)
       .then(res => {
-        this.props.history.push(`/sauce/${res.data.sauce.slug}`);
+        this.props.history.push(`/sauce/${res.data.sauces[0].slug}`);
       })
       .catch(err => {
         console.log(err);
