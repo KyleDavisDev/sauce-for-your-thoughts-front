@@ -57,7 +57,7 @@ export const sauceFound = ({ sauce }) => ({
  */
 export const addSauce = data => dispatch =>
   api.sauce.add(data).then(res => {
-    const { sauces, reviews, authors } = flattenSauces([res.data.sauces]);
+    const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
 
     // make sauces were flattened
     if (flatChecker(sauces)) {
