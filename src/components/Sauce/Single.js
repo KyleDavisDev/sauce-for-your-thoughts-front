@@ -8,7 +8,7 @@ import SubmitReview from "./SubmitReview";
 import UserReview from "./UserReview";
 import { host } from "../../api/api";
 
-import FillerImage from "../../images/photos/sauce.jpg";
+import ComingSoon from "../../images/photos/ComingSoon.png";
 
 const GenerateTagsList = ({ tags }) => (
   <ul className="tags">
@@ -76,10 +76,10 @@ class Single extends Component {
                 onLoad={e =>
                   (e.target.src = `${host}/public/uploads/${
                     this.props.sauce.photo
-                  }`)
+                    }`)
                 }
-                src={FillerImage}
-                onError={e => (e.target.src = FillerImage)}
+                src={ComingSoon}
+                onError={e => (e.target.src = ComingSoon)}
               />
               <h2 className="title title-single">
                 <Link to={this.props.sauce.slug}>{this.props.sauce.name}</Link>
@@ -152,13 +152,13 @@ const mapStateToProps = (state, ownProps) => {
   const sauce = sauceID // find specific sauce or set default values
     ? state.sauces.byId[sauceID]
     : {
-        _id: "",
-        name: "",
-        description: "",
-        photo: "",
-        slug: "",
-        tags: [""]
-      };
+      _id: "",
+      name: "",
+      description: "",
+      photo: "",
+      slug: "",
+      tags: [""]
+    };
 
   const user = {
     token: state.users.self.token || ""

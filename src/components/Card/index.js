@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import FillerImage from "../../images/photos/sauce.jpg";
+import ComingSoon from "../../images/photos/ComingSoon.png";
 
 import { host } from "../../api/api";
 import Actions from "./Actions";
@@ -15,8 +15,8 @@ const index = props => {
       <div className="card-hero">
         <Actions sauce={sauce} />
         <img
-          src={FillerImage}
-          onError={e => (e.target.src = FillerImage)}
+          src={ComingSoon}
+          onError={e => (e.target.src = ComingSoon)}
           onLoad={e => (e.target.src = `${host}/public/uploads/${sauce.photo}`)}
           title={sauce.name}
           alt={sauce.name}
