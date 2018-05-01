@@ -73,12 +73,7 @@ class Single extends Component {
               <img
                 alt={`User-submitted background for ${this.props.sauce.name}`}
                 className="single-image"
-                onLoad={e =>
-                  (e.target.src = `${host}/public/uploads/${
-                    this.props.sauce.photo
-                    }`)
-                }
-                src={ComingSoon}
+                src={`${host}/public/uploads/${this.props.sauce.photo}`}
                 onError={e => (e.target.src = ComingSoon)}
               />
               <h2 className="title title-single">
@@ -152,13 +147,13 @@ const mapStateToProps = (state, ownProps) => {
   const sauce = sauceID // find specific sauce or set default values
     ? state.sauces.byId[sauceID]
     : {
-      _id: "",
-      name: "",
-      description: "",
-      photo: "",
-      slug: "",
-      tags: [""]
-    };
+        _id: "",
+        name: "",
+        description: "",
+        photo: "",
+        slug: "",
+        tags: [""]
+      };
 
   const user = {
     token: state.users.self.token || ""
