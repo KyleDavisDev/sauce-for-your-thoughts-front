@@ -15,9 +15,8 @@ const index = props => {
       <div className="card-hero">
         <Actions sauce={sauce} />
         <img
-          src={ComingSoon}
+          src={`${host}/public/uploads/${sauce.photo}`}
           onError={e => (e.target.src = ComingSoon)}
-          onLoad={e => (e.target.src = `${host}/public/uploads/${sauce.photo}`)}
           title={sauce.name}
           alt={sauce.name}
         />
