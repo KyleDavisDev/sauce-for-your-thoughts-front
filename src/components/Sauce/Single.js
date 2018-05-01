@@ -57,8 +57,8 @@ class Single extends Component {
   };
 
   componentDidMount() {
-    // save API call if we already have sauce in redux store
-    if (this.props.sauce._id.length === 0) {
+    // save API call if we already have sauce and reviews in redux store
+    if (this.props.sauce._id.length === 0 || this.props.reviews.length === 0) {
       const { slug } = this.props.match.params;
       this.getSauceBySlug({ slug });
     }
@@ -67,21 +67,21 @@ class Single extends Component {
   render() {
     return (
       <div className="inner">
-        {Object.keys(this.props.sauce).length > 0 && (
-          <div className="single">
-            <div className="single-hero">
-              <img
-                alt={`User-submitted background for ${this.props.sauce.name}`}
-                className="single-image"
-                src={`${host}/public/uploads/${this.props.sauce.photo}`}
-                onError={e => (e.target.src = ComingSoon)}
-              />
-              <h2 className="title title-single">
-                <Link to={this.props.sauce.slug}>{this.props.sauce.name}</Link>
-              </h2>
-            </div>
+        <div className="single">
+          <div className="single-hero">
+            <img
+              alt={`User-submitted background for ${this.props.sauce.name}`}
+              className="single-image"
+              src={`${host}/public/uploads/${this.props.sauce.photo}`}
+              onError={e => (e.target.src = ComingSoon)}
+            />
+            <h2 className="title title-single">
+              <Link to={this.props.sauce.slug || "#"}>
+                {this.props.sauce.name || "Loading..."}
+              </Link>
+            </h2>
           </div>
-        )}
+        </div>
 
         <div className="single--details">
           {/* description & tags */}
