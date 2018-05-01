@@ -6,13 +6,17 @@
  *    @param {String} sauces[].name - name of the sauce
  *    @param {String} sauces[].photo - name of the photo
  *    @param {String[]} sauces[].tags[] - tags assigned to sauce
- *    @param {String} sauces[].author - author of sauce
+ *    @param {Object?} sauces[].author - optional author of sauce
  *      @param {String} sauces[].author._id - unique identifier
  *      @param {String} sauces[].author.name - author name
  *    @param {Object[]} sauces[].reviews[] - reviews for sauce
  *      @param {String} sauces[].reviews[]._id - unique identifier
- *      @param {String} sauces[].reviews[].text - actual review
- *      @param {Integer} sauces[].reviews[].rating - number of stars given
+ *      @param {String?} sauces[].reviews[].text - optional actual review
+ *      @param {Integer?} sauces[].reviews[].rating - optional number of stars given
+ *      @param {Object?}  sauces[].reviews[].author - optional author of the review
+ *        @param {String?} sauces[].reviews[].author._id - optional unique author string
+ *      @param {String?} sauces[].reviews[].sauce - optional sauce the review is for
+ *        @param {String?} sauces[].reviews[].sauce._id - optional unique sauce string
  *  @returns {Object} sauces, authors, reviews
  */
 export const flattenSauces = sauces => {
@@ -70,10 +74,14 @@ export const flattenSauces = sauces => {
         // flatten review
         res.reviews.byId[review._id] = {
           _id: review._id,
-          text: review.text,
-          rating: review.rating,
-          author: { _id: review.author._id },
-          sauce: { _id: sauce._id }
+          text: review.text || "",
+          rating: review.rating || 0,
+          author: {
+            _id: review.author && review.author._id ? review.author._id : ""
+          },
+          sauce: {
+            _id: review.sauce && review.sauce._id ? review.sauce._id : ""
+          }
         };
 
         // add review id to array if it doesn't already exist in array
