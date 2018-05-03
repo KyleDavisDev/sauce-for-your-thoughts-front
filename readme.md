@@ -19,8 +19,8 @@ To run in production, run `npm run prod`. This will push the code through (webpa
 # Roadmap
 
 - [ ] Continue to write and improve code documentation.
-- [x] Fix issue with ratings resetting when component loses focus.
-- [ ] Allow users to submit review directly on sauce page.
+- [x] Build out a 'Rating' component.
+- [x] Allow users to submit review directly on sauce page.
 - [ ] Add query limit when looking at sauces (i.e. Don't pull all of the sauces at once)
 - [ ] Add user pages.
 - [ ] Add content to website home page.
@@ -30,3 +30,4 @@ To run in production, run `npm run prod`. This will push the code through (webpa
 - [ ] Write tests.
 - [ ] Make sure site is fully ADA compliant.
 - [ ] Add links out to social media.
+- [ ] Investigate more into styled components.
