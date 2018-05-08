@@ -46,7 +46,7 @@ class Sauces extends Component {
     );
 
     axios
-      .all([this.getSauces({ limit, page }), this.getHearts(token)])
+      .all([this.getSauces({ page, limit }), this.getHearts(token)])
       .catch(error => {
         console.log(error);
         this.props.flashError({ text: error.response.data.msg });
@@ -92,8 +92,8 @@ class Sauces extends Component {
     const limitType = Object.prototype.toString.call(limit);
     const pageType = Object.prototype.toString.call(page);
     if (
-      (limitType !== "[object Number]" || limitType !== "[object String]") &&
-      (pageType !== "[object Number]" || pageType !== "[object String]")
+      (limitType !== "[object Number]" && limitType !== "[object String]") ||
+      (pageType !== "[object Number]" && pageType !== "[object String]")
     )
       return;
 
