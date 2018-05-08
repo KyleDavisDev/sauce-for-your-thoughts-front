@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import queryString from "query-string";
 import { connect } from "react-redux";
 import { getSauces } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
@@ -20,63 +21,92 @@ class Sauces extends Component {
     getInfo: PropTypes.func.isRequired,
     flashError: PropTypes.func.isRequired,
     getHearts: PropTypes.func.isRequired,
-    match: PropTypes.shape({
-      params: PropTypes.shape({
-        pageNum: PropTypes.string
-      }).isRequired
+    location: PropTypes.shape({
+      search: PropTypes.string.isRequired
     }).isRequired
   };
 
   constructor(props) {
     super(props);
 
-    // page and saucePerPage will be held in local state since it will only be used here and by Pagination
+    // page and limit will be held in local state since it will only be used here and by Pagination
     this.state = {
       page: 1,
-      saucePerPage: 6
+      limit: 6
     };
   }
 
   componentDidMount() {
     const { token } = this.props.user;
-    axios.all([this.getSauces(), this.getHearts(token)]).catch(error => {
-      console.log(error);
-      this.props.flashError({ text: error.response.data.msg });
-    });
+
+    // Get limit and page from location search
+    // I.E. '?page=3&limit=2' => {page: '3', limit: '2'}
+    const { limit = 6, page = 1 } = queryString.parse(
+      this.props.location.search
+    );
+
+    axios
+      .all([this.getSauces({ limit, page }), this.getHearts(token)])
+      .catch(error => {
+        console.log(error);
+        this.props.flashError({ text: error.response.data.msg });
+      });
   }
 
   componentWillReceiveProps(nextProps) {
-    const page = parseInt(nextProps.match.params.pageNum) || 1;
-    this.setState({ page });
+    // Get limit and page from location search
+    // I.E. '?page=3&limit=2' => {page: '3', limit: '2'}
+    const { limit = 6, page = 1 } = queryString.parse(
+      this.props.location.search
+    );
+    this.setState({ limit, page });
   }
-
-  componentWillUnmount() {}
 
   render() {
     const sauces = this.props.sauces || [];
-    const { page, saucePerPage } = this.state;
+    const { page, limit } = this.state;
     return (
       <div className="inner">
         <h2>Sauces</h2>
         <div className="sauces">
           {sauces.length > 0 &&
             sauces
-              .slice((page - 1) * saucePerPage, page * saucePerPage)
+              .slice((page - 1) * limit, page * limit)
               .map(sauce => <Card _id={sauce} key={sauce} />)}
         </div>
-        <Pagination
-          total={sauces.length}
-          page={page}
-          saucePerPage={saucePerPage}
-        />
+        <Pagination total={sauces.length} page={page} limit={limit} />
       </div>
     );
   }
 
   /** @description Grabs all sauces, related reviews, and related users
+   *  @param {Number|String} limit - limits the number of sauces returned
+   *  @param {Number|String} page - current page the user is on.
    *  @returns {Promise}
    */
-  getSauces = () => this.props.getSauces();
+  getSauces = ({ limit, page }) => {
+    // Simple guard clause
+    if (!limit || !page) return;
+
+    // Make sure we are passed number or string only
+    const limitType = Object.prototype.toString.call(limit);
+    const pageType = Object.prototype.toString.call(page);
+    if (
+      (limitType !== "[object Number]" || limitType !== "[object String]") &&
+      (pageType !== "[object Number]" || pageType !== "[object String]")
+    )
+      return;
+
+    // Convert string to int if needed
+    const limitToProperType =
+      limitType === "[object String]" ? parseInt(limit) : limit;
+
+    // Convert string to int if needed
+    const pageToProperType =
+      pageType === "[object String]" ? parseInt(page) : page;
+
+    this.props.getSauces({ limit: limitToProperType, page: pageToProperType });
+  };
 
   // this will pass token to api and store email/name into redux store on success
   getUserID = () => {
