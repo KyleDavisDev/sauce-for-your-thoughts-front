@@ -49,34 +49,34 @@ const Tags = Loadable({
   loading: Loading
 });
 
-const App = ({ flashMessageVisible }) => {
-  return (
-    <div className="container">
-      <Header />
-      {flashMessageVisible && <FlashMessage />}
-      <Route exact path="/" component={Loading} />
-      <Route exact path="/add" component={Add} />
-      <Route exact path="/sauces/:page?/:pageNum?" component={Sauces} />
-      <Route exact path="/sauce/:slug" component={Single} />
-      <Route exact path="/sauce/:id/edit" component={SauceEdit} />
-      <Route exact path="/tags" component={Tags} />
-      <Route exact path="/tags/:tag" component={Tags} />
-      <Route exact path="/register" component={Register} />
-      <Route exact path="/account" component={Account} />
-      <Route exact path="/account/reset/:token" component={ResetPassword} />
-      <Route exact path="/login" component={Login} />
-    </div>
-  );
-};
+const App = ({ flashMessageVisible }) => (
+  <div className="container">
+    <Header />
+    {flashMessageVisible && <FlashMessage />}
+    <Route exact path="/" component={Loading} />
+    <Route exact path="/add" component={Add} />
+    <Route
+      exact
+      path="/sauces(/?page=:page&limit=:limit)?"
+      component={Sauces}
+    />
+    <Route exact path="/sauce/:slug" component={Single} />
+    <Route exact path="/sauce/:id/edit" component={SauceEdit} />
+    <Route exact path="/tags" component={Tags} />
+    <Route exact path="/tags/:tag" component={Tags} />
+    <Route exact path="/register" component={Register} />
+    <Route exact path="/account" component={Account} />
+    <Route exact path="/account/reset/:token" component={ResetPassword} />
+    <Route exact path="/login" component={Login} />
+  </div>
+);
 
 App.PropTypes = {
   flashMessageVisible: PropTypes.bool.isRequired
 };
 
-const mapStateToProps = state => {
-  return {
-    flashMessageVisible: !!state.flashMessage.isVisible
-  };
-};
+const mapStateToProps = state => ({
+  flashMessageVisible: !!state.flashMessage.isVisible
+});
 
 export default connect(mapStateToProps, {})(App);
