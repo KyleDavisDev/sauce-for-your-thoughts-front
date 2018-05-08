@@ -17,13 +17,9 @@ class Actions extends Component {
     user: PropTypes.shape({
       token: PropTypes.string.isRequired,
       _id: PropTypes.string.isRequired,
-      hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
-    }),
+      hearts: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+    }).isRequired,
     toggleHeart: PropTypes.func.isRequired
-  };
-
-  static defaultProps = {
-    user: { token: null, _id: null, hearts: null }
   };
 
   componentDidMount() {
@@ -99,7 +95,6 @@ class Actions extends Component {
 const mapStateToProps = state => {
   // Destructure and set default
   const { token = "", _id = "", hearts = [] } = state.users.self;
-
   // Return user object
   return {
     user: {
