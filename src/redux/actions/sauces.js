@@ -76,10 +76,12 @@ export const addSauce = data => dispatch =>
   });
 
 /** @description Grab all sauces available (will limit this to only set amount at a time in future)
+ *  @param {Number} page - current page the user is on.
+ *  @param {Number} limit - limits the number of sauces returned
  *  @return {NULL}
  */
-export const getSauces = () => dispatch =>
-  api.sauces.get().then(res => {
+export const getSauces = ({ page, limit }) => dispatch => {
+  api.sauces.get({ page, limit }).then(res => {
     const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
 
     // make sauces were flattened
@@ -99,6 +101,7 @@ export const getSauces = () => dispatch =>
 
     return res;
   });
+};
 
 export const updateSaucesItem = ({ sauce }) => dispatch => {
   dispatch(updatedSaucesItems({ sauce }));
