@@ -136,9 +136,31 @@ const api = {
         })
   },
   sauces: {
-    get: () =>
-      axios.get(`${host}/api/sauces/get`).then(res => {
+    /** @description get sauces from API
+     *  @param {Number} limit - limits the number of sauces returned
+     *  @param {Number} page - current page the user is on.
+     *  @returns {Promise} res
+     *    @returns {Number} res.status - status of request
+     *    @return {Object} res.data - container object
+     *      @return {Boolean} res.data.isGood - whether user was able to be found or not
+     *      @return {String} res.data.msg - small blurb about isGood bool
+     *      @return {Object[]} res.data.sauces[] - array of sauce objects
+     *        @return {String} res.data.sauces[]._id - unique sauce identifier
+     *        @return {String} res.data.sauces[].description - description of sauce
+     *        @return {String} res.data.sauces[].name - sauces's name
+     *        @return {String} res.data.sauces[].slug - unique sauce slug
+     *        @return {String} res.data.sauces[].photo - name of the photo
+     *        @return {Object} res.data.sauces[].author - author of sauce
+     *          @return {String} res.data.sauces[].author._id - unique author identifier
+     *          @return {String} res.data.sauces[].author.name - name of the author
+     *        @return {Object[]} res.data.sauces[].reviews[] - reviews for the sauce
+     *          @return {String} res.data.sauces[].reviews[]._id - unique review identifier
+     *        @return {String[]} res.data.sauces[].tags[] - tags for sauce
+     */
+    get: ({ page, limit }) =>
+      axios.get(`${host}/api/sauces/get/`).then(res => {
         if (res.data.isGood && res.status === 200) {
+          console.log(res.data);
           return res.data;
         }
         throw new Error(res.data.msg);
