@@ -158,13 +158,14 @@ const api = {
      *        @return {String[]} res.data.sauces[].tags[] - tags for sauce
      */
     get: ({ page, limit }) =>
-      axios.get(`${host}/api/sauces/get/`).then(res => {
-        if (res.data.isGood && res.status === 200) {
-          console.log(res.data);
-          return res.data;
-        }
-        throw new Error(res.data.msg);
-      }),
+      axios
+        .get(`${host}/api/sauces/get/?page=${page}&limit=${limit}`)
+        .then(res => {
+          if (res.data.isGood && res.status === 200) {
+            return res.data;
+          }
+          throw new Error(res.data.msg);
+        }),
     getSaucesByTag: data =>
       axios.post(`${host}/api/sauces/get/by/tag`, data).then(res => {
         if (res.data.isGood) {
