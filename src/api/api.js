@@ -159,7 +159,7 @@ const api = {
      */
     get: ({ page, limit }) =>
       axios
-        .get(`${host}/api/sauces/get/?page=${page}&limit=${limit}`)
+        .get(`${host}/api/sauces/get?page=${page}&limit=${limit}`)
         .then(res => {
           if (res.data.isGood && res.status === 200) {
             return res.data;
