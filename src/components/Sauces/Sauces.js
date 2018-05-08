@@ -54,7 +54,6 @@ class Sauces extends Component {
 
   render() {
     const sauces = this.props.sauces || [];
-    const email = this.props.user.email || "";
     const { page, saucePerPage } = this.state;
     return (
       <div className="inner">
@@ -73,25 +72,6 @@ class Sauces extends Component {
       </div>
     );
   }
-
-  renderCards = ({ sauce, email }) => {
-    const hearts = this.props.user.hearts || [];
-    const displayHeartIcon = !!this.props.user.token;
-    return (
-      <Card
-        displayEditIcon={email === sauce.author}
-        displayHeartIcon={displayHeartIcon}
-        heart={hearts.includes(sauce._id)}
-        toggleSauce={this.toggleSauce}
-        ID={sauce._id}
-        name={sauce.name}
-        image={sauce.photo}
-        slug={sauce.slug}
-        description={sauce.description}
-        key={sauce.slug}
-      />
-    );
-  };
 
   /** @description Grabs all sauces, related reviews, and related users
    *  @returns {Promise}
