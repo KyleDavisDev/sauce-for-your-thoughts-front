@@ -59,11 +59,24 @@ class Sauces extends Component {
     const { limit = 6, page = 1 } = queryString.parse(
       this.props.location.search
     );
+    // this.getSauces({ page, limit })
     this.setState({ limit, page });
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    // Only update if:
+    // 1. The page value has changed OR
+    // 2. The limit value has changed.
+    // return true;
+    return (
+      nextProps.sauces !== this.props.sauces ||
+      this.state.page !== nextState.page ||
+      this.state.value !== nextState.value
+    );
+  }
+
   render() {
-    const sauces = this.props.sauces || [];
+    const { sauces = [], total = 50 } = this.props;
     const { page, limit } = this.state;
     return (
       <div className="inner">
@@ -74,7 +87,7 @@ class Sauces extends Component {
               .slice((page - 1) * limit, page * limit)
               .map(sauce => <Card _id={sauce} key={sauce} />)}
         </div>
-        <Pagination total={sauces.length} page={page} limit={limit} />
+        <Pagination total={total} page={page} limit={limit} />
       </div>
     );
   }
