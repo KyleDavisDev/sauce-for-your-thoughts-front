@@ -17,6 +17,7 @@ class Sauces extends Component {
       email: PropTypes.string,
       hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
     }).isRequired,
+    total: PropTypes.number.isRequired,
     getSauces: PropTypes.func.isRequired,
     getInfo: PropTypes.func.isRequired,
     flashError: PropTypes.func.isRequired,
@@ -39,11 +40,12 @@ class Sauces extends Component {
   componentDidMount() {
     const { token } = this.props.user;
 
-    // Get limit and page from location search
+    // Get limit and page from query search
     // I.E. '?page=3&limit=2' => {page: '3', limit: '2'}
     const { limit = 6, page = 1 } = queryString.parse(
       this.props.location.search
     );
+    console.log("componentdidmount");
 
     axios
       .all([this.getSauces({ page, limit }), this.getHearts(token)])
@@ -56,35 +58,42 @@ class Sauces extends Component {
   componentWillReceiveProps(nextProps) {
     // Get limit and page from location search
     // I.E. '?page=3&limit=2' => {page: '3', limit: '2'}
-    const { limit = 6, page = 1 } = queryString.parse(
-      this.props.location.search
-    );
-    // this.getSauces({ page, limit })
+    let { limit = 6, page = 1 } = queryString.parse(nextProps.location.search);
+    limit = parseInt(limit);
+    page = parseInt(page);
+    console.log("willreceive", limit, page);
+
+    // this.getSauces({ page, limit });
     this.setState({ limit, page });
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     // Only update if:
     // 1. The page value has changed OR
-    // 2. The limit value has changed.
+    // 2. The limit value has changed OR
+    // 3. The query string has been updated
     // return true;
+    console.log(
+      nextProps.location.search !== this.props.location.search,
+      nextProps.sauces !== this.props.sauces
+    );
     return (
-      nextProps.sauces !== this.props.sauces ||
-      this.state.page !== nextState.page ||
-      this.state.value !== nextState.value
+      nextProps.location.search !== this.props.location.search ||
+      nextProps.sauces !== this.props.sauces
     );
   }
 
   render() {
-    const { sauces = [], total = 50 } = this.props;
+    const { sauces, total } = this.props;
     const { page, limit } = this.state;
+
     return (
       <div className="inner">
         <h2>Sauces</h2>
         <div className="sauces">
           {sauces.length > 0 &&
             sauces
-              .slice((page - 1) * limit, page * limit)
+              // .slice((page - 1) * limit, page * limit)
               .map(sauce => <Card _id={sauce} key={sauce} />)}
         </div>
         <Pagination total={total} page={page} limit={limit} />
@@ -149,12 +158,13 @@ class Sauces extends Component {
 }
 
 const mapStateToProps = state => ({
-  sauces: state.sauces.allIds,
+  sauces: state.sauces.allIds || [],
   user: {
     token: state.users.self.token,
     email: state.users.email || "",
     hearts: state.users.hearts || []
-  }
+  },
+  total: state.sauces.total || 50
 });
 
 const mapDispatchToProps = {
