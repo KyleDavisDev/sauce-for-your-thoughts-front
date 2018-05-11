@@ -2,7 +2,6 @@ export default function sauces(state = {}, action) {
   switch (action.type) {
     case "SAUCES_ADDED":
       // action.sauces === {sauce, sauce, sauce}
-
       return {
         byId:
           "byId" in state && Object.keys(state.byId).length > 0
@@ -16,12 +15,15 @@ export default function sauces(state = {}, action) {
                   x => state.allIds.indexOf(x) === -1
                 )
               ]
-            : [...action.sauces.allIds]
+            : [...action.sauces.allIds],
+        query: {
+          ...state.query,
+          ...action.query
+        }
       };
 
     case "SINGLE_SAUCE_ADDED":
       // action.sauce === {sauce}
-
       return {
         byId:
           "byId" in state && Object.keys(state.byId).length > 0
