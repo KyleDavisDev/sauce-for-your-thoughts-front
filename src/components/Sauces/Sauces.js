@@ -13,9 +13,7 @@ class Sauces extends Component {
   static propTypes = {
     sauces: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     user: PropTypes.shape({
-      token: PropTypes.string,
-      email: PropTypes.string,
-      hearts: PropTypes.arrayOf(PropTypes.string.isRequired)
+      token: PropTypes.string.isRequired
     }).isRequired,
     total: PropTypes.number.isRequired,
     getSauces: PropTypes.func.isRequired,
@@ -63,29 +61,36 @@ class Sauces extends Component {
     page = parseInt(page);
     console.log("willreceive", limit, page);
 
-    // this.getSauces({ page, limit });
+    // Call action creator if we have changed locations
+    if (
+      nextProps.location.search !== this.props.location.search &&
+      nextProps.sauces.length === 0
+    ) {
+      this.getSauces({ limit, page });
+    }
+
     this.setState({ limit, page });
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     // Only update if:
-    // 1. The page value has changed OR
-    // 2. The limit value has changed OR
-    // 3. The query string has been updated
+    // 1. The current page has changed OR
+    // 2. The number of sauces has changed
     // return true;
     console.log(
-      nextProps.location.search !== this.props.location.search,
-      nextProps.sauces !== this.props.sauces
+      "shouldcomponentupdate",
+      nextProps.location.search !== this.props.location.search ||
+        nextProps.sauces.length !== this.props.sauces.length
     );
     return (
       nextProps.location.search !== this.props.location.search ||
-      nextProps.sauces !== this.props.sauces
+      nextProps.sauces.length !== this.props.sauces.length
     );
   }
 
   render() {
     const { sauces, total } = this.props;
-    const { page, limit } = this.state;
+    const { page = 1, limit = 6 } = this.state;
 
     return (
       <div className="inner">
@@ -93,7 +98,12 @@ class Sauces extends Component {
         <div className="sauces">
           {sauces.length > 0 &&
             sauces
-              // .slice((page - 1) * limit, page * limit)
+              .slice(
+                page * limit > sauces.length
+                  ? sauces.length - limit
+                  : (page - 1) * limit,
+                page * limit
+              )
               .map(sauce => <Card _id={sauce} key={sauce} />)}
         </div>
         <Pagination total={total} page={page} limit={limit} />
@@ -127,18 +137,9 @@ class Sauces extends Component {
     const pageToProperType =
       pageType === "[object String]" ? parseInt(page) : page;
 
-    this.props.getSauces({ limit: limitToProperType, page: pageToProperType });
-  };
-
-  // this will pass token to api and store email/name into redux store on success
-  getUserID = () => {
-    // make sure user is logged in
-    if (!this.props.user.token) return;
-    // check if email already passed to component to save api call
-    if (this.props.user.email) return;
-
-    const data = { user: { token: this.props.user.token } };
-    return this.props.getInfo(data);
+    this.props.getSauces({
+      query: `?page=${pageToProperType}&limit=${limitToProperType}`
+    });
   };
 
   /** @description Grabs token for logged in users
@@ -157,15 +158,26 @@ class Sauces extends Component {
   };
 }
 
-const mapStateToProps = state => ({
-  sauces: state.sauces.allIds || [],
-  user: {
-    token: state.users.self.token,
-    email: state.users.email || "",
-    hearts: state.users.hearts || []
-  },
-  total: state.sauces.total || 50
-});
+const mapStateToProps = (state, ownProps) => {
+  // get the key from the location search or use a default
+  const queryKey = ownProps.location.search || "?page=1&limit=6";
+
+  // Grab the list of sauce ID's
+  const sauces =
+    state.sauces.query[queryKey] !== undefined
+      ? state.sauces.query[queryKey].sauces
+      : [];
+
+  const user = { token: state.users.self.token || "" };
+
+  const total = state.sauces.total || 50;
+
+  return {
+    sauces,
+    user,
+    total
+  };
+};
 
 const mapDispatchToProps = {
   getSauces,
