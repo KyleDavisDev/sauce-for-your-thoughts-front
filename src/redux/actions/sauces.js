@@ -3,7 +3,7 @@ import { flattenSauces, flatChecker } from "./helper";
 import { addReviews } from "./reviews";
 import { addUsers } from "./users";
 
-export const addedSauces = ({ sauces, query }) => ({
+export const addedSauces = ({ sauces, query = null }) => ({
   type: "SAUCES_ADDED",
   sauces,
   query
@@ -77,8 +77,7 @@ export const addSauce = data => dispatch =>
   });
 
 /** @description Grab all sauces available (will limit this to only set amount at a time in future)
- *  @param {Number} page - current page the user is on.
- *  @param {Number} limit - limits the number of sauces returned
+ *  @param {String?} query - optional query string to search for
  *  @return {NULL}
  */
 export const getSauces = ({ query }) => dispatch => {
