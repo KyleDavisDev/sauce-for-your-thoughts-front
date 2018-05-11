@@ -89,14 +89,7 @@ class Sauces extends Component {
         <h2>Sauces</h2>
         <div className="sauces">
           {sauces.length > 0 &&
-            sauces
-              .slice(
-                page * limit > sauces.length
-                  ? sauces.length - limit
-                  : (page - 1) * limit,
-                page * limit
-              )
-              .map(sauce => <Card _id={sauce} key={sauce} />)}
+            sauces.map(sauce => <Card _id={sauce} key={sauce} />)}
         </div>
         <Pagination total={total} page={page} limit={limit} />
       </div>
