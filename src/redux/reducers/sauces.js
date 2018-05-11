@@ -16,10 +16,13 @@ export default function sauces(state = {}, action) {
                 )
               ]
             : [...action.sauces.allIds],
-        query: {
-          ...state.query,
-          ...action.query
-        }
+        query:
+          action.query === null // If the query is null, leave as is, else concatinate
+            ? state.query
+            : {
+                ...state.query,
+                ...action.query
+              }
       };
 
     case "SINGLE_SAUCE_ADDED":
