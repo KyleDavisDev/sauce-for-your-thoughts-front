@@ -3,10 +3,7 @@ export default function sauces(state = {}, action) {
     case "SAUCES_ADDED":
       // action.sauces === {sauce, sauce, sauce}
       return {
-        byId:
-          "byId" in state && Object.keys(state.byId).length > 0
-            ? Object.assign({}, state.byId, action.sauces.byId)
-            : Object.assign({}, action.sauces.byId),
+        byId: { ...state.byId, ...action.sauces.byId },
         allIds:
           "allIds" in state && state.allIds.length > 0
             ? [
