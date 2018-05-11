@@ -137,8 +137,7 @@ const api = {
   },
   sauces: {
     /** @description get sauces from API
-     *  @param {Number} limit - limits the number of sauces returned
-     *  @param {Number} page - current page the user is on.
+     *  @param {String?} query - query string to search for
      *  @returns {Promise} res
      *    @returns {Number} res.status - status of request
      *    @return {Object} res.data - container object

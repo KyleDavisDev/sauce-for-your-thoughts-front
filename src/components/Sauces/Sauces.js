@@ -43,7 +43,6 @@ class Sauces extends Component {
     const { limit = 6, page = 1 } = queryString.parse(
       this.props.location.search
     );
-    console.log("componentdidmount");
 
     axios
       .all([this.getSauces({ page, limit }), this.getHearts(token)])
@@ -59,7 +58,6 @@ class Sauces extends Component {
     let { limit = 6, page = 1 } = queryString.parse(nextProps.location.search);
     limit = parseInt(limit);
     page = parseInt(page);
-    console.log("willreceive", limit, page);
 
     // Call action creator if we have changed locations
     if (
@@ -76,12 +74,6 @@ class Sauces extends Component {
     // Only update if:
     // 1. The current page has changed OR
     // 2. The number of sauces has changed
-    // return true;
-    console.log(
-      "shouldcomponentupdate",
-      nextProps.location.search !== this.props.location.search ||
-        nextProps.sauces.length !== this.props.sauces.length
-    );
     return (
       nextProps.location.search !== this.props.location.search ||
       nextProps.sauces.length !== this.props.sauces.length
@@ -137,6 +129,7 @@ class Sauces extends Component {
     const pageToProperType =
       pageType === "[object String]" ? parseInt(page) : page;
 
+    // Call dispatcher
     this.props.getSauces({
       query: `?page=${pageToProperType}&limit=${limitToProperType}`
     });
