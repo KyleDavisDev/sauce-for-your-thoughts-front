@@ -157,15 +157,13 @@ const api = {
      *          @return {String} res.data.sauces[].reviews[]._id - unique review identifier
      *        @return {String[]} res.data.sauces[].tags[] - tags for sauce
      */
-    get: ({ page, limit }) =>
-      axios
-        .get(`${host}/api/sauces/get?page=${page}&limit=${limit}`)
-        .then(res => {
-          if (res.data.isGood && res.status === 200) {
-            return res.data;
-          }
-          throw new Error(res.data.msg);
-        }),
+    get: ({ query }) =>
+      axios.get(`${host}/api/sauces/get${query}`).then(res => {
+        if (res.data.isGood && res.status === 200) {
+          return res.data;
+        }
+        throw new Error(res.data.msg);
+      }),
     getSaucesByTag: data =>
       axios.post(`${host}/api/sauces/get/by/tag`, data).then(res => {
         if (res.data.isGood) {
