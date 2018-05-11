@@ -3,9 +3,10 @@ import { flattenSauces, flatChecker } from "./helper";
 import { addReviews } from "./reviews";
 import { addUsers } from "./users";
 
-export const addedSauces = ({ sauces }) => ({
+export const addedSauces = ({ sauces, query }) => ({
   type: "SAUCES_ADDED",
-  sauces
+  sauces,
+  query
 });
 
 export const updatedSaucesItems = ({ sauce }) => ({
@@ -80,13 +81,14 @@ export const addSauce = data => dispatch =>
  *  @param {Number} limit - limits the number of sauces returned
  *  @return {NULL}
  */
-export const getSauces = ({ page, limit }) => dispatch => {
-  api.sauces.get({ page, limit }).then(res => {
+export const getSauces = ({ query }) => dispatch => {
+  api.sauces.get({ query }).then(res => {
     const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
+    const sauceQuery = { [query]: { sauces: sauces.allIds } };
 
     // make sauces were flattened
     if (flatChecker(sauces)) {
-      dispatch(addedSauces({ sauces }));
+      dispatch(addedSauces({ sauces, query: sauceQuery }));
     }
 
     // make sure review were flattened
