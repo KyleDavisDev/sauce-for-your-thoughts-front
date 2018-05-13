@@ -32,3 +32,6 @@ To run in production, run `npm run prod`. This will push the code through (webpa
 - [ ] Make sure site is fully ADA compliant.
 - [ ] Add links out to social media.
 - [ ] Investigate more into styled components.
+- [ ] Write 'privacy' page.
+- [ ] Add 'Display Name' for users on signup and as something they are able to update.
+
