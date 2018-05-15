@@ -9,22 +9,22 @@ const TextInput = ({
   type,
   value,
   placeholder
-}) => {
-  return (
-    <div>
-      <label htmlFor={name}> {name}: </label>
-      <input
-        type={type || "text"}
-        id={id || ""}
-        name={name || ""}
-        value={value || ""}
-        placeholder={placeholder || ""}
-        onChange={onChange}
-        required={required || false}
-      />
-    </div>
-  );
-};
+}) => (
+  <div>
+    <label htmlFor={name} className="text__upper text__grey">
+      {name}
+    </label>
+    <input
+      type={type}
+      id={id}
+      name={name}
+      value={value}
+      placeholder={placeholder}
+      onChange={onChange}
+      required={required}
+    />
+  </div>
+);
 
 TextInput.propTypes = {
   id: PropTypes.string,
@@ -34,6 +34,14 @@ TextInput.propTypes = {
   type: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string
+};
+
+TextInput.defaultProps = {
+  id: "",
+  required: false,
+  type: "text",
+  value: "",
+  placeholder: ""
 };
 
 export default TextInput;
