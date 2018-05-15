@@ -1,13 +1,19 @@
 import React, { Component } from "react";
-import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addSauce } from "../../redux/actions/sauces";
 import Auth from "../../Helper/Auth/Auth";
 
-import Form from "./Form";
+import AddSauce from "./AddSauce";
 
 class Add extends Component {
+  static propTypes = {
+    user: PropTypes.shape({
+      token: PropTypes.string.isRequired
+    }).isRequired,
+    addSauce: PropTypes.func.isRequired
+  };
+
   componentDidMount() {
     if (!this.props.user.token) this.props.history.push("/login");
   }
@@ -16,12 +22,13 @@ class Add extends Component {
     return (
       <div className="inner">
         <h2>Add Sauce</h2>
-        <Form onSubmit={this.handleFormSubmit} />
+
+        <AddSauce />
       </div>
     );
   }
 
-  handleFormSubmit = e => {
+  handleAddSauceSubmit = e => {
     // make tags an array of checked tags
     const tags = e.tags.filter(tag => tag.isChecked).map(tag => tag.name);
 
@@ -61,13 +68,6 @@ class Add extends Component {
       });
   };
 }
-
-Add.propTypes = {
-  user: PropTypes.shape({
-    token: PropTypes.string.isRequired
-  }).isRequired,
-  addSauce: PropTypes.func.isRequired
-};
 
 function mapStateToProps(state) {
   return {
