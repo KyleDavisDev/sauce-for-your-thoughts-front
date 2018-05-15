@@ -6,11 +6,11 @@ import { getInfo as getUserInfo } from "../../redux/actions/user";
 import { getSauceById, updateSauce } from "../../redux/actions/sauce";
 import { flashError } from "../../redux/actions/flash";
 
-import Form from "./Form";
+// import Form from "./Form";
 
 class Edit extends Component {
   componentWillMount() {
-    //Make sanitiy checks before we move on
+    // Make sanitiy checks before we move on
     if (
       !this.props.user &&
       !this.props.user.token &&
@@ -22,10 +22,10 @@ class Edit extends Component {
   }
 
   componentDidMount() {
-    //grab sauce _id to pass to function
+    // grab sauce _id to pass to function
     const _id = this.props.match.params.id;
 
-    //grab sauce information
+    // grab sauce information
     this.getSauceById({ _id }).catch(error => {
       // this.props.flashError({ text: error.response.data.msg });
     });
@@ -42,7 +42,7 @@ class Edit extends Component {
     return (
       <div className="inner">
         <h2>Edit {name || "Sauce"}</h2>
-        {Object.keys(this.props.sauce).length > 0 && (
+        {/* {Object.keys(this.props.sauce).length > 0 && (
           <Form
             onSubmit={this.handleSubmit}
             name={name}
@@ -51,7 +51,7 @@ class Edit extends Component {
             tags={tags}
             rating={rating}
           />
-        )}
+        )} */}
       </div>
     );
   }
@@ -61,7 +61,7 @@ class Edit extends Component {
    *  @returns Promise
    */
   getUserInfo = () => {
-    //check if email already passed to component to save api call
+    // check if email already passed to component to save api call
     if (this.props.user.email) return;
 
     const data = { user: { token: this.props.user.token } };
@@ -73,7 +73,7 @@ class Edit extends Component {
    *  @returns Promise
    */
   getSauceById = ({ _id }) => {
-    //construct expected API data object here
+    // construct expected API data object here
     const data = {
       user: { token: this.props.user.token },
       sauce: { _id }
@@ -86,10 +86,10 @@ class Edit extends Component {
    *  @returns null
    */
   handleSubmit = e => {
-    //make tags an array of checked tags
+    // make tags an array of checked tags
     const tags = data.tags.filter(tag => tag.isChecked).map(tag => tag.name);
 
-    //construct FormData object since we are passing image file
+    // construct FormData object since we are passing image file
     const data = JSON.stringify({
       sauce: {
         name: e.name,
@@ -134,12 +134,10 @@ Edit.propTypes = {
   updateSauce: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => {
-  return {
+const mapStateToProps = state => ({
     user: { token: state.users.self.token /* email: state.user.email */ },
     sauce: state.sauce
-  };
-};
+  });
 
 const mapDispatchToProps = {
   getSauceById,
