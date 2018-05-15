@@ -18,8 +18,32 @@ textarea {
 }
 
 .form {
-  background: $content-background;
-  padding: 2rem;
+  h4 {
+    font-size: 30px;
+    margin: 0 0 10px 0;
+  }
+
+  .container {
+    background: $content-background;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+
+    .container {
+      &--left {
+        padding: 0 15px;
+        width: 33%;
+        max-width: 33%;
+      }
+
+      &--right {
+        padding: 0 15px;
+        width: 66%;
+        max-width: 66%;
+        display: block;
+      }
+    }
+  }
 
   .tags {
     margin-bottom: 0px;
