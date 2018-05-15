@@ -82,3 +82,13 @@ p {
   font-size: 10rem;
   text-align: center;
 }
+
+.text {
+  &__upper {
+    text-transform: uppercase;
+  }
+
+  &__grey {
+    color: $grey;
+  }
+}
