@@ -303,20 +303,9 @@ class AddSauce extends Component {
     });
   };
 
-  onPhotoUpload = e => {
-    const name = e.target.files[0].name;
-    this.setState({
-      ...this.state,
-      data: {
-        ...this.state.data,
-        photo: { ...this.state.data.photo, name, file: e.target.files[0] }
-      }
-    });
-  };
-
   onSubmit = e => {
     e.preventDefault();
-    const data = this.state.data;
+    const { data } = this.state;
     this.props.onSubmit(data);
   };
 }
