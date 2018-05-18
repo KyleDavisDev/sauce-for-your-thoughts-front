@@ -18,31 +18,52 @@ textarea {
 }
 
 .form {
+  background: $content-background;
+  padding: 2rem;
   h4 {
     font-size: 30px;
     margin: 0 0 10px 0;
   }
 
   .container {
-    background: $content-background;
-    padding: 2rem;
     display: flex;
     flex-direction: row;
 
     .container {
-      &--left {
+      &__left {
         padding: 0 15px;
         width: 33%;
         max-width: 33%;
       }
 
-      &--right {
+      &__right {
         padding: 0 15px;
         width: 66%;
         max-width: 66%;
-        display: block;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      &__input {
+        width: 50%;
+        max-width: 50%;
+        padding: 0px 15px;
+        display: inline-block;
+        box-sizing: border-box;
+
+        &__full {
+          @extend .container__input;
+          width: 100%;
+          max-width: 100%;
+        }
       }
     }
+  }
+
+  div.spacer {
+    content: " ";
+    padding: 10px 0px;
   }
 
   .tags {
