@@ -221,10 +221,8 @@ class AddSauce extends Component {
                 style={{
                   width: "100%",
                   height: "200px",
-                  "border-width": " 2px",
-                  "border-color": "rgb(102, 102, 102)",
-                  "border-style": "dashed",
-                  "border-radius": "5px",
+                  border: "2px dashed rgb(102, 102, 102)",
+                  borderRadius: "5px",
                   padding: "10px"
                 }}
               >
