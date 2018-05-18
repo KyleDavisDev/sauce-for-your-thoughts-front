@@ -4,7 +4,8 @@ export default {
   description: "",
   ingrediants: "",
   photo: {
-    name: ""
+    name: "",
+    file: null
   },
   location: {
     country: "United States",
