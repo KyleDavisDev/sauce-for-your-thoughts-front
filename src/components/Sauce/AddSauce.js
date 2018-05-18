@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import TextInput from "../TextInput/TextInput.js";
 import _addTemplate from "./_addTemplate";
-import Rating from "../Rating/Rating.js";
 
 const CheckBoxList = ({ tags, onChange }) => (
   <ul className="tags">
@@ -27,7 +26,7 @@ CheckBoxList.propTypes = {
       name: PropTypes.string.isRequired,
       isChecked: PropTypes.bool.isRequired
     })
-  ),
+  ).isRequired,
   onChange: PropTypes.func.isRequired
 };
 
@@ -45,7 +44,7 @@ const PhotoUpload = ({ text, onChange }) => (
   </div>
 );
 PhotoUpload.propTypes = {
-  text: PropTypes.string,
+  text: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired
 };
 
@@ -60,30 +59,6 @@ class AddSauce extends Component {
       errors: _addTemplate
     };
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   const { name, description, photo, rating } = nextProps;
-  //   if (
-  //     name === undefined ||
-  //     description === undefined ||
-  //     photo === undefined ||
-  //     rating === undefined
-  //   ) {
-  //     return;
-  //   }
-  //   const tags = this.getProperTags(nextProps.tags);
-
-  //   this.setState({
-  //     ...this.state,
-  //     data: {
-  //       name,
-  //       description,
-  //       photo: { name: photo },
-  //       tags,
-  //       rating
-  //     }
-  //   });
-  // }
 
   render() {
     const {
@@ -102,50 +77,88 @@ class AddSauce extends Component {
         encType="multipart/form-data"
         onSubmit={this.onSubmit}
       >
-        <div className="container">
-          <div className="container--left">
+        <div className="container" id="sauce__details">
+          <div className="container__left">
             <h4>Details</h4>
             <span>
               Information about the sauce only. Sauce name, maker lorum ipusum
               etc etc.
             </span>
           </div>
-          <div className="container--right">
-            <TextInput
-              id="Name"
-              name="Name"
-              type="text"
-              onChange={this.onChange}
-              value={name}
-            />
+          <div className="container__right">
+            <div className="container__input">
+              <TextInput
+                id="Name"
+                name="Name"
+                type="text"
+                onChange={this.onChange}
+                value={name}
+              />
+            </div>
+
+            <div className="container__input">
+              <TextInput
+                id="Maker"
+                name="Maker"
+                type="text"
+                onChange={this.onChange}
+                value={maker}
+              />
+            </div>
           </div>
-
-          {/* <label htmlFor="test">Description: </label>
-          <textarea
-            id="test"
-            name="description"
-            cols="30"
-            rows="10"
-            onChange={this.onChange}
-            value={description}
-          />
-
-          <label htmlFor="photo">Photo: </label>
-          <PhotoUpload text={photo.name} onChange={this.onPhotoUpload} /> */}
         </div>
-        <button type="submit" className="button button--submit">
+
+        <div className="spacer" />
+
+        <div className="container" id="sauce__description">
+          <div className="container__left">
+            <h4>Official Description</h4>
+            <span>
+              How does the maker describe the suace? This might be found
+              directly on the bottle, a website, in an email, etc.
+            </span>
+          </div>
+          <div className="container__right">
+            <div className="container__input__full">
+              <TextInput
+                id="Description"
+                name="Description"
+                type="textarea"
+                onChange={this.onChange}
+                value={description}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="spacer" />
+
+        <div className="container" id="sauce__ingrediants">
+          <div className="container__left">
+            <h4>Ingrediants</h4>
+            <span>
+              Which ingrediants make up the sauce? This should be a comma
+              seperated list found somewhere on the sauce label.
+            </span>
+          </div>
+          <div className="container__right">
+            <div className="container__input__full">
+              <TextInput
+                id="Ingrediants"
+                name="Ingrediants"
+                type="textarea"
+                onChange={this.onChange}
+                value={ingrediants}
+              />
+            </div>
+          </div>
+        </div>
+        {/* <button type="submit" className="button button--submit">
           Add ->
-        </button>
+        </button> */}
       </form>
     );
   }
-
-  onRatingClick = (index, event) => {
-    this.setState({
-      ...this.state,
-      data: { ...this.state.data, rating: index }
-    });
-  };
 
   onChange = e => {
     const name = e.target.name.toLowerCase();
@@ -210,3 +223,18 @@ class AddSauce extends Component {
 }
 
 export default AddSauce;
+
+{
+  /* <label htmlFor="test">Description: </label>
+          <textarea
+            id="test"
+            name="description"
+            cols="30"
+            rows="10"
+            onChange={this.onChange}
+            value={description}
+          />
+
+          <label htmlFor="photo">Photo: </label>
+          <PhotoUpload text={photo.name} onChange={this.onPhotoUpload} /> */
+}
