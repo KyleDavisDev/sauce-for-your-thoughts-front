@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+import Dropzone from "react-dropzone";
 import TextInput from "../TextInput/TextInput.js";
 import _addTemplate from "./_addTemplate";
 
@@ -115,8 +116,8 @@ class AddSauce extends Component {
           <div className="container__left">
             <h4>Official Description</h4>
             <span>
-              How does the maker describe the suace? This might be found
-              directly on the bottle, a website, in an email, etc.
+              How does the maker describe the suace and/or flavor? This might be
+              found directly on the bottle, a website, in an email, etc.
             </span>
           </div>
           <div className="container__right">
@@ -154,6 +155,8 @@ class AddSauce extends Component {
             </div>
           </div>
         </div>
+
+        <div className="spacer" />
 
         <div className="container" id="sauce__location">
           <div className="container__left">
@@ -198,6 +201,53 @@ class AddSauce extends Component {
             </div>
           </div>
         </div>
+
+        <div className="spacer" />
+
+        <div className="container" id="sauce__photo">
+          <div className="container__left">
+            <h4>Photo</h4>
+            <span>
+              If you have a picture of the bottle, please upload it! If the
+              picture is unclear, blurry, or missing completely, an admin may
+              replace it with a different one.
+            </span>
+          </div>
+          <div className="container__right">
+            <div className="container__input__full">
+              <Dropzone
+                onDrop={this.onDrop}
+                accept="image/jpeg, image/png"
+                style={{
+                  width: "100%",
+                  height: "200px",
+                  "border-width": " 2px",
+                  "border-color": "rgb(102, 102, 102)",
+                  "border-style": "dashed",
+                  "border-radius": "5px",
+                  padding: "10px"
+                }}
+              >
+                {photo.file ? (
+                  <p>
+                    File Uploaded! Feel free to drag and drop again to upload a
+                    different file
+                  </p>
+                ) : (
+                  <p>
+                    Try dropping some files here, or click to select files to
+                    upload.
+                  </p>
+                )}
+              </Dropzone>
+              {photo.name.length > 0 && (
+                <div>
+                  <h6>File:</h6> {photo.name}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
         {/* <button type="submit" className="button button--submit">
           Add ->
         </button> */}
@@ -212,7 +262,7 @@ class AddSauce extends Component {
     // Grab the value
     const val = e.target.value;
 
-    // Update state
+    // Update local state
     this.setState({
       ...this.state,
       data: {
@@ -227,12 +277,30 @@ class AddSauce extends Component {
     // Grab name
     const name = e.target.name.toLowerCase();
 
-    // Update state
+    // Update local state
     this.setState({
       ...this.state,
       data: {
         ...this.state.data,
         location: { ...this.state.data.location, [name]: val }
+      }
+    });
+  };
+
+  // Used by the Dropzone component
+  onDrop = files => {
+    // Grab file
+    const file = files[0];
+
+    // Update local state
+    this.setState({
+      ...this.state,
+      data: {
+        ...this.state.data,
+        photo: {
+          name: file.name,
+          file
+        }
       }
     });
   };
