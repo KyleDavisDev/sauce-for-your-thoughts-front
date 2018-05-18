@@ -14,15 +14,27 @@ const TextInput = ({
     <label htmlFor={name} className="text__upper text__grey">
       {name}
     </label>
-    <input
-      type={type}
-      id={id}
-      name={name}
-      value={value}
-      placeholder={placeholder}
-      onChange={onChange}
-      required={required}
-    />
+    {type.toLowerCase() === "textarea" ? (
+      <textarea
+        id="Description"
+        name="Description"
+        cols="30"
+        rows="10"
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+      />
+    ) : (
+      <input
+        type={type}
+        id={id}
+        name={name}
+        value={value}
+        placeholder={placeholder}
+        onChange={onChange}
+        required={required}
+      />
+    )}
   </div>
 );
 
