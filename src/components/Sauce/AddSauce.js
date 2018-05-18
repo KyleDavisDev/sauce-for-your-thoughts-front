@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import TextInput from "../TextInput/TextInput.js";
 import _addTemplate from "./_addTemplate";
 
@@ -153,6 +154,50 @@ class AddSauce extends Component {
             </div>
           </div>
         </div>
+
+        <div className="container" id="sauce__location">
+          <div className="container__left">
+            <h4>Location</h4>
+            <span>Where was the sauce made?</span>
+          </div>
+          <div className="container__right">
+            <div className="container__input">
+              <label htmlFor="Country" className="text__upper text__grey">
+                Country
+              </label>
+              <CountryDropdown
+                value={location.country}
+                onChange={this.onLocationChange}
+                disabled={false}
+                name="Country"
+                id="Country"
+              />
+            </div>
+            <div className="container__input">
+              <label htmlFor="Country" className="text__upper text__grey">
+                State / Region
+              </label>
+              <RegionDropdown
+                country={location.country}
+                value={location.state}
+                onChange={this.onLocationChange}
+                disabled={false}
+                defaultOptionLabel="--Select--"
+                name="State"
+                id="State"
+              />
+            </div>
+            <div className="container__input">
+              <TextInput
+                id="City"
+                name="City"
+                type="text"
+                onChange={this.onChange}
+                value={location.city}
+              />
+            </div>
+          </div>
+        </div>
         {/* <button type="submit" className="button button--submit">
           Add ->
         </button> */}
@@ -161,12 +206,33 @@ class AddSauce extends Component {
   }
 
   onChange = e => {
+    // Grab name of the element changed
     const name = e.target.name.toLowerCase();
+
+    // Grab the value
+    const val = e.target.value;
+
+    // Update state
     this.setState({
       ...this.state,
       data: {
         ...this.state.data,
-        [name]: e.target.value
+        [name]: val
+      }
+    });
+  };
+
+  // Seperate from onChange since CountryDropdown, RegionDropdown passes the event second
+  onLocationChange = (val, e) => {
+    // Grab name
+    const name = e.target.name.toLowerCase();
+
+    // Update state
+    this.setState({
+      ...this.state,
+      data: {
+        ...this.state.data,
+        location: { ...this.state.data.location, [name]: val }
       }
     });
   };
@@ -187,54 +253,6 @@ class AddSauce extends Component {
     const data = this.state.data;
     this.props.onSubmit(data);
   };
-
-  onCheckboxClick = e => {
-    // find which array element was clicked and flip that elements isChecked value
-    const tags = this.state.data.tags.map(tag => {
-      if (tag.name === e.target.name) {
-        tag.isChecked = !tag.isChecked;
-      }
-      return tag;
-    });
-
-    this.setState({
-      ...this.state,
-      data: { ...this.state.data, tags }
-    });
-  };
-
-  getProperTags = tags =>
-    this.state.data.tags.map(tag => {
-      if (tags.includes(tag.name)) {
-        tag.isChecked = true;
-      }
-      return tag;
-    });
-
-  onRatingClick = val => {
-    this.setState({
-      ...this.state,
-      data: {
-        ...this.state.data,
-        rating: val
-      }
-    });
-  };
 }
 
 export default AddSauce;
-
-{
-  /* <label htmlFor="test">Description: </label>
-          <textarea
-            id="test"
-            name="description"
-            cols="30"
-            rows="10"
-            onChange={this.onChange}
-            value={description}
-          />
-
-          <label htmlFor="photo">Photo: </label>
-          <PhotoUpload text={photo.name} onChange={this.onPhotoUpload} /> */
-}
