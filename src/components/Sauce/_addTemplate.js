@@ -7,7 +7,7 @@ export default {
     name: ""
   },
   location: {
-    country: "",
+    country: "United States",
     state: "",
     city: ""
   }
