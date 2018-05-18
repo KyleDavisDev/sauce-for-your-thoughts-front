@@ -223,7 +223,8 @@ class AddSauce extends Component {
                   height: "200px",
                   border: "2px dashed rgb(102, 102, 102)",
                   borderRadius: "5px",
-                  padding: "10px"
+                  padding: "10px",
+                  textAlign: "center"
                 }}
               >
                 {photo.file ? (
@@ -232,11 +233,11 @@ class AddSauce extends Component {
                     different file
                   </p>
                 ) : (
-                  <p>
-                    Try dropping some files here, or click to select files to
-                    upload.
+                    <p>
+                      Try dropping some files here, or click to select files to
+                      upload.
                   </p>
-                )}
+                  )}
               </Dropzone>
               {photo.name.length > 0 && (
                 <div>
