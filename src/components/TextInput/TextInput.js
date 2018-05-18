@@ -16,8 +16,8 @@ const TextInput = ({
     </label>
     {type.toLowerCase() === "textarea" ? (
       <textarea
-        id="Description"
-        name="Description"
+        id={id}
+        name={name}
         cols="30"
         rows="10"
         placeholder={placeholder}
