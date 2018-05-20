@@ -23,7 +23,7 @@ class Add extends Component {
       <div className="inner">
         <h2>Add Sauce</h2>
 
-        <AddSauce />
+        <AddSauce onSubmit={this.handleAddSauceSubmit} />
       </div>
     );
   }
