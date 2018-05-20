@@ -16,6 +16,7 @@ select {
 textarea {
   min-width: 100%;
   min-height: 35px;
+  max-height: 220px;
 }
 
 .form {
@@ -41,6 +42,7 @@ textarea {
         padding: 0 15px;
         width: 33%;
         max-width: 33%;
+        box-sizing: border-box;
       }
 
       &__right {
@@ -50,6 +52,7 @@ textarea {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        box-sizing: border-box;
       }
 
       &__input {
