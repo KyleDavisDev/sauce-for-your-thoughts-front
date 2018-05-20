@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import Dropzone from "react-dropzone";
 import TextInput from "../TextInput/TextInput.js";
+import api from "../../api/api";
 import _addTemplate from "./_addTemplate";
 
 const CheckBoxList = ({ tags, onChange }) => (
@@ -32,26 +33,21 @@ CheckBoxList.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
-const PhotoUpload = ({ text, onChange }) => (
-  <div className="input-group">
-    <span className="file-button">
-      Browse...<input
-        type="file"
-        name="photo"
-        accept=".png, .jpg"
-        onChange={onChange}
-      />
-    </span>
-    <input type="text" value={text || ""} readOnly />
+const ContainerLeft = ({ title, desc }) => (
+  <div>
+    <h4>{title}</h4>
+    <span>{desc}</span>
   </div>
 );
-PhotoUpload.propTypes = {
-  text: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+ContainerLeft.propTypes = {
+  title: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired
 };
 
 class AddSauce extends Component {
-  static propTypes = {};
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired
+  };
 
   constructor(props) {
     super(props);
@@ -60,6 +56,13 @@ class AddSauce extends Component {
       data: _addTemplate,
       errors: _addTemplate
     };
+  }
+
+  componentDidMount() {
+    api.peppers
+      .get()
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -81,11 +84,11 @@ class AddSauce extends Component {
       >
         <div className="container" id="sauce__details">
           <div className="container__left">
-            <h4>Details</h4>
-            <span>
-              Information about the sauce only. Sauce name, maker lorum ipusum
-              etc etc.
-            </span>
+            <ContainerLeft
+              title="Details"
+              desc="Information about the sauce only. Sauce name, maker lorum ipusum
+              etc etc."
+            />
           </div>
           <div className="container__right">
             <div className="container__input">
@@ -114,11 +117,11 @@ class AddSauce extends Component {
 
         <div className="container" id="sauce__description">
           <div className="container__left">
-            <h4>Official Description</h4>
-            <span>
-              How does the maker describe the suace and/or flavor? This might be
-              found directly on the bottle, a website, in an email, etc.
-            </span>
+            <ContainerLeft
+              title="Official Description"
+              desc="How does the maker describe the suace and/or flavor? This might be
+              found directly on the bottle, a website, in an email, etc. This is NOT your review."
+            />
           </div>
           <div className="container__right">
             <div className="container__input__full">
@@ -137,11 +140,11 @@ class AddSauce extends Component {
 
         <div className="container" id="sauce__ingrediants">
           <div className="container__left">
-            <h4>Ingrediants</h4>
-            <span>
-              Which ingrediants make up the sauce? This should be a comma
-              seperated list found somewhere on the sauce label.
-            </span>
+            <ContainerLeft
+              title="Ingrediants"
+              desc="Which ingrediants make up the sauce? This should be a comma
+              seperated list found somewhere on the sauce label."
+            />
           </div>
           <div className="container__right">
             <div className="container__input__full">
@@ -160,8 +163,7 @@ class AddSauce extends Component {
 
         <div className="container" id="sauce__location">
           <div className="container__left">
-            <h4>Location</h4>
-            <span>Where was the sauce made?</span>
+            <ContainerLeft title="Location" desc="Where was the sauce made?" />
           </div>
           <div className="container__right">
             <div className="container__input">
@@ -206,12 +208,12 @@ class AddSauce extends Component {
 
         <div className="container" id="sauce__photo">
           <div className="container__left">
-            <h4>Photo</h4>
-            <span>
-              If you have a picture of the bottle, please upload it! If the
+            <ContainerLeft
+              title="Photo"
+              desc="If you have a picture of the bottle, please upload it! If the
               picture is unclear, blurry, or missing completely, an admin may
-              replace it with a different one.
-            </span>
+              replace it with a different one."
+            />
           </div>
           <div className="container__right">
             <div className="container__input__full">
@@ -233,11 +235,11 @@ class AddSauce extends Component {
                     different file
                   </p>
                 ) : (
-                    <p>
-                      Try dropping some files here, or click to select files to
-                      upload.
+                  <p>
+                    Try dropping some files here, or click to select files to
+                    upload.
                   </p>
-                  )}
+                )}
               </Dropzone>
               {photo.name.length > 0 && (
                 <div>
@@ -247,6 +249,10 @@ class AddSauce extends Component {
             </div>
           </div>
         </div>
+
+        <div className="spacer" />
+
+        {/* <div className="container"  */}
         {/* <button type="submit" className="button button--submit">
           Add ->
         </button> */}
