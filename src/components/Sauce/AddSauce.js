@@ -105,6 +105,7 @@ class AddSauce extends Component {
                 type="text"
                 onChange={this.onChange}
                 value={name}
+                required={true}
               />
             </div>
 
@@ -115,6 +116,7 @@ class AddSauce extends Component {
                 type="text"
                 onChange={this.onChange}
                 value={maker}
+                required={true}
               />
             </div>
           </div>
@@ -138,6 +140,7 @@ class AddSauce extends Component {
                 type="textarea"
                 onChange={this.onChange}
                 value={description}
+                required={true}
               />
             </div>
           </div>
@@ -172,7 +175,7 @@ class AddSauce extends Component {
           <div className="container__left">
             <ContainerLeft
               title="Spice"
-              desc="How spicy is this sauce? What does the maker say the SHU rating is? Which peppers are primarily used?"
+              desc="How spicy is this sauce? What does the maker say the Scoville Heat Unit (SHU) rating is? Which peppers are primarily used?"
             />
           </div>
           <div className="container__right">
