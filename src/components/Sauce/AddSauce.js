@@ -330,10 +330,12 @@ class AddSauce extends Component {
           </div>
         </div>
 
+        <div className="spacer" />
+
         {/* <div className="container"  */}
-        {/* <button type="submit" className="button button--submit">
+        <button type="submit" className="button button--submit">
           Add ->
-        </button> */}
+        </button>
       </form>
     );
   }
