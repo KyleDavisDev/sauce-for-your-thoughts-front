@@ -256,6 +256,7 @@ class AddSauce extends Component {
           </div>
           <div className="container__right">
             <div className="container__input__full">
+              <span className="text__upper text__grey">Add Photo</span>
               <Dropzone
                 onDrop={this.onDrop}
                 accept="image/jpeg, image/png"
@@ -267,6 +268,7 @@ class AddSauce extends Component {
                   padding: "10px",
                   textAlign: "center"
                 }}
+                id="photo"
               >
                 {photo.file ? (
                   <p>
@@ -280,6 +282,7 @@ class AddSauce extends Component {
                   </p>
                 )}
               </Dropzone>
+
               {photo.name.length > 0 && (
                 <div>
                   <h6>File:</h6> {photo.name}
@@ -290,6 +293,41 @@ class AddSauce extends Component {
         </div>
 
         <div className="spacer" />
+
+        <div className="container" id="sauce__add__review">
+          <div className="container__left">
+            <ContainerLeft
+              title="Review"
+              desc="Would you like to add a review too? Do not review your own sauce. Blatantly altering scores will get your account banned and your review removed. Don't do it."
+            />
+          </div>
+          <div className="container__right">
+            <div className="container__input__full">
+              <span className="text__upper text__grey">Add Review?</span>
+              <div className="tags">
+                <div className="tag tag-choice">
+                  <input
+                    type="radio"
+                    name="add__review"
+                    value="no"
+                    id="add__review--no"
+                    defaultChecked={true}
+                  />
+                  <label htmlFor="add__review--no">No</label>
+                </div>
+                <div className="tag tag-choice">
+                  <input
+                    type="radio"
+                    name="add__review"
+                    value="yes"
+                    id="add__review--yes"
+                  />
+                  <label htmlFor="add__review--yes">Yes</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* <div className="container"  */}
         {/* <button type="submit" className="button button--submit">
