@@ -12,13 +12,13 @@ const CheckBoxList = ({ tags, onChange }) => (
       <div key={tag._id} className="tag tag-choice">
         <input
           type="checkbox"
-          id={tag.name}
+          id={tag._id}
           name={tag.name}
           value={tag.name}
           checked={tag.isChecked}
           onChange={onChange}
         />
-        <label htmlFor={tag.name}>{tag.name}</label>
+        <label htmlFor={tag._id}>{tag.name}</label>
       </div>
     ))}
   </ul>
@@ -62,9 +62,13 @@ class AddSauce extends Component {
     api.peppers
       .get()
       .then(res => {
+        const peppers = res.data.peppers.map(x => {
+          x.isChecked = false;
+          return x;
+        });
         this.setState({
           ...this.state,
-          data: { ...this.state.data, peppers: res.data.peppers }
+          data: { ...this.state.data, peppers }
         });
       })
       .catch(err => console.log(err));
@@ -189,7 +193,7 @@ class AddSauce extends Component {
               />
             </div>
             <div className="container__input__full">
-              <CheckBoxList tags={peppers} onChange={this.onChange} />
+              <CheckBoxList tags={peppers} onChange={this.onCheckChange} />
             </div>
           </div>
         </div>
@@ -343,6 +347,15 @@ class AddSauce extends Component {
         }
       }
     });
+  };
+
+  onCheckChange = e => {
+    const peppers = this.state.data.peppers.map(pepper => {
+      if (pepper._id === e.target.id) pepper.isChecked = !pepper.isChecked;
+      return pepper;
+    });
+
+    this.setState({ ...this.state, data: { ...this.state.data, peppers } });
   };
 
   onSubmit = e => {
