@@ -2,7 +2,7 @@ export default {
   name: "",
   maker: "",
   description: "",
-  ingrediants: "",
+  ingredients: "",
   photo: {
     name: "",
     file: null
