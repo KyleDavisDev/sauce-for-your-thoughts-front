@@ -11,5 +11,7 @@ export default {
     country: "United States",
     state: "",
     city: ""
-  }
+  },
+  shu: "",
+  peppers: []
 };
