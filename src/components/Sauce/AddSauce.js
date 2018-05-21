@@ -9,7 +9,7 @@ import _addTemplate from "./_addTemplate";
 const CheckBoxList = ({ tags, onChange }) => (
   <ul className="tags">
     {tags.map(tag => (
-      <div key={tag.name} className="tag tag-choice">
+      <div key={tag._id} className="tag tag-choice">
         <input
           type="checkbox"
           id={tag.name}
@@ -27,7 +27,7 @@ CheckBoxList.propTypes = {
   tags: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      isChecked: PropTypes.bool.isRequired
+      _id: PropTypes.string.isRequired
     })
   ).isRequired,
   onChange: PropTypes.func.isRequired
@@ -61,7 +61,12 @@ class AddSauce extends Component {
   componentDidMount() {
     api.peppers
       .get()
-      .then(res => console.log(res))
+      .then(res => {
+        this.setState({
+          ...this.state,
+          data: { ...this.state.data, peppers: res.data.peppers }
+        });
+      })
       .catch(err => console.log(err));
   }
 
@@ -72,7 +77,9 @@ class AddSauce extends Component {
       photo,
       maker,
       location,
-      ingrediants
+      ingrediants,
+      peppers,
+      shu
     } = this.state.data;
 
     return (
@@ -155,6 +162,31 @@ class AddSauce extends Component {
                 onChange={this.onChange}
                 value={ingrediants}
               />
+            </div>
+          </div>
+        </div>
+
+        <div className="spacer" />
+
+        <div className="container" id="sauce__spice">
+          <div className="container__left">
+            <ContainerLeft
+              title="Spice"
+              desc="How spicy is this sauce? What does the maker say the SHU rating is? Which peppers are primarily used?"
+            />
+          </div>
+          <div className="container__right">
+            <div className="container__input">
+              <TextInput
+                id="SHU"
+                name="SHU"
+                type="Text"
+                onChange={this.onChange}
+                value={shu}
+              />
+            </div>
+            <div className="container__input__full">
+              <CheckBoxList tags={peppers} onChange={this.onChange} />
             </div>
           </div>
         </div>
