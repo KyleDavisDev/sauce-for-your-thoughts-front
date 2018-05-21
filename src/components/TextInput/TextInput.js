@@ -13,6 +13,7 @@ const TextInput = ({
   <div>
     <label htmlFor={name} className="text__upper text__grey">
       {name}
+      {required && "*"}
     </label>
     {type.toLowerCase() === "textarea" ? (
       <textarea
