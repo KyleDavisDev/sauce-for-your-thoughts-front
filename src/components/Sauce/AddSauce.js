@@ -193,6 +193,7 @@ class AddSauce extends Component {
               />
             </div>
             <div className="container__input__full">
+              <span className="text__upper text__grey">Primary Peppers</span>
               <CheckBoxList tags={peppers} onChange={this.onCheckChange} />
             </div>
           </div>
