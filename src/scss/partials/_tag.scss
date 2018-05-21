@@ -23,7 +23,7 @@
       position: relative;
       z-index: 2;
       & + label {
-        background: $grey;
+        background: $light-grey;
         padding: 1rem 1rem 1rem 3rem;
         &:hover,
         &:focus {
