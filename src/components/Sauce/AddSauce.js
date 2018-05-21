@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import Dropzone from "react-dropzone";
+import validator from "validator";
 import TextInput from "../TextInput/TextInput.js";
 import api from "../../api/api";
 import _addTemplate from "./_addTemplate";
@@ -54,7 +55,8 @@ class AddSauce extends Component {
 
     this.state = {
       data: _addTemplate,
-      errors: _addTemplate
+      errors: _addTemplate,
+      addReview: false
     };
   }
 
@@ -81,7 +83,7 @@ class AddSauce extends Component {
       photo,
       maker,
       location,
-      ingrediants,
+      ingredients,
       peppers,
       shu
     } = this.state.data;
@@ -152,22 +154,22 @@ class AddSauce extends Component {
 
         <div className="spacer" />
 
-        <div className="container" id="sauce__ingrediants">
+        <div className="container" id="sauce__ingredients">
           <div className="container__left">
             <ContainerLeft
-              title="Ingrediants"
-              desc="Which ingrediants make up the sauce? This should be a comma
+              title="Ingredients"
+              desc="Which ingredients make up the sauce? This should be a comma
               seperated list found somewhere on the sauce label."
             />
           </div>
           <div className="container__right">
             <div className="container__input__full">
               <TextInput
-                id="Ingrediants"
-                name="Ingrediants"
+                id="Ingredients"
+                name="Ingredients"
                 type="textarea"
                 onChange={this.onChange}
-                value={ingrediants}
+                value={ingredients}
               />
             </div>
           </div>
@@ -187,14 +189,14 @@ class AddSauce extends Component {
               <TextInput
                 id="SHU"
                 name="SHU"
-                type="Text"
+                type="Number"
                 onChange={this.onChange}
                 value={shu}
               />
             </div>
             <div className="container__input__full">
               <span className="text__upper text__grey">Primary Peppers</span>
-              <CheckBoxList tags={peppers} onChange={this.onCheckChange} />
+              <CheckBoxList tags={peppers} onChange={this.onPepperChange} />
             </div>
           </div>
         </div>
@@ -237,7 +239,7 @@ class AddSauce extends Component {
                 id="City"
                 name="City"
                 type="text"
-                onChange={this.onChange}
+                onChange={this.onLocationChange}
                 value={location.city}
               />
             </div>
@@ -313,6 +315,7 @@ class AddSauce extends Component {
                     value="no"
                     id="add__review--no"
                     defaultChecked={true}
+                    onChange={this.onAddReviewChange}
                   />
                   <label htmlFor="add__review--no">No</label>
                 </div>
@@ -322,6 +325,7 @@ class AddSauce extends Component {
                     name="add__review"
                     value="yes"
                     id="add__review--yes"
+                    onChange={this.onAddReviewChange}
                   />
                   <label htmlFor="add__review--yes">Yes</label>
                 </div>
@@ -390,7 +394,7 @@ class AddSauce extends Component {
     });
   };
 
-  onCheckChange = e => {
+  onPepperChange = e => {
     const peppers = this.state.data.peppers.map(pepper => {
       if (pepper._id === e.target.id) pepper.isChecked = !pepper.isChecked;
       return pepper;
@@ -399,10 +403,23 @@ class AddSauce extends Component {
     this.setState({ ...this.state, data: { ...this.state.data, peppers } });
   };
 
+  onAddReviewChange = e => {
+    const addReview = e.target.value === "yes";
+
+    this.setState({ ...this.state, addReview });
+  };
+
   onSubmit = e => {
+    // Allow parent to control what happens
     e.preventDefault();
-    const { data } = this.state;
-    this.props.onSubmit(data);
+
+    const { data, addReview } = this.state;
+
+    // Make sure SHU is a number
+    if (!validator.isInt(data.shu)) return;
+
+    // Pass data to parent
+    this.props.onSubmit(data, addReview);
   };
 }
 
