@@ -11,7 +11,10 @@ class Add extends Component {
     user: PropTypes.shape({
       token: PropTypes.string.isRequired
     }).isRequired,
-    addSauce: PropTypes.func.isRequired
+    addSauce: PropTypes.func.isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired
   };
 
   componentDidMount() {
