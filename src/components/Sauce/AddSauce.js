@@ -88,6 +88,8 @@ class AddSauce extends Component {
       shu
     } = this.state.data;
 
+    const { errors } = this.state;
+
     return (
       <form
         name="addForm"
@@ -113,6 +115,9 @@ class AddSauce extends Component {
                 value={name}
                 required={true}
               />
+
+              {/* Error message */}
+              {errors.name && <p className="form-error">{errors.name}</p>}
             </div>
 
             <div className="container__input">
@@ -124,6 +129,9 @@ class AddSauce extends Component {
                 value={maker}
                 required={true}
               />
+
+              {/* Error message */}
+              {errors.maker && <p className="form-error">{errors.maker}</p>}
             </div>
           </div>
         </div>
@@ -148,6 +156,11 @@ class AddSauce extends Component {
                 value={description}
                 required={true}
               />
+
+              {/* Error message */}
+              {errors.description && (
+                <p className="form-error">{errors.description}</p>
+              )}
             </div>
           </div>
         </div>
@@ -189,10 +202,11 @@ class AddSauce extends Component {
               <TextInput
                 id="SHU"
                 name="SHU"
-                type="Number"
+                type="text"
                 onChange={this.onChange}
                 value={shu}
               />
+              {errors.shu && <p className="form-error">{errors.shu}</p>}
             </div>
             <div className="container__input__full">
               <span className="text__upper text__grey">Primary Peppers</span>
@@ -415,11 +429,48 @@ class AddSauce extends Component {
 
     const { data, addReview } = this.state;
 
-    // Make sure SHU is a number
-    if (!validator.isInt(data.shu)) return;
+    const errors = this.validate({ data });
+
+    // If form has any errors, render them
+    if (Object.keys(errors).length > 0) {
+      this.setState({ ...this.state, errors });
+      return;
+    }
+
+    // Set SHU to be an int
+    data.shu = parseInt(data.shu);
 
     // Pass data to parent
     this.props.onSubmit(data, addReview);
+  };
+
+  /** @description Validates all data before passing it off.
+   *  @param {Object} data - object to check
+   *    @param {String} data.name - Name of sauce
+   *    @param {String} data.maker - Maker of sauce
+   *    @param {String} data.description - Description of sauce
+   *    @param {Number|String?} data.shu - optional. Will make sure string/int is actually an int
+   *  @returns {Object} errors - set of form errors
+   */
+  validate = ({ data }) => {
+    const errors = { A: 1 };
+
+    // Name cannot be empty
+    if (validator.isEmpty(data.name)) errors.name = "*Cannot be empty";
+
+    // Maker cannot be empty
+    if (validator.isEmpty(data.maker)) errors.maker = "*Cannot be empty";
+
+    // Description cannot be empty
+    if (validator.isEmpty(data.description))
+      errors.description = "*Cannot be empty";
+
+    // If SHU has input, it must be a number.
+    if (!validator.isEmpty(data.shu) && !validator.isNumeric(data.shu)) {
+      errors.shu = "*Must be a number.";
+    }
+
+    return errors;
   };
 }
 
