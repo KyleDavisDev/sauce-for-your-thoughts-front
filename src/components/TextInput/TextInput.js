@@ -24,6 +24,7 @@ const TextInput = ({
         placeholder={placeholder}
         onChange={onChange}
         value={value}
+        required={required}
       />
     ) : (
       <input
