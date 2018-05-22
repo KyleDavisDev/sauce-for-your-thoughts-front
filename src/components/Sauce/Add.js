@@ -52,7 +52,7 @@ class Add extends Component {
    *  @param {Bool} addReview - does user want to add a review or not?
    */
   handleAddSauceSubmit = (payload, addReview) => {
-    console.log(payload);
+    // console.log(payload);
     // Get array of checked peppers
     const peppers = payload.peppers
       .filter(pepper => pepper.isChecked)
