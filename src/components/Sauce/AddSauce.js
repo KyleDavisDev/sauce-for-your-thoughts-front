@@ -55,7 +55,7 @@ class AddSauce extends Component {
 
     this.state = {
       data: _addTemplate,
-      errors: _addTemplate,
+      errors: {},
       addReview: false
     };
   }
@@ -365,13 +365,20 @@ class AddSauce extends Component {
     // Grab the value
     const val = e.target.value;
 
+    const { errors } = this.state;
+
+    if (errors[name]) {
+      delete errors[name];
+    }
+
     // Update local state
     this.setState({
       ...this.state,
       data: {
         ...this.state.data,
         [name]: val
-      }
+      },
+      errors
     });
   };
 
@@ -437,8 +444,8 @@ class AddSauce extends Component {
       return;
     }
 
-    // Set SHU to be an int
-    data.shu = parseInt(data.shu);
+    // Set SHU to be an int if it exists
+    data.shu = data.shu.length > 0 ? parseInt(data.shu) : "";
 
     // Pass data to parent
     this.props.onSubmit(data, addReview);
@@ -453,7 +460,8 @@ class AddSauce extends Component {
    *  @returns {Object} errors - set of form errors
    */
   validate = ({ data }) => {
-    const errors = { A: 1 };
+    console.log("validate", data);
+    const errors = {};
 
     // Name cannot be empty
     if (validator.isEmpty(data.name)) errors.name = "*Cannot be empty";
