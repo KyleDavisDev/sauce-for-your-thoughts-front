@@ -1,12 +1,10 @@
-import React, { Component } from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import React from "react";
+import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Loadable from "react-loadable";
 import Loading from "../Holder/Holder";
 import Header from "../Header/Header";
-
-import Auth from "../../Helper/Auth/Auth";
 
 const Account = Loadable({
   loader: () => System.import("../Account/Account"),
