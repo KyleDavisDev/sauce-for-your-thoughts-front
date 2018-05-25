@@ -54,12 +54,12 @@ const App = ({ flashMessageVisible }) => (
     <Header />
     {flashMessageVisible && <FlashMessage />}
     <Route exact path="/" component={Loading} />
-    <Route exact path="/add" component={Add} />
     <Route
       exact
       path="/sauces(/?page=:page&limit=:limit)?"
       component={Sauces}
     />
+    <Route exact path="/sauce/add" component={Add} />
     <Route exact path="/sauce/:slug" component={Single} />
     <Route exact path="/sauce/:id/edit" component={SauceEdit} />
     <Route exact path="/tags" component={Tags} />
@@ -71,7 +71,7 @@ const App = ({ flashMessageVisible }) => (
   </div>
 );
 
-App.PropTypes = {
+App.propTypes = {
   flashMessageVisible: PropTypes.bool.isRequired
 };
 
