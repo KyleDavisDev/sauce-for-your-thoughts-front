@@ -114,6 +114,7 @@ class AddSauce extends Component {
                 onChange={this.onChange}
                 value={name}
                 required={true}
+                parentRef={input => (this.name = input)}
               />
 
               {/* Error message */}
@@ -128,6 +129,7 @@ class AddSauce extends Component {
                 onChange={this.onChange}
                 value={maker}
                 required={true}
+                parentRef={input => (this.maker = input)}
               />
 
               {/* Error message */}
@@ -205,6 +207,7 @@ class AddSauce extends Component {
                 type="text"
                 onChange={this.onChange}
                 value={shu}
+                parentRef={input => (this.shu = input)}
               />
               {errors.shu && <p className="form-error">{errors.shu}</p>}
             </div>
@@ -436,11 +439,17 @@ class AddSauce extends Component {
 
     const { data, addReview } = this.state;
 
+    // Check form for errors
     const errors = this.validate({ data });
 
-    // If form has any errors, render them
-    if (Object.keys(errors).length > 0) {
+    // If form has any errors, update state so they will render
+    const keys = Object.keys(errors);
+    if (keys.length > 0) {
       this.setState({ ...this.state, errors });
+
+      // focus on first error
+      this[keys[0]].focus();
+
       return;
     }
 
@@ -460,7 +469,6 @@ class AddSauce extends Component {
    *  @returns {Object} errors - set of form errors
    */
   validate = ({ data }) => {
-    console.log("validate", data);
     const errors = {};
 
     // Name cannot be empty
