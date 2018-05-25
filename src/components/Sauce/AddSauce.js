@@ -220,6 +220,23 @@ class AddSauce extends Component {
 
         <div className="spacer" />
 
+        <div className="container" id="sauce__type">
+          <div className="container__left">
+            <ContainerLeft
+              title="Type"
+              desc="What type of sauce is this? What is it primarily used for?"
+            />
+          </div>
+          <div className="container__right">
+            <div className="container__input__full">
+              <span className="text__upper text__grey">Primary Peppers</span>
+              <CheckBoxList tags={peppers} onChange={this.onPepperChange} />
+            </div>
+          </div>
+        </div>
+
+        <div className="spacer" />
+
         <div className="container" id="sauce__location">
           <div className="container__left">
             <ContainerLeft title="Location" desc="Where was the sauce made?" />
