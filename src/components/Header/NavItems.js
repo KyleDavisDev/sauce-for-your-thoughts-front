@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
 import TagLogo from "../../images/icons/Tag";
 import TopLogo from "../../images/icons/Top";
 import AddLogo from "../../images/icons/Add";
@@ -29,32 +28,26 @@ const NavItems = () => {
     {
       text: "Add",
       img: <AddLogo />,
-      linkTo: "add",
+      linkTo: "sauce/add",
       imgTitle: "Add"
     }
   ];
   return (
     <div className="item-holder">
-      {navigationItems.map(item => {
-        return (
-          <li key={item.text} className="nav-item">
-            <NavLink
-              className="nav-link"
-              activeClassName="active"
-              to={`/${item.linkTo}`}
-            >
-              {item.img}
-              <span>{item.text.toUpperCase()}</span>
-            </NavLink>
-          </li>
-        );
-      })}
+      {navigationItems.map(item => (
+        <li key={item.text} className="nav-item">
+          <NavLink
+            className="nav-link"
+            activeClassName="active"
+            to={`/${item.linkTo}`}
+          >
+            {item.img}
+            <span>{item.text.toUpperCase()}</span>
+          </NavLink>
+        </li>
+      ))}
     </div>
   );
-};
-
-NavItems.propTypes = {
-  // item
 };
 
 export default NavItems;
