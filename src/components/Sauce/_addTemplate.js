@@ -13,5 +13,6 @@ export default {
     city: ""
   },
   shu: "",
-  peppers: []
+  peppers: [],
+  types: []
 };
