@@ -205,6 +205,15 @@ const api = {
         }
         throw new Error(res.data.msg);
       })
+  },
+  types: {
+    get: () =>
+      axios.get(`${host}/api/types/get`).then(res => {
+        if (res.data.isGood && res.status === 200) {
+          return res.data;
+        }
+        throw new Error(res.data.msg);
+      })
   }
 };
 
