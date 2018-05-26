@@ -42,6 +42,9 @@ class Add extends Component {
    *    @param {Object[]} payload.peppers[] - Primary peppers in sauce
    *      @param {String} payload.peppers[].name - pepper name
    *      @param {Bool} payload.peppers[].isChecked - whether pepper is in sauce or not
+   *    @param {Object[]} payload.types[] - Primary peppers in sauce
+   *      @param {String} payload.types[].name - pepper name
+   *      @param {Bool} payload.types[].isChecked - whether pepper is in sauce or not
    *    @param {Object} payload.location - location object
    *      @param {Object?} payload.location.country - country sauce was made
    *      @param {Object?} payload.location.state - state/region sauce was made
@@ -52,11 +55,15 @@ class Add extends Component {
    *  @param {Bool} addReview - does user want to add a review or not?
    */
   handleAddSauceSubmit = (payload, addReview) => {
-    // console.log(payload);
     // Get array of checked peppers
     const peppers = payload.peppers
       .filter(pepper => pepper.isChecked)
       .map(pepper => pepper.name);
+
+    // Get array of checked types
+    const types = payload.types
+      .filter(type => type.isChecked)
+      .map(type => type.name);
 
     // make sure token is still good/not expired
     if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
@@ -72,7 +79,8 @@ class Add extends Component {
         ingredients,
         shu,
         location,
-        peppers
+        peppers,
+        types
       },
       user: {
         token: this.props.user.token
@@ -86,6 +94,7 @@ class Add extends Component {
     this.props
       .addSauce(formData)
       .then(res => {
+        console.log(res);
         // Go to sauce page if they do not want to add a review
         if (addReview === false)
           this.props.history.push(`/sauce/${res.data.sauces[0].slug}`);
