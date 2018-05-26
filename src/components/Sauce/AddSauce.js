@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+import axios from "axios";
 import Dropzone from "react-dropzone";
 import validator from "validator";
 import TextInput from "../TextInput/TextInput.js";
 import api from "../../api/api";
 import _addTemplate from "./_addTemplate";
 
-const CheckBoxList = ({ tags, onChange }) => (
+const CheckBoxList = ({ tags, onChange, name }) => (
   <ul className="tags">
     {tags.map(tag => (
       <div key={tag._id} className="tag tag-choice">
         <input
           type="checkbox"
           id={tag._id}
-          name={tag.name}
+          name={name || tag.name}
           value={tag.name}
           checked={tag.isChecked}
           onChange={onChange}
@@ -31,7 +32,11 @@ CheckBoxList.propTypes = {
       _id: PropTypes.string.isRequired
     })
   ).isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string
+};
+CheckBoxList.defaultProps = {
+  name: null
 };
 
 const ContainerLeft = ({ title, desc }) => (
@@ -61,16 +66,28 @@ class AddSauce extends Component {
   }
 
   componentDidMount() {
-    api.peppers
-      .get()
+    // Query for peppers and types
+    axios
+      .all([this.getPeppers(), this.getTypes()])
       .then(res => {
-        const peppers = res.data.peppers.map(x => {
+        // res[0] holds peppers
+        // res[1] holds types
+
+        // Assign isChecked bool to each pepper
+        const peppers = res[0].data.peppers.map(x => {
           x.isChecked = false;
           return x;
         });
+
+        // Assign isChecked bool to each type
+        const types = res[1].data.types.map(x => {
+          x.isChecked = false;
+          return x;
+        });
+
         this.setState({
           ...this.state,
-          data: { ...this.state.data, peppers }
+          data: { ...this.state.data, peppers, types }
         });
       })
       .catch(err => console.log(err));
@@ -85,7 +102,8 @@ class AddSauce extends Component {
       location,
       ingredients,
       peppers,
-      shu
+      shu,
+      types
     } = this.state.data;
 
     const { errors } = this.state;
@@ -213,7 +231,13 @@ class AddSauce extends Component {
             </div>
             <div className="container__input__full">
               <span className="text__upper text__grey">Primary Peppers</span>
-              <CheckBoxList tags={peppers} onChange={this.onPepperChange} />
+              {peppers.length > 0 && (
+                <CheckBoxList
+                  tags={peppers}
+                  onChange={this.onCheckBoxChange}
+                  name="peppers"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -229,8 +253,14 @@ class AddSauce extends Component {
           </div>
           <div className="container__right">
             <div className="container__input__full">
-              <span className="text__upper text__grey">Primary Peppers</span>
-              <CheckBoxList tags={peppers} onChange={this.onPepperChange} />
+              <span className="text__upper text__grey">Type of sauce</span>
+              {types.length > 0 && (
+                <CheckBoxList
+                  tags={types}
+                  onChange={this.onCheckBoxChange}
+                  name="types"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -435,13 +465,21 @@ class AddSauce extends Component {
     });
   };
 
-  onPepperChange = e => {
-    const peppers = this.state.data.peppers.map(pepper => {
-      if (pepper._id === e.target.id) pepper.isChecked = !pepper.isChecked;
-      return pepper;
+  onCheckBoxChange = e => {
+    // Find which group of checkboxes need to be updated
+    const group = e.target.name.toLowerCase();
+
+    // Find which checkbox was clicked and set isChecked to the opposite value
+    const update = this.state.data[group].map(x => {
+      if (x._id === e.target.id) x.isChecked = !x.isChecked;
+      return x;
     });
 
-    this.setState({ ...this.state, data: { ...this.state.data, peppers } });
+    // Update state
+    this.setState({
+      ...this.state,
+      data: { ...this.state.data, [group]: update }
+    });
   };
 
   onAddReviewChange = e => {
@@ -486,6 +524,7 @@ class AddSauce extends Component {
    *  @returns {Object} errors - set of form errors
    */
   validate = ({ data }) => {
+    console.log(data);
     const errors = {};
 
     // Name cannot be empty
@@ -498,13 +537,31 @@ class AddSauce extends Component {
     if (validator.isEmpty(data.description))
       errors.description = "*Cannot be empty";
 
-    // If SHU has input, it must be a number.
-    if (!validator.isEmpty(data.shu) && !validator.isNumeric(data.shu)) {
-      errors.shu = "*Must be a number.";
+    // If shu is a number - we don't have any issues
+    const type = Object.prototype.toString.call(data.shu);
+    if (!type === "[object Number]") {
+      // Must be non-number if here
+      // If it has input, it must be a string, not empty, and convertable to a number
+      if (
+        type === "[object String]" &&
+        !validator.isEmpty(data.shu) &&
+        !validator.isNumeric(data.shu)
+      ) {
+        errors.shu = "*Must be a number.";
+      }
     }
+    // If SHU has input, it must be a number.
 
     return errors;
   };
+
+  /** @description Call API for an array of peppers
+   *  @returns {Promise}
+   */
+  getPeppers = () => api.peppers.get();
+
+  /** @description Call API for array of types  */
+  getTypes = () => api.types.get();
 }
 
 export default AddSauce;
