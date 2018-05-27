@@ -22,5 +22,4 @@ export default {
   note: {
     txt: ""
   }
-  pairings: ""
 };
