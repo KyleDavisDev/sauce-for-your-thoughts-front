@@ -4,40 +4,10 @@ import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import axios from "axios";
 import Dropzone from "react-dropzone";
 import validator from "validator";
+import CheckBoxList from "../CheckboxList/CheckboxList";
 import TextInput from "../TextInput/TextInput.js";
 import api from "../../api/api";
 import _addTemplate from "./_addTemplate";
-
-const CheckBoxList = ({ tags, onChange, name }) => (
-  <ul className="tags">
-    {tags.map(tag => (
-      <div key={tag._id} className="tag tag-choice">
-        <input
-          type="checkbox"
-          id={tag._id}
-          name={name || tag.name}
-          value={tag.name}
-          checked={tag.isChecked}
-          onChange={onChange}
-        />
-        <label htmlFor={tag._id}>{tag.name}</label>
-      </div>
-    ))}
-  </ul>
-);
-CheckBoxList.propTypes = {
-  tags: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      _id: PropTypes.string.isRequired
-    })
-  ).isRequired,
-  onChange: PropTypes.func.isRequired,
-  name: PropTypes.string
-};
-CheckBoxList.defaultProps = {
-  name: null
-};
 
 const ContainerLeft = ({ title, desc }) => (
   <div>
@@ -524,7 +494,6 @@ class AddSauce extends Component {
    *  @returns {Object} errors - set of form errors
    */
   validate = ({ data }) => {
-    console.log(data);
     const errors = {};
 
     // Name cannot be empty
