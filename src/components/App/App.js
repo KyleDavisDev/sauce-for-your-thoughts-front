@@ -10,8 +10,12 @@ const Account = Loadable({
   loader: () => System.import("../Account/Account"),
   loading: Loading
 });
-const Add = Loadable({
+const AddSauce = Loadable({
   loader: () => System.import("../Sauce/Add"),
+  loading: Loading
+});
+const AddReview = Loadable({
+  loader: () => System.import("../Review/Add"),
   loading: Loading
 });
 const FlashMessage = Loadable({
@@ -57,11 +61,12 @@ const App = ({ flashMessageVisible }) => (
       path="/sauces(/?page=:page&limit=:limit)?"
       component={Sauces}
     />
-    <Route exact path="/sauce/add" component={Add} />
+    <Route exact path="/sauce/add" component={AddSauce} />
     <Route exact path="/sauce/single/:slug" component={Single} />
     <Route exact path="/sauce/:id/edit" component={SauceEdit} />
     <Route exact path="/tags" component={Tags} />
     <Route exact path="/tags/:tag" component={Tags} />
+    <Route exact path="/review/add" component={AddReview} />
     <Route exact path="/register" component={Register} />
     <Route exact path="/account" component={Account} />
     <Route exact path="/account/reset/:token" component={ResetPassword} />
