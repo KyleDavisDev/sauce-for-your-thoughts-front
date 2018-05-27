@@ -61,7 +61,6 @@ export const toggleHeart = data => dispatch =>
  */
 export const updateUser = credentials => dispatch =>
   api.user.update(credentials).then(res => {
-    console.log("credentials", credentials);
     const { email, name } = res.user;
     // update by setting again
     dispatch(gotUserInfo({ email, name }));
