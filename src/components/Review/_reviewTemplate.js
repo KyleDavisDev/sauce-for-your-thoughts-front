@@ -19,5 +19,8 @@ export default {
     txt: "",
     rating: 0
   },
+  note: {
+    txt: ""
+  }
   pairings: ""
 };
