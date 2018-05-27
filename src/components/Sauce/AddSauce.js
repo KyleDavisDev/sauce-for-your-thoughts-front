@@ -213,8 +213,8 @@ class AddSauce extends Component {
         <div className="container" id="sauce__spice">
           <div className="container__left">
             <ContainerLeft
-              title="Spice"
-              desc="How spicy is this sauce? What does the maker say the Scoville Heat Unit (SHU) rating is? Which peppers are primarily used?"
+              title="Spiciness"
+              desc="Is this sauce spicy? How spicy is it? What does the maker say the Scoville Heat Unit (SHU) rating is? Which peppers are primarily used? If this sauce is not spicy, leave blank."
             />
           </div>
           <div className="container__right">
