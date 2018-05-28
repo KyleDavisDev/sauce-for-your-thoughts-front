@@ -39,3 +39,16 @@
     }
   }
 }
+
+.star--empty {
+  .center {
+    fill: $white;
+  }
+  .border {
+    fill: $yellow;
+  }
+}
+
+.star--filled {
+  fill: $yellow;
+}
