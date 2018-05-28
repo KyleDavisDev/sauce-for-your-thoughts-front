@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
-import axios from "axios";
-import Dropzone from "react-dropzone";
+import Rating from "react-rating";
 import validator from "validator";
 import TextInput from "../TextInput/TextInput.js";
 import api from "../../api/api";
 import _reviewTemplate from "./_reviewTemplate";
-import Rating from "../Rating/Rating";
+import Star from "../../images/icons/Star";
 
 const ContainerLeft = ({ title, desc }) => (
   <div>
@@ -49,7 +47,7 @@ class ReviewForm extends Component {
         encType="multipart/form-data"
         onSubmit={this.onSubmit}
       >
-        <div className="container" id="sauce__details">
+        <div className="container" id="review__taste">
           <div className="container__left">
             <ContainerLeft
               title="Taste"
@@ -57,277 +55,158 @@ class ReviewForm extends Component {
             />
           </div>
           <div className="container__right">
-            <Rating />
-            <div className="container__input">
-              <TextInput
-                id="Name"
-                name="Name"
-                type="text"
-                onChange={this.onChange}
-                value={name}
-                required={true}
-                parentRef={input => (this.name = input)}
-              />
-
-              {/* Error message */}
-              {errors.name && <p className="form-error">{errors.name}</p>}
-            </div>
-
-            <div className="container__input">
-              <TextInput
-                id="Maker"
-                name="Maker"
-                type="text"
-                onChange={this.onChange}
-                value={maker}
-                required={true}
-                parentRef={input => (this.maker = input)}
-              />
-
-              {/* Error message */}
-              {errors.maker && <p className="form-error">{errors.maker}</p>}
-            </div>
-          </div>
-        </div>
-
-        <div className="spacer" />
-
-        <div className="container" id="sauce__description">
-          <div className="container__left">
-            <ContainerLeft
-              title="Official Description"
-              desc="How does the maker describe the suace and/or flavor? This might be
-              found directly on the bottle, a website, in an email, etc. This is NOT your review."
-            />
-          </div>
-          <div className="container__right">
             <div className="container__input__full">
-              <TextInput
-                id="Description"
-                name="Description"
-                type="textarea"
-                onChange={this.onChange}
-                value={description}
-                required={true}
-              />
-
-              {/* Error message */}
-              {errors.description && (
-                <p className="form-error">{errors.description}</p>
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div className="spacer" />
-
-        <div className="container" id="sauce__ingredients">
-          <div className="container__left">
-            <ContainerLeft
-              title="Ingredients"
-              desc="Which ingredients make up the sauce? This should be a comma
-              seperated list found somewhere on the sauce label."
-            />
-          </div>
-          <div className="container__right">
-            <div className="container__input__full">
-              <TextInput
-                id="Ingredients"
-                name="Ingredients"
-                type="textarea"
-                onChange={this.onChange}
-                value={ingredients}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="spacer" />
-
-        <div className="container" id="sauce__spice">
-          <div className="container__left">
-            <ContainerLeft
-              title="Spiciness"
-              desc="Is this sauce spicy? How spicy is it? What does the maker say the Scoville Heat Unit (SHU) rating is? Which peppers are primarily used? If this sauce is not spicy, leave blank."
-            />
-          </div>
-          <div className="container__right">
-            <div className="container__input">
-              <TextInput
-                id="SHU"
-                name="SHU"
-                type="text"
-                onChange={this.onChange}
-                value={shu}
-                parentRef={input => (this.shu = input)}
-              />
-              {errors.shu && <p className="form-error">{errors.shu}</p>}
-            </div>
-            <div className="container__input__full">
-              <span className="text__upper text__grey">Primary Peppers</span>
-              {peppers.length > 0 && (
-                <CheckBoxList
-                  tags={peppers}
-                  onChange={this.onCheckBoxChange}
-                  name="peppers"
-                />
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div className="spacer" />
-
-        <div className="container" id="sauce__type">
-          <div className="container__left">
-            <ContainerLeft
-              title="Type"
-              desc="What type of sauce is this? What is it primarily used for?"
-            />
-          </div>
-          <div className="container__right">
-            <div className="container__input__full">
-              <span className="text__upper text__grey">Type of sauce</span>
-              {types.length > 0 && (
-                <CheckBoxList
-                  tags={types}
-                  onChange={this.onCheckBoxChange}
-                  name="types"
-                />
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div className="spacer" />
-
-        <div className="container" id="sauce__location">
-          <div className="container__left">
-            <ContainerLeft title="Location" desc="Where was the sauce made?" />
-          </div>
-          <div className="container__right">
-            <div className="container__input">
-              <label htmlFor="Country" className="text__upper text__grey">
-                Country
-              </label>
-              <CountryDropdown
-                value={location.country}
-                onChange={this.onLocationChange}
-                disabled={false}
-                name="Country"
-                id="Country"
-              />
-            </div>
-            <div className="container__input">
-              <label htmlFor="Country" className="text__upper text__grey">
-                State / Region
-              </label>
-              <RegionDropdown
-                country={location.country}
-                value={location.state}
-                onChange={this.onLocationChange}
-                disabled={false}
-                defaultOptionLabel="--Select--"
-                name="State"
-                id="State"
-              />
-            </div>
-            <div className="container__input">
-              <TextInput
-                id="City"
-                name="City"
-                type="text"
-                onChange={this.onLocationChange}
-                value={location.city}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="spacer" />
-
-        <div className="container" id="sauce__photo">
-          <div className="container__left">
-            <ContainerLeft
-              title="Photo"
-              desc="If you have a picture of the bottle, please upload it! If the
-              picture is unclear, blurry, or missing completely, an admin may
-              replace it with a different one."
-            />
-          </div>
-          <div className="container__right">
-            <div className="container__input__full">
-              <span className="text__upper text__grey">Add Photo</span>
-              <Dropzone
-                onDrop={this.onDrop}
-                accept="image/jpeg, image/png"
-                style={{
-                  width: "100%",
-                  height: "200px",
-                  border: "2px dashed rgb(102, 102, 102)",
-                  borderRadius: "5px",
-                  padding: "10px",
-                  textAlign: "center"
-                }}
-                id="photo"
+              <label
+                htmlFor="Taste"
+                className="text__upper text__grey w--100 d--block"
               >
-                {photo.file ? (
-                  <p>
-                    File Uploaded! Feel free to drag and drop again to upload a
-                    different file
-                  </p>
-                ) : (
-                  <p>
-                    Try dropping some files here, or click to select files to
-                    upload.
-                  </p>
-                )}
-              </Dropzone>
+                {"taste*"}
+              </label>
+              <Rating
+                onHover={rate =>
+                  (document.getElementById("rating__taste").innerHTML =
+                    rate || "")
+                }
+                emptySymbol={<Star className="star star--empty" />}
+                fullSymbol={<Star className="star star--filled" />}
+                onChange={x => console.log(x)}
+              />
+              <span id="rating__taste" className="rating" />
+              <TextInput
+                displayName={false}
+                id="Taste"
+                name="Taste"
+                type="textarea"
+                onChange={this.onChange}
+                value={taste.txt}
+                required={true}
+                parentRef={input => (this.taste = input)}
+              />
 
-              {photo.name.length > 0 && (
-                <div>
-                  <h6>File:</h6> {photo.name}
-                </div>
-              )}
+              {/* Error message */}
+              {errors.taste && <p className="form-error">{errors.taste}</p>}
             </div>
           </div>
         </div>
 
         <div className="spacer" />
 
-        <div className="container" id="sauce__add__review">
+        <div className="container" id="review__aroma">
           <div className="container__left">
             <ContainerLeft
-              title="Review"
-              desc="Would you like to add a review too? Do not review your own sauce. Blatantly altering scores will get your account banned and your review removed. Don't do it."
+              title="Aroma"
+              desc="What can you smell in the sauce? Try closing your eyes and wafting the aroma towards your nose? What accents do you pick up?"
+            />
+          </div>
+          <div className="container__right pad--0">
+            <div className="container__input__full">
+              <label
+                htmlFor="Aroma"
+                className="text__upper text__grey w--100 d--block"
+              >
+                {"Aroma*"}
+              </label>
+              <Rating
+                onHover={rate =>
+                  (document.getElementById("rating__aroma").innerHTML =
+                    rate || "")
+                }
+                emptySymbol={<Star className="star star--empty" />}
+                fullSymbol={<Star className="star star--filled" />}
+                onChange={x => console.log(x)}
+              />
+              <span id="rating__aroma" className="rating" />
+              <TextInput
+                displayName={false}
+                id="Aroma"
+                name="Aroma"
+                type="textarea"
+                onChange={this.onChange}
+                value={aroma.txt}
+                required={true}
+                parentRef={input => (this.aroma = input)}
+              />
+
+              {/* Error message */}
+              {errors.aroma && <p className="form-error">{errors.aroma}</p>}
+            </div>
+          </div>
+        </div>
+
+        <div className="spacer" />
+
+        <div className="container" id="sauce__label">
+          <div className="container__left">
+            <ContainerLeft
+              title="Label"
+              desc="How do you feel about the design? Does it speak to you? Does it remind you of anything? How effective does the design convey what the sauce is/is not."
             />
           </div>
           <div className="container__right">
             <div className="container__input__full">
-              <span className="text__upper text__grey">Add Review?</span>
-              <div className="tags">
-                <div className="tag tag-choice">
-                  <input
-                    type="radio"
-                    name="add__review"
-                    value="no"
-                    id="add__review--no"
-                    defaultChecked={true}
-                    onChange={this.onAddReviewChange}
-                  />
-                  <label htmlFor="add__review--no">No</label>
-                </div>
-                <div className="tag tag-choice">
-                  <input
-                    type="radio"
-                    name="add__review"
-                    value="yes"
-                    id="add__review--yes"
-                    onChange={this.onAddReviewChange}
-                  />
-                  <label htmlFor="add__review--yes">Yes</label>
-                </div>
-              </div>
+              {/* <Rating /> */}
+              <TextInput
+                id="label"
+                name="label"
+                type="textarea"
+                onChange={this.onChange}
+                value={label.txt}
+                required={true}
+              />
+
+              {/* Error message */}
+              {errors.label && <p className="form-error">{errors.label}</p>}
+            </div>
+          </div>
+        </div>
+
+        <div className="spacer" />
+
+        <div className="container" id="sauce__heat">
+          <div className="container__left">
+            <ContainerLeft title="Heat" desc="How spicy is this sauce? " />
+          </div>
+          <div className="container__right">
+            <div className="container__input__full">
+              {/* <Rating /> */}
+              <TextInput
+                id="heat"
+                name="heat"
+                type="textarea"
+                onChange={this.onChange}
+                value={heat.txt}
+                required={true}
+              />
+
+              {/* Error message */}
+              {errors.heat && <p className="form-error">{errors.heat}</p>}
+            </div>
+          </div>
+        </div>
+
+        <div className="spacer" />
+
+        <div className="container" id="sauce__overall">
+          <div className="container__left">
+            <ContainerLeft
+              title="Overall"
+              desc="What are you overall impressions? How could the sauce improve?"
+            />
+          </div>
+          <div className="container__right">
+            <div className="container__input__full">
+              {/* <Rating /> */}
+              <TextInput
+                id="overall"
+                name="overall"
+                type="textarea"
+                onChange={this.onChange}
+                value={overall.txt}
+                required={true}
+              />
+
+              {/* Error message */}
+              {errors.overall && <p className="form-error">{errors.overall}</p>}
             </div>
           </div>
         </div>
