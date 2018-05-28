@@ -5,21 +5,27 @@ import Star from "../../images/icons/Star";
 
 class Rating extends Component {
   static propTypes = {
-    value: PropTypes.number,
     displayValue: PropTypes.number,
-    total: PropTypes.number,
     height: PropTypes.number,
+    name: PropTypes.string,
+    onClick: PropTypes.func,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
     readOnly: PropTypes.bool,
-    onClick: PropTypes.func
+    total: PropTypes.number,
+    value: PropTypes.number
   };
 
   static defaultProps = {
-    value: 0,
     displayValue: 0,
-    total: 10,
     height: 50,
+    name: "",
+    onClick() {},
+    onMouseEnter() {},
+    onMouseLeave() {},
     readOnly: false,
-    onClick() {}
+    total: 10,
+    value: 0
   };
 
   constructor(props) {
@@ -59,7 +65,7 @@ class Rating extends Component {
 
   render() {
     // grab from props
-    const { height, total, readOnly } = this.props;
+    const { height, total, readOnly, name } = this.props;
     // grab from state
     const { value, displayValue, interacting } = this.state;
 
@@ -88,6 +94,7 @@ class Rating extends Component {
           }
           disabled={readOnly}
           className={readOnly ? "disabled" : ""}
+          name={name}
         >
           <Star height={height} className={className} />
         </button>
@@ -98,6 +105,8 @@ class Rating extends Component {
   }
 
   onClick = (index, event) => {
+    this.setState({ value: index + 1 });
+
     // Need to add 1 to the index b/c arrays start at 0
     this.props.onClick(index + 1, event);
   };
@@ -108,13 +117,20 @@ class Rating extends Component {
 
     // Need to add 1 to the index b/c arrays start at 0
     this.setState({ interacting: true, displayValue: index + 1 });
+
+    // Call props
+    this.props.onMouseEnter(index + 1, event);
   };
 
   onMouseLeave = (index, event) => {
+    // 'reset' local state
     this.setState(prevState => ({
       interacting: false,
       displayValue: prevState.value
     }));
+
+    // Call props
+    this.props.onMouseLeave(index + 1, event);
   };
 
   doNothing = () => {};
