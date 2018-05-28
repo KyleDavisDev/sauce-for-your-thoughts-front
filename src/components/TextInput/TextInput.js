@@ -3,21 +3,23 @@ import PropTypes from "prop-types";
 
 class TextInput extends React.Component {
   static propTypes = {
+    displayName: PropTypes.bool,
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    parentRef: PropTypes.func,
+    placeholder: PropTypes.string,
     required: PropTypes.bool,
     type: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    placeholder: PropTypes.string,
-    parentRef: PropTypes.func
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   };
   static defaultProps = {
+    displayName: true,
+    parentRef: () => {},
+    placeholder: "",
     required: false,
     type: "text",
-    value: "",
-    placeholder: "",
-    parentRef: () => {}
+    value: ""
   };
   render() {
     const {
@@ -28,15 +30,18 @@ class TextInput extends React.Component {
       type,
       value,
       placeholder,
-      parentRef
+      parentRef,
+      displayName
     } = this.props;
 
     return (
       <div>
-        <label htmlFor={name} className="text__upper text__grey">
-          {name}
-          {required && "*"}
-        </label>
+        {displayName && (
+          <label htmlFor={name} className="text__upper text__grey">
+            {name}
+            {required && "*"}
+          </label>
+        )}
         {type.toLowerCase() === "textarea" ? (
           <textarea
             id={id}
