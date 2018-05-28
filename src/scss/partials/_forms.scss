@@ -69,9 +69,14 @@ form.form {
           @extend .container__input;
           width: 100%;
           max-width: 100%;
+          padding: 0px;
         }
       }
     }
+  }
+
+  .rating {
+    padding: 5px 0px;
   }
 
   .tags {
