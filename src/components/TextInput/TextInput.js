@@ -3,42 +3,45 @@ import PropTypes from "prop-types";
 
 class TextInput extends React.Component {
   static propTypes = {
-    displayName: PropTypes.bool,
+    displayTitle: PropTypes.bool,
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     parentRef: PropTypes.func,
     placeholder: PropTypes.string,
     required: PropTypes.bool,
+    title: PropTypes.string,
     type: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   };
   static defaultProps = {
-    displayName: true,
+    displayTitle: true,
     parentRef: () => {},
     placeholder: "",
     required: false,
+    title: "",
     type: "text",
     value: ""
   };
   render() {
     const {
+      displayTitle,
       id,
       name,
       onChange,
-      required,
-      type,
-      value,
-      placeholder,
       parentRef,
-      displayName
+      placeholder,
+      required,
+      title,
+      type,
+      value
     } = this.props;
 
     return (
       <div>
-        {displayName && (
-          <label htmlFor={name} className="text__upper text__grey">
-            {name}
+        {displayTitle && (
+          <label htmlFor={id} className="text__upper text__grey">
+            {title}
             {required && "*"}
           </label>
         )}
