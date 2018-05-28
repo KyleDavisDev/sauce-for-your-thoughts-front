@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Rating from "react-rating";
 import validator from "validator";
 import TextInput from "../TextInput/TextInput.js";
 import api from "../../api/api";
 import _reviewTemplate from "./_reviewTemplate";
 import Star from "../../images/icons/Star";
+import Rating from "../Rating/Rating";
 
 const ContainerLeft = ({ title, desc }) => (
   <div>
@@ -56,26 +56,22 @@ class ReviewForm extends Component {
           </div>
           <div className="container__right">
             <div className="container__input__full">
-              <label
-                htmlFor="Taste"
-                className="text__upper text__grey w--100 d--block"
-              >
-                {"taste*"}
-              </label>
-              <Rating
-                onHover={rate =>
-                  (document.getElementById("rating__taste").innerHTML =
-                    rate || "")
-                }
-                emptySymbol={<Star className="star star--empty" />}
-                fullSymbol={<Star className="star star--filled" />}
-                onChange={x => console.log(x)}
-              />
-              <span id="rating__taste" className="rating" />
+              <span className="text__upper text__grey w--100 d--block">
+                {"taste rating*"}
+              </span>
+              <div className="rating">
+                <Rating
+                  onClick={this.onTestRating}
+                  value={taste.rating}
+                  name="taste"
+                  total={5}
+                />
+                <span id="rating__taste" className="rating__label" />
+              </div>
               <TextInput
-                displayName={false}
                 id="Taste"
-                name="Taste"
+                name="taste"
+                title="description"
                 type="textarea"
                 onChange={this.onChange}
                 value={taste.txt}
@@ -100,26 +96,23 @@ class ReviewForm extends Component {
           </div>
           <div className="container__right pad--0">
             <div className="container__input__full">
-              <label
-                htmlFor="Aroma"
-                className="text__upper text__grey w--100 d--block"
-              >
-                {"Aroma*"}
-              </label>
-              <Rating
-                onHover={rate =>
-                  (document.getElementById("rating__aroma").innerHTML =
-                    rate || "")
-                }
-                emptySymbol={<Star className="star star--empty" />}
-                fullSymbol={<Star className="star star--filled" />}
-                onChange={x => console.log(x)}
-              />
-              <span id="rating__aroma" className="rating" />
+              <span className="text__upper text__grey w--100 d--block">
+                {"Aroma Rating*"}
+              </span>
+              <div className="rating">
+                <Rating
+                  onClick={this.onTestRating}
+                  value={aroma.rating}
+                  name="aroma"
+                  total={5}
+                />
+                <span id="rating__aroma" className="rating__label" />
+              </div>
+
               <TextInput
-                displayName={false}
                 id="Aroma"
-                name="Aroma"
+                name="aroma"
+                title="Description"
                 type="textarea"
                 onChange={this.onChange}
                 value={aroma.txt}
@@ -144,10 +137,23 @@ class ReviewForm extends Component {
           </div>
           <div className="container__right">
             <div className="container__input__full">
-              {/* <Rating /> */}
+              <span className="text__upper text__grey w--100 d--block">
+                {"Label Rating*"}
+              </span>
+              <div className="rating">
+                <Rating
+                  onClick={this.onTestRating}
+                  value={label.rating}
+                  name="label"
+                  total={5}
+                />
+                <span id="rating__label" className="rating__label" />
+              </div>
+              <span id="rating__label" className="rating__label" />
               <TextInput
-                id="label"
+                id="Label"
                 name="label"
+                title="description"
                 type="textarea"
                 onChange={this.onChange}
                 value={label.txt}
@@ -164,14 +170,29 @@ class ReviewForm extends Component {
 
         <div className="container" id="sauce__heat">
           <div className="container__left">
-            <ContainerLeft title="Heat" desc="How spicy is this sauce? " />
+            <ContainerLeft
+              title="Heat"
+              desc="How spicy is this sauce? Did you have to run for water? Was it the perfect amount of heat?"
+            />
           </div>
           <div className="container__right">
             <div className="container__input__full">
-              {/* <Rating /> */}
+              <span className="text__upper text__grey w--100 d--block">
+                {"Heat rating*"}
+              </span>
+              <div className="rating">
+                <Rating
+                  onClick={this.onTestRating}
+                  value={heat.rating}
+                  name="heat"
+                  total={5}
+                />
+                <span id="rating__heat" className="rating__heat" />
+              </div>
               <TextInput
                 id="heat"
                 name="heat"
+                title="description"
                 type="textarea"
                 onChange={this.onChange}
                 value={heat.txt}
@@ -195,10 +216,22 @@ class ReviewForm extends Component {
           </div>
           <div className="container__right">
             <div className="container__input__full">
-              {/* <Rating /> */}
+              <span className="text__upper text__grey w--100 d--block">
+                {"overall rating*"}
+              </span>
+              <div className="rating">
+                <Rating
+                  onClick={this.onTestRating}
+                  value={overall.rating}
+                  name="overall"
+                  total={5}
+                />
+                <span id="rating__overall" className="rating__overall" />
+              </div>
               <TextInput
                 id="overall"
                 name="overall"
+                title="description"
                 type="textarea"
                 onChange={this.onChange}
                 value={overall.txt}
@@ -213,7 +246,30 @@ class ReviewForm extends Component {
 
         <div className="spacer" />
 
-        {/* <div className="container"  */}
+        <div className="container" id="sauce__note">
+          <div className="container__left">
+            <ContainerLeft
+              title="Note"
+              desc="Have anything else you'd like to add? Include it here!"
+            />
+          </div>
+          <div className="container__right">
+            <div className="container__input__full">
+              <TextInput
+                id="note"
+                name="note"
+                title="Note"
+                type="textarea"
+                onChange={this.onChange}
+                value={overall.txt}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="spacer" />
+
+        {/* Submit button */}
         <button type="submit" className="button button--submit">
           Add ->
         </button>
@@ -228,8 +284,8 @@ class ReviewForm extends Component {
     // Grab the value
     const val = e.target.value;
 
+    // If the input had an error, remove it.
     const { errors } = this.state;
-
     if (errors[name]) {
       delete errors[name];
     }
@@ -239,59 +295,29 @@ class ReviewForm extends Component {
       ...this.state,
       data: {
         ...this.state.data,
-        [name]: val
+        [name]: { ...this.state.data[name], txt: val }
       },
       errors
     });
   };
 
-  // Seperate from onChange since CountryDropdown, RegionDropdown passes the event second
-  onLocationChange = (val, e) => {
-    // Grab name
-    const name = e.target.name.toLowerCase();
+  // TODO: Better way of getting the specific name
+  onTestRating = (val, e) => {
+    // Need to get the name of the section where a star was just clicked.
+    // We will progress up the star DOM four steps or until we find a name to associate the click with.
+    const name =
+      e.target.name ||
+      e.target.parentNode.name ||
+      e.target.parentNode.parentNode.name ||
+      e.target.parentNode.parentNode.parentNode.name;
 
-    // Update local state
+    // Update state with the rating value
     this.setState({
       ...this.state,
       data: {
         ...this.state.data,
-        location: { ...this.state.data.location, [name]: val }
+        [name]: { ...this.state.data[name], rating: val }
       }
-    });
-  };
-
-  // Used by the Dropzone component
-  onDrop = files => {
-    // Grab file
-    const file = files[0];
-
-    // Update local state
-    this.setState({
-      ...this.state,
-      data: {
-        ...this.state.data,
-        photo: {
-          name: file.name,
-          file
-        }
-      }
-    });
-  };
-
-  onCheckBoxChange = e => {
-    // Find which group of checkboxes need to be updated
-    const group = e.target.name.toLowerCase();
-
-    // Find which checkbox was clicked and set isChecked to the opposite value
-    const update = this.state.data[group].map(x => {
-      if (x._id === e.target.id) x.isChecked = !x.isChecked;
-      return x;
-    });
-
-    // Update state
-    this.setState({
-      ...this.state,
-      data: { ...this.state.data, [group]: update }
     });
   };
 
