@@ -261,7 +261,7 @@ class ReviewForm extends Component {
                 title="Note"
                 type="textarea"
                 onChange={this.onChange}
-                value={overall.txt}
+                value={note.txt}
               />
             </div>
           </div>
