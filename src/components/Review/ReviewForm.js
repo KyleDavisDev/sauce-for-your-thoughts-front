@@ -61,7 +61,7 @@ class ReviewForm extends Component {
               </span>
               <div className="rating">
                 <Rating
-                  onClick={this.onTestRating}
+                  onClick={this.onRatingChange}
                   value={taste.rating}
                   name="taste"
                   total={5}
@@ -101,7 +101,7 @@ class ReviewForm extends Component {
               </span>
               <div className="rating">
                 <Rating
-                  onClick={this.onTestRating}
+                  onClick={this.onRatingChange}
                   value={aroma.rating}
                   name="aroma"
                   total={5}
@@ -142,7 +142,7 @@ class ReviewForm extends Component {
               </span>
               <div className="rating">
                 <Rating
-                  onClick={this.onTestRating}
+                  onClick={this.onRatingChange}
                   value={label.rating}
                   name="label"
                   total={5}
@@ -182,7 +182,7 @@ class ReviewForm extends Component {
               </span>
               <div className="rating">
                 <Rating
-                  onClick={this.onTestRating}
+                  onClick={this.onRatingChange}
                   value={heat.rating}
                   name="heat"
                   total={5}
@@ -221,7 +221,7 @@ class ReviewForm extends Component {
               </span>
               <div className="rating">
                 <Rating
-                  onClick={this.onTestRating}
+                  onClick={this.onRatingChange}
                   value={overall.rating}
                   name="overall"
                   total={5}
@@ -302,7 +302,7 @@ class ReviewForm extends Component {
   };
 
   // TODO: Better way of getting the specific name
-  onTestRating = (val, e) => {
+  onRatingChange = (val, e) => {
     // Need to get the name of the section where a star was just clicked.
     // We will progress up the star DOM four steps or until we find a name to associate the click with.
     const name =
