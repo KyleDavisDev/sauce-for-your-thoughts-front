@@ -322,10 +322,10 @@ class ReviewForm extends Component {
   };
 
   onSubmit = e => {
-    // Allow parent to control what happens
+    // Hold off on doing anything
     e.preventDefault();
 
-    const { data, addReview } = this.state;
+    const { data } = this.state;
 
     // Check form for errors
     const errors = this.validate({ data });
@@ -341,11 +341,8 @@ class ReviewForm extends Component {
       return;
     }
 
-    // Set SHU to be an int if it exists
-    data.shu = data.shu.length > 0 ? parseInt(data.shu) : "";
-
-    // Pass data to parent
-    this.props.onSubmit(data, addReview);
+    // Call API to submit data
+    // api.reivews.
   };
 
   /** @description Validates all data before passing it off.
