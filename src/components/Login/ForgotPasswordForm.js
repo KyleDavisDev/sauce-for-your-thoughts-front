@@ -23,6 +23,7 @@ class Form extends Component {
         <h2>I forgot my password!</h2>
         <TextInput
           id="forgot_email"
+          title="Email"
           name="Email"
           onChange={this.handleEmailChange}
           required={true}
@@ -39,7 +40,7 @@ class Form extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    //close any flash message
+    // close any flash message
     this.props.closeFlashMessage();
 
     if (this.state.email.length === 0) return;
@@ -52,14 +53,14 @@ class Form extends Component {
       }
     })
       .then(response => {
-        //check if data is object and isGood is true
+        // check if data is object and isGood is true
         if (Checker.isObject(response.data) && response.data.isGood) {
           this.props.createFlashMessage({
             type: "success",
             text: response.data.msg
           });
         } else {
-          //something isn't working correctly if we are here
+          // something isn't working correctly if we are here
           this.props.createFlashMessage({
             type: "error",
             text: "Not sure how you did this.... But you broke it. Congrats."
@@ -70,7 +71,7 @@ class Form extends Component {
       })
       .catch(error => {
         console.log(error);
-        //set error flash message
+        // set error flash message
         this.props.createFlashMessage({
           type: "error",
           text: "Oops! Try again please."
