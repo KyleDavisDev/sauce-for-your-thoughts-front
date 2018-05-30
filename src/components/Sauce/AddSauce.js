@@ -97,6 +97,7 @@ class AddSauce extends Component {
             <div className="container__input">
               <TextInput
                 id="Name"
+                title="name"
                 name="Name"
                 type="text"
                 onChange={this.onChange}
@@ -112,6 +113,7 @@ class AddSauce extends Component {
             <div className="container__input">
               <TextInput
                 id="Maker"
+                title="maker"
                 name="Maker"
                 type="text"
                 onChange={this.onChange}
@@ -140,6 +142,7 @@ class AddSauce extends Component {
             <div className="container__input__full">
               <TextInput
                 id="Description"
+                title="description"
                 name="Description"
                 type="textarea"
                 onChange={this.onChange}
@@ -169,6 +172,7 @@ class AddSauce extends Component {
             <div className="container__input__full">
               <TextInput
                 id="Ingredients"
+                title="ingredients"
                 name="Ingredients"
                 type="textarea"
                 onChange={this.onChange}
@@ -191,6 +195,7 @@ class AddSauce extends Component {
             <div className="container__input">
               <TextInput
                 id="SHU"
+                title="shu"
                 name="SHU"
                 type="text"
                 onChange={this.onChange}
@@ -271,6 +276,7 @@ class AddSauce extends Component {
             <div className="container__input">
               <TextInput
                 id="City"
+                title="city"
                 name="City"
                 type="text"
                 onChange={this.onLocationChange}
