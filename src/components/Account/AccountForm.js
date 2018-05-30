@@ -30,6 +30,7 @@ class AccountForm extends Component {
 
         <TextInput
           type="text"
+          title="name"
           id="name"
           name="Name"
           value={name}
@@ -41,6 +42,7 @@ class AccountForm extends Component {
 
         <TextInput
           type="email"
+          title="Email"
           id="email"
           name="Email"
           value={email}
