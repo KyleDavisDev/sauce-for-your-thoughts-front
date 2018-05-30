@@ -13,6 +13,7 @@ select {
   box-sizing: border-box;
   border: 1px solid #ababab;
   margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 textarea {
@@ -35,6 +36,11 @@ form.form {
     margin: 10px 0px;
   }
 
+  textarea {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
   .container {
     display: flex;
     flex-direction: row;
@@ -48,7 +54,7 @@ form.form {
       }
 
       &__right {
-        padding: 0 15px;
+        // padding: 0 15px;
         width: 66%;
         max-width: 66%;
         display: flex;
@@ -69,7 +75,7 @@ form.form {
           @extend .container__input;
           width: 100%;
           max-width: 100%;
-          padding: 0px;
+          padding: 0 15px;
         }
       }
     }
