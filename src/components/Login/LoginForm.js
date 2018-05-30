@@ -30,20 +30,24 @@ class Form extends Component {
         <h2>Login</h2>
         <TextInput
           id="email"
-          name="Email Adress"
+          name="Email"
+          title="Email"
           onChange={this.handleEmailChange}
           type="email"
           value={email}
+          required={true}
         />
         {this.state.errors.email && (
           <p className="form-error">{this.state.errors.email}</p>
         )}
         <TextInput
           id="password"
+          title="Password"
           name="Password"
           onChange={this.handlePasswordChange}
           type="password"
           value={password}
+          required={true}
         />
         {this.state.errors.password && (
           <p className="form-error">{this.state.errors.password}</p>
