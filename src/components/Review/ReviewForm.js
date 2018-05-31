@@ -134,7 +134,10 @@ class ReviewForm extends Component {
               />
 
               {/* Error message */}
-              {errors.aroma && <p className="form-error">{errors.aroma}</p>}
+              {errors.aroma &&
+                errors.aroma.txt && (
+                  <p className="form-error">{errors.aroma.txt}</p>
+                )}
             </div>
           </div>
         </div>
@@ -160,6 +163,12 @@ class ReviewForm extends Component {
                   name="label"
                   showHelper={true}
                 />
+
+                {/* Error message */}
+                {errors.label &&
+                  errors.label.rating && (
+                    <p className="form-error">{errors.label.rating}</p>
+                  )}
               </div>
 
               <TextInput
@@ -170,10 +179,14 @@ class ReviewForm extends Component {
                 onChange={this.onChange}
                 value={label.txt}
                 required={true}
+                parentRef={input => (this.label = input)}
               />
 
               {/* Error message */}
-              {errors.label && <p className="form-error">{errors.label}</p>}
+              {errors.label &&
+                errors.label.txt && (
+                  <p className="form-error">{errors.label.txt}</p>
+                )}
             </div>
           </div>
         </div>
@@ -199,6 +212,12 @@ class ReviewForm extends Component {
                   name="heat"
                   showHelper={true}
                 />
+
+                {/* Error message */}
+                {errors.heat &&
+                  errors.heat.rating && (
+                    <p className="form-error">{errors.heat.rating}</p>
+                  )}
               </div>
               <TextInput
                 id="heat"
@@ -208,10 +227,14 @@ class ReviewForm extends Component {
                 onChange={this.onChange}
                 value={heat.txt}
                 required={true}
+                parentRef={input => (this.heat = input)}
               />
 
               {/* Error message */}
-              {errors.heat && <p className="form-error">{errors.heat}</p>}
+              {errors.label &&
+                errors.label.txt && (
+                  <p className="form-error">{errors.label.txt}</p>
+                )}
             </div>
           </div>
         </div>
@@ -237,6 +260,12 @@ class ReviewForm extends Component {
                   name="overall"
                   showHelper={true}
                 />
+
+                {/* Error message */}
+                {errors.overall &&
+                  errors.overall.rating && (
+                    <p className="form-error">{errors.overall.rating}</p>
+                  )}
               </div>
               <TextInput
                 id="overall"
@@ -246,10 +275,14 @@ class ReviewForm extends Component {
                 onChange={this.onChange}
                 value={overall.txt}
                 required={true}
+                parentRef={input => (this.overall = input)}
               />
 
               {/* Error message */}
-              {errors.overall && <p className="form-error">{errors.overall}</p>}
+              {errors.overall &&
+                errors.overall.txt && (
+                  <p className="form-error">{errors.overall.txt}</p>
+                )}
             </div>
           </div>
         </div>
@@ -336,10 +369,10 @@ class ReviewForm extends Component {
     e.preventDefault();
 
     const { data } = this.state;
-    console.log(data);
 
     // Check form for errors
     const errors = this.validate({ data });
+    console.log(errors);
 
     // If form has any errors, update state so they will render
     const keys = Object.keys(errors);
@@ -347,6 +380,7 @@ class ReviewForm extends Component {
       this.setState({ ...this.state, errors });
 
       // focus on first error
+      console.log(keys[0], this);
       this[keys[0]].focus();
     }
 
@@ -361,30 +395,20 @@ class ReviewForm extends Component {
   validate = ({ data }) => {
     const errors = {};
 
-    // Name cannot be empty
-    if (validator.isEmpty(data.name)) errors.name = "*Cannot be empty";
-
-    // Maker cannot be empty
-    if (validator.isEmpty(data.maker)) errors.maker = "*Cannot be empty";
-
-    // Description cannot be empty
-    if (validator.isEmpty(data.description))
-      errors.description = "*Cannot be empty";
-
-    // If shu is a number - we don't have any issues
-    const type = Object.prototype.toString.call(data.shu);
-    if (!type === "[object Number]") {
-      // Must be non-number if here
-      // If it has input, it must be a string, not empty, and convertable to a number
-      if (
-        type === "[object String]" &&
-        !validator.isEmpty(data.shu) &&
-        !validator.isNumeric(data.shu)
-      ) {
-        errors.shu = "*Must be a number.";
+    ["aroma", "taste", "label", "heat", "overall"].forEach(criteria => {
+      // Check txt and initiate obj
+      if (validator.isEmpty(data[criteria].txt)) {
+        errors[criteria] = {};
+        errors[criteria].txt = "*Cannot be empty";
       }
-    }
-    // If SHU has input, it must be a number.
+
+      // check rating value and initialize obj if needed
+      const val = data[criteria].rating;
+      if (val < 1 || val > 5) {
+        if (errors[criteria] === undefined) errors[criteria] = {};
+        errors[criteria].rating = "*Must provide rating";
+      }
+    });
 
     return errors;
   };
