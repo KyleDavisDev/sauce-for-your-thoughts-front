@@ -382,8 +382,8 @@ class ReviewForm extends Component {
       this[keys[0]].focus();
     }
 
-    // Call API to submit data
-    // api.reivews.
+    // Call parent onSubmit
+    this.props.onSubmit({ payload: data });
   };
 
   /** @description Validates all data before passing it off.
