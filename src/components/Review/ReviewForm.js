@@ -64,9 +64,14 @@ class ReviewForm extends Component {
                   onClick={this.onRatingChange}
                   value={taste.rating}
                   name="taste"
-                  total={5}
+                  showHelper={true}
                 />
-                <span id="rating__taste" className="rating__label" />
+
+                {/* Error message */}
+                {errors.taste &&
+                  errors.taste.rating && (
+                    <p className="form-error">{errors.taste.rating}</p>
+                  )}
               </div>
               <TextInput
                 id="Taste"
@@ -80,7 +85,10 @@ class ReviewForm extends Component {
               />
 
               {/* Error message */}
-              {errors.taste && <p className="form-error">{errors.taste}</p>}
+              {errors.taste &&
+                errors.taste.txt && (
+                  <p className="form-error">{errors.taste.txt}</p>
+                )}
             </div>
           </div>
         </div>
@@ -104,9 +112,14 @@ class ReviewForm extends Component {
                   onClick={this.onRatingChange}
                   value={aroma.rating}
                   name="aroma"
-                  total={5}
+                  showHelper={true}
                 />
-                <span id="rating__aroma" className="rating__label" />
+
+                {/* Error message */}
+                {errors.aroma &&
+                  errors.aroma.rating && (
+                    <p className="form-error">{errors.aroma.rating}</p>
+                  )}
               </div>
 
               <TextInput
@@ -145,11 +158,10 @@ class ReviewForm extends Component {
                   onClick={this.onRatingChange}
                   value={label.rating}
                   name="label"
-                  total={5}
+                  showHelper={true}
                 />
-                <span id="rating__label" className="rating__label" />
               </div>
-              <span id="rating__label" className="rating__label" />
+
               <TextInput
                 id="Label"
                 name="label"
@@ -185,9 +197,8 @@ class ReviewForm extends Component {
                   onClick={this.onRatingChange}
                   value={heat.rating}
                   name="heat"
-                  total={5}
+                  showHelper={true}
                 />
-                <span id="rating__heat" className="rating__heat" />
               </div>
               <TextInput
                 id="heat"
@@ -224,9 +235,8 @@ class ReviewForm extends Component {
                   onClick={this.onRatingChange}
                   value={overall.rating}
                   name="overall"
-                  total={5}
+                  showHelper={true}
                 />
-                <span id="rating__overall" className="rating__overall" />
               </div>
               <TextInput
                 id="overall"
@@ -326,6 +336,7 @@ class ReviewForm extends Component {
     e.preventDefault();
 
     const { data } = this.state;
+    console.log(data);
 
     // Check form for errors
     const errors = this.validate({ data });
@@ -337,8 +348,6 @@ class ReviewForm extends Component {
 
       // focus on first error
       this[keys[0]].focus();
-
-      return;
     }
 
     // Call API to submit data
