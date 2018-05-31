@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { addReview } from "../../redux/actions/reviews";
 import Auth from "../../Helper/Auth/Auth";
 
 import ReviewForm from "./ReviewForm";
@@ -13,7 +14,13 @@ class Add extends Component {
     // addSauce: PropTypes.func.isRequired,
     history: PropTypes.shape({
       push: PropTypes.func.isRequired
-    }).isRequired
+    }).isRequired,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        slug: PropTypes.string.isRequired
+      }).isRequired
+    }).isRequired,
+    addReview: PropTypes.func.isRequired
   };
 
   componentDidMount() {
@@ -25,87 +32,50 @@ class Add extends Component {
       <div className="inner">
         <h2>Add Sauce</h2>
 
-        <ReviewForm onSubmit={this.handleAddSauceSubmit} />
+        <ReviewForm onSubmit={this.onSubmit} />
         <div className="spacer" />
       </div>
     );
   }
 
   /** @description This creates a formData object to pass to the API
-   *  @param {Object} payload - passed from Form
-   *    @param {String} payload.name - name of sauce
-   *    @param {String} payload.maker - who made the sauce
-   *    @param {String} payload.description - maker's description of the sauce
-   *    @param {String?} payload.ingredients - ingredients of sauce
-   *    @param {Number?} payload.shu - spiciness in Scoville Heat Unit
-   *    @param {Object[]} payload.peppers[] - Primary peppers in sauce
-   *      @param {String} payload.peppers[].name - pepper name
-   *      @param {Bool} payload.peppers[].isChecked - whether pepper is in sauce or not
-   *    @param {Object[]} payload.types[] - Primary peppers in sauce
-   *      @param {String} payload.types[].name - pepper name
-   *      @param {Bool} payload.types[].isChecked - whether pepper is in sauce or not
-   *    @param {Object} payload.location - location object
-   *      @param {Object?} payload.location.country - country sauce was made
-   *      @param {Object?} payload.location.state - state/region sauce was made
-   *      @param {Object?} payload.location.city - city sauce was made
-   *    @param {Object} payload.photo - photo object
-   *      @param {String} payload.photo.name - name of picture
-   *      @param {File} payload.photo.file - picture file
-   *  @param {Bool} addReview - does user want to add a review or not?
+   *  @param {Object} payload - payload obj
+   *    @param {String} payload.taste - taste obj
+   *      @param {String} payload.taste.txt - description of taste
+   *      @param {Number} payload.taste.rating - 1-5 rating
+   *    @param {String} payload.heat - heat obj
+   *      @param {String} payload.heat.txt - description of heat
+   *      @param {Number} payload.heat.rating - 1-5 rating
+   *    @param {String} payload.aroma - aroma obj
+   *      @param {String} payload.aroma.txt - description of aroma
+   *      @param {Number} payload.aroma.rating - 1-5 rating
+   *    @param {String} payload.overall - overall obj
+   *      @param {String} payload.overall.txt - description of overall
+   *      @param {Number} payload.overall.rating - 1-5 rating
+   *    @param {String} payload.label - label obj
+   *      @param {String} payload.label.txt - description of label
+   *      @param {Number} payload.label.rating - 1-5 rating
+   *    @param {String?} payload.note - who made the sauce
    */
-  handleAddSauceSubmit = (payload, addReview) => {
-    // Get array of checked peppers
-    const peppers = payload.peppers
-      .filter(pepper => pepper.isChecked)
-      .map(pepper => pepper.name);
-
-    // Get array of checked types
-    const types = payload.types
-      .filter(type => type.isChecked)
-      .map(type => type.name);
-
+  onSubmit = ({ payload }) => {
     // make sure token is still good/not expired
     if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
 
-    const { name, maker, description, ingredients, shu, location } = payload;
-
-    // construct FormData object since we are passing image file
-    const data = JSON.stringify({
-      sauce: {
-        name,
-        maker,
-        description,
-        ingredients,
-        shu,
-        location,
-        peppers,
-        types
-      },
+    // Construct the data obj
+    const data = {
+      review: payload,
       user: {
         token: this.props.user.token
+      },
+      sauce: {
+        slug: this.props.match.params.slug
       }
-    });
-
-    const formData = new FormData();
-    formData.append("data", data);
-    formData.append("image", payload.photo.file);
+    };
 
     this.props
-      .addSauce(formData)
-      .then(res => {
-        console.log(res);
-        // Go to sauce page if they do not want to add a review
-        if (addReview === false)
-          this.props.history.push(`/sauce/${res.data.sauces[0].slug}`);
-
-        // Go to review page for specific sauce
-      })
-      .catch(err => {
-        console.log(err);
-        // TODO: Better error handling
-        console.log(err.response);
-        console.log(err.response.msg);
-      });
+      .addReview(data)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   };
 }
 
@@ -115,6 +85,6 @@ function mapStateToProps(state) {
   };
 }
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { addReview };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Add);
