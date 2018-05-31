@@ -372,7 +372,6 @@ class ReviewForm extends Component {
 
     // Check form for errors
     const errors = this.validate({ data });
-    console.log(errors);
 
     // If form has any errors, update state so they will render
     const keys = Object.keys(errors);
@@ -380,7 +379,6 @@ class ReviewForm extends Component {
       this.setState({ ...this.state, errors });
 
       // focus on first error
-      console.log(keys[0], this);
       this[keys[0]].focus();
     }
 
