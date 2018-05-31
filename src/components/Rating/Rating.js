@@ -12,6 +12,7 @@ class Rating extends Component {
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
     readOnly: PropTypes.bool,
+    showHelper: PropTypes.bool,
     total: PropTypes.number,
     value: PropTypes.number
   };
@@ -24,7 +25,8 @@ class Rating extends Component {
     onMouseEnter() {},
     onMouseLeave() {},
     readOnly: false,
-    total: 10,
+    showHelper: false,
+    total: 5,
     value: 0
   };
 
@@ -65,7 +67,7 @@ class Rating extends Component {
 
   render() {
     // grab from props
-    const { height, total, readOnly, name } = this.props;
+    const { height, total, readOnly, name, showHelper } = this.props;
     // grab from state
     const { value, displayValue, interacting } = this.state;
 
@@ -101,6 +103,17 @@ class Rating extends Component {
       );
     });
 
+    if (showHelper) {
+      symbols.push(
+        <span
+          id={`rating__${name}`}
+          className="rating__helper"
+          key={shortid.generate()}
+        >
+          {displayValue}
+        </span>
+      );
+    }
     return <div className="star--container">{symbols}</div>;
   }
 
