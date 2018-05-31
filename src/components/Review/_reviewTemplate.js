@@ -1,25 +1,25 @@
 export default {
   aroma: {
-    txt: "",
+    txt: "test aroma value here",
     rating: 0
   },
   taste: {
-    txt: "",
-    rating: 0
+    txt: " test tatse value heree too",
+    rating: 2
   },
   label: {
-    txt: "",
-    rating: 0
+    txt: "the label was pretty good",
+    rating: 1
   },
   heat: {
-    txt: "",
-    rating: 0
+    txt: "not spicy, not not spicy",
+    rating: 4
   },
   overall: {
-    txt: "",
-    rating: 0
+    txt: "pretty dang good i would say",
+    rating: 5
   },
   note: {
-    txt: ""
+    txt: "n/A"
   }
 };
