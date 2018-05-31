@@ -380,6 +380,9 @@ class ReviewForm extends Component {
 
       // focus on first error
       this[keys[0]].focus();
+
+      // Dont submit
+      return;
     }
 
     // Call parent onSubmit
