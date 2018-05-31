@@ -66,7 +66,7 @@ const App = ({ flashMessageVisible }) => (
     <Route exact path="/sauce/:id/edit" component={SauceEdit} />
     <Route exact path="/tags" component={Tags} />
     <Route exact path="/tags/:tag" component={Tags} />
-    <Route exact path="/review/add" component={AddReview} />
+    <Route exact path="/review/add/:slug" component={AddReview} />
     <Route exact path="/register" component={Register} />
     <Route exact path="/account" component={Account} />
     <Route exact path="/account/reset/:token" component={ResetPassword} />
