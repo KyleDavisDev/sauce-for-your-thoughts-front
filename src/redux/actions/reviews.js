@@ -1,8 +1,8 @@
 import api from "../../api/api";
 
-export const addReviews = ({ reviews }) => ({
-  type: "REVIEWS_ADDED",
-  reviews
+export const addedReview = ({ review }) => ({
+  type: "REVIEW_ADDED",
+  review
 });
 
 /** @description add a single review to the DB
@@ -27,25 +27,21 @@ export const addReviews = ({ reviews }) => ({
  *      @param {String} data.review.label.txt - description of label
  *      @param {Number} data.review.label.rating - 1-5 rating
  *    @param {String?} data.review.note - who made the sauce
+ *  @fires reviews#addedReview - add review to store
  *  @returns {Promise}
  *    @returns {NULL}
  */
 export const addReview = data => dispatch =>
   api.review.add(data).then(res => {
+    console.log(res.data.review);
     // format review so reducer can understand it
     const review = {
       byId: {
-        [res.data.review._id]: {
-          _id: res.data.review._id,
-          rating: res.data.review.rating,
-          text: res.data.review.text,
-          author: res.data.review.author,
-          sauce: res.data.review.sauce
-        }
+        [res.data.review._id]: res.data.review
       },
       allIds: [res.data.review._id]
     };
 
     // add review to redux store
-    dispatch(addReviews({ reviews: review }));
+    dispatch(addedReview({ review }));
   });
