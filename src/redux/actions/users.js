@@ -1,4 +1,4 @@
-import api from "../../api/api";
+import api from "../../utils/api/api";
 import { flashSuccess } from "./flash";
 
 export const addUsers = ({ users }) => ({

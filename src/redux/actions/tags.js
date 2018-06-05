@@ -1,4 +1,4 @@
-import api from "../../api/api";
+import api from "../../utils/api/api";
 
 export const gotTagsList = ({ tags }) => ({
   type: "GOT_TAGS_LIST",
@@ -9,12 +9,10 @@ export const cleanedUpTags = () => ({
   type: "CLEANED_UP_TAGS"
 });
 
-export const getTagsList = () => dispatch => {
-  return api.tags.getList().then(res => {
+export const getTagsList = () => dispatch => api.tags.getList().then(res => {
     dispatch(gotTagsList({ tags: res.tags }));
     return res;
   });
-};
 
 export const cleanUpTags = () => dispatch => {
   dispatch(cleanedUpTags());

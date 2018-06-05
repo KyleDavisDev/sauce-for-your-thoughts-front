@@ -1,4 +1,4 @@
-import api from "../../api/api";
+import api from "../../utils/api/api";
 import { flattenSauces, flatChecker } from "./helper";
 import { addReviews } from "./reviews";
 import { addUsers } from "./users";

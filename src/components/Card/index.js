@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ComingSoon from "../../images/photos/ComingSoon.png";
 
-import { host } from "../../api/api";
+import { host } from "../../utils/api/api";
 import Actions from "./Actions";
 
 const index = props => {

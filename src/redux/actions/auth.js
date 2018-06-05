@@ -1,5 +1,5 @@
-import Checker from "../../Helper/Checker/Checker";
-import api from "../../api/api";
+import Checker from "../../utils/Checker/Checker";
+import api from "../../utils/api/api";
 import Auth from "../../Helper/Auth/Auth";
 import { flashSuccess } from "./flash";
 
