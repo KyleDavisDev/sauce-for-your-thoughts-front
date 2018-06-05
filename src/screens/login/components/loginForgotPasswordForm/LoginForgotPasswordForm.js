@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 
-import Auth from "../../../../utils/Auth/Auth";
-import Checker from "../../../../utils/Checker/Checker.js";
+import Auth from "../../../../utils/auth/Auth";
+import Checker from "../../../../utils/checker/Checker";
 import TextInput from "../../../../components/TextInput/TextInput";
 
 class LoginForgotPasswordForm extends Component {

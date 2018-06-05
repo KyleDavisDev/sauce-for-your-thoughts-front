@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import ReviewForm from "./components/reviewAddForm/ReviewAddForm";
 
 import { addReview } from "../../../../redux/actions/reviews";
-import Auth from "../../../../utils/Auth/Auth";
+import Auth from "../../../../utils/auth/Auth";
 
 class ReviewAdd extends Component {
   static propTypes = {

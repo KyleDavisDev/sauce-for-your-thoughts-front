@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { addReview } from "../../../../../../redux/actions/reviews";
 import Rating from "../../../../../../components/Rating/Rating";
-import Auth from "../../../../../../utils/Auth/Auth";
+import Auth from "../../../../../../utils/auth/Auth";
 
 class SubmitReview extends Component {
   constructor(props) {

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import SauceAddForm from "./components/sauceAddForm/SauceAddForm";
 
 import { addSauce } from "../../../../redux/actions/sauces";
-import Auth from "../../../../utils/Auth/Auth";
+import Auth from "../../../../utils/auth/Auth";
 
 class SauceAdd extends Component {
   static propTypes = {
