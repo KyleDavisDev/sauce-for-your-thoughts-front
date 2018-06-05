@@ -3,7 +3,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import Checker from "../../../../utils/Checker/Checker";
+import Checker from "../../../../utils/checker/Checker";
 
 class ResetPasswordForm extends Component {
   render() {
