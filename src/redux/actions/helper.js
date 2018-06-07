@@ -39,20 +39,7 @@ export const flattenSauces = sauces => {
   res.reviews.allIds = [];
   sauces.forEach(sauce => {
     // flatten sauce
-    res.sauces.byId[sauce._id] = {
-      _id: sauce._id,
-      name: sauce.name,
-      slug: sauce.slug,
-      description: sauce.description,
-      photo: sauce.photo || "ComingSoon.png",
-      peppers: sauce.peppers,
-      shu: sauce.shu,
-      author: { _id: sauce.author._id },
-      reviews:
-        sauce.reviews && sauce.reviews.length > 0
-          ? sauce.reviews.map(x => x._id)
-          : []
-    };
+    res.sauces.byId[sauce._id] = sauce;
 
     // add sauce id to array so long as it doesn't already exist in the array
     // (there should never be two sauces with same _id but this is inexpensive safety check)
@@ -74,33 +61,12 @@ export const flattenSauces = sauces => {
       sauce.reviews.forEach(review => {
         // flatten review
         res.reviews.byId[review._id] = {
-          _id: review._id,
-          text: review.text || "",
-          rating: review.rating || 0,
-          author: {
-            _id: review.author && review.author._id ? review.author._id : ""
-          },
-          sauce: {
-            _id: review.sauce && review.sauce._id ? review.sauce._id : ""
-          }
+          _id: review._id
         };
 
         // add review id to array if it doesn't already exist in array
         if (!res.reviews.allIds.includes(review._id)) {
           res.reviews.allIds.push(review._id);
-        }
-
-        // check to see if any authors are attached to reviews
-        // TODO: add more sanity checks to make sure .author is legit
-        if ("author" in review && Object.keys(review.author).length > 0) {
-          // found an author, lets push to our res.authors object
-          res.authors.byId[review.author._id] = {
-            _id: review.author._id,
-            name: review.author.name
-          };
-          // add author id to array if doesn't already exist in array
-          if (!res.authors.allIds.includes(review.author._id))
-            res.authors.allIds.push(review.author._id);
         }
       });
     }
