@@ -9,7 +9,7 @@ import { addUsers } from "./users";
  *  @param {Number?} total - total number of sauces in store
  *  @return Object, sauce and action type
  */
-export const addedSauces = ({ sauces, query = null, total = 1 }) => ({
+export const addedSauces = ({ sauces, query = null, total = null }) => ({
   type: "SAUCES_ADDED",
   sauces,
   query,
@@ -85,9 +85,12 @@ export const getSauces = ({ query }) => dispatch => {
     // construct just-searched query
     const sauceQuery = { [query]: { sauces: sauces.allIds } };
 
+    // get total from response
+    const total = res.data.total || 6;
+
     // make sauces were flattened
     if (flatChecker(sauces)) {
-      dispatch(addedSauces({ sauces, query: sauceQuery }));
+      dispatch(addedSauces({ sauces, query: sauceQuery, total }));
     }
 
     // make sure review were flattened
