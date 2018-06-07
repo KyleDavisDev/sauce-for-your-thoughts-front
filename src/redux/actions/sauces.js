@@ -26,10 +26,6 @@ export const saucesByTagFound = ({ sauces }) => ({
   sauces
 });
 
-export const cleanedUpSauces = () => ({
-  type: "CLEANED_UP_SAUCES"
-});
-
 /** @description Action emitter for when a single sauce is found
  *  @param Object, sauce related information
  *  @returns Object, has sauce info and action type
@@ -123,10 +119,6 @@ export const getSaucesBySearch = searchValue => dispatch =>
       // dipatch event here in future (?)
       res
   );
-
-export const cleanUpSauces = () => dispatch => {
-  dispatch(cleanedUpSauces());
-};
 
 /** @description grab single sauce related to slug
  *  @param {String} slug - keyword to lookup
