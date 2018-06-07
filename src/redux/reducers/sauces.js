@@ -21,7 +21,7 @@ export default function sauces(state = {}, action) {
                 ...state.query,
                 ...action.query
               },
-        total: state.total + action.total
+        total: action.total || state.total
       };
 
     case "UPDATED_SAUCES_ITEM":
