@@ -1,8 +1,13 @@
 import api from "../../utils/api/api";
 
-export const addedReview = ({ review }) => ({
-  type: "REVIEW_ADDED",
-  review
+/** @description add review(s) to store
+ *  @param {Object} reviews - array of review objects
+ *  @param {Object} reviews.byId - object with nested review objects
+ *  @param {String[]} reviews.allIds - array of review key strings
+ */
+export const addedReviews = ({ reviews }) => ({
+  type: "REVIEWS_ADDED",
+  reviews
 });
 
 /** @description add a single review to the DB
@@ -33,7 +38,6 @@ export const addedReview = ({ review }) => ({
  */
 export const addReview = data => dispatch =>
   api.review.add(data).then(res => {
-    console.log(res.data.review);
     // format review so reducer can understand it
     const review = {
       byId: {
@@ -43,5 +47,5 @@ export const addReview = data => dispatch =>
     };
 
     // add review to redux store
-    dispatch(addedReview({ review }));
+    dispatch(addedReviews({ reviews: review }));
   });
