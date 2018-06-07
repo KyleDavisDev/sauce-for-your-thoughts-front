@@ -44,8 +44,9 @@ export const flattenSauces = sauces => {
       name: sauce.name,
       slug: sauce.slug,
       description: sauce.description,
-      photo: sauce.photo,
-      tags: sauce.tags,
+      photo: sauce.photo || "ComingSoon.png",
+      peppers: sauce.peppers,
+      shu: sauce.shu,
       author: { _id: sauce.author._id },
       reviews:
         sauce.reviews && sauce.reviews.length > 0
