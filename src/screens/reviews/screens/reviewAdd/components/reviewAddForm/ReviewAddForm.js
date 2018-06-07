@@ -6,17 +6,7 @@ import _reviewTemplate from "../_reviewAddTemplate/_ReviewAddTemplate";
 
 import TextInput from "../../../../../../components/TextInput/TextInput";
 import Rating from "../../../../../../components/Rating/Rating";
-
-const ContainerLeft = ({ title, desc }) => (
-  <div>
-    <h4>{title}</h4>
-    <span>{desc}</span>
-  </div>
-);
-ContainerLeft.propTypes = {
-  title: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired
-};
+import FormLeft from "../../../../../../components/formLeft/FormLeft.js";
 
 class ReviewAddForm extends Component {
   static propTypes = {
@@ -49,7 +39,7 @@ class ReviewAddForm extends Component {
       >
         <div className="container" id="review__taste">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Taste"
               desc="Can you taste garlic? Are there hints of thyme? Describe what you taste in the sauce."
             />
@@ -97,7 +87,7 @@ class ReviewAddForm extends Component {
 
         <div className="container" id="review__aroma">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Aroma"
               desc="What can you smell in the sauce? Try closing your eyes and wafting the aroma towards your nose? What accents do you pick up?"
             />
@@ -146,7 +136,7 @@ class ReviewAddForm extends Component {
 
         <div className="container" id="sauce__label">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Label"
               desc="How do you feel about the design? Does it speak to you? Does it remind you of anything? How effective does the design convey what the sauce is/is not."
             />
@@ -195,7 +185,7 @@ class ReviewAddForm extends Component {
 
         <div className="container" id="sauce__heat">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Heat"
               desc="How spicy is this sauce? Did you have to run for water? Was it the perfect amount of heat?"
             />
@@ -243,7 +233,7 @@ class ReviewAddForm extends Component {
 
         <div className="container" id="sauce__overall">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Overall"
               desc="What are you overall impressions? How could the sauce improve?"
             />
@@ -291,7 +281,7 @@ class ReviewAddForm extends Component {
 
         <div className="container" id="sauce__note">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Note"
               desc="Have anything else you'd like to add? Include it here!"
             />

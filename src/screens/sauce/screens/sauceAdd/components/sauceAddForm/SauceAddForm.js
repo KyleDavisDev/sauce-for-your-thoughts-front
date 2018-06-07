@@ -9,18 +9,8 @@ import _addTemplate from "../_sauceAddFormTemplate/_SauceAddFormTemplate";
 
 import CheckBoxList from "../../../../../../components/CheckboxList/CheckboxList";
 import TextInput from "../../../../../../components/TextInput/TextInput";
+import FormLeft from "../../../../../../components/formLeft/FormLeft";
 import api from "../../../../../../utils/api/api";
-
-const ContainerLeft = ({ title, desc }) => (
-  <div>
-    <h4>{title}</h4>
-    <span>{desc}</span>
-  </div>
-);
-ContainerLeft.propTypes = {
-  title: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired
-};
 
 class SauceAddForm extends Component {
   static propTypes = {
@@ -89,7 +79,7 @@ class SauceAddForm extends Component {
       >
         <div className="container" id="sauce__details">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Details"
               desc="Information about the sauce only. Sauce name, maker lorum ipusum
               etc etc."
@@ -134,7 +124,7 @@ class SauceAddForm extends Component {
 
         <div className="container" id="sauce__description">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Official Description"
               desc="How does the maker describe the suace and/or flavor? This might be
               found directly on the bottle, a website, in an email, etc. This is NOT your review."
@@ -164,7 +154,7 @@ class SauceAddForm extends Component {
 
         <div className="container" id="sauce__ingredients">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Ingredients"
               desc="Which ingredients make up the sauce? This should be a comma
               seperated list found somewhere on the sauce label."
@@ -188,7 +178,7 @@ class SauceAddForm extends Component {
 
         <div className="container" id="sauce__spice">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Spiciness"
               desc="Is this sauce spicy? How spicy is it? What does the maker say the Scoville Heat Unit (SHU) rating is? Which peppers are primarily used? If this sauce is not spicy, leave blank."
             />
@@ -223,7 +213,7 @@ class SauceAddForm extends Component {
 
         <div className="container" id="sauce__type">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Type"
               desc="What type of sauce is this? What is it primarily used for?"
             />
@@ -246,7 +236,7 @@ class SauceAddForm extends Component {
 
         <div className="container" id="sauce__location">
           <div className="container__left">
-            <ContainerLeft title="Location" desc="Where was the sauce made?" />
+            <FormLeft title="Location" desc="Where was the sauce made?" />
           </div>
           <div className="container__right">
             <div className="container__input">
@@ -292,7 +282,7 @@ class SauceAddForm extends Component {
 
         <div className="container" id="sauce__photo">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Photo"
               desc="If you have a picture of the bottle, please upload it! If the
               picture is unclear, blurry, or missing completely, an admin may
@@ -341,7 +331,7 @@ class SauceAddForm extends Component {
 
         <div className="container" id="sauce__add__review">
           <div className="container__left">
-            <ContainerLeft
+            <FormLeft
               title="Review"
               desc="Would you like to add a review too? Do not review your own sauce. Blatantly altering scores will get your account banned and your review removed. Don't do it."
             />
