@@ -34,4 +34,5 @@ To run in production, run `npm run prod`. This will push the code through (webpa
 - [ ] Investigate more into styled components.
 - [ ] Write 'privacy' page.
 - [ ] Add 'Display Name' for users on signup and as something they are able to update.
+- [x] Impliment 'fractal' code architecture.
 
