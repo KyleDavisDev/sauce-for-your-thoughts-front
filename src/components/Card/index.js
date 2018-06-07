@@ -8,14 +8,15 @@ import { host } from "../../utils/api/api";
 import Actions from "./Actions";
 
 const index = props => {
-  const { sauce, reviews } = props;
+  const { sauce } = props;
+  const photo = sauce.photo || "ComingSoon.png";
 
   return (
     <div className="card">
       <div className="card-hero">
         <Actions sauce={sauce} />
         <img
-          src={`${host}/public/uploads/${sauce.photo}`}
+          src={`${host}/public/uploads/${photo}`}
           onError={e => (e.target.src = ComingSoon)}
           title={sauce.name}
           alt={sauce.name}
@@ -41,23 +42,17 @@ index.propTypes = {
   sauce: PropTypes.shape({
     name: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired,
-    photo: PropTypes.string.isRequired,
+    photo: PropTypes.string,
     slug: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     author: PropTypes.shape({ _id: PropTypes.string.isRequired })
   }).isRequired
-
-  // _id: PropTypes.string.isRequired
-  // displayHeartIcon: PropTypes.bool.isRequired,
-  // heart: PropTypes.bool.isRequired,
-  // toggleSauce: PropTypes.func.isRequired
 };
 
 // TODO figure out how to access author ID before redux sets users
 const mapStateToProps = (state, ownProps) => ({
   user: { token: state.users.self.token },
   sauce: state.sauces.byId[ownProps._id]
-  // reviews: {}
 });
 
 export default connect(mapStateToProps, {})(index);
