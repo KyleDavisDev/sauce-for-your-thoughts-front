@@ -95,18 +95,15 @@ class SauceAdd extends Component {
     this.props
       .addSauce(formData)
       .then(res => {
-        console.log(res);
         // Go to sauce page if they do not want to add a review
         if (addReview === false)
           this.props.history.push(`/sauce/${res.data.sauces[0].slug}`);
 
         // Go to review page for specific sauce
+        this.props.history.push(`/review/add/${res.data.sauces[0].slug}`);
       })
       .catch(err => {
-        console.log(err);
-        // TODO: Better error handling
-        console.log(err.response);
-        console.log(err.response.msg);
+        // TODO better error handling
       });
   };
 }
