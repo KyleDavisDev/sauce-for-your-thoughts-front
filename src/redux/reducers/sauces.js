@@ -3,6 +3,7 @@ export default function sauces(state = {}, action) {
     case "SAUCES_ADDED":
       // action.sauces === {sauce, sauce, sauce}
       return {
+        ...state,
         byId: { ...state.byId, ...action.sauces.byId },
         allIds:
           "allIds" in state && state.allIds.length > 0
@@ -19,25 +20,8 @@ export default function sauces(state = {}, action) {
             : {
                 ...state.query,
                 ...action.query
-              }
-      };
-
-    case "SINGLE_SAUCE_ADDED":
-      // action.sauce === {sauce}
-      return {
-        byId:
-          "byId" in state && Object.keys(state.byId).length > 0
-            ? Object.assign({}, state.byId, action.sauce.byId)
-            : Object.assign({}, action.sauce.byId),
-        allIds:
-          "allIds" in state && state.allIds.length > 0
-            ? [
-                ...state.allIds,
-                ...action.sauces.allIds.filter(
-                  x => state.allIds.indexOf(x) === -1
-                )
-              ]
-            : [...action.sauce.allIds]
+              },
+        total: state.total + action.total
       };
 
     case "UPDATED_SAUCES_ITEM":
