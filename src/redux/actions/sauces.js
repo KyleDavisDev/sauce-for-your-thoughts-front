@@ -1,6 +1,6 @@
 import api from "../../utils/api/api";
 import { flattenSauces, flatChecker } from "./helper";
-import { addReviews } from "./reviews";
+import { addedReviews } from "./reviews";
 import { addUsers } from "./users";
 
 /** @description Add sauce(s) to array of sauces
@@ -79,7 +79,10 @@ export const addSauce = data => dispatch =>
  */
 export const getSauces = ({ query }) => dispatch => {
   api.sauces.get({ query }).then(res => {
+    // flatten data
     const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
+
+    // construct just-searched query
     const sauceQuery = { [query]: { sauces: sauces.allIds } };
 
     // make sauces were flattened
@@ -89,7 +92,7 @@ export const getSauces = ({ query }) => dispatch => {
 
     // make sure review were flattened
     if (flatChecker(reviews)) {
-      dispatch(addReviews({ reviews }));
+      dispatch(addedReviews({ reviews }));
     }
 
     // make sure users were flattened
