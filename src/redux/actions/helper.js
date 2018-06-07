@@ -119,7 +119,7 @@ export const flatChecker = obj => {
   // make sauces were flattened
   if (Object.keys(obj.byId).length === 0 || obj.allIds.length === 0) {
     // TODO: proper error here
-    console.log("object is not flattened");
+    // console.log("object is not flattened");
     return false;
   }
 
