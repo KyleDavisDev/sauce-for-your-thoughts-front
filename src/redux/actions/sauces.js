@@ -54,26 +54,25 @@ export const sauceFound = ({ sauce }) => ({
  *      @param {Number} rating - 0-10 value
  *    @param {Image} photo - actual photo to upload
  *      @param {String} photo.name - name of the photo
- *  @returns {NULL}
+ *  @returns {Promise}
+ *    @returns {Object} Response object
  */
 export const addSauce = data => dispatch =>
   api.sauce.add(data).then(res => {
-    const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
+    // flatten resposne
+    const { sauces, authors } = flattenSauces(res.data.sauces);
 
-    // make sauces were flattened
+    // confirm that sauces were flattened
     if (flatChecker(sauces)) {
-      dispatch(addedSauces({ sauces }));
+      dispatch(addedSauces({ sauces, total: 1, query: null }));
     }
 
-    // make sure review were flattened
-    if (flatChecker(reviews)) {
-      dispatch(addReviews({ reviews }));
-    }
-
-    // make sure users were flattened
+    // confirm that sure users were flattened
     if (flatChecker(authors)) {
       dispatch(addUsers({ users: authors }));
     }
+
+    return res;
   });
 
 /** @description Grab all sauces available (will limit this to only set amount at a time in future)
