@@ -3,10 +3,17 @@ import { flattenSauces, flatChecker } from "./helper";
 import { addReviews } from "./reviews";
 import { addUsers } from "./users";
 
-export const addedSauces = ({ sauces, query = null }) => ({
+/** @description Add sauce(s) to array of sauces
+ *  @param {Object[]} sauces[] - array of sauce objects
+ *  @param {String?} query - query used to get sauces
+ *  @param {Number?} total - total number of sauces in store
+ *  @return Object, sauce and action type
+ */
+export const addedSauces = ({ sauces, query = null, total = 1 }) => ({
   type: "SAUCES_ADDED",
   sauces,
-  query
+  query,
+  total
 });
 
 export const updatedSaucesItems = ({ sauce }) => ({
@@ -21,15 +28,6 @@ export const saucesByTagFound = ({ sauces }) => ({
 
 export const cleanedUpSauces = () => ({
   type: "CLEANED_UP_SAUCES"
-});
-
-/** @description Add single sauce to array of sauces
- *  @param Object, sauce to be added to redux store
- *  @return Object, sauce and action type
- */
-export const addedSingleSauce = ({ sauce }) => ({
-  type: "SINGLE_SAUCE_ADDED",
-  sauce
 });
 
 /** @description Action emitter for when a single sauce is found
@@ -64,7 +62,7 @@ export const addSauce = data => dispatch =>
 
     // confirm that sauces were flattened
     if (flatChecker(sauces)) {
-      dispatch(addedSauces({ sauces, total: 1, query: null }));
+      dispatch(addedSauces({ sauces }));
     }
 
     // confirm that sure users were flattened
