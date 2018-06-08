@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import validator from "validator";
 
 import _reviewTemplate from "../_reviewAddTemplate/_ReviewAddTemplate";
+import FormRatingRight from "../formRatingRight/FormRatingRight";
 
-import TextInput from "../../../../../../components/TextInput/TextInput";
-import Rating from "../../../../../../components/Rating/Rating";
 import FormLeft from "../../../../../../components/formLeft/FormLeft.js";
 
 class ReviewAddForm extends Component {
@@ -45,41 +44,19 @@ class ReviewAddForm extends Component {
             />
           </div>
           <div className="container__right">
-            <div className="container__input__full">
-              <span className="text__upper text__grey w--100 d--block">
-                {"taste rating*"}
-              </span>
-              <div className="rating">
-                <Rating
-                  onClick={this.onRatingChange}
-                  value={taste.rating}
-                  name="taste"
-                  showHelper={true}
-                />
-
-                {/* Error message */}
-                {errors.taste &&
-                  errors.taste.rating && (
-                    <p className="form-error">{errors.taste.rating}</p>
-                  )}
-              </div>
-              <TextInput
-                id="Taste"
-                name="taste"
-                title="description"
-                type="textarea"
-                onChange={this.onChange}
-                value={taste.txt}
-                required={true}
-                parentRef={input => (this.taste = input)}
-              />
-
-              {/* Error message */}
-              {errors.taste &&
-                errors.taste.txt && (
-                  <p className="form-error">{errors.taste.txt}</p>
-                )}
-            </div>
+            <FormRatingRight
+              onClick={this.onRatingChange}
+              name="taste"
+              errors={errors.taste}
+              data={taste}
+              onChange={this.onChange}
+              parentRefRating={input =>
+                this.parentRef(input, "taste", "rating")
+              }
+              parentRefTextArea={input =>
+                this.parentRef(input, "taste", "textarea")
+              }
+            />
           </div>
         </div>
 
@@ -92,43 +69,20 @@ class ReviewAddForm extends Component {
               desc="What can you smell in the sauce? Try closing your eyes and wafting the aroma towards your nose? What accents do you pick up?"
             />
           </div>
-          <div className="container__right pad--0">
-            <div className="container__input__full">
-              <span className="text__upper text__grey w--100 d--block">
-                {"Aroma Rating*"}
-              </span>
-              <div className="rating">
-                <Rating
-                  onClick={this.onRatingChange}
-                  value={aroma.rating}
-                  name="aroma"
-                  showHelper={true}
-                />
-
-                {/* Error message */}
-                {errors.aroma &&
-                  errors.aroma.rating && (
-                    <p className="form-error">{errors.aroma.rating}</p>
-                  )}
-              </div>
-
-              <TextInput
-                id="Aroma"
-                name="aroma"
-                title="Description"
-                type="textarea"
-                onChange={this.onChange}
-                value={aroma.txt}
-                required={true}
-                parentRef={input => (this.aroma = input)}
-              />
-
-              {/* Error message */}
-              {errors.aroma &&
-                errors.aroma.txt && (
-                  <p className="form-error">{errors.aroma.txt}</p>
-                )}
-            </div>
+          <div className="container__right">
+            <FormRatingRight
+              onClick={this.onRatingChange}
+              name="aroma"
+              errors={errors.aroma}
+              data={aroma}
+              onChange={this.onChange}
+              parentRefRating={input =>
+                this.parentRef(input, "aroma", "rating")
+              }
+              parentRefTextArea={input =>
+                this.parentRef(input, "aroma", "textarea")
+              }
+            />
           </div>
         </div>
 
@@ -142,42 +96,19 @@ class ReviewAddForm extends Component {
             />
           </div>
           <div className="container__right">
-            <div className="container__input__full">
-              <span className="text__upper text__grey w--100 d--block">
-                {"Label Rating*"}
-              </span>
-              <div className="rating">
-                <Rating
-                  onClick={this.onRatingChange}
-                  value={label.rating}
-                  name="label"
-                  showHelper={true}
-                />
-
-                {/* Error message */}
-                {errors.label &&
-                  errors.label.rating && (
-                    <p className="form-error">{errors.label.rating}</p>
-                  )}
-              </div>
-
-              <TextInput
-                id="Label"
-                name="label"
-                title="description"
-                type="textarea"
-                onChange={this.onChange}
-                value={label.txt}
-                required={true}
-                parentRef={input => (this.label = input)}
-              />
-
-              {/* Error message */}
-              {errors.label &&
-                errors.label.txt && (
-                  <p className="form-error">{errors.label.txt}</p>
-                )}
-            </div>
+            <FormRatingRight
+              onClick={this.onRatingChange}
+              name="label"
+              errors={errors.label}
+              data={label}
+              onChange={this.onChange}
+              parentRefRating={input =>
+                this.parentRef(input, "label", "rating")
+              }
+              parentRefTextArea={input =>
+                this.parentRef(input, "label", "textarea")
+              }
+            />
           </div>
         </div>
 
@@ -191,41 +122,17 @@ class ReviewAddForm extends Component {
             />
           </div>
           <div className="container__right">
-            <div className="container__input__full">
-              <span className="text__upper text__grey w--100 d--block">
-                {"Heat rating*"}
-              </span>
-              <div className="rating">
-                <Rating
-                  onClick={this.onRatingChange}
-                  value={heat.rating}
-                  name="heat"
-                  showHelper={true}
-                />
-
-                {/* Error message */}
-                {errors.heat &&
-                  errors.heat.rating && (
-                    <p className="form-error">{errors.heat.rating}</p>
-                  )}
-              </div>
-              <TextInput
-                id="heat"
-                name="heat"
-                title="description"
-                type="textarea"
-                onChange={this.onChange}
-                value={heat.txt}
-                required={true}
-                parentRef={input => (this.heat = input)}
-              />
-
-              {/* Error message */}
-              {errors.label &&
-                errors.label.txt && (
-                  <p className="form-error">{errors.label.txt}</p>
-                )}
-            </div>
+            <FormRatingRight
+              onClick={this.onRatingChange}
+              name="heat"
+              errors={errors.heat}
+              data={heat}
+              onChange={this.onChange}
+              parentRefRating={input => this.parentRef(input, "heat", "rating")}
+              parentRefTextArea={input =>
+                this.parentRef(input, "heat", "textarea")
+              }
+            />
           </div>
         </div>
 
@@ -239,41 +146,19 @@ class ReviewAddForm extends Component {
             />
           </div>
           <div className="container__right">
-            <div className="container__input__full">
-              <span className="text__upper text__grey w--100 d--block">
-                {"overall rating*"}
-              </span>
-              <div className="rating">
-                <Rating
-                  onClick={this.onRatingChange}
-                  value={overall.rating}
-                  name="overall"
-                  showHelper={true}
-                />
-
-                {/* Error message */}
-                {errors.overall &&
-                  errors.overall.rating && (
-                    <p className="form-error">{errors.overall.rating}</p>
-                  )}
-              </div>
-              <TextInput
-                id="overall"
-                name="overall"
-                title="description"
-                type="textarea"
-                onChange={this.onChange}
-                value={overall.txt}
-                required={true}
-                parentRef={input => (this.overall = input)}
-              />
-
-              {/* Error message */}
-              {errors.overall &&
-                errors.overall.txt && (
-                  <p className="form-error">{errors.overall.txt}</p>
-                )}
-            </div>
+            <FormRatingRight
+              onClick={this.onRatingChange}
+              name="overall"
+              errors={errors.overall}
+              data={overall}
+              onChange={this.onChange}
+              parentRefRating={input =>
+                this.parentRef(input, "overall", "rating")
+              }
+              parentRefTextArea={input =>
+                this.parentRef(input, "overall", "textarea")
+              }
+            />
           </div>
         </div>
 
@@ -287,16 +172,14 @@ class ReviewAddForm extends Component {
             />
           </div>
           <div className="container__right">
-            <div className="container__input__full">
-              <TextInput
-                id="note"
-                name="note"
-                title="Note"
-                type="textarea"
-                onChange={this.onChange}
-                value={note.txt}
-              />
-            </div>
+            <FormRatingRight
+              onClick={this.onRatingChange}
+              name="label"
+              errors={errors}
+              data={taste}
+              onChange={this.onChange}
+              displayRating={false}
+            />
           </div>
         </div>
 
@@ -366,12 +249,12 @@ class ReviewAddForm extends Component {
     // If form has any errors, update state so they will render
     const keys = Object.keys(errors);
     if (keys.length > 0) {
-      this.setState({ ...this.state, errors });
+      this.setState({ ...this.state, errors }, () => {
+        const temp = Object.keys(errors[keys[0]]); // get keys of first error
+        this[keys[0]][temp].focus(); // focus on first error of first key
+      });
 
-      // focus on first error
-      this[keys[0]].focus();
-
-      // Dont submit
+      // Do not submit form
       return;
     }
 
@@ -402,6 +285,16 @@ class ReviewAddForm extends Component {
     });
 
     return errors;
+  };
+
+  /** @description this is to help assign references to all important inputs/areas
+   *  @param {Node} input - either div or textarea
+   *  @param {String} name - name of reference object that will be created
+   *  @param {String} type - whether the reference is for a div or textarea
+   */
+  parentRef = (input, name, type) => {
+    if (!this[name]) this[name] = {};
+    this[name][type] = input;
   };
 }
 
