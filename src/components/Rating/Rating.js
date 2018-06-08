@@ -96,7 +96,6 @@ class Rating extends Component {
           }
           disabled={readOnly}
           className={readOnly ? "disabled" : ""}
-          name={name}
         >
           <Star height={height} className={className} />
         </button>
@@ -114,7 +113,11 @@ class Rating extends Component {
         </span>
       );
     }
-    return <div className="star--container">{symbols}</div>;
+    return (
+      <div className="star--container" name={name}>
+        {symbols}
+      </div>
+    );
   }
 
   onClick = (index, event) => {
