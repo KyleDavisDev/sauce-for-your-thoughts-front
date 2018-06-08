@@ -31,7 +31,7 @@ class ReviewAdd extends Component {
   render() {
     return (
       <div className="inner">
-        <h2>Add Sauce</h2>
+        <h2>Add Review</h2>
 
         <ReviewForm onSubmit={this.onSubmit} />
         <div className="spacer" />
