@@ -7,10 +7,12 @@ class Rating extends Component {
   static propTypes = {
     displayValue: PropTypes.number,
     height: PropTypes.number,
+    id: PropTypes.string,
     name: PropTypes.string,
     onClick: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
+    parentRef: PropTypes.func,
     readOnly: PropTypes.bool,
     showHelper: PropTypes.bool,
     total: PropTypes.number,
@@ -20,10 +22,12 @@ class Rating extends Component {
   static defaultProps = {
     displayValue: 0,
     height: 50,
+    id: "",
     name: "",
     onClick() {},
     onMouseEnter() {},
     onMouseLeave() {},
+    parentRef() {},
     readOnly: false,
     showHelper: false,
     total: 5,
@@ -67,7 +71,16 @@ class Rating extends Component {
 
   render() {
     // grab from props
-    const { height, total, readOnly, name, showHelper } = this.props;
+    const {
+      height,
+      total,
+      readOnly,
+      name,
+      showHelper,
+      parentRef,
+      id
+    } = this.props;
+
     // grab from state
     const { value, displayValue, interacting } = this.state;
 
@@ -114,7 +127,13 @@ class Rating extends Component {
       );
     }
     return (
-      <div className="star--container" name={name}>
+      <div
+        className="star--container"
+        name={name}
+        ref={parentRef}
+        id={id}
+        tabIndex="0" // allow div to be focused on
+      >
         {symbols}
       </div>
     );
