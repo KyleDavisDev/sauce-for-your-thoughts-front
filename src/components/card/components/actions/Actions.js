@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Pencil from "../../images/icons/Pencil.js";
-import { Heart, FilledHeart } from "../../images/icons/Heart";
-import { toggleHeart } from "../../redux/actions/users";
+
+import Pencil from "../../../../images/icons/Pencil.js";
+import { Heart, FilledHeart } from "../../../../images/icons/Heart";
+import { toggleHeart } from "../../../../redux/actions/users";
 
 class Actions extends Component {
   static propTypes = {
