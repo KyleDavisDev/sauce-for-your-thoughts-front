@@ -9,7 +9,7 @@ import Pagination from "./components/pagination/Pagination";
 import { getSauces } from "../../redux/actions/sauces";
 import { flashError } from "../../redux/actions/flash";
 import { getInfo, toggleSauce, getHearts } from "../../redux/actions/users";
-import Card from "../../components/Card/index.js";
+import Card from "../../components/card/Card.js";
 
 class Sauces extends Component {
   static propTypes = {
