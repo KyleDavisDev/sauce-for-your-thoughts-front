@@ -174,11 +174,12 @@ class ReviewAddForm extends Component {
           <div className="container__right">
             <FormRatingRight
               onClick={this.onRatingChange}
-              name="label"
+              name="note"
               errors={errors}
-              data={taste}
+              data={note}
               onChange={this.onChange}
               displayRating={false}
+              required={false}
             />
           </div>
         </div>
