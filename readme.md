@@ -23,7 +23,7 @@ To run in production, run `npm run prod`. This will push the code through (webpa
 - [x] Allow users to submit review directly on sauce page.
 - [x] Add query limit when looking at sauces (i.e. Don't pull all of the sauces at once)
 - [ ] Add user pages.
-- [ ] Finalize a structure for src folder.
+- [x] Finalize a structure for src folder.
 - [ ] Add content to website home page.
 - [ ] Improve design / improve brand identity.
 - [ ] Improve how the search feature works.
