@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import ComingSoon from "../../images/photos/ComingSoon.png";
 
 import { host } from "../../utils/api/api";
-import Actions from "./Actions";
+import Actions from "./components/actions/Actions";
 
-const index = props => {
+const Card = props => {
   const { sauce } = props;
   const photo = sauce.photo || "ComingSoon.png";
 
@@ -22,7 +22,7 @@ const index = props => {
           alt={sauce.name}
         />
         <div className="sauce-title">
-          <Link to={`/sauce/${sauce.slug}`}>{sauce.name}</Link>
+          <Link to={`/sauce/single/${sauce.slug}`}>{sauce.name}</Link>
         </div>
       </div>
       <div className="card-details">
@@ -38,7 +38,7 @@ const index = props => {
   );
 };
 
-index.propTypes = {
+Card.propTypes = {
   sauce: PropTypes.shape({
     name: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired,
@@ -55,4 +55,4 @@ const mapStateToProps = (state, ownProps) => ({
   sauce: state.sauces.byId[ownProps._id]
 });
 
-export default connect(mapStateToProps, {})(index);
+export default connect(mapStateToProps, {})(Card);
