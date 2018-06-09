@@ -32,9 +32,8 @@ class SauceSingle extends Component {
       _id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      photo: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+      photo: PropTypes.string,
+      slug: PropTypes.string.isRequired
     }).isRequired,
     user: PropTypes.shape({
       token: PropTypes.string.isRequired
@@ -89,9 +88,9 @@ class SauceSingle extends Component {
           {Object.keys(this.props.sauce).length > 0 && (
             <div className="inner">
               <p>{this.props.sauce.description}</p>
-              {this.props.sauce.tags.length > 0 && (
+              {/* {this.props.sauce.tags.length > 0 && (
                 <GenerateTagsList tags={this.props.sauce.tags} />
-              )}
+              )} */}
             </div>
           )}
 
