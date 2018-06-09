@@ -20,52 +20,64 @@ class RegisterForm extends Component {
 
   render() {
     return (
-      <form className="form" onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit} id="register">
         <h2>Register</h2>
 
-        <TextInput
-          name="Name"
-          onChange={this.handleNameChange}
-          value={this.state.data.name}
-          type="text"
-          id="name"
-        />
-        {this.state.errors.name && (
-          <p className="form-error">*{this.state.errors.name}</p>
-        )}
+        <div className="mb--md">
+          <TextInput
+            name="Name"
+            title="name"
+            onChange={this.handleNameChange}
+            value={this.state.data.name}
+            type="text"
+            id="name"
+          />
+          {this.state.errors.name && (
+            <p className="form-error">*{this.state.errors.name}</p>
+          )}
+        </div>
 
-        <TextInput
-          name="Email Address"
-          onChange={this.handleEmailChange}
-          value={this.state.data.email}
-          type="email"
-          id="email"
-        />
-        {this.state.errors.email && (
-          <p className="form-error">*{this.state.errors.email}</p>
-        )}
+        <div className="mb--md">
+          <TextInput
+            name="Email Address"
+            title="email address"
+            onChange={this.handleEmailChange}
+            value={this.state.data.email}
+            type="email"
+            id="email"
+          />
+          {this.state.errors.email && (
+            <p className="form-error">*{this.state.errors.email}</p>
+          )}
+        </div>
 
-        <TextInput
-          name="Password"
-          onChange={this.handlePasswordChange}
-          value={this.state.data.password}
-          type="password"
-          id="password"
-        />
-        {this.state.errors.password && (
-          <p className="form-error">*{this.state.errors.password}</p>
-        )}
+        <div className="mb--md">
+          <TextInput
+            name="Password"
+            title="password"
+            onChange={this.handlePasswordChange}
+            value={this.state.data.password}
+            type="password"
+            id="password"
+          />
+          {this.state.errors.password && (
+            <p className="form-error">*{this.state.errors.password}</p>
+          )}
+        </div>
 
-        <TextInput
-          name="Confirm Password"
-          onChange={this.handleConfirmPasswordChange}
-          value={this.state.data.confirmPassword}
-          type="password"
-          id="confirmPassword"
-        />
-        {this.state.errors.confirmPassword && (
-          <p className="form-error">*{this.state.errors.confirmPassword}</p>
-        )}
+        <div className="mb--md">
+          <TextInput
+            name="Confirm Password"
+            title="confirm password"
+            onChange={this.handleConfirmPasswordChange}
+            value={this.state.data.confirmPassword}
+            type="password"
+            id="confirmPassword"
+          />
+          {this.state.errors.confirmPassword && (
+            <p className="form-error">*{this.state.errors.confirmPassword}</p>
+          )}
+        </div>
 
         <button type="submit" className="button button--submit">
           Register ->
