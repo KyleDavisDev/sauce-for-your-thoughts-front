@@ -8,9 +8,10 @@ class FormRatingRight extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     data: PropTypes.shape({
-      rating: PropTypes.number.isRequired,
+      rating: PropTypes.number,
       txt: PropTypes.string.isRequired
     }).isRequired,
+    displayRating: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     errors: PropTypes.shape({
@@ -18,45 +19,54 @@ class FormRatingRight extends React.Component {
       ratting: PropTypes.string
     }),
     parentRefRating: PropTypes.func,
-    parentRefTextArea: PropTypes.func
+    parentRefTextArea: PropTypes.func,
+    required: PropTypes.bool
   };
 
   static defaultProps = {
+    displayRating: true,
     errors: null,
     parentRefRating: () => {},
-    parentRefTextArea: () => {}
+    parentRefTextArea: () => {},
+    required: true
   };
 
   render() {
     const {
       data,
+      displayRating,
+      errors,
       name,
       onClick,
-      errors,
       onChange,
       parentRefRating,
-      parentRefTextArea
+      parentRefTextArea,
+      required
     } = this.props;
 
     return (
       <div className="container__input__full">
-        <span className="text__upper text__grey w--100 d--block">
-          {`${name} rating*`}
-        </span>
-        <div className="rating">
-          <Rating
-            id={`${name}__rating`}
-            onClick={onClick}
-            value={data.rating}
-            name={name}
-            showHelper={true}
-            parentRef={parentRefRating}
-          />
+        {displayRating && (
+          <div>
+            <span className="text__upper text__grey w--100 d--block">
+              {`${name} rating*`}
+            </span>
 
-          {/* Error message */}
-          {errors &&
-            errors.rating && <p className="form-error">{errors.rating}</p>}
-        </div>
+            <div className="rating">
+              <Rating
+                id={`${name}__rating`}
+                onClick={onClick}
+                value={data.rating || 0}
+                name={name}
+                showHelper={true}
+                parentRef={parentRefRating}
+              />
+              {/* Error message */}
+              {errors &&
+                errors.rating && <p className="form-error">{errors.rating}</p>}
+            </div>
+          </div>
+        )}
         <TextInput
           id={`${name}__textarea`}
           name={name}
@@ -64,7 +74,7 @@ class FormRatingRight extends React.Component {
           type="textarea"
           onChange={onChange}
           value={data.txt}
-          required={true}
+          required={required}
           parentRef={parentRefTextArea}
         />
 
