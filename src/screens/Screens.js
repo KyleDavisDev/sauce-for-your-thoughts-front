@@ -58,7 +58,7 @@ const Login = Loadable({
 
 // Register
 const Register = Loadable({
-  loader: () => System.import("./Register/Register"),
+  loader: () => System.import("./register/Register"),
   loading: Loading
 });
 
