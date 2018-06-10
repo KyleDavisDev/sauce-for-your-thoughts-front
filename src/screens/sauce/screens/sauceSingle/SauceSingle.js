@@ -7,7 +7,6 @@ import SubmitReview from "./components/submitReview/SubmitReview";
 import UserReview from "./components/userReview/UserReview";
 
 import { getSauceBySlug } from "../../../../redux/actions/sauces";
-import { flashError } from "../../../../redux/actions/flash";
 import { host } from "../../../../utils/api/api";
 import ComingSoon from "../../../../images/photos/ComingSoon.png";
 
@@ -52,8 +51,7 @@ class SauceSingle extends Component {
         slug: PropTypes.string
       }).isRequired
     }).isRequired,
-    getSauceBySlug: PropTypes.func.isRequired,
-    flashError: PropTypes.func.isRequired
+    getSauceBySlug: PropTypes.func.isRequired
   };
 
   componentDidMount() {
@@ -116,7 +114,6 @@ class SauceSingle extends Component {
   getSauceBySlug = ({ slug }) => {
     this.props.getSauceBySlug(slug).catch(err => {
       console.log(err);
-      // this.props.flashError({ text: err.response.data.msg });
     });
   };
 }
@@ -167,8 +164,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = {
-  getSauceBySlug,
-  flashError
+  getSauceBySlug
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SauceSingle);
