@@ -87,35 +87,36 @@ class SauceSingle extends Component {
     return (
       <div className="inner">
         <div className="single">
-          <SingleHero />
+          <SingleHero sauce={sauce} />
         </div>
 
-        <div className="single--details">
-          {/* description & tags */}
-          {sauce &&
-            Object.keys(sauce).length > 0 && (
-              <div className="inner">
-                <p>{sauce.description}</p>
-                {/* {sauce.tags.length > 0 && (
+        {/* <div className="single--details"> */}
+        {/* description & tags */}
+        {sauce &&
+          false &&
+          Object.keys(sauce).length > 0 && (
+            <div className="inner">
+              <p>{sauce.description}</p>
+              {/* {sauce.tags.length > 0 && (
                 <GenerateTagsList tags={sauce.tags} />
               )} */}
-              </div>
-            )}
+            </div>
+          )}
 
-          {/* Add review */}
-          {sauce &&
+        {/* Add review */}
+        {/* {sauce &&
             Object.keys(sauce).length > 0 &&
-            this.props.user.token && <SubmitReview sauceID={sauce._id} />}
+            this.props.user.token && <SubmitReview sauceID={sauce._id} />} */}
 
-          {/* All of the user reviews */}
-          <div className="reviews">
+        {/* All of the user reviews */}
+        {/* <div className="reviews">
             {this.props.reviews &&
               this.props.reviews.length > 0 &&
               this.props.reviews.map(review => (
                 <UserReview _id={review._id} key={review._id} />
               ))}
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
     );
   }
@@ -160,7 +161,4 @@ const mapDispatchToProps = {
   getSauceBySlug
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SauceSingle);
+export default connect(mapStateToProps, mapDispatchToProps)(SauceSingle);
