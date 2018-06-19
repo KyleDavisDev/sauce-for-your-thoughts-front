@@ -136,7 +136,7 @@ export const getSauceBySlug = slug => dispatch =>
 
     // make sure review were flattened
     if (flatChecker(reviews)) {
-      dispatch(addReviews({ reviews }));
+      dispatch(addedReviews({ reviews }));
     }
 
     // make sure users were flattened
