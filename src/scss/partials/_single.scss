@@ -1,11 +1,11 @@
 .single {
-  background-color: #d8bea2;
+  background-color: #e3d1bd;
   background-image: url(../../images/photos/grey-sandbag-1.png);
   padding: 40px;
+  position: relative;
 
   .hero {
     &__container {
-      // display: flex;
       background-color: #fff;
       background-image: url(../../images/photos/simple-horizontal-light.png);
       box-shadow: inset 0px 0px 4px 2px rgba(170, 170, 170, 1);
@@ -100,5 +100,12 @@
   }
 
   .feed {
+    position: inherit;
+    &__container {
+      background-color: #dfcbb4;
+      background-image: url(../../images/photos/simple-vertical-light.png);
+      box-shadow: inset 0px 0px 4px 2px rgba(170, 170, 170, 1);
+      padding: 20px;
+    }
   }
 }
