@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import Fire from "react-icons/lib/io/fireball";
@@ -86,10 +86,10 @@ const SingleInformation = ({ sauce }) => {
     <div />
   );
 };
-SingleInformation.prototype = {
+SingleInformation.propTypes = {
   sauce: PropTypes.shape({
     maker: PropTypes.string.isRequired,
-    shu: PropTypes.number,
+    shu: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     location: PropTypes.shape({
       city: PropTypes.string,
       state: PropTypes.string,
@@ -97,7 +97,7 @@ SingleInformation.prototype = {
     }).isRequired,
     description: PropTypes.string.isRequired,
     peppers: PropTypes.arrayOf(PropTypes.string)
-  }).isRequired
+  })
 };
 SingleInformation.defaultProps = {
   sauce: {
