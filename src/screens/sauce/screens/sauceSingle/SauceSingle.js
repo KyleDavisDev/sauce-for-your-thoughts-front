@@ -38,13 +38,34 @@ class SauceSingle extends Component {
     }).isRequired,
     reviews: PropTypes.arrayOf(
       PropTypes.shape({
+        aroma: PropTypes.shape({
+          txt: PropTypes.string.isRequired,
+          rating: PropTypes.number.isRequired
+        }).isRequired,
+        label: PropTypes.shape({
+          txt: PropTypes.string.isRequired,
+          rating: PropTypes.number.isRequired
+        }).isRequired,
+        taste: PropTypes.shape({
+          txt: PropTypes.string.isRequired,
+          rating: PropTypes.number.isRequired
+        }).isRequired,
+        heat: PropTypes.shape({
+          txt: PropTypes.string.isRequired,
+          rating: PropTypes.number.isRequired
+        }).isRequired,
+        overall: PropTypes.shape({
+          txt: PropTypes.string.isRequired,
+          rating: PropTypes.number.isRequired
+        }).isRequired,
+        note: PropTypes.shape({
+          txt: PropTypes.string.isRequired
+        }).isRequired,
         _id: PropTypes.string.isRequired,
-        rating: PropTypes.number.isRequired,
-        text: PropTypes.string.isRequired,
         sauce: PropTypes.shape({ _id: PropTypes.string.isRequired }).isRequired,
         author: PropTypes.shape({ _id: PropTypes.string.isRequired }).isRequired
       }).isRequired
-    ).isRequired,
+    ),
     match: PropTypes.shape({
       params: PropTypes.shape({
         slug: PropTypes.string
@@ -67,7 +88,20 @@ class SauceSingle extends Component {
       reviews: [],
       description: "",
       photo: ""
-    }
+    },
+    reviews: [
+      {
+        heat: { txt: "", rating: 0 },
+        aroma: { txt: "", rating: 0 },
+        label: { txt: "", rating: 0 },
+        taste: { txt: "", rating: 0 },
+        overall: { txt: "", rating: 0 },
+        note: { txt: "" },
+        _id: "",
+        sauce: { _id: "" },
+        author: { _id: "" }
+      }
+    ]
   };
 
   componentDidMount() {
