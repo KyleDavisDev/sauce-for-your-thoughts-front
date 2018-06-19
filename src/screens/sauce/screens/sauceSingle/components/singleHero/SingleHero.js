@@ -56,7 +56,9 @@ class SingleHero extends React.Component {
             <div className="hero__container">
               <div className="hero__header">
                 <h3 className="hero__title">
-                  <Link to={sauce.slug || "#"}>{sauce.name || "Loading..."}</Link>
+                  <Link to={sauce.slug || "#"}>
+                    {sauce.name || "Loading..."}
+                  </Link>
                 </h3>
               </div>
               <div className="hero__content">
