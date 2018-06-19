@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Fire from "react-icons/lib/fa/fire";
+
+import SingleInformation from "./components/singleInformation/SingleInformation";
 
 import { host } from "../../../../../../utils/api/api";
 import ComingSoon from "../../../../../../images/photos/ComingSoon.png";
@@ -24,17 +25,7 @@ const SingleHero = ({ sauce }) => (
               onError={e => (e.target.src = ComingSoon)}
             />
           </div>
-          <div className="single__information">
-            <div className="single__item">
-              <div className="item__icon">
-                <Fire />
-              </div>
-              <div className="item__body">
-                <div className="item__title">Heat</div>
-                <div className="item__desc">description stuff</div>
-              </div>
-            </div>
-          </div>
+          <SingleInformation sauce={sauce} />
         </div>
       </div>
     )}
