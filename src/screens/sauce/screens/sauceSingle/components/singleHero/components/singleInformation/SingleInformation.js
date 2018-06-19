@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import Fire from "react-icons/lib/io/fireball";
 import Thermometer from "react-icons/lib/io/thermometer";
@@ -84,6 +85,26 @@ const SingleInformation = ({ sauce }) => {
   ) : (
     <div />
   );
+};
+SingleInformation.prototype = {
+  sauce: PropTypes.shape({
+    maker: PropTypes.string.isRequired,
+    shu: PropTypes.number,
+    location: PropTypes.shape({
+      city: PropTypes.string,
+      state: PropTypes.string,
+      country: PropTypes.string
+    }).isRequired,
+    description: PropTypes.string.isRequired,
+    peppers: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired
+};
+SingleInformation.defaultProps = {
+  sauce: {
+    shu: 0,
+    location: { city: "", state: "", country: "" },
+    peppers: [""]
+  }
 };
 
 export default SingleInformation;
