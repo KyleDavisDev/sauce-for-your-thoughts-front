@@ -60,9 +60,7 @@ export const flattenSauces = sauces => {
       // loop through array of reviews
       sauce.reviews.forEach(review => {
         // flatten review
-        res.reviews.byId[review._id] = {
-          _id: review._id
-        };
+        res.reviews.byId[review._id] = review;
 
         // add review id to array if it doesn't already exist in array
         if (!res.reviews.allIds.includes(review._id)) {
