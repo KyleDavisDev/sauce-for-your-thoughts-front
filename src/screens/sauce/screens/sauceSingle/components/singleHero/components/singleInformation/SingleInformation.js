@@ -10,9 +10,9 @@ import Description from "react-icons/lib/io/information";
 const SingleInformation = ({ sauce }) => {
   const keys = Object.keys(sauce); // make sure we were actually passed something
   return keys ? (
-    <div className="single__information">
+    <div className="hero__information">
       {/* Maker */}
-      <div className="single__item">
+      <div className="hero__item">
         <div className="item__icon">
           <Maker />
         </div>
@@ -23,7 +23,7 @@ const SingleInformation = ({ sauce }) => {
       </div>
 
       {/* Description */}
-      <div className="single__item">
+      <div className="hero__item">
         <div className="item__icon">
           <Description />
         </div>
@@ -34,7 +34,7 @@ const SingleInformation = ({ sauce }) => {
       </div>
 
       {/* Heat */}
-      <div className="single__item">
+      <div className="hero__item">
         <div className="item__icon">
           <Thermometer />
         </div>
@@ -45,7 +45,7 @@ const SingleInformation = ({ sauce }) => {
       </div>
 
       {/* Peppers */}
-      <div className="single__item">
+      <div className="hero__item">
         <div className="item__icon">
           <Fire />
         </div>
@@ -62,7 +62,7 @@ const SingleInformation = ({ sauce }) => {
       </div>
 
       {/* Location */}
-      <div className="single__item">
+      <div className="hero__item">
         <div className="item__icon">
           <Compass />
         </div>
