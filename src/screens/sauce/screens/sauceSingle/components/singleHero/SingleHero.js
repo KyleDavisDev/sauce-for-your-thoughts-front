@@ -35,7 +35,16 @@ SingleHero.propTypes = {
   sauce: PropTypes.shape({
     name: PropTypes.string.isRequired,
     photo: PropTypes.string,
-    slug: PropTypes.string.isRequired
+    slug: PropTypes.string.isRequired,
+    maker: PropTypes.string.isRequired,
+    shu: PropTypes.number,
+    location: PropTypes.shape({
+      city: PropTypes.string,
+      state: PropTypes.string,
+      country: PropTypes.string
+    }).isRequired,
+    description: PropTypes.string.isRequired,
+    peppers: PropTypes.arrayOf(PropTypes.string)
   })
 };
 
@@ -43,7 +52,10 @@ SingleHero.defaultProps = {
   sauce: {
     name: "",
     photo: "",
-    slug: ""
+    slug: "",
+    shu: 0,
+    location: { city: "", state: "", country: "" },
+    peppers: [""]
   }
 };
 
