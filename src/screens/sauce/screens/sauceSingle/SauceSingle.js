@@ -4,10 +4,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import SingleHero from "./components/singleHero/SingleHero";
+import SingleReviewFeed from "./components/singleReviewFeed/SingleReviewFeed";
 import SubmitReview from "./components/submitReview/SubmitReview";
 import UserReview from "./components/userReview/UserReview";
-
-import { getSauceBySlug } from "../../../../redux/actions/sauces";
 
 const GenerateTagsList = ({ tags }) => (
   <ul className="tags">
@@ -26,13 +25,6 @@ GenerateTagsList.propTypes = {
 
 class SauceSingle extends Component {
   static propTypes = {
-    sauce: PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      photo: PropTypes.string,
-      slug: PropTypes.string.isRequired
-    }),
     user: PropTypes.shape({
       token: PropTypes.string.isRequired
     }).isRequired,
@@ -70,25 +62,10 @@ class SauceSingle extends Component {
       params: PropTypes.shape({
         slug: PropTypes.string
       }).isRequired
-    }).isRequired,
-    getSauceBySlug: PropTypes.func.isRequired
+    }).isRequired
   };
 
   static defaultProps = {
-    sauce: {
-      _id: "",
-      slug: "",
-      author: { _id: "", name: "" },
-      name: "",
-      maker: "",
-      shu: 0,
-      types: [],
-      peppers: [],
-      location: { state: "", city: "", country: "" },
-      reviews: [],
-      description: "",
-      photo: ""
-    },
     reviews: [
       {
         heat: { txt: "", rating: 0 },
@@ -104,24 +81,15 @@ class SauceSingle extends Component {
     ]
   };
 
-  componentDidMount() {
-    // save API call if we already have sauce and reviews in redux store
-    if (
-      (this.props.sauce && this.props.sauce._id.length === 0) ||
-      this.props.reviews.length === 0
-    ) {
-      const { slug } = this.props.match.params;
-      this.getSauceBySlug({ slug });
-    }
-  }
-
   render() {
     const { sauce } = this.props;
 
     return (
       <div className="inner">
         <div className="single">
-          <SingleHero sauce={sauce} />
+          <SingleHero slug={this.props.match.params.slug} />
+
+          <SingleReviewFeed />
         </div>
 
         {/* <div className="single--details"> */}
@@ -154,45 +122,21 @@ class SauceSingle extends Component {
       </div>
     );
   }
-
-  getSauceBySlug = ({ slug }) => {
-    this.props.getSauceBySlug(slug).catch(err => {
-      console.log(err);
-    });
-  };
 }
 
-// TODO figure out better way to organize this
-const mapStateToProps = (state, ownProps) => {
-  // get the ID of the sauce that matches the page slug
-  const sauceID =
-    state.sauces.allIds.length > 0 && //
-    Object.keys(state.sauces.byId).length > 0 && // This should definitely pass if the above passed
-    state.sauces.allIds.find(
-      // Find the sauce with the matching slug
-      x => state.sauces.byId[x].slug === ownProps.match.params.slug
-    );
-
+const mapStateToProps = state => {
   // init reviews
-  const reviews = sauceID ? state.sauces.byId[sauceID].reviews : [];
-
-  const sauce = sauceID // find specific sauce or set default values
-    ? state.sauces.byId[sauceID]
-    : null;
+  // const reviews = sauceID ? state.sauces.byId[sauceID].reviews : [];
 
   const user = {
     token: state.users.self.token || ""
   };
 
   return {
-    user,
-    sauce,
-    reviews
+    user
   };
 };
 
-const mapDispatchToProps = {
-  getSauceBySlug
-};
+const mapDispatchToProps = {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SauceSingle);
