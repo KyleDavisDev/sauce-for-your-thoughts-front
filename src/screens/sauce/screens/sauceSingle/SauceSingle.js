@@ -67,28 +67,15 @@ class SauceSingle extends Component {
   };
 
   render() {
-    const { sauce } = this.props;
-
     return (
       <div className="inner">
         <div className="single">
           <SingleHero slug={this.props.match.params.slug} />
 
+          {/* <div className="spacer" /> */}
+
           <SingleReviewFeed />
         </div>
-
-        {/* <div className="single--details"> */}
-        {/* description & tags */}
-        {sauce &&
-          false &&
-          Object.keys(sauce).length > 0 && (
-            <div className="inner">
-              <p>{sauce.description}</p>
-              {/* {sauce.tags.length > 0 && (
-                <GenerateTagsList tags={sauce.tags} />
-              )} */}
-            </div>
-          )}
 
         {/* Add review */}
         {/* {sauce &&
