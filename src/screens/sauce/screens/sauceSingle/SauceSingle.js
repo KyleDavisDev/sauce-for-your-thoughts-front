@@ -8,21 +8,6 @@ import SingleReviewFeed from "./components/singleReviewFeed/SingleReviewFeed";
 import SubmitReview from "./components/submitReview/SubmitReview";
 import UserReview from "./components/userReview/UserReview";
 
-const GenerateTagsList = ({ tags }) => (
-  <ul className="tags">
-    {tags.map(tag => (
-      <li className="tag" key={tag}>
-        <Link to={`/tags/${tag}`} className="tag-link">
-          <span className="tag-text">#{tag}</span>
-        </Link>
-      </li>
-    ))}
-  </ul>
-);
-GenerateTagsList.propTypes = {
-  tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
-};
-
 class SauceSingle extends Component {
   static propTypes = {
     user: PropTypes.shape({
