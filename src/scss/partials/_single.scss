@@ -8,7 +8,8 @@
     &__container {
       background-color: #fff;
       background-image: url(../../images/photos/simple-horizontal-light.png);
-      box-shadow: inset 0px 0px 4px 2px rgba(170, 170, 170, 1);
+      // box-shadow: inset 0px 0px 4px 1px rgba(170, 170, 170, 1);
+      border: 1px solid #aaa;
       padding: 20px;
       transform: rotate(-2deg);
       -webkit-backface-visibility: inherit;
@@ -31,20 +32,21 @@
       }
 
       .hero__image__container {
-        max-width: 50%;
+        max-width: 33%;
 
         .hero__image {
           box-sizing: border-box;
           padding: 10px;
-          box-shadow: inset 0px 0px 4px 2px rgba(170, 170, 170, 1);
+          // box-shadow: inset 0px 0px 4px 1px rgba(170, 170, 170, 1);
+          border: 1px solid #aaa;
           max-width: 100%;
           width: 100%;
         }
       }
 
       .hero__information {
-        width: 50%;
-        max-width: 50%;
+        width: 66%;
+        max-width: 66%;
       }
     }
 
@@ -99,12 +101,22 @@
     }
   }
 
+  .spacer {
+    padding: 15px 0px;
+  }
+
   .feed {
     position: inherit;
+    // margin-top: 200px;
+    overflow: hidden;
     &__container {
+      // margin: 0 200px 200px 200px;
       background-color: #dfcbb4;
       background-image: url(../../images/photos/simple-vertical-light.png);
-      box-shadow: inset 0px 0px 4px 2px rgba(170, 170, 170, 1);
+      // box-shadow: inset 0px 0px 4px 1px rgba(170, 170, 170, 1);
+      border: 1px solid #aaa;
+
+      // border: 1px solid rgba(170, 170, 170, 1);
       padding: 20px;
     }
   }
