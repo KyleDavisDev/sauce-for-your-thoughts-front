@@ -11,6 +11,7 @@ const buildPath = path.resolve(__dirname, "dist");
 
 module.exports = {
   devtool: "source-map",
+  context: resolve(__dirname, "src"),
   entry: "./src/index.js",
   output: {
     path: buildPath,
