@@ -8,7 +8,7 @@ import tags from "./tags";
 import reviews from "./reviews";
 import users from "./users";
 
-export default combineReducers({
+export const rootReducer = combineReducers({
   flashMessage,
   sauces,
   sauce,
