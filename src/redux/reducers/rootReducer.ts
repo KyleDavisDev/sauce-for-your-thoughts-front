@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
 
-// import user from "./user";
 import flashMessage from "./flashMessage";
 import sauces from "./sauces";
 import sauce from "./sauce";
