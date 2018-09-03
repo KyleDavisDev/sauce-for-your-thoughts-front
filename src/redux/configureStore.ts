@@ -1,44 +1,27 @@
-import { createStore, applyMiddleware, Dispatch, Action } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk from "redux-thunk";
-import { ISauce } from "../models/sauce";
-import { IUser } from "../models/user";
-import { IReview } from "../models/review";
-import { initStoreAction } from "../actions/actions";
-import rootReducer from "./reducers/rootReducer";
-
-export interface IState {
-  flashMessage: {
-    isVisible: boolean;
-    type: null;
-    text: null | string;
-    slug: null;
-  };
-  sauces: {
-    allIds: number[];
-    byId: { [key: string]: ISauce };
-    total: number;
-    query: {};
-  };
-  sauce: ISauce; // Remove this...?
-  tags: string[]; // Remove this..?
-  users: {
-    allIds: number[];
-    byId: { [key: string]: IUser };
-    self: { token: null | string };
-  };
-  reviews: { allIds: number[]; byId: { [key: string]: IReview } };
-}
-
-export const initStore = () => {};
+import { rootReducer } from "./reducers/rootReducer";
 
 export const configureStore = () => {
+  const initialState: object = {
+    flashMessage: { isVisible: false, type: null, text: null, slug: null },
+    sauces: {
+      allIds: [],
+      byId: {},
+      total: 0,
+      query: {}
+    },
+    users: { self: { token: "123" }, byId: {}, allIds: [] },
+    reviews: { byId: {}, allIds: [] }
+  };
+
   if (process.env.NODE_ENV === "production") {
-    return createStore(rootReducer, intialState, applyMiddleware(thunk));
+    return createStore(rootReducer, initialState, applyMiddleware(thunk));
   } else {
     return createStore(
       rootReducer,
-      intialState,
+      initialState,
       composeWithDevTools(applyMiddleware(thunk))
     );
   }
