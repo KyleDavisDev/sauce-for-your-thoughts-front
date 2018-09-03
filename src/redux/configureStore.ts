@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, Dispatch, Action } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk from "redux-thunk";
-import { ISauce, ISauceRef } from "../models/sauce";
-import { IUser, IUserRef } from "../models/user";
-import { IReview, IReviewRef } from "../models/review";
+import { ISauce } from "../models/sauce";
+import { IUser } from "../models/user";
+import { IReview } from "../models/review";
 import { initStoreAction } from "../actions/actions";
 import rootReducer from "./reducers/rootReducer";
 
@@ -15,7 +15,7 @@ export interface IState {
     slug: null;
   };
   sauces: {
-    allIds: ISauceRef[];
+    allIds: number[];
     byId: { [key: string]: ISauce };
     total: number;
     query: {};
@@ -23,11 +23,11 @@ export interface IState {
   sauce: ISauce; // Remove this...?
   tags: string[]; // Remove this..?
   users: {
-    self: { token: null | string };
+    allIds: number[];
     byId: { [key: string]: IUser };
-    allIds: IUserRef[];
+    self: { token: null | string };
   };
-  reviews: { byId: { [key: string]: IReview }; allIds: IReviewRef[] };
+  reviews: { allIds: number[]; byId: { [key: string]: IReview } };
 }
 
 export const initStore = () => {};
