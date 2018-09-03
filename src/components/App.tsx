@@ -2,18 +2,17 @@ import * as React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import Screens from "../screens/Screens";
-// import { configureStore, initStore } from "./store/configStore";
+import { configureStore } from "../redux/configureStore";
 
-// const store = configureStore();
-// store.dispatch<any>(initStore());
+const store = configureStore();
 
 class App extends React.Component<{}, {}> {
   public render(): JSX.Element {
     return (
       <BrowserRouter>
-        {/* <Provider> */}
-        <Route children={Screens} />
-        {/* </Provider> */}
+        <Provider store={store}>
+          <Route children={Screens} />
+        </Provider>
       </BrowserRouter>
     );
   }
