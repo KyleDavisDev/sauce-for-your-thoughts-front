@@ -1,57 +1,11 @@
 import { createStore, applyMiddleware, Dispatch, Action } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk from "redux-thunk";
-import { TodoItem } from "../model/TodoItem";
+import { ISauce, ISauceRef } from "../models/sauce";
+import { IUser, IUserRef } from "../models/user";
+import { IReview, IReviewRef } from "../models/review";
 import { initStoreAction } from "../actions/actions";
 import rootReducer from "./reducers/rootReducer";
-
-// Sauce shape
-export interface ISauce {
-  _id: number;
-  maker: string;
-  shu: null | number;
-  location?: {
-    city: null | string;
-    state: null | string;
-    country: null | string;
-  };
-  description: string;
-  peppers: null | string[];
-}
-
-// Trimmed down for reference only
-export interface ISauceRef {
-  _id: number;
-}
-
-// User shape
-export interface IUser {
-  _id: number;
-  name?: string;
-  email?: string;
-}
-
-// Trimmed down for reference only
-export interface IUserRef {
-  _id: number;
-}
-
-export interface IReviewSection {
-  rating: number;
-  txt: string;
-}
-
-export interface IReview {
-  author: IUserRef; // User reference
-  sauce: ISauceRef;
-  created: Date;
-  overall: IReviewSection; // Only review bit that is required
-  label?: IReviewSection;
-  aroma?: IReviewSection;
-  taste?: IReviewSection;
-  heat?: IReviewSection;
-  note?: IReviewSection;
-}
 
 export interface IState {
   flashMessage: {
@@ -61,7 +15,7 @@ export interface IState {
     slug: null;
   };
   sauces: {
-    allIds: number[];
+    allIds: ISauceRef[];
     byId: { [key: string]: ISauce };
     total: number;
     query: {};
@@ -71,9 +25,9 @@ export interface IState {
   users: {
     self: { token: null | string };
     byId: { [key: string]: IUser };
-    allIds: number[];
+    allIds: IUserRef[];
   };
-  reviews: { byId: { [key: string]: IReview }; allIds: string[] };
+  reviews: { byId: { [key: string]: IReview }; allIds: IReviewRef[] };
 }
 
 export const initStore = () => {};
