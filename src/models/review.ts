@@ -7,6 +7,7 @@ export interface IReviewSection {
 }
 
 export interface IReview {
+  _id: number;
   author: IUserRef; // User reference
   sauce: ISauceRef;
   created: Date;
@@ -16,4 +17,9 @@ export interface IReview {
   taste?: IReviewSection;
   heat?: IReviewSection;
   note?: IReviewSection;
+}
+
+// Trimmed down for reference only
+export interface IReviewRef {
+  _id: number;
 }
