@@ -16,10 +16,21 @@ const Div = styled.div`
   width: 100%;
 `;
 
+const A = styled.a`
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 const Header: React.SFC<HeaderProps> = props => {
   return (
     <Div>
-      <User />
+      <A href="/register">
+        <UserIcon />
+        Register
+      </A>
     </Div>
   );
 };
