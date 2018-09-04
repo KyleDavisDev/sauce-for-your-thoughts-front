@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import * as Loadable from "react-loadable";
 
 import Loading from "../components/Holder/Holder";
+import Header from "../components/Header/Header";
 // import Home from "./home/Home";
 // Home
 const Home = Loadable({
@@ -16,7 +17,7 @@ const Home = Loadable({
 });
 const Screens = (
   <div className="container">
-    {/* <Header /> */}
+    <Header />
     {/* {flashMessageVisible && <FlashMessage />} */}
     <Route exact path="/" component={Home} />
     {/* <Route
