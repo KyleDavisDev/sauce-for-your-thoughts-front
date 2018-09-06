@@ -11,13 +11,17 @@ const {
 
 export interface ThemeInterface {
   primaryColor: string;
-  // white: string;
+  white: string;
+  grey: string;
+  navigationColor: string;
   // primaryColorInverted: string;
 }
 
 export const theme = {
-  primaryColor: "#3B4DA8"
-  // white: "#eee",
+  primaryColor: "#3B4DA8",
+  white: "#efefef",
+  grey: "#676767",
+  navigationColor: "#efefef"
   // primaryColorInverted: "#333333"
 };
 
