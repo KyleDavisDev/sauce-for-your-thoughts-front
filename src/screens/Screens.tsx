@@ -3,9 +3,17 @@ import { Route } from "react-router-dom";
 // import { connect } from "react-redux";
 import * as Loadable from "react-loadable";
 
+import styled from "../theme/styled-components";
 import Loading from "../components/Holder/Holder";
-import Header from "../components/Header/Header";
-// import Home from "./home/Home";
+import TopBar from "../components/TopBar/TopBar";
+import Navigation from "../components/Navigation/Navigation";
+
+const Div = styled.div`
+  margin: 0;
+  padding: 0;
+  background-color: ${props => props.theme.white};
+`;
+
 // Home
 const Home = Loadable({
   loader: () => import("./home/Home"),
@@ -16,8 +24,9 @@ const Home = Loadable({
   )
 });
 const Screens = (
-  <div className="container">
-    <Header />
+  <Div>
+    <TopBar />
+    <Navigation />
     {/* {flashMessageVisible && <FlashMessage />} */}
     <Route exact path="/" component={Home} />
     {/* <Route
@@ -35,7 +44,7 @@ const Screens = (
     <Route exact path="/account" component={Account} /> */}
     {/* <Route exact path="/account/reset/:token" component={ResetPassword} /> */}
     {/* <Route exact path="/login" component={Login} /> */}
-  </div>
+  </Div>
 );
 
 export default Screens;
