@@ -16,7 +16,7 @@ export interface TextInputProps {
 
 const Label = styled.label`
   text-transform: uppercase;
-  color: ${props => props.theme.primaryColor || "blue"};
+  color: ${props => props.theme.primaryColor};
   text-decoration: underline;
 `;
 
@@ -73,8 +73,8 @@ export class TextInput extends React.Component<TextInputProps, {}> {
           <TextArea
             id={id}
             name={name}
-            cols="30"
-            rows="10"
+            cols={30}
+            rows={10}
             placeholder={placeholder}
             onChange={onChange}
             value={value}
