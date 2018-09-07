@@ -1,4 +1,6 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
+
 import styled from "../../theme/styled-components";
 
 // SVG icons
@@ -18,7 +20,7 @@ const Div = styled.div`
   padding: 0.5em 0em;
 `;
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -37,14 +39,14 @@ const Link = styled.a`
 const TopBar: React.SFC<TopBarProps> = props => {
   return (
     <Div>
-      <Link href="/register">
+      <StyledLink to="/register">
         <UserIcon />
         Register
-      </Link>
-      <Link href="/login">
+      </StyledLink>
+      <StyledLink to="/login">
         <LoginIcon />
         Log in
-      </Link>
+      </StyledLink>
     </Div>
   );
 };

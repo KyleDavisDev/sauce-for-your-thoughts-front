@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 import styled from "../../theme/styled-components";
 import LogoSFYT from "../../images/icons/LogoSFYT";
@@ -30,11 +31,12 @@ const Ul = styled.ul`
   }
 `;
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
   color: ${x => x.theme.navigationColor};
   text-decoration: none;
   margin-right: 0.5em;
-  padding: 0.25em;
+  padding: 0.5em;
+  font-size: 1.25em;
 
   &:hover,
   &:focus {
@@ -58,13 +60,13 @@ const Navigation: React.SFC<{}> = props => {
       <LogoSFYT />
       <Ul>
         <li>
-          <Link href="/">Home</Link>
+          <StyledLink to="/">Home</StyledLink>
         </li>
         <li>
-          <Link href="/sauces">Sauces</Link>
+          <StyledLink to="/sauces">Sauces</StyledLink>
         </li>
         <li>
-          <Link href="/addsauce">Add Sauce</Link>
+          <StyledLink to="/addsauce">Add Sauce</StyledLink>
         </li>
         <Bar />
         <li>
