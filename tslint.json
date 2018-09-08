@@ -8,7 +8,8 @@
     "interface-name": false,
     "trailing-comma": false,
     "arrow-parens": false,
-    "no-empty-interface": false
+    "no-empty-interface": false,
+    "semicolon": false
   },
   "rulesDirectory": []
 }
