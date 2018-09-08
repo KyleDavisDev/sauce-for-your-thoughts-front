@@ -20,7 +20,7 @@ interface InputProps {
   id: string;
   name: string;
   value: string;
-  onChange(): void;
+  onChange(event: React.ChangeEvent<HTMLInputElement>): void;
 }
 
 const Input: React.SFC<InputProps> = props => {
