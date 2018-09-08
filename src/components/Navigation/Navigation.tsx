@@ -5,14 +5,14 @@ import styled from "../../theme/styled-components";
 import LogoSFYT from "../../images/icons/LogoSFYT";
 
 const Header = styled.header`
-  background-color: ${x => x.theme.primaryColor};
+  background-color: ${x => x.theme.primaryThemeColor};
   padding: 1.5em;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 
   svg {
-    fill: ${x => x.theme.navigationColor};
+    fill: ${x => x.theme.navigationIconColor};
     width: 113px;
     height: 42px;
   }
@@ -32,7 +32,7 @@ const Ul = styled.ul`
 `;
 
 const StyledLink = styled(Link)`
-  color: ${x => x.theme.navigationColor};
+  color: ${x => x.theme.navigationTextColor};
   text-decoration: none;
   margin-right: 0.5em;
   padding: 0.5em;
