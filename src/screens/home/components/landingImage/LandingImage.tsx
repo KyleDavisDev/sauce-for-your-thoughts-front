@@ -1,5 +1,7 @@
 import * as React from "react";
+
 import styled from "../../../../theme/styled-components";
+import DropDown from "./components/DropDown/DropDown";
 
 const HeroContainer = styled.header`
   background: #000;
@@ -32,15 +34,33 @@ const HeroTitle = styled.h1`
   color: ${x => x.theme.landingHeroTextColor};
 `;
 
-const LandingImage: React.SFC<{}> = props => {
-  return (
-    <HeroContainer>
-      <HeroImage />
-      <HeroBody>
-        <HeroTitle>Find your perfect sauce</HeroTitle>
-      </HeroBody>
-    </HeroContainer>
-  );
-};
+export interface LandingImageProps {}
+
+export interface LandingImageState {}
+
+class LandingImage extends React.Component<
+  LandingImageProps,
+  LandingImageState
+> {
+  constructor(props: LandingImageProps) {
+    super(props);
+
+    this.state = {};
+  }
+  public render() {
+    const options = ["All", "Hot Sauce", "Meat Sauce"];
+    return (
+      <HeroContainer>
+        <HeroImage />
+        <HeroBody>
+          <HeroTitle>Find your perfect sauce</HeroTitle>
+          <div>
+            <DropDown options={options} />
+          </div>
+        </HeroBody>
+      </HeroContainer>
+    );
+  }
+}
 
 export default LandingImage;
