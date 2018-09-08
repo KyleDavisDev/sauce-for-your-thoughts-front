@@ -31,8 +31,8 @@ const StyledLink = styled(Link)`
   &:hover,
   &:focus {
     text-decoration: none;
-    color: ${x => x.theme.primaryColor};
-    fill: ${x => x.theme.primaryColor};
+    color: ${x => x.theme.primaryThemeColor};
+    fill: ${x => x.theme.primaryThemeColor};
   }
 `;
 
