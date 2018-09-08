@@ -1,5 +1,5 @@
 import * as React from "react";
-import shortid from "shortid";
+import * as shortid from "shortid";
 
 import styled from "../../../../../../theme/styled-components";
 
