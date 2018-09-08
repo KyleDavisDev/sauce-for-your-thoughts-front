@@ -21,7 +21,7 @@ const SelectContainer = styled.div`
     position: absolute;
     top: 55%;
     transform: translateY(-50%);
-    content: url("../../images/icons/chevron-down.svg");
+    content: url("../../../../../../images/icons/chevron-down.svg");
     pointer-events: none;
     right: 15px;
   }
@@ -34,7 +34,6 @@ const Select = styled.select`
   cursor: pointer;
   display: inline-block;
   min-height: 30px;
-  outline: 0;
   position: relative;
   transition: background-color 0.3s, color 0.3s, border 0.3s;
   vertical-align: middle;
