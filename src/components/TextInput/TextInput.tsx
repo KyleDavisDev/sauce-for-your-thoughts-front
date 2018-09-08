@@ -1,22 +1,9 @@
 import * as React from "react";
 import styled from "../../theme/styled-components";
 
-export interface TextInputProps {
-  id: string;
-  name: string;
-  placeholder?: string;
-  required?: boolean;
-  title?: string;
-  type?: string;
-  value: string | number;
-  theme?: any;
-  onChange(): void;
-  parentRef(): void;
-}
-
 const Label = styled.label`
   text-transform: uppercase;
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.grey};
   text-decoration: underline;
 `;
 
@@ -48,7 +35,34 @@ const TextArea = styled.textarea`
   max-height: 220px;
 `;
 
-export class TextInput extends React.Component<TextInputProps, {}> {
+interface TextInputProps {
+  id: string;
+  name: string;
+  placeholder?: string;
+  required?: boolean;
+  label?: string;
+  showLabel?: boolean;
+  type?: string;
+  value: string | number;
+  onChange(): void;
+  parentRef(): void;
+}
+
+interface TextInputState {}
+
+class TextInput extends React.Component<TextInputProps, TextInputState> {
+  private defaultProps = {
+    showLabel: false,
+    required: false,
+    type: "text"
+  };
+
+  constructor(props: TextInputProps) {
+    super(props);
+
+    this.state = {};
+  }
+
   public render() {
     const {
       id,
@@ -57,19 +71,33 @@ export class TextInput extends React.Component<TextInputProps, {}> {
       parentRef,
       placeholder,
       required,
-      title,
+      label,
+      showLabel,
       type,
-      value,
-      theme
+      value
     } = this.props;
     return (
       <Div>
-        <Label htmlFor={id} theme={theme}>
-          {title}
-          {required && "*"}
-        </Label>
+        {showLabel &&
+          label && (
+            <Label htmlFor={id}>
+              {label}
+              {required && "*"}
+            </Label>
+          )}
 
-        {type && type.toLowerCase() === "textarea" ? (
+        {type && type.toLowerCase() === "text" ? (
+          <Input
+            type={type || "text"}
+            id={id}
+            name={name}
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+            required={required}
+            ref={parentRef}
+          />
+        ) : (
           <TextArea
             id={id}
             name={name}
@@ -81,19 +109,10 @@ export class TextInput extends React.Component<TextInputProps, {}> {
             required={required}
             ref={parentRef}
           />
-        ) : (
-          <Input
-            type={type || "text"}
-            id={id}
-            name={name}
-            value={value}
-            placeholder={placeholder}
-            onChange={onChange}
-            required={required}
-            ref={parentRef}
-          />
         )}
       </Div>
     );
   }
 }
+
+export default TextInput;
