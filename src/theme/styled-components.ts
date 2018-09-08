@@ -10,20 +10,25 @@ const {
 } = styledComponents as ThemedStyledComponentsModule<ThemeInterface>;
 
 export interface ThemeInterface {
-  primaryColor: string;
+  primaryThemeColor: string;
   white: string;
   grey: string;
-  navigationColor: string;
-  // primaryColorInverted: string;
+  navigationTextColor: string;
+  navigationIconColor: string;
+  landingHeroTextColor: string;
+
+  // primaryThemeColorInverted: string;
 }
 
-export const theme = {
-  primaryColor: "#3B4DA8",
-  white: "#efefef",
-  grey: "#676767",
-  navigationColor: "#efefef"
-  // primaryColorInverted: "#333333"
-};
+export enum theme {
+  primaryThemeColor = "#3B4DA8",
+  white = "#efefef",
+  grey = "#676767",
+  navigationTextColor = "#efefef",
+  navigationIconColor = "#efefef",
+  landingHeroTextColor = "#efefef"
+  // primaryThemeColorInverted: "#333333"
+}
 
 export { css, injectGlobal, keyframes, ThemeProvider };
 export default styled;
