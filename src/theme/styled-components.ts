@@ -20,13 +20,19 @@ export interface ThemeInterface {
   // primaryThemeColorInverted: string;
 }
 
-export enum theme {
-  primaryThemeColor = "#3B4DA8",
+const enum colors {
+  purple = "#3B4DA8",
   white = "#efefef",
-  grey = "#676767",
-  navigationTextColor = "#efefef",
-  navigationIconColor = "#efefef",
-  landingHeroTextColor = "#efefef"
+  grey = "#676767"
+}
+
+export const enum theme {
+  primaryThemeColor = colors.purple,
+  white = colors.white,
+  grey = colors.grey,
+  navigationTextColor = colors.white,
+  navigationIconColor = colors.white,
+  landingHeroTextColor = colors.white
   // primaryThemeColorInverted: "#333333"
 }
 
