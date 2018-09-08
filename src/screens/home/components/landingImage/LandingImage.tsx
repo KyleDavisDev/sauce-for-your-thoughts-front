@@ -2,6 +2,7 @@ import * as React from "react";
 
 import styled from "../../../../theme/styled-components";
 import DropDown from "./components/DropDown/DropDown";
+import Input from "./components/Input/Input";
 
 const HeroContainer = styled.header`
   background: #000;
@@ -36,7 +37,15 @@ const HeroTitle = styled.h1`
 
 export interface LandingImageProps {}
 
-export interface LandingImageState {}
+export interface LandingImageState {
+  search: {
+    value: string;
+  };
+  filter: {
+    all: string[];
+    selected: string;
+  };
+}
 
 class LandingImage extends React.Component<
   LandingImageProps,
@@ -45,22 +54,48 @@ class LandingImage extends React.Component<
   constructor(props: LandingImageProps) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      search: { value: "" },
+      filter: { all: ["All", "Hot Sauce", "Meat Sauce"], selected: "all" }
+    };
   }
-  public render() {
-    const options = ["All", "Hot Sauce", "Meat Sauce"];
+
+  public render(): JSX.Element {
     return (
       <HeroContainer>
         <HeroImage />
         <HeroBody>
           <HeroTitle>Find your perfect sauce</HeroTitle>
           <div>
-            <DropDown options={options} />
+            <DropDown options={this.state.filter.all} />
+            <Input
+              id="Hero__Search"
+              name="Hero__Search"
+              onChange={this.onTextChange}
+              value={this.state.search.value}
+            />
           </div>
         </HeroBody>
       </HeroContainer>
     );
   }
+
+  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    if (!event || !event.target || !event.target.value) {
+      return;
+    }
+
+    // Grab the value
+    const value: string = event.target.value;
+
+    // Update local state
+    this.setState({
+      ...this.state,
+      search: {
+        value
+      }
+    });
+  };
 }
 
 export default LandingImage;
