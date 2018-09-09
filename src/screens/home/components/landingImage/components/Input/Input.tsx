@@ -11,9 +11,7 @@ const StyledInput = styled.input`
   max-width: 100%;
   padding: 10px;
   box-sizing: border-box;
-  border: 1px solid #ababab;
-  margin-top: 5px;
-  margin-bottom: 15px;
+  border: 0px;
 `;
 
 interface InputProps {
