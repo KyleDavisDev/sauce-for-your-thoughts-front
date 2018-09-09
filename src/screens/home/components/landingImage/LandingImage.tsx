@@ -35,6 +35,12 @@ const HeroTitle = styled.h1`
   color: ${x => x.theme.landingHeroTextColor};
 `;
 
+const Div = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+`;
+
 export interface LandingImageProps {}
 
 export interface LandingImageState {
@@ -43,7 +49,7 @@ export interface LandingImageState {
   };
   filter: {
     all: string[];
-    selected: string;
+    selectedValue: string;
   };
 }
 
@@ -56,7 +62,7 @@ class LandingImage extends React.Component<
 
     this.state = {
       search: { value: "" },
-      filter: { all: ["All", "Hot Sauce", "Meat Sauce"], selected: "all" }
+      filter: { all: ["All", "Hot Sauce", "Meat Sauce"], selectedValue: "all" }
     };
   }
 
@@ -66,19 +72,41 @@ class LandingImage extends React.Component<
         <HeroImage />
         <HeroBody>
           <HeroTitle>Find your perfect sauce</HeroTitle>
-          <div>
-            <DropDown options={this.state.filter.all} />
+          <Div>
+            <DropDown
+              options={this.state.filter.all}
+              selectedValue={this.state.filter.selectedValue}
+              onSelect={this.onSelect}
+            />
             <Input
               id="Hero__Search"
               name="Hero__Search"
               onChange={this.onTextChange}
               value={this.state.search.value}
             />
-          </div>
+          </Div>
         </HeroBody>
       </HeroContainer>
     );
   }
+
+  private onSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
+    if (!event || !event.target || !event.target.value) {
+      return;
+    }
+
+    // Grab the value
+    const selectedValue: string = event.target.value;
+
+    // Update local state
+    this.setState({
+      ...this.state,
+      filter: {
+        ...this.state.filter,
+        selectedValue
+      }
+    });
+  };
 
   private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (!event || !event.target || !event.target.value) {
