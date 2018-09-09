@@ -44,34 +44,34 @@ const Select = styled.select`
 
 interface DropDownProps {
   id?: string;
-  showLabel?: boolean;
-  label?: string;
-  backgroundColor?: string;
-  textColor?: string;
+
   options: string[];
+  selectedValue: string;
+  onSelect(event: React.ChangeEvent<HTMLSelectElement>): void;
 }
 
 const DropDown: React.SFC<DropDownProps> = props => {
-  const SelectOption = (val: string): React.ReactElement<HTMLOptionElement> => {
-    return (
-      <option key={shortid.generate()} value={val}>
-        {val}
-      </option>
-    );
-  };
-
   return (
     <SelectContainer>
-      {props.showLabel &&
-        props.label && <label htmlFor={props.id}>{props.label}</label>}
-      <Select id={props.id}>{props.options.map(SelectOption)}</Select>
+      <Select
+        id={props.id}
+        onChange={props.onSelect}
+        value={props.selectedValue}
+      >
+        {props.options.map(opt => {
+          return (
+            <option key={shortid.generate()} value={opt}>
+              {opt}
+            </option>
+          );
+        })}
+      </Select>
     </SelectContainer>
   );
 };
 
 DropDown.defaultProps = {
-  id: shortid.generate(),
-  showLabel: false
+  id: shortid.generate()
 };
 
 export default DropDown;
