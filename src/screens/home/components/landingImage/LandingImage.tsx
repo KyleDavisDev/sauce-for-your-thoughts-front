@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import styled from "../../../../theme/styled-components";
-import DropDown from "./components/DropDown/DropDown";
+import DropDown from "../../../../components/DropDown/DropDown";
 import Input from "./components/Input/Input";
 import Button from "../../../../components/Button/Button";
 
@@ -36,10 +36,25 @@ const HeroTitle = styled.h1`
   color: ${x => x.theme.landingHeroTextColor};
 `;
 
-const Div = styled.div`
+const StyledDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: stretch;
+`;
+
+const StyledDropDown = styled(DropDown)`
+  background-color: transparent;
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  min-height: 30px;
+  position: relative;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  vertical-align: middle;
+  height: 58px;
+  padding: 0px 40px 0 15px;
+  font-size: 1rem;
 `;
 
 export interface LandingImageProps {}
@@ -73,8 +88,8 @@ class LandingImage extends React.Component<
         <HeroImage />
         <HeroBody>
           <HeroTitle>Find your perfect sauce</HeroTitle>
-          <Div>
-            <DropDown
+          <StyledDiv>
+            <StyledDropDown
               options={this.state.filter.all}
               selectedValue={this.state.filter.selectedValue}
               onSelect={this.onSelect}
@@ -91,7 +106,7 @@ class LandingImage extends React.Component<
               text="Search Me"
               onClick={this.onClick}
             />
-          </Div>
+          </StyledDiv>
         </HeroBody>
       </HeroContainer>
     );
