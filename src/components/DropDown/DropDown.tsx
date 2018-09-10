@@ -20,6 +20,20 @@ const SelectContainer = styled.div`
   }
 `;
 
+const StyledSelect = styled.select`
+  background-color: transparent;
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  vertical-align: middle;
+  height: 58px;
+  padding: 0px 40px 0 15px;
+  font-size: 1rem;
+`;
+
 interface DropDownProps {
   id?: string;
   options: string[];
@@ -31,7 +45,7 @@ interface DropDownProps {
 const DropDown: React.SFC<DropDownProps> = props => {
   return (
     <SelectContainer>
-      <select
+      <StyledSelect
         id={props.id}
         onChange={props.onSelect}
         value={props.selectedValue}
@@ -44,7 +58,7 @@ const DropDown: React.SFC<DropDownProps> = props => {
             </option>
           );
         })}
-      </select>
+      </StyledSelect>
     </SelectContainer>
   );
 };
