@@ -43,18 +43,7 @@ const StyledDiv = styled.div`
 `;
 
 const StyledDropDown = styled(DropDown)`
-  background-color: transparent;
-  appearance: none;
-  border: 0;
-  cursor: pointer;
-  display: inline-block;
   min-height: 30px;
-  position: relative;
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
-  vertical-align: middle;
-  height: 58px;
-  padding: 0px 40px 0 15px;
-  font-size: 1rem;
 `;
 
 export interface LandingImageProps {}
