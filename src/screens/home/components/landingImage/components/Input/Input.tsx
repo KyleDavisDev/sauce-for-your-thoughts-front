@@ -8,10 +8,12 @@ const Div = styled.div`
 
 const StyledInput = styled.input`
   width: 100%;
+  min-width: 20em;
   max-width: 100%;
-  padding: 10px;
+  padding: 0.66em;
   box-sizing: border-box;
   border: 0px;
+  font-size: 1em;
 `;
 
 interface InputProps {
