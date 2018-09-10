@@ -3,6 +3,7 @@ import * as React from "react";
 import styled from "../../../../theme/styled-components";
 import DropDown from "./components/DropDown/DropDown";
 import Input from "./components/Input/Input";
+import Button from "../../../../components/Button/Button";
 
 const HeroContainer = styled.header`
   background: #000;
@@ -84,6 +85,12 @@ class LandingImage extends React.Component<
               onChange={this.onTextChange}
               value={this.state.search.value}
             />
+            <Button
+              type="solid"
+              isLink={true}
+              text="Search Me"
+              onClick={this.onClick}
+            />
           </Div>
         </HeroBody>
       </HeroContainer>
@@ -123,6 +130,10 @@ class LandingImage extends React.Component<
         value
       }
     });
+  };
+
+  private onClick = (event: any): void => {
+    console.log(event);
   };
 }
 
