@@ -29,8 +29,8 @@ const enum colors {
 }
 
 export const enum theme {
-  primaryThemeColor = colors.purple,
-  secondaryThemeColor = colors.mustard,
+  primaryThemeColor = colors.mustard,
+  secondaryThemeColor = colors.purple,
   white = colors.white,
   grey = colors.grey,
   navigationTextColor = colors.white,
