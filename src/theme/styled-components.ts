@@ -11,6 +11,7 @@ const {
 
 export interface ThemeInterface {
   primaryThemeColor: string;
+  secondaryThemeColor: string;
   white: string;
   grey: string;
   navigationTextColor: string;
@@ -23,11 +24,13 @@ export interface ThemeInterface {
 const enum colors {
   purple = "#3B4DA8",
   white = "#efefef",
-  grey = "#676767"
+  grey = "#676767",
+  mustard = "#FFA816"
 }
 
 export const enum theme {
   primaryThemeColor = colors.purple,
+  secondaryThemeColor = colors.mustard,
   white = colors.white,
   grey = colors.grey,
   navigationTextColor = colors.white,
