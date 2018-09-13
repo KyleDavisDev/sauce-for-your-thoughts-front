@@ -1,4 +1,6 @@
 import * as React from "react";
+import * as shortid from "shortid";
+
 import styled from "../../theme/styled-components";
 
 const Label = styled.label`
@@ -36,83 +38,61 @@ const TextArea = styled.textarea`
 `;
 
 interface TextInputProps {
-  id: string;
-  name: string;
+  id?: string;
+  name?: string;
   placeholder?: string;
   required?: boolean;
   label?: string;
   showLabel?: boolean;
-  type?: string;
+  type?: string; // Need to somehow limit this to only "text" and "textarea"
   value: string | number;
   onChange(): void;
   parentRef(): void;
 }
 
-interface TextInputState {}
-
-class TextInput extends React.Component<TextInputProps, TextInputState> {
-  private defaultProps = {
+const TextInput: React.SFC<TextInputProps> = props => {
+  TextInput.defaultProps = {
+    id: shortid.generate(),
     showLabel: false,
     required: false,
     type: "text"
   };
-
-  constructor(props: TextInputProps) {
-    super(props);
-
-    this.state = {};
-  }
-
-  public render() {
-    const {
-      id,
-      name,
-      onChange,
-      parentRef,
-      placeholder,
-      required,
-      label,
-      showLabel,
-      type,
-      value
-    } = this.props;
-    return (
-      <Div>
-        {showLabel &&
-          label && (
-            <Label htmlFor={id}>
-              {label}
-              {required && "*"}
-            </Label>
-          )}
-
-        {type && type.toLowerCase() === "text" ? (
-          <Input
-            type={type || "text"}
-            id={id}
-            name={name}
-            value={value}
-            placeholder={placeholder}
-            onChange={onChange}
-            required={required}
-            ref={parentRef}
-          />
-        ) : (
-          <TextArea
-            id={id}
-            name={name}
-            cols={30}
-            rows={10}
-            placeholder={placeholder}
-            onChange={onChange}
-            value={value}
-            required={required}
-            ref={parentRef}
-          />
+  return (
+    <Div>
+      {props.showLabel &&
+        props.label && (
+          <Label htmlFor={props.id}>
+            {props.label}
+            {props.required && "*"}
+          </Label>
         )}
-      </Div>
-    );
-  }
-}
+
+      {props.type && props.type.toLowerCase() === "text" ? (
+        <Input
+          type={props.type}
+          id={props.id}
+          name={props.name}
+          value={props.value}
+          placeholder={props.placeholder}
+          onChange={props.onChange}
+          required={props.required}
+          ref={props.parentRef}
+        />
+      ) : (
+        <TextArea
+          id={props.id}
+          name={props.name}
+          cols={30}
+          rows={10}
+          placeholder={props.placeholder}
+          onChange={props.onChange}
+          value={props.value}
+          required={props.required}
+          ref={props.parentRef}
+        />
+      )}
+    </Div>
+  );
+};
 
 export default TextInput;
