@@ -9,6 +9,7 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   transition: all 0.2 ease;
+  padding-bottom: 1em;
 
   &:hover,
   &:focus {
