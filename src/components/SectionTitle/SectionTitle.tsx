@@ -6,6 +6,19 @@ const StyledDiv = styled.div`
   text-align: center;
 `;
 
+const StyledH2 = styled.h2`
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  color: ${props => props.theme.black};
+`;
+
+const StyledH6 = styled.h6`
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: ${props => props.theme.grey};
+  font-weight: 400;
+`;
+
 interface SectionTitleProps {
   title: string;
   description: string;
@@ -14,8 +27,8 @@ interface SectionTitleProps {
 const SectionTitle: React.SFC<SectionTitleProps> = props => {
   return (
     <StyledDiv>
-      <h2>{props.title}</h2>
-      <h6>{props.description}</h6>
+      <StyledH2>{props.title}</StyledH2>
+      <StyledH6>{props.description}</StyledH6>
     </StyledDiv>
   );
 };
