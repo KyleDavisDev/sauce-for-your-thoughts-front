@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import styled from "../../theme/styled-components";
 
 interface ButtonProps {
@@ -7,7 +8,7 @@ interface ButtonProps {
   isLink?: boolean;
   linkTo?: string;
   className?: string;
-  onClick(event: any): void;
+  onClick?(event: any): void;
 }
 
 const Div = styled.div`
@@ -16,14 +17,24 @@ const Div = styled.div`
 `;
 
 const Button: React.SFC<ButtonProps> = props => {
+  const onClick = (event: any) => {
+    event.preventDefault();
+    props.onClick
+      ? props.onClick(event)
+      : // tslint:disable-next-line:no-console
+        console.error("Please provide a onClick!");
+  };
+
   return (
     <Div>
       {props.isLink ? (
-        <a href={props.linkTo} className={props.className}>
+        <Link to={props.linkTo || "#"} className={props.className}>
           {props.text}
-        </a>
+        </Link>
       ) : (
-        <button>{props.text}</button>
+        <button className={props.className} onClick={onClick}>
+          {props.text}
+        </button>
       )}
     </Div>
   );
