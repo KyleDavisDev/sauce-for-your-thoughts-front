@@ -2,7 +2,7 @@ import * as React from "react";
 
 import styled from "../../../../theme/styled-components";
 import DropDown from "../../../../components/DropDown/DropDown";
-import Input from "./components/Input/Input";
+import TextInput from "../../../../components/TextInput/TextInput";
 import Button from "../../../../components/Button/Button";
 
 const HeroContainer = styled.header`
@@ -46,6 +46,24 @@ const StyledDropDown = styled(DropDown)`
   min-height: 30px;
 `;
 
+const StyledInput = styled(TextInput)`
+  flex-direction: row;
+  align-items: stretch;
+
+  input {
+    border: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    min-width: 20em;
+    max-width: 100%;
+    padding: 0.66em;
+    box-sizing: border-box;
+    border: 0px;
+    font-size: 1em;
+  }
+`;
+
 export interface LandingImageProps {}
 
 export interface LandingImageState {
@@ -83,11 +101,13 @@ class LandingImage extends React.Component<
               selectedValue={this.state.filter.selectedValue}
               onSelect={this.onSelect}
             />
-            <Input
+            <StyledInput
+              type="text"
               id="Hero__Search"
               name="Hero__Search"
               onChange={this.onTextChange}
               value={this.state.search.value}
+              placeholder="Search..."
             />
             <Button
               type="solid"
