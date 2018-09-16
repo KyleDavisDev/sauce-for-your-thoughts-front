@@ -4,6 +4,7 @@ import styled from "../../theme/styled-components";
 import LandingImage from "./components/LandingImage/LandingImage";
 import NewestSauces from "./components/NewestSauces/NewestSauces";
 import FeaturedSauces from "./components/FeaturedSauces/FeaturedSauces";
+import FeaturedUsers from "./components/FeaturedUsers/FeaturedUsers";
 
 const Article = styled.article`
   max-width: 1200px;
@@ -16,6 +17,7 @@ const Home = ({}) => (
     <Article>
       <NewestSauces />
       <FeaturedSauces />
+      <FeaturedUsers />
     </Article>
   </div>
 );
