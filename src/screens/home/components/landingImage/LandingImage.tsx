@@ -109,12 +109,7 @@ class LandingImage extends React.Component<
               value={this.state.search.value}
               placeholder="Search..."
             />
-            <Button
-              type="solid"
-              isLink={true}
-              text="Search Me"
-              onClick={this.onClick}
-            />
+            <Button type="solid" isLink={true} text="Search Me" />
           </StyledDiv>
         </HeroBody>
       </HeroContainer>
@@ -154,10 +149,6 @@ class LandingImage extends React.Component<
         value
       }
     });
-  };
-
-  private onClick = (event: any): void => {
-    console.log(event);
   };
 }
 
