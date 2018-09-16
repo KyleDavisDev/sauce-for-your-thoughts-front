@@ -46,8 +46,12 @@ interface TextInputProps {
   showLabel?: boolean;
   type?: string; // Need to somehow limit this to only "text" and "textarea"
   value: string | number;
-  onChange(): void;
-  parentRef(): void;
+  className?: string;
+  onChange(
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ): void;
 }
 
 const TextInput: React.SFC<TextInputProps> = props => {
@@ -58,7 +62,7 @@ const TextInput: React.SFC<TextInputProps> = props => {
     type: "text"
   };
   return (
-    <Div>
+    <Div className={props.className}>
       {props.showLabel &&
         props.label && (
           <Label htmlFor={props.id}>
@@ -76,7 +80,7 @@ const TextInput: React.SFC<TextInputProps> = props => {
           placeholder={props.placeholder}
           onChange={props.onChange}
           required={props.required}
-          ref={props.parentRef}
+          className={props.className}
         />
       ) : (
         <TextArea
@@ -88,7 +92,7 @@ const TextInput: React.SFC<TextInputProps> = props => {
           onChange={props.onChange}
           value={props.value}
           required={props.required}
-          ref={props.parentRef}
+          className={props.className}
         />
       )}
     </Div>
