@@ -17,6 +17,8 @@ export interface ThemeInterface {
   landingHeroTextColor: string;
   cardBackgroundColor: string;
   siteBackgroundColor: string;
+  userCubeBackgroundColor: string;
+  userCubeTextColor: string;
   white: string;
   grey: string;
   black: string;
@@ -41,6 +43,8 @@ export const enum theme {
   landingHeroTextColor = colors.white,
   cardBackgroundColor = colors.white,
   siteBackgroundColor = colors.smoke,
+  userCubeBackgroundColor = colors.white,
+  userCubeTextColor = colors.mustard,
   white = colors.white,
   grey = colors.grey,
   black = colors.black
