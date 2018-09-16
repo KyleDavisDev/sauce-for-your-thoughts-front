@@ -4,7 +4,6 @@ import styled from "../../theme/styled-components";
 import LandingImage from "./components/LandingImage/LandingImage";
 import NewestSauces from "./components/NewestSauces/NewestSauces";
 import FeaturedSauces from "./components/FeaturedSauces/FeaturedSauces";
-import Card from "../../components/Card/Card";
 
 const Article = styled.article`
   max-width: 1200px;
