@@ -12,13 +12,14 @@ const {
 export interface ThemeInterface {
   primaryThemeColor: string;
   secondaryThemeColor: string;
-  white: string;
-  grey: string;
   navigationTextColor: string;
   navigationIconColor: string;
   landingHeroTextColor: string;
   cardBackgroundColor: string;
   siteBackgroundColor: string;
+  white: string;
+  grey: string;
+  black: string;
 
   // primaryThemeColorInverted: string;
 }
@@ -28,19 +29,21 @@ const enum colors {
   white = "#fff",
   grey = "#676767",
   mustard = "#FFA816",
-  smoke = "#f5f5f5"
+  smoke = "#f5f5f5",
+  black = "#333333"
 }
 
 export const enum theme {
   primaryThemeColor = colors.mustard,
   secondaryThemeColor = colors.purple,
-  white = colors.white,
-  grey = colors.grey,
   navigationTextColor = colors.white,
   navigationIconColor = colors.white,
   landingHeroTextColor = colors.white,
   cardBackgroundColor = colors.white,
-  siteBackgroundColor = colors.smoke
+  siteBackgroundColor = colors.smoke,
+  white = colors.white,
+  grey = colors.grey,
+  black = colors.black
   // primaryThemeColorInverted: "#333333"
 }
 
