@@ -19,11 +19,11 @@ export interface ThemeInterface {
   siteBackgroundColor: string;
   userCubeBackgroundColor: string;
   userCubeTextColor: string;
+  maxPageWidth: string;
+  fontSize: string;
   white: string;
   grey: string;
   black: string;
-
-  // primaryThemeColorInverted: string;
 }
 
 const enum colors {
@@ -33,6 +33,11 @@ const enum colors {
   mustard = "#FFA816",
   smoke = "#f5f5f5",
   black = "#333333"
+}
+
+const enum scale {
+  maxPageWidth = "1200px",
+  fontSize = "16px"
 }
 
 export const enum theme {
@@ -47,8 +52,9 @@ export const enum theme {
   userCubeTextColor = colors.mustard,
   white = colors.white,
   grey = colors.grey,
-  black = colors.black
-  // primaryThemeColorInverted: "#333333"
+  black = colors.black,
+  maxPageWidth = scale.maxPageWidth,
+  fontSize = scale.fontSize
 }
 
 export { css, injectGlobal, keyframes, ThemeProvider };
