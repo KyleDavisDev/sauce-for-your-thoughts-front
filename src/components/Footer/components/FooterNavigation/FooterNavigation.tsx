@@ -3,36 +3,52 @@ import { Link } from "react-router-dom";
 
 import styled from "../../../../theme/styled-components";
 
+const StyledDiv = styled.div`
+  max-width: 300px;
+`;
+
 const StyledUl = styled.ul`
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+
   li {
-    list-decoration-style: none;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
   }
 `;
 
-interface FooterNavigationProps {}
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${props => props.theme.white};
+`;
+
+interface FooterNavigationProps {
+  className?: string;
+}
 
 const FooterNavigation: React.SFC<FooterNavigationProps> = props => {
   return (
-    <div>
+    <StyledDiv className={props.className}>
       <h6>Navigation</h6>
       <StyledUl>
         <li>
-          <Link to="#">Home</Link>
+          <StyledLink to="#">Home</StyledLink>
         </li>
         <li>
-          <Link to="#">All Sauces</Link>
+          <StyledLink to="#">All Sauces</StyledLink>
         </li>
         <li>
-          <Link to="#">Add Sauce</Link>
+          <StyledLink to="#">Add Sauce</StyledLink>
         </li>
         <li>
-          <Link to="#">Register</Link>
+          <StyledLink to="#">Register</StyledLink>
         </li>
         <li>
-          <Link to="#">Log</Link>
+          <StyledLink to="#">Log</StyledLink>
         </li>
       </StyledUl>
-    </div>
+    </StyledDiv>
   );
 };
 
