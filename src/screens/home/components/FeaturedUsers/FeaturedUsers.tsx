@@ -8,6 +8,12 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledUserCube = styled(UserCube)`
+  width: 10%;
 `;
 
 interface FeaturedUsersProps {}
@@ -19,22 +25,15 @@ const FeaturedUsers: React.SFC<FeaturedUsersProps> = props => {
         title="Featured Users"
         description="These people have either contributed the most, or are the newest to the site. SFYT's thanks them!"
       />
-
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
-      <UserCube src="../../../../images/avatars/boy-10.png" name="Test" />
+      {/* Loop over empty array for testing */}
+      {new Array(27).fill(undefined).map(x => {
+        return (
+          <StyledUserCube
+            src="../../../../images/avatars/boy-10.png"
+            name="Test"
+          />
+        );
+      })}
     </StyledDiv>
   );
 };
