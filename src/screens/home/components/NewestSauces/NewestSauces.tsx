@@ -8,9 +8,11 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const StyledCard = styled(Card)`
+  box-sizing: border-box;
   width: 33%;
 `;
 
