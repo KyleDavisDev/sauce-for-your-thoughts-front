@@ -26,7 +26,7 @@ const Button: React.SFC<ButtonProps> = props => {
   };
 
   return (
-    <Div>
+    <Div className={props.className}>
       {props.isLink ? (
         <Link to={props.linkTo || "#"} className={props.className}>
           {props.text}
@@ -47,36 +47,38 @@ Button.defaultProps = {
 };
 
 const StyledButton = styled(Button)`
-  text-decoration: none;
   display: flex;
   align-items: center;
-  padding: 0em 1em;
-  transition: all 0.2s ease;
-  background-color: ${props =>
-    props.type === "outline" ? "transparent" : props.theme.primaryThemeColor};
-  border: ${props =>
-    props.type === "outline"
-      ? "2px solid " + props.theme.primaryThemeColor
-      : "none"};
-  color: ${props =>
-    props.type === "outline"
-      ? props.theme.primaryThemeColor
-      : props.theme.white};
-
-  &:hover,
-  &:focus {
+  a {
+    text-decoration: none;
+    padding: 0.5em 1em;
+    transition: all 0.2s ease;
     background-color: ${props =>
-      props.type === "outline"
-        ? "transparent"
-        : props.theme.secondaryThemeColor};
+      props.type === "outline" ? "transparent" : props.theme.primaryThemeColor};
     border: ${props =>
       props.type === "outline"
-        ? "2px solid " + props.theme.secondaryThemeColor
+        ? "2px solid " + props.theme.primaryThemeColor
         : "none"};
     color: ${props =>
       props.type === "outline"
-        ? props.theme.secondaryThemeColor
+        ? props.theme.primaryThemeColor
         : props.theme.white};
+
+    &:hover,
+    &:focus {
+      background-color: ${props =>
+        props.type === "outline"
+          ? "transparent"
+          : props.theme.secondaryThemeColor};
+      border: ${props =>
+        props.type === "outline"
+          ? "2px solid " + props.theme.secondaryThemeColor
+          : "none"};
+      color: ${props =>
+        props.type === "outline"
+          ? props.theme.secondaryThemeColor
+          : props.theme.white};
+    }
   }
 `;
 
