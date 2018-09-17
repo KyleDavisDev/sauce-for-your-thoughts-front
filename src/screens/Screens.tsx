@@ -7,6 +7,7 @@ import styled from "../theme/styled-components";
 import Loading from "../components/Holder/Holder";
 import TopBar from "../components/TopBar/TopBar";
 import Navigation from "../components/Navigation/Navigation";
+import Footer from "../components/Footer/Footer";
 
 const Div = styled.div`
   margin: 0;
@@ -44,6 +45,7 @@ const Screens = (
     <Route exact path="/account" component={Account} /> */}
     {/* <Route exact path="/account/reset/:token" component={ResetPassword} /> */}
     {/* <Route exact path="/login" component={Login} /> */}
+    <Footer />
   </Div>
 );
 
