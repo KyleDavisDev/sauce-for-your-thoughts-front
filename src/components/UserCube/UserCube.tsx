@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "../../theme/styled-components";
 
 const StyledDiv = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,11 +29,12 @@ const StyledP = styled.p`
 interface UserCubeProps {
   src: string;
   name: string;
+  className?: string;
 }
 
 const UserCube: React.SFC<UserCubeProps> = props => {
   return (
-    <StyledDiv>
+    <StyledDiv className={props.className}>
       <img src={props.src} alt="fill me out later" />
       <StyledP>{props.name}</StyledP>
     </StyledDiv>
