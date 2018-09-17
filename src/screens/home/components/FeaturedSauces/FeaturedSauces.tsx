@@ -8,6 +8,7 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 1em;
 `;
 
 const StyledCard = styled(Card)`
@@ -19,8 +20,8 @@ const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
   return (
     <StyledDiv>
       <SectionTitle
-        title="Newest Sauces"
-        description="We are always adding new sauces to our knowledgebase!"
+        title="Featured Sauces"
+        description="Check out some of these unique sauces. Discover flavors you've never tasted before!"
       />
       <StyledCard
         anchorLink="#"
