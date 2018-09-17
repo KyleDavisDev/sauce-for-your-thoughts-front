@@ -10,6 +10,7 @@ const StyledDiv = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1em;
 `;
 
 const StyledUserCube = styled(UserCube)`

@@ -8,6 +8,7 @@ import Button from "../../../../components/Button/Button";
 const HeroContainer = styled.header`
   background: #000;
   position: relative;
+  margin-bottom: 1em;
 `;
 
 const HeroImage = styled.div`

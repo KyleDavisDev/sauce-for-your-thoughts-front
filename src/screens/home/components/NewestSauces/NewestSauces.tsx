@@ -9,6 +9,7 @@ const StyledDiv = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 1em;
 `;
 
 const StyledCard = styled(Card)`
