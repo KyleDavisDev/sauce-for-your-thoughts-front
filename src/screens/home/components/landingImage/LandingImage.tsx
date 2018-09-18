@@ -65,6 +65,13 @@ const StyledInput = styled(TextInput)`
   }
 `;
 
+const StyledButton = styled(Button)`
+  a {
+    display: flex;
+    align-items: center;
+  }
+`;
+
 export interface LandingImageProps {}
 
 export interface LandingImageState {
@@ -110,7 +117,7 @@ class LandingImage extends React.Component<
               value={this.state.search.value}
               placeholder="Search..."
             />
-            <Button type="solid" isLink={true} text="Search Me" />
+            <StyledButton type="solid" isLink={true} text="Search Me" />
           </StyledDiv>
         </HeroBody>
       </HeroContainer>

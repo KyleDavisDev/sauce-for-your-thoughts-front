@@ -4,7 +4,7 @@ import styled from "../../theme/styled-components";
 
 interface ButtonProps {
   text: string;
-  type?: string;
+  type?: "outline" | "solid";
   isLink?: boolean;
   linkTo?: string;
   className?: string;
@@ -47,8 +47,6 @@ Button.defaultProps = {
 };
 
 const StyledButton = styled(Button)`
-  display: flex;
-  align-items: center;
   a {
     text-decoration: none;
     padding: 0.5em 1em;
