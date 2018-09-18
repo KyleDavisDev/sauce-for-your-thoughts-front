@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as shortid from "shortid";
 
 import styled from "../../../../theme/styled-components";
 import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
@@ -30,6 +31,7 @@ const FeaturedUsers: React.SFC<FeaturedUsersProps> = props => {
       {new Array(27).fill(undefined).map(x => {
         return (
           <StyledUserCube
+            key={shortid.generate()}
             src="../../../../images/avatars/boy-10.png"
             name="Test"
           />
