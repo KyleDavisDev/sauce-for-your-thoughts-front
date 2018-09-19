@@ -7,6 +7,14 @@ const StyledDiv = styled.div`
   max-width: 300px;
 `;
 
+const StyledH5 = styled.h5`
+  margin: 0.5em 0;
+  font-weight: 400;
+  padding: 0;
+  color: ${props => props.theme.white};
+  font-size: ${props => props.theme.scaleH5};
+`;
+
 const StyledUl = styled.ul`
   margin: 0px;
   padding: 0px;
@@ -30,7 +38,7 @@ interface FooterNavigationProps {
 const FooterNavigation: React.SFC<FooterNavigationProps> = props => {
   return (
     <StyledDiv className={props.className}>
-      <h6>Navigation</h6>
+      <StyledH5>Navigation</StyledH5>
       <StyledUl>
         <li>
           <StyledLink to="#">Home</StyledLink>
