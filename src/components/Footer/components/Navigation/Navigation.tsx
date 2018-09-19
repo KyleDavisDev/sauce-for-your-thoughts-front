@@ -2,11 +2,9 @@ import * as React from "react";
 
 import List from "../List/List";
 
-interface FooterNavigationProps {
-  className?: string;
-}
+interface NavigationProps {}
 
-const FooterNavigation: React.SFC<FooterNavigationProps> = props => {
+const Navigation: React.SFC<NavigationProps> = props => {
   const items = [
     { link: "#", text: "Home" },
     { link: "#", text: "All Sauces" },
@@ -17,4 +15,4 @@ const FooterNavigation: React.SFC<FooterNavigationProps> = props => {
   return <List title="Navigation" items={items} />;
 };
 
-export default FooterNavigation;
+export default Navigation;
