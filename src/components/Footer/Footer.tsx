@@ -3,6 +3,8 @@ import * as React from "react";
 import styled from "../../theme/styled-components";
 import Navigation from "./components/Navigation/Navigation";
 import Peppers from "./components/Peppers/Peppers";
+import Types from "./components/Types/Types";
+import About from "./components/About/About";
 
 const StyledFooter = styled.footer`
   width: 100%;
@@ -30,6 +32,8 @@ const Footer: React.SFC<FooterProps> = props => {
       <StyledDiv>
         <Navigation />
         <Peppers />
+        <Types />
+        <About />
       </StyledDiv>
     </StyledFooter>
   );
