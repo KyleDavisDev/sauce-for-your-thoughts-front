@@ -9,16 +9,20 @@ const StyledDiv = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 1em;
+  justify-content: center;
 `;
 
 const StyledCard = styled(Card)`
   width: 33%;
 `;
-interface FeaturedSaucesProps {}
+
+interface FeaturedSaucesProps {
+  className?: string;
+}
 
 const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
   return (
-    <StyledDiv>
+    <StyledDiv className={props.className}>
       <SectionTitle
         title="Featured Sauces"
         description="Check out some of these unique sauces. Discover flavors you've never tasted before!"
