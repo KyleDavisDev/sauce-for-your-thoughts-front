@@ -17,7 +17,9 @@ const StyledCard = styled(Card)`
   width: 33%;
 `;
 
-export interface NewestSaucesProps {}
+export interface NewestSaucesProps {
+  className?: string;
+}
 
 export interface NewestSaucesState {}
 
@@ -33,7 +35,7 @@ export default class NewestSauces extends React.Component<
 
   public render() {
     return (
-      <StyledDiv>
+      <StyledDiv className={this.props.className}>
         <SectionTitle
           title="Newest Sauces"
           description="We are always adding new sauces to our knowledgebase!"
