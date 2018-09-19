@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "../../../../theme/styled-components";
 
 const StyledDiv = styled.div`
-  max-width: 300px;
+  max-width: ${props => props.theme.footerMaxWidth};
 `;
 
 const StyledH5 = styled.h5`
