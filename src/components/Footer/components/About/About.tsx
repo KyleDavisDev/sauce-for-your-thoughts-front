@@ -31,7 +31,11 @@ const Types: React.SFC<TypesProps> = props => {
     <StyledDiv className={props.className}>
       <StyledH5>About</StyledH5>
 
-      <StyledP>Text here</StyledP>
+      <StyledP>
+        Ever wonder what a sauce tastes like <em>before</em> buying it? Sauce
+        For Your Thoughts can help! Add, or review, sauces and help out your
+        fellow saucies! Never be blind-sides by a sauce again!
+      </StyledP>
     </StyledDiv>
   );
 };
