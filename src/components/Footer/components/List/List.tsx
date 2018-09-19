@@ -11,6 +11,7 @@ const StyledH5 = styled.h5`
   margin: 0.5em 0;
   font-weight: 400;
   padding: 0;
+  text-transform: uppercase;
   color: ${props => props.theme.white};
   font-size: ${props => props.theme.scaleH5};
 `;
@@ -21,8 +22,8 @@ const StyledUl = styled.ul`
   list-style: none;
 
   li {
-    margin-top: 0.25em;
-    margin-bottom: 0.25em;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 `;
 
