@@ -10,8 +10,9 @@ const StyledDiv = styled.div`
 `;
 
 const StyledH2 = styled.h2`
-  margin-top: 1em;
-  margin-bottom: 0.5em;
+  font-size: ${props => props.theme.scaleH2};
+  margin-top: 0;
+  margin-bottom: 1rem;
   padding: 5px 15px;
   color: ${props => props.theme.white};
   background-color: ${props => props.theme.primaryThemeColor};
@@ -25,7 +26,7 @@ const StyledH2 = styled.h2`
     top: 0;
     right: -20px;
     border-style: solid;
-    border-width: 38px 20px 0 0;
+    border-width: 46px 20px 0 0;
     border-color: ${props => props.theme.primaryThemeColor} transparent
       transparent transparent;
     z-index: 3;
@@ -33,9 +34,10 @@ const StyledH2 = styled.h2`
 `;
 
 const StyledH6 = styled.h6`
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 0;
+  margin-bottom: 1rem;
   color: ${props => props.theme.grey};
+  font-size: ${props => props.theme.scaleH6};
   font-weight: 400;
 `;
 
