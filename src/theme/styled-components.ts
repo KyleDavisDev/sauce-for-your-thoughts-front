@@ -20,7 +20,10 @@ export interface ThemeInterface {
   userCubeBackgroundColor: string;
   userCubeTextColor: string;
   maxPageWidth: string;
-  fontSize: string;
+  scaleH2: string;
+  scaleH5: string;
+  scaleH6: string;
+  defaultFontSize: string;
   white: string;
   grey: string;
   black: string;
@@ -36,8 +39,11 @@ const enum colors {
 }
 
 const enum scale {
-  maxPageWidth = "1200px",
-  fontSize = "16px"
+  defaultFontSize = "16px",
+  maxPageWidth = "75rem",
+  scaleH2 = "1.875rem",
+  scaleH5 = "1.125rem",
+  scaleH6 = "1rem"
 }
 
 export const enum theme {
@@ -54,7 +60,10 @@ export const enum theme {
   grey = colors.grey,
   black = colors.black,
   maxPageWidth = scale.maxPageWidth,
-  fontSize = scale.fontSize
+  defaultFontSize = scale.defaultFontSize,
+  scaleH2 = scale.scaleH2,
+  scaleH5 = scale.scaleH5,
+  scaleH6 = scale.scaleH6
 }
 
 export { css, injectGlobal, keyframes, ThemeProvider };
