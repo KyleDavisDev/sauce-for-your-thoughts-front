@@ -18,11 +18,13 @@ const StyledUserCube = styled(UserCube)`
   width: 10%;
 `;
 
-interface FeaturedUsersProps {}
+interface FeaturedUsersProps {
+  className?: string;
+}
 
 const FeaturedUsers: React.SFC<FeaturedUsersProps> = props => {
   return (
-    <StyledDiv>
+    <StyledDiv className={props.className}>
       <SectionTitle
         title="Featured Users"
         description="These people have either contributed the most, or are the newest to the site. SFYT's thanks them!"
