@@ -72,7 +72,9 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export interface LandingImageProps {}
+export interface LandingImageProps {
+  className?: string;
+}
 
 export interface LandingImageState {
   search: {
@@ -99,7 +101,7 @@ class LandingImage extends React.Component<
 
   public render(): JSX.Element {
     return (
-      <HeroContainer>
+      <HeroContainer className={this.props.className}>
         <HeroImage />
         <HeroBody>
           <HeroTitle>Find your perfect sauce</HeroTitle>
