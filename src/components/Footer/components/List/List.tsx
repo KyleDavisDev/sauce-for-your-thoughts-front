@@ -30,6 +30,11 @@ const StyledUl = styled.ul`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${props => props.theme.white};
+
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.secondaryThemeColor};
+  }
 `;
 
 interface Item {
