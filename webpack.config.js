@@ -86,14 +86,6 @@ module.exports = {
           }
         }
       },
-      // {
-      //   test: /\.scss$/,
-      //   use: ExtractTextPlugin.extract({
-      //     fallback: "style-loader",
-      //     use: ["css-loader", "resolve-url-loader", "sass-loader?sourceMap"],
-      //     publicPath: "/"
-      //   })
-      // },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         use: {
