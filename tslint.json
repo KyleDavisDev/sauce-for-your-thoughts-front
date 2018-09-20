@@ -9,7 +9,8 @@
     "trailing-comma": false,
     "arrow-parens": false,
     "no-empty-interface": false,
-    "semicolon": false
+    "semicolon": false,
+    "max-line-length": false
   },
   "rulesDirectory": []
 }
