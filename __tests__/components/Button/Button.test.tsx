@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, cleanup } from "react-testing-library";
+import { render, cleanup, fireEvent } from "react-testing-library";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 import Button from "../../../src/components/Button/Button";
@@ -22,14 +22,12 @@ function renderWithRouter(
 
 afterEach(cleanup);
 
-test("<Button /> renders", () => {
-  renderWithRouter(<Button text="test" />);
+test("<Button> renders", () => {
+  const { container } = renderWithRouter(<Button />);
+  expect(container).toBeTruthy();
 });
 
-test("<Button /> has proper text", () => {
-  const { container, debug } = renderWithRouter(
-    <Button text="test">text here</Button>
-  );
-  debug();
-  expect(container.innerHTML).toMatch("test");
+test("<Button> has proper text", () => {
+  const { container } = renderWithRouter(<Button>text here</Button>);
+  expect(container.innerHTML).toMatch("text here");
 });
