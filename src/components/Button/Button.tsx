@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "../../theme/styled-components";
 
 interface ButtonProps {
-  text: string;
+  children?: string;
   type?: "outline" | "solid";
   isLink?: boolean;
   linkTo?: string;
@@ -29,11 +29,11 @@ const Button: React.SFC<ButtonProps> = props => {
     <Div className={props.className}>
       {props.isLink ? (
         <Link to={props.linkTo || "#"} className={props.className}>
-          {props.text}
+          {props.children}
         </Link>
       ) : (
         <button className={props.className} onClick={onClick}>
-          {props.text}
+          {props.children}
         </button>
       )}
     </Div>
