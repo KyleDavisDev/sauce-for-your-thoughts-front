@@ -1,5 +1,5 @@
 module.exports = {
-  setupTestFrameworkScriptFile: require.resolve("./__tests__/jest.setup.js"),
+  setupTestFrameworkScriptFile: require.resolve("./jest.setup.ts"),
   // moduleDirectories: [
   //   "node_modules",
   //   "__tests__", // a utility folder
