@@ -3,7 +3,7 @@ import * as React from "react";
 import styled from "../../../../theme/styled-components";
 import DropDown from "../../../../components/DropDown/DropDown";
 import TextInput from "../../../../components/TextInput/TextInput";
-import Button from "../../../../components/Button/Button";
+import Link from "../../../../components/Link/Link";
 
 const HeroContainer = styled.header`
   background: #000;
@@ -65,7 +65,7 @@ const StyledInput = styled(TextInput)`
   }
 `;
 
-const StyledButton = styled(Button)`
+const StyledLink = styled(Link)`
   a {
     display: flex;
     align-items: center;
@@ -119,9 +119,7 @@ class LandingImage extends React.Component<
               value={this.state.search.value}
               placeholder="Search..."
             />
-            <StyledButton type="solid" isLink={true}>
-              Search
-            </StyledButton>
+            <StyledLink type="solid">Search</StyledLink>
           </StyledDiv>
         </HeroBody>
       </HeroContainer>
