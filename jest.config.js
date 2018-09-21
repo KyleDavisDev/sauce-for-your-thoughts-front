@@ -1,11 +1,7 @@
 module.exports = {
   setupTestFrameworkScriptFile: require.resolve("./jest.setup.ts"),
-  // moduleDirectories: [
-  //   "node_modules",
-  //   "__tests__", // a utility folder
-  //   __dirname // the root directory
-  // ],
-  roots: ["<rootDir>/__tests__"],
+  snapshotSerializers: ["enzyme-to-json"],
+  roots: ["<rootDir>/src"],
   transform: {
     "^.+\\.tsx?$": "ts-jest"
   },
