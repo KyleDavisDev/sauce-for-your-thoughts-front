@@ -1,5 +1,4 @@
-// add some helpful assertions
-import "jest-dom/extend-expect";
+import enzyme from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 
-// this is basically: afterEach(cleanup)
-import "react-testing-library/cleanup-after-each";
+enzyme.configure({ adapter: new Adapter() });
