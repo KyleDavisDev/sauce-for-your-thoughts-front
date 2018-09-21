@@ -19,6 +19,7 @@ export interface ThemeInterface {
   siteBackgroundColor: string;
   userCubeBackgroundColor: string;
   userCubeTextColor: string;
+  formContainerBackgroundColor: string;
   maxPageWidth: string;
   footerMaxWidth: string;
   scaleP: string;
@@ -66,9 +67,7 @@ export const enum theme {
   siteBackgroundColor = colors.smoke,
   userCubeBackgroundColor = colors.white,
   userCubeTextColor = colors.mustard,
-  white = colors.white,
-  grey = colors.grey,
-  black = colors.black,
+  formContainerBackgroundColor = colors.white,
   maxPageWidth = scale.maxPageWidth,
   defaultFontSize = scale.defaultFontSize,
   footerMaxWidth = scale.footerMaxWidth,
@@ -78,7 +77,10 @@ export const enum theme {
   scaleH3 = scale.scaleH3,
   scaleH4 = scale.scaleH4,
   scaleH5 = scale.scaleH5,
-  scaleH6 = scale.scaleH6
+  scaleH6 = scale.scaleH6,
+  white = colors.white,
+  grey = colors.grey,
+  black = colors.black
 }
 
 export { css, injectGlobal, keyframes, ThemeProvider };
