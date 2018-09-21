@@ -119,7 +119,9 @@ class LandingImage extends React.Component<
               value={this.state.search.value}
               placeholder="Search..."
             />
-            <StyledButton type="solid" isLink={true} text="Search Me" />
+            <StyledButton type="solid" isLink={true}>
+              Search
+            </StyledButton>
           </StyledDiv>
         </HeroBody>
       </HeroContainer>
