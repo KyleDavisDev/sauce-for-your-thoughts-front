@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "../../theme/styled-components";
-import Button from "../Button/Button";
+import Link from "../Link/Link";
 
 const Div = styled.div`
   max-width: 350px;
@@ -25,13 +25,13 @@ const Body = styled.div`
   padding: 1em;
 `;
 
-const StyledButton = styled(Button)`
+const StyledLink = styled(Link)`
   padding: 0.5em 1em;
   margin: 0 auto;
 `;
 
 interface CardProps {
-  imageLink: string;
+  imageLink?: string;
   title: string;
   description: string;
   className?: string;
@@ -49,12 +49,7 @@ const Card: React.SFC<CardProps> = props => {
           ? props.description.substring(0, 24) + "..."
           : props.description}
       </Body>
-      <StyledButton
-        onClick={() => console.log("Button clicked")}
-        type="outline"
-      >
-        {props.anchorText || "View Sauce"}
-      </StyledButton>
+      <StyledLink type="outline">{props.anchorText || "View Sauce"}</StyledLink>
     </Div>
   );
 };
