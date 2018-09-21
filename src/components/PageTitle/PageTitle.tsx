@@ -4,6 +4,7 @@ import styled from "../../theme/styled-components";
 
 const StyledH1 = styled.h1`
   font-size: ${props => props.theme.scaleH1};
+  margin-bottom: 0.5rem;
 `;
 
 interface PageTitleProps {
