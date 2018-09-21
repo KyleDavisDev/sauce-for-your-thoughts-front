@@ -50,10 +50,11 @@ const Card: React.SFC<CardProps> = props => {
           : props.description}
       </Body>
       <StyledButton
-        text={props.anchorText || "View Sauce"}
         onClick={() => console.log("Button clicked")}
         type="outline"
-      />
+      >
+        {props.anchorText || "View Sauce"}
+      </StyledButton>
     </Div>
   );
 };
