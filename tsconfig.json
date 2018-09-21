@@ -14,7 +14,8 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
-    "removeComments": true
+    "removeComments": true,
+    "esModuleInterop": true
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules"]
