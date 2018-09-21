@@ -66,7 +66,7 @@ const Navigation: React.SFC<{}> = props => {
           <StyledLink to="/sauces">Sauces</StyledLink>
         </li>
         <li>
-          <StyledLink to="/addsauce">Add Sauce</StyledLink>
+          <StyledLink to="/sauce/add">Add Sauce</StyledLink>
         </li>
         <Bar />
         <li>
