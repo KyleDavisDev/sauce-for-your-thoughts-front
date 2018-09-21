@@ -24,12 +24,24 @@ const Home = Loadable({
     </div>
   )
 });
+
+// Add Sauce
+const AddSauce = Loadable({
+  loader: () => import("./sauce/Add/Add"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 const Screens = (
   <Div>
     <TopBar />
     <Navigation />
     {/* {flashMessageVisible && <FlashMessage />} */}
     <Route exact path="/" component={Home} />
+    <Route exact path="/sauce/add" component={AddSauce} />
     {/* <Route
       exact
       path="/sauces(/?page=:page&limit=:limit)?"
