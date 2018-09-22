@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as enzyme from "enzyme";
+import { MemoryRouter } from "react-router-dom";
 
 import Link from "./Link";
 
@@ -10,6 +11,18 @@ describe("<Link>", () => {
   });
 
   it("renders correct text", () => {
-    const wrapper = enzyme.shallow(<Link>Text here</Link>);
+    let wrapper = enzyme.render(
+      <MemoryRouter>
+        <Link>Text here</Link>
+      </MemoryRouter>
+    );
+    expect(wrapper.find("a").text()).toEqual("Text here");
+
+    wrapper = enzyme.render(
+      <MemoryRouter>
+        <Link>Other text</Link>
+      </MemoryRouter>
+    );
+    expect(wrapper.find("a").text()).toEqual("Other text");
   });
 });
