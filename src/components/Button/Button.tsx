@@ -4,7 +4,6 @@ import styled from "../../theme/styled-components";
 interface ButtonProps {
   children?: string;
   type?: "outline" | "solid";
-  linkTo?: string;
   className?: string;
   onClick(event: any): void;
 }
@@ -23,8 +22,7 @@ const Button: React.SFC<ButtonProps> = props => {
 };
 
 Button.defaultProps = {
-  type: "outline",
-  linkTo: "#"
+  type: "outline"
 };
 
 const StyledButton = styled(Button)`
