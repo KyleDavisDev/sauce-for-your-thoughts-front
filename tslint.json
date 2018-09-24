@@ -10,7 +10,8 @@
     "arrow-parens": false,
     "no-empty-interface": false,
     "semicolon": false,
-    "max-line-length": false
+    "max-line-length": false,
+    "no-empty": false
   },
   "rulesDirectory": []
 }
