@@ -10,9 +10,10 @@ describe("<Button>", () => {
   });
 
   it("renders correct text", () => {
-    // const wrapper = enzyme.shallow(
-    //   <Button onClick={() => {}}>Text here</Button>
-    // );
-    // expect(wrapper.find(""));
+    let wrapper = enzyme.render(<Button onClick={() => {}}>Text here</Button>);
+    expect(wrapper.find("button").text()).toEqual("Text here");
+
+    wrapper = enzyme.render(<Button onClick={() => {}}>Other text</Button>);
+    expect(wrapper.find("button").text()).toEqual("Other text");
   });
 });
