@@ -25,6 +25,11 @@ const Body = styled.div`
   padding: 1em;
 `;
 
+const StyledP = styled.p`
+  padding: 0;
+  margin: 0;
+`;
+
 const StyledLink = styled(Link)`
   padding: 0.5em 1em;
   margin: 0 auto;
@@ -45,9 +50,11 @@ const Card: React.SFC<CardProps> = props => {
       <Image src={props.imageLink} alt={props.description} />
       <Body>
         <h4>{props.title}</h4>
-        {props.description.length > 25
-          ? props.description.substring(0, 24) + "..."
-          : props.description}
+        <StyledP>
+          {props.description.length > 25
+            ? props.description.substring(0, 24) + "..."
+            : props.description}
+        </StyledP>
       </Body>
       <StyledLink type="outline">{props.anchorText || "View Sauce"}</StyledLink>
     </Div>
