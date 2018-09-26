@@ -7,7 +7,6 @@ interface ButtonProps {
   type?: "outline" | "solid";
   linkTo?: string;
   className?: string;
-  onClick?(event: any): void;
 }
 
 const Div = styled.div`
