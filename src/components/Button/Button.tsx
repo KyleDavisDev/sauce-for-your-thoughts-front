@@ -5,7 +5,7 @@ interface ButtonProps {
   children?: string;
   type?: "outline" | "solid";
   className?: string;
-  onClick(event: any): void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Div = styled.div`
