@@ -37,7 +37,7 @@ const StyledSelect = styled.select`
 interface DropDownProps {
   id?: string;
   options: string[];
-  selectedValue: string;
+  selectedValue?: string;
   className?: string;
   onSelect(event: React.ChangeEvent<HTMLSelectElement>): void;
 }
