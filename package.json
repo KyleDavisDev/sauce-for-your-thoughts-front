@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server",
-    "test": "jest --watchAll --silent",
+    "test": "jest --watchAll",
     "prod": "webpack -p --config webpack.prod.js --define process.env.API_ENV='\"prod\"'"
   },
   "author": "Kyle Bonar",
