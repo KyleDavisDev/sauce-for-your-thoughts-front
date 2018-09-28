@@ -3,14 +3,10 @@ import * as enzyme from "enzyme";
 import DropDown from "./DropDown";
 
 describe("<DropDown>", () => {
-  const onSelect = (event: React.ChangeEvent<HTMLSelectElement>): string => {
-    // Grab the value
-    return event.target.value;
-  };
-
+  const mockOnSelect = jest.fn();
   const options = ["one", "two", "three", "seven", "ten"];
   const wrapper = enzyme.shallow(
-    <DropDown options={options} onSelect={onSelect} />
+    <DropDown options={options} onSelect={mockOnSelect} />
   );
 
   it("renders", () => {
@@ -44,5 +40,15 @@ describe("<DropDown>", () => {
         .find("select [selected]")
         .val()
     ).toEqual("seven");
+  });
+
+  it("calls onSelect when component used", () => {
+    const select = wrapper.find("StyledSelect");
+
+    select.simulate("change");
+    expect(mockOnSelect).toHaveBeenCalledTimes(1);
+
+    select.simulate("change");
+    expect(mockOnSelect).toHaveBeenCalledTimes(2);
   });
 });
