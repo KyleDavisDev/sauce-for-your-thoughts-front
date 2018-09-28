@@ -33,6 +33,7 @@ const StyledSelect = styled.select`
   padding: 0px 40px 0 15px;
   font-size: 1rem;
 `;
+StyledSelect.displayName = "StyledSelect"; // useful for testing
 
 interface DropDownProps {
   id?: string;
