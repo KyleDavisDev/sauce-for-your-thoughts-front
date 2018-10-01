@@ -14,4 +14,22 @@ describe("<List />", () => {
   it("renders", () => {
     expect(wrapper).toBeTruthy();
   });
+
+  it("renders correct title", () => {
+    expect(
+      wrapper
+        .find("StyledH5")
+        .render()
+        .text()
+    ).toEqual(title[0]);
+
+    // Update title
+    wrapper.setProps({ title: title[1] });
+    expect(
+      wrapper
+        .find("StyledH5")
+        .render()
+        .text()
+    ).toEqual(title[1]);
+  });
 });
