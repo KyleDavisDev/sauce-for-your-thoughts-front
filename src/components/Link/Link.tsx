@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link as DOMLink } from "react-router-dom";
 import styled from "../../theme/styled-components";
 
-interface ButtonProps {
+interface LinkProps {
   children?: string;
   type?: "outline" | "solid";
   linkTo?: string;
@@ -14,22 +14,22 @@ const Div = styled.div`
   align-items: stretch;
 `;
 
-const Button: React.SFC<ButtonProps> = props => {
+const Link: React.SFC<LinkProps> = props => {
   return (
     <Div className={props.className}>
-      <Link to={props.linkTo || "#"} className={props.className}>
+      <DOMLink to={props.linkTo || "#"} className={props.className}>
         {props.children}
-      </Link>
+      </DOMLink>
     </Div>
   );
 };
 
-Button.defaultProps = {
+Link.defaultProps = {
   type: "outline",
   linkTo: "#"
 };
 
-const StyledButton = styled(Button)`
+const StyledLink = styled(Link)`
   a {
     text-decoration: none;
     padding: 0.5em 1em;
@@ -63,4 +63,4 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export default StyledButton;
+export default StyledLink;
