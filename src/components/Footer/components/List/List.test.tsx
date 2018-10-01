@@ -33,11 +33,15 @@ describe("<List />", () => {
   });
 
   it("renders correct number of list items", () => {
-    // expect(wrapper.find("li").length).toEqual(items.length);
-    // // Add item to items, update props
-    // items.push({ text: "Fourth title", link: "javascript.com" });
-    // wrapper.setProps({ items });
-    // expect(wrapper.find("li").length).toEqual(items.length);
+    expect(wrapper.find("li").length).toEqual(items.length);
+    // Add item to items, update props
+    items.push({ text: "Fourth title", link: "javascript.com" });
+    wrapper = enzyme.render(
+      <MemoryRouter>
+        <List title={title[0]} items={items} />
+      </MemoryRouter>
+    );
+    expect(wrapper.find("li").length).toEqual(items.length);
   });
 
   // it("renders correct list items", () => {
