@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import * as shortid from "shortid";
 
 import styled from "../../../../theme/styled-components";
 
@@ -15,6 +16,7 @@ const StyledH5 = styled.h5`
   color: ${props => props.theme.white};
   font-size: ${props => props.theme.scaleH5};
 `;
+StyledH5.displayName = "StyledH5";
 
 const StyledUl = styled.ul`
   margin: 0px;
@@ -26,6 +28,7 @@ const StyledUl = styled.ul`
     margin-bottom: 0.75rem;
   }
 `;
+StyledUl.displayName = "StyledUl";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -55,7 +58,7 @@ const List: React.SFC<ListProps> = props => {
       <StyledUl>
         {props.items.map(item => {
           return (
-            <li>
+            <li key={shortid.generate()}>
               <StyledLink to={item.link || "#"}>{item.text}</StyledLink>
             </li>
           );
