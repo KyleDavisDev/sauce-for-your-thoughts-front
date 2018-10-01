@@ -14,6 +14,7 @@ const StyledH5 = styled.h5`
   color: ${props => props.theme.white};
   font-size: ${props => props.theme.scaleH5};
 `;
+StyledH5.displayName = "StyledH5";
 
 const StyledP = styled.p`
   margin: 0.5em 0;
@@ -21,6 +22,7 @@ const StyledP = styled.p`
   color: ${props => props.theme.white};
   font-size: ${props => props.theme.scaleP};
 `;
+StyledP.displayName = "StyledP";
 
 interface TypesProps {
   className?: string;
