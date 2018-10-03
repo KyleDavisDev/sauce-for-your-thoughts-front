@@ -32,6 +32,7 @@ const StyledH2 = styled.h2`
     z-index: 3;
   }
 `;
+StyledH2.displayName = "StyledH2";
 
 const StyledH6 = styled.h6`
   margin-top: 0;
@@ -40,6 +41,7 @@ const StyledH6 = styled.h6`
   font-size: ${props => props.theme.scaleH6};
   font-weight: 400;
 `;
+StyledH6.displayName = "StyledH6";
 
 interface SectionTitleProps {
   title: string;
