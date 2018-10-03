@@ -3,18 +3,18 @@ import * as shortid from "shortid";
 
 import styled from "../../theme/styled-components";
 
-const Label = styled.label`
+const StyledLabel = styled.label`
   text-transform: uppercase;
   color: ${props => props.theme.grey};
   text-decoration: underline;
 `;
 
-const Div = styled.div`
+const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const Input = styled.input`
+const StyledInput = styled.input`
   width: 100%;
   max-width: 100%;
   padding: 10px;
@@ -24,7 +24,7 @@ const Input = styled.input`
   margin-bottom: 15px;
 `;
 
-const TextArea = styled.textarea`
+const StyledTextArea = styled.textarea`
   width: 100%;
   max-width: 100%;
   padding: 10px;
@@ -62,17 +62,17 @@ const TextInput: React.SFC<TextInputProps> = props => {
     type: "text"
   };
   return (
-    <Div className={props.className}>
+    <StyledDiv className={props.className}>
       {props.showLabel &&
         props.label && (
-          <Label htmlFor={props.id}>
+          <StyledLabel htmlFor={props.id}>
             {props.label}
             {props.required && "*"}
-          </Label>
+          </StyledLabel>
         )}
 
       {props.type && props.type.toLowerCase() === "text" ? (
-        <Input
+        <StyledInput
           type={props.type}
           id={props.id}
           name={props.name}
@@ -83,7 +83,7 @@ const TextInput: React.SFC<TextInputProps> = props => {
           className={props.className}
         />
       ) : (
-        <TextArea
+        <StyledTextArea
           id={props.id}
           name={props.name}
           cols={30}
@@ -95,7 +95,7 @@ const TextInput: React.SFC<TextInputProps> = props => {
           className={props.className}
         />
       )}
-    </Div>
+    </StyledDiv>
   );
 };
 
