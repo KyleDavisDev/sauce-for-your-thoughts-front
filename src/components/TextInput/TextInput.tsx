@@ -58,12 +58,6 @@ interface TextInputProps {
 }
 
 const TextInput: React.SFC<TextInputProps> = props => {
-  TextInput.defaultProps = {
-    id: shortid.generate(),
-    showLabel: false,
-    required: false,
-    type: "text"
-  };
   return (
     <StyledDiv className={props.className}>
       {props.showLabel &&
@@ -100,6 +94,12 @@ const TextInput: React.SFC<TextInputProps> = props => {
       )}
     </StyledDiv>
   );
+};
+TextInput.defaultProps = {
+  id: shortid.generate(),
+  showLabel: false,
+  required: false,
+  type: "text"
 };
 
 export default TextInput;
