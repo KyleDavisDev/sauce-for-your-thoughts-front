@@ -44,9 +44,10 @@ describe("<List />", () => {
     expect(wrapper.find("li").length).toEqual(items.length);
   });
 
-  // it("renders correct list items", () => {
-  //   wrapper.find("li").forEach((node, ind) => {
-  //     expect(node.render().text()).toEqual(items[ind].text);
-  //   });
-  // });
+  it("renders correct list item texts", () => {
+    wrapper.find("li").map((ind, node) => {
+      // li -> a -> text -> data (same as text())
+      expect(node.children[0].children[0].data).toEqual(items[ind].text);
+    });
+  });
 });
