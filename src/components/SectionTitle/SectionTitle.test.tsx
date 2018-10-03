@@ -16,4 +16,12 @@ describe("<SectionTitle />", () => {
   it("renders", () => {
     expect(wrapper).toBeTruthy();
   });
+
+  it("renders correct tags", () => {
+    expect(wrapper.find("StyledH2")).toBeTruthy();
+    expect(wrapper.find("StyledH2").length).toEqual(1);
+
+    expect(wrapper.find("StyledH6")).toBeTruthy();
+    expect(wrapper.find("StyledH6").length).toEqual(1);
+  });
 });
