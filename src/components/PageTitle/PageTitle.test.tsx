@@ -14,4 +14,31 @@ describe("<PageTitle />", () => {
     expect(wrapper.find("StyledH1")).toBeTruthy();
     expect(wrapper.find("StyledH1").length).toEqual(1);
   });
+
+  it("renders correct text", () => {
+    expect(
+      wrapper
+        .find("StyledH1")
+        .render()
+        .text()
+    ).toEqual(children[0]);
+
+    // update text, and test
+    wrapper.setProps({ children: children[1] });
+    expect(
+      wrapper
+        .find("StyledH1")
+        .render()
+        .text()
+    ).toEqual(children[1]);
+
+    // update text, and test
+    wrapper.setProps({ children: children[2] });
+    expect(
+      wrapper
+        .find("StyledH1")
+        .render()
+        .text()
+    ).toEqual(children[2]);
+  });
 });
