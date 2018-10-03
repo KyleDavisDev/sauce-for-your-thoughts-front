@@ -6,7 +6,7 @@ import { MemoryRouter } from "react-router-dom";
 describe("<List />", () => {
   const title = ["Test title", "Another title"];
   const items = [
-    { text: "Sample text" },
+    { text: "Sample text", link: "github.com" },
     { text: "More text" },
     { link: "google.com", text: "Third" }
   ];
@@ -48,6 +48,13 @@ describe("<List />", () => {
     wrapper.find("li").map((ind, node) => {
       // li -> a -> text -> data (same as text())
       expect(node.children[0].children[0].data).toEqual(items[ind].text);
+    });
+  });
+
+  it("renders correct list item link", () => {
+    wrapper.find("li").map((ind, node) => {
+      // li -> a
+      expect(node.children[0].attribs.href).toEqual(items[ind].link || "#");
     });
   });
 });
