@@ -6,6 +6,7 @@ const StyledH1 = styled.h1`
   font-size: ${props => props.theme.scaleH1};
   margin-bottom: 0.5rem;
 `;
+StyledH1.displayName = "StyledH1";
 
 interface PageTitleProps {
   children?: string;
