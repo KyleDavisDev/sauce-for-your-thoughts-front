@@ -9,4 +9,9 @@ describe("<PageTitle />", () => {
   it("renders", () => {
     expect(wrapper).toBeTruthy();
   });
+
+  it("renders correct tag", () => {
+    expect(wrapper.find("StyledH1")).toBeTruthy();
+    expect(wrapper.find("StyledH1").length).toEqual(1);
+  });
 });
