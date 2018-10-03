@@ -24,4 +24,31 @@ describe("<SectionTitle />", () => {
     expect(wrapper.find("StyledH6")).toBeTruthy();
     expect(wrapper.find("StyledH6").length).toEqual(1);
   });
+
+  it("renders correct titles", () => {
+    expect(
+      wrapper
+        .find("StyledH2")
+        .render()
+        .text()
+    ).toEqual(title[0]);
+
+    // Update title, retest
+    wrapper.setProps({ title: title[1] });
+    expect(
+      wrapper
+        .find("StyledH2")
+        .render()
+        .text()
+    ).toEqual(title[1]);
+
+    // Update title, retest
+    wrapper.setProps({ title: title[2] });
+    expect(
+      wrapper
+        .find("StyledH2")
+        .render()
+        .text()
+    ).toEqual(title[2]);
+  });
 });
