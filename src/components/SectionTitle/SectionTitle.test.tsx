@@ -25,7 +25,7 @@ describe("<SectionTitle />", () => {
     expect(wrapper.find("StyledH6").length).toEqual(1);
   });
 
-  it("renders correct titles", () => {
+  it("renders correct h2 text", () => {
     expect(
       wrapper
         .find("StyledH2")
@@ -50,5 +50,32 @@ describe("<SectionTitle />", () => {
         .render()
         .text()
     ).toEqual(title[2]);
+  });
+
+  it("renders correct h6 text", () => {
+    expect(
+      wrapper
+        .find("StyledH6")
+        .render()
+        .text()
+    ).toEqual(description[0]);
+
+    // Update description, retest
+    wrapper.setProps({ description: description[1] });
+    expect(
+      wrapper
+        .find("StyledH6")
+        .render()
+        .text()
+    ).toEqual(description[1]);
+
+    // Update description, retest
+    wrapper.setProps({ description: description[2] });
+    expect(
+      wrapper
+        .find("StyledH6")
+        .render()
+        .text()
+    ).toEqual(description[2]);
   });
 });
