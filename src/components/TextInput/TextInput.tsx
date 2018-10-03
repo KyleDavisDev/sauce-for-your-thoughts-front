@@ -45,7 +45,7 @@ interface TextInputProps {
   label?: string;
   showLabel?: boolean;
   type?: "text" | "textarea";
-  value: string | number;
+  value?: string | number;
   className?: string;
   onChange(
     event:
