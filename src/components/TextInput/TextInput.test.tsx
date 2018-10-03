@@ -9,4 +9,8 @@ describe("<TextInput />", () => {
   it("renders", () => {
     expect(wrapper).toBeTruthy();
   });
+
+  it("defaults to rendering single input", () => {
+    expect(wrapper.find("StyledInput").length).toEqual(1);
+  });
 });
