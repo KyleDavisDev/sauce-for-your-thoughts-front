@@ -44,7 +44,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Bar = styled.div`
+const StyledBar = styled.div`
   display: inline;
   margin-left: 0.25em;
   margin-right 0.25em;
@@ -68,7 +68,7 @@ const Navigation: React.SFC<{}> = props => {
         <li>
           <StyledLink to="/sauce/add">Add Sauce</StyledLink>
         </li>
-        <Bar />
+        <StyledBar />
         <li>
           <span>icon here</span>
         </li>
