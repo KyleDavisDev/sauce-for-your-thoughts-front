@@ -44,7 +44,7 @@ interface TextInputProps {
   required?: boolean;
   label?: string;
   showLabel?: boolean;
-  type?: string; // Need to somehow limit this to only "text" and "textarea"
+  type?: "text" | "textarea";
   value: string | number;
   className?: string;
   onChange(
