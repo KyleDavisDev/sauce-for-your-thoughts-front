@@ -8,6 +8,7 @@ const StyledLabel = styled.label`
   color: ${props => props.theme.grey};
   text-decoration: underline;
 `;
+StyledLabel.displayName = "StyledLabel";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -23,6 +24,7 @@ const StyledInput = styled.input`
   margin-top: 5px;
   margin-bottom: 15px;
 `;
+StyledInput.displayName = "StyledInput";
 
 const StyledTextArea = styled.textarea`
   width: 100%;
@@ -36,6 +38,7 @@ const StyledTextArea = styled.textarea`
   min-height: 35px;
   max-height: 220px;
 `;
+StyledTextArea.displayName = "StyledTextArea";
 
 interface TextInputProps {
   id?: string;
