@@ -105,4 +105,7 @@ const mapStateToProps = state => ({
   flashMessageVisible: !!state.flashMessage.isVisible
 });
 
-export default connect(mapStateToProps, {})(Screens);
+export default connect(
+  mapStateToProps,
+  {}
+)(Screens);
