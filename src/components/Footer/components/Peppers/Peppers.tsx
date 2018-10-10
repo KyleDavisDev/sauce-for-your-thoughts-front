@@ -2,10 +2,8 @@ import * as React from "react";
 
 import List from "../List/List";
 
-interface PeppersProps {}
-
-const Peppers: React.SFC<PeppersProps> = props => {
-  const items = [
+class Peppers extends React.PureComponent {
+  private items = [
     { link: "#", text: "Arbol" },
     { link: "#", text: "Ghost Chili" },
     { link: "#", text: "Cayenne" },
@@ -17,7 +15,10 @@ const Peppers: React.SFC<PeppersProps> = props => {
     { link: "#", text: "Tobasco" },
     { link: "#", text: "Trinidad Scorpion" }
   ];
-  return <List title="Peppers" items={items} />;
-};
+
+  public render() {
+    return <List title="Peppers" items={this.items} />;
+  }
+}
 
 export default Peppers;

@@ -2,10 +2,8 @@ import * as React from "react";
 
 import List from "../List/List";
 
-interface TypesProps {}
-
-const Types: React.SFC<TypesProps> = props => {
-  const items = [
+class Types extends React.PureComponent {
+  private items = [
     { link: "#", text: "Hot Sauce" },
     { link: "#", text: "BBQ" },
     { link: "#", text: "Gravy" },
@@ -13,7 +11,10 @@ const Types: React.SFC<TypesProps> = props => {
     { link: "#", text: "Salsa" },
     { link: "#", text: "Meat" }
   ];
-  return <List title="Types" items={items} />;
-};
+
+  public render() {
+    return <List title="Types" items={this.items} />;
+  }
+}
 
 export default Types;
