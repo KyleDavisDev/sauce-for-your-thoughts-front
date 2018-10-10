@@ -13,4 +13,8 @@ describe("<Navigation />", () => {
   it("renders", () => {
     expect(wrapper).toBeTruthy();
   });
+
+  it("has correct title", () => {
+    expect(wrapper.find("h5").text()).toEqual("Navigation");
+  });
 });
