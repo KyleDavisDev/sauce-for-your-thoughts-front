@@ -5,7 +5,6 @@ import { rootReducer } from "./reducers/rootReducer";
 
 export const configureStore = () => {
   const initialState: object = {
-    flashMessage: { isVisible: false, type: null, text: null, slug: null },
     sauces: {
       allIds: [],
       byId: {},
