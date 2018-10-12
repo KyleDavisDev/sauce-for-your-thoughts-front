@@ -1,5 +1,4 @@
 import * as styledComponents from "styled-components";
-import { ThemedStyledComponentsModule } from "styled-components";
 
 const {
   default: styled,
@@ -7,7 +6,9 @@ const {
   injectGlobal,
   keyframes,
   ThemeProvider
-} = styledComponents as ThemedStyledComponentsModule<ThemeInterface>;
+} = styledComponents as styledComponents.ThemedStyledComponentsModule<
+  ThemeInterface
+>;
 
 export interface ThemeInterface {
   primaryThemeColor: string;
@@ -57,31 +58,31 @@ const enum scale {
   scaleH6 = "1rem"
 }
 
-export const enum theme {
-  primaryThemeColor = colors.mustard,
-  secondaryThemeColor = colors.purple,
-  navigationTextColor = colors.white,
-  navigationIconColor = colors.white,
-  landingHeroTextColor = colors.white,
-  cardBackgroundColor = colors.white,
-  siteBackgroundColor = colors.smoke,
-  userCubeBackgroundColor = colors.white,
-  userCubeTextColor = colors.mustard,
-  formContainerBackgroundColor = colors.white,
-  maxPageWidth = scale.maxPageWidth,
-  defaultFontSize = scale.defaultFontSize,
-  footerMaxWidth = scale.footerMaxWidth,
-  scaleP = scale.scaleP,
-  scaleH1 = scale.scaleH1,
-  scaleH2 = scale.scaleH2,
-  scaleH3 = scale.scaleH3,
-  scaleH4 = scale.scaleH4,
-  scaleH5 = scale.scaleH5,
-  scaleH6 = scale.scaleH6,
-  white = colors.white,
-  grey = colors.grey,
-  black = colors.black
-}
+export const theme = {
+  primaryThemeColor: colors.mustard,
+  secondaryThemeColor: colors.purple,
+  navigationTextColor: colors.white,
+  navigationIconColor: colors.white,
+  landingHeroTextColor: colors.white,
+  cardBackgroundColor: colors.white,
+  siteBackgroundColor: colors.smoke,
+  userCubeBackgroundColor: colors.white,
+  userCubeTextColor: colors.mustard,
+  formContainerBackgroundColor: colors.white,
+  maxPageWidth: scale.maxPageWidth,
+  defaultFontSize: scale.defaultFontSize,
+  footerMaxWidth: scale.footerMaxWidth,
+  scaleP: scale.scaleP,
+  scaleH1: scale.scaleH1,
+  scaleH2: scale.scaleH2,
+  scaleH3: scale.scaleH3,
+  scaleH4: scale.scaleH4,
+  scaleH5: scale.scaleH5,
+  scaleH6: scale.scaleH6,
+  white: colors.white,
+  grey: colors.grey,
+  black: colors.black
+};
 
 export { css, injectGlobal, keyframes, ThemeProvider };
 export default styled;
