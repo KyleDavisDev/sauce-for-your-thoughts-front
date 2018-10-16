@@ -26,7 +26,7 @@ const StyledH2 = styled.h2`
     top: 0;
     right: -20px;
     border-style: solid;
-    border-width: 46px 20px 0 0;
+    border-width: 51px 20px 0 0;
     border-color: ${props => props.theme.primaryThemeColor} transparent
       transparent transparent;
     z-index: 3;
