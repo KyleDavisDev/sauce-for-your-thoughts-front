@@ -24,13 +24,8 @@ const sauceReducer: Reducer<ISauces> = (
         ...state,
         byId: { ...state.byId, ...action.sauces.byId },
         allIds:
-          "allIds" in state && state.allIds !== null && state.allIds.length > 0
-            ? [
-                ...state.allIds,
-                ...action.sauces.allIds.filter(x => {
-                  return state.allIds.indexOf(x) === -1;
-                })
-              ]
+          "allIds" in state && state.allIds.length > 0
+            ? [...state.allIds, ...action.sauces.allIds]
             : [...action.sauces.allIds],
         query:
           action.query === null // If the query is null, leave as is, else concatinate
@@ -55,11 +50,11 @@ const sauceReducer: Reducer<ISauces> = (
     //       })
     //     : [];
     case "SAUCES_BY_TAG_FOUND":
-      return action.sauces;
+      return state; // Will come back to this
 
     // TODO: add sauce to .byIds and add id to .allIds
     case "SAUCE_FOUND":
-      return {};
+      return state; // Will come back to this
 
     default:
       return state;
