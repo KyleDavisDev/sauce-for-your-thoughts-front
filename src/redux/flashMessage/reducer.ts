@@ -16,21 +16,21 @@ const reducer: Reducer<IFlashState> = (
     case FlashMessageActionTypes.SUCCESS_FLASH:
       return {
         isVisible: true,
-        text: action.text,
+        text: action.text || null,
         type: "success",
         slug: action.slug || null
       };
     case FlashMessageActionTypes.ERROR_FLASH:
       return {
         isVisible: true,
-        text: action.text,
+        text: action.text || null,
         type: "error",
         slug: action.slug || null
       };
     case FlashMessageActionTypes.WARNING_FLASH:
       return {
         isVisible: true,
-        text: action.text,
+        text: action.text || null,
         type: "error",
         slug: action.slug || null
       };
