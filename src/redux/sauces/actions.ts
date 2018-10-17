@@ -1,36 +1,38 @@
 import api from "../../utils/api/api";
 import { ISauce } from "../sauce/types";
-import { IQuery, IActionSauces } from "./types";
+import { IQuery, IActionSauces, SaucesActionTypes } from "./types";
 // import { flattenSauces, flatChecker } from "./helper";
 // import { addedReviews } from "./reviews";
 // import { addUsers } from "./users";
 
 /** @description Add sauce(s) to array of sauces
- *  @param {Object[]} sauces[] - array of sauce objects
- *  @param {String?} query - query used to get sauces
- *  @param {Number?} total - total number of sauces in store
- *  @return Object, sauce and action type
+ *  @param {ISauce[]} sauces[] - array of sauce objects
+ *  @param {IQuery[]?} query - query used to get sauces
+ *  @param {Number} total - total number of sauces in store
+ *  @return {IActionSauces}, sauce and action type
  */
 export const addedSauces = (
   sauces: ISauce[],
   query: IQuery,
   total: number
-): IActionSauces => {
-  return {
-    type: "SAUCES_ADDED",
-    sauces,
-    query,
-    total
-  };
-};
+): IActionSauces => ({
+  type: SaucesActionTypes.SAUCES_ADDED,
+  sauces,
+  query,
+  total
+});
 
-export const updatedSaucesItems = ({ sauce }) => ({
-  type: "UPDATED_SAUCES_ITEM",
+/** @description Update single sauce
+ *  @param {ISauce} sauce - sauce to be updated
+ *  @return {IActionSauces}, sauce and action type
+ */
+export const updatedSaucesItems = (sauce: ISauce): IActionSauces => ({
+  type: SaucesActionTypes.UPDATE_SAUCE,
   sauce
 });
 
 export const saucesByTagFound = ({ sauces }) => ({
-  type: "SAUCES_BY_TAG_FOUND",
+  type: SaucesActionTypes.SAUCES_BY_TAG_FOUND,
   sauces
 });
 
@@ -39,7 +41,7 @@ export const saucesByTagFound = ({ sauces }) => ({
  *  @returns Object, has sauce info and action type
  */
 export const sauceFound = ({ sauce }) => ({
-  type: "SAUCE_FOUND",
+  type: SaucesActionTypes.SAUCE_FOUND,
   sauce
 });
 
