@@ -1,5 +1,4 @@
 import { ISauce } from "../sauce/types";
-import { IReview } from "../reviews/types";
 
 export interface IAction {
   type: string;
@@ -9,17 +8,6 @@ export interface IAction {
   };
   query: null | { [key: string]: { sauces: number[] } };
   total: number;
-}
-
-export interface IaddSauces {
-  user: { token: string };
-  sauce: ISauce;
-  review: IReview;
-  photo: Blob;
-}
-
-export interface IbyID {
-  [key: string]: ISauce;
 }
 
 export interface IQuery {
@@ -39,15 +27,17 @@ export const enum SaucesActionTypes {
   SAUCE_FOUND = "@@sauces/SAUCE_FOUND"
 }
 
+// Used for state
 // Declare state types with `readonly` modifier to get compile time immutability.
 // https://github.com/piotrwitek/react-redux-typescript-guide#state-with-type-level-immutability
 export interface ISauces {
   readonly allIds: number[];
-  readonly byId: null | IbyID;
+  readonly byId: null | { [key: string]: ISauce };
   readonly total: null | number;
   readonly query: null | IQuery;
 }
 
+// Used for actions
 export interface IActionSauces {
   readonly type: string;
   readonly sauces?: ISauce[];
