@@ -1,4 +1,6 @@
 import axios from "axios";
+import { ISauce } from "../../redux/sauce/types";
+import { IReview } from "../../redux/reviews/sauce";
 export const host =
   process.env.API_ENV === "prod"
     ? "https://sauceforyourthoughts.com"
@@ -83,11 +85,9 @@ const api = {
      *  @param {Object} data object
      *  @param {Object} data.user object
      *    @param {String} data.user.token - user token
-     *  @param {Object} data.sauce - sauce object
-     *    @param {String} data.sauce.name - sauce name
-     *    @param {String[]} data.sauce.tags[] - tags
-     *    @param {Blob} data.sauce.photo - photo blog
-     *  @param {Object} data.review - review object
+     *  @param {ISauce} data.sauce - sauce object
+     *  @param {Blob} data.photo - photo blog
+     *  @param {IReview} data.review - review object
      *    @param {String} data.review.text - authors's review
      *    @param {Integer} data.review.rating - author's rating for sauce
      *  @returns {Promise} represents
