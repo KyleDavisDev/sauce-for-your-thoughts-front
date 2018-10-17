@@ -1,7 +1,7 @@
 export interface IAction {
   type: string;
-  slug: string;
-  text: string;
+  slug?: null | string;
+  text?: string;
 }
 
 // Use const enums for better autocompletion of action type names. These will
