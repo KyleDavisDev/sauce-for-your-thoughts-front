@@ -1,7 +1,9 @@
-import api from "../../utils/api/api";
+import api from "../../utils/api/api.js";
+// import { normalize } from "normalizr";
+
+import { IQuery, IActionSauces, SaucesActionTypes, IaddSauces } from "./types";
 import { ISauce } from "../sauce/types";
-import { IQuery, IActionSauces, SaucesActionTypes } from "./types";
-// import { flattenSauces, flatChecker } from "./helper";
+
 // import { addedReviews } from "./reviews";
 // import { addUsers } from "./users";
 
@@ -13,8 +15,8 @@ import { IQuery, IActionSauces, SaucesActionTypes } from "./types";
  */
 export const addedSauces = (
   sauces: ISauce[],
-  query: IQuery,
-  total: number
+  query?: IQuery,
+  total?: number
 ): IActionSauces => ({
   type: SaucesActionTypes.SAUCES_ADDED,
   sauces,
@@ -31,19 +33,11 @@ export const updatedSaucesItems = (sauce: ISauce): IActionSauces => ({
   sauce
 });
 
-export const saucesByTagFound = ({ sauces }) => ({
-  type: SaucesActionTypes.SAUCES_BY_TAG_FOUND,
-  sauces
-});
-
-/** @description Action emitter for when a single sauce is found
- *  @param Object, sauce related information
- *  @returns Object, has sauce info and action type
- */
-export const sauceFound = ({ sauce }) => ({
-  type: SaucesActionTypes.SAUCE_FOUND,
-  sauce
-});
+// This may not be used anymore
+// export const saucesByTagFound = ({ sauces }) => ({
+//   type: SaucesActionTypes.SAUCES_BY_TAG_FOUND,
+//   sauces
+// });
 
 /** @description Add sauce to DB
  *  @param {FormData} data - Form Data that has been JSONified
@@ -56,101 +50,97 @@ export const sauceFound = ({ sauce }) => ({
  *    @param {Object} review - user review object
  *      @param {String} text - user's review of sauce
  *      @param {Number} rating - 0-10 value
- *    @param {Image} photo - actual photo to upload
- *      @param {String} photo.name - name of the photo
+ *    @param {Blob} photo - actual photo to upload
  *  @returns {Promise}
- *    @returns {Object} Response object
+ *    @returns {null}
  */
-export const addSauce = data => dispatch =>
-  api.sauce.add(data).then(res => {
-    // flatten resposne
-    const { sauces, authors } = flattenSauces(res.data.sauces);
+export const addSauce = (data: IaddSauces) => (dispatch: any) => {
+  return api.sauce.add(data).then((res: any) => {
+    // flatten response
+    // const { sauces } = flatten(res.data.sauces); // Might need to play around with this
 
-    // confirm that sauces were flattened
-    if (flatChecker(sauces)) {
-      dispatch(addedSauces({ sauces }));
-    }
+    // // Add sauce to store
+    // dispatch(addedSauces(sauces));
 
-    // confirm that sure users were flattened
-    if (flatChecker(authors)) {
-      dispatch(addUsers({ users: authors }));
-    }
+    // Add user to store
+    // dispatch(addUsers({ users: authors }));
 
-    return res;
-  });
-
-/** @description Grab all sauces available (will limit this to only set amount at a time in future)
- *  @param {String?} query - optional query string to search for
- *  @return {NULL}
- */
-export const getSauces = ({ query }) => dispatch => {
-  api.sauces.get({ query }).then(res => {
-    // flatten data
-    const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
-
-    // construct just-searched query
-    const sauceQuery = { [query]: { sauces: sauces.allIds } };
-
-    // get total from response
-    const total = res.data.total || 6;
-
-    // make sauces were flattened
-    if (flatChecker(sauces)) {
-      dispatch(addedSauces({ sauces, query: sauceQuery, total }));
-    }
-
-    // make sure review were flattened
-    if (flatChecker(reviews)) {
-      dispatch(addedReviews({ reviews }));
-    }
-
-    // make sure users were flattened
-    if (flatChecker(authors)) {
-      dispatch(addUsers({ users: authors }));
-    }
-
-    return res;
+    return null;
   });
 };
 
-export const updateSaucesItem = ({ sauce }) => dispatch => {
-  dispatch(updatedSaucesItems({ sauce }));
-};
+// /** @description Grab all sauces available (will limit this to only set amount at a time in future)
+//  *  @param {String?} query - optional query string to search for
+//  *  @return {NULL}
+//  */
+// export const getSauces = ({ query }) => dispatch => {
+//   api.sauces.get({ query }).then(res => {
+//     // flatten data
+//     const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
 
-export const getSaucesByTag = data => dispatch =>
-  api.sauces.getSaucesByTag(data).then(res => {
-    dispatch(saucesByTagFound({ sauces: res.sauces }));
-    return res;
-  });
+//     // construct just-searched query
+//     const sauceQuery = { [query]: { sauces: sauces.allIds } };
 
-export const getSaucesBySearch = searchValue => dispatch =>
-  api.sauces.search(searchValue).then(
-    res =>
-      // dipatch event here in future (?)
-      res
-  );
+//     // get total from response
+//     const total = res.data.total || 6;
 
-/** @description grab single sauce related to slug
- *  @param {String} slug - keyword to lookup
- *  @returns {NULL}
- */
-export const getSauceBySlug = slug => dispatch =>
-  api.sauce.getBySlug(slug).then(res => {
-    // flatten response obj
-    const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
+//     // make sauces were flattened
+//     if (flatChecker(sauces)) {
+//       dispatch(addedSauces({ sauces, query: sauceQuery, total }));
+//     }
 
-    // make sauces were flattened
-    if (flatChecker(sauces)) {
-      dispatch(addedSauces({ sauces }));
-    }
+//     // make sure review were flattened
+//     if (flatChecker(reviews)) {
+//       dispatch(addedReviews({ reviews }));
+//     }
 
-    // make sure review were flattened
-    if (flatChecker(reviews)) {
-      dispatch(addedReviews({ reviews }));
-    }
+//     // make sure users were flattened
+//     if (flatChecker(authors)) {
+//       dispatch(addUsers({ users: authors }));
+//     }
 
-    // make sure users were flattened
-    if (flatChecker(authors)) {
-      dispatch(addUsers({ users: authors }));
-    }
-  });
+//     return res;
+//   });
+// };
+
+// export const updateSaucesItem = ({ sauce }) => dispatch => {
+//   dispatch(updatedSaucesItems({ sauce }));
+// };
+
+// export const getSaucesByTag = data => dispatch =>
+//   api.sauces.getSaucesByTag(data).then(res => {
+//     dispatch(saucesByTagFound({ sauces: res.sauces }));
+//     return res;
+//   });
+
+// export const getSaucesBySearch = searchValue => dispatch =>
+//   api.sauces.search(searchValue).then(
+//     res =>
+//       // dipatch event here in future (?)
+//       res
+//   );
+
+// /** @description grab single sauce related to slug
+//  *  @param {String} slug - keyword to lookup
+//  *  @returns {NULL}
+//  */
+// export const getSauceBySlug = slug => dispatch =>
+//   api.sauce.getBySlug(slug).then(res => {
+//     // flatten response obj
+//     const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
+
+//     // make sauces were flattened
+//     if (flatChecker(sauces)) {
+//       dispatch(addedSauces({ sauces }));
+//     }
+
+//     // make sure review were flattened
+//     if (flatChecker(reviews)) {
+//       dispatch(addedReviews({ reviews }));
+//     }
+
+//     // make sure users were flattened
+//     if (flatChecker(authors)) {
+//       dispatch(addUsers({ users: authors }));
+//     }
+//   });
