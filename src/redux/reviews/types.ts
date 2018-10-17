@@ -1,5 +1,5 @@
-import { IUserRef } from "./user";
-import { ISauceRef } from "./sauce";
+import { IUserRef } from "../users/types";
+import { ISauceRef } from "../sauce/types";
 
 export interface IReviewSection {
   rating: number;
