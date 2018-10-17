@@ -1,4 +1,5 @@
 import { ISauce } from "../sauce/types";
+import { IReview } from "../reviews/types";
 
 export interface IAction {
   type: string;
@@ -8,6 +9,13 @@ export interface IAction {
   };
   query: null | { [key: string]: { sauces: number[] } };
   total: number;
+}
+
+export interface IaddSauces {
+  user: { token: string };
+  sauce: ISauce;
+  review: IReview;
+  photo: Blob;
 }
 
 export interface IbyID {
