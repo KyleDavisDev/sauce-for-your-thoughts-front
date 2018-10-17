@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { IFlashState, IAction } from "./types";
+import { IFlashState, IAction, FlashMessageActionTypes } from "./types";
 
 const initialState: IFlashState = {
   isVisible: false,
@@ -11,36 +11,36 @@ const initialState: IFlashState = {
 const reducer: Reducer<IFlashState> = (
   state: IFlashState = initialState,
   action: IAction
-) => {
+): IFlashState => {
   switch (action.type) {
-    case "SUCCESS_FLASH":
+    case FlashMessageActionTypes.SUCCESS_FLASH:
       return {
         isVisible: true,
         text: action.text,
         type: "success",
         slug: action.slug || null
       };
-    case "ERROR_FLASH":
+    case FlashMessageActionTypes.ERROR_FLASH:
       return {
         isVisible: true,
         text: action.text,
         type: "error",
         slug: action.slug || null
       };
-    case "WARNING_FLASH":
+    case FlashMessageActionTypes.WARNING_FLASH:
       return {
         isVisible: true,
         text: action.text,
         type: "error",
         slug: action.slug || null
       };
-    case "TOGGLE_FLASH":
+    case FlashMessageActionTypes.TOGGLE_FLASH:
       return {
         ...state,
         isVisible: !state.isVisible
       };
-    case "USER_LOGGED_OUT":
-    case "CLOSE_FLASH":
+    case FlashMessageActionTypes.USER_LOGGED_OUT:
+    case FlashMessageActionTypes.CLOSE_FLASH:
       return {
         isVisible: false,
         type: null,
