@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { ISauces, IAction } from "./types";
+import { ISauces, IAction, SaucesActionTypes } from "./types";
 
 const initialState: ISauces = {
   allIds: [],
@@ -13,7 +13,7 @@ const sauceReducer: Reducer<ISauces> = (
   action: IAction
 ) => {
   switch (action.type) {
-    case "SAUCES_ADDED":
+    case SaucesActionTypes.SAUCES_ADDED:
       // Look for null cases first
       if (!action.sauces || !action.sauces.allIds || !action.query) {
         return state;
@@ -38,7 +38,7 @@ const sauceReducer: Reducer<ISauces> = (
       };
 
     // Will come back to this
-    // case "UPDATED_SAUCES_ITEM":
+    // case SaucesActionTypes.UPDATE_SAUCE:
     //   // update single sauces item if sauces is already set
     //   return state
     //     ? state.map(sauce => {
@@ -49,11 +49,11 @@ const sauceReducer: Reducer<ISauces> = (
     //         return sauce;
     //       })
     //     : [];
-    case "SAUCES_BY_TAG_FOUND":
+    case SaucesActionTypes.SAUCES_BY_TAG_FOUND:
       return state; // Will come back to this
 
     // TODO: add sauce to .byIds and add id to .allIds
-    case "SAUCE_FOUND":
+    case SaucesActionTypes.SAUCE_FOUND:
       return state; // Will come back to this
 
     default:
