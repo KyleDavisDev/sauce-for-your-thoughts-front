@@ -2,6 +2,7 @@
 // https://github.com/piotrwitek/react-redux-typescript-guide#state-with-type-level-immutability
 export interface ISauce {
   _id: number;
+  reviews?: number[];
   maker: string;
   shu: null | number;
   location?: {
