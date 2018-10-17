@@ -11,7 +11,7 @@ const initialState: ISauces = {
 const sauceReducer: Reducer<ISauces> = (
   state: ISauces = initialState,
   action: IAction
-) => {
+): ISauces => {
   switch (action.type) {
     case SaucesActionTypes.SAUCES_ADDED:
       // Look for null cases first
