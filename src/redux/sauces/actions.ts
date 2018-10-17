@@ -1,8 +1,9 @@
 import api from "../../utils/api/api.js";
 // import { normalize } from "normalizr";
 
-import { IQuery, IActionSauces, SaucesActionTypes, IaddSauces } from "./types";
+import { IQuery, IActionSauces, SaucesActionTypes } from "./types";
 import { ISauce } from "../sauce/types";
+import { IReview } from "../reviews/types.js";
 
 // import { addedReviews } from "./reviews";
 // import { addUsers } from "./users";
@@ -28,7 +29,11 @@ export const addedSauces = (
  *  @param {ISauce} sauce - sauce to be updated
  *  @return {IActionSauces}, sauce and action type
  */
-export const updatedSaucesItems = (sauce: ISauce): IActionSauces => ({
+export const updatedSaucesItems = ({
+  sauce
+}: {
+  sauce: ISauce;
+}): IActionSauces => ({
   type: SaucesActionTypes.UPDATE_SAUCE,
   sauce
 });
@@ -54,7 +59,16 @@ export const updatedSaucesItems = (sauce: ISauce): IActionSauces => ({
  *  @returns {Promise}
  *    @returns {null}
  */
-export const addSauce = (data: IaddSauces) => (dispatch: any) => {
+export const addSauce = ({
+  data
+}: {
+  data: {
+    user: { token: string };
+    sauce: ISauce;
+    review: IReview;
+    photo: Blob;
+  };
+}) => (dispatch: any) => {
   return api.sauce.add(data).then((res: any) => {
     // flatten response
     // const { sauces } = flatten(res.data.sauces); // Might need to play around with this
