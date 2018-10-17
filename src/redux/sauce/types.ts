@@ -11,6 +11,7 @@ export interface ISauce {
   };
   description: string;
   peppers: null | string[];
+  tags?: string[];
 }
 
 // Trimmed down for reference only
