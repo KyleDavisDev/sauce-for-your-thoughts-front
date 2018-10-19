@@ -2,9 +2,8 @@ import api from "../../utils/api/api";
 import { IReviewsAction, ReviewsActionTypes, IReview } from "./types";
 
 /** @description add review(s) to store
- *  @param {Object} reviews - array of review objects
- *  @param {Object} reviews.byId - object with nested review objects
- *  @param {String[]} reviews.allIds - array of review key strings
+ *  @param {number[]} allIds - array of review objects
+ *  @param {IReview} byId - object with nested review objects
  */
 export const addedReviews = ({
   allIds,
@@ -24,22 +23,7 @@ export const addedReviews = ({
  *      @param {String} data.user.token - unique user identifier
  *    @param {Object} data.sauce - hold sauce information
  *      @param {String} data.sauce.token - unique sauce string
- *    @param {String} data.review.taste - taste obj
- *      @param {String} data.review.taste.txt - description of taste
- *      @param {Number} data.review.taste.rating - 1-5 rating
- *    @param {String} data.review.heat - heat obj
- *      @param {String} data.review.heat.txt - description of heat
- *      @param {Number} data.review.heat.rating - 1-5 rating
- *    @param {String} data.review.aroma - aroma obj
- *      @param {String} data.review.aroma.txt - description of aroma
- *      @param {Number} data.review.aroma.rating - 1-5 rating
- *    @param {String} data.review.overall - overall obj
- *      @param {String} data.review.overall.txt - description of overall
- *      @param {Number} data.review.overall.rating - 1-5 rating
- *    @param {String} data.review.label - label obj
- *      @param {String} data.review.label.txt - description of label
- *      @param {Number} data.review.label.rating - 1-5 rating
- *    @param {String?} data.review.note - who made the sauce
+ *    @param {IReview} data.review
  *  @fires reviews#addedReview - add review to store
  *  @returns {Promise}
  *    @returns {NULL}
