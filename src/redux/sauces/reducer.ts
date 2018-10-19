@@ -1,17 +1,17 @@
 import { Reducer } from "redux";
-import { ISauces, IAction, SaucesActionTypes } from "./types";
+import { ISaucesState, IAction, SaucesActionTypes } from "./types";
 
-const initialState: ISauces = {
+const initialState: ISaucesState = {
   allIds: [],
   byId: {},
   total: 0,
   query: {}
 };
 
-const sauceReducer: Reducer<ISauces> = (
-  state: ISauces = initialState,
+const sauceReducer: Reducer<ISaucesState> = (
+  state: ISaucesState = initialState,
   action: IAction
-): ISauces => {
+): ISaucesState => {
   switch (action.type) {
     case SaucesActionTypes.SAUCES_ADDED:
       // Look for null cases first
