@@ -30,12 +30,15 @@ export const addedSauces = (
  *  @return {IActionSauces}, sauce and action type
  */
 export const updatedSaucesItems = ({
-  sauce
+  allIds,
+  byId
 }: {
-  sauce: ISauce;
+  byId: { [key: string]: ISauce };
+  allIds: number[];
 }): IActionSauces => ({
   type: SaucesActionTypes.UPDATE_SAUCE,
-  sauce
+  allIds,
+  byId
 });
 
 // This may not be used anymore
@@ -117,9 +120,30 @@ export const addSauce = ({
 //   });
 // };
 
-// export const updateSaucesItem = ({ sauce }) => dispatch => {
-//   dispatch(updatedSaucesItems({ sauce }));
-// };
+/** @description Update sauce in DB
+ *  @param {FormData} data - Form Data that has been JSONified
+ *    @param {Object} data.user - author of the sauce
+ *      @param {String} data.user.token - unique string
+ *    @param {ISauce} data.sauce - sauce object
+ *    @param {IReview} review - user review object
+ *    @param {Blob?} photo - actual photo to upload
+ *  @returns {Promise}
+ *    @returns {null}
+ */
+export const updateSauce = ({
+  data
+}: {
+  data: {
+    user: { token: string };
+    sauce: ISauce;
+    review: IReview;
+    photo?: Blob;
+  };
+}) => (dispatch: any) => {
+  return api.sauce.update(data).then((res: any) => {
+    // dispatch(updatedSaucesItems({ sauce }));
+  });
+};
 
 // export const getSaucesByTag = data => dispatch =>
 //   api.sauces.getSaucesByTag(data).then(res => {
