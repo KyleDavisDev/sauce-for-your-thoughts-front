@@ -1,7 +1,7 @@
 import api from "../../utils/api/api.js";
 // import { normalize } from "normalizr";
 
-import { IQuery, ISaucesAction, SaucesActionTypes } from "./types";
+import { ISaucesAction, SaucesActionTypes } from "./types";
 import { ISauce } from "../sauce/types";
 import { IReview } from "../reviews/types.js";
 
