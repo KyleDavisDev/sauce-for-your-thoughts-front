@@ -1,7 +1,7 @@
 import api from "../../utils/api/api.js";
 // import { normalize } from "normalizr";
 
-import { IQuery, IActionSauces, SaucesActionTypes } from "./types";
+import { IQuery, ISaucesAction, SaucesActionTypes } from "./types";
 import { ISauce } from "../sauce/types";
 import { IReview } from "../reviews/types.js";
 
@@ -9,33 +9,36 @@ import { IReview } from "../reviews/types.js";
 // import { addUsers } from "./users";
 
 /** @description Add sauce(s) to array of sauces
- *  @param {ISauce[]} sauces[] - array of sauce objects
- *  @param {IQuery[]?} query - query used to get sauces
- *  @param {Number} total - total number of sauces in store
- *  @return {IActionSauces}, sauce and action type
+ *  @param {ISaucesAction} object - object of sauce information
+ *    @param {Object} object.byId - dictionary of id => ISauce pairs
+ *    @param {number[]} object.allIds - array of sauce id's
+ *    @param {Object} object.query - dictionary of queryString => id pairs
+ *    @param {number} object.total - total number of suaces we know about
+ *  @return {ISaucesAction} sauce and action type
  */
-export const addedSauces = (
-  sauces: ISauce[],
-  query?: IQuery,
-  total?: number
-): IActionSauces => ({
+export const addedSauces = ({
+  byId,
+  allIds,
+  query,
+  total
+}: ISaucesAction): ISaucesAction => ({
   type: SaucesActionTypes.SAUCES_ADDED,
-  sauces,
+  allIds,
+  byId,
   query,
   total
 });
 
-/** @description Update single sauce
- *  @param {ISauce} sauce - sauce to be updated
- *  @return {IActionSauces}, sauce and action type
+/** @description Add sauce(s) to array of sauces
+ *  @param {ISaucesAction} object - object of sauce information
+ *    @param {Object} object.byId - dictionary of id => ISauce pairs
+ *    @param {number[]} object.allIds - array of sauce id's
+ *  @return {ISaucesAction} sauce and action type
  */
 export const updatedSaucesItems = ({
   allIds,
   byId
-}: {
-  byId: { [key: string]: ISauce };
-  allIds: number[];
-}): IActionSauces => ({
+}: ISaucesAction): ISaucesAction => ({
   type: SaucesActionTypes.UPDATE_SAUCE,
   allIds,
   byId
