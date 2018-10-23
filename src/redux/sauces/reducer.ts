@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { ISaucesState, IAction, SaucesActionTypes } from "./types";
+import { ISaucesState, SaucesActionTypes, ISaucesAction } from "./types";
 
 const initialState: ISaucesState = {
   byId: {},
@@ -10,7 +10,7 @@ const initialState: ISaucesState = {
 
 const sauceReducer: Reducer<ISaucesState> = (
   state: ISaucesState = initialState,
-  action: IAction
+  action: ISaucesAction
 ): ISaucesState => {
   switch (action.type) {
     case SaucesActionTypes.SAUCES_ADDED:
