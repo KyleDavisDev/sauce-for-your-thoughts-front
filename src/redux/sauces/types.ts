@@ -1,13 +1,12 @@
 import { ISauce } from "../sauce/types";
 
-export interface IAction {
-  type: string;
-  sauces: {
-    byId: null | { [key: string]: ISauce };
-    allIds: null | number[];
-  };
-  query: null | { [key: string]: { sauces: number[] } };
-  total: number;
+// Used for action emitters and reducer
+export interface ISaucesAction {
+  readonly type: string;
+  readonly total?: number;
+  readonly query?: IQuery;
+  readonly byId?: { [key: string]: ISauce };
+  readonly allIds?: number[];
 }
 
 export interface IQuery {
@@ -35,13 +34,4 @@ export interface ISaucesState {
   readonly byId: null | { [key: string]: ISauce };
   readonly total: null | number;
   readonly query: null | IQuery;
-}
-
-// Used for actions
-export interface IActionSauces {
-  readonly type: string;
-  readonly sauces?: ISauce[];
-  readonly sauce?: ISauce;
-  readonly total?: number;
-  readonly query?: IQuery;
 }
