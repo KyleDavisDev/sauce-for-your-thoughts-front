@@ -29,6 +29,7 @@ const StyledRow = styled.div`
   width: 100%;
   flex-direction: row;
   justify-content: top;
+  padding-bottom: 2rem;
 `;
 
 const StyledDescriptor = styled(Descriptor)`
@@ -43,11 +44,15 @@ const StyledRightSide = styled.div`
   box-sizing: border-box;
   max-width: 100%;
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const StyledTextInput = styled(TextInput)`
   width: 100%;
-  max-width: 50%;
+  max-width: ${props =>
+    props.type === "textarea"
+      ? "100%"
+      : "50%"}; // give Textarea full width and text 50%
   box-sizing: border-box;
   padding: 0 1rem;
 `;
@@ -98,6 +103,41 @@ class Add extends React.Component<AddProps, AddState> {
                   id="maker"
                   showLabel={true}
                   value={this.state.maker}
+                />
+              </StyledRightSide>
+            </StyledRow>
+            <StyledRow>
+              <StyledDescriptor title="Official Description">
+                How does the maker describe the suace and/or flavor? This might
+                be found directly on the bottle, a website, in an email, etc.
+                This is NOT your review.
+              </StyledDescriptor>
+              <StyledRightSide>
+                <StyledTextInput
+                  onChange={this.onTextChange}
+                  label="Description"
+                  name="description"
+                  id="description"
+                  showLabel={true}
+                  value={this.state.description}
+                  type="textarea"
+                />
+              </StyledRightSide>
+            </StyledRow>
+            <StyledRow>
+              <StyledDescriptor title="Ingredients">
+                Which ingredients make up the sauce? This should be a comma
+                seperated list found somewhere on the sauce label.
+              </StyledDescriptor>
+              <StyledRightSide>
+                <StyledTextInput
+                  onChange={this.onTextChange}
+                  label="Ingredients"
+                  name="ingredients"
+                  id="ingredients"
+                  showLabel={true}
+                  value={this.state.ingredients}
+                  type="textarea"
                 />
               </StyledRightSide>
             </StyledRow>
