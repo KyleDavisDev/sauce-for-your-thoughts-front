@@ -2,16 +2,20 @@
 // https://github.com/piotrwitek/react-redux-typescript-guide#state-with-type-level-immutability
 export interface ISauce {
   _id: number;
-  reviews?: number[];
+  name: string;
+  ingredients: string;
+  type: string;
   maker: string;
-  shu: null | number;
-  location?: {
-    city: null | string;
-    state: null | string;
-    country: null | string;
-  };
   description: string;
-  peppers: null | string[];
+  photo: string;
+  shu?: number;
+  peppers?: string[];
+  reviews?: number[];
+  location?: {
+    city?: string;
+    state?: string;
+    country?: string;
+  };
   tags?: string[];
 }
 
