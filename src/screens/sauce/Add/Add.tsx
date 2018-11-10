@@ -3,6 +3,9 @@ import * as React from "react";
 import styled from "../../../theme/styled-components";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import Descriptor from "../../../components/Descriptor/Descriptor";
+import TextInput from "../../../components/TextInput/TextInput";
+
+import { ISauce } from "../../../redux/sauce/types";
 
 const Article = styled.article`
   max-width: 900px;
@@ -39,17 +42,33 @@ const StyledRightSide = styled.div`
   width: 100%;
   box-sizing: border-box;
   max-width: 100%;
+  display: flex;
+`;
+
+const StyledTextInput = styled(TextInput)`
+  width: 100%;
+  max-width: 50%;
+  box-sizing: border-box;
+  padding: 0 1rem;
 `;
 
 export interface AddProps {}
 
-export interface AddState {}
+export interface AddState extends ISauce {}
 
 class Add extends React.Component<AddProps, AddState> {
   constructor(props: AddProps) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      _id: 0,
+      name: "",
+      ingredients: "",
+      type: "",
+      maker: "",
+      description: "",
+      photo: ""
+    };
   }
 
   public render() {
@@ -63,13 +82,45 @@ class Add extends React.Component<AddProps, AddState> {
                 What is the name of the sauce? Who is the maker? This is
                 required.
               </StyledDescriptor>
-              <StyledRightSide>content</StyledRightSide>
+              <StyledRightSide>
+                <StyledTextInput
+                  onChange={this.onTextChange}
+                  label="Name"
+                  name="name"
+                  id="name"
+                  showLabel={true}
+                  value={this.state.name}
+                />
+                <StyledTextInput
+                  onChange={this.onTextChange}
+                  label="Maker"
+                  name="maker"
+                  id="maker"
+                  showLabel={true}
+                  value={this.state.maker}
+                />
+              </StyledRightSide>
             </StyledRow>
           </StyledFormContainer>
         </Article>
       </div>
     );
   }
+
+  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    if (!event || !event.target || !event.target.value) {
+      return;
+    }
+
+    // Grab the value
+    const { name, value }: { name: string; value: string } = event.target;
+
+    // Update local state
+    this.setState({
+      ...this.state,
+      [name.toLowerCase()]: value
+    });
+  };
 }
 
 export default Add;
