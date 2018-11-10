@@ -6,7 +6,6 @@ import styled from "../../theme/styled-components";
 const StyledLabel = styled.label`
   text-transform: uppercase;
   color: ${props => props.theme.grey};
-  text-decoration: underline;
 `;
 StyledLabel.displayName = "StyledLabel";
 
@@ -60,13 +59,12 @@ interface TextInputProps {
 const TextInput: React.SFC<TextInputProps> = props => {
   return (
     <StyledDiv className={props.className}>
-      {props.showLabel &&
-        props.label && (
-          <StyledLabel htmlFor={props.id}>
-            {props.label}
-            {props.required && "*"}
-          </StyledLabel>
-        )}
+      {props.showLabel && props.label && (
+        <StyledLabel htmlFor={props.id}>
+          {props.label}
+          {props.required && "*"}
+        </StyledLabel>
+      )}
 
       {props.type && props.type.toLowerCase() === "text" ? (
         <StyledInput
@@ -77,7 +75,6 @@ const TextInput: React.SFC<TextInputProps> = props => {
           placeholder={props.placeholder}
           onChange={props.onChange}
           required={props.required}
-          className={props.className}
         />
       ) : (
         <StyledTextArea
@@ -89,7 +86,6 @@ const TextInput: React.SFC<TextInputProps> = props => {
           onChange={props.onChange}
           value={props.value}
           required={props.required}
-          className={props.className}
         />
       )}
     </StyledDiv>
