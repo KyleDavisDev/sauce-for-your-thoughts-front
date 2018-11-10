@@ -9,7 +9,7 @@ interface DescriptorProps {
 const Descriptor: React.SFC<DescriptorProps> = props => {
   return (
     <div className={props.className}>
-      <h5>{props.title}</h5>
+      <h2>{props.title}</h2>
       <p>{props.children}</p>
     </div>
   );
