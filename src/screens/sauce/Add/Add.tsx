@@ -21,10 +21,24 @@ const StyledFormContainer = styled.div`
   flex-wrap: wrap;
 `;
 
+const StyledRow = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: top;
+`;
+
 const StyledDescriptor = styled(Descriptor)`
+  width: 100%;
   max-width: 33%;
   box-sizing: border-box;
   padding: 0 1rem;
+`;
+
+const StyledRightSide = styled.div`
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
 `;
 
 export interface AddProps {}
@@ -44,9 +58,13 @@ class Add extends React.Component<AddProps, AddState> {
         <Article>
           <PageTitle>Add Sauce</PageTitle>
           <StyledFormContainer>
-            <StyledDescriptor title="Title">
-              What is the name of the sauce? Who is the maker? This is required.
-            </StyledDescriptor>
+            <StyledRow>
+              <StyledDescriptor title="Title">
+                What is the name of the sauce? Who is the maker? This is
+                required.
+              </StyledDescriptor>
+              <StyledRightSide>content</StyledRightSide>
+            </StyledRow>
           </StyledFormContainer>
         </Article>
       </div>
