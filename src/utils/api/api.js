@@ -87,9 +87,6 @@ const api = {
      *    @param {String} data.user.token - user token
      *  @param {ISauce} data.sauce - sauce object
      *  @param {Blob} data.photo - photo blog
-     *  @param {IReview} data.review - review object
-     *    @param {String} data.review.text - authors's review
-     *    @param {Integer} data.review.rating - author's rating for sauce
      *  @returns {Promise} represents
      */
     add: data =>
