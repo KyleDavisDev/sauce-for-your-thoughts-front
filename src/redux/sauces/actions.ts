@@ -54,13 +54,7 @@ export const updatedSaucesItems = ({
  *  @param {FormData} data - Form Data that has been JSONified
  *    @param {Object} data.user - author of the sauce
  *      @param {String} data.user.token - unique string
- *    @param {Object} data.sauce - sauce object
- *      @param {String} data.sauce.name - name of the sauce
- *      @param {String} data.sauce.description - description of sauce
- *      @param {String[]} data.sauce.tags[] - user selected tags to catagorize sauce
- *    @param {Object} review - user review object
- *      @param {String} text - user's review of sauce
- *      @param {Number} rating - 0-10 value
+ *    @param {ISauce} data.sauce - sauce object
  *    @param {Blob} photo - actual photo to upload
  *  @returns {Promise}
  *    @returns {null}
@@ -71,7 +65,6 @@ export const addSauce = ({
   data: {
     user: { token: string };
     sauce: ISauce;
-    review: IReview;
     photo: Blob;
   };
 }) => (dispatch: any) => {
