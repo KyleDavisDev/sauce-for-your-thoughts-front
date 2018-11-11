@@ -17,12 +17,21 @@ export interface ThemeInterface {
   navigationIconColor: string;
   landingHeroTextColor: string;
   cardBackgroundColor: string;
+
+  checkBoxActiveColor: string;
+  checkBoxInActiveColor: string;
+  checkBoxActiveTextColor: string;
+  checkBoxInActiveTextColor: string;
+
   siteBackgroundColor: string;
+
   userCubeBackgroundColor: string;
   userCubeTextColor: string;
+
   formContainerBackgroundColor: string;
   maxPageWidth: string;
   footerMaxWidth: string;
+
   scaleP: string;
   scaleH1: string;
   scaleH2: string;
@@ -31,8 +40,10 @@ export interface ThemeInterface {
   scaleH5: string;
   scaleH6: string;
   defaultFontSize: string;
+
   white: string;
   grey: string;
+  lightGrey: string;
   black: string;
 }
 
@@ -40,6 +51,7 @@ const enum colors {
   purple = "#3B4DA8",
   white = "#fff",
   grey = "#676767",
+  lightGrey = "#CCCCCC",
   mustard = "#FFA816",
   smoke = "#f5f5f5",
   black = "#333333"
@@ -65,6 +77,12 @@ export const theme = {
   navigationIconColor: colors.white,
   landingHeroTextColor: colors.white,
   cardBackgroundColor: colors.white,
+
+  checkBoxActiveBackgroundColor: colors.mustard,
+  checkBoxInActiveBackgroundColor: colors.lightGrey,
+  checkBoxActiveTextColor: colors.black,
+  checkBoxInActiveTextColor: colors.black,
+
   siteBackgroundColor: colors.smoke,
   userCubeBackgroundColor: colors.white,
   userCubeTextColor: colors.mustard,
@@ -72,6 +90,7 @@ export const theme = {
   maxPageWidth: scale.maxPageWidth,
   defaultFontSize: scale.defaultFontSize,
   footerMaxWidth: scale.footerMaxWidth,
+
   scaleP: scale.scaleP,
   scaleH1: scale.scaleH1,
   scaleH2: scale.scaleH2,
@@ -79,6 +98,7 @@ export const theme = {
   scaleH4: scale.scaleH4,
   scaleH5: scale.scaleH5,
   scaleH6: scale.scaleH6,
+
   white: colors.white,
   grey: colors.grey,
   black: colors.black
