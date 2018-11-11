@@ -6,6 +6,7 @@ import Descriptor from "../../../components/Descriptor/Descriptor";
 import TextInput from "../../../components/TextInput/TextInput";
 
 import { ISauce } from "../../../redux/sauce/types";
+import CheckBox from "../../../components/CheckBox/CheckBox";
 
 const Article = styled.article`
   max-width: 900px;
@@ -43,17 +44,28 @@ const StyledRightSide = styled.div`
   width: 100%;
   box-sizing: border-box;
   max-width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
 `;
 
 const StyledTextInput = styled(TextInput)`
+  float: left;
   width: 100%;
   max-width: ${props =>
     props.type === "textarea"
       ? "100%"
       : "50%"}; // give Textarea full width and text 50%
   box-sizing: border-box;
+  padding: 0 1rem;
+`;
+
+const StyledLabel = styled.label`
+  text-transform: uppercase;
+  color: #676767;
+  display: block;
+  padding: 0 1rem;
+`;
+
+const StyledDiv = styled.div`
   padding: 0 1rem;
 `;
 
@@ -95,6 +107,7 @@ class Add extends React.Component<AddProps, AddState> {
                   id="name"
                   showLabel={true}
                   value={this.state.name}
+                  required={true}
                 />
                 <StyledTextInput
                   onChange={this.onTextChange}
@@ -103,6 +116,7 @@ class Add extends React.Component<AddProps, AddState> {
                   id="maker"
                   showLabel={true}
                   value={this.state.maker}
+                  required={true}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -121,6 +135,7 @@ class Add extends React.Component<AddProps, AddState> {
                   showLabel={true}
                   value={this.state.description}
                   type="textarea"
+                  required={true}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -138,7 +153,24 @@ class Add extends React.Component<AddProps, AddState> {
                   showLabel={true}
                   value={this.state.ingredients}
                   type="textarea"
+                  required={true}
                 />
+              </StyledRightSide>
+            </StyledRow>
+            <StyledRow>
+              <StyledDescriptor title="Type">
+                What type of sauce is this? What is it primarily used for?
+              </StyledDescriptor>
+              <StyledRightSide>
+                <StyledLabel>Type of Sauce</StyledLabel>
+                <StyledDiv>
+                  <CheckBox
+                    checked={false}
+                    id="1"
+                    value="1"
+                    label="Something"
+                  />
+                </StyledDiv>
               </StyledRightSide>
             </StyledRow>
           </StyledFormContainer>
