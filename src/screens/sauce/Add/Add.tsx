@@ -1,4 +1,5 @@
 import * as React from "react";
+import shortid from "shortid";
 
 import styled from "../../../theme/styled-components";
 import PageTitle from "../../../components/PageTitle/PageTitle";
@@ -63,15 +64,19 @@ const StyledLabel = styled.label`
   color: #676767;
   display: block;
   padding: 0 1rem;
+  clear: both;
 `;
 
 const StyledDiv = styled.div`
-  padding: 0 1rem;
+  // padding: 0 1rem;
 `;
 
 export interface AddProps {}
 
-export interface AddState extends ISauce {}
+export interface AddState extends ISauce {
+  types: { [key: string]: { value: string; checked: boolean } };
+  pepp;
+}
 
 class Add extends React.Component<AddProps, AddState> {
   constructor(props: AddProps) {
@@ -84,7 +89,12 @@ class Add extends React.Component<AddProps, AddState> {
       type: "",
       maker: "",
       description: "",
-      photo: ""
+      photo: "",
+      types: {
+        "BBQ Sauce": { value: "BBQ Sauce", checked: false },
+        "Hot Sauce": { value: "Hot Sauce", checked: false }
+      }
+      // Sample
     };
   }
 
@@ -164,12 +174,52 @@ class Add extends React.Component<AddProps, AddState> {
               <StyledRightSide>
                 <StyledLabel>Type of Sauce</StyledLabel>
                 <StyledDiv>
-                  <CheckBox
-                    checked={false}
-                    id="1"
-                    value="1"
-                    label="Something"
-                  />
+                  {Object.keys(this.state.types).map(type => {
+                    return (
+                      <CheckBox
+                        id={shortid.generate()}
+                        key={shortid.generate()}
+                        value={this.state.types[type].value}
+                        label={this.state.types[type].value}
+                        checked={this.state.types[type].checked}
+                        onClick={this.onCheckBoxClick}
+                      />
+                    );
+                  })}
+                </StyledDiv>
+              </StyledRightSide>
+            </StyledRow>
+
+            {/* Spice */}
+            <StyledRow>
+              <StyledDescriptor title="Spice">
+                Is this sauce spicy? How spicy is it? What does the maker say
+                the Scoville Heat Unit (SHU) rating is? Which peppers are
+                primarily used?
+              </StyledDescriptor>
+              <StyledRightSide>
+                <StyledTextInput
+                  onChange={this.onTextChange}
+                  label="SHU"
+                  name="shu"
+                  id="shu"
+                  showLabel={true}
+                  value={this.state.shu}
+                />
+                <StyledLabel>Primary Peppers</StyledLabel>
+                <StyledDiv>
+                  {Object.keys(this.state.types).map(type => {
+                    return (
+                      <CheckBox
+                        id={shortid.generate()}
+                        key={shortid.generate()}
+                        value={this.state.types[type].value}
+                        label={this.state.types[type].value}
+                        checked={this.state.types[type].checked}
+                        onClick={this.onCheckBoxClick}
+                      />
+                    );
+                  })}
                 </StyledDiv>
               </StyledRightSide>
             </StyledRow>
@@ -184,13 +234,35 @@ class Add extends React.Component<AddProps, AddState> {
       return;
     }
 
-    // Grab the value
+    // Grab the name and value
     const { name, value }: { name: string; value: string } = event.target;
 
     // Update local state
     this.setState({
       ...this.state,
       [name.toLowerCase()]: value
+    });
+  };
+
+  private onCheckBoxClick = (
+    event: React.MouseEvent<HTMLInputElement>
+  ): void => {
+    // Cast EventTarget to be HTMLInput Element so we can be sure to have a .value property
+    const checkbox: HTMLInputElement = event.target as HTMLInputElement;
+
+    // Grab value from the element
+    const value: string = checkbox.value;
+
+    // Get whether checked or not
+    const checked: boolean = this.state.types[value].checked;
+
+    // Update state
+    this.setState({
+      ...this.state,
+      types: {
+        ...this.state.types,
+        [value]: { value, checked: !checked }
+      }
     });
   };
 }
