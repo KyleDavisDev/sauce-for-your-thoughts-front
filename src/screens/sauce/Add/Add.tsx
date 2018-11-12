@@ -1,5 +1,10 @@
 import * as React from "react";
 import shortid from "shortid";
+import {
+  CountryDropdown,
+  RegionDropdown,
+  CountryRegionData
+} from "react-country-region-selector";
 
 import styled from "../../../theme/styled-components";
 import PageTitle from "../../../components/PageTitle/PageTitle";
@@ -31,7 +36,7 @@ const StyledRow = styled.div`
   width: 100%;
   flex-direction: row;
   justify-content: top;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 `;
 
 const StyledDescriptor = styled(Descriptor)`
@@ -68,14 +73,77 @@ const StyledLabel = styled.label`
 `;
 
 const StyledDiv = styled.div`
-  // padding: 0 1rem;
+  max-width: 50%;
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 1rem;
+
+  > label {
+    padding: 0rem;
+  }
+
+  > div {
+    // margin: 0.25rem 1rem 0.25rem;
+  }
+`;
+
+const StyledDropdownContainer = styled.div`
+  border: 1px solid #e1e1e1;
+  color: #4b4b4b;
+  display: inline-block;
+  position: relative;
+  background-color: #f5f5f5;
+  margin-bottom: 15px;
+
+  &:after {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    content: url("../../../../../../images/icons/chevron-down.svg");
+    pointer-events: none;
+    right: 15px;
+  }
+`;
+
+const StyledRegionDropdown = styled(RegionDropdown)`
+  width: 100%;
+  background-color: #f3f3f3;
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  vertical-align: middle;
+  height: 38px;
+  padding: 0px 40px 0 15px;
+  font-size: 1rem;
+`;
+
+const StyledCountryDropdown = styled(CountryDropdown)`
+  width: 100%;
+  background-color: #f3f3f3;
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  vertical-align: middle;
+  height: 38px;
+  padding: 0px 40px 0 15px;
+  font-size: 1rem;
 `;
 
 export interface AddProps {}
 
 export interface AddState extends ISauce {
-  types: { [key: string]: { value: string; checked: boolean } };
-  pepp;
+  typesOfSauces: { [key: string]: { value: string; checked: boolean } };
+  typesOfPeppers: { [key: string]: { value: string; checked: boolean } };
+  country: string;
+  city: string;
+  state: string;
 }
 
 class Add extends React.Component<AddProps, AddState> {
@@ -90,11 +158,19 @@ class Add extends React.Component<AddProps, AddState> {
       maker: "",
       description: "",
       photo: "",
-      types: {
+      typesOfSauces: {
         "BBQ Sauce": { value: "BBQ Sauce", checked: false },
         "Hot Sauce": { value: "Hot Sauce", checked: false }
-      }
-      // Sample
+      },
+      typesOfPeppers: {
+        "Ghost Chili": { value: "Ghost Chili", checked: false },
+        "Peri Peri": { value: "Peri Peri", checked: false },
+        "Scotch Bonnet": { value: "Scotch Bonnet", checked: false },
+        "Trinidad Scorpion": { value: "Trinidad Scorpion", checked: false }
+      },
+      country: "United States",
+      state: "",
+      city: ""
     };
   }
 
@@ -173,20 +249,20 @@ class Add extends React.Component<AddProps, AddState> {
               </StyledDescriptor>
               <StyledRightSide>
                 <StyledLabel>Type of Sauce</StyledLabel>
-                <StyledDiv>
-                  {Object.keys(this.state.types).map(type => {
+                <div>
+                  {Object.keys(this.state.typesOfSauces).map(type => {
                     return (
                       <CheckBox
                         id={shortid.generate()}
                         key={shortid.generate()}
-                        value={this.state.types[type].value}
-                        label={this.state.types[type].value}
-                        checked={this.state.types[type].checked}
+                        value={this.state.typesOfSauces[type].value}
+                        label={this.state.typesOfSauces[type].value}
+                        checked={this.state.typesOfSauces[type].checked}
                         onClick={this.onCheckBoxClick}
                       />
                     );
                   })}
-                </StyledDiv>
+                </div>
               </StyledRightSide>
             </StyledRow>
 
@@ -207,20 +283,57 @@ class Add extends React.Component<AddProps, AddState> {
                   value={this.state.shu}
                 />
                 <StyledLabel>Primary Peppers</StyledLabel>
-                <StyledDiv>
-                  {Object.keys(this.state.types).map(type => {
+                <div>
+                  {Object.keys(this.state.typesOfPeppers).map(type => {
                     return (
                       <CheckBox
                         id={shortid.generate()}
                         key={shortid.generate()}
-                        value={this.state.types[type].value}
-                        label={this.state.types[type].value}
-                        checked={this.state.types[type].checked}
+                        value={this.state.typesOfPeppers[type].value}
+                        label={this.state.typesOfPeppers[type].value}
+                        checked={this.state.typesOfPeppers[type].checked}
                         onClick={this.onCheckBoxClick}
                       />
                     );
                   })}
+                </div>
+              </StyledRightSide>
+            </StyledRow>
+
+            {/* Location */}
+            <StyledRow>
+              <StyledDescriptor title="Location">
+                Where was the sauce made?
+              </StyledDescriptor>
+              <StyledRightSide>
+                <StyledDiv>
+                  <StyledLabel>Country</StyledLabel>
+                  <StyledDropdownContainer>
+                    <StyledCountryDropdown
+                      value={this.state.country}
+                      onChange={this.onCountryChange}
+                    />
+                  </StyledDropdownContainer>
                 </StyledDiv>
+
+                <StyledDiv>
+                  <StyledLabel>State</StyledLabel>
+                  <StyledDropdownContainer>
+                    <StyledRegionDropdown
+                      country={this.state.country}
+                      value={this.state.state}
+                      onChange={this.onStateChange}
+                    />
+                  </StyledDropdownContainer>
+                </StyledDiv>
+                <StyledTextInput
+                  onChange={this.onTextChange}
+                  label="City"
+                  name="city"
+                  id="city"
+                  showLabel={true}
+                  value={this.state.city}
+                />
               </StyledRightSide>
             </StyledRow>
           </StyledFormContainer>
@@ -253,16 +366,36 @@ class Add extends React.Component<AddProps, AddState> {
     // Grab value from the element
     const value: string = checkbox.value;
 
+    // Find is value is sauce type or pepper
+    const type =
+      Object.keys(this.state.typesOfSauces).indexOf(value) !== -1
+        ? "typesOfSauces"
+        : "typesOfPeppers";
+
     // Get whether checked or not
-    const checked: boolean = this.state.types[value].checked;
+    const checked: boolean = this.state[type][value].checked;
 
     // Update state
     this.setState({
       ...this.state,
-      types: {
-        ...this.state.types,
+      [type]: {
+        ...this.state[type],
         [value]: { value, checked: !checked }
       }
+    });
+  };
+
+  private onCountryChange = (val: string) => {
+    this.setState({
+      ...this.state,
+      country: val
+    });
+  };
+
+  private onStateChange = (val: string) => {
+    this.setState({
+      ...this.state,
+      state: val
     });
   };
 }
