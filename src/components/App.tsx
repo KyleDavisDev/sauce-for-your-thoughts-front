@@ -11,6 +11,15 @@ const store = configureStore();
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
+  @font-face {
+    font-family: FuturaMedium;
+    src: url("../theme/fonts/Futura-Medium.ttf");
+  }
+  @font-face {
+    font-family: AvenirNextReg;
+    src: url("../theme/fonts/AvenirNext-Regular.ttf");
+  }
+
   h1,h2,h3,h4,h5,h6 {
     margin: 0px;
   }
