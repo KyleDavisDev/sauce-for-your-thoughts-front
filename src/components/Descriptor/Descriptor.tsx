@@ -1,4 +1,13 @@
 import * as React from "react";
+import styled from "styled-components";
+
+const StyledH2 = styled.h2`
+  font-family: FuturaMedium;
+`;
+
+const StyledP = styled.p`
+  font-family: AvenirNextReg;
+`;
 
 interface DescriptorProps {
   className?: string;
@@ -9,8 +18,8 @@ interface DescriptorProps {
 const Descriptor: React.SFC<DescriptorProps> = props => {
   return (
     <div className={props.className}>
-      <h2>{props.title}</h2>
-      <p>{props.children}</p>
+      <StyledH2>{props.title}</StyledH2>
+      <StyledP>{props.children}</StyledP>
     </div>
   );
 };
