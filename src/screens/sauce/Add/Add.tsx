@@ -5,6 +5,7 @@ import {
   RegionDropdown,
   CountryRegionData
 } from "react-country-region-selector";
+import DropNCrop from "@synapsestudios/react-drop-n-crop";
 
 import styled from "../../../theme/styled-components";
 import PageTitle from "../../../components/PageTitle/PageTitle";
@@ -80,6 +81,10 @@ const StyledDiv = styled.div`
   }
 `;
 
+const StyledDiv2 = styled.div`
+  padding: 0 1rem;
+`;
+
 const StyledDropdownContainer = styled.div`
   border: 1px solid #e1e1e1;
   color: #4b4b4b;
@@ -114,6 +119,335 @@ const StyledDropdownContainer = styled.div`
   }
 `;
 
+const StyledDropNCrop = styled(DropNCrop)`
+  .drop-n-crop {
+    -webkit-box-orient: horizontal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .drop-n-crop,
+  .dropzone {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .dropzone {
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    background: #fff;
+    border: 2px dashed #ddd;
+    padding: 8px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .dropzone.dropzone--active {
+    background: #f2f2f2;
+    border-color: #b1b1b1;
+  }
+  .dropzone-instructions {
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .dropzone.dropzone--active .dropzone-instructions {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  .dropzone-instructions--main {
+    color: #322d35;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .dropzone-instructions--sub {
+    color: #201c23;
+    font-style: italic;
+    margin-top: 4px;
+  }
+  .dropzone-validation {
+    color: #ff3d00;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 32px;
+  }
+  .cropper-container {
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    direction: ltr;
+    -ms-touch-action: none;
+    touch-action: none;
+  }
+  .cropper-container img {
+    display: block;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    width: 100%;
+    height: 100%;
+    image-orientation: 0;
+  }
+  .cropper-canvas,
+  .cropper-crop-box,
+  .cropper-drag-box,
+  .cropper-modal,
+  .cropper-wrap-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .cropper-wrap-box {
+    overflow: hidden;
+  }
+  .cropper-drag-box {
+    opacity: 0;
+    background-color: #fff;
+  }
+  .cropper-modal {
+    opacity: 0.5;
+    background-color: #000;
+  }
+  .cropper-view-box {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    outline: 1px solid #39f;
+    outline-color: rgba(51, 153, 255, 0.75);
+  }
+  .cropper-dashed {
+    position: absolute;
+    display: block;
+    opacity: 0.5;
+    border: 0 dashed #eee;
+  }
+  .cropper-dashed.dashed-h {
+    top: 33.33333%;
+    left: 0;
+    width: 100%;
+    height: 33.33333%;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+  }
+  .cropper-dashed.dashed-v {
+    top: 0;
+    left: 33.33333%;
+    width: 33.33333%;
+    height: 100%;
+    border-right-width: 1px;
+    border-left-width: 1px;
+  }
+  .cropper-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0;
+    height: 0;
+    opacity: 0.75;
+  }
+  .cropper-center:after,
+  .cropper-center:before {
+    position: absolute;
+    display: block;
+    content: " ";
+    background-color: #eee;
+  }
+  .cropper-center:before {
+    top: 0;
+    left: -3px;
+    width: 7px;
+    height: 1px;
+  }
+  .cropper-center:after {
+    top: -3px;
+    left: 0;
+    width: 1px;
+    height: 7px;
+  }
+  .cropper-face,
+  .cropper-line,
+  .cropper-point {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+  }
+  .cropper-face {
+    top: 0;
+    left: 0;
+    background-color: #fff;
+  }
+  .cropper-line {
+    background-color: #39f;
+  }
+  .cropper-line.line-e {
+    top: 0;
+    right: -3px;
+    width: 5px;
+    cursor: e-resize;
+  }
+  .cropper-line.line-n {
+    top: -3px;
+    left: 0;
+    height: 5px;
+    cursor: n-resize;
+  }
+  .cropper-line.line-w {
+    top: 0;
+    left: -3px;
+    width: 5px;
+    cursor: w-resize;
+  }
+  .cropper-line.line-s {
+    bottom: -3px;
+    left: 0;
+    height: 5px;
+    cursor: s-resize;
+  }
+  .cropper-point {
+    width: 5px;
+    height: 5px;
+    opacity: 0.75;
+    background-color: #39f;
+  }
+  .cropper-point.point-e {
+    top: 50%;
+    right: -3px;
+    margin-top: -3px;
+    cursor: e-resize;
+  }
+  .cropper-point.point-n {
+    top: -3px;
+    left: 50%;
+    margin-left: -3px;
+    cursor: n-resize;
+  }
+  .cropper-point.point-w {
+    top: 50%;
+    left: -3px;
+    margin-top: -3px;
+    cursor: w-resize;
+  }
+  .cropper-point.point-s {
+    bottom: -3px;
+    left: 50%;
+    margin-left: -3px;
+    cursor: s-resize;
+  }
+  .cropper-point.point-ne {
+    top: -3px;
+    right: -3px;
+    cursor: ne-resize;
+  }
+  .cropper-point.point-nw {
+    top: -3px;
+    left: -3px;
+    cursor: nw-resize;
+  }
+  .cropper-point.point-sw {
+    bottom: -3px;
+    left: -3px;
+    cursor: sw-resize;
+  }
+  .cropper-point.point-se {
+    right: -3px;
+    bottom: -3px;
+    width: 20px;
+    height: 20px;
+    cursor: se-resize;
+    opacity: 1;
+  }
+  @media (min-width: 768px) {
+    .cropper-point.point-se {
+      width: 15px;
+      height: 15px;
+    }
+  }
+  @media (min-width: 992px) {
+    .cropper-point.point-se {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .cropper-point.point-se {
+      width: 5px;
+      height: 5px;
+      opacity: 0.75;
+    }
+  }
+  .cropper-point.point-se:before {
+    position: absolute;
+    right: -50%;
+    bottom: -50%;
+    display: block;
+    width: 200%;
+    height: 200%;
+    content: " ";
+    opacity: 0;
+    background-color: #39f;
+  }
+  .cropper-invisible {
+    opacity: 0;
+  }
+  .cropper-bg {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA3NCSVQICAjb4U/gAAAABlBMVEXMzMz////TjRV2AAAACXBIWXMAAArrAAAK6wGCiw1aAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAABFJREFUCJlj+M/AgBVhF/0PAH6/D/HkDxOGAAAAAElFTkSuQmCC");
+  }
+  .cropper-hide {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+  }
+  .cropper-hidden {
+    display: none !important;
+  }
+  .cropper-move {
+    cursor: move;
+  }
+  .cropper-crop {
+    cursor: crosshair;
+  }
+  .cropper-disabled .cropper-drag-box,
+  .cropper-disabled .cropper-face,
+  .cropper-disabled .cropper-line,
+  .cropper-disabled .cropper-point {
+    cursor: not-allowed;
+  }
+`;
+
 export interface AddProps {}
 
 export interface AddState extends ISauce {
@@ -122,6 +456,14 @@ export interface AddState extends ISauce {
   country: string;
   city: string;
   state: string;
+  DropNCrop: {
+    result: null | string;
+    filename: null | string;
+    filetype: null | string;
+    src: null | string;
+    error: null | string;
+  };
+  DropNCropValue: any;
 }
 
 class Add extends React.Component<AddProps, AddState> {
@@ -148,7 +490,15 @@ class Add extends React.Component<AddProps, AddState> {
       },
       country: "United States",
       state: "",
-      city: ""
+      city: "",
+      DropNCrop: {
+        result: null,
+        filename: null,
+        filetype: null,
+        src: null,
+        error: null
+      },
+      DropNCropValue: {}
     };
   }
 
@@ -221,13 +571,16 @@ class Add extends React.Component<AddProps, AddState> {
                 />
               </StyledRightSide>
             </StyledRow>
+
+            {/* Type */}
             <StyledRow>
               <StyledDescriptor title="Type">
                 What type of sauce is this? What is it primarily used for?
               </StyledDescriptor>
               <StyledRightSide>
-                <Label>Type of Sauce</Label>
-                <div>
+                <StyledDiv2>
+                  <Label>Type of Sauce</Label>
+
                   {Object.keys(this.state.typesOfSauces).map(type => {
                     return (
                       <CheckBox
@@ -240,7 +593,7 @@ class Add extends React.Component<AddProps, AddState> {
                       />
                     );
                   })}
-                </div>
+                </StyledDiv2>
               </StyledRightSide>
             </StyledRow>
 
@@ -260,8 +613,9 @@ class Add extends React.Component<AddProps, AddState> {
                   showLabel={true}
                   value={this.state.shu}
                 />
-                <Label>Primary Peppers</Label>
-                <div>
+
+                <StyledDiv2>
+                  <Label>Primary Peppers</Label>
                   {Object.keys(this.state.typesOfPeppers).map(type => {
                     return (
                       <CheckBox
@@ -274,7 +628,7 @@ class Add extends React.Component<AddProps, AddState> {
                       />
                     );
                   })}
-                </div>
+                </StyledDiv2>
               </StyledRightSide>
             </StyledRow>
 
@@ -311,6 +665,21 @@ class Add extends React.Component<AddProps, AddState> {
                   id="city"
                   showLabel={true}
                   value={this.state.city}
+                />
+              </StyledRightSide>
+            </StyledRow>
+
+            {/* Photo */}
+            <StyledRow>
+              <StyledDescriptor title="Photo">
+                If you have a picture of the bottle, please upload it! If the
+                picture is unclear, blurry, or missing completely, an admin may
+                replace it with a different one.
+              </StyledDescriptor>
+              <StyledRightSide>
+                <StyledDropNCrop
+                  onChange={this.onDropNCropChange}
+                  value={this.state.DropNCropValue}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -375,6 +744,11 @@ class Add extends React.Component<AddProps, AddState> {
       ...this.state,
       state: val
     });
+  };
+
+  private onDropNCropChange = (val: any) => {
+    console.log(val);
+    this.setState({ ...this.state, DropNCropValue: val });
   };
 }
 
