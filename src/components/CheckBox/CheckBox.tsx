@@ -30,7 +30,7 @@ const CheckBox: React.SFC<CheckBoxProps> = props => {
 
 const StyledCheckbox = styled(CheckBox)`
   display: inline-block;
-  padding: 5px 1rem;
+  padding: 5px 1rem 5px 0;
   box-sizing: border-box;
 
   input {
