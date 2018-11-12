@@ -13,6 +13,7 @@ import TextInput from "../../../components/TextInput/TextInput";
 
 import { ISauce } from "../../../redux/sauce/types";
 import CheckBox from "../../../components/CheckBox/CheckBox";
+import Label from "../../../components/Label/Label";
 
 const Article = styled.article`
   max-width: 900px;
@@ -55,21 +56,12 @@ const StyledRightSide = styled.div`
 
 const StyledTextInput = styled(TextInput)`
   float: left;
-  width: 100%;
   max-width: ${props =>
     props.type === "textarea"
       ? "100%"
       : "50%"}; // give Textarea full width and text 50%
   box-sizing: border-box;
   padding: 0 1rem;
-`;
-
-const StyledLabel = styled.label`
-  text-transform: uppercase;
-  color: #676767;
-  display: block;
-  padding: 0 1rem;
-  clear: both;
 `;
 
 const StyledDiv = styled.div`
@@ -95,6 +87,7 @@ const StyledDropdownContainer = styled.div`
   position: relative;
   background-color: #f5f5f5;
   margin-bottom: 15px;
+  width: 100%;
 
   &:after {
     position: absolute;
@@ -104,36 +97,21 @@ const StyledDropdownContainer = styled.div`
     pointer-events: none;
     right: 15px;
   }
-`;
 
-const StyledRegionDropdown = styled(RegionDropdown)`
-  width: 100%;
-  background-color: #f3f3f3;
-  appearance: none;
-  border: 0;
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
-  vertical-align: middle;
-  height: 38px;
-  padding: 0px 40px 0 15px;
-  font-size: 1rem;
-`;
-
-const StyledCountryDropdown = styled(CountryDropdown)`
-  width: 100%;
-  background-color: #f3f3f3;
-  appearance: none;
-  border: 0;
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
-  vertical-align: middle;
-  height: 38px;
-  padding: 0px 40px 0 15px;
-  font-size: 1rem;
+  select {
+    width: 100%;
+    background-color: #f3f3f3;
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+    vertical-align: middle;
+    height: 38px;
+    padding: 0px 40px 0 15px;
+    font-size: 1rem;
+  }
 `;
 
 export interface AddProps {}
@@ -248,7 +226,7 @@ class Add extends React.Component<AddProps, AddState> {
                 What type of sauce is this? What is it primarily used for?
               </StyledDescriptor>
               <StyledRightSide>
-                <StyledLabel>Type of Sauce</StyledLabel>
+                <Label>Type of Sauce</Label>
                 <div>
                   {Object.keys(this.state.typesOfSauces).map(type => {
                     return (
@@ -282,7 +260,7 @@ class Add extends React.Component<AddProps, AddState> {
                   showLabel={true}
                   value={this.state.shu}
                 />
-                <StyledLabel>Primary Peppers</StyledLabel>
+                <Label>Primary Peppers</Label>
                 <div>
                   {Object.keys(this.state.typesOfPeppers).map(type => {
                     return (
@@ -307,9 +285,9 @@ class Add extends React.Component<AddProps, AddState> {
               </StyledDescriptor>
               <StyledRightSide>
                 <StyledDiv>
-                  <StyledLabel>Country</StyledLabel>
+                  <Label>Country</Label>
                   <StyledDropdownContainer>
-                    <StyledCountryDropdown
+                    <CountryDropdown
                       value={this.state.country}
                       onChange={this.onCountryChange}
                     />
@@ -317,9 +295,9 @@ class Add extends React.Component<AddProps, AddState> {
                 </StyledDiv>
 
                 <StyledDiv>
-                  <StyledLabel>State</StyledLabel>
+                  <Label>State</Label>
                   <StyledDropdownContainer>
-                    <StyledRegionDropdown
+                    <RegionDropdown
                       country={this.state.country}
                       value={this.state.state}
                       onChange={this.onStateChange}
