@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import Label from "../Label/Label";
 
 interface CheckBoxProps {
   checked: boolean;
@@ -13,7 +14,7 @@ interface CheckBoxProps {
 const CheckBox: React.SFC<CheckBoxProps> = props => {
   return (
     <div className={props.className}>
-      <label htmlFor={props.id}>
+      <Label htmlFor={props.id}>
         <input
           defaultChecked={props.checked}
           type="checkbox"
@@ -22,14 +23,14 @@ const CheckBox: React.SFC<CheckBoxProps> = props => {
           onClick={props.onClick}
         />
         {props.label}
-      </label>
+      </Label>
     </div>
   );
 };
 
 const StyledCheckbox = styled(CheckBox)`
   display: inline-block;
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 5px 1rem;
   box-sizing: border-box;
 
   input {
