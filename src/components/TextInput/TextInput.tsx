@@ -2,16 +2,12 @@ import * as React from "react";
 import * as shortid from "shortid";
 
 import styled from "../../theme/styled-components";
-
-const StyledLabel = styled.label`
-  text-transform: uppercase;
-  color: ${props => props.theme.grey};
-`;
-StyledLabel.displayName = "StyledLabel";
+import Label from "../Label/Label";
 
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 const StyledInput = styled.input`
@@ -59,12 +55,13 @@ interface TextInputProps {
 const TextInput: React.SFC<TextInputProps> = props => {
   return (
     <StyledDiv className={props.className}>
-      {props.showLabel && props.label && (
-        <StyledLabel htmlFor={props.id}>
-          {props.label}
-          {props.required && "*"}
-        </StyledLabel>
-      )}
+      {props.showLabel &&
+        props.label && (
+          <Label htmlFor={props.id}>
+            {props.label}
+            {props.required ? "*" : ""}
+          </Label>
+        )}
 
       {props.type && props.type.toLowerCase() === "text" ? (
         <StyledInput
