@@ -16,6 +16,7 @@ import TextInput from "../../../components/TextInput/TextInput";
 import { ISauce } from "../../../redux/sauce/types";
 import CheckBox from "../../../components/CheckBox/CheckBox";
 import Label from "../../../components/Label/Label";
+import RadioButton from "../../../components/RadioButton/RadioButton";
 
 const Article = styled.article`
   max-width: 900px;
@@ -142,6 +143,7 @@ export interface AddState extends ISauce {
     error: null | string;
   };
   DropNCropValue: any;
+  addReview: boolean;
 }
 
 class Add extends React.Component<AddProps, AddState> {
@@ -169,14 +171,15 @@ class Add extends React.Component<AddProps, AddState> {
       country: "United States",
       state: "",
       city: "",
-      DropNCrop: {
-        result: null,
-        filename: null,
-        filetype: null,
-        src: null,
-        error: null
-      },
-      DropNCropValue: {}
+      // DropNCrop: {
+      //   result: null,
+      //   filename: null,
+      //   filetype: null,
+      //   src: null,
+      //   error: null
+      // },
+      // DropNCropValue: {},
+      addReview: true
     };
   }
 
@@ -362,6 +365,39 @@ class Add extends React.Component<AddProps, AddState> {
                 />
               </StyledRightSide>
             </StyledRow> */}
+
+            {/* Review */}
+            <StyledRow>
+              <StyledDescriptor title="Review">
+                Would you like to add a review too? Do not review your own
+                sauce. Blatantly altering scores will get your account banned
+                and your review removed. Don't do it.
+              </StyledDescriptor>
+              <StyledRightSide>
+                <StyledDiv2>
+                  <Label>Add Review</Label>
+
+                  <RadioButton
+                    id={shortid.generate()}
+                    key={shortid.generate()}
+                    value={"Yes"}
+                    label={"Yes"}
+                    checked={this.state.addReview}
+                    onClick={this.onRadioClick}
+                    name="addReview"
+                  />
+                  <RadioButton
+                    id={shortid.generate()}
+                    key={shortid.generate()}
+                    value={"No"}
+                    label={"No"}
+                    checked={!this.state.addReview}
+                    onClick={this.onRadioClick}
+                    name="addReview"
+                  />
+                </StyledDiv2>
+              </StyledRightSide>
+            </StyledRow>
           </StyledFormContainer>
         </Article>
       </div>
@@ -392,7 +428,7 @@ class Add extends React.Component<AddProps, AddState> {
     // Grab value from the element
     const value: string = checkbox.value;
 
-    // Find is value is sauce type or pepper
+    // Find if value is sauce type or pepper
     const type =
       Object.keys(this.state.typesOfSauces).indexOf(value) !== -1
         ? "typesOfSauces"
@@ -409,6 +445,17 @@ class Add extends React.Component<AddProps, AddState> {
         [value]: { value, checked: !checked }
       }
     });
+  };
+
+  private onRadioClick = (event: React.MouseEvent<HTMLInputElement>): void => {
+    // Cast EventTarget to be HTMLInput Element so we can be sure to have a .value property
+    const checkbox: HTMLInputElement = event.target as HTMLInputElement;
+
+    // Grab value from the element
+    const value: boolean = checkbox.value === "Yes" ? true : false;
+    console.log(value);
+
+    this.setState({ ...this.state, addReview: value });
   };
 
   private onCountryChange = (val: string) => {
