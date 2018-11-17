@@ -23,6 +23,11 @@ export interface ThemeInterface {
   checkBoxActiveTextColor: string;
   checkBoxInActiveTextColor: string;
 
+  radioButtonActiveColor: string;
+  radioButtonInActiveColor: string;
+  radioButtonActiveTextColor: string;
+  radioButtonInActiveTextColor: string;
+
   siteBackgroundColor: string;
 
   userCubeBackgroundColor: string;
@@ -82,6 +87,11 @@ export const theme = {
   checkBoxInActiveBackgroundColor: colors.lightGrey,
   checkBoxActiveTextColor: colors.black,
   checkBoxInActiveTextColor: colors.black,
+
+  radioButtonActiveBackgroundColor: colors.mustard,
+  radioButtonInActiveBackgroundColor: colors.lightGrey,
+  radioButtonActiveTextColor: colors.black,
+  radioButtonInActiveTextColor: colors.black,
 
   siteBackgroundColor: colors.smoke,
   userCubeBackgroundColor: colors.white,
