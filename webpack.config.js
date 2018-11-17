@@ -86,6 +86,10 @@ module.exports = {
             outputPath: "fonts/"
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
