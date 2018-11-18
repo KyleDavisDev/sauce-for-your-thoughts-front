@@ -14,9 +14,11 @@ import Descriptor from "../../../components/Descriptor/Descriptor";
 import TextInput from "../../../components/TextInput/TextInput";
 
 import { ISauce } from "../../../redux/sauce/types";
-import CheckBox from "../../../components/CheckBox/CheckBox";
+import { CheckBox } from "../../../components/CheckBox/CheckBox";
 import Label from "../../../components/Label/Label";
-import RadioButton from "../../../components/RadioButton/RadioButton";
+import { RadioButton } from "../../../components/RadioButton/RadioButton";
+import { Button } from "../../../components/Button/Button";
+import ArrowRight from "../../../images/icons/ArrowRight";
 
 const Article = styled.article`
   max-width: 900px;
@@ -124,6 +126,32 @@ const StyledDropdownContainer = styled.div`
 const StyledPhotoContainer = styled.div`
   max-width: 66%;
   width: 100%;
+`;
+
+const StyledButton = styled(Button)`
+  width: 100%;
+  button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px;
+    color: #333;
+
+    &:hover,
+    &focus {
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+
+  svg {
+    width: 20px;
+    padding-left: 10px;
+    fill: #333;
+    transition: all 0.2s ease;
+  }
 `;
 
 export interface AddProps {}
@@ -427,6 +455,11 @@ class Add extends React.Component<AddProps, AddState> {
                 </StyledDiv2>
               </StyledRightSide>
             </StyledRow>
+
+            <StyledButton onClick={this.onSubmitClick}>
+              Submit
+              <ArrowRight />
+            </StyledButton>
           </StyledFormContainer>
         </Article>
       </div>
@@ -501,8 +534,13 @@ class Add extends React.Component<AddProps, AddState> {
   };
 
   private onDropNCropChange = (val: any) => {
-    console.log(val);
     this.setState({ ...this.state, DropNCropValue: val });
+  };
+
+  private onSubmitClick = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    event.preventDefault();
   };
 }
 
