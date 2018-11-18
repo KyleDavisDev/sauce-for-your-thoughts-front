@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "../../theme/styled-components";
 
 interface ButtonProps {
-  children?: string;
+  children: Array<string | JSX.Element>;
   type?: "outline" | "solid";
   className?: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -28,6 +28,7 @@ Button.defaultProps = {
 const StyledButton = styled(Button)`
   button {
     text-decoration: none;
+    font-family: FuturaMedium;
     padding: 0.5em 1em;
     transition: all 0.2s ease;
     background-color: ${props =>
@@ -43,6 +44,7 @@ const StyledButton = styled(Button)`
 
     &:hover,
     &:focus {
+      cursor: pointer;
       background-color: ${props =>
         props.type === "outline"
           ? "transparent"
@@ -59,4 +61,4 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export default StyledButton;
+export { StyledButton as Button };
