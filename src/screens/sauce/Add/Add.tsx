@@ -5,8 +5,8 @@ import {
   RegionDropdown,
   CountryRegionData
 } from "react-country-region-selector";
-// import DropNCrop from "@synapsestudios/react-drop-n-crop";
-// import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
+import DropNCrop from "@synapsestudios/react-drop-n-crop";
+import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 
 import styled from "../../../theme/styled-components";
 import PageTitle from "../../../components/PageTitle/PageTitle";
@@ -121,11 +121,10 @@ const StyledDropdownContainer = styled.div`
   }
 `;
 
-// const StyledDropNCrop = styled(DropNCrop)`
-//   .cropper-container.cropper-bg {
-//     width: 100% !important;
-//   }
-// `;
+const StyledPhotoContainer = styled.div`
+  max-width: 66%;
+  width: 100%;
+`;
 
 export interface AddProps {}
 
@@ -139,14 +138,14 @@ export interface AddState extends ISauce {
   country: string;
   city: string;
   state: string;
-  // DropNCrop: {
-  //   result: null | string;
-  //   filename: null | string;
-  //   filetype: null | string;
-  //   src: null | string;
-  //   error: null | string;
-  // };
-  // DropNCropValue: any;
+  DropNCrop: {
+    result: null | string;
+    filename: null | string;
+    filetype: null | string;
+    src: null | string;
+    error: null | string;
+  };
+  DropNCropValue: any;
   addReview: boolean;
 }
 
@@ -199,14 +198,14 @@ class Add extends React.Component<AddProps, AddState> {
       country: "United States",
       state: "",
       city: "",
-      // DropNCrop: {
-      //   result: null,
-      //   filename: null,
-      //   filetype: null,
-      //   src: null,
-      //   error: null
-      // },
-      // DropNCropValue: {},
+      DropNCrop: {
+        result: null,
+        filename: null,
+        filetype: null,
+        src: null,
+        error: null
+      },
+      DropNCropValue: {},
       addReview: true
     };
   }
@@ -379,20 +378,22 @@ class Add extends React.Component<AddProps, AddState> {
             </StyledRow>
 
             {/* Photo */}
-            {/* <StyledRow>
+            <StyledRow>
               <StyledDescriptor title="Photo">
                 If you have a picture of the bottle, please upload it! If the
                 picture is unclear, blurry, or missing completely, an admin may
                 replace it with a different one.
               </StyledDescriptor>
-              <StyledRightSide>
-                <StyledDropNCrop
+              <StyledPhotoContainer>
+                <DropNCrop
                   onChange={this.onDropNCropChange}
                   value={this.state.DropNCropValue}
                   canvasWidth={"100%"}
+                  cropperOptions={{ zoomOnWheel: false, aspectRatio: 16 / 9 }}
+                  maxFileSize={10145728}
                 />
-              </StyledRightSide>
-            </StyledRow> */}
+              </StyledPhotoContainer>
+            </StyledRow>
 
             {/* Review */}
             <StyledRow>
@@ -499,10 +500,10 @@ class Add extends React.Component<AddProps, AddState> {
     });
   };
 
-  // private onDropNCropChange = (val: any) => {
-  //   console.log(val);
-  //   this.setState({ ...this.state, DropNCropValue: val });
-  // };
+  private onDropNCropChange = (val: any) => {
+    console.log(val);
+    this.setState({ ...this.state, DropNCropValue: val });
+  };
 }
 
 export default Add;
