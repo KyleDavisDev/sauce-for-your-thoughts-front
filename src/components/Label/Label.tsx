@@ -6,6 +6,7 @@ interface LabelProps {
   children: string | JSX.Element | Array<string | JSX.Element>;
   className?: string;
   htmlFor?: string;
+  key?: string;
 }
 
 const StyledLabel = styled.label`
@@ -18,7 +19,11 @@ const StyledLabel = styled.label`
 
 const Label: React.SFC<LabelProps> = props => {
   return (
-    <StyledLabel htmlFor={props.htmlFor} className={props.className}>
+    <StyledLabel
+      htmlFor={props.htmlFor}
+      className={props.className}
+      key={props.key}
+    >
       {props.children}
     </StyledLabel>
   );

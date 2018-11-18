@@ -8,12 +8,13 @@ interface CheckBoxProps {
   value: string;
   label: string;
   onClick: (event: React.MouseEvent<HTMLInputElement>) => void;
+  key?: string;
   className?: string;
 }
 
 const CheckBox: React.SFC<CheckBoxProps> = props => {
   return (
-    <div className={props.className}>
+    <div className={props.className} key={props.key}>
       <Label htmlFor={props.id}>
         <input
           defaultChecked={props.checked}
