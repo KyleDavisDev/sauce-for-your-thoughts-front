@@ -51,4 +51,4 @@ const StyledCheckbox = styled(CheckBox)`
   }
 `;
 
-export default StyledCheckbox;
+export { StyledCheckbox as CheckBox };
