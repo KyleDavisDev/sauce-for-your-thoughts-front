@@ -2,10 +2,11 @@ import * as React from "react";
 import styled from "../../theme/styled-components";
 
 interface ButtonProps {
-  children: Array<string | JSX.Element>;
+  children: string | Array<string | JSX.Element>;
   type?: "outline" | "solid";
   className?: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  style?: React.CSSProperties;
 }
 
 const Div = styled.div`
@@ -15,7 +16,7 @@ const Div = styled.div`
 
 const Button: React.SFC<ButtonProps> = props => {
   return (
-    <Div className={props.className}>
+    <Div className={props.className} style={props.style}>
       <button onClick={props.onClick}>{props.children}</button>
     </Div>
   );
