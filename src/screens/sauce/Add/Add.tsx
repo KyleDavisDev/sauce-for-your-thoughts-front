@@ -130,19 +130,23 @@ const StyledDropdownContainer = styled.div`
 export interface AddProps {}
 
 export interface AddState extends ISauce {
-  typesOfSauces: { [key: string]: { value: string; checked: boolean } };
-  typesOfPeppers: { [key: string]: { value: string; checked: boolean } };
+  typesOfSauces: {
+    [key: string]: { value: string; checked: boolean; key: string };
+  };
+  typesOfPeppers: {
+    [key: string]: { value: string; checked: boolean; key: string };
+  };
   country: string;
   city: string;
   state: string;
-  DropNCrop: {
-    result: null | string;
-    filename: null | string;
-    filetype: null | string;
-    src: null | string;
-    error: null | string;
-  };
-  DropNCropValue: any;
+  // DropNCrop: {
+  //   result: null | string;
+  //   filename: null | string;
+  //   filetype: null | string;
+  //   src: null | string;
+  //   error: null | string;
+  // };
+  // DropNCropValue: any;
   addReview: boolean;
 }
 
@@ -159,14 +163,38 @@ class Add extends React.Component<AddProps, AddState> {
       description: "",
       photo: "",
       typesOfSauces: {
-        "BBQ Sauce": { value: "BBQ Sauce", checked: false },
-        "Hot Sauce": { value: "Hot Sauce", checked: false }
+        "BBQ Sauce": {
+          value: "BBQ Sauce",
+          checked: false,
+          key: shortid.generate()
+        },
+        "Hot Sauce": {
+          value: "Hot Sauce",
+          checked: false,
+          key: shortid.generate()
+        }
       },
       typesOfPeppers: {
-        "Ghost Chili": { value: "Ghost Chili", checked: false },
-        "Peri Peri": { value: "Peri Peri", checked: false },
-        "Scotch Bonnet": { value: "Scotch Bonnet", checked: false },
-        "Trinidad Scorpion": { value: "Trinidad Scorpion", checked: false }
+        "Ghost Chili": {
+          value: "Ghost Chili",
+          checked: false,
+          key: shortid.generate()
+        },
+        "Peri Peri": {
+          value: "Peri Peri",
+          checked: false,
+          key: shortid.generate()
+        },
+        "Scotch Bonnet": {
+          value: "Scotch Bonnet",
+          checked: false,
+          key: shortid.generate()
+        },
+        "Trinidad Scorpion": {
+          value: "Trinidad Scorpion",
+          checked: false,
+          key: shortid.generate()
+        }
       },
       country: "United States",
       state: "",
@@ -265,8 +293,8 @@ class Add extends React.Component<AddProps, AddState> {
                   {Object.keys(this.state.typesOfSauces).map(type => {
                     return (
                       <CheckBox
-                        id={shortid.generate()}
-                        key={shortid.generate()}
+                        id={this.state.typesOfSauces[type].key}
+                        key={this.state.typesOfSauces[type].key}
                         value={this.state.typesOfSauces[type].value}
                         label={this.state.typesOfSauces[type].value}
                         checked={this.state.typesOfSauces[type].checked}
@@ -300,8 +328,8 @@ class Add extends React.Component<AddProps, AddState> {
                   {Object.keys(this.state.typesOfPeppers).map(type => {
                     return (
                       <CheckBox
-                        id={shortid.generate()}
-                        key={shortid.generate()}
+                        id={this.state.typesOfPeppers[type].key}
+                        key={this.state.typesOfPeppers[type].key}
                         value={this.state.typesOfPeppers[type].value}
                         label={this.state.typesOfPeppers[type].value}
                         checked={this.state.typesOfPeppers[type].checked}
@@ -442,7 +470,7 @@ class Add extends React.Component<AddProps, AddState> {
       ...this.state,
       [type]: {
         ...this.state[type],
-        [value]: { value, checked: !checked }
+        [value]: { ...this.state[type][value], value, checked: !checked }
       }
     });
   };
@@ -453,7 +481,6 @@ class Add extends React.Component<AddProps, AddState> {
 
     // Grab value from the element
     const value: boolean = checkbox.value === "Yes" ? true : false;
-    console.log(value);
 
     this.setState({ ...this.state, addReview: value });
   };
@@ -472,10 +499,10 @@ class Add extends React.Component<AddProps, AddState> {
     });
   };
 
-  private onDropNCropChange = (val: any) => {
-    console.log(val);
-    this.setState({ ...this.state, DropNCropValue: val });
-  };
+  // private onDropNCropChange = (val: any) => {
+  //   console.log(val);
+  //   this.setState({ ...this.state, DropNCropValue: val });
+  // };
 }
 
 export default Add;
