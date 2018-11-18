@@ -52,4 +52,4 @@ const StyledRadioButton = styled(RadioButton)`
   }
 `;
 
-export default StyledRadioButton;
+export { StyledRadioButton as RadioButton };
