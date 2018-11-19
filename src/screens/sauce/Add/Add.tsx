@@ -8,17 +8,19 @@ import {
 import DropNCrop from "@synapsestudios/react-drop-n-crop";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 
+import { addSauce } from "../../../redux/sauces/actions";
+import { ISauce } from "../../../redux/sauce/types";
+
 import styled from "../../../theme/styled-components";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import Descriptor from "../../../components/Descriptor/Descriptor";
 import TextInput from "../../../components/TextInput/TextInput";
-
-import { ISauce } from "../../../redux/sauce/types";
 import { CheckBox } from "../../../components/CheckBox/CheckBox";
 import Label from "../../../components/Label/Label";
 import { RadioButton } from "../../../components/RadioButton/RadioButton";
 import { Button } from "../../../components/Button/Button";
 import ArrowRight from "../../../images/icons/ArrowRight";
+import { connect } from "react-redux";
 
 const Article = styled.article`
   max-width: 900px;
@@ -166,7 +168,9 @@ const StyledImageButtonContainer = styled.div`
   }
 `;
 
-export interface AddProps {}
+export interface AddProps {
+  addSauce: (data: { user: { token: string }; sauce: ISauce }) => Promise<void>;
+}
 
 export interface AddState extends ISauce {
   typesOfSauces: {
@@ -203,7 +207,6 @@ class Add extends React.Component<AddProps, AddState> {
       _id: 0,
       name: "",
       ingredients: "",
-      type: "",
       maker: "",
       description: "",
       photo: "",
@@ -241,6 +244,7 @@ class Add extends React.Component<AddProps, AddState> {
           key: shortid.generate()
         }
       },
+      shu: "",
       country: "United States",
       state: "",
       city: "",
@@ -264,7 +268,7 @@ class Add extends React.Component<AddProps, AddState> {
         <Article>
           <PageTitle>Add Sauce</PageTitle>
           <StyledFormContainer>
-            <form>
+            <form onSubmit={this.onSubmit} style={{ maxWidth: "100%" }}>
               <StyledRow>
                 <StyledDescriptor title="Title">
                   What is the name of the sauce? Who is the maker? This is
@@ -488,7 +492,7 @@ class Add extends React.Component<AddProps, AddState> {
                 </StyledRightSide>
               </StyledRow>
 
-              <StyledButton onClick={this.onSubmitClick}>
+              <StyledButton onClick={() => {}} type="submit">
                 Submit
                 <ArrowRight />
               </StyledButton>
@@ -500,7 +504,7 @@ class Add extends React.Component<AddProps, AddState> {
   }
 
   private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    if (!event || !event.target || !event.target.value) {
+    if (!event || !event.target) {
       return;
     }
 
@@ -570,10 +574,65 @@ class Add extends React.Component<AddProps, AddState> {
     this.setState({ ...this.state, DropNCropValue: val });
   };
 
-  private onSubmitClick = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ): void => {
+  private onSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
+
+    // Get array of checked peppers
+    const peppers: string[] = Object.keys(this.state.typesOfPeppers).filter(
+      pepper => this.state.typesOfPeppers[pepper].checked
+    );
+
+    // Get array of checked types
+    const types: string[] = Object.keys(this.state.typesOfSauces).filter(
+      sauce => this.state.typesOfSauces[sauce].checked
+    );
+
+    // make sure token is still good/not expired
+    // if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
+
+    const { name, maker, description, ingredients, shu, location } = this.state;
+
+    // construct FormData object since we are passing image file
+    const data: {
+      user: { token: string };
+      sauce: ISauce;
+    } = {
+      sauce: {
+        _id: 1,
+        name,
+        maker,
+        description,
+        ingredients,
+        shu,
+        location,
+        peppers,
+        types
+      },
+      user: {
+        token: "abc"
+      }
+    };
+    console.log(data);
+
+    const formData = new FormData();
+    // formData.append("data", data);
+    formData.append("image", this.state.DropNCropValue.value);
+    formData.append("user", JSON.stringify({ user: { token: "Able" } }));
+
+    this.props
+      .addSauce(data)
+      .then(res => {
+        // Go to sauce page if they do not want to add a review
+        if (this.state.addReview === false) {
+          this.props.history.push(`/sauce/${res.data.sauces[0].slug}`);
+        }
+
+        // Go to review page for specific sauce
+        this.props.history.push(`/review/add/${res.data.sauces[0].slug}`);
+      })
+      .catch(err => {
+        // TODO better error handling
+      });
   };
 
   private onImageLock = (event: React.MouseEvent<HTMLButtonElement>): void => {
@@ -602,4 +661,17 @@ class Add extends React.Component<AddProps, AddState> {
   };
 }
 
-export default Add;
+function mapStateToProps(state) {
+  return {
+    user: { token: state.users.self.token || "" }
+  };
+}
+
+const mapDispatchToProps = {
+  addSauce
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Add);
