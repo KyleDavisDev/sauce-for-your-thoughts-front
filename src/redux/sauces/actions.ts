@@ -62,8 +62,7 @@ export const addSauce = ({
   data
 }: {
   data: { user: { token: string }; sauce: ISauce };
-}) => (dispatch: any) => {
-  console.log(data);
+}) => async (dispatch): Promise<null> => {
   return api.sauce.add(data).then((res: any) => {
     // flatten response
     // const { sauces } = flatten(res.data.sauces); // Might need to play around with this
