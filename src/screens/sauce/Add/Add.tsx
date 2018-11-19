@@ -171,7 +171,7 @@ export interface AddProps {
     }: {
       data: { user: { token: string }; sauce: ISauce };
     }
-  ) => Promise<void>;
+  ) => Promise<null>;
 }
 
 export interface AddState extends ISauce {
