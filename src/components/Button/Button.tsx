@@ -2,9 +2,10 @@ import * as React from "react";
 import styled from "../../theme/styled-components";
 
 interface ButtonProps {
-  children: string | Array<string | JSX.Element>;
-  type?: "outline" | "solid";
+  children: string | Element | Array<string | JSX.Element>;
+  displayType?: "outline" | "solid";
   className?: string;
+  type?: "button" | "submit" | "reset";
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   style?: React.CSSProperties;
 }
@@ -17,13 +18,16 @@ const Div = styled.div`
 const Button: React.SFC<ButtonProps> = props => {
   return (
     <Div className={props.className} style={props.style}>
-      <button onClick={props.onClick}>{props.children}</button>
+      <button onClick={props.onClick} type={props.type}>
+        {props.children}
+      </button>
     </Div>
   );
 };
 
 Button.defaultProps = {
-  type: "outline"
+  displayType: "outline",
+  type: "button"
 };
 
 const StyledButton = styled(Button)`
@@ -33,13 +37,15 @@ const StyledButton = styled(Button)`
     padding: 0.5em 1em;
     transition: all 0.2s ease;
     background-color: ${props =>
-      props.type === "outline" ? "transparent" : props.theme.primaryThemeColor};
+      props.displayType === "outline"
+        ? "transparent"
+        : props.theme.primaryThemeColor};
     border: ${props =>
-      props.type === "outline"
+      props.displayType === "outline"
         ? "2px solid " + props.theme.primaryThemeColor
         : "none"};
     color: ${props =>
-      props.type === "outline"
+      props.displayType === "outline"
         ? props.theme.primaryThemeColor
         : props.theme.white};
 
@@ -47,15 +53,15 @@ const StyledButton = styled(Button)`
     &:focus {
       cursor: pointer;
       background-color: ${props =>
-        props.type === "outline"
+        props.displayType === "outline"
           ? "transparent"
           : props.theme.secondaryThemeColor};
       border: ${props =>
-        props.type === "outline"
+        props.displayType === "outline"
           ? "2px solid " + props.theme.secondaryThemeColor
           : "none"};
       color: ${props =>
-        props.type === "outline"
+        props.displayType === "outline"
           ? props.theme.secondaryThemeColor
           : props.theme.white};
     }
