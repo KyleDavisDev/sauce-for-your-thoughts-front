@@ -1,10 +1,6 @@
 import * as React from "react";
 import shortid from "shortid";
-import {
-  CountryDropdown,
-  RegionDropdown,
-  CountryRegionData
-} from "react-country-region-selector";
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import DropNCrop from "@synapsestudios/react-drop-n-crop";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 
@@ -169,7 +165,13 @@ const StyledImageButtonContainer = styled.div`
 `;
 
 export interface AddProps {
-  addSauce: (data: { user: { token: string }; sauce: ISauce }) => Promise<void>;
+  addSauce: (
+    {
+      data
+    }: {
+      data: { user: { token: string }; sauce: ISauce };
+    }
+  ) => Promise<void>;
 }
 
 export interface AddState extends ISauce {
@@ -612,7 +614,6 @@ class Add extends React.Component<AddProps, AddState> {
         token: "abc"
       }
     };
-    console.log(data);
 
     const formData = new FormData();
     // formData.append("data", data);
@@ -620,7 +621,7 @@ class Add extends React.Component<AddProps, AddState> {
     formData.append("user", JSON.stringify({ user: { token: "Able" } }));
 
     this.props
-      .addSauce(data)
+      .addSauce({ data })
       .then(res => {
         // Go to sauce page if they do not want to add a review
         if (this.state.addReview === false) {
