@@ -51,23 +51,19 @@ export const updatedSaucesItems = ({
 // });
 
 /** @description Add sauce to DB
- *  @param {FormData} data - Form Data that has been JSONified
+ *  @param {Object} data - Form Data that has been JSONified
  *    @param {Object} data.user - author of the sauce
  *      @param {String} data.user.token - unique string
  *    @param {ISauce} data.sauce - sauce object
- *    @param {Blob} photo - actual photo to upload
  *  @returns {Promise}
  *    @returns {null}
  */
 export const addSauce = ({
   data
 }: {
-  data: {
-    user: { token: string };
-    sauce: ISauce;
-    photo: Blob;
-  };
+  data: { user: { token: string }; sauce: ISauce };
 }) => (dispatch: any) => {
+  console.log(data);
   return api.sauce.add(data).then((res: any) => {
     // flatten response
     // const { sauces } = flatten(res.data.sauces); // Might need to play around with this
