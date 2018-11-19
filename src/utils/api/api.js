@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ISauce } from "../../redux/sauce/types";
-import { IReview } from "../../redux/reviews/sauce";
+import { IReview } from "../../redux/reviews/types";
 export const host =
   process.env.API_ENV === "prod"
     ? "https://sauceforyourthoughts.com"
@@ -86,20 +86,16 @@ const api = {
      *  @param {Object} data.user object
      *    @param {String} data.user.token - user token
      *  @param {ISauce} data.sauce - sauce object
-     *  @param {Blob} data.photo - photo blog
      *  @returns {Promise} represents
      */
     add: data =>
-      axios
-        .post(`${host}/api/sauce/add`, data, {
-          headers: { "Content-Type": "multipart/form-data" }
-        })
-        .then(res => {
-          if (res.data.isGood && res.status === 200) {
-            return res.data;
-          }
-          throw new Error(res.data.msg);
-        }),
+      axios.post(`${host}/api/sauce/add`, data).then(res => {
+        console.log(res);
+        if (res.data.isGood && res.status === 200) {
+          return res.data;
+        }
+        throw new Error(res.data.msg);
+      }),
 
     /** @description Get sauce related data by using single sauce id
      *  @param Object, API expects user.token and sauce._id
