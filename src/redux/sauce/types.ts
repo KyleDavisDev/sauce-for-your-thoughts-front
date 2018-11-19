@@ -4,11 +4,11 @@ export interface ISauce {
   _id: number;
   name: string;
   ingredients: string;
-  type: string;
+  types?: string[];
   maker: string;
   description: string;
-  photo: string;
-  shu?: number;
+  photo?: string;
+  shu?: number | string;
   peppers?: string[];
   reviews?: number[];
   location?: {
