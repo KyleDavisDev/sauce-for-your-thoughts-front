@@ -54,7 +54,7 @@ const StyledDescriptor = styled(Descriptor)`
 const StyledRightSide = styled.div`
   width: 100%;
   box-sizing: border-box;
-  max-width: 100%;
+  max-width: 66%;
   display: block;
 `;
 
