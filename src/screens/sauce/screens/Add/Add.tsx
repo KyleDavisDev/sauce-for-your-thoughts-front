@@ -18,7 +18,6 @@ import { Button } from "../../../../components/Button/Button";
 import ArrowRight from "../../../../images/icons/ArrowRight";
 
 import { IinitialState } from "../../../../redux/configureStore";
-import { exists } from "fs";
 
 const Article = styled.article`
   max-width: 900px;
