@@ -1,7 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const Star = ({ height, className }) => (
+const Star = ({
+  height,
+  className
+}: {
+  height?: number;
+  className?: string;
+}) => (
   <svg
     width={height}
     height={height}
@@ -20,10 +25,6 @@ const Star = ({ height, className }) => (
     </g>
   </svg>
 );
-Star.propTypes = {
-  height: PropTypes.number,
-  className: PropTypes.string
-};
 Star.defaultProps = {
   height: 50,
   className: "star"
