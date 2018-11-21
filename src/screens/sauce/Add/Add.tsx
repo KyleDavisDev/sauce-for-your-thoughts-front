@@ -3,10 +3,10 @@ import shortid from "shortid";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import DropNCrop from "@synapsestudios/react-drop-n-crop";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
+import { connect } from "react-redux";
 
 import { addSauce } from "../../../redux/sauces/actions";
 import { ISauce } from "../../../redux/sauce/types";
-
 import styled from "../../../theme/styled-components";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import Descriptor from "../../../components/Descriptor/Descriptor";
@@ -16,7 +16,9 @@ import Label from "../../../components/Label/Label";
 import { RadioButton } from "../../../components/RadioButton/RadioButton";
 import { Button } from "../../../components/Button/Button";
 import ArrowRight from "../../../images/icons/ArrowRight";
-import { connect } from "react-redux";
+
+import { IinitialState } from "../../../redux/configureStore";
+import { exists } from "fs";
 
 const Article = styled.article`
   max-width: 900px;
@@ -171,7 +173,9 @@ export interface AddProps {
     }: {
       data: { user: { token: string }; sauce: ISauce };
     }
-  ) => Promise<null>;
+  ) => Promise<any>;
+  history: { push: (location: string) => any };
+  user: { token?: string };
 }
 
 export interface AddState extends ISauce {
@@ -642,9 +646,11 @@ class Add extends React.Component<AddProps, AddState> {
 
     if (isLocked) {
       // Unlock Cropper component
+      // @ts-ignore
       this.refs.cropper.cropperRef.cropper.enable();
     } else {
       // Lock component
+      // @ts-ignore
       this.refs.cropper.cropperRef.cropper.disable();
     }
 
@@ -662,7 +668,7 @@ class Add extends React.Component<AddProps, AddState> {
   };
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: IinitialState): any {
   return {
     user: { token: state.users.self.token || "" }
   };
