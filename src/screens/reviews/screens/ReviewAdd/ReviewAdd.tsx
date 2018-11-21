@@ -146,6 +146,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                   <Rating
                     emptySymbol={<StyledEmptyStar />}
                     fullSymbol={<StyledFullStar />}
+                    onClick={this.onStarClick}
                   />
                   <StyledTextInput
                     onChange={this.onTextChange}
@@ -203,6 +204,10 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
       ...this.state,
       [name.toLowerCase()]: value
     });
+  };
+
+  private onStarClick = (value: number): void => {
+    console.log(value);
   };
 
   private onSubmit = (event: React.FormEvent): void => {
