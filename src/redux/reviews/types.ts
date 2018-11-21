@@ -24,7 +24,7 @@ export const enum ReviewsActionTypes {
 }
 
 export interface IReview {
-  _id: number;
+  _id: number | string;
   author: IUserRef; // User reference
   sauce: ISauceRef;
   created: Date;
