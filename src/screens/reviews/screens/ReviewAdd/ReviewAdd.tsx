@@ -18,7 +18,6 @@ import { Button } from "../../../../components/Button/Button";
 import ArrowRight from "../../../../images/icons/ArrowRight";
 
 import { IinitialState } from "../../../../redux/configureStore";
-import { exists } from "fs";
 
 const Article = styled.article`
   max-width: 900px;
@@ -166,7 +165,7 @@ const StyledImageButtonContainer = styled.div`
   }
 `;
 
-export interface AddProps {
+export interface ReviewAddProps {
   addSauce: (
     {
       data
@@ -178,7 +177,7 @@ export interface AddProps {
   user: { token?: string };
 }
 
-export interface AddState extends ISauce {
+export interface ReviewAddState extends ISauce {
   typesOfSauces: {
     [key: string]: { value: string; checked: boolean; key: string };
   };
@@ -205,8 +204,8 @@ export interface AddState extends ISauce {
   addReview: boolean;
 }
 
-class Add extends React.Component<AddProps, AddState> {
-  constructor(props: AddProps) {
+class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
+  constructor(props: ReviewAddProps) {
     super(props);
 
     this.state = {
@@ -681,4 +680,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Add);
+)(ReviewAdd);

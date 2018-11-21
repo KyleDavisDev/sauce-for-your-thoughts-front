@@ -165,7 +165,7 @@ const StyledImageButtonContainer = styled.div`
   }
 `;
 
-export interface AddProps {
+export interface SauceAddProps {
   addSauce: (
     {
       data
@@ -177,7 +177,7 @@ export interface AddProps {
   user: { token?: string };
 }
 
-export interface AddState extends ISauce {
+export interface SauceAddState extends ISauce {
   typesOfSauces: {
     [key: string]: { value: string; checked: boolean; key: string };
   };
@@ -204,8 +204,8 @@ export interface AddState extends ISauce {
   addReview: boolean;
 }
 
-class Add extends React.Component<AddProps, AddState> {
-  constructor(props: AddProps) {
+class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
+  constructor(props: SauceAddProps) {
     super(props);
 
     this.state = {
@@ -680,4 +680,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Add);
+)(SauceAdd);

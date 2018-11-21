@@ -26,8 +26,8 @@ const Home = Loadable({
 });
 
 // Add Sauce
-const AddSauce = Loadable({
-  loader: () => import("./sauce/screens/Add/Add"),
+const SauceAdd = Loadable({
+  loader: () => import("./sauce/screens/SauceAdd/SauceAdd"),
   loading: () => (
     <div>
       <Loading />
@@ -36,8 +36,8 @@ const AddSauce = Loadable({
 });
 
 // Add Review
-const AddReview = Loadable({
-  loader: () => import("./reviews/screens/Add/Add"),
+const ReviewAdd = Loadable({
+  loader: () => import("./reviews/screens/ReviewAdd/ReviewAdd"),
   loading: () => (
     <div>
       <Loading />
@@ -51,8 +51,8 @@ const Screens = (
     <Navigation />
     {/* {flashMessageVisible && <FlashMessage />} */}
     <Route exact path="/" component={Home} />
-    <Route exact path="/sauce/add" component={AddSauce} />
-    <Route exact path="/review/add/:id" component={AddReview} />
+    <Route exact path="/sauce/add" component={SauceAdd} />
+    <Route exact path="/review/add/:id" component={ReviewAdd} />
     {/* <Route
       exact
       path="/sauces(/?page=:page&limit=:limit)?"
