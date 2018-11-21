@@ -35,6 +35,16 @@ const AddSauce = Loadable({
   )
 });
 
+// Add Review
+const AddReview = Loadable({
+  loader: () => import("./reviews/screens/Add/Add"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 const Screens = (
   <Div>
     <TopBar />
@@ -42,6 +52,7 @@ const Screens = (
     {/* {flashMessageVisible && <FlashMessage />} */}
     <Route exact path="/" component={Home} />
     <Route exact path="/sauce/add" component={AddSauce} />
+    <Route exact path="/review/add/:id" component={AddReview} />
     {/* <Route
       exact
       path="/sauces(/?page=:page&limit=:limit)?"
@@ -52,8 +63,7 @@ const Screens = (
     <Route exact path="/sauce/single/:slug" component={SauceSingle} /> */}
     {/* <Route exact path="/tags" component={Tags} />
     <Route exact path="/tags/:tag" component={Tags} /> */}
-    {/* <Route exact path="/review/add/:slug" component={ReviewAdd} />
-    <Route exact path="/register" component={Register} />
+    {/* <Route exact path="/register" component={Register} />
     <Route exact path="/account" component={Account} /> */}
     {/* <Route exact path="/account/reset/:token" component={ResetPassword} /> */}
     {/* <Route exact path="/login" component={Login} /> */}
