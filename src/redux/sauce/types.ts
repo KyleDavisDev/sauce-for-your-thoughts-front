@@ -21,5 +21,5 @@ export interface ISauce {
 
 // Trimmed down for reference only
 export interface ISauceRef {
-  _id: number;
+  _id: number | string;
 }
