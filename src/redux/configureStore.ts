@@ -19,24 +19,24 @@ const rootReducer = combineReducers({
   users
 });
 
-// interface IinitialSate {
-//   sauces: {
-//     allIds?: string[];
-//     byId?: { [key: string]: ISauce };
-//     total?: number;
-//     query?: IQuery;
-//   };
-//   users: {
-//     self: { token?: string };
-//     byId?: { [key: string]: IUser };
-//     allIds?: string[];
-//   };
-//   reviews: {
-//     byId?: { [key: string]: IReview };
-//     allIds?: string[];
-//   };
-//   flashMessage: IFlashState;
-// }
+export interface IinitialState {
+  sauces: {
+    allIds?: string[];
+    byId?: { [key: string]: ISauce };
+    total?: number;
+    query?: IQuery;
+  };
+  users: {
+    self: { token?: string };
+    byId?: { [key: string]: IUser };
+    allIds?: string[];
+  };
+  reviews: {
+    byId?: { [key: string]: IReview };
+    allIds?: string[];
+  };
+  flashMessage: IFlashState;
+}
 
 export const configureStore = () => {
   const initialState: object = {
