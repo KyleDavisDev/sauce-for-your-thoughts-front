@@ -27,7 +27,7 @@ const Home = Loadable({
 
 // Add Sauce
 const AddSauce = Loadable({
-  loader: () => import("./sauce/Add/Add"),
+  loader: () => import("./sauce/screens/Add/Add"),
   loading: () => (
     <div>
       <Loading />
