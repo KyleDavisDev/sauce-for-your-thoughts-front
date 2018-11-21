@@ -5,19 +5,19 @@ import DropNCrop from "@synapsestudios/react-drop-n-crop";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 
-import { addSauce } from "../../../redux/sauces/actions";
-import { ISauce } from "../../../redux/sauce/types";
-import styled from "../../../theme/styled-components";
-import PageTitle from "../../../components/PageTitle/PageTitle";
-import Descriptor from "../../../components/Descriptor/Descriptor";
-import TextInput from "../../../components/TextInput/TextInput";
-import { CheckBox } from "../../../components/CheckBox/CheckBox";
-import Label from "../../../components/Label/Label";
-import { RadioButton } from "../../../components/RadioButton/RadioButton";
-import { Button } from "../../../components/Button/Button";
-import ArrowRight from "../../../images/icons/ArrowRight";
+import { addSauce } from "../../../../redux/sauces/actions";
+import { ISauce } from "../../../../redux/sauce/types";
+import styled from "../../../../theme/styled-components";
+import PageTitle from "../../../../components/PageTitle/PageTitle";
+import Descriptor from "../../../../components/Descriptor/Descriptor";
+import TextInput from "../../../../components/TextInput/TextInput";
+import { CheckBox } from "../../../../components/CheckBox/CheckBox";
+import Label from "../../../../components/Label/Label";
+import { RadioButton } from "../../../../components/RadioButton/RadioButton";
+import { Button } from "../../../../components/Button/Button";
+import ArrowRight from "../../../../images/icons/ArrowRight";
 
-import { IinitialState } from "../../../redux/configureStore";
+import { IinitialState } from "../../../../redux/configureStore";
 import { exists } from "fs";
 
 const Article = styled.article`
