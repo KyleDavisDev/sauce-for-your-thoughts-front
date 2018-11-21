@@ -13,6 +13,7 @@ import { Button } from "../../../../components/Button/Button";
 import ArrowRight from "../../../../images/icons/ArrowRight";
 import { IinitialState } from "../../../../redux/configureStore";
 import { IReviewSection, IReview } from "../../../../redux/reviews/types";
+import Star from "../../../../images/icons/Star";
 
 const Article = styled.article`
   max-width: 900px;
@@ -89,6 +90,22 @@ const StyledButton = styled(Button)`
   }
 `;
 
+const StyledEmptyStar = styled(Star)`
+  .border {
+    fill: ${props => props.theme.primaryThemeColor};
+  }
+
+  .center {
+    fill: transparent;
+  }
+`;
+const StyledFullStar = styled(Star)`
+  .border,
+  .center {
+    fill: ${props => props.theme.primaryThemeColor};
+  }
+`;
+
 export interface ReviewAddProps {
   addReview: ({ data }: any) => Promise<any>;
   history: { push: (location: string) => any };
@@ -125,7 +142,11 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                   you taste in the sauce.
                 </StyledDescriptor>
                 <StyledRightSide>
-                  <Rating />
+                  <Label>Taste Rating</Label>
+                  <Rating
+                    emptySymbol={<StyledEmptyStar />}
+                    fullSymbol={<StyledFullStar />}
+                  />
                   <StyledTextInput
                     onChange={this.onTextChange}
                     label="Description"
