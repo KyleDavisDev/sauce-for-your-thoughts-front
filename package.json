@@ -22,6 +22,7 @@
     "@types/react-dom": "^16.0.7",
     "@types/react-dropzone": "^4.2.2",
     "@types/react-loadable": "^5.4.1",
+    "@types/react-rating": "file:@types/react-rating",
     "@types/react-redux": "^6.0.2",
     "@types/react-router": "^4.0.26",
     "@types/react-router-config": "^1.0.7",
@@ -81,5 +82,5 @@
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
   },
-  "typings": "src/@types/*"
+  "typings": "src/@types/react-rating/"
 }
