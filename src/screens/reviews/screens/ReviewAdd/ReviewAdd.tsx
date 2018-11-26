@@ -50,17 +50,8 @@ const StyledDescriptor = styled(Descriptor)`
 const StyledRightSide = styled.div`
   width: 100%;
   box-sizing: border-box;
-  max-width: 100%;
+  max-width: 66%;
   display: block;
-`;
-
-const StyledTextInput = styled(TextInput)`
-  float: left;
-  max-width: ${props =>
-    props.type === "textarea"
-      ? "100%"
-      : "50%"}; // give Textarea full width and text 50%
-  box-sizing: border-box;
   padding: 0 1rem;
 `;
 
@@ -148,7 +139,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     fullSymbol={<StyledFullStar />}
                     onClick={this.onStarClick}
                   />
-                  <StyledTextInput
+                  <TextInput
                     onChange={this.onTextChange}
                     label="Description"
                     name="taste"
@@ -168,7 +159,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                   up?
                 </StyledDescriptor>
                 <StyledRightSide>
-                  <StyledTextInput
+                  <TextInput
                     onChange={this.onTextChange}
                     label="Description"
                     name="aroma"
@@ -207,6 +198,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
   };
 
   private onStarClick = (value: number): void => {
+    // tslint:disable-next-line:no-console
     console.log(value);
   };
 
