@@ -105,18 +105,26 @@ export interface ReviewAddProps {
 
 export interface ReviewAddState {
   overall: IReviewSection;
-  label?: IReviewSection;
-  aroma?: IReviewSection;
-  taste?: IReviewSection;
-  heat?: IReviewSection;
-  note?: IReviewSection;
+  label: IReviewSection;
+  aroma: IReviewSection;
+  taste: IReviewSection;
+  heat: IReviewSection;
+  note: IReviewSection;
+  [key: string]: IReviewSection;
 }
 
 class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
   constructor(props: ReviewAddProps) {
     super(props);
 
-    this.state = { overall: { rating: 0, txt: "" } };
+    this.state = {
+      overall: { rating: 0, txt: "" },
+      label: { rating: 0, txt: "" },
+      aroma: { rating: 0, txt: "" },
+      taste: { rating: 0, txt: "" },
+      heat: { rating: 0, txt: "" },
+      note: { rating: 0, txt: "" }
+    };
   }
 
   public render() {
@@ -137,7 +145,8 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                   <Rating
                     emptySymbol={<StyledEmptyStar />}
                     fullSymbol={<StyledFullStar />}
-                    onClick={this.onStarClick}
+                    onClick={e => this.onStarClick(e, "taste")}
+                    initialRating={this.state.taste.rating}
                   />
                   <TextInput
                     onChange={this.onTextChange}
@@ -145,7 +154,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     name="taste"
                     id="taste"
                     showLabel={true}
-                    value={this.state.taste ? this.state.taste.txt : ""}
+                    value={this.state.taste.txt}
                     type="textarea"
                   />
                 </StyledRightSide>
@@ -159,6 +168,12 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                   up?
                 </StyledDescriptor>
                 <StyledRightSide>
+                  <Rating
+                    emptySymbol={<StyledEmptyStar />}
+                    fullSymbol={<StyledFullStar />}
+                    onClick={e => this.onStarClick(e, "aroma")}
+                    initialRating={this.state.aroma.rating}
+                  />
                   <TextInput
                     onChange={this.onTextChange}
                     label="Description"
@@ -193,13 +208,15 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     // Update local state
     this.setState({
       ...this.state,
-      [name.toLowerCase()]: value
+      [name.toLowerCase()]: { ...this.state[name.toLowerCase()], txt: value }
     });
   };
 
-  private onStarClick = (value: number): void => {
-    // tslint:disable-next-line:no-console
-    console.log(value);
+  private onStarClick = (value: number, id: string): void => {
+    this.setState({
+      ...this.state,
+      [id]: { ...this.state[id], rating: value }
+    });
   };
 
   private onSubmit = (event: React.FormEvent): void => {
