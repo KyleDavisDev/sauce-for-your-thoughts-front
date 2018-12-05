@@ -2,7 +2,7 @@ import * as React from "react";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 import Rating from "react-rating";
-import queryString from "query-string";
+import queryString, { OutputParams } from "query-string";
 
 import { addReview } from "../../../../redux/reviews/actions";
 import styled from "../../../../theme/styled-components";
@@ -102,6 +102,7 @@ export interface ReviewAddProps {
   addReview: ({ data }: any) => Promise<any>;
   history: { push: (location: string) => any };
   user: { token?: string };
+  location: { search: string };
 }
 
 export interface ReviewAddState {
@@ -326,9 +327,14 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     // Make sure token is still good/not expired
     // if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
 
+    // TODO Grab author token
+
     // Get sauce from URL
-    const values = queryString.parse(this.props.location.search);
-    console.log(values);
+    const values: OutputParams = queryString.parse(this.props.location.search);
+    // Make sure s is not undefined or an array
+    if (!values.s || Array.isArray(values.s)) return;
+    // Get ID
+    const s: string = values.s;
 
     const data: {
       user: { token: string };
@@ -338,7 +344,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
         ...this.state,
         _id: 0,
         author: { _id: "" },
-        sauce: { _id: "get me from URL" },
+        sauce: { _id: s },
         created: new Date()
       },
       user: {
