@@ -240,6 +240,32 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                 </StyledRightSide>
               </StyledRow>
 
+              {/* Overall */}
+              <StyledRow>
+                <StyledDescriptor title="Overall">
+                  How spicy is this sauce? Did you have to run for water? Was it
+                  the perfect amount of heat?
+                </StyledDescriptor>
+                <StyledRightSide>
+                  <Label>Overall Rating</Label>
+                  <Rating
+                    emptySymbol={<StyledEmptyStar />}
+                    fullSymbol={<StyledFullStar />}
+                    onClick={e => this.onStarClick(e, "overall")}
+                    initialRating={this.state.overall.rating}
+                  />
+                  <TextInput
+                    onChange={this.onTextChange}
+                    label="Description"
+                    name="overall"
+                    id="overall"
+                    showLabel={true}
+                    value={this.state.overall ? this.state.overall.txt : ""}
+                    type="textarea"
+                  />
+                </StyledRightSide>
+              </StyledRow>
+
               <StyledButton onClick={() => {}} type="submit">
                 Submit
                 <ArrowRight />
