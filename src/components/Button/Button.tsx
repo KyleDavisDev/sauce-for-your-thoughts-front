@@ -1,6 +1,11 @@
 import * as React from "react";
 import styled from "../../theme/styled-components";
 
+const Div = styled.div`
+  display: flex;
+  align-items: stretch;
+`;
+
 interface ButtonProps {
   children: string | Element | Array<string | JSX.Element>;
   displayType?: "outline" | "solid";
@@ -9,11 +14,6 @@ interface ButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   style?: React.CSSProperties;
 }
-
-const Div = styled.div`
-  display: flex;
-  align-items: stretch;
-`;
 
 const Button: React.SFC<ButtonProps> = props => {
   return (
