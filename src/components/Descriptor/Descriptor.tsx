@@ -4,6 +4,7 @@ import styled from "styled-components";
 const StyledH2 = styled.h2`
   font-family: FuturaMedium;
 `;
+StyledH2.displayName = "Title";
 
 const StyledP = styled.p`
   font-family: AvenirNextReg;
