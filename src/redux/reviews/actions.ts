@@ -31,7 +31,7 @@ export const addedReviews = ({
 export const addReview = ({
   data
 }: {
-  data: { user: { token: string }; sauce: { token: string }; review: IReview };
+  data: { user: { token: string }; review: IReview };
 }) => (dispatch: any) =>
   api.review.add(data).then(res => {
     // format review so reducer can understand it
