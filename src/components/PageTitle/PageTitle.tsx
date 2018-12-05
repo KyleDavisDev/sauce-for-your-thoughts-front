@@ -4,6 +4,7 @@ import styled from "../../theme/styled-components";
 
 const StyledH1 = styled.h1`
   font-size: ${props => props.theme.scaleH1};
+  font-family: FuturaMedium;
   margin: 2rem 0 1rem;
 `;
 StyledH1.displayName = "StyledH1";
