@@ -2,6 +2,7 @@ import * as React from "react";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 import Rating from "react-rating";
+import queryString from "query-string";
 
 import { addReview } from "../../../../redux/reviews/actions";
 import styled from "../../../../theme/styled-components";
@@ -322,10 +323,13 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
   private onSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
 
-    // make sure token is still good/not expired
+    // Make sure token is still good/not expired
     // if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
 
-    // construct FormData object since we are passing image file
+    // Get sauce from URL
+    const values = queryString.parse(this.props.location.search);
+    console.log(values);
+
     const data: {
       user: { token: string };
       review: IReview;
@@ -333,7 +337,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
       review: {
         ...this.state,
         _id: 0,
-        author: { _id: "abc" },
+        author: { _id: "" },
         sauce: { _id: "get me from URL" },
         created: new Date()
       },
@@ -341,6 +345,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
         token: "abc"
       }
     };
+    return;
 
     this.props
       .addReview({ data })
