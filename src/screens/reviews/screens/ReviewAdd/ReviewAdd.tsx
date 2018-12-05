@@ -168,6 +168,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                   up?
                 </StyledDescriptor>
                 <StyledRightSide>
+                  <Label>Aroma Rating</Label>
                   <Rating
                     emptySymbol={<StyledEmptyStar />}
                     fullSymbol={<StyledFullStar />}
@@ -181,6 +182,59 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     id="aroma"
                     showLabel={true}
                     value={this.state.aroma ? this.state.aroma.txt : ""}
+                    type="textarea"
+                  />
+                </StyledRightSide>
+              </StyledRow>
+
+              {/* Label */}
+              <StyledRow>
+                <StyledDescriptor title="Label">
+                  How do you feel about the design? Does it speak to you? Does
+                  it remind you of anything? How effective does the design
+                  convey what the sauce is/is not.
+                </StyledDescriptor>
+                <StyledRightSide>
+                  <Label>Label Rating</Label>
+                  <Rating
+                    emptySymbol={<StyledEmptyStar />}
+                    fullSymbol={<StyledFullStar />}
+                    onClick={e => this.onStarClick(e, "label")}
+                    initialRating={this.state.label.rating}
+                  />
+                  <TextInput
+                    onChange={this.onTextChange}
+                    label="Description"
+                    name="label"
+                    id="label"
+                    showLabel={true}
+                    value={this.state.label ? this.state.label.txt : ""}
+                    type="textarea"
+                  />
+                </StyledRightSide>
+              </StyledRow>
+
+              {/* Heat */}
+              <StyledRow>
+                <StyledDescriptor title="Heat">
+                  How spicy is this sauce? Did you have to run for water? Was it
+                  the perfect amount of heat?
+                </StyledDescriptor>
+                <StyledRightSide>
+                  <Label>Heat Rating</Label>
+                  <Rating
+                    emptySymbol={<StyledEmptyStar />}
+                    fullSymbol={<StyledFullStar />}
+                    onClick={e => this.onStarClick(e, "heat")}
+                    initialRating={this.state.heat.rating}
+                  />
+                  <TextInput
+                    onChange={this.onTextChange}
+                    label="Description"
+                    name="heat"
+                    id="heat"
+                    showLabel={true}
+                    value={this.state.heat ? this.state.heat.txt : ""}
                     type="textarea"
                   />
                 </StyledRightSide>
