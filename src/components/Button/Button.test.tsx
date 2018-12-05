@@ -1,11 +1,13 @@
 import * as React from "react";
 import * as enzyme from "enzyme";
 
-import Button from "./Button";
+import { Button } from "./Button";
 
 describe("<Button>", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(<Button onClick={() => {}} />);
+    const wrapper = enzyme.shallow(
+      <Button onClick={() => {}}>Click me!</Button>
+    );
     expect(wrapper).toBeTruthy();
   });
 
