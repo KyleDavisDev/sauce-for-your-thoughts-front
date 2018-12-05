@@ -186,8 +186,6 @@ const api = {
      *  @param {Object} data - all encompasing object
      *    @param {Object} data.user - holds user information
      *      @param {String} data.user.token - unique user identifier
-     *    @param {Object} data.sauce - hold sauce information
-     *      @param {String} data.sauce.token - unique sauce string
      *    @param {String} data.review.taste - taste obj
      *      @param {String} data.review.taste.txt - description of taste
      *      @param {Number} data.review.taste.rating - 1-5 rating
