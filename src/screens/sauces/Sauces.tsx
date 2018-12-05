@@ -1,4 +1,6 @@
 import * as React from "react";
+import Article from "../../components/Article/Article";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 export interface SauceProps {}
 
@@ -12,6 +14,10 @@ export default class Sauce extends React.Component<SauceProps, SauceState> {
   }
 
   public render() {
-    return <div />;
+    return (
+      <Article>
+        <PageTitle>Sauces</PageTitle>
+      </Article>
+    );
   }
 }
