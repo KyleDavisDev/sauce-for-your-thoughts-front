@@ -5,6 +5,7 @@ import Rating from "react-rating";
 import queryString, { OutputParams } from "query-string";
 
 import { addReview } from "../../../../redux/reviews/actions";
+import { IReviewSection, IReview } from "../../../../redux/reviews/types";
 import styled from "../../../../theme/styled-components";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
 import Descriptor from "../../../../components/Descriptor/Descriptor";
@@ -13,7 +14,6 @@ import Label from "../../../../components/Label/Label";
 import { Button } from "../../../../components/Button/Button";
 import ArrowRight from "../../../../images/icons/ArrowRight";
 import { IinitialState } from "../../../../redux/configureStore";
-import { IReviewSection, IReview } from "../../../../redux/reviews/types";
 import Star from "../../../../images/icons/Star";
 
 const Article = styled.article`
@@ -351,7 +351,6 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
         token: "abc"
       }
     };
-    return;
 
     this.props
       .addReview({ data })
