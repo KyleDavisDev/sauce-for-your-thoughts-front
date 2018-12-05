@@ -52,7 +52,7 @@ const Screens = (
     {/* {flashMessageVisible && <FlashMessage />} */}
     <Route exact path="/" component={Home} />
     <Route exact path="/sauce/add" component={SauceAdd} />
-    <Route exact path="/review/add/:id" component={ReviewAdd} />
+    <Route path="/review/add" component={ReviewAdd} />
     {/* <Route
       exact
       path="/sauces(/?page=:page&limit=:limit)?"
