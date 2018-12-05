@@ -131,7 +131,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     return (
       <div>
         <Article>
-          <PageTitle>Add Sauce</PageTitle>
+          <PageTitle>Add Review</PageTitle>
           <StyledFormContainer>
             <form onSubmit={this.onSubmit} style={{ maxWidth: "100%" }}>
               {/* Taste */}
@@ -261,6 +261,25 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     id="overall"
                     showLabel={true}
                     value={this.state.overall ? this.state.overall.txt : ""}
+                    type="textarea"
+                  />
+                </StyledRightSide>
+              </StyledRow>
+
+              {/* Note */}
+              <StyledRow>
+                <StyledDescriptor title="Note">
+                  How spicy is this sauce? Did you have to run for water? Was it
+                  the perfect amount of heat?
+                </StyledDescriptor>
+                <StyledRightSide>
+                  <TextInput
+                    onChange={this.onTextChange}
+                    label="Description"
+                    name="note"
+                    id="note"
+                    showLabel={true}
+                    value={this.state.note ? this.state.note.txt : ""}
                     type="textarea"
                   />
                 </StyledRightSide>
