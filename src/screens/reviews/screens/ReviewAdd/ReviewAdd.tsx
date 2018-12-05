@@ -15,15 +15,7 @@ import { Button } from "../../../../components/Button/Button";
 import ArrowRight from "../../../../images/icons/ArrowRight";
 import { IinitialState } from "../../../../redux/configureStore";
 import Star from "../../../../images/icons/Star";
-
-const Article = styled.article`
-  max-width: 900px;
-  margin: 0 auto;
-
-  > div {
-    margin-bottom: 3.5rem;
-  }
-`;
+import Article from "../../../../components/Article/Article";
 
 const StyledFormContainer = styled.div`
   background-color: ${props => props.theme.formContainerBackgroundColor};
