@@ -35,6 +35,16 @@ const SauceAdd = Loadable({
   )
 });
 
+// All Sauces
+const Sauces = Loadable({
+  loader: () => import("./sauces/Sauces"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 // Add Review
 const ReviewAdd = Loadable({
   loader: () => import("./reviews/screens/ReviewAdd/ReviewAdd"),
@@ -53,12 +63,12 @@ const Screens = (
     <Route exact path="/" component={Home} />
     <Route exact path="/sauce/add" component={SauceAdd} />
     <Route path="/review/add" component={ReviewAdd} />
-    {/* <Route
+    <Route
       exact
       path="/sauces(/?page=:page&limit=:limit)?"
       component={Sauces}
     />
-    <Route exact path="/sauce/add" component={SauceAdd} />
+    {/*
     <Route exact path="/sauce/edit/:id" component={SauceEdit} />
     <Route exact path="/sauce/single/:slug" component={SauceSingle} /> */}
     {/* <Route exact path="/tags" component={Tags} />
