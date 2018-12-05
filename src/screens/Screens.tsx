@@ -63,11 +63,7 @@ const Screens = (
     <Route exact path="/" component={Home} />
     <Route exact path="/sauce/add" component={SauceAdd} />
     <Route path="/review/add" component={ReviewAdd} />
-    <Route
-      exact
-      path="/sauces(/?page=:page&limit=:limit)?"
-      component={Sauces}
-    />
+    <Route path="/sauces" component={Sauces} />
     {/*
     <Route exact path="/sauce/edit/:id" component={SauceEdit} />
     <Route exact path="/sauce/single/:slug" component={SauceSingle} /> */}
