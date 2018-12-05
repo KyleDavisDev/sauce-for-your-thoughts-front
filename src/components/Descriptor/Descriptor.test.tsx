@@ -14,11 +14,21 @@ describe("<Descriptor>", () => {
   });
 
   it("Renders correct title", () => {
-    expect(wrapper.find("h5").text()).toEqual(title);
+    expect(
+      wrapper
+        .find("Title")
+        .children()
+        .text()
+    ).toEqual(title);
 
     // Test an updated title
     wrapper.setProps({ title: "Another title here!!" });
-    expect(wrapper.find("h5").text()).toEqual("Another title here!!");
+    expect(
+      wrapper
+        .find("Title")
+        .children()
+        .text()
+    ).toEqual("Another title here!!");
   });
 
   it("Renders correct description", () => {
