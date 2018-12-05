@@ -243,8 +243,8 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
               {/* Overall */}
               <StyledRow>
                 <StyledDescriptor title="Overall">
-                  How spicy is this sauce? Did you have to run for water? Was it
-                  the perfect amount of heat?
+                  What are you overall impressions? What did the sauce get
+                  right? What can it improve on?
                 </StyledDescriptor>
                 <StyledRightSide>
                   <Label>Overall Rating</Label>
@@ -256,6 +256,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                   />
                   <TextInput
                     onChange={this.onTextChange}
+                    required={true}
                     label="Description"
                     name="overall"
                     id="overall"
@@ -269,8 +270,8 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
               {/* Note */}
               <StyledRow>
                 <StyledDescriptor title="Note">
-                  How spicy is this sauce? Did you have to run for water? Was it
-                  the perfect amount of heat?
+                  Have any fleeting thoughts that you would like to add? Include
+                  it here!
                 </StyledDescriptor>
                 <StyledRightSide>
                   <TextInput
