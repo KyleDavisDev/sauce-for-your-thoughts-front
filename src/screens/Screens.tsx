@@ -9,7 +9,7 @@ import TopBar from "../components/TopBar/TopBar";
 import Navigation from "../components/Navigation/Navigation";
 import Footer from "../components/Footer/Footer";
 
-const Div = styled.div`
+const StyledDiv = styled.div`
   margin: 0;
   padding: 0;
   background-color: ${props => props.theme.siteBackgroundColor};
@@ -55,8 +55,18 @@ const ReviewAdd = Loadable({
   )
 });
 
+// Register
+const Register = Loadable({
+  loader: () => import("./register/Register"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 const Screens = (
-  <Div>
+  <StyledDiv>
     <TopBar />
     <Navigation />
     {/* {flashMessageVisible && <FlashMessage />} */}
@@ -64,8 +74,9 @@ const Screens = (
     <Route exact path="/sauce/add" component={SauceAdd} />
     <Route path="/review/add" component={ReviewAdd} />
     <Route path="/sauces" component={Sauces} />
-    {/*
-    <Route exact path="/sauce/edit/:id" component={SauceEdit} />
+    <Route path="/register" component={Register} />
+
+    {/* <Route exact path="/sauce/edit/:id" component={SauceEdit} />
     <Route exact path="/sauce/single/:slug" component={SauceSingle} /> */}
     {/* <Route exact path="/tags" component={Tags} />
     <Route exact path="/tags/:tag" component={Tags} /> */}
@@ -74,7 +85,7 @@ const Screens = (
     {/* <Route exact path="/account/reset/:token" component={ResetPassword} /> */}
     {/* <Route exact path="/login" component={Login} /> */}
     <Footer />
-  </Div>
+  </StyledDiv>
 );
 
 export default Screens;
