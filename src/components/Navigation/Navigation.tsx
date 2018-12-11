@@ -54,27 +54,29 @@ const StyledBar = styled.div`
   height: 100%;
 `;
 
-const Navigation: React.SFC<{}> = props => {
-  return (
-    <Header>
-      <LogoSFYT />
-      <Ul>
-        <li>
-          <StyledLink to="/">Home</StyledLink>
-        </li>
-        <li>
-          <StyledLink to="/sauces">Sauces</StyledLink>
-        </li>
-        <li>
-          <StyledLink to="/sauce/add">Add Sauce</StyledLink>
-        </li>
-        <StyledBar />
-        <li>
-          <span>icon here</span>
-        </li>
-      </Ul>
-    </Header>
-  );
-};
+class Navigation extends React.PureComponent<{}, any> {
+  public render() {
+    return (
+      <Header>
+        <LogoSFYT />
+        <Ul>
+          <li>
+            <StyledLink to="/">Home</StyledLink>
+          </li>
+          <li>
+            <StyledLink to="/sauces">Sauces</StyledLink>
+          </li>
+          <li>
+            <StyledLink to="/sauce/add">Add Sauce</StyledLink>
+          </li>
+          <StyledBar />
+          <li>
+            <span>icon here</span>
+          </li>
+        </Ul>
+      </Header>
+    );
+  }
+}
 
 export default Navigation;
