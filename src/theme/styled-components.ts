@@ -18,13 +18,13 @@ export interface ThemeInterface {
   landingHeroTextColor: string;
   cardBackgroundColor: string;
 
-  checkBoxActiveColor: string;
-  checkBoxInActiveColor: string;
+  checkBoxActiveBackgroundColor: string;
+  checkBoxInActiveBackgroundColor: string;
   checkBoxActiveTextColor: string;
   checkBoxInActiveTextColor: string;
 
-  radioButtonActiveColor: string;
-  radioButtonInActiveColor: string;
+  radioButtonActiveBackgroundColor: string;
+  radioButtonInActiveBackgroundColor: string;
   radioButtonActiveTextColor: string;
   radioButtonInActiveTextColor: string;
 
@@ -94,11 +94,12 @@ export const theme = {
   radioButtonInActiveTextColor: colors.black,
 
   siteBackgroundColor: colors.smoke,
+
   userCubeBackgroundColor: colors.white,
   userCubeTextColor: colors.mustard,
+
   formContainerBackgroundColor: colors.white,
   maxPageWidth: scale.maxPageWidth,
-  defaultFontSize: scale.defaultFontSize,
   footerMaxWidth: scale.footerMaxWidth,
 
   scaleP: scale.scaleP,
@@ -108,9 +109,11 @@ export const theme = {
   scaleH4: scale.scaleH4,
   scaleH5: scale.scaleH5,
   scaleH6: scale.scaleH6,
+  defaultFontSize: scale.defaultFontSize,
 
   white: colors.white,
   grey: colors.grey,
+  lightGrey: colors.lightGrey,
   black: colors.black
 };
 
