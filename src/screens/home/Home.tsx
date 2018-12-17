@@ -4,6 +4,7 @@ import styled from "../../theme/styled-components";
 import TopBar from "../../components/TopBar/TopBar";
 import Navigation from "../../components/Navigation/Navigation";
 import Article from "../../components/Article/Article";
+import Footer from "../../components/Footer/Footer";
 import LandingImage from "./components/LandingImage/LandingImage";
 import NewestSauces from "./components/NewestSauces/NewestSauces";
 import FeaturedSauces from "./components/FeaturedSauces/FeaturedSauces";
@@ -32,6 +33,7 @@ const Home = ({}) => (
       <FeaturedSauces />
       <FeaturedUsers />
     </StyledArticle>
+    <Footer />
   </div>
 );
 
