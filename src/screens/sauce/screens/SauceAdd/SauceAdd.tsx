@@ -18,6 +18,9 @@ import { Button } from "../../../../components/Button/Button";
 import ArrowRight from "../../../../images/icons/ArrowRight";
 
 import { IinitialState } from "../../../../redux/configureStore";
+import TopBar from "../../../../components/TopBar/TopBar";
+import Navigation from "../../../../components/Navigation/Navigation";
+import Footer from "../../../../components/Footer/Footer";
 
 const Article = styled.article`
   max-width: 900px;
@@ -270,6 +273,8 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
   public render() {
     return (
       <div>
+        <TopBar />
+        <Navigation />
         <Article>
           <PageTitle>Add Sauce</PageTitle>
           <StyledFormContainer>
@@ -504,6 +509,7 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
             </form>
           </StyledFormContainer>
         </Article>
+        <Footer />
       </div>
     );
   }
