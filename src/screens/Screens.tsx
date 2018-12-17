@@ -67,8 +67,6 @@ const Register = Loadable({
 
 const Screens = (
   <StyledDiv>
-    <TopBar />
-    <Navigation />
     {/* {flashMessageVisible && <FlashMessage />} */}
     <Route exact path="/" component={Home} />
     <Route exact path="/sauce/add" component={SauceAdd} />
