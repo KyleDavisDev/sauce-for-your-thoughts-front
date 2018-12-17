@@ -82,7 +82,6 @@ const Screens = (
     <Route exact path="/account" component={Account} /> */}
     {/* <Route exact path="/account/reset/:token" component={ResetPassword} /> */}
     {/* <Route exact path="/login" component={Login} /> */}
-    <Footer />
   </StyledDiv>
 );
 
