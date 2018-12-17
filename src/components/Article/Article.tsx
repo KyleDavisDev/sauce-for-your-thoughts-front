@@ -13,10 +13,13 @@ const StyledArticle = styled.article`
 
 interface ArticleProps {
   children: Element | JSX.Element | Array<Element | JSX.Element>;
+  className?: string;
 }
 
 const Article: React.SFC<ArticleProps> = props => {
-  return <StyledArticle>{props.children}</StyledArticle>;
+  return (
+    <StyledArticle className={props.className}>{props.children}</StyledArticle>
+  );
 };
 
 export default Article;
