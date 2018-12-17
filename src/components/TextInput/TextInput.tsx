@@ -52,47 +52,57 @@ interface TextInputProps {
   ): void;
 }
 
-const TextInput: React.SFC<TextInputProps> = props => {
-  return (
-    <StyledDiv className={props.className}>
-      {props.showLabel &&
-        props.label && (
-          <Label htmlFor={props.id}>
-            {props.label}
-            {props.required ? "*" : ""}
+interface TextInputState {
+  id: string;
+}
+
+class TextInput extends React.PureComponent<TextInputProps, TextInputState> {
+  private static defaultProps = {
+    showLabel: false,
+    required: false,
+    type: "text"
+  };
+
+  public componentWillMount() {
+    // Either accept id from parent or generate unique id
+    this.setState({ id: !this.props.id ? shortid.generate() : this.props.id });
+  }
+
+  public render() {
+    return (
+      <StyledDiv className={this.props.className}>
+        {this.props.showLabel && this.props.label && (
+          <Label htmlFor={this.state.id}>
+            {this.props.label}
+            {this.props.required ? "*" : ""}
           </Label>
         )}
 
-      {props.type && props.type.toLowerCase() === "text" ? (
-        <StyledInput
-          type={props.type}
-          id={props.id}
-          name={props.name}
-          value={props.value}
-          placeholder={props.placeholder}
-          onChange={props.onChange}
-          required={props.required}
-        />
-      ) : (
-        <StyledTextArea
-          id={props.id}
-          name={props.name}
-          cols={30}
-          rows={10}
-          placeholder={props.placeholder}
-          onChange={props.onChange}
-          value={props.value}
-          required={props.required}
-        />
-      )}
-    </StyledDiv>
-  );
-};
-TextInput.defaultProps = {
-  id: shortid.generate(),
-  showLabel: false,
-  required: false,
-  type: "text"
-};
+        {this.props.type && this.props.type.toLowerCase() === "text" ? (
+          <StyledInput
+            type={this.props.type}
+            id={this.state.id}
+            name={this.props.name}
+            value={this.props.value}
+            placeholder={this.props.placeholder}
+            onChange={this.props.onChange}
+            required={this.props.required}
+          />
+        ) : (
+          <StyledTextArea
+            id={this.state.id}
+            name={this.props.name}
+            cols={30}
+            rows={10}
+            placeholder={this.props.placeholder}
+            onChange={this.props.onChange}
+            value={this.props.value}
+            required={this.props.required}
+          />
+        )}
+      </StyledDiv>
+    );
+  }
+}
 
 export default TextInput;
