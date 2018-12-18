@@ -42,7 +42,7 @@ interface TextInputProps {
   required?: boolean;
   label?: string;
   showLabel?: boolean;
-  type?: "text" | "textarea";
+  type?: "text" | "textarea" | string; // have to allow 'string' or else styled components complains
   value?: string | number;
   className?: string;
   onChange(
