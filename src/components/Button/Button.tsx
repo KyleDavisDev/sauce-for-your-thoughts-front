@@ -2,8 +2,8 @@ import * as React from "react";
 import styled from "../../theme/styled-components";
 
 const Div = styled.div`
-  display: flex;
-  align-items: stretch;
+  // display: flex;
+  // align-items: stretch;
 `;
 
 interface ButtonProps {
