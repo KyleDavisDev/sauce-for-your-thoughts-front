@@ -65,6 +65,16 @@ const Register = Loadable({
   )
 });
 
+// Login
+const Login = Loadable({
+  loader: () => import("./login/Login"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 const Screens = (
   <StyledDiv>
     {/* {flashMessageVisible && <FlashMessage />} */}
@@ -73,6 +83,7 @@ const Screens = (
     <Route path="/review/add" component={ReviewAdd} />
     <Route path="/sauces" component={Sauces} />
     <Route path="/register" component={Register} />
+    <Route path="/login" component={Login} />
 
     {/* <Route exact path="/sauce/edit/:id" component={SauceEdit} />
     <Route exact path="/sauce/single/:slug" component={SauceSingle} /> */}
