@@ -3,7 +3,7 @@ import * as React from "react";
 import styled from "../../../../theme/styled-components";
 import DropDown from "../../../../components/DropDown/DropDown";
 import TextInput from "../../../../components/TextInput/TextInput";
-import Link from "../../../../components/Link/Link";
+import { Link } from "../../../../components/Link/Link";
 
 const HeroContainer = styled.header`
   background: #000;
@@ -119,7 +119,7 @@ class LandingImage extends React.Component<
               value={this.state.search.value}
               placeholder="Search..."
             />
-            <StyledLink type="solid">Search</StyledLink>
+            <StyledLink to="#">Search</StyledLink>
           </StyledDiv>
         </HeroBody>
       </HeroContainer>
