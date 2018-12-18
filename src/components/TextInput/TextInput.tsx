@@ -57,7 +57,7 @@ interface TextInputState {
 }
 
 class TextInput extends React.PureComponent<TextInputProps, TextInputState> {
-  private static defaultProps = {
+  public static defaultProps = {
     showLabel: false,
     required: false,
     type: "text"
