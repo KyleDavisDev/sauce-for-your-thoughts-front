@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "../../theme/styled-components";
-import Link from "../Link/Link";
+import { Link } from "../Link/Link";
+import { Button } from "../Button/Button";
 
 const Div = styled.div`
   max-width: 350px;
@@ -56,7 +57,11 @@ const Card: React.SFC<CardProps> = props => {
             : props.description}
         </StyledP>
       </Body>
-      <StyledLink type="outline">{props.anchorText || "View Sauce"}</StyledLink>
+      <StyledLink to="#">
+        <Button displayType="outline" onClick={() => {}}>
+          {props.anchorText || "View Sauce"}
+        </Button>
+      </StyledLink>
     </Div>
   );
 };
