@@ -33,6 +33,13 @@ const StyledButton = styled(Button)`
   text-align: center;
 `;
 
+const StyledText = styled.p`
+  text-align: center;
+  width: 100%;
+  max-width: 80%;
+  margin: 0.5em auto;
+`;
+
 export interface LoginProps {}
 
 export interface LoginState {
@@ -83,6 +90,14 @@ class Login extends React.Component<LoginProps, LoginState> {
               <StyledButton type="button" onClick={() => {}}>
                 Login
               </StyledButton>
+
+              <StyledText>
+                <Link to="#">Forgot your username or password?</Link>
+              </StyledText>
+
+              <StyledText>
+                Don't have an account yet? <Link to="/register">Sign up!</Link>
+              </StyledText>
             </form>
           </StyledFormContainer>
         </StyledArticle>
