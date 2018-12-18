@@ -22,6 +22,7 @@ Link.defaultProps = {
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  font-family: FuturaMedium;
   color: ${props => props.theme.secondaryThemeColor};
 
   &:hover,
