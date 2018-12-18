@@ -5,6 +5,12 @@ import styled from "styled-components";
 import Article from "../../components/Article/Article";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import TextInput from "../../components/TextInput/TextInput";
+import { Button } from "../../components/Button/Button";
+import { Link } from "../../components/Link/Link";
+
+const StyledDiv = styled.div`
+  height: 100vh;
+`;
 
 const StyledLogoContainer = styled.div`
   max-width: 150px;
@@ -23,14 +29,43 @@ const StyledFormContainer = styled.div`
   flex-wrap: wrap;
 `;
 
+const StyledText = styled.p`
+  width: 80%;
+  margin: 0 auto 1em;
+  text-align: center;
+`;
+
+const StyledButton = styled(Button)`
+  text-align: center;
+`;
+
 export interface RegisterProps {}
 
-export interface RegisterState {}
+export interface RegisterState {
+  email: string;
+  confirmEmail: string;
+  password: string;
+  confirmPassword: string;
+  displayName: string;
+}
 
-class Register extends React.Component<RegisterProps, any> {
+class Register extends React.Component<RegisterProps, RegisterState> {
+  constructor(props: RegisterProps) {
+    super(props);
+
+    // Init state
+    this.state = {
+      email: "",
+      confirmEmail: "",
+      password: "",
+      confirmPassword: "",
+      displayName: ""
+    };
+  }
+
   public render() {
     return (
-      <div>
+      <StyledDiv>
         <StyledLogoContainer>
           <LogoSFYT />
         </StyledLogoContainer>
@@ -38,50 +73,90 @@ class Register extends React.Component<RegisterProps, any> {
         <StyledArticle>
           <PageTitle>Register</PageTitle>
           <StyledFormContainer>
-            <TextInput
-              type="text"
-              onChange={() => {}}
-              showLabel={true}
-              label={"Email"}
-              required={true}
-            />
-            <TextInput
-              type="text"
-              onChange={() => {}}
-              showLabel={true}
-              label={"Confirm Email"}
-              required={true}
-            />
-            <TextInput
-              type="text"
-              onChange={() => {}}
-              showLabel={true}
-              label={"Password"}
-              required={true}
-            />
-            <TextInput
-              type="text"
-              onChange={() => {}}
-              showLabel={true}
-              label={"Confirm Password"}
-              required={true}
-            />
-            <TextInput
-              type="text"
-              onChange={() => {}}
-              showLabel={true}
-              label={"Display Name"}
-              required={true}
-            />
+            <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
+              <TextInput
+                type="text"
+                onChange={this.onTextChange}
+                showLabel={true}
+                label={"Email"}
+                name={"email"}
+                value={this.state.email}
+                required={true}
+              />
+              <TextInput
+                type="text"
+                onChange={this.onTextChange}
+                showLabel={true}
+                label={"Confirm Email"}
+                name={"confirmEmail"}
+                value={this.state.confirmEmail}
+                required={true}
+              />
+              <TextInput
+                type="text"
+                onChange={this.onTextChange}
+                showLabel={true}
+                label={"Password"}
+                name={"password"}
+                value={this.state.password}
+                required={true}
+              />
+              <TextInput
+                type="text"
+                onChange={this.onTextChange}
+                showLabel={true}
+                label={"Confirm Password"}
+                name={"confirmPassword"}
+                value={this.state.confirmPassword}
+                required={true}
+              />
+              <TextInput
+                type="text"
+                onChange={this.onTextChange}
+                showLabel={true}
+                label={"Display Name"}
+                name={"displayName"}
+                value={this.state.displayName}
+                required={true}
+              />
+              <StyledText>
+                By clicking 'Register', you agree to Sauce For Your Thoughts{" "}
+                <Link to="#">Terms and Conditions</Link>
+              </StyledText>
+              <StyledButton type="button" onClick={() => {}}>
+                Register
+              </StyledButton>
+            </form>
           </StyledFormContainer>
         </StyledArticle>
-      </div>
+      </StyledDiv>
     );
   }
+
+  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    if (!event || !event.target) {
+      return;
+    }
+    // Grab the name and value
+    const { name, value }: { name: string; value: string } = event.target;
+
+    // Update local state
+    this.setState({
+      ...this.state,
+      [name]: value
+    });
+  };
+
+  private onSubmit = (event: React.FormEvent): void => {
+    event.preventDefault();
+  };
 }
 
 const mapState2Props = state => {
   return {};
 };
 
-export default connect(mapState2Props)(Register);
+export default connect(
+  mapState2Props,
+  null
+)(Register);
