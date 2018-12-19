@@ -67,7 +67,9 @@ class Register extends React.Component<RegisterProps, RegisterState> {
     return (
       <StyledDiv>
         <StyledLogoContainer>
-          <LogoSFYT />
+          <Link to="/">
+            <LogoSFYT />
+          </Link>
         </StyledLogoContainer>
         <hr />
         <StyledArticle>

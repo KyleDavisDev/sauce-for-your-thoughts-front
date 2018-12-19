@@ -62,7 +62,9 @@ class Login extends React.Component<LoginProps, LoginState> {
     return (
       <StyledDiv>
         <StyledLogoContainer>
-          <LogoSFYT />
+          <Link to="/">
+            <LogoSFYT />
+          </Link>
         </StyledLogoContainer>
         <hr />
         <StyledArticle>
