@@ -16,6 +16,9 @@ import ArrowRight from "../../../../images/icons/ArrowRight";
 import { IinitialState } from "../../../../redux/configureStore";
 import Star from "../../../../images/icons/Star";
 import Article from "../../../../components/Article/Article";
+import TopBar from "../../../../components/TopBar/TopBar";
+import Navigation from "../../../../components/Navigation/Navigation";
+import Footer from "../../../../components/Footer/Footer";
 
 const StyledFormContainer = styled.div`
   background-color: ${props => props.theme.formContainerBackgroundColor};
@@ -124,6 +127,8 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
   public render() {
     return (
       <div>
+        <TopBar />
+        <Navigation />
         <Article>
           <PageTitle>Add Review</PageTitle>
           <StyledFormContainer>
@@ -287,6 +292,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
             </form>
           </StyledFormContainer>
         </Article>
+        <Footer />
       </div>
     );
   }
