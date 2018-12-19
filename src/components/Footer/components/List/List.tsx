@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "../../../Link/Link";
 import * as shortid from "shortid";
 
 import styled from "../../../../theme/styled-components";
@@ -15,6 +15,7 @@ const StyledH5 = styled.h5`
   text-transform: uppercase;
   color: ${props => props.theme.white};
   font-size: ${props => props.theme.scaleH5};
+  font-family: FuturaMedium;
 `;
 StyledH5.displayName = "StyledH5";
 
@@ -31,8 +32,8 @@ const StyledUl = styled.ul`
 StyledUl.displayName = "StyledUl";
 
 const StyledLink = styled(Link)`
-  text-decoration: none;
   color: ${props => props.theme.white};
+  font-family: AvenirNextReg;
 
   &:hover,
   &:focus {

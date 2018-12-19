@@ -13,6 +13,7 @@ const StyledH5 = styled.h5`
   text-transform: uppercase;
   color: ${props => props.theme.white};
   font-size: ${props => props.theme.scaleH5};
+  font-family: FuturaMedium;
 `;
 StyledH5.displayName = "StyledH5";
 
@@ -21,6 +22,7 @@ const StyledP = styled.p`
   padding: 0;
   color: ${props => props.theme.white};
   font-size: ${props => props.theme.scaleP};
+  font-family: AvenirNextReg;
 `;
 StyledP.displayName = "StyledP";
 
