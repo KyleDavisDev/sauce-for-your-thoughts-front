@@ -23,6 +23,7 @@ const SelectContainer = styled.div`
 `;
 
 const StyledSelect = styled.select`
+  width: 100%;
   background-color: transparent;
   appearance: none;
   border: 0;
@@ -73,12 +74,7 @@ class DropDown extends React.PureComponent<DropDownProps, DropDownState> {
           </Label>
         )}
         <SelectContainer>
-          <StyledSelect
-            id={this.state.id}
-            onChange={this.props.onSelect}
-            value={this.props.selectedValue}
-            className={this.props.className}
-          >
+          <StyledSelect id={this.state.id} onChange={this.props.onSelect} value={this.props.selectedValue}>
             {this.props.options.map(opt => {
               return (
                 <option key={shortid.generate()} value={opt}>
