@@ -7,6 +7,7 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import TextInput from "../../components/TextInput/TextInput";
 import { Button } from "../../components/Button/Button";
 import { Link } from "../../components/Link/Link";
+import { IinitialState } from "../../redux/configureStore";
 
 const StyledDiv = styled.div`
   height: 100vh;
@@ -126,7 +127,7 @@ class Login extends React.Component<LoginProps, LoginState> {
   };
 }
 
-const mapState2Props = state => {
+const mapState2Props = (state: IinitialState) => {
   return {};
 };
 
