@@ -5,14 +5,10 @@ import Loadable from "react-loadable";
 
 import styled from "../theme/styled-components";
 import Loading from "../components/Holder/Holder";
-import TopBar from "../components/TopBar/TopBar";
-import Navigation from "../components/Navigation/Navigation";
-import Footer from "../components/Footer/Footer";
 
 const StyledDiv = styled.div`
   margin: 0;
   padding: 0;
-  background-color: ${props => props.theme.siteBackgroundColor};
 `;
 
 // Home
