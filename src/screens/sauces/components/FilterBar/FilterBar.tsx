@@ -20,6 +20,10 @@ const StyledFrom = styled.form`
   align-items: center;
 `;
 
+const StyledDropDown = styled(DropDown)`
+  width: 25%;
+`;
+
 export interface FilterBarProps {}
 
 export default class FilterBar extends React.PureComponent<FilterBarProps, any> {
@@ -27,19 +31,29 @@ export default class FilterBar extends React.PureComponent<FilterBarProps, any> 
     return (
       <StyledFormContainer>
         <StyledFrom onSubmit={this.onSubmit}>
-          <DropDown
+          <StyledDropDown
             showLabel={true}
             label={"Primary Pepper"}
             options={["All", "Option 2", "Option 3"]}
             onSelect={() => {}}
           />
 
-          <DropDown showLabel={true} label={"Type"} options={["All", "Option 2", "Option 3"]} onSelect={() => {}} />
+          <StyledDropDown
+            showLabel={true}
+            label={"Type"}
+            options={["All", "Option 2", "Option 3"]}
+            onSelect={() => {}}
+          />
 
-          <DropDown showLabel={true} label={"Order"} options={["All", "Option 2", "Option 3"]} onSelect={() => {}} />
+          <StyledDropDown
+            showLabel={true}
+            label={"Order"}
+            options={["All", "Option 2", "Option 3"]}
+            onSelect={() => {}}
+          />
 
           <Button type={"submit"} onClick={() => {}}>
-            Search
+            Filter
           </Button>
         </StyledFrom>
       </StyledFormContainer>
