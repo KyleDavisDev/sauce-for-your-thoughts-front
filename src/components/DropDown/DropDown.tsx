@@ -42,6 +42,7 @@ interface DropDownProps {
   id?: string;
   options: string[];
   selectedValue?: string;
+  name?: string;
   className?: string;
   showLabel?: boolean;
   label?: string;
@@ -74,7 +75,12 @@ class DropDown extends React.PureComponent<DropDownProps, DropDownState> {
           </Label>
         )}
         <SelectContainer>
-          <StyledSelect id={this.state.id} onChange={this.props.onSelect} value={this.props.selectedValue}>
+          <StyledSelect
+            id={this.state.id}
+            onChange={this.props.onSelect}
+            value={this.props.selectedValue}
+            name={this.props.name}
+          >
             {this.props.options.map(opt => {
               return (
                 <option key={shortid.generate()} value={opt}>
