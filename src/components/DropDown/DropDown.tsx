@@ -5,6 +5,7 @@ import styled from "../../theme/styled-components";
 import Label from "../Label/Label";
 
 const SelectContainer = styled.div`
+  width: 100%;
   border: 1px solid #e1e1e1;
   color: #4b4b4b;
   display: inline-block;
@@ -47,9 +48,12 @@ interface DropDownProps {
   onSelect(event: React.ChangeEvent<HTMLSelectElement>): void;
 }
 
-class DropDown extends React.PureComponent<DropDownProps, {}> {
+interface DropDownState {
+  id: string;
+}
+
+class DropDown extends React.PureComponent<DropDownProps, DropDownState> {
   public static defaultProps = {
-    id: shortid.generate(),
     showLabel: false,
     required: false
   };
@@ -61,16 +65,16 @@ class DropDown extends React.PureComponent<DropDownProps, {}> {
 
   public render() {
     return (
-      <div className={this.props.className} style={{ width: "100%" }}>
+      <div className={this.props.className}>
         {this.props.showLabel && this.props.label && (
-          <Label htmlFor={this.props.id}>
+          <Label htmlFor={this.state.id}>
             {this.props.label}
             {this.props.required ? "*" : ""}
           </Label>
         )}
         <SelectContainer>
           <StyledSelect
-            id={this.props.id}
+            id={this.state.id}
             onChange={this.props.onSelect}
             value={this.props.selectedValue}
             className={this.props.className}
