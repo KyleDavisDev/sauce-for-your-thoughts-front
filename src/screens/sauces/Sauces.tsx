@@ -13,8 +13,6 @@ export interface SaucesState {}
 export default class Sauces extends React.Component<SaucesProps, SaucesState> {
   constructor(props: SaucesProps) {
     super(props);
-
-    this.state = {};
   }
 
   public render() {
