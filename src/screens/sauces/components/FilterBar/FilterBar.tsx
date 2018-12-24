@@ -17,16 +17,39 @@ const StyledFrom = styled.form`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 `;
 
 const StyledDropDown = styled(DropDown)`
   width: 25%;
+
+  select {
+    height: 35px;
+  }
 `;
 
 export interface FilterBarProps {}
 
-export default class FilterBar extends React.PureComponent<FilterBarProps, any> {
+export interface FilterBarState {
+  peppers: { options: string[]; selected: string };
+  types: { options: string[]; selected: string };
+  order: { options: string[]; selected: string };
+}
+
+export default class FilterBar extends React.PureComponent<
+  FilterBarProps,
+  FilterBarState
+> {
+  public constructor(props: FilterBarProps) {
+    super(props);
+
+    this.state = {
+      peppers: { options: ["All", "Option 2", "Option 3"], selected: "All" },
+      types: { options: ["All", "Option 2", "Option 3"], selected: "All" },
+      order: { options: ["All", "Option 2", "Option 3"], selected: "All" }
+    };
+  }
+
   public render() {
     return (
       <StyledFormContainer>
@@ -34,22 +57,28 @@ export default class FilterBar extends React.PureComponent<FilterBarProps, any> 
           <StyledDropDown
             showLabel={true}
             label={"Primary Pepper"}
-            options={["All", "Option 2", "Option 3"]}
-            onSelect={() => {}}
+            name={"Primary Pepper"}
+            options={this.state.peppers.options}
+            onSelect={this.onDropDownChange}
+            selectedValue={this.state.peppers.selected}
           />
 
           <StyledDropDown
             showLabel={true}
             label={"Type"}
-            options={["All", "Option 2", "Option 3"]}
-            onSelect={() => {}}
+            name={"Type"}
+            options={this.state.types.options}
+            onSelect={this.onDropDownChange}
+            selectedValue={this.state.types.selected}
           />
 
           <StyledDropDown
             showLabel={true}
             label={"Order"}
-            options={["All", "Option 2", "Option 3"]}
-            onSelect={() => {}}
+            name={"Order"}
+            options={this.state.order.options}
+            onSelect={this.onDropDownChange}
+            selectedValue={this.state.order.selected}
           />
 
           <Button type={"submit"} onClick={() => {}}>
@@ -64,5 +93,11 @@ export default class FilterBar extends React.PureComponent<FilterBarProps, any> 
     event.preventDefault();
 
     // Do the things.
+  };
+
+  private onDropDownChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ): void => {
+    event.preventDefault();
   };
 }
