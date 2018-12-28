@@ -31,8 +31,8 @@ const StyledDropDown = styled(DropDown)`
 export interface FilterBarProps {}
 
 export interface FilterBarState {
-  peppers: { options: string[]; selected: string };
   types: { options: string[]; selected: string };
+  sortBy: { options: string[]; selected: string };
   order: { options: string[]; selected: string };
 }
 
@@ -44,9 +44,12 @@ export default class FilterBar extends React.PureComponent<
     super(props);
 
     this.state = {
-      peppers: { options: ["All", "Option 2", "Option 3"], selected: "All" },
-      types: { options: ["All", "Option 2", "Option 3"], selected: "All" },
-      order: { options: ["All", "Option 2", "Option 3"], selected: "All" }
+      types: { options: ["All", "Hot Sauce", "Gravy"], selected: "All" },
+      sortBy: {
+        options: ["Newest", "Name", "Most Reviewed", "Highest Avg Rating"],
+        selected: "Newest"
+      },
+      order: { options: ["Asc", "Desc"], selected: "Asc" }
     };
   }
 
@@ -56,20 +59,20 @@ export default class FilterBar extends React.PureComponent<
         <StyledFrom onSubmit={this.onSubmit}>
           <StyledDropDown
             showLabel={true}
-            label={"Primary Pepper"}
-            name={"Primary Pepper"}
-            options={this.state.peppers.options}
-            onSelect={this.onDropDownChange}
-            selectedValue={this.state.peppers.selected}
-          />
-
-          <StyledDropDown
-            showLabel={true}
             label={"Type"}
             name={"Type"}
             options={this.state.types.options}
             onSelect={this.onDropDownChange}
             selectedValue={this.state.types.selected}
+          />
+
+          <StyledDropDown
+            showLabel={true}
+            label={"Sort By"}
+            name={"Sort By"}
+            options={this.state.sortBy.options}
+            onSelect={this.onDropDownChange}
+            selectedValue={this.state.sortBy.selected}
           />
 
           <StyledDropDown
