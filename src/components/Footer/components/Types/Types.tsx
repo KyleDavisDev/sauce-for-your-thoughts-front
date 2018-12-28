@@ -13,7 +13,7 @@ class Types extends React.PureComponent {
   ];
 
   public render() {
-    return <List title="Types" items={this.items} />;
+    return <List title="Type of Sauce" items={this.items} />;
   }
 }
 
