@@ -17,7 +17,7 @@ class Peppers extends React.PureComponent {
   ];
 
   public render() {
-    return <List title="Peppers" items={this.items} />;
+    return <List title="By Pepper" items={this.items} />;
   }
 }
 
