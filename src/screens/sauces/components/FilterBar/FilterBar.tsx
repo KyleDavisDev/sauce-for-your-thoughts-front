@@ -34,6 +34,7 @@ export interface FilterBarState {
   types: { options: string[]; selected: string };
   sortBy: { options: string[]; selected: string };
   order: { options: string[]; selected: string };
+  [key: string]: { options: string[]; selected: string };
 }
 
 export default class FilterBar extends React.PureComponent<
@@ -60,7 +61,7 @@ export default class FilterBar extends React.PureComponent<
           <StyledDropDown
             showLabel={true}
             label={"Type"}
-            name={"Type"}
+            name={"types"}
             options={this.state.types.options}
             onSelect={this.onDropDownChange}
             selectedValue={this.state.types.selected}
@@ -69,7 +70,7 @@ export default class FilterBar extends React.PureComponent<
           <StyledDropDown
             showLabel={true}
             label={"Sort By"}
-            name={"Sort By"}
+            name={"sortBy"}
             options={this.state.sortBy.options}
             onSelect={this.onDropDownChange}
             selectedValue={this.state.sortBy.selected}
@@ -78,7 +79,7 @@ export default class FilterBar extends React.PureComponent<
           <StyledDropDown
             showLabel={true}
             label={"Order"}
-            name={"Order"}
+            name={"order"}
             options={this.state.order.options}
             onSelect={this.onDropDownChange}
             selectedValue={this.state.order.selected}
@@ -102,5 +103,12 @@ export default class FilterBar extends React.PureComponent<
     event: React.ChangeEvent<HTMLSelectElement>
   ): void => {
     event.preventDefault();
+
+    const { name, value }: { name: string; value: string } = event.target;
+
+    this.setState({
+      ...this.state,
+      [name]: { ...this.state[name], selected: value }
+    });
   };
 }
