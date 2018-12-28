@@ -11,7 +11,7 @@ interface ButtonProps {
   displayType?: "outline" | "solid";
   className?: string;
   type?: "button" | "submit" | "reset";
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   style?: React.CSSProperties;
 }
 
