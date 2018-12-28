@@ -16,9 +16,10 @@ const StyledDiv = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 
   > div {
-    width: 25%;
+    // width: 33%;
     box-sizing: border-box;
     padding: 0 1em;
   }
@@ -31,7 +32,7 @@ const Footer: React.SFC<FooterProps> = props => {
     <StyledFooter>
       <StyledDiv>
         <Navigation />
-        <Peppers />
+        {/* <Peppers /> */}
         <Types />
         <About />
       </StyledDiv>
