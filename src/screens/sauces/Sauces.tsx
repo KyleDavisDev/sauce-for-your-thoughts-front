@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import FilterBar from "./components/FilterBar/FilterBar";
 import Card from "../../components/Card/Card";
 import styled from "styled-components";
+import Pagination from "./components/pagination/Pagination";
 
 const StyledCardContainer = styled.div`
   display: flex;
@@ -57,6 +58,7 @@ export default class Sauces extends React.Component<SaucesProps, SaucesState> {
               );
             })}
           </StyledCardContainer>
+          <Pagination total={50} page={5} limit={5} range={3} />
         </Article>
         <Footer />
       </div>
