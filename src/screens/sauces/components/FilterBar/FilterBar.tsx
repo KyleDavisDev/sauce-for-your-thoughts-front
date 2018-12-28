@@ -9,6 +9,7 @@ const StyledFormContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 1.5em !important;
 `;
 
 const StyledFrom = styled.form`
