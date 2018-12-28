@@ -47,7 +47,7 @@ interface DropDownProps {
   showLabel?: boolean;
   label?: string;
   required?: boolean;
-  onSelect(event: React.ChangeEvent<HTMLSelectElement>): void;
+  onSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 interface DropDownState {
