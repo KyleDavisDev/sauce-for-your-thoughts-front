@@ -24,6 +24,11 @@ const Image = styled.img`
 
 const Body = styled.div`
   padding: 1em;
+  font-family: AvenirNextReg;
+
+  h4 {
+    font-family: FuturaMedium;
+  }
 `;
 
 const StyledP = styled.p`
@@ -40,6 +45,9 @@ interface CardProps {
   imageLink?: string;
   title: string;
   description: string;
+  maker?: string;
+  author?: string;
+  type?: string;
   className?: string;
   anchorLink: string;
   anchorText?: string;
@@ -52,9 +60,39 @@ const Card: React.SFC<CardProps> = props => {
       <Body>
         <h4>{props.title}</h4>
         <StyledP>
-          {props.description.length > 25
-            ? props.description.substring(0, 24) + "..."
-            : props.description}
+          <p>
+            <i>Description: </i>
+            {props.description.length > 25
+              ? props.description.substring(0, 24) + "..."
+              : props.description}
+          </p>
+
+          {props.type && (
+            <p>
+              <i>Type: </i>
+              {props.type && props.type.length > 25
+                ? props.type.substring(0, 24) + "..."
+                : props.type}
+            </p>
+          )}
+
+          {props.maker && (
+            <p>
+              <i>Maker: </i>
+              {props.maker && props.maker.length > 25
+                ? props.maker.substring(0, 24) + "..."
+                : props.maker}
+            </p>
+          )}
+
+          {props.author && (
+            <p>
+              <i>Author: </i>
+              {props.author && props.author.length > 25
+                ? props.author.substring(0, 24) + "..."
+                : props.author}
+            </p>
+          )}
         </StyledP>
       </Body>
       <StyledLink to="#">
