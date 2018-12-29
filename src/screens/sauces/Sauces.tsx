@@ -37,6 +37,7 @@ export interface SaucesState {
   page: number;
   minPage: number;
   maxPage: number;
+  total: number;
 }
 
 class Sauces extends React.Component<SaucesProps, SaucesState> {
@@ -46,7 +47,8 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     this.state = {
       page: 1,
       minPage: 1,
-      maxPage: 10 // Will update this value from API
+      maxPage: 10, // Will update this value from API
+      total: 52 // Will update this value from API
     };
   }
 
@@ -95,7 +97,12 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
               );
             })}
           </StyledCardContainer>
-          <Pagination total={50} page={this.state.page} limit={5} range={3} />
+          <Pagination
+            total={this.state.total}
+            page={this.state.page}
+            limit={5}
+            range={3}
+          />
         </Article>
         <Footer />
       </div>
