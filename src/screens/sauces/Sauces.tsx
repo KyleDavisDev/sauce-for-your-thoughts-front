@@ -85,13 +85,13 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
               return (
                 <StyledCardHolder key={ind}>
                   <StyledCard
-                    anchorLink="#"
                     title="test"
                     imageLink="https://as.ftcdn.net/r/v1/pics/2fd8819a419c4245e5429905770db4b570661f48/home/discover_collections/Images.jpg"
                     description="description here"
                     author="John Davis Guy"
                     maker="Tasty sauces inc."
                     type="Hot Sauce"
+                    to={`/sauce?s=${5}`}
                   />
                 </StyledCardHolder>
               );
