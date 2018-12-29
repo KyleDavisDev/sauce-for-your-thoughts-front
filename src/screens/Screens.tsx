@@ -71,6 +71,16 @@ const Login = Loadable({
   )
 });
 
+// Single
+const SauceSpotlight = Loadable({
+  loader: () => import("./sauce/screens/SauceSpotlight/SauceSpotlight"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 const Screens = (
   <StyledDiv>
     {/* {flashMessageVisible && <FlashMessage />} */}
@@ -80,6 +90,7 @@ const Screens = (
     <Route path="/sauces" component={Sauces} />
     <Route path="/register" component={Register} />
     <Route path="/login" component={Login} />
+    <Route path="/sauce" component={SauceSpotlight} />
 
     {/* <Route exact path="/sauce/edit/:id" component={SauceEdit} />
     <Route exact path="/sauce/single/:slug" component={SauceSingle} /> */}
