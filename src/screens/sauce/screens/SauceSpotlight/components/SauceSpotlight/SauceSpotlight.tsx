@@ -30,12 +30,12 @@ const StyledSauceInfoContainer = styled.div`
   padding: 0 1em;
 `;
 
-export interface SpotlightHeroProps {
+export interface SauceSpotlightProps {
   id: string; // This is sauce's id that will have to be looked up
 }
 
-class SpotlightHero extends React.Component<SpotlightHeroProps, any> {
-  public constructor(props: SpotlightHeroProps) {
+class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
+  public constructor(props: SauceSpotlightProps) {
     super(props);
   }
 
@@ -80,4 +80,4 @@ const mapState2Props = (state: IinitialState) => {
   return {};
 };
 
-export default connect(mapState2Props)(SpotlightHero);
+export default connect(mapState2Props)(SauceSpotlight);
