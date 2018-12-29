@@ -42,14 +42,15 @@ const StyledLink = styled(Link)`
 `;
 
 interface CardProps {
-  imageLink?: string;
   title: string;
   description: string;
+  to: string;
+  showLink?: boolean;
+  imageLink?: string;
   maker?: string;
   author?: string;
   type?: string;
   className?: string;
-  anchorLink: string;
   anchorText?: string;
 }
 
@@ -95,13 +96,19 @@ const Card: React.SFC<CardProps> = props => {
           )}
         </StyledTextContainer>
       </Body>
-      <StyledLink to="#">
-        <Button displayType="outline" onClick={() => {}}>
-          {props.anchorText || "View Sauce"}
-        </Button>
-      </StyledLink>
+      {props.showLink && (
+        <StyledLink to={props.to}>
+          <Button displayType="outline">
+            {props.anchorText || "View Sauce"}
+          </Button>
+        </StyledLink>
+      )}
     </Div>
   );
+};
+
+Card.defaultProps = {
+  showLink: true
 };
 
 export default Card;
