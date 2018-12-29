@@ -386,8 +386,6 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     // Make sure it's a valid number
     s = parseInt(values.s, 10);
 
-    console.log(s);
-
     return s;
   }
 }
