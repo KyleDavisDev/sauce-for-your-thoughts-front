@@ -11,6 +11,10 @@ import Card from "../../components/Card/Card";
 import styled from "styled-components";
 import Pagination from "./components/pagination/Pagination";
 
+const StyledArticle = styled(Article)`
+  max-width: 1200px;
+`;
+
 const StyledCardContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -70,18 +74,16 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     window.scrollTo(0, 0); // Move screen to top
   }
 
-  // public comp
-
   public render() {
     return (
       <div>
         <TopBar />
         <Navigation />
-        <Article>
+        <StyledArticle>
           <PageTitle>Sauces</PageTitle>
           <FilterBar />
           <StyledCardContainer>
-            {new Array(9).fill(undefined).map((x, ind) => {
+            {new Array(8).fill(undefined).map((x, ind) => {
               return (
                 <StyledCardHolder key={ind}>
                   <StyledCard
@@ -103,7 +105,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
             limit={5}
             range={3}
           />
-        </Article>
+        </StyledArticle>
         <Footer />
       </div>
     );
