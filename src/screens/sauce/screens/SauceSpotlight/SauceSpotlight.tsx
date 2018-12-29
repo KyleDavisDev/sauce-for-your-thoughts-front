@@ -8,7 +8,8 @@ import PageTitle from "../../../../components/PageTitle/PageTitle";
 import Navigation from "../../../../components/Navigation/Navigation";
 import styled from "../../../../theme/styled-components";
 import Footer from "../../../../components/Footer/Footer";
-import SpotlightHero from "./components/SauceContainer/SpotlightHero";
+import SauceSpotlight from "./components/SauceSpotlight/SauceSpotlight";
+import SauceReviews from "./components/SauceReviews/SauceReviews";
 import Descriptor from "../../../../components/Descriptor/Descriptor";
 
 const StyledArticle = styled(Article)`
@@ -42,11 +43,12 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
         <StyledArticle>
           <StyledLeftContainer>
             <PageTitle>Chalulu hot sauce</PageTitle>
-            <SpotlightHero id={"5"} />
+            <SauceSpotlight id={"5"} />
 
             <StyledDescriptor title="Reviews">
               The opinions expressed are soley those of the author.
             </StyledDescriptor>
+            <SauceReviews id={"5"} />
           </StyledLeftContainer>
         </StyledArticle>
         <Footer />
