@@ -31,7 +31,7 @@ const Body = styled.div`
   }
 `;
 
-const StyledP = styled.p`
+const StyledTextContainer = styled.div`
   padding: 0;
   margin: 0;
 `;
@@ -59,7 +59,7 @@ const Card: React.SFC<CardProps> = props => {
       <Image src={props.imageLink} alt={props.description} />
       <Body>
         <h4>{props.title}</h4>
-        <StyledP>
+        <StyledTextContainer>
           <p>
             <i>Description: </i>
             {props.description.length > 25
@@ -93,7 +93,7 @@ const Card: React.SFC<CardProps> = props => {
                 : props.author}
             </p>
           )}
-        </StyledP>
+        </StyledTextContainer>
       </Body>
       <StyledLink to="#">
         <Button displayType="outline" onClick={() => {}}>
