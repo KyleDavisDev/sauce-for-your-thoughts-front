@@ -2,6 +2,8 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { IinitialState } from "../../../../../../redux/configureStore";
 import styled from "styled-components";
+import { Link } from "../../../../../../components/Link/Link";
+import { Button } from "../../../../../../components/Button/Button";
 
 const StyledSauceContainer = styled.div`
   background-color: ${props => props.theme.formContainerBackgroundColor};
@@ -9,6 +11,7 @@ const StyledSauceContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 3em;
 `;
 
 const StyledImageContainer = styled.div`
