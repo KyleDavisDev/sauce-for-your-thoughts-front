@@ -7,5 +7,5 @@ export interface IUser {
 
 // Trimmed down for reference only
 export interface IUserRef {
-  _id: number | string;
+  _id: string;
 }
