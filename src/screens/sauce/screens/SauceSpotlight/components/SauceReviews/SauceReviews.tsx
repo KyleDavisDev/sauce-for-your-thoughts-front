@@ -6,8 +6,9 @@ import { IReview } from "../../../../../../redux/reviews/types";
 import { Button } from "../../../../../../components/Button/Button";
 import { Link } from "../../../../../../components/Link/Link";
 import SauceReviewBlock from "./components/SauceReviewBlock/SauceReviewBlock";
+import { dummyData } from "./dummyData";
 
-const StyledSauceContainer = styled.div`
+const StyledContainer = styled.div`
   background-color: ${props => props.theme.formContainerBackgroundColor};
   font-family: AvenirNextReg;
   padding: 1.5rem;
@@ -30,22 +31,22 @@ class SauceReviews extends React.Component<SauceReviewsProps, any> {
 
   public render() {
     return (
-      <StyledSauceContainer>
+      <div>
         {this.props.reviews ? (
           this.props.reviews.map(review => {
-            return <SauceReviewBlock />;
+            return <SauceReviewBlock review={review} />;
           })
         ) : (
-          <div>
+          <StyledContainer>
             <p style={{ marginTop: "0" }}>
               <i>No reviews found! Have you tried this sauce? Add a review!</i>
             </p>
             <Link to={`/review/add/?s=${this.props.id}`}>
               <Button>Add Review</Button>
             </Link>
-          </div>
+          </StyledContainer>
         )}
-      </StyledSauceContainer>
+      </div>
     );
   }
 }
@@ -55,7 +56,7 @@ const mapState2Props = (state: IinitialState, ownProps: SauceReviewsProps) => {
   const sauces = state.sauces.byId;
   const reviews = state.reviews.byId;
   if (!sauces || !sauces[ownProps.id] || !reviews) {
-    return {};
+    return { reviews: dummyData };
   }
 
   // Grab the array of ids
