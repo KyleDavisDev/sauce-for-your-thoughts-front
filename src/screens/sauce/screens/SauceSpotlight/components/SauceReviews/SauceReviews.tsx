@@ -34,7 +34,7 @@ class SauceReviews extends React.Component<SauceReviewsProps, any> {
       <div>
         {this.props.reviews ? (
           this.props.reviews.map(review => {
-            return <SauceReviewBlock review={review} />;
+            return <SauceReviewBlock review={review} key={review._id} />;
           })
         ) : (
           <StyledContainer>
