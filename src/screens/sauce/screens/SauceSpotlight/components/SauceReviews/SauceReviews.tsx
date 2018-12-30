@@ -3,9 +3,12 @@ import { connect } from "react-redux";
 import { IinitialState } from "../../../../../../redux/configureStore";
 import styled from "styled-components";
 import { IReview } from "../../../../../../redux/reviews/types";
+import { Button } from "../../../../../../components/Button/Button";
+import { Link } from "../../../../../../components/Link/Link";
 
 const StyledSauceContainer = styled.div`
   background-color: ${props => props.theme.formContainerBackgroundColor};
+  font-family: AvenirNextReg;
   padding: 1.5rem;
   display: flex;
   flex-direction: row;
@@ -15,8 +18,8 @@ const StyledSauceContainer = styled.div`
 
 export interface SauceReviewsProps {
   id: string; // This is sauce's id that will have to be looked up
-  reviews: IReview[];
-  unfoundReviews?: number[];
+  reviews?: IReview[];
+  unfoundReviews?: string[];
 }
 
 class SauceReviews extends React.Component<SauceReviewsProps, any> {
@@ -25,15 +28,32 @@ class SauceReviews extends React.Component<SauceReviewsProps, any> {
   }
 
   public render() {
-    return <StyledSauceContainer>yo</StyledSauceContainer>;
+    return (
+      <StyledSauceContainer>
+        {this.props.reviews ? (
+          this.props.reviews.map(review => {
+            return <div>I'm a review!</div>;
+          })
+        ) : (
+          <div>
+            <p style={{ marginTop: "0" }}>
+              <i>No reviews found! Have you tried this sauce? Add a review!</i>
+            </p>
+            <Link to={`/review/add/?s=${this.props.id}`}>
+              <Button>Add Review</Button>
+            </Link>
+          </div>
+        )}
+      </StyledSauceContainer>
+    );
   }
 }
 
 const mapState2Props = (state: IinitialState, ownProps: SauceReviewsProps) => {
-  // Make sure we actually have sauces and reviews in the state
+  // Make sure we actually have sauces, the specific sauce for the page we are on, and reviews in the state
   const sauces = state.sauces.byId;
   const reviews = state.reviews.byId;
-  if (!sauces || !reviews) {
+  if (!sauces || !sauces[ownProps.id] || !reviews) {
     return {};
   }
 
@@ -42,7 +62,7 @@ const mapState2Props = (state: IinitialState, ownProps: SauceReviewsProps) => {
 
   // Maybe no reviews on the sauce yet.
   if (!sauceReviews || sauceReviews.length === 0) {
-    return { reviews: [] };
+    return {};
   }
 
   // Push any unfound ids into this arr so we can try, once more, to look for them.
@@ -58,7 +78,7 @@ const mapState2Props = (state: IinitialState, ownProps: SauceReviewsProps) => {
     return reviews[ReviewID];
   });
 
-  return { reviews: reviewsToRender };
+  return { reviews: reviewsToRender, unfoundReviews };
 };
 
 export default connect(mapState2Props)(SauceReviews);
