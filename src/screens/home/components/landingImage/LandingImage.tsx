@@ -36,6 +36,7 @@ const HeroBody = styled.div`
 
 const HeroTitle = styled.h1`
   color: ${x => x.theme.landingHeroTextColor};
+  font-family: FuturaMedium;
 `;
 
 const StyledDiv = styled.div`

@@ -16,6 +16,7 @@ const StyledH2 = styled.h2`
   padding: 5px 15px;
   color: ${props => props.theme.white};
   background-color: ${props => props.theme.primaryThemeColor};
+  font-family: FuturaMedium;
   position: relative;
 
   &:after {
@@ -35,6 +36,7 @@ const StyledH2 = styled.h2`
 StyledH2.displayName = "StyledH2";
 
 const StyledH6 = styled.h6`
+  font-family: AvenirNextReg;
   margin-top: 0;
   margin-bottom: 1rem;
   color: ${props => props.theme.grey};
