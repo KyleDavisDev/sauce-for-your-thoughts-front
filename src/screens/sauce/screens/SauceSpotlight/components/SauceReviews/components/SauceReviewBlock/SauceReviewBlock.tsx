@@ -30,6 +30,7 @@ const StyledContentContainer = styled.div`
 
 export interface SauceReviewBlockProps {
   review: IReview;
+  author?: string;
 }
 
 export interface SauceReviewBlockState {
@@ -52,7 +53,9 @@ class SauceReviewBlock extends React.Component<
         <StyledToggleContainer>
           {this.state.isOpen ? "+" : "-"}
         </StyledToggleContainer>
-        <StyledContentContainer>I'm a review!</StyledContentContainer>
+        <StyledContentContainer>
+          <i>Reviewer:</i> {this.props.author}
+        </StyledContentContainer>
       </StyledContainer>
     );
   }
@@ -62,7 +65,15 @@ const mapState2Props = (
   state: IinitialState,
   ownProps: SauceReviewBlockProps
 ) => {
-  return {};
+  // Make sure we have authors, and specifically the author we want, in redux
+  if (!state.users.byId || !state.users.byId[ownProps.review.author._id]) {
+    return { author: "N/A" };
+  }
+
+  // Get the name of the author via the author's _id
+  const author: string =
+    state.users.byId[ownProps.review.author._id].name || "N/A";
+  return { author };
 };
 
 export default connect(mapState2Props)(SauceReviewBlock);
