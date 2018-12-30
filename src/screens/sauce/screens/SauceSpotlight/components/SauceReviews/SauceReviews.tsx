@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { IReview } from "../../../../../../redux/reviews/types";
 import { Button } from "../../../../../../components/Button/Button";
 import { Link } from "../../../../../../components/Link/Link";
+import SauceReviewBlock from "./components/SauceReviewBlock/SauceReviewBlock";
 
 const StyledSauceContainer = styled.div`
   background-color: ${props => props.theme.formContainerBackgroundColor};
@@ -32,7 +33,7 @@ class SauceReviews extends React.Component<SauceReviewsProps, any> {
       <StyledSauceContainer>
         {this.props.reviews ? (
           this.props.reviews.map(review => {
-            return <div>I'm a review!</div>;
+            return <SauceReviewBlock />;
           })
         ) : (
           <div>
