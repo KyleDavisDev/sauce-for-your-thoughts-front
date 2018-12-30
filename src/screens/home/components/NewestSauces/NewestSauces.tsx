@@ -41,19 +41,19 @@ export default class NewestSauces extends React.Component<
           description="We are always adding new sauces to our knowledgebase!"
         />
         <StyledCard
-          anchorLink="#"
+          to={`/sauce/?s=${5}`}
           title="test"
           imageLink="https://as.ftcdn.net/r/v1/pics/2fd8819a419c4245e5429905770db4b570661f48/home/discover_collections/Images.jpg"
           description="description here"
         />
         <StyledCard
-          anchorLink="#"
+          to={`/sauce/?s=${5}`}
           title="test"
           imageLink="https://as.ftcdn.net/r/v1/pics/2fd8819a419c4245e5429905770db4b570661f48/home/discover_collections/Images.jpg"
           description="description here"
         />
         <StyledCard
-          anchorLink="#"
+          to={`/sauce/?s=${5}`}
           title="test"
           imageLink="https://as.ftcdn.net/r/v1/pics/2fd8819a419c4245e5429905770db4b570661f48/home/discover_collections/Images.jpg"
           description="description here"
