@@ -83,7 +83,7 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
             <SauceReviews id={"5"} />
           </StyledLeftContainer>
           <StyledRightContainer>
-            <SauceAuthor />
+            <SauceAuthor id={"5"} />
           </StyledRightContainer>
         </StyledArticle>
         <Footer />
