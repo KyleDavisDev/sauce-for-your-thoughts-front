@@ -12,7 +12,7 @@ const StyledP = styled.p`
 
 interface DescriptorProps {
   className?: string;
-  children: string;
+  children?: string;
   title: string;
 }
 
