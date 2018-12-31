@@ -20,26 +20,25 @@ const StyledContainer = styled.div`
 
 const StyledButton = styled(Button)`
   background-color: ${props => props.theme.lightGrey};
-  padding: 0.25em;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: stretch;
   font-size: 1.5em;
 
   > button {
     background-color: inherit;
     transition: none;
-    padding: 0;
+    padding: 0.25em;
     margin: 0;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: inherit;
     }
   }
 
   &:hover,
   &:focus {
-    background-color: yellow;
+    background-color: ${props => props.theme.secondaryThemeColor};
     cursor: pointer;
   }
 `;
@@ -111,14 +110,14 @@ class SauceReviewBlock extends React.Component<
     return (
       <StyledContainer>
         <StyledButton onClick={this.onToggleClick}>
-          {this.state.isOpen ? "+" : "-"}
+          {this.state.isOpen ? "_" : "+"}
         </StyledButton>
 
-        {/* Show content if state allows it otherwise show empty */}
-        {this.state.isOpen ? (
-          <StyledContentContainer>
-            <i>Reviewer:</i> {this.props.author} on{" "}
-            {new Date(review.created).toLocaleDateString("en-US", dateOptions)}
+        <StyledContentContainer>
+          <i>Reviewer:</i> {this.props.author} on{" "}
+          {new Date(review.created).toLocaleDateString("en-US", dateOptions)}
+          {/* Show content if state allows it otherwise show empty */}
+          {this.state.isOpen && (
             <div>
               {/* Aroma */}
               {review.aroma && (
@@ -234,16 +233,15 @@ class SauceReviewBlock extends React.Component<
                 </div>
               )}
             </div>
-          </StyledContentContainer>
-        ) : (
-          <StyledContentContainer />
-        )}
+          )}
+        </StyledContentContainer>
       </StyledContainer>
     );
   }
 
   public onToggleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    console.log("I was clicked!");
+    const isOpen: boolean = this.state.isOpen;
+    this.setState({ isOpen: !isOpen });
   };
 }
 
