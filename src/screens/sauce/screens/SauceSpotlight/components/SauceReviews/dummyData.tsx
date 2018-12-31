@@ -1,7 +1,7 @@
 export const dummyData = [
   {
     _id: "58c6a8aafb4d61115815f8b4",
-    date: "2017-03-13T14:11:54.848Z",
+    created: "2017-03-13T14:11:54.848Z",
     sauce: "5",
     author: "1",
     overall: {
@@ -23,7 +23,7 @@ export const dummyData = [
   },
   {
     _id: "58c6a8b8fb4d61115815f8b5",
-    date: "2017-03-13T14:12:08.255Z",
+    created: "2017-03-13T14:12:08.255Z",
     sauce: "5",
     author: "2",
     overall: { rating: 4, txt: "here is some test text" },
@@ -39,7 +39,7 @@ export const dummyData = [
   },
   {
     _id: "58c6a8cefb4d61115815f8b6",
-    date: "2017-03-13T14:12:30.578Z",
+    created: "2017-03-13T14:12:30.578Z",
     sauce: "5",
     author: "3",
     overall: { rating: 4, txt: "On the mild side, but balanced well" },
@@ -59,7 +59,7 @@ export const dummyData = [
   },
   {
     _id: "58c6a8e5fb4d61115815f8b7",
-    date: "2017-03-13T14:12:53.559Z",
+    created: "2017-03-13T14:12:53.559Z",
     sauce: "5",
     author: "4",
     overall: { rating: 4, txt: "here is some test text" },
@@ -87,7 +87,7 @@ export const dummyData = [
   },
   {
     _id: "58c6a8f6fb4d61115815f8b8",
-    date: "2017-03-13T14:13:10.681Z",
+    created: "2017-03-13T14:13:10.681Z",
     sauce: "5",
     author: "122",
     overall: { rating: 4, txt: "here is some test text" },
