@@ -14,7 +14,6 @@ const StyledContainer = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   margin-bottom: 1em;
-
   max-height: auto;
 `;
 
