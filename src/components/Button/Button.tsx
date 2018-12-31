@@ -1,11 +1,6 @@
 import * as React from "react";
 import styled from "../../theme/styled-components";
 
-const Div = styled.div`
-  // display: flex;
-  // align-items: stretch;
-`;
-
 interface ButtonProps {
   children: string | Element | Array<string | JSX.Element>;
   displayType?: "outline" | "solid";
@@ -17,11 +12,11 @@ interface ButtonProps {
 
 const Button: React.SFC<ButtonProps> = props => {
   return (
-    <Div className={props.className} style={props.style}>
+    <div className={props.className} style={props.style}>
       <button onClick={props.onClick} type={props.type}>
         {props.children}
       </button>
-    </Div>
+    </div>
   );
 };
 
