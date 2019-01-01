@@ -5,6 +5,7 @@ export interface ISauce {
   name: string;
   ingredients: string;
   author: string;
+  created: Date;
   types?: string[];
   maker: string;
   description: string;
