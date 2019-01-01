@@ -1,9 +1,9 @@
 // User shape
 export interface IUser {
   _id: number;
-  reviews?: string[];
-  created?: Date;
-  name?: string;
+  reviews: string[];
+  created: Date;
+  name: string;
   email?: string;
 }
 
