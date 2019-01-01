@@ -6,12 +6,14 @@ import { IUser } from "../../../../../../redux/users/types";
 
 const StyledContainer = styled.div`
   background-color: ${props => props.theme.formContainerBackgroundColor};
-  font-family: AvenirNextReg;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  // font-family: AvenirNextReg;
   margin-bottom: 1em;
-  max-height: auto;
+  padding: 0.75em;
+`;
+
+const StyledContentContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export interface SauceAuthorProps {
@@ -21,7 +23,16 @@ export interface SauceAuthorProps {
 
 class SauceAuthor extends React.Component<SauceAuthorProps, any> {
   public render() {
-    return <StyledContainer>I'm an author!!</StyledContainer>;
+    return (
+      <StyledContainer>
+        {this.props.author && (
+          <StyledContentContainer>
+            <i>Author:</i>
+            <span>{this.props.author.name}</span>
+          </StyledContentContainer>
+        )}
+      </StyledContainer>
+    );
   }
 }
 
@@ -30,7 +41,8 @@ const mapState2Props = (state: IinitialState, ownProps: SauceAuthorProps) => {
   const sauces = state.sauces.byId;
   const users = state.users.byId;
   if (!sauces || !sauces[ownProps.id] || !users) {
-    return {};
+    // Return test data
+    return { author: { name: "Testy Davox", reviews: 8 } };
   }
 
   // Return the author of the sauce
