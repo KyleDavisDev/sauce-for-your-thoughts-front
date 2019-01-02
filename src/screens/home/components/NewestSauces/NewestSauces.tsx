@@ -14,7 +14,12 @@ const StyledDiv = styled.div`
 
 const StyledCard = styled(Card)`
   box-sizing: border-box;
-  width: 33%;
+  width: 100%;
+  margin-bottom: 16px;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    width: 33%;
+  }
 `;
 
 export interface NewestSaucesProps {
@@ -41,19 +46,19 @@ export default class NewestSauces extends React.Component<
           description="We are always adding new sauces to our knowledgebase!"
         />
         <StyledCard
-          anchorLink="#"
+          to={`/sauce/?s=${5}`}
           title="test"
           imageLink="https://as.ftcdn.net/r/v1/pics/2fd8819a419c4245e5429905770db4b570661f48/home/discover_collections/Images.jpg"
           description="description here"
         />
         <StyledCard
-          anchorLink="#"
+          to={`/sauce/?s=${5}`}
           title="test"
           imageLink="https://as.ftcdn.net/r/v1/pics/2fd8819a419c4245e5429905770db4b570661f48/home/discover_collections/Images.jpg"
           description="description here"
         />
         <StyledCard
-          anchorLink="#"
+          to={`/sauce/?s=${5}`}
           title="test"
           imageLink="https://as.ftcdn.net/r/v1/pics/2fd8819a419c4245e5429905770db4b570661f48/home/discover_collections/Images.jpg"
           description="description here"

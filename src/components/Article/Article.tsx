@@ -5,9 +5,14 @@ import styled from "../../theme/styled-components";
 const StyledArticle = styled.article`
   max-width: 900px;
   margin: 0 auto;
+  font-family: AvenirNextReg;
 
   > div {
-    margin-bottom: 3.5rem;
+    margin-bottom: 1.5rem;
+
+    @media (min-width: ${props => props.theme.smToMd}) {
+      margin-bottom: 3.5rem;
+    }
   }
 `;
 

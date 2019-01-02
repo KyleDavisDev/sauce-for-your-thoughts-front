@@ -11,7 +11,11 @@ import FeaturedSauces from "./components/FeaturedSauces/FeaturedSauces";
 import FeaturedUsers from "./components/FeaturedUsers/FeaturedUsers";
 
 const StyledLandingImage = styled(LandingImage)`
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    margin-bottom: 3.5rem;
+  }
 `;
 
 const StyledArticle = styled(Article)`

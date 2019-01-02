@@ -2,8 +2,10 @@ import * as React from "react";
 import * as shortid from "shortid";
 
 import styled from "../../theme/styled-components";
+import Label from "../Label/Label";
 
 const SelectContainer = styled.div`
+  width: 100%;
   border: 1px solid #e1e1e1;
   color: #4b4b4b;
   display: inline-block;
@@ -21,6 +23,7 @@ const SelectContainer = styled.div`
 `;
 
 const StyledSelect = styled.select`
+  width: 100%;
   background-color: transparent;
   appearance: none;
   border: 0;
@@ -39,33 +42,57 @@ interface DropDownProps {
   id?: string;
   options: string[];
   selectedValue?: string;
+  name?: string;
   className?: string;
-  onSelect(event: React.ChangeEvent<HTMLSelectElement>): void;
+  showLabel?: boolean;
+  label?: string;
+  required?: boolean;
+  onSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const DropDown: React.SFC<DropDownProps> = props => {
-  return (
-    <SelectContainer>
-      <StyledSelect
-        id={props.id}
-        onChange={props.onSelect}
-        value={props.selectedValue}
-        className={props.className}
-      >
-        {props.options.map(opt => {
-          return (
-            <option key={shortid.generate()} value={opt}>
-              {opt}
-            </option>
-          );
-        })}
-      </StyledSelect>
-    </SelectContainer>
-  );
-};
+interface DropDownState {
+  id: string;
+}
 
-DropDown.defaultProps = {
-  id: shortid.generate()
-};
+class DropDown extends React.PureComponent<DropDownProps, DropDownState> {
+  public static defaultProps = {
+    showLabel: false,
+    required: false
+  };
+
+  public componentWillMount() {
+    // Either accept id from parent or generate unique id
+    this.setState({ id: !this.props.id ? shortid.generate() : this.props.id });
+  }
+
+  public render() {
+    return (
+      <div className={this.props.className}>
+        {this.props.showLabel && this.props.label && (
+          <Label htmlFor={this.state.id}>
+            {this.props.label}
+            {this.props.required ? "*" : ""}
+          </Label>
+        )}
+        <SelectContainer>
+          <StyledSelect
+            id={this.state.id}
+            onChange={this.props.onSelect}
+            value={this.props.selectedValue}
+            name={this.props.name}
+          >
+            {this.props.options.map(opt => {
+              return (
+                <option key={shortid.generate()} value={opt}>
+                  {opt}
+                </option>
+              );
+            })}
+          </StyledSelect>
+        </SelectContainer>
+      </div>
+    );
+  }
+}
 
 export default DropDown;

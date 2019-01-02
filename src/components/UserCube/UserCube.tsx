@@ -21,7 +21,7 @@ const StyledDiv = styled.div`
 `;
 
 const StyledP = styled.p`
-  color: ${props => props.theme.userCubeTextColor};
+  color: ${props => props.theme.black};
   margin-top: 0.5em;
   margin-bottom: 0;
 `;

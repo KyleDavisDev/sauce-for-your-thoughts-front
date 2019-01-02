@@ -616,7 +616,6 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
         ingredients,
         shu,
         location,
-        peppers,
         types
       },
       user: {

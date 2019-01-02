@@ -5,14 +5,10 @@ import Loadable from "react-loadable";
 
 import styled from "../theme/styled-components";
 import Loading from "../components/Holder/Holder";
-import TopBar from "../components/TopBar/TopBar";
-import Navigation from "../components/Navigation/Navigation";
-import Footer from "../components/Footer/Footer";
 
 const StyledDiv = styled.div`
   margin: 0;
   padding: 0;
-  background-color: ${props => props.theme.siteBackgroundColor};
 `;
 
 // Home
@@ -75,6 +71,16 @@ const Login = Loadable({
   )
 });
 
+// Single
+const SauceSpotlight = Loadable({
+  loader: () => import("./sauce/screens/SauceSpotlight/SauceSpotlight"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 const Screens = (
   <StyledDiv>
     {/* {flashMessageVisible && <FlashMessage />} */}
@@ -84,6 +90,7 @@ const Screens = (
     <Route path="/sauces" component={Sauces} />
     <Route path="/register" component={Register} />
     <Route path="/login" component={Login} />
+    <Route path="/sauce" component={SauceSpotlight} />
 
     {/* <Route exact path="/sauce/edit/:id" component={SauceEdit} />
     <Route exact path="/sauce/single/:slug" component={SauceSingle} /> */}

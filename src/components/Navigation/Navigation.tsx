@@ -58,7 +58,9 @@ class Navigation extends React.PureComponent<{}, any> {
   public render() {
     return (
       <Header>
-        <LogoSFYT />
+        <Link to="/">
+          <LogoSFYT />
+        </Link>
         <Ul>
           <li>
             <StyledLink to="/">Home</StyledLink>
