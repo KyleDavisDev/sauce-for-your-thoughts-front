@@ -6,7 +6,7 @@ import TextInput from "../../../../components/TextInput/TextInput";
 import { Link } from "../../../../components/Link/Link";
 import { Button } from "../../../../components/Button/Button";
 
-const HeroContainer = styled.header`
+const HeroContainer = styled.div`
   background: #000;
   position: relative;
   margin-bottom: 1em;

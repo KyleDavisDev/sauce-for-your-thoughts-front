@@ -14,7 +14,12 @@ const StyledDiv = styled.div`
 
 const StyledCard = styled(Card)`
   box-sizing: border-box;
-  width: 33%;
+  width: 100%;
+  margin-bottom: 16px;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    width: 33%;
+  }
 `;
 
 export interface NewestSaucesProps {

@@ -28,7 +28,7 @@ export interface SauceAuthorProps {
 class SauceAuthor extends React.Component<SauceAuthorProps, any> {
   public render() {
     const dateOptions = {
-      weekday: "long",
+      day: "numeric",
       year: "numeric",
       month: "long"
     };

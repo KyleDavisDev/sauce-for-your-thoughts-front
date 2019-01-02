@@ -15,7 +15,11 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 3em;
+  margin-bottom: 1.5em;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    margin-bottom: 3em;
+  }
 `;
 
 export interface SauceReviewsProps {

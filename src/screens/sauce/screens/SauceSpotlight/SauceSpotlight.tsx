@@ -18,32 +18,42 @@ const StyledArticle = styled(Article)`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-`;
-
-const StyledTitleContainer = styled.div`
-  max-width: 1200px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  margin: 0 auto;
+  flex-wrap: wrap;
 `;
 
 const StyledLeftContainer = styled.div`
-  width: 66%;
+  width: 100%;
   box-sizing: border-box;
   padding: 0 1em;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    width: 66%;
+  }
 `;
 
 const StyledRightContainer = styled.div`
-  width: 33%;
+  width: 100%;
   box-sizing: border-box;
   padding: 0 1em;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    width: 33%;
+  }
 `;
 
 const StyledDescriptor = styled(Descriptor)`
   > p {
     margin-top: 0;
     font-style: italic;
+  }
+`;
+
+const StyledH2 = styled.h2`
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    margin-top: 51px;
   }
 `;
 
@@ -59,20 +69,9 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
         <TopBar />
         <Navigation />
 
-        {/* Titles */}
-        <StyledTitleContainer>
-          <StyledLeftContainer>
-            <PageTitle>Chalulu hot sauce</PageTitle>
-          </StyledLeftContainer>
-
-          <StyledRightContainer>
-            <StyledDescriptor title="Author" />
-          </StyledRightContainer>
-        </StyledTitleContainer>
-
-        {/* Actual page content */}
         <StyledArticle>
           <StyledLeftContainer>
+            <PageTitle>Chalulu hot sauce</PageTitle>
             {/* Spotlight */}
             <SauceSpotlight id={"5"} />
 
@@ -83,6 +82,7 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
             <SauceReviews id={"5"} />
           </StyledLeftContainer>
           <StyledRightContainer>
+            <StyledH2>Author</StyledH2>
             <SauceAuthor id={"5"} />
           </StyledRightContainer>
         </StyledArticle>
