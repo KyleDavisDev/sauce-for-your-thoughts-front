@@ -101,7 +101,7 @@ class SauceReviewBlock extends React.Component<
 
   public render() {
     const dateOptions = {
-      weekday: "long",
+      day: "numeric",
       year: "numeric",
       month: "long"
     };
