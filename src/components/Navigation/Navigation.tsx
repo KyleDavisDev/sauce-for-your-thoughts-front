@@ -26,6 +26,10 @@ const Header = styled.header`
     display: flex;
     flex-direction: row;
     justify-items: space-between;
+
+    svg {
+      padding: 0;
+    }
   }
 `;
 

@@ -4,10 +4,6 @@ import * as shortid from "shortid";
 
 import styled from "../../../../theme/styled-components";
 
-const StyledDiv = styled.div`
-  max-width: ${props => props.theme.footerMaxWidth};
-`;
-
 const StyledH5 = styled.h5`
   margin: 0.5em 0;
   font-weight: 400;
@@ -15,7 +11,6 @@ const StyledH5 = styled.h5`
   text-transform: uppercase;
   color: ${props => props.theme.white};
   font-size: ${props => props.theme.scaleH5};
-  font-family: FuturaMedium;
 `;
 StyledH5.displayName = "StyledH5";
 
@@ -27,6 +22,13 @@ const StyledUl = styled.ul`
   li {
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    li {
+      padding-left: 0;
+    }
   }
 `;
 StyledUl.displayName = "StyledUl";
@@ -55,7 +57,7 @@ interface ListProps {
 class List extends React.PureComponent<ListProps> {
   public render() {
     return (
-      <StyledDiv className={this.props.className}>
+      <div className={this.props.className}>
         <StyledH5>{this.props.title}</StyledH5>
         <StyledUl>
           {this.props.items.map(item => {
@@ -66,7 +68,7 @@ class List extends React.PureComponent<ListProps> {
             );
           })}
         </StyledUl>
-      </StyledDiv>
+      </div>
     );
   }
 }

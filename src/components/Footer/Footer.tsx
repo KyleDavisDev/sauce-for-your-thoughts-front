@@ -17,11 +17,25 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 
   > div {
-    // width: 33%;
+    width: 50%;
     box-sizing: border-box;
     padding: 0 1em;
+  }
+
+  > div:last-of-type {
+    width: 100%;
+  }
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    flex-wrap: nowrap;
+
+    > div,
+    > div:last-of-type {
+      width: 33%;
+    }
   }
 `;
 
@@ -32,7 +46,6 @@ const Footer: React.SFC<FooterProps> = props => {
     <StyledFooter>
       <StyledDiv>
         <Navigation />
-        {/* <Peppers /> */}
         <Types />
         <About />
       </StyledDiv>

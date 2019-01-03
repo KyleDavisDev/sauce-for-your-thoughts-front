@@ -2,10 +2,6 @@ import * as React from "react";
 
 import styled from "../../../../theme/styled-components";
 
-const StyledDiv = styled.div`
-  max-width: ${props => props.theme.footerMaxWidth};
-`;
-
 const StyledH5 = styled.h5`
   margin: 0.5em 0;
   font-weight: 400;
@@ -33,7 +29,7 @@ interface AboutProps {
 class About extends React.PureComponent<AboutProps> {
   public render() {
     return (
-      <StyledDiv className={this.props.className}>
+      <div className={this.props.className}>
         <StyledH5>About</StyledH5>
 
         <StyledP>
@@ -41,7 +37,7 @@ class About extends React.PureComponent<AboutProps> {
           For Your Thoughts can help! Add, or review, sauces and help out your
           fellow saucies! Never be blind-sides by a sauce again!
         </StyledP>
-      </StyledDiv>
+      </div>
     );
   }
 }
