@@ -610,6 +610,8 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     } = {
       sauce: {
         _id: 1,
+        author: "Joe",
+        created: new Date(),
         name,
         maker,
         description,
