@@ -22,6 +22,7 @@ injectGlobal`
 
   html {
     background-color: #f5f5f5;
+    font-family: AvenirNextReg;
   }
 
   h1,h2,h3,h4,h5,h6 {
