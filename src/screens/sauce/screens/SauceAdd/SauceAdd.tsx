@@ -588,11 +588,6 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
   private onSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
 
-    // Get array of checked peppers
-    const peppers: string[] = Object.keys(this.state.typesOfPeppers).filter(
-      pepper => this.state.typesOfPeppers[pepper].checked
-    );
-
     // Get array of checked types
     const types: string[] = Object.keys(this.state.typesOfSauces).filter(
       sauce => this.state.typesOfSauces[sauce].checked
