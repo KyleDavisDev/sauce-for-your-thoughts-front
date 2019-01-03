@@ -2,7 +2,11 @@ import * as React from "react";
 import styled from "../../theme/styled-components";
 
 interface ButtonProps {
-  children: string | Element | Array<string | JSX.Element>;
+  children:
+    | string
+    | Element
+    | JSX.Element
+    | Array<string | JSX.Element | Element>;
   displayType?: "outline" | "solid";
   className?: string;
   type?: "button" | "submit" | "reset";
