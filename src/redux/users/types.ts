@@ -11,3 +11,14 @@ export interface IUser {
 export interface IUserRef {
   _id: string;
 }
+
+// Register user
+export interface IRegisterUser {
+  user: {
+    email: string;
+    confirmEmail: string;
+    password: string;
+    confirmPassword: string;
+    displayName: string;
+  };
+}
