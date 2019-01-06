@@ -6,6 +6,7 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import TextInput from "../../components/TextInput/TextInput";
 import { Link } from "../../components/Link/Link";
 import { IinitialState } from "../../redux/configureStore";
+import { register } from "../../redux/users/actions";
 import {
   StyledDiv,
   StyledLogoContainer,
@@ -15,7 +16,9 @@ import {
   StyledButton
 } from "./RegisterStyle";
 
-export interface RegisterProps {}
+export interface RegisterProps {
+  register: any;
+}
 
 export interface RegisterState {
   email: string;
@@ -71,7 +74,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
                 required={true}
               />
               <TextInput
-                type="text"
+                type="password"
                 onChange={this.onTextChange}
                 showLabel={true}
                 label={"Password"}
@@ -80,7 +83,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
                 required={true}
               />
               <TextInput
-                type="text"
+                type="password"
                 onChange={this.onTextChange}
                 showLabel={true}
                 label={"Confirm Password"}
@@ -101,9 +104,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
                 By clicking 'Register', you agree to Sauce For Your Thoughts{" "}
                 <Link to="#">Terms and Conditions</Link>
               </StyledText>
-              <StyledButton type="button" onClick={() => {}}>
-                Register
-              </StyledButton>
+              <StyledButton type="submit">Register</StyledButton>
             </form>
           </StyledFormContainer>
         </StyledArticle>
@@ -127,6 +128,18 @@ class Register extends React.Component<RegisterProps, RegisterState> {
 
   private onSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
+
+    if (this.state.email !== this.state.confirmEmail) {
+      window.alert("Your emails do not match. Please correct.");
+      return;
+    }
+
+    if (this.state.password !== this.state.confirmPassword) {
+      window.alert("Your passwords do not match. Please correct.");
+      return;
+    }
+
+    this.props.register({ credentials: this.state });
   };
 }
 
@@ -134,7 +147,11 @@ const mapState2Props = (state: IinitialState) => {
   return {};
 };
 
+const mapDispatch2Props = {
+  register
+};
+
 export default connect(
   mapState2Props,
-  null
+  mapDispatch2Props
 )(Register);
