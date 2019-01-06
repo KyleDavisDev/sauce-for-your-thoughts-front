@@ -104,5 +104,6 @@ export const StyledLink = styled(Link)`
   &:hover,
   &:focus {
     text-decoration: none;
+    color: ${x => x.theme.black};
   }
 `;
