@@ -6,92 +6,24 @@ import queryString, { OutputParams } from "query-string";
 
 import { addReview } from "../../redux/reviews/actions";
 import { IReviewSection, IReview } from "../../redux/reviews/types";
-import styled from "../../theme/styled-components";
 import PageTitle from "../../components/PageTitle/PageTitle";
-import Descriptor from "../../components/Descriptor/Descriptor";
 import TextInput from "../../components/TextInput/TextInput";
 import Label from "../../components/Label/Label";
-import { Button } from "../../components/Button/Button";
 import ArrowRight from "../../images/icons/ArrowRight";
 import { IinitialState } from "../../redux/configureStore";
-import Star from "../../images/icons/Star";
 import Article from "../../components/Article/Article";
 import TopBar from "../../components/TopBar/TopBar";
 import Navigation from "../../components/Navigation/Navigation";
 import Footer from "../../components/Footer/Footer";
-
-const StyledFormContainer = styled.div`
-  background-color: ${props => props.theme.formContainerBackgroundColor};
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
-const StyledRow = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  justify-content: top;
-  padding-bottom: 4rem;
-`;
-
-const StyledDescriptor = styled(Descriptor)`
-  width: 100%;
-  max-width: 33%;
-  box-sizing: border-box;
-  padding: 0 1rem;
-`;
-
-const StyledRightSide = styled.div`
-  width: 100%;
-  box-sizing: border-box;
-  max-width: 66%;
-  display: block;
-  padding: 0 1rem;
-`;
-
-const StyledButton = styled(Button)`
-  width: 100%;
-
-  button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0px;
-    color: #333;
-    &:hover,
-    &:focus {
-      svg {
-        fill: #fff;
-      }
-    }
-  }
-
-  svg {
-    width: 20px;
-    padding-left: 10px;
-    fill: #333;
-    transition: all 0.2s ease;
-  }
-`;
-
-const StyledEmptyStar = styled(Star)`
-  .border {
-    fill: ${props => props.theme.primaryThemeColor};
-  }
-
-  .center {
-    fill: transparent;
-  }
-`;
-const StyledFullStar = styled(Star)`
-  .border,
-  .center {
-    fill: ${props => props.theme.primaryThemeColor};
-  }
-`;
+import {
+  StyledFormContainer,
+  StyledRow,
+  StyledDescriptor,
+  StyledRightSide,
+  StyledButton,
+  StyledEmptyStar,
+  StyledFullStar
+} from "./ReviewAddStyle";
 
 export interface ReviewAddProps {
   addReview: ({ data }: any) => Promise<any>;
