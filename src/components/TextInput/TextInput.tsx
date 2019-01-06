@@ -11,7 +11,7 @@ interface TextInputProps {
   required?: boolean;
   label?: string;
   showLabel?: boolean;
-  type?: "text" | "textarea" | string; // have to allow 'string' or else styled components complains
+  type?: "text" | "textarea" | "password" | string; // have to allow 'string' or else styled components complains
   value?: string | number;
   className?: string;
   onChange(
@@ -47,7 +47,10 @@ class TextInput extends React.PureComponent<TextInputProps, TextInputState> {
           </Label>
         )}
 
-        {this.props.type && this.props.type.toLowerCase() === "text" ? (
+        {/* Make sure prop passed and is either 'text' or 'password' */}
+        {this.props.type &&
+        (this.props.type.toLowerCase() === "text" ||
+          this.props.type.toLowerCase() === "password") ? (
           <StyledInput
             type={this.props.type}
             id={this.state.id}
