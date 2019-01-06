@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import Bar from "../../images/icons/Bar";
-import {
-  Header,
-  StyledButton,
-  StyledUl,
-  StyledLink
-} from "./NavigationStyledComponents";
+import { Header, StyledButton, StyledUl, StyledLink } from "./NavigationStyle";
 
 export interface NavigationState {
   isOpen: boolean;
