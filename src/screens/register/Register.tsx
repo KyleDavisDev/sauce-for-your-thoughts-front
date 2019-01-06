@@ -1,44 +1,19 @@
 import * as React from "react";
 import { connect } from "react-redux";
+
 import LogoSFYT from "../../images/icons/LogoSFYT";
-import styled from "styled-components";
-import Article from "../../components/Article/Article";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import TextInput from "../../components/TextInput/TextInput";
-import { Button } from "../../components/Button/Button";
 import { Link } from "../../components/Link/Link";
 import { IinitialState } from "../../redux/configureStore";
-
-const StyledDiv = styled.div`
-  height: 100vh;
-`;
-
-const StyledLogoContainer = styled.div`
-  max-width: 150px;
-  margin: 0 auto;
-  padding: 1em;
-`;
-
-const StyledArticle = styled(Article)`
-  max-width: 600px;
-`;
-const StyledFormContainer = styled.div`
-  background-color: ${props => props.theme.formContainerBackgroundColor};
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
-const StyledText = styled.p`
-  width: 80%;
-  margin: 0 auto 1em;
-  text-align: center;
-`;
-
-const StyledButton = styled(Button)`
-  text-align: center;
-`;
+import {
+  StyledDiv,
+  StyledLogoContainer,
+  StyledArticle,
+  StyledFormContainer,
+  StyledText,
+  StyledButton
+} from "./RegisterStyle";
 
 export interface RegisterProps {}
 
