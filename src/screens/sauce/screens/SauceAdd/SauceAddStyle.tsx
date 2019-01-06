@@ -26,20 +26,33 @@ export const StyledRow = styled.div`
   flex-direction: row;
   justify-content: top;
   padding-bottom: 4rem;
+  flex-wrap: wrap;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    flex-wrap: nowrap;
+  }
 `;
 
 export const StyledDescriptor = styled(Descriptor)`
   width: 100%;
-  max-width: 33%;
+  max-width: 100%;
   box-sizing: border-box;
   padding: 0 1rem;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    max-width: 33%;
+  }
 `;
 
 export const StyledRightSide = styled.div`
   width: 100%;
   box-sizing: border-box;
-  max-width: 66%;
+  max-width: 100%;
   display: block;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    max-width: 66%;
+  }
 `;
 
 export const StyledTextInput = styled(TextInput)`
