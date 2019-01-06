@@ -6,11 +6,15 @@ const StyledArticle = styled.article`
   max-width: 900px;
   margin: 0 auto;
   font-family: AvenirNextReg;
+  padding: 0 15px;
 
   > div {
     margin-bottom: 1.5rem;
+  }
+  @media (min-width: ${props => props.theme.smToMd}) {
+    padding: 0;
 
-    @media (min-width: ${props => props.theme.smToMd}) {
+    > div {
       margin-bottom: 3.5rem;
     }
   }
