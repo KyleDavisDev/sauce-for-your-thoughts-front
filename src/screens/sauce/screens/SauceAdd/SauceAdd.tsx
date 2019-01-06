@@ -7,10 +7,7 @@ import { connect } from "react-redux";
 
 import { addSauce } from "../../../../redux/sauces/actions";
 import { ISauce } from "../../../../redux/sauce/types";
-import styled from "../../../../theme/styled-components";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
-import Descriptor from "../../../../components/Descriptor/Descriptor";
-import TextInput from "../../../../components/TextInput/TextInput";
 import { CheckBox } from "../../../../components/CheckBox/CheckBox";
 import Label from "../../../../components/Label/Label";
 import { RadioButton } from "../../../../components/RadioButton/RadioButton";
@@ -21,152 +18,20 @@ import { IinitialState } from "../../../../redux/configureStore";
 import TopBar from "../../../../components/TopBar/TopBar";
 import Navigation from "../../../../components/Navigation/Navigation";
 import Footer from "../../../../components/Footer/Footer";
-
-const Article = styled.article`
-  max-width: 900px;
-  margin: 0 auto;
-
-  > div {
-    margin-bottom: 3.5rem;
-  }
-`;
-
-const StyledFormContainer = styled.div`
-  background-color: ${props => props.theme.formContainerBackgroundColor};
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
-const StyledRow = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  justify-content: top;
-  padding-bottom: 4rem;
-`;
-
-const StyledDescriptor = styled(Descriptor)`
-  width: 100%;
-  max-width: 33%;
-  box-sizing: border-box;
-  padding: 0 1rem;
-`;
-
-const StyledRightSide = styled.div`
-  width: 100%;
-  box-sizing: border-box;
-  max-width: 66%;
-  display: block;
-`;
-
-const StyledTextInput = styled(TextInput)`
-  float: left;
-  max-width: ${props =>
-    props.type === "textarea"
-      ? "100%"
-      : "50%"}; // give Textarea full width and text 50%
-  box-sizing: border-box;
-  padding: 0 1rem;
-`;
-
-const StyledDiv = styled.div`
-  max-width: 50%;
-  float: left;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 1rem;
-
-  > label {
-    padding: 0rem;
-  }
-
-  > div {
-    // margin: 0.25rem 1rem 0.25rem;
-  }
-`;
-
-const StyledDiv2 = styled.div`
-  padding: 0 1rem;
-`;
-
-const StyledDropdownContainer = styled.div`
-  border: 1px solid #e1e1e1;
-  color: #4b4b4b;
-  display: inline-block;
-  position: relative;
-  background-color: #f5f5f5;
-  margin-bottom: 15px;
-  width: 100%;
-
-  &:after {
-    position: absolute;
-    top: 55%;
-    transform: translateY(-50%);
-    content: url("../../../../../../images/icons/chevron-down.svg");
-    pointer-events: none;
-    right: 15px;
-  }
-
-  select {
-    width: 100%;
-    background-color: #f3f3f3;
-    appearance: none;
-    border: 0;
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: background-color 0.3s, color 0.3s, border 0.3s;
-    vertical-align: middle;
-    height: 38px;
-    padding: 0px 40px 0 15px;
-    font-size: 1rem;
-  }
-`;
-
-const StyledPhotoContainer = styled.div`
-  max-width: 66%;
-  width: 100%;
-  padding: 0 1rem;
-  box-sizing: border-box;
-`;
-
-const StyledButton = styled(Button)`
-  width: 100%;
-
-  button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0px;
-    color: #333;
-    &:hover,
-    &:focus {
-      svg {
-        fill: #fff;
-      }
-    }
-  }
-
-  svg {
-    width: 20px;
-    padding-left: 10px;
-    fill: #333;
-    transition: all 0.2s ease;
-  }
-`;
-
-const StyledImageButtonContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 10px 0;
-  > div {
-    padding-right: 10px;
-  }
-`;
+import {
+  Article,
+  StyledFormContainer,
+  StyledRow,
+  StyledDescriptor,
+  StyledRightSide,
+  StyledTextInput,
+  StyledDiv,
+  StyledDiv2,
+  StyledDropdownContainer,
+  StyledPhotoContainer,
+  StyledButton,
+  StyledImageButtonContainer
+} from "./SauceAddStyle";
 
 export interface SauceAddProps {
   addSauce: (
@@ -182,9 +47,6 @@ export interface SauceAddProps {
 
 export interface SauceAddState extends ISauce {
   typesOfSauces: {
-    [key: string]: { value: string; checked: boolean; key: string };
-  };
-  typesOfPeppers: {
     [key: string]: { value: string; checked: boolean; key: string };
   };
   country: string;
@@ -230,28 +92,8 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
           key: shortid.generate()
         }
       },
-      typesOfPeppers: {
-        "Ghost Chili": {
-          value: "Ghost Chili",
-          checked: false,
-          key: shortid.generate()
-        },
-        "Peri Peri": {
-          value: "Peri Peri",
-          checked: false,
-          key: shortid.generate()
-        },
-        "Scotch Bonnet": {
-          value: "Scotch Bonnet",
-          checked: false,
-          key: shortid.generate()
-        },
-        "Trinidad Scorpion": {
-          value: "Trinidad Scorpion",
-          checked: false,
-          key: shortid.generate()
-        }
-      },
+      author: "",
+      created: new Date(),
       shu: "",
       country: "United States",
       state: "",
@@ -372,8 +214,8 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
               <StyledRow>
                 <StyledDescriptor title="Spice">
                   Is this sauce spicy? How spicy is it? What does the maker say
-                  the Scoville Heat Unit (SHU) rating is? Which peppers are
-                  primarily used?
+                  the Scoville Heat Unit (SHU) rating is? Note: this may only be
+                  applicable to Hot Sauces.
                 </StyledDescriptor>
                 <StyledRightSide>
                   <StyledTextInput
@@ -384,22 +226,6 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
                     showLabel={true}
                     value={this.state.shu}
                   />
-
-                  <StyledDiv2>
-                    <Label>Primary Peppers</Label>
-                    {Object.keys(this.state.typesOfPeppers).map(type => {
-                      return (
-                        <CheckBox
-                          id={this.state.typesOfPeppers[type].key}
-                          key={this.state.typesOfPeppers[type].key}
-                          value={this.state.typesOfPeppers[type].value}
-                          label={this.state.typesOfPeppers[type].value}
-                          checked={this.state.typesOfPeppers[type].checked}
-                          onClick={this.onCheckBoxClick}
-                        />
-                      );
-                    })}
-                  </StyledDiv2>
                 </StyledRightSide>
               </StyledRow>
 
@@ -538,21 +364,19 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     // Grab value from the element
     const value: string = checkbox.value;
 
-    // Find if value is sauce type or pepper
-    const type =
-      Object.keys(this.state.typesOfSauces).indexOf(value) !== -1
-        ? "typesOfSauces"
-        : "typesOfPeppers";
-
     // Get whether checked or not
-    const checked: boolean = this.state[type][value].checked;
+    const checked: boolean = this.state.typesOfSauces[value].checked;
 
     // Update state
     this.setState({
       ...this.state,
-      [type]: {
-        ...this.state[type],
-        [value]: { ...this.state[type][value], value, checked: !checked }
+      typesOfSauces: {
+        ...this.state.typesOfSauces,
+        [value]: {
+          ...this.state.typesOfSauces[value],
+          value,
+          checked: !checked
+        }
       }
     });
   };
