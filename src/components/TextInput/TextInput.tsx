@@ -1,39 +1,8 @@
 import * as React from "react";
 import * as shortid from "shortid";
 
-import styled from "../../theme/styled-components";
 import Label from "../Label/Label";
-
-const StyledDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
-
-const StyledInput = styled.input`
-  width: 100%;
-  max-width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  border: 1px solid #ababab;
-  margin-top: 5px;
-  margin-bottom: 15px;
-`;
-StyledInput.displayName = "StyledInput";
-
-const StyledTextArea = styled.textarea`
-  width: 100%;
-  max-width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  border: 1px solid #ababab;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  min-width: 100%;
-  min-height: 35px;
-  max-height: 220px;
-`;
-StyledTextArea.displayName = "StyledTextArea";
+import { StyledDiv, StyledInput, StyledTextArea } from "./TextInputStyle";
 
 interface TextInputProps {
   id?: string;
