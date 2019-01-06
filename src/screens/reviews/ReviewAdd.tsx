@@ -4,21 +4,21 @@ import { connect } from "react-redux";
 import Rating from "react-rating";
 import queryString, { OutputParams } from "query-string";
 
-import { addReview } from "../../../../redux/reviews/actions";
-import { IReviewSection, IReview } from "../../../../redux/reviews/types";
-import styled from "../../../../theme/styled-components";
-import PageTitle from "../../../../components/PageTitle/PageTitle";
-import Descriptor from "../../../../components/Descriptor/Descriptor";
-import TextInput from "../../../../components/TextInput/TextInput";
-import Label from "../../../../components/Label/Label";
-import { Button } from "../../../../components/Button/Button";
-import ArrowRight from "../../../../images/icons/ArrowRight";
-import { IinitialState } from "../../../../redux/configureStore";
-import Star from "../../../../images/icons/Star";
-import Article from "../../../../components/Article/Article";
-import TopBar from "../../../../components/TopBar/TopBar";
-import Navigation from "../../../../components/Navigation/Navigation";
-import Footer from "../../../../components/Footer/Footer";
+import { addReview } from "../../redux/reviews/actions";
+import { IReviewSection, IReview } from "../../redux/reviews/types";
+import styled from "../../theme/styled-components";
+import PageTitle from "../../components/PageTitle/PageTitle";
+import Descriptor from "../../components/Descriptor/Descriptor";
+import TextInput from "../../components/TextInput/TextInput";
+import Label from "../../components/Label/Label";
+import { Button } from "../../components/Button/Button";
+import ArrowRight from "../../images/icons/ArrowRight";
+import { IinitialState } from "../../redux/configureStore";
+import Star from "../../images/icons/Star";
+import Article from "../../components/Article/Article";
+import TopBar from "../../components/TopBar/TopBar";
+import Navigation from "../../components/Navigation/Navigation";
+import Footer from "../../components/Footer/Footer";
 
 const StyledFormContainer = styled.div`
   background-color: ${props => props.theme.formContainerBackgroundColor};
