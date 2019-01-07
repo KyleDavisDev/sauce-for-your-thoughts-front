@@ -15,6 +15,7 @@ import {
   StyledText,
   StyledButton
 } from "./RegisterStyle";
+import { IRegisterUser } from "../../redux/users/types";
 
 export interface RegisterProps {
   register: any;
@@ -139,7 +140,8 @@ class Register extends React.Component<RegisterProps, RegisterState> {
       return;
     }
 
-    this.props.register({ credentials: this.state });
+    const credentials: IRegisterUser = { user: this.state };
+    this.props.register({ credentials });
   };
 }
 
