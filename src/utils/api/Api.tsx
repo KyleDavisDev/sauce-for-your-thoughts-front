@@ -1,4 +1,6 @@
 import axios from "axios";
+import { IRegisterUser } from "../../redux/users/types";
+
 export const host =
   process.env.API_ENV === "prod"
     ? "https://sauceforyourthoughts.com"
@@ -6,8 +8,9 @@ export const host =
 
 export const API = {
   user: {
-    register: credentials =>
+    register: (credentials: IRegisterUser) =>
       axios.post(`${host}/api/user/register`, credentials).then(res => {
+        console.log(res);
         if (res.data.isGood) {
           return res.data;
         }
