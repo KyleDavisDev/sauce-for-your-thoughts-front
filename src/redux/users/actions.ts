@@ -100,11 +100,11 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
   dispatch: any
 ) => {
   console.log(credentials);
-  // return API.user.register(credentials).then(res => {
-  //   const { token } = res.data.user;
-  //   console.log(token);
-  // Auth.authenticateUser({ token });
-  // dispatch(userLoggedIn({ token }));
-  // dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
-  // });
+  return API.user.register(credentials).then(res => {
+    const { token } = res.data.user;
+    console.log(token);
+    // Auth.authenticateUser({ token });
+    // dispatch(userLoggedIn({ token }));
+    // dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
+  });
 };
