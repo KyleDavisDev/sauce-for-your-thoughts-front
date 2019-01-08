@@ -85,12 +85,7 @@ import { IRegisterUser } from "./types";
 //   });
 
 /** @description pass credentials to server to register user
- *  @param {Object} credentials - all encompassing object
- *    @param {Object} credentials.user - user container
- *      @param {String} credentials.user.name - user's name
- *      @param {String} credentials.user.email - user email (used for logging in)
- *      @param {String} credentials.user.password - password for account
- *      @param {String} credentials.user.confirmPassword - password that the user typed in for the second time
+ *  @param {IRegisterUser} credentials - all encompassing object
  *  @fires auth#userLoggedIn - set self.token in redux store
  *  @fires flash#flashSuccess - prompt success message for user
  *  @return {Promise}
@@ -98,7 +93,7 @@ import { IRegisterUser } from "./types";
  */
 export const register = ({ credentials }: { credentials: IRegisterUser }) => (
   dispatch: any
-) => {
+): Promise<any> => {
   console.log(credentials);
   return API.user.register(credentials).then(res => {
     const { token } = res.data.user;
