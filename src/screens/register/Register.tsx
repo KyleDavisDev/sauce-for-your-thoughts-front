@@ -127,7 +127,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
     });
   };
 
-  private onSubmit = (event: React.FormEvent): void => {
+  private onSubmit = async (event: React.FormEvent): Promise<any> => {
     event.preventDefault();
 
     if (this.state.email !== this.state.confirmEmail) {
@@ -141,7 +141,11 @@ class Register extends React.Component<RegisterProps, RegisterState> {
     }
 
     const credentials: IRegisterUser = { user: this.state };
-    this.props.register({ credentials });
+    try {
+      await this.props.register({ credentials });
+    } catch (err) {
+      console.log(err.response.data.msg);
+    }
   };
 }
 
