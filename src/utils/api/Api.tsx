@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosPromise } from "axios";
 import { IRegisterUser } from "../../redux/users/types";
 
 export const host =
@@ -8,9 +8,8 @@ export const host =
 
 export const API = {
   user: {
-    register: (credentials: IRegisterUser) =>
+    register: (credentials: IRegisterUser): AxiosPromise =>
       axios.post(`${host}/api/user/register`, credentials).then(res => {
-        console.log(res);
         if (res.data.isGood) {
           return res.data;
         }
