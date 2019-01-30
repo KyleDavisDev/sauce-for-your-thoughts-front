@@ -4,6 +4,11 @@ export interface IAction {
   text?: string;
 }
 
+export interface IParam {
+  text: string;
+  slug: null | string;
+}
+
 // Use const enums for better autocompletion of action type names. These will
 // be compiled away leaving only the final value in your compiled code.
 export const enum FlashMessageActionTypes {
