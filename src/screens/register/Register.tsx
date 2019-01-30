@@ -1,12 +1,14 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
+import { register } from "../../redux/users/actions";
+import { flashError } from "../../redux/flashMessage/actions";
+import { IRegisterUser } from "../../redux/users/types";
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import TextInput from "../../components/TextInput/TextInput";
 import { Link } from "../../components/Link/Link";
 import { IinitialState } from "../../redux/configureStore";
-import { register } from "../../redux/users/actions";
 import {
   StyledDiv,
   StyledLogoContainer,
@@ -15,10 +17,11 @@ import {
   StyledText,
   StyledButton
 } from "./RegisterStyle";
-import { IRegisterUser } from "../../redux/users/types";
+import FlashMessage from "../../components/FlashMessage/FlashMessage";
 
 export interface RegisterProps {
   register: any;
+  flashError: any;
 }
 
 export interface RegisterState {
@@ -55,6 +58,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
         <StyledArticle>
           <PageTitle>Register</PageTitle>
           <StyledFormContainer>
+            <FlashMessage />
             <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
               <TextInput
                 type="text"
@@ -145,6 +149,8 @@ class Register extends React.Component<RegisterProps, RegisterState> {
       await this.props.register({ credentials });
     } catch (err) {
       console.log(err.response.data.msg);
+      // Create warning flash
+      this.props.flashError({ text: err.response.data.msg });
     }
   };
 }
@@ -154,7 +160,8 @@ const mapState2Props = (state: IinitialState) => {
 };
 
 const mapDispatch2Props = {
-  register
+  register,
+  flashError
 };
 
 export default connect(
