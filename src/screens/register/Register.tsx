@@ -17,7 +17,10 @@ import {
   StyledText,
   StyledButton
 } from "./RegisterStyle";
-import FlashMessage from "../../components/FlashMessage/FlashMessage";
+import {
+  FlashMessage,
+  FlashMessageProps
+} from "../../components/FlashMessage/FlashMessage";
 
 export interface RegisterProps {
   register: any;
@@ -30,6 +33,7 @@ export interface RegisterState {
   password: string;
   confirmPassword: string;
   displayName: string;
+  flashMessage: FlashMessageProps;
 }
 
 class Register extends React.Component<RegisterProps, RegisterState> {
@@ -42,7 +46,10 @@ class Register extends React.Component<RegisterProps, RegisterState> {
       confirmEmail: "",
       password: "",
       confirmPassword: "",
-      displayName: ""
+      displayName: "",
+      flashMessage: {
+        isVisible: false
+      }
     };
   }
 
@@ -58,7 +65,11 @@ class Register extends React.Component<RegisterProps, RegisterState> {
         <StyledArticle>
           <PageTitle>Register</PageTitle>
           <StyledFormContainer>
-            <FlashMessage />
+            {this.state.flashMessage.isVisible && (
+              <FlashMessage type={this.state.flashMessage.type} isVisible>
+                {this.state.flashMessage.text}
+              </FlashMessage>
+            )}
             <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
               <TextInput
                 type="text"
@@ -135,12 +146,27 @@ class Register extends React.Component<RegisterProps, RegisterState> {
     event.preventDefault();
 
     if (this.state.email !== this.state.confirmEmail) {
-      window.alert("Your emails do not match. Please correct.");
+      // window.alert("Your emails do not match. Please correct.");
+      this.setState({
+        flashMessage: {
+          isVisible: true,
+          text: "Your emails do not match. Please fix this before continuing.",
+          type: "warning"
+        }
+      });
       return;
     }
 
     if (this.state.password !== this.state.confirmPassword) {
-      window.alert("Your passwords do not match. Please correct.");
+      // window.alert("Your passwords do not match. Please correct.");
+      this.setState({
+        flashMessage: {
+          isVisible: true,
+          text:
+            "Your passwords do not match. Please fix this before continuing.",
+          type: "warning"
+        }
+      });
       return;
     }
 
@@ -148,9 +174,14 @@ class Register extends React.Component<RegisterProps, RegisterState> {
     try {
       await this.props.register({ credentials });
     } catch (err) {
-      console.log(err.response.data.msg);
       // Create warning flash
-      this.props.flashError({ text: err.response.data.msg });
+      this.setState({
+        flashMessage: {
+          isVisible: true,
+          text: err.response.data.msg,
+          type: "alert"
+        }
+      });
     }
   };
 }
