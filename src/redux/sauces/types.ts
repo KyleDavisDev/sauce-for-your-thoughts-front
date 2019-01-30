@@ -2,11 +2,11 @@ import { ISauce } from "../sauce/types";
 
 // Used for action emitters and reducer
 export interface ISaucesAction {
-  readonly type: string;
-  readonly total?: number;
-  readonly query?: IQuery;
-  readonly byId?: { [key: string]: ISauce };
-  readonly allIds?: number[];
+  type: string;
+  total?: number;
+  query?: IQuery;
+  byId?: { [key: string]: ISauce };
+  allIds?: number[];
 }
 
 export interface IQuery {
@@ -15,10 +15,6 @@ export interface IQuery {
 
 // Use const enums for better autocompletion of action type names. These will
 // be compiled away leaving only the final value in your compiled code.
-//
-// Define however naming conventions you'd like for your action types, but
-// personally, I use the `@@context/ACTION_TYPE` convention, to follow the convention
-// of Redux's `@@INIT` action.
 export const enum SaucesActionTypes {
   SAUCES_ADDED = "@@sauces/SAUCES_ADDED",
   UPDATE_SAUCE = "@@sauces/UPDATE_SAUCE",
@@ -27,11 +23,9 @@ export const enum SaucesActionTypes {
 }
 
 // Used for state
-// Declare state types with `readonly` modifier to get compile time immutability.
-// https://github.com/piotrwitek/react-redux-typescript-guide#state-with-type-level-immutability
 export interface ISaucesState {
-  readonly allIds: number[];
-  readonly byId: null | { [key: string]: ISauce };
-  readonly total: null | number;
-  readonly query: null | IQuery;
+  allIds: number[];
+  byId: null | { [key: string]: ISauce };
+  total: null | number;
+  query: null | IQuery;
 }
