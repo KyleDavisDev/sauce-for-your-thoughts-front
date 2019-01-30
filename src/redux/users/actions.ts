@@ -94,7 +94,6 @@ import { IRegisterUser } from "./types";
 export const register = ({ credentials }: { credentials: IRegisterUser }) => (
   dispatch: any
 ): Promise<any> => {
-  console.log(credentials);
   return API.user.register(credentials).then(res => {
     const { token } = res.data.user;
     console.log(token);
