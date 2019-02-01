@@ -25,6 +25,7 @@ import {
 export interface RegisterProps {
   register: any;
   flashError: any;
+  history: { push: (location: string) => null };
 }
 
 export interface RegisterState {
@@ -172,7 +173,11 @@ class Register extends React.Component<RegisterProps, RegisterState> {
 
     const credentials: IRegisterUser = { user: this.state };
     try {
+      // dispatch action which calls API to register user
       await this.props.register({ credentials });
+
+      // Redirect user to sauces page -- Maybe take them to user home page instead?
+      this.props.history.push("/sauces");
     } catch (err) {
       // Create warning flash
       this.setState({
