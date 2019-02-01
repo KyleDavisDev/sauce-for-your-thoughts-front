@@ -9,6 +9,14 @@ export interface ISaucesAction {
   allIds?: number[];
 }
 
+// Used for redux state
+export interface ISaucesState {
+  allIds: number[];
+  byId: null | { [key: string]: ISauce };
+  total: null | number;
+  query: null | IQuery;
+}
+
 export interface IQuery {
   [key: string]: { sauces: number[] };
 }
@@ -20,12 +28,4 @@ export const enum SaucesActionTypes {
   UPDATE_SAUCE = "@@sauces/UPDATE_SAUCE",
   SAUCES_BY_TAG_FOUND = "@@sauces/SAUCES_BY_TAG_FOUND",
   SAUCE_FOUND = "@@sauces/SAUCE_FOUND"
-}
-
-// Used for state
-export interface ISaucesState {
-  allIds: number[];
-  byId: null | { [key: string]: ISauce };
-  total: null | number;
-  query: null | IQuery;
 }
