@@ -36,6 +36,14 @@ export interface IRegisterUser {
   };
 }
 
+// Login user
+export interface ILoginUser {
+  user: {
+    email: string;
+    password: string;
+  };
+}
+
 // Use const enums for better autocompletion of action type names. These will
 // be compiled away leaving only the final value in your compiled code.
 export const enum UsersActionTypes {
