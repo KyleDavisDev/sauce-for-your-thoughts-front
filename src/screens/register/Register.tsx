@@ -2,7 +2,6 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import { register } from "../../redux/users/actions";
-import { flashError } from "../../redux/flashMessage/actions";
 import { IRegisterUser } from "../../redux/users/types";
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import PageTitle from "../../components/PageTitle/PageTitle";
@@ -24,7 +23,6 @@ import {
 
 export interface RegisterProps {
   register: any;
-  flashError: any;
   history: { push: (location: string) => null };
 }
 
@@ -206,8 +204,7 @@ const mapState2Props = (state: IinitialState) => {
 };
 
 const mapDispatch2Props = {
-  register,
-  flashError
+  register
 };
 
 export default connect(
