@@ -1,7 +1,8 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import LogoSFYT from "../../images/icons/LogoSFYT";
+
 import styled from "styled-components";
+import LogoSFYT from "../../images/icons/LogoSFYT";
 import Article from "../../components/Article/Article";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import TextInput from "../../components/TextInput/TextInput";
@@ -9,6 +10,7 @@ import { Button } from "../../components/Button/Button";
 import { Link } from "../../components/Link/Link";
 import { IinitialState } from "../../redux/configureStore";
 import { ILoginUser } from "../../redux/users/types";
+import { login } from "../../redux/users/actions";
 import {
   FlashMessageProps,
   FlashMessage
@@ -48,6 +50,8 @@ const StyledText = styled.p`
 
 export interface LoginProps {
   history: { push: (location: string) => null };
+  // login: ({ credentials }: { credentials: ILoginUser }) => Promise<any>;
+  login: any;
 }
 
 export interface LoginState {
@@ -106,9 +110,7 @@ class Login extends React.Component<LoginProps, LoginState> {
                 value={this.state.password}
                 required={true}
               />
-              <StyledButton type="button" onClick={() => {}}>
-                Login
-              </StyledButton>
+              <StyledButton type="submit">Login</StyledButton>
 
               <StyledText>
                 <Link to="#">Forgot your username or password?</Link>
@@ -138,10 +140,13 @@ class Login extends React.Component<LoginProps, LoginState> {
     });
   };
 
-  private onSubmit = (event: React.FormEvent): void => {
+  private onSubmit = async (event: React.FormEvent): Promise<any> => {
     event.preventDefault();
 
-    const credentials: ILoginUser = { user: this.state };
+    const credentials: ILoginUser = {
+      user: { email: this.state.email, password: this.state.password }
+    };
+    console.log(credentials);
     try {
       // dispatch action which calls API to login user
       await this.props.login({ credentials });
@@ -165,7 +170,11 @@ const mapState2Props = (state: IinitialState) => {
   return {};
 };
 
+const mapDispatch2Props = {
+  login
+};
+
 export default connect(
   mapState2Props,
-  null
+  mapDispatch2Props
 )(Login);
