@@ -151,7 +151,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
         flashMessage: {
           isVisible: true,
           text: "Your emails do not match. Please fix this before continuing.",
-          type: "warning"
+          type: "alert"
         }
       });
       return;
@@ -164,7 +164,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
           isVisible: true,
           text:
             "Your passwords do not match. Please fix this before continuing.",
-          type: "warning"
+          type: "alert"
         }
       });
       return;
@@ -179,7 +179,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
         flashMessage: {
           isVisible: true,
           text: err.response.data.msg,
-          type: "alert"
+          type: "warning"
         }
       });
     }
