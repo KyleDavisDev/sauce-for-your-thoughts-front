@@ -1,26 +1,40 @@
-export default function user(state = {}, action) {
+import { UsersActionTypes, IUserState, IUserAction } from "./types";
+import { Reducer } from "redux";
+
+const initialState: IUserState = {
+  self: {},
+  byId: {},
+  allIds: [""]
+};
+
+const userReducer: Reducer<IUserState> = (
+  state: IUserState = initialState,
+  action: IUserAction
+): IUserState => {
   switch (action.type) {
-    case "USER_LOGGED_IN":
+    case UsersActionTypes.USER_LOGGED_IN:
       return {
         ...state,
-        token: action.token
+        self: { token: action.token }
       };
-    case "USER_GOT_INFO":
-      return {
-        ...state,
-        email: action.email,
-        name: action.name
-      };
-    case "USER_UPDATED":
-      return {
-        ...state,
-        email: action.email,
-        name: action.name
-      };
-    case "USER_LOGGED_OUT":
-      return {};
+    // case UsersActionTypes.USER_GOT_INFO:
+    //   return {
+    //     ...state,
+    //     email: action.email,
+    //     name: action.name
+    //   };
+    // case UsersActionTypes.USER_UPDATED:
+    //   return {
+    //     ...state,
+    //     email: action.email,
+    //     name: action.name
+    //   };
+    // case UsersActionTypes.USER_LOGGED_OUT:
+    //   return {};
 
     default:
       return state;
   }
-}
+};
+
+export default userReducer;
