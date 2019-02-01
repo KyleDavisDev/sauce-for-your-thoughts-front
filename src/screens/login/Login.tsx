@@ -8,6 +8,11 @@ import TextInput from "../../components/TextInput/TextInput";
 import { Button } from "../../components/Button/Button";
 import { Link } from "../../components/Link/Link";
 import { IinitialState } from "../../redux/configureStore";
+import { ILoginUser } from "../../redux/users/types";
+import {
+  FlashMessageProps,
+  FlashMessage
+} from "../../components/FlashMessage/FlashMessage";
 
 const StyledDiv = styled.div`
   height: 100vh;
@@ -41,11 +46,14 @@ const StyledText = styled.p`
   margin: 0.5em auto;
 `;
 
-export interface LoginProps {}
+export interface LoginProps {
+  history: { push: (location: string) => null };
+}
 
 export interface LoginState {
   email: string;
   password: string;
+  flashMessage: FlashMessageProps;
 }
 
 class Login extends React.Component<LoginProps, LoginState> {
@@ -55,7 +63,10 @@ class Login extends React.Component<LoginProps, LoginState> {
     // Init state
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      flashMessage: {
+        isVisible: false
+      }
     };
   }
 
@@ -71,6 +82,11 @@ class Login extends React.Component<LoginProps, LoginState> {
         <StyledArticle>
           <PageTitle>Login</PageTitle>
           <StyledFormContainer>
+            {this.state.flashMessage.isVisible && (
+              <FlashMessage type={this.state.flashMessage.type} isVisible>
+                {this.state.flashMessage.text}
+              </FlashMessage>
+            )}
             <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
               <TextInput
                 type="text"
@@ -124,6 +140,24 @@ class Login extends React.Component<LoginProps, LoginState> {
 
   private onSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
+
+    const credentials: ILoginUser = { user: this.state };
+    try {
+      // dispatch action which calls API to login user
+      await this.props.login({ credentials });
+
+      // Redirect user to sauces page -- Maybe take them to user home page instead?
+      this.props.history.push("/sauces");
+    } catch (err) {
+      // Create warning flash
+      this.setState({
+        flashMessage: {
+          isVisible: true,
+          text: err.response.data.msg,
+          type: "warning"
+        }
+      });
+    }
   };
 }
 
