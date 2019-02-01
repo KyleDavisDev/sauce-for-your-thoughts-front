@@ -1,21 +1,15 @@
 import { API } from "../../utils/api/API";
-import { IRegisterUser } from "./types";
-// import { flashSuccess } from "./flash";
+import { IRegisterUser, UsersActionTypes } from "./types";
 
 // export const addUsers = ({ users }) => ({
 //   type: "USERS_ADDED",
 //   users
 // });
 
-// export const gotHearts = ({ hearts }) => ({
-//   type: "GOT_HEARTS",
-//   hearts
-// });
-
-// export const toggledHeart = ({ sauce }) => ({
-//   type: "TOGGLED_HEART",
-//   sauce
-// });
+export const userLoggedIn = ({ token }: { token: string }) => ({
+  type: UsersActionTypes.USER_LOGGED_IN,
+  token
+});
 
 // export const gotUserInfo = ({ _id, email, name }) => ({
 //   type: "USERS_SET_INFO",
@@ -87,7 +81,6 @@ import { IRegisterUser } from "./types";
 /** @description pass credentials to server to register user
  *  @param {IRegisterUser} credentials - all encompassing object
  *  @fires auth#userLoggedIn - set self.token in redux store
- *  @fires flash#flashSuccess - prompt success message for user
  *  @return {Promise}
  *    @return {NULL}
  */
@@ -95,10 +88,9 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
   dispatch: any
 ): Promise<any> => {
   return API.user.register(credentials).then(res => {
+    // Grab Token
     const { token } = res.data.user;
-    console.log(token);
-    // Auth.authenticateUser({ token });
-    // dispatch(userLoggedIn({ token }));
-    // dispatch(flashSuccess({ text: "Successfully logged in. Thank you!" }));
+
+    dispatch(userLoggedIn({ token }));
   });
 };
