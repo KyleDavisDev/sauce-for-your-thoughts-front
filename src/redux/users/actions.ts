@@ -1,5 +1,5 @@
 import { API } from "../../utils/api/API";
-import { IRegisterUser, UsersActionTypes } from "./types";
+import { IRegisterUser, UsersActionTypes, ILoginUser } from "./types";
 
 // export const addUsers = ({ users }) => ({
 //   type: "USERS_ADDED",
@@ -79,8 +79,8 @@ export const userLoggedIn = ({ token }: { token: string }) => ({
 //   });
 
 /** @description pass credentials to server to register user
- *  @param {IRegisterUser} credentials - all encompassing object
- *  @fires auth#userLoggedIn - set self.token in redux store
+ *  @param {IRegisterUser} credentials - credentials object
+ *  @fires user#userLoggedIn - set self.token in redux store
  *  @return {Promise}
  *    @return {NULL}
  */
@@ -91,6 +91,24 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
     // Grab Token
     const { token } = res.data.user;
 
+    dispatch(userLoggedIn({ token }));
+  });
+};
+
+/** @description pass credentials to server to log user in
+ *  @param {ILoginUser} credentials - credentials object
+ *  @fires user#userLoggedIn - set self.token in redux store
+ * @return {Promise}
+ *    @return {NULL}
+ */
+export const login = ({ credentials }: { credentials: ILoginUser }) => (
+  dispatch: any
+): Promise<any> => {
+  return API.user.login(credentials).then(res => {
+    // Grab Token
+    const { token } = res.data.user;
+
+    // Dispatch user login
     dispatch(userLoggedIn({ token }));
   });
 };
