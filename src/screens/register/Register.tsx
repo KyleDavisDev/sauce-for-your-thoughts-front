@@ -147,7 +147,6 @@ class Register extends React.Component<RegisterProps, RegisterState> {
     event.preventDefault();
 
     if (this.state.email !== this.state.confirmEmail) {
-      // window.alert("Your emails do not match. Please correct.");
       this.setState({
         flashMessage: {
           isVisible: true,
@@ -159,12 +158,23 @@ class Register extends React.Component<RegisterProps, RegisterState> {
     }
 
     if (this.state.password !== this.state.confirmPassword) {
-      // window.alert("Your passwords do not match. Please correct.");
       this.setState({
         flashMessage: {
           isVisible: true,
           text:
             "Your passwords do not match. Please fix this before continuing.",
+          type: "alert"
+        }
+      });
+      return;
+    }
+
+    if (this.state.password.length < 8) {
+      this.setState({
+        flashMessage: {
+          isVisible: true,
+          text:
+            "Your password is too weak! Please make your password over 8 characters long.",
           type: "alert"
         }
       });
