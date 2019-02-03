@@ -1,17 +1,15 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "../Link/Link";
+import { connect } from "react-redux";
 
 import styled from "../../theme/styled-components";
 
 // SVG icons
 import UserIcon from "../../images/icons/UserIcon";
 import LoginIcon from "../../images/icons/LoginIcon";
+import { IinitialState } from "../../redux/configureStore";
 
-export interface TopBarProps {
-  isLoggedIn?: boolean;
-}
-
-const Div = styled.div`
+const StyledDiv = styled.div`
   background-color: ${props => props.theme.white};
   display: flex;
   flex-direction: row;
@@ -36,22 +34,46 @@ const StyledLink = styled(Link)`
   }
 `;
 
+export interface TopBarProps {
+  isLoggedIn?: boolean;
+}
+
 const TopBar: React.SFC<TopBarProps> = props => {
   return (
-    <Div>
-      <StyledLink to="/register">
-        <UserIcon />
-        Register
-      </StyledLink>
-      <StyledLink to="/login">
-        <LoginIcon />
-        Log in
-      </StyledLink>
-    </Div>
+    <div>
+      {props.isLoggedIn ? (
+        <StyledDiv>
+          <StyledLink to="/login">
+            <LoginIcon />
+            Log in
+          </StyledLink>
+        </StyledDiv>
+      ) : (
+        <StyledDiv>
+          <StyledLink to="/register">
+            <UserIcon />
+            Register
+          </StyledLink>
+          <StyledLink to="/login">
+            <LoginIcon />
+            Log in
+          </StyledLink>
+        </StyledDiv>
+      )}
+    </div>
   );
 };
 TopBar.defaultProps = {
   isLoggedIn: false
 };
 
-export default TopBar;
+const mapState2Props = (state: IinitialState) => {
+  return { isLoggedIn: !!state.users.self.token };
+};
+
+const mapDispatch2Props = {};
+
+export default connect(
+  mapState2Props,
+  mapDispatch2Props
+)(TopBar);
