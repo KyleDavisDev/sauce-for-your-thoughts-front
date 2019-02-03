@@ -146,7 +146,6 @@ class Login extends React.Component<LoginProps, LoginState> {
     const credentials: ILoginUser = {
       user: { email: this.state.email, password: this.state.password }
     };
-    console.log(credentials);
     try {
       // dispatch action which calls API to login user
       await this.props.login({ credentials });
