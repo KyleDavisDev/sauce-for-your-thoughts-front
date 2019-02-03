@@ -3,7 +3,11 @@ import { Link as DOMLink } from "react-router-dom";
 import styled from "../../theme/styled-components";
 
 interface LinkProps {
-  children: string | Element | JSX.Element;
+  children:
+    | string
+    | Element
+    | JSX.Element
+    | Array<string | Element | JSX.Element>;
   to: string;
   className?: string;
 }
