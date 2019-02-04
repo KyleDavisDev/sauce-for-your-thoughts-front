@@ -7,32 +7,55 @@ export interface DropdownProps {
   children: JSX.Element[];
 }
 
-export interface DropdownState {}
+export interface DropdownState {
+  active: boolean;
+}
 
 class Dropdown extends React.Component<DropdownProps, DropdownState> {
   constructor(props: DropdownProps) {
     super(props);
 
-    this.state = {};
+    this.state = { active: false };
   }
 
   public render() {
-    let TriggerChild = null;
-    let BodyChild = null;
-    this.props.children.map(child => {
-      // Not sure why ts is flagging error here
-      if (child.type.displayName === "Trigger") {
+    let TriggerChild: null | JSX.Element = null;
+    let BodyChild: null | JSX.Element = null;
+
+    for (let i = 0, len = this.props.children.length; i < len; i++) {
+      // Grab child
+      const child: JSX.Element = this.props.children[i];
+
+      // Grab first Trigger elem
+      if (child.type.displayName === "Trigger" && TriggerChild === null) {
         TriggerChild = React.cloneElement(child, {});
       }
-    });
+
+      // Grab first Body elem
+      if (child.type.displayName === "Body" && BodyChild === null) {
+        BodyChild = React.cloneElement(child, {});
+      }
+
+      // If both are assigned, we can leave the loop
+      if (TriggerChild !== null && BodyChild !== null) break;
+    }
 
     return (
       <div>
         {TriggerChild}
-        <Body>More stuff here</Body>
+        {BodyChild}
       </div>
     );
   }
+
+  private _onToggleClick = (event: React.MouseEvent): void => {
+    event.preventDefault();
+    if (this.isActive()) {
+      this.hide();
+    } else {
+      this.show();
+    }
+  };
 }
 
 export { Trigger, Body, Dropdown };
