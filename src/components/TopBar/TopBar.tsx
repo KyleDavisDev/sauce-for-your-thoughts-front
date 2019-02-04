@@ -3,6 +3,7 @@ import { Link } from "../Link/Link";
 import { connect } from "react-redux";
 
 import styled from "../../theme/styled-components";
+import { Dropdown, Trigger, Body } from "./components/Dropdown/Dropdown";
 
 // SVG icons
 import UserIcon from "../../images/icons/UserIcon";
@@ -43,6 +44,10 @@ const TopBar: React.SFC<TopBarProps> = props => {
     <div>
       {props.isLoggedIn ? (
         <StyledDiv>
+          <Dropdown>
+            <Trigger>change text here</Trigger>
+            <Body>yo</Body>
+          </Dropdown>
           <StyledLink to="/login">
             <LoginIcon />
             Log in
