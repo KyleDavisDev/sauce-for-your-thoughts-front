@@ -20,12 +20,12 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     let TriggerChild = null;
     let BodyChild = null;
     this.props.children.map(child => {
+      // Not sure why ts is flagging error here
       if (child.type.displayName === "Trigger") {
         TriggerChild = React.cloneElement(child, {});
       }
     });
 
-    console.log(TriggerChild);
     return (
       <div>
         {TriggerChild}
