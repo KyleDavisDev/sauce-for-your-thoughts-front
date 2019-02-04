@@ -1,5 +1,17 @@
 import * as React from "react";
 
+import styled from "../../../../theme/styled-components";
+
+const StyledButton = styled.button`
+  background: none;
+  border: 0px;
+  padding: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 interface TriggerProps {
   children:
     | string
@@ -10,7 +22,9 @@ interface TriggerProps {
 }
 
 const Trigger: React.SFC<TriggerProps> = props => {
-  return <a className={props.className}>{props.children}</a>;
+  return (
+    <StyledButton className={props.className}>{props.children}</StyledButton>
+  );
 };
 Trigger.displayName = "Trigger";
 
