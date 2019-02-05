@@ -6,8 +6,10 @@ const StyledButton = styled.button`
   background: none;
   border: 0px;
   padding: 5px;
+  outline: none;
 
   &:hover {
+    outline: none;
     cursor: pointer;
   }
 `;
@@ -19,11 +21,14 @@ interface TriggerProps {
     | JSX.Element
     | Array<string | Element | JSX.Element>;
   className?: string;
+  onClick?: () => any;
 }
 
 const Trigger: React.SFC<TriggerProps> = props => {
   return (
-    <StyledButton className={props.className}>{props.children}</StyledButton>
+    <StyledButton className={props.className} onClick={props.onClick}>
+      {props.children}
+    </StyledButton>
   );
 };
 Trigger.displayName = "Trigger";
