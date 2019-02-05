@@ -35,6 +35,10 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const StyledNavigationBlock = styled.div`
+  background-color: ${props => props.theme.white};
+`;
+
 export interface TopBarProps {
   isLoggedIn?: boolean;
 }
@@ -45,8 +49,16 @@ const TopBar: React.SFC<TopBarProps> = props => {
       {props.isLoggedIn ? (
         <StyledDiv>
           <Dropdown>
-            <Trigger>change text here</Trigger>
-            <Body>yo</Body>
+            <Trigger>ME</Trigger>
+            <Body>
+              <StyledNavigationBlock>
+                <ul>
+                  <li>something</li>
+                  <li>something2</li>
+                  <li>something3</li>
+                </ul>
+              </StyledNavigationBlock>
+            </Body>
           </Dropdown>
           <StyledLink to="/login">
             <LoginIcon />
