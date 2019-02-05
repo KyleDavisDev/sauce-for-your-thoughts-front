@@ -5,6 +5,8 @@ import Body from "../Body/Body";
 
 export interface DropdownProps {
   children: JSX.Element[];
+  onClose?: () => void;
+  onOpen?: () => void;
 }
 
 export interface DropdownState {
@@ -28,7 +30,11 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
 
       // Grab first Trigger elem
       if (child.type.displayName === "Trigger" && TriggerChild === null) {
-        TriggerChild = React.cloneElement(child, {});
+        TriggerChild = React.cloneElement(child, {
+          onClick: (event: React.MouseEvent) => {
+            this.onToggleClick(event); // pass onclick to child
+          }
+        });
       }
 
       // Grab first Body elem
@@ -43,18 +49,46 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     return (
       <div>
         {TriggerChild}
-        {BodyChild}
+        {this.state.active && BodyChild}
       </div>
     );
   }
 
-  private _onToggleClick = (event: React.MouseEvent): void => {
+  private onToggleClick = (event: React.MouseEvent): void => {
     event.preventDefault();
-    if (this.isActive()) {
-      this.hide();
-    } else {
-      this.show();
-    }
+
+    // Show or hide BodyChild based on state
+    this.isActive() ? this.close() : this.open();
+  };
+
+  private isActive = (): boolean => {
+    return this.state.active;
+  };
+
+  private close = (): void => {
+    this.setState(
+      {
+        active: false
+      },
+      () => {
+        if (this.props.onClose) {
+          this.props.onClose(); // Call passed function if there
+        }
+      }
+    );
+  };
+
+  private open = (): void => {
+    this.setState(
+      {
+        active: true
+      },
+      () => {
+        if (this.props.onOpen) {
+          this.props.onOpen(); // Call passed function if there
+        }
+      }
+    );
   };
 }
 
