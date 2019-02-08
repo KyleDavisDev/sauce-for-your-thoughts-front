@@ -3,8 +3,13 @@ import { connect } from "react-redux";
 
 import styled from "../../../../theme/styled-components";
 import { IinitialState } from "../../../../redux/configureStore";
+import Profile from "./components/Profile/Profile";
 
 const StyledUL = styled.ul`
+  max-height: calc(100vh - 52px - 16px);
+  overflow-y: auto;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   background-color: ${props => props.theme.white};
 `;
 
@@ -14,7 +19,9 @@ class Menu extends React.Component<MenuProps, any> {
   public render() {
     return (
       <StyledUL>
-        <li>something</li>
+        <li>
+          <Profile />
+        </li>
         <li>something2</li>
         <li>something3</li>
       </StyledUL>
