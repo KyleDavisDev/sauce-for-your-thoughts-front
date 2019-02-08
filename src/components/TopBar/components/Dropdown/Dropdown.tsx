@@ -3,6 +3,7 @@ import * as React from "react";
 import Trigger from "../Trigger/Trigger";
 import Body from "../Body/Body";
 import styled from "styled-components";
+import { findDOMNode } from "react-dom";
 
 const StyledDiv = styled.div`
   position: relative;
@@ -24,6 +25,16 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     super(props);
 
     this.state = { active: false };
+  }
+
+  public componentDidMount() {
+    // Needs to be removed when component unmounts
+    window.addEventListener("click", this.onWindowClick);
+  }
+
+  public componentWillUnmount() {
+    // No need to have global click event when component unmounted
+    window.removeEventListener("click", this.onWindowClick);
   }
 
   public render() {
@@ -103,6 +114,23 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
         }
       }
     );
+  };
+
+  private onWindowClick = (event: any): void => {
+    // Simple check to see if we need to do the more heavy-lifting stuff or not
+    if (!this.isActive()) return;
+
+    // Find Dropdown elemtn
+    const dropDownElem = findDOMNode(this);
+
+    if (dropDownElem === null) return;
+
+    if (
+      event.target !== dropDownElem && // If the clicked element is NOT Dropdown iteself
+      !dropDownElem.contains(event.target) // If the clicked element isn't contained inside of Dropdown
+    ) {
+      this.close(); // Close dropdown
+    }
   };
 }
 
