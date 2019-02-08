@@ -13,6 +13,7 @@ const StyledUL = styled.ul`
   background-color: ${props => props.theme.white};
   list-style: none;
   padding: 0;
+  line-height: initial;
 `;
 
 export interface MenuProps {}
