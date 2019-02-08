@@ -36,6 +36,11 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const StyledDropDown = styled(Dropdown)``;
+const StyledBody = styled(Body)`
+  // margin-top: 15px;
+`;
+
 export interface TopBarProps {
   isLoggedIn?: boolean;
   displayName?: string;
@@ -46,12 +51,12 @@ const TopBar: React.SFC<TopBarProps> = props => {
     <div>
       {props.isLoggedIn ? (
         <StyledDiv>
-          <Dropdown>
+          <StyledDropDown>
             <Trigger>{props.displayName || "Me"}</Trigger>
-            <Body>
+            <StyledBody>
               <Menu />
-            </Body>
-          </Dropdown>
+            </StyledBody>
+          </StyledDropDown>
           <StyledLink to="/login">
             <LoginIcon />
             Log in
