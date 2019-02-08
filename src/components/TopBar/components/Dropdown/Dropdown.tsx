@@ -116,18 +116,23 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     );
   };
 
-  private onWindowClick = (event: any): void => {
+  private onWindowClick = (event: React.MouseEvent<Element>): void => {
     // Simple check to see if we need to do the more heavy-lifting stuff or not
     if (!this.isActive()) return;
 
-    // Find Dropdown elemtn
+    // Find Dropdown elemt
     const dropDownElem = findDOMNode(this);
 
+    // Get targetted elem
+    const elem: EventTarget = event.target;
+
+    // Sanity checks
     if (dropDownElem === null) return;
+    if (!(elem instanceof Node)) return;
 
     if (
       event.target !== dropDownElem && // If the clicked element is NOT Dropdown iteself
-      !dropDownElem.contains(event.target) // If the clicked element isn't contained inside of Dropdown
+      !dropDownElem.contains(elem) // If the clicked element isn't contained inside of Dropdown
     ) {
       this.close(); // Close dropdown
     }
