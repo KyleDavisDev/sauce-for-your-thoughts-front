@@ -27,7 +27,7 @@ export interface IinitialState {
     query?: IQuery;
   };
   users: {
-    self: { token?: string; displayName?: string };
+    self: { token?: string; displayName?: string; avatar?: string };
     byId?: { [key: string]: IUser };
     allIds?: string[];
   };

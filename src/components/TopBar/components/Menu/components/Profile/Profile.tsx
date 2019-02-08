@@ -1,4 +1,5 @@
 import * as React from "react";
+import { connect } from "react-redux";
 
 import {
   StyledLink,
@@ -7,7 +8,6 @@ import {
   StyledFoot
 } from "./ProfileStyle";
 import { Button } from "../../../../../Button/Button";
-import { connect } from "react-redux";
 import { IinitialState } from "../../../../../../redux/configureStore";
 
 interface ProfileProps {
@@ -43,7 +43,10 @@ class Profile extends React.PureComponent<ProfileProps, any> {
 }
 
 const mapState2Props = (state: IinitialState) => {
-  return { displayName: state.users.self.displayName };
+  return {
+    displayName: state.users.self.displayName,
+    avatar: state.users.self.avatar
+  };
 };
 
 export default connect(mapState2Props)(Profile);
