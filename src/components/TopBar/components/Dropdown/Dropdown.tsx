@@ -2,6 +2,11 @@ import * as React from "react";
 
 import Trigger from "../Trigger/Trigger";
 import Body from "../Body/Body";
+import styled from "styled-components";
+
+const StyledDiv = styled.div`
+  position: relative;
+`;
 
 export interface DropdownProps {
   children: JSX.Element[];
@@ -51,10 +56,10 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     }
 
     return (
-      <div className={this.props.className}>
+      <StyledDiv className={this.props.className}>
         {TriggerChild}
         {this.state.active && BodyChild}
-      </div>
+      </StyledDiv>
     );
   }
 
