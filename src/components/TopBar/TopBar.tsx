@@ -9,6 +9,7 @@ import { Dropdown, Trigger, Body } from "./components/Dropdown/Dropdown";
 import UserIcon from "../../images/icons/UserIcon";
 import LoginIcon from "../../images/icons/LoginIcon";
 import { IinitialState } from "../../redux/configureStore";
+import Menu from "./components/Menu/Menu";
 
 const StyledDiv = styled.div`
   background-color: ${props => props.theme.white};
@@ -35,12 +36,9 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const StyledNavigationBlock = styled.div`
-  background-color: ${props => props.theme.white};
-`;
-
 export interface TopBarProps {
   isLoggedIn?: boolean;
+  displayName?: string;
 }
 
 const TopBar: React.SFC<TopBarProps> = props => {
@@ -49,15 +47,9 @@ const TopBar: React.SFC<TopBarProps> = props => {
       {props.isLoggedIn ? (
         <StyledDiv>
           <Dropdown>
-            <Trigger>ME</Trigger>
+            <Trigger>{props.displayName || "Me"}</Trigger>
             <Body>
-              <StyledNavigationBlock>
-                <ul>
-                  <li>something</li>
-                  <li>something2</li>
-                  <li>something3</li>
-                </ul>
-              </StyledNavigationBlock>
+              <Menu />
             </Body>
           </Dropdown>
           <StyledLink to="/login">
@@ -85,7 +77,10 @@ TopBar.defaultProps = {
 };
 
 const mapState2Props = (state: IinitialState) => {
-  return { isLoggedIn: !!state.users.self.token };
+  return {
+    isLoggedIn: !!state.users.self.token, // will be bool
+    displayName: state.users.self.displayName // str or undefined
+  };
 };
 
 const mapDispatch2Props = {};
