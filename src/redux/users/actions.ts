@@ -6,9 +6,16 @@ import { IRegisterUser, UsersActionTypes, ILoginUser } from "./types";
 //   users
 // });
 
-export const userLoggedIn = ({ token }: { token: string }) => ({
+export const userLoggedIn = ({
+  token,
+  displayName
+}: {
+  token: string;
+  displayName: string;
+}) => ({
   type: UsersActionTypes.USER_LOGGED_IN,
-  token
+  token,
+  displayName
 });
 
 // export const gotUserInfo = ({ _id, email, name }) => ({
@@ -89,9 +96,9 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
 ): Promise<any> => {
   return API.user.register(credentials).then(res => {
     // Grab Token
-    const { token } = res.data.user;
+    const { token, displayName } = res.data.user;
 
-    dispatch(userLoggedIn({ token }));
+    dispatch(userLoggedIn({ token, displayName }));
   });
 };
 
@@ -106,9 +113,9 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
 ): Promise<any> => {
   return API.user.login(credentials).then(res => {
     // Grab Token
-    const { token } = res.data.user;
+    const { token, displayName } = res.data.user;
 
     // Dispatch user login
-    dispatch(userLoggedIn({ token }));
+    dispatch(userLoggedIn({ token, displayName }));
   });
 };

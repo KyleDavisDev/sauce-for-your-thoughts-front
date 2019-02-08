@@ -15,7 +15,7 @@ const userReducer: Reducer<IUserState> = (
     case UsersActionTypes.USER_LOGGED_IN:
       return {
         ...state,
-        self: { token: action.token }
+        self: { token: action.token, displayName: action.displayName }
       };
     // case UsersActionTypes.USER_GOT_INFO:
     //   return {

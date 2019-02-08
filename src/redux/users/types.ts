@@ -16,11 +16,12 @@ export interface IUserRef {
 export interface IUserAction {
   type: string;
   token?: string;
+  displayName?: string;
 }
 
 // Used for redux state
 export interface IUserState {
-  self: { token?: string };
+  self: { token?: string; displayName?: string };
   byId?: { [key: string]: IUser };
   allIds?: string[];
 }
