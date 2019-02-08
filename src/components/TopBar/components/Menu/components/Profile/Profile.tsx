@@ -12,6 +12,7 @@ import { IinitialState } from "../../../../../../redux/configureStore";
 
 interface ProfileProps {
   displayName?: string;
+  avatar?: string;
 }
 
 class Profile extends React.PureComponent<ProfileProps, any> {
@@ -21,7 +22,10 @@ class Profile extends React.PureComponent<ProfileProps, any> {
         <StyledHead>
           <div>
             <StyledImage
-              src="https://images.catsolonline.com/cache/uzyl82mxhzrvloeffavq-500x500.jpg"
+              src={
+                this.props.avatar ||
+                "https://images.catsolonline.com/cache/uzyl82mxhzrvloeffavq-500x500.jpg"
+              }
               alt={this.props.displayName}
               height="50"
               width="50"
