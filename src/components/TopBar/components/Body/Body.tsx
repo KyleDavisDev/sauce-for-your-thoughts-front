@@ -3,6 +3,7 @@ import styled from "../../../../theme/styled-components";
 
 const StyledDiv = styled.div`
   position: absolute;
+  z-index: 1000;
 `;
 
 interface BodyProps {
@@ -15,11 +16,7 @@ interface BodyProps {
 }
 
 const Body: React.SFC<BodyProps> = props => {
-  return (
-    <StyledDiv className={props.className} {...props}>
-      {props.children}
-    </StyledDiv>
-  );
+  return <StyledDiv className={props.className}>{props.children}</StyledDiv>;
 };
 Body.displayName = "Body";
 
