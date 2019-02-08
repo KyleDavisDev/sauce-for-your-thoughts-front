@@ -38,7 +38,7 @@ const StyledLink = styled(Link)`
 
 const StyledDropDown = styled(Dropdown)``;
 const StyledBody = styled(Body)`
-  // margin-top: 15px;
+  right: 0;
 `;
 
 export interface TopBarProps {
