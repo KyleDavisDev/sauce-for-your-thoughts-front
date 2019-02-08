@@ -5,6 +5,7 @@ import Body from "../Body/Body";
 
 export interface DropdownProps {
   children: JSX.Element[];
+  className?: string;
   onClose?: () => void;
   onOpen?: () => void;
 }
@@ -38,7 +39,10 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
       }
 
       // Grab first Body elem
-      if (child.type.displayName === "Body" && BodyChild === null) {
+      if (
+        child.type.displayName === "Body" ||
+        (child.type.displayName === "Styled(Body)" && BodyChild === null)
+      ) {
         BodyChild = React.cloneElement(child, {});
       }
 
@@ -47,7 +51,7 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     }
 
     return (
-      <div>
+      <div className={this.props.className}>
         {TriggerChild}
         {this.state.active && BodyChild}
       </div>
