@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import styled from "../../../../theme/styled-components";
 import { IinitialState } from "../../../../redux/configureStore";
 import Profile from "./components/Profile/Profile";
+import Account from "./components/Account/Account";
 
 const StyledUL = styled.ul`
   max-height: calc(100vh - 52px - 16px);
@@ -25,7 +26,9 @@ class Menu extends React.Component<MenuProps, any> {
         <li>
           <Profile />
         </li>
-        <li>something2</li>
+        <li>
+          <Account />
+        </li>
         <li>something3</li>
       </StyledUL>
     );
