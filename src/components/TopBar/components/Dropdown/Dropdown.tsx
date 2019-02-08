@@ -34,8 +34,12 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
       // Grab child
       const child: JSX.Element = this.props.children[i];
 
-      // Grab first Trigger elem
-      if (child.type.displayName === "Trigger" && TriggerChild === null) {
+      // Grab first Trigger/Styled(Trigger) child
+      if (
+        (child.type.displayName === "Trigger" ||
+          child.type.displayName === "Styled(Trigger)") &&
+        TriggerChild === null
+      ) {
         TriggerChild = React.cloneElement(child, {
           onClick: (event: React.MouseEvent) => {
             this.onToggleClick(event); // pass onclick to child
@@ -43,15 +47,16 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
         });
       }
 
-      // Grab first Body elem
+      // Grab first Body/Styled(Body) child
       if (
-        child.type.displayName === "Body" ||
-        (child.type.displayName === "Styled(Body)" && BodyChild === null)
+        (child.type.displayName === "Body" ||
+          child.type.displayName === "Styled(Body)") &&
+        BodyChild === null
       ) {
         BodyChild = React.cloneElement(child, {});
       }
 
-      // If both are assigned, we can leave the loop
+      // If both are assigned, we can stop looping
       if (TriggerChild !== null && BodyChild !== null) break;
     }
 
