@@ -1,20 +1,12 @@
 import * as React from "react";
-import styled from "styled-components";
 
-const StyledLink = styled.a`
-  padding: 12px;
-  display: inline-block;
-`;
-
-const StyledHead = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-top;
-`;
-
-const StyledImage = styled.img`
-  border-radius: 50%;
-`;
+import {
+  StyledLink,
+  StyledHead,
+  StyledImage,
+  StyledFoot
+} from "./ProfileStyle";
+import { Button } from "../../../../../Button/Button";
 
 interface ProfileProps {}
 
@@ -26,8 +18,8 @@ const Profile: React.SFC<ProfileProps> = props => {
           <StyledImage
             src="https://images.catsolonline.com/cache/uzyl82mxhzrvloeffavq-500x500.jpg"
             alt="Kyle Davis"
-            height="70"
-            width="70"
+            height="50"
+            width="50"
           />
         </div>
 
@@ -37,9 +29,9 @@ const Profile: React.SFC<ProfileProps> = props => {
         </div>
       </StyledHead>
 
-      <div>
-        <span>View profile</span>
-      </div>
+      <StyledFoot>
+        <Button displayType="outline">View profile</Button>
+      </StyledFoot>
     </StyledLink>
   );
 };
