@@ -6,6 +6,7 @@ const StyledDiv = styled.div`
   background-color: ${x => x.theme.primaryLightThemeColor};
   text-transform: uppercase;
   font-size: 14px;
+  color: ${x => x.theme.darkGrey};
 `;
 
 interface TitleProps {
