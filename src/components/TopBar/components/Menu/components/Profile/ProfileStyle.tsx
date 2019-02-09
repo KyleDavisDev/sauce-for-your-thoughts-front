@@ -7,6 +7,7 @@ export const StyledLink = styled.a`
   text-decoration: none;
   width: 100%;
   box-sizing: border-box;
+  margin-bottom: 5px;
 `;
 
 export const StyledHead = styled.div`
@@ -38,5 +39,16 @@ export const StyledFoot = styled.div`
   > div,
   button {
     width: 100%;
+  }
+
+  div button {
+    font-size: 14px;
+    border: 0;
+    &:hover,
+    &:focus {
+      color: ${x => x.theme.primaryThemeColor}
+      background-color: ${x => x.theme.primaryLightThemeColor};
+      border: 0;
+    }
   }
 `;
