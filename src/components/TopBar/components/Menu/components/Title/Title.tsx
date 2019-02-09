@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 const StyledDiv = styled.div`
   padding: 12px;
-  background-color: ${x => x.theme.primaryLightThemeColor};
+  // background-color: ${x => x.theme.primaryLightThemeColor};
   text-transform: uppercase;
   font-size: 14px;
-  color: ${x => x.theme.darkGrey};
+  color: ${x => x.theme.black};
 `;
 
 interface TitleProps {
