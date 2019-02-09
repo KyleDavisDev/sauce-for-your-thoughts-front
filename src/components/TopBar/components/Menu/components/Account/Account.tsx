@@ -10,8 +10,7 @@ class Account extends React.PureComponent<AccountProps, any> {
       <div>
         <Title>Account</Title>
         <Item to="#settings">Settings</Item>
-        <Item to="#settings">Uploads</Item>
-        <Item to="#settings">Uploads</Item>
+        <Item to="#profile">Profile</Item>
       </div>
     );
   }
