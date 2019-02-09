@@ -5,6 +5,7 @@ import styled from "../../../../theme/styled-components";
 import { IinitialState } from "../../../../redux/configureStore";
 import Profile from "./components/Profile/Profile";
 import Account from "./components/Account/Account";
+import Help from "./components/Help/Help";
 
 const StyledUL = styled.ul`
   max-height: calc(100vh - 52px - 16px);
@@ -30,7 +31,9 @@ class Menu extends React.Component<MenuProps, any> {
         <li>
           <Account />
         </li>
-        <li>something3</li>
+        <li>
+          <Help />
+        </li>
       </StyledUL>
     );
   }
