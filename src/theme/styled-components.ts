@@ -13,6 +13,7 @@ const {
 export interface ThemeInterface {
   primaryThemeColor: string;
   primaryDarkThemeColor: string;
+  primaryLightThemeColor: string;
   secondaryThemeColor: string;
   navigationTextColor: string;
   navigationIconColor: string;
@@ -51,6 +52,7 @@ export interface ThemeInterface {
   white: string;
   grey: string;
   lightGrey: string;
+  darkGrey: string;
   black: string;
 }
 
@@ -59,6 +61,7 @@ const enum colors {
   white = "#fff",
   grey = "#676767",
   lightGrey = "#CCCCCC",
+  darkGrey = "#555",
   mustard = "#FFA816",
   darkMustard = "#e28e00",
   lightMustard = "#fff4e3",
@@ -122,6 +125,7 @@ export const theme = {
   white: colors.white,
   grey: colors.grey,
   lightGrey: colors.lightGrey,
+  darkGrey: colors.darkGrey,
   black: colors.black
 };
 
