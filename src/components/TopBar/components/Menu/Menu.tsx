@@ -9,6 +9,7 @@ import Account from "./components/Account/Account";
 const StyledUL = styled.ul`
   max-height: calc(100vh - 52px - 16px);
   overflow-y: auto;
+  overflow-x: hidden;
   width: 275px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   background-color: ${props => props.theme.white};
