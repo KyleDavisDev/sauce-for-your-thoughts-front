@@ -61,6 +61,7 @@ const enum colors {
   lightGrey = "#CCCCCC",
   mustard = "#FFA816",
   darkMustard = "#e28e00",
+  lightMustard = "#fff4e3",
   smoke = "#f5f5f5",
   black = "#333333"
 }
@@ -82,6 +83,7 @@ const enum scale {
 export const theme = {
   primaryThemeColor: colors.mustard,
   primaryDarkThemeColor: colors.darkMustard,
+  primaryLightThemeColor: colors.lightMustard,
   secondaryThemeColor: colors.purple,
   navigationTextColor: colors.white,
   navigationIconColor: colors.white,
