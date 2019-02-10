@@ -96,13 +96,9 @@ class Register extends React.Component<RegisterProps, RegisterState> {
   };
 }
 
-const mapState2Props = (state: IinitialState) => {
-  return {};
-};
-
 const mapDispatch2Props = {};
 
 export default connect(
-  mapState2Props,
+  null,
   mapDispatch2Props
 )(Register);
