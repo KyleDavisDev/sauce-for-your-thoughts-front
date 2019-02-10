@@ -102,7 +102,7 @@ class Login extends React.Component<LoginProps, LoginState> {
                 required={true}
               />
               <TextInput
-                type="text"
+                type="password"
                 onChange={this.onTextChange}
                 showLabel={true}
                 label={"Password"}
