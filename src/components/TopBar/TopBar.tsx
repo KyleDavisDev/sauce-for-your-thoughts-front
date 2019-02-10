@@ -4,12 +4,13 @@ import { connect } from "react-redux";
 
 import styled from "../../theme/styled-components";
 import { Dropdown, Trigger, Body } from "./components/Dropdown/Dropdown";
+import { IinitialState } from "../../redux/configureStore";
+import Menu from "./components/Menu/Menu";
 
 // SVG icons
 import UserIcon from "../../images/icons/UserIcon";
 import LoginIcon from "../../images/icons/LoginIcon";
-import { IinitialState } from "../../redux/configureStore";
-import Menu from "./components/Menu/Menu";
+import ChevronDown from "../../images/icons/ChevronDown";
 
 const StyledDiv = styled.div`
   background-color: ${props => props.theme.white};
@@ -36,14 +37,22 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const StyledDropDown = styled(Dropdown)``;
+const StyledDropDown = styled(Dropdown)`
+  margin-right: 2em;
+`;
+
+const StyledTrigger = styled(Trigger)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
 const StyledBody = styled(Body)`
   right: 0;
 `;
 
 export interface TopBarProps {
   isLoggedIn?: boolean;
-  displayName?: string;
 }
 
 const TopBar: React.SFC<TopBarProps> = props => {
@@ -52,7 +61,10 @@ const TopBar: React.SFC<TopBarProps> = props => {
       {props.isLoggedIn ? (
         <StyledDiv>
           <StyledDropDown>
-            <Trigger>{props.displayName || "Me"}</Trigger>
+            <StyledTrigger>
+              <ChevronDown />
+              Me
+            </StyledTrigger>
             <StyledBody>
               <Menu />
             </StyledBody>
@@ -83,8 +95,7 @@ TopBar.defaultProps = {
 
 const mapState2Props = (state: IinitialState) => {
   return {
-    isLoggedIn: !!state.users.self.token, // will be bool
-    displayName: state.users.self.displayName // str or undefined
+    isLoggedIn: !!state.users.self.token // will be bool
   };
 };
 
