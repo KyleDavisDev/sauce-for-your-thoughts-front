@@ -60,6 +60,8 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     const page: number = this.getPageFromPath(this.props.location.search);
 
     this.setState({ ...this.state, page });
+
+    window.scrollTo(0, 0); // Move screen to top
   }
 
   public componentWillReceiveProps(props: SaucesProps) {
