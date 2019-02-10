@@ -71,6 +71,16 @@ const Login = Loadable({
   )
 });
 
+// Forgot password
+const Reset = Loadable({
+  loader: () => import("./reset/Reset"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 // Single
 const SauceSpotlight = Loadable({
   loader: () => import("./sauce/screens/SauceSpotlight/SauceSpotlight"),
@@ -90,6 +100,7 @@ const Screens = (
     <Route path="/sauces" component={Sauces} />
     <Route path="/register" component={Register} />
     <Route path="/login" component={Login} />
+    <Route path="/reset" component={Reset} />
     <Route exact path="/sauce" component={SauceSpotlight} />
 
     {/* <Route exact path="/sauce/edit/:id" component={SauceEdit} />
