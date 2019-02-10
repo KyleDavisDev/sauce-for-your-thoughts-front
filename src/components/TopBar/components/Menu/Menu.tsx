@@ -6,6 +6,7 @@ import { IinitialState } from "../../../../redux/configureStore";
 import Profile from "./components/Profile/Profile";
 import Account from "./components/Account/Account";
 import Help from "./components/Help/Help";
+import Item from "./components/Item/Item";
 
 const StyledUL = styled.ul`
   max-height: calc(100vh - 52px - 16px);
@@ -34,6 +35,8 @@ class Menu extends React.Component<MenuProps, any> {
         <li>
           <Help />
         </li>
+        <hr style={{ margin: 0 }} />
+        <Item to="/logout">Logout</Item>
       </StyledUL>
     );
   }
