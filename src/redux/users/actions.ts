@@ -113,7 +113,7 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
 ): Promise<any> => {
   return API.user.login(credentials).then(res => {
     // Grab Token
-    const { token, displayName } = res.data.user;
+    const { token, name: displayName } = res.data.user;
 
     // Dispatch user login
     dispatch(userLoggedIn({ token, displayName }));
