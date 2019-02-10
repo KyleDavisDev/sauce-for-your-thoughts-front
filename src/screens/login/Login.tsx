@@ -113,7 +113,7 @@ class Login extends React.Component<LoginProps, LoginState> {
               <StyledButton type="submit">Login</StyledButton>
 
               <StyledText>
-                <Link to="#">Forgot your username or password?</Link>
+                <Link to="/reset">Forgot your username or password?</Link>
               </StyledText>
 
               <StyledText>
