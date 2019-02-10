@@ -46,7 +46,7 @@ export const configureStore = () => {
       total: 0,
       query: {}
     },
-    users: { self: { token: "123" }, byId: {}, allIds: [] },
+    users: { self: {}, byId: {}, allIds: [] },
     reviews: { byId: {}, allIds: [] },
     flashMessage: { isVisible: false, type: null, text: null, slug: null }
   };
