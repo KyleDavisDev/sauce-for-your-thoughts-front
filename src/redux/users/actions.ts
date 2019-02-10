@@ -95,9 +95,22 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
   dispatch: any
 ): Promise<any> => {
   return API.user.register(credentials).then(res => {
-    // Grab Token
-    const { token, displayName } = res.data.user;
+    // Grab token and name
+    const { token, name }: { token?: string; name?: string } = res.data.user;
 
+    // If we can't find token, stop
+    if (!token) {
+      throw new Error("Unable to verify your login. Please try again.");
+    }
+
+    // if name is undefined or empty string  we should look in
+    // the return object to see if displayName was sent instead or set to "Me"
+    const displayName =
+      name === undefined || name.length === 0
+        ? res.data.user.displayName || "Me"
+        : name;
+
+    // Dispatch user login
     dispatch(userLoggedIn({ token, displayName }));
   });
 };
@@ -112,8 +125,20 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
   dispatch: any
 ): Promise<any> => {
   return API.user.login(credentials).then(res => {
-    // Grab Token
-    const { token, name: displayName } = res.data.user;
+    // Grab token and name
+    const { token, name }: { token?: string; name?: string } = res.data.user;
+
+    // If we can't find token, stop
+    if (!token) {
+      throw new Error("Unable to verify your login. Please try again.");
+    }
+
+    // if name is undefined or empty string  we should look in
+    // the return object to see if displayName was sent instead or set to "Me"
+    const displayName =
+      name === undefined || name.length === 0
+        ? res.data.user.displayName || "Me"
+        : name;
 
     // Dispatch user login
     dispatch(userLoggedIn({ token, displayName }));
