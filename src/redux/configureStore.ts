@@ -39,7 +39,8 @@ export interface IinitialState {
 }
 
 export const configureStore = () => {
-  const initialState: object = {
+  // was of type 'object'
+  const initialState: IinitialState = {
     sauces: {
       allIds: [],
       byId: {},
