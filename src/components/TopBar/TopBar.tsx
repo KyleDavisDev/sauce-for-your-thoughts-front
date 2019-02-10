@@ -45,6 +45,16 @@ const StyledTrigger = styled(Trigger)`
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: FuturaMedium;
+  color: ${x => x.theme.grey};
+  fill: ${x => x.theme.grey};
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: ${x => x.theme.primaryThemeColor};
+    fill: ${x => x.theme.primaryThemeColor};
+  }
 `;
 
 const StyledBody = styled(Body)`
@@ -69,9 +79,9 @@ const TopBar: React.SFC<TopBarProps> = props => {
               <Menu />
             </StyledBody>
           </StyledDropDown>
-          <StyledLink to="/login">
+          <StyledLink to="#">
             <LoginIcon />
-            Log in
+            Log out
           </StyledLink>
         </StyledDiv>
       ) : (
