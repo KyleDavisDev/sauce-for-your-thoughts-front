@@ -20,14 +20,15 @@ const StyledDiv = styled.div`
 `;
 
 interface ItemProps {
-  to: string;
+  to?: string;
   children: string;
+  onClick?: (event: any) => void;
 }
 
 const Item: React.SFC<ItemProps> = props => {
   return (
-    <StyledDiv>
-      <Link to={props.to}>{props.children}</Link>
+    <StyledDiv onClick={props.onClick}>
+      <Link to={props.to || "#"}>{props.children}</Link>
     </StyledDiv>
   );
 };
