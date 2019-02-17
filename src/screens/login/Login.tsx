@@ -16,6 +16,7 @@ import {
   FlashMessage
 } from "../../components/FlashMessage/FlashMessage";
 import { CheckBox } from "../../components/CheckBox/CheckBox";
+import Auth from "../../Helper/Auth/Auth";
 
 const StyledDiv = styled.div`
   height: 100vh;
@@ -131,6 +132,7 @@ class Login extends React.Component<LoginProps, LoginState> {
                   onClick={this.onClick}
                   id="rememberMe"
                   label="Remember Me"
+                  value="rememberMe"
                 />
                 <StyledButton type="submit">Login</StyledButton>
               </StyledFooterDivs>
@@ -175,7 +177,10 @@ class Login extends React.Component<LoginProps, LoginState> {
     };
     try {
       // dispatch action which calls API to login user
-      await this.props.login({ credentials });
+      const token: string = await this.props.login({ credentials });
+
+      // If user wants to be remembered, we need to set localstorage items
+      Auth.authenticateUser(token);
 
       // Redirect user to sauces page -- Maybe take them to user home page instead?
       this.props.history.push("/sauces");
