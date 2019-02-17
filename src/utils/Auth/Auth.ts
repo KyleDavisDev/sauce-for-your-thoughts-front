@@ -48,7 +48,7 @@ class Auth {
   }
 
   // return authentication token
-  public static getToken(): null | string {
+  public static getToken(): undefined | string {
     // Grab key
     const sfytKey: string | null = localStorage.getItem("sfytKey");
 
@@ -56,7 +56,7 @@ class Auth {
     if (sfytKey !== null) {
       return JSON.parse(sfytKey).token || null;
     }
-    return null;
+    return undefined;
   }
 
   // update existing token
