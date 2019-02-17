@@ -1,13 +1,13 @@
 class Auth {
   // set local storage w/ token and datetime
-  public authenticateUser(token: string) {
+  public static authenticateUser(token: string) {
     const timestamp: number = new Date().getTime();
     const sfytKey = { token, timestamp };
     localStorage.setItem("sfytKey", JSON.stringify(sfytKey));
   }
 
   // check if token exists and hasn't expired
-  public isUserAuthenticated(): boolean {
+  public static isUserAuthenticated(): boolean {
     // Grab key
     const sfytKey: string | null = localStorage.getItem("sfytKey");
 
@@ -40,7 +40,7 @@ class Auth {
   }
 
   // remove authentication token
-  public deauthenticateUser() {
+  public static deauthenticateUser() {
     // if exists, remove
     if (localStorage.getItem("sfytKey")) {
       localStorage.removeItem("sfytKey");
@@ -48,7 +48,7 @@ class Auth {
   }
 
   // return authentication token
-  public getToken(): null | string {
+  public static getToken(): null | string {
     // Grab key
     const sfytKey: string | null = localStorage.getItem("sfytKey");
 
@@ -62,7 +62,7 @@ class Auth {
   // update existing token
   // should ONLY be called from isUserAuthenticated so will
   // not be doing same sanity checks as above
-  private updateUserToken(): boolean {
+  private static updateUserToken(): boolean {
     // Grab key
     const sfytKey: string | null = localStorage.getItem("sfytKey");
 
