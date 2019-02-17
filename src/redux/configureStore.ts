@@ -11,6 +11,7 @@ import { IQuery } from "./sauces/types";
 import { IUser } from "./users/types";
 import { IReview } from "./reviews/types";
 import { IFlashState } from "./flashMessage/types";
+import Auth from "../utils/Auth/Auth";
 
 const rootReducer = combineReducers({
   flashMessage,
@@ -47,7 +48,11 @@ export const configureStore = () => {
       total: 0,
       query: {}
     },
-    users: { self: {}, byId: {}, allIds: [] },
+    users: {
+      self: { token: Auth.isUserAuthenticated() ? Auth.getToken() : undefined },
+      byId: {},
+      allIds: []
+    },
     reviews: { byId: {}, allIds: [] },
     flashMessage: { isVisible: false, type: null, text: null, slug: null }
   };
