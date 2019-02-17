@@ -64,9 +64,8 @@ const StyledFooterDivs = styled.div`
 `;
 
 export interface LoginProps {
+  login: ({ credentials }: { credentials: ILoginUser }) => any;
   history: { push: (location: string) => null };
-  // login: ({ credentials }: { credentials: ILoginUser }) => Promise<any>;
-  login: any;
 }
 
 export interface LoginState {
