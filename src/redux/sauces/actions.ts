@@ -1,4 +1,4 @@
-import api from "../../utils/api/api.js";
+import { API } from "../../utils/api/API";
 // import { normalize } from "normalizr";
 
 import { ISaucesAction, SaucesActionTypes } from "./types";
@@ -62,8 +62,8 @@ export const addSauce = ({
   data
 }: {
   data: { user: { token: string }; sauce: ISauce };
-}) => async (dispatch): Promise<null> => {
-  return api.sauce.add(data).then((res: any) => {
+}) => async (dispatch: any): Promise<null> => {
+  return API.sauce.add(data).then((res: any) => {
     // flatten response
     // const { sauces } = flatten(res.data.sauces); // Might need to play around with this
 
