@@ -1,5 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
+import validator from "validator";
 
 import styled from "styled-components";
 import LogoSFYT from "../../images/icons/LogoSFYT";
@@ -171,6 +172,21 @@ class Login extends React.Component<LoginProps, LoginState> {
 
   private onSubmit = async (event: React.FormEvent): Promise<any> => {
     event.preventDefault();
+
+    // If not email or password is too short, don't even send network request
+    if (
+      !validator.isEmail(this.state.email) ||
+      this.state.password.length < 8
+    ) {
+      this.setState({
+        flashMessage: {
+          isVisible: true,
+          text: "Invalid username or password.",
+          type: "alert"
+        }
+      });
+      return;
+    }
 
     const credentials: ILoginUser = {
       user: { email: this.state.email, password: this.state.password }
