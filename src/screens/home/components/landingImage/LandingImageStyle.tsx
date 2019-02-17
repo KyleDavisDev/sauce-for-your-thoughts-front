@@ -44,6 +44,10 @@ export const StyledDiv = styled.div`
 
 export const StyledDropDown = styled(DropDown)`
   min-height: 30px;
+
+  select {
+    width: auto;
+  }
 `;
 
 export const StyledInput = styled(TextInput)`
@@ -55,12 +59,16 @@ export const StyledInput = styled(TextInput)`
     margin-top: 0px;
     margin-bottom: 0px;
     width: 100%;
-    min-width: 20em;
+    min-width: auto;
     max-width: 100%;
     padding: 0.66em;
     box-sizing: border-box;
     border: 0px;
     font-size: 1em;
+
+    @media (min-width: ${props => props.theme.smToMd}) {
+      min-width: 20em;
+    }
   }
 `;
 
