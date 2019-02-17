@@ -1,5 +1,7 @@
 import * as React from "react";
+import { connect } from "react-redux";
 
+import { IinitialState } from "../../../../redux/configureStore";
 import { Button } from "../../../../components/Button/Button";
 import {
   HeroContainer,
@@ -14,6 +16,7 @@ import {
 
 export interface LandingImageProps {
   className?: string;
+  types: string[];
 }
 
 export interface LandingImageState {
@@ -33,9 +36,12 @@ class LandingImage extends React.Component<
   constructor(props: LandingImageProps) {
     super(props);
 
+    const types: string[] = this.props.types;
+    types.unshift("All");
+
     this.state = {
       search: { value: "" },
-      filter: { all: ["All", "Hot Sauce", "Meat Sauce"], selectedValue: "all" }
+      filter: { all: types, selectedValue: "all" }
     };
   }
 
@@ -104,4 +110,8 @@ class LandingImage extends React.Component<
   };
 }
 
-export default LandingImage;
+const mapState2Props = (state: IinitialState) => {
+  return { types: state.sauces.types };
+};
+
+export default connect(mapState2Props)(LandingImage);
