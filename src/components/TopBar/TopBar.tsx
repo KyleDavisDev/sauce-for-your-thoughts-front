@@ -79,10 +79,6 @@ const TopBar: React.SFC<TopBarProps> = props => {
               <Menu />
             </StyledBody>
           </StyledDropDown>
-          <StyledLink to="#">
-            <LoginIcon />
-            Log out
-          </StyledLink>
         </StyledDiv>
       ) : (
         <StyledDiv>
