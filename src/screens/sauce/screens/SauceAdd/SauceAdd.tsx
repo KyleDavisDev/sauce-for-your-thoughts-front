@@ -103,7 +103,7 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
         src: null,
         error: null
       },
-      cropperOptions: { zoomOnWheel: false, aspectRatio: 1, movable: true },
+      cropperOptions: { zoomOnWheel: false, aspectRatio: 2 / 3, movable: true },
       DropNCropValue: {},
       isImageLocked: false,
       addReview: true
