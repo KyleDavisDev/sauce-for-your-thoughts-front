@@ -91,7 +91,7 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
  */
 export const login = ({ credentials }: { credentials: ILoginUser }) => (
   dispatch: any
-): Promise<any> => {
+): Promise<string> => {
   return API.user.login(credentials).then(res => {
     // Grab token and name
     const { token, name }: { token?: string; name?: string } = res.data.user;
