@@ -34,13 +34,11 @@ import {
 } from "./SauceAddStyle";
 
 export interface SauceAddProps {
-  addSauce: (
-    {
-      data
-    }: {
-      data: { user: { token: string }; sauce: ISauce };
-    }
-  ) => Promise<any>;
+  addSauce: ({
+    data
+  }: {
+    data: { user: { token: string }; sauce: ISauce };
+  }) => Promise<any>;
   history: { push: (location: string) => any };
   user: { token?: string };
 }
