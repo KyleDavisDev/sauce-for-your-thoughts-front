@@ -1,11 +1,13 @@
 import { API } from "../../utils/api/API";
 import { IRegisterUser, UsersActionTypes, ILoginUser } from "./types";
+// import { store } from "../../components/App";
 
 // export const addUsers = ({ users }) => ({
 //   type: "USERS_ADDED",
 //   users
 // });
 
+// action to og user in
 export const userLoggedIn = ({
   token,
   displayName
@@ -16,6 +18,11 @@ export const userLoggedIn = ({
   type: UsersActionTypes.USER_LOGGED_IN,
   token,
   displayName
+});
+
+// action to log user out
+export const userLoggedOut = () => ({
+  type: UsersActionTypes.USER_LOGGED_OUT
 });
 
 // export const gotUserInfo = ({ _id, email, name }) => ({
@@ -106,4 +113,13 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
 
     return token;
   });
+};
+
+/** @description logs the user out by resetting redux store
+ *  @fires auth#userLoggedOut - resets information in redux users.self
+ *  @returns {NULL}
+ */
+export const logout = () => (dispatch: any) => {
+  // remove users.self info
+  dispatch(userLoggedOut());
 };
