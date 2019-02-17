@@ -26,6 +26,7 @@ export interface IinitialState {
     byId?: { [key: string]: ISauce };
     total?: number;
     query?: IQuery;
+    types: string[];
   };
   users: {
     self: { token?: string; displayName?: string; avatar?: string };
@@ -46,7 +47,8 @@ export const configureStore = () => {
       allIds: [],
       byId: {},
       total: 0,
-      query: {}
+      query: {},
+      types: ["Hot Sauce", "BBQ", "Gravy", "Marinade", "Salsa", "Meat"]
     },
     users: {
       self: { token: Auth.isUserAuthenticated() ? Auth.getToken() : undefined },
