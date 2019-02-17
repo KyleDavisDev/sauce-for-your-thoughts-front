@@ -15,6 +15,7 @@ import {
   FlashMessageProps,
   FlashMessage
 } from "../../components/FlashMessage/FlashMessage";
+import { CheckBox } from "../../components/CheckBox/CheckBox";
 
 const StyledDiv = styled.div`
   height: 100vh;
@@ -48,6 +49,18 @@ const StyledText = styled.p`
   margin: 0.5em auto;
 `;
 
+const StyledFooterDivs = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  > div > label {
+    font-size: 0.85rem;
+    text-transform: inherit;
+  }
+`;
+
 export interface LoginProps {
   history: { push: (location: string) => null };
   // login: ({ credentials }: { credentials: ILoginUser }) => Promise<any>;
@@ -58,6 +71,7 @@ export interface LoginState {
   email: string;
   password: string;
   flashMessage: FlashMessageProps;
+  rememberMe: boolean;
 }
 
 class Login extends React.Component<LoginProps, LoginState> {
@@ -70,7 +84,8 @@ class Login extends React.Component<LoginProps, LoginState> {
       password: "",
       flashMessage: {
         isVisible: false
-      }
+      },
+      rememberMe: false
     };
   }
 
@@ -110,8 +125,15 @@ class Login extends React.Component<LoginProps, LoginState> {
                 value={this.state.password}
                 required={true}
               />
-              <StyledButton type="submit">Login</StyledButton>
-
+              <StyledFooterDivs>
+                <CheckBox
+                  checked={this.state.rememberMe}
+                  onClick={this.onClick}
+                  id="rememberMe"
+                  label="Remember Me"
+                />
+                <StyledButton type="submit">Login</StyledButton>
+              </StyledFooterDivs>
               <StyledText>
                 <Link to="/reset">Forgot your username or password?</Link>
               </StyledText>
@@ -138,6 +160,11 @@ class Login extends React.Component<LoginProps, LoginState> {
       ...this.state,
       [name]: value
     });
+  };
+
+  private onClick = (event: React.MouseEvent<HTMLInputElement>): void => {
+    // Update stae
+    this.setState({ rememberMe: !this.state.rememberMe });
   };
 
   private onSubmit = async (event: React.FormEvent): Promise<any> => {
