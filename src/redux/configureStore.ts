@@ -51,7 +51,10 @@ export const configureStore = () => {
       types: ["Hot Sauce", "BBQ", "Gravy", "Marinade", "Salsa", "Meat"]
     },
     users: {
-      self: { token: Auth.isUserAuthenticated() ? Auth.getToken() : undefined },
+      self: {
+        token: Auth.isUserAuthenticated() ? Auth.getToken() : undefined,
+        displayName: Auth.isUserAuthenticated ? Auth.getName() : undefined
+      },
       byId: {},
       allIds: []
     },
