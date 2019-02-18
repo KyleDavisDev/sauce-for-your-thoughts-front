@@ -1,4 +1,4 @@
-import { API } from "../../utils/api/API";
+import { API } from "../../utils/api/Api";
 // import { normalize } from "normalizr";
 
 import { ISaucesAction, SaucesActionTypes } from "./types";
