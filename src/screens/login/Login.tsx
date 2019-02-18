@@ -192,10 +192,10 @@ class Login extends React.Component<LoginProps, LoginState> {
     };
     try {
       // dispatch action which calls API to login user
-      const token: string = await this.props.login({ credentials });
+      const { token, displayName } = await this.props.login({ credentials });
 
       // If user wants to be remembered, we need to set localstorage items
-      if (this.state.rememberMe) Auth.authenticateUser(token);
+      if (this.state.rememberMe) Auth.authenticateUser({ token, displayName });
 
       // Redirect user to sauces page -- Maybe take them to user home page instead?
       this.props.history.push("/sauces");
