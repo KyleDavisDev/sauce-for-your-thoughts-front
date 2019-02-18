@@ -32,6 +32,7 @@ import {
   StyledButton,
   StyledImageButtonContainer
 } from "./SauceAddStyle";
+import Auth from "../../../../utils/Auth/Auth";
 
 export interface SauceAddProps {
   addSauce: ({
@@ -40,7 +41,8 @@ export interface SauceAddProps {
     data: { user: { token: string }; sauce: ISauce };
   }) => Promise<any>;
   history: { push: (location: string) => any };
-  user: { token?: string };
+  user: { token: string; name: string };
+  types: string[];
 }
 
 export interface SauceAddState extends ISauce {
@@ -71,6 +73,14 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
   constructor(props: SauceAddProps) {
     super(props);
 
+    // Turn array of strings into object with key as array val
+    const types: {
+      [key: string]: { value: string; checked: boolean; key: string };
+    } = {};
+    this.props.types.forEach(type => {
+      types[type] = { value: type, checked: false, key: shortid.generate() };
+    });
+
     this.state = {
       _id: 0,
       name: "",
@@ -78,19 +88,8 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       maker: "",
       description: "",
       photo: "",
-      typesOfSauces: {
-        "BBQ Sauce": {
-          value: "BBQ Sauce",
-          checked: false,
-          key: shortid.generate()
-        },
-        "Hot Sauce": {
-          value: "Hot Sauce",
-          checked: false,
-          key: shortid.generate()
-        }
-      },
-      author: "",
+      typesOfSauces: types,
+      author: this.props.user.name || "",
       created: new Date(),
       shu: "",
       country: "United States",
@@ -108,6 +107,14 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       isImageLocked: false,
       addReview: true
     };
+  }
+
+  public componentWillMount() {
+    // If we don't have an author, don't let user go any further
+    if (!this.props.user.name) this.props.history.push("/login");
+
+    // If no token, don't go further
+    if (!this.props.user.token) this.props.history.push("/login");
   }
 
   public render() {
@@ -416,18 +423,29 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     );
 
     // make sure token is still good/not expired
-    // if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
+    if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
 
-    const { name, maker, description, ingredients, shu, location } = this.state;
+    const {
+      name,
+      maker,
+      description,
+      ingredients,
+      shu,
+      location,
+      author
+    } = this.state;
+
+    const token = this.props.user.token;
+    if (!token) this.props.history.push("/login");
 
     // construct FormData object since we are passing image file
     const data: {
-      user: { token: string };
       sauce: ISauce;
+      user: { token: string };
     } = {
       sauce: {
         _id: 1,
-        author: "Joe",
+        author,
         created: new Date(),
         name,
         maker,
@@ -437,18 +455,16 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
         location,
         types
       },
-      user: {
-        token: "abc"
-      }
+      user: { token }
     };
 
     const formData = new FormData();
-    // formData.append("data", data);
+    formData.append("data", JSON.stringify({ data }));
     formData.append("image", this.state.DropNCropValue.value);
-    formData.append("user", JSON.stringify({ user: { token: "Able" } }));
+    formData.append("user", JSON.stringify({ user: { token } }));
 
     this.props
-      .addSauce({ data })
+      .addSauce({ formData })
       .then(res => {
         // Go to sauce page if they do not want to add a review
         if (this.state.addReview === false) {
@@ -493,7 +509,11 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
 
 function mapStateToProps(state: IinitialState): any {
   return {
-    user: { token: state.users.self.token || "" }
+    user: {
+      token: state.users.self.token || "",
+      name: state.users.self.displayName
+    },
+    types: state.sauces.types
   };
 }
 
