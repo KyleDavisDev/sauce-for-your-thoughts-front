@@ -58,12 +58,10 @@ export const updatedSaucesItems = ({
  *  @returns {Promise}
  *    @returns {null}
  */
-export const addSauce = ({
-  data
-}: {
-  data: { user: { token: string }; sauce: ISauce };
-}) => async (dispatch: any): Promise<null> => {
-  return API.sauce.add(data).then((res: any) => {
+export const addSauce = ({ formData }: { formData: FormData }) => async (
+  dispatch: any
+): Promise<null> => {
+  return API.sauce.add({ formData }).then((res: any) => {
     // flatten response
     // const { sauces } = flatten(res.data.sauces); // Might need to play around with this
 
