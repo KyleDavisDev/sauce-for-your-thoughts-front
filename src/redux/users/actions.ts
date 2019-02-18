@@ -87,11 +87,11 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
  *  @param {ILoginUser} credentials - credentials object
  *  @fires user#userLoggedIn - set self.token in redux store
  * @return {Promise}
- *    @return {string}
+ *    @return {object}
  */
 export const login = ({ credentials }: { credentials: ILoginUser }) => (
   dispatch: any
-): Promise<string> => {
+): Promise<object> => {
   return API.user.login(credentials).then(res => {
     // Grab token and name
     const { token, name }: { token?: string; name?: string } = res.data.user;
@@ -111,7 +111,7 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
     // Dispatch user login
     dispatch(userLoggedIn({ token, displayName }));
 
-    return token;
+    return { token, displayName };
   });
 };
 
