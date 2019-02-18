@@ -22,5 +22,14 @@ export const API = {
         }
         throw new Error(res.data.msg);
       })
+  },
+  sauce: {
+    add: (formData: FormData): AxiosPromise =>
+      axios.post(`${host}/api/sauce/add`).then(res => {
+        if (res.data.isGood && res.status === 200) {
+          return res.data;
+        }
+        throw new Error(res.data.msg);
+      })
   }
 };
