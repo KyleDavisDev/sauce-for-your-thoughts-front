@@ -24,12 +24,19 @@ export const API = {
       })
   },
   sauce: {
-    add: (formData: FormData): AxiosPromise =>
-      axios.post(`${host}/api/sauce/add`).then(res => {
-        if (res.data.isGood && res.status === 200) {
-          return res.data;
-        }
-        throw new Error(res.data.msg);
-      })
+    add: ({ formData }: { formData: FormData }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/sauce/add`, formData, {
+          headers: {
+            "content-type": `multipart/form-data;`
+          }
+        })
+        .then(res => {
+          if (res.data.isGood && res.status === 200) {
+            return res.data;
+          }
+          throw new Error(res.data.msg);
+        });
+    }
   }
 };
