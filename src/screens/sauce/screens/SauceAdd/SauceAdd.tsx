@@ -35,11 +35,7 @@ import {
 import Auth from "../../../../utils/Auth/Auth";
 
 export interface SauceAddProps {
-  addSauce: ({
-    data
-  }: {
-    data: { user: { token: string }; sauce: ISauce };
-  }) => Promise<any>;
+  addSauce: ({ formData }: { formData: FormData }) => Promise<any>;
   history: { push: (location: string) => any };
   user: { token: string; name: string };
   types: string[];
@@ -83,10 +79,11 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
 
     this.state = {
       _id: 0,
-      name: "",
-      ingredients: "",
-      maker: "",
-      description: "",
+      name: "Name here",
+      ingredients: "abc, dvee,vasdfasdf,,asdfasdf,",
+      maker: "Maker here",
+      description:
+        "Here will be a long description, maybe a few thing's too.      asd      gg",
       photo: "",
       typesOfSauces: types,
       author: this.props.user.name || "",
@@ -439,28 +436,22 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     if (!token) this.props.history.push("/login");
 
     // construct FormData object since we are passing image file
-    const data: {
-      sauce: ISauce;
-      user: { token: string };
-    } = {
-      sauce: {
-        _id: 1,
-        author,
-        created: new Date(),
-        name,
-        maker,
-        description,
-        ingredients,
-        shu,
-        location,
-        types
-      },
-      user: { token }
+    const sauce: ISauce = {
+      _id: 1,
+      author,
+      created: new Date(),
+      name,
+      maker,
+      description,
+      ingredients,
+      shu,
+      location,
+      types
     };
 
     const formData = new FormData();
-    formData.append("data", JSON.stringify({ data }));
-    formData.append("image", this.state.DropNCropValue.value);
+    formData.append("sauce", JSON.stringify({ sauce }));
+    formData.append("SauceImage", this.state.DropNCropValue.result);
     formData.append("user", JSON.stringify({ user: { token } }));
 
     this.props
