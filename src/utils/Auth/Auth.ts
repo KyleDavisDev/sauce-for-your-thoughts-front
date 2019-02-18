@@ -1,8 +1,14 @@
 class Auth {
   // set local storage w/ token and datetime
-  public static authenticateUser(token: string) {
+  public static authenticateUser({
+    token,
+    displayName
+  }: {
+    token: string;
+    displayName: string;
+  }) {
     const timestamp: number = new Date().getTime();
-    const sfytKey = { token, timestamp };
+    const sfytKey = { token, timestamp, displayName };
     localStorage.setItem("sfytKey", JSON.stringify(sfytKey));
   }
 
@@ -59,6 +65,18 @@ class Auth {
     return undefined;
   }
 
+  // Return name
+  public static getName(): undefined | string {
+    // Grab key
+    const sfytKey: string | null = localStorage.getItem("sfytKey");
+
+    // if exists, send back
+    if (sfytKey !== null) {
+      return JSON.parse(sfytKey).displayName || null;
+    }
+    return undefined;
+  }
+
   // update existing token
   // should ONLY be called from isUserAuthenticated so will
   // not be doing same sanity checks as above
@@ -69,8 +87,13 @@ class Auth {
     // Make sure we have key
     if (sfytKey === null) return false;
 
-    // grab token
-    const token: string | null = JSON.parse(sfytKey).token;
+    // grab token and displayName
+    const {
+      token,
+      displayName
+    }: { token: string | null; displayName: string | null } = JSON.parse(
+      sfytKey
+    );
 
     // Make sure we have token
     if (token === null) return false;
@@ -83,7 +106,8 @@ class Auth {
       // apply new time to key
       const key = {
         token,
-        timestamp: new Date().getTime()
+        timestamp: new Date().getTime(),
+        displayName
       };
       // set key
       localStorage.setItem("sfytKey", JSON.stringify(key));
