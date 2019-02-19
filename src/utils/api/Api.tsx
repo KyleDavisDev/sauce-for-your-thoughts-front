@@ -28,7 +28,7 @@ export const API = {
       return axios
         .post(`${host}/api/sauce/add`, formData, {
           headers: {
-            "content-type": `multipart/form-data;`
+            "content-type": `multipart/form-data`
           }
         })
         .then(res => {
