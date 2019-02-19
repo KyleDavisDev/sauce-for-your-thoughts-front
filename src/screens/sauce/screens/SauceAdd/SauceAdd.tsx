@@ -48,13 +48,6 @@ export interface SauceAddState extends ISauce {
   country: string;
   city: string;
   state: string;
-  DropNCrop: {
-    result: null | string;
-    filename: null | string;
-    filetype: null | string;
-    src: null | string;
-    error: null | string;
-  };
   cropperOptions: {
     zoomOnWheel?: boolean;
     aspectRatio?: number;
@@ -92,13 +85,7 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       country: "United States",
       state: "",
       city: "",
-      DropNCrop: {
-        result: null,
-        filename: null,
-        filetype: null,
-        src: null,
-        error: null
-      },
+
       cropperOptions: { zoomOnWheel: false, aspectRatio: 2 / 3, movable: true },
       DropNCropValue: {},
       isImageLocked: false,
@@ -416,7 +403,7 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
 
     // Get array of checked types
     const types: string[] = Object.keys(this.state.typesOfSauces).filter(
-      sauce => this.state.typesOfSauces[sauce].checked
+      type => this.state.typesOfSauces[type].checked
     );
 
     // make sure token is still good/not expired
@@ -451,7 +438,7 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
 
     const formData = new FormData();
     formData.append("sauce", JSON.stringify({ sauce }));
-    formData.append("SauceImage", this.state.DropNCropValue.result);
+    formData.append("image", this.state.DropNCropValue.files[0]);
     formData.append("user", JSON.stringify({ user: { token } }));
 
     this.props
