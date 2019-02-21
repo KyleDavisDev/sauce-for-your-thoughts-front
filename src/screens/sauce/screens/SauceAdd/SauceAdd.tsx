@@ -436,9 +436,17 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       types
     };
 
+    const lastModified = this.state.DropNCropValue.files[0].lastModified;
+    const fileType = this.state.DropNCropValue.filetype;
+    const blob = this.dataURItoBlob(this.state.DropNCropValue.result);
+    const image = new File([blob], "test.png", {
+      type: fileType,
+      lastModified
+    });
+
     const formData = new FormData();
     formData.append("sauce", JSON.stringify({ sauce }));
-    formData.append("image", this.state.DropNCropValue.files[0]);
+    formData.append("image", image);
     formData.append("user", JSON.stringify({ user: { token } }));
 
     this.props
@@ -455,6 +463,30 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       .catch(err => {
         // TODO better error handling
       });
+  };
+
+  private dataURItoBlob = (dataURI: string) => {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    let byteString;
+    if (dataURI.split(",")[0].indexOf("base64") >= 0) {
+      byteString = atob(dataURI.split(",")[1]);
+    } else {
+      byteString = unescape(dataURI.split(",")[1]);
+    }
+
+    // separate out the mime component
+    const mimeString = dataURI
+      .split(",")[0]
+      .split(":")[1]
+      .split(";")[0];
+
+    // write the bytes of the string to a typed array
+    const ia = new Uint8Array(byteString.length);
+    for (let i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+
+    return new Blob([ia], { type: mimeString });
   };
 
   private onImageLock = (event: React.MouseEvent<HTMLButtonElement>): void => {
