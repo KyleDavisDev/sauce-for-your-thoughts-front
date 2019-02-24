@@ -25,7 +25,7 @@ class Auth {
     if (!keyTime) return false;
 
     // set timelimit, in minutes, for token in minutes
-    const timeLimit: number = 60;
+    const timeLimit: number = 60 * 24 * 3; // three days
 
     // get current time
     const curTime: string = new Date().getTime().toString();
