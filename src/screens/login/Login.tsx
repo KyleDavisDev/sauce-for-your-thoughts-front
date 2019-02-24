@@ -54,7 +54,7 @@ const StyledText = styled.p`
 const StyledFooterDivs = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
   > div > label {
@@ -72,7 +72,6 @@ export interface LoginState {
   email: string;
   password: string;
   flashMessage: FlashMessageProps;
-  rememberMe: boolean;
 }
 
 class Login extends React.Component<LoginProps, LoginState> {
@@ -85,8 +84,7 @@ class Login extends React.Component<LoginProps, LoginState> {
       password: "",
       flashMessage: {
         isVisible: false
-      },
-      rememberMe: false
+      }
     };
   }
 
@@ -127,13 +125,6 @@ class Login extends React.Component<LoginProps, LoginState> {
                 required={true}
               />
               <StyledFooterDivs>
-                <CheckBox
-                  checked={this.state.rememberMe}
-                  onClick={this.onClick}
-                  id="rememberMe"
-                  label="Remember Me"
-                  value="rememberMe"
-                />
                 <StyledButton type="submit">Login</StyledButton>
               </StyledFooterDivs>
               <StyledText>
@@ -195,7 +186,7 @@ class Login extends React.Component<LoginProps, LoginState> {
       const { token, displayName } = await this.props.login({ credentials });
 
       // If user wants to be remembered, we need to set localstorage items
-      if (this.state.rememberMe) Auth.authenticateUser({ token, displayName });
+      Auth.authenticateUser({ token, displayName });
 
       // Redirect user to sauces page -- Maybe take them to user home page instead?
       this.props.history.push("/sauces");
