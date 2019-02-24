@@ -35,10 +35,10 @@ import {
 import Auth from "../../../../utils/Auth/Auth";
 
 export interface SauceAddProps {
-  addSauce: ({ formData }: { formData: FormData }) => Promise<any>;
-  history: { push: (location: string) => any };
-  user: { token: string; name: string };
-  types: string[];
+  addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
+  history?: { push: (location: string) => any };
+  user?: { token: string; name: string };
+  types?: string[];
 }
 
 export interface SauceAddState extends ISauce {
@@ -66,9 +66,12 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     const types: {
       [key: string]: { value: string; checked: boolean; key: string };
     } = {};
-    this.props.types.forEach(type => {
-      types[type] = { value: type, checked: false, key: shortid.generate() };
-    });
+
+    if (this.props.types) {
+      this.props.types.forEach(type => {
+        types[type] = { value: type, checked: false, key: shortid.generate() };
+      });
+    }
 
     this.state = {
       _id: 0,
@@ -79,7 +82,7 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
         "Here will be a long description, maybe a few thing's too.      asd      gg",
       photo: "",
       typesOfSauces: types,
-      author: this.props.user.name || "",
+      author: (this.props.user && this.props.user.name) || "",
       created: new Date(),
       shu: "",
       country: "United States",
@@ -94,11 +97,16 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
   }
 
   public componentWillMount() {
-    // If we don't have an author, don't let user go any further
-    if (!this.props.user.name) this.props.history.push("/login");
+    const { user, history } = this.props;
 
-    // If no token, don't go further
-    if (!this.props.user.token) this.props.history.push("/login");
+    // If no history, stop
+    if (!history) return (window.location.href = "/login");
+    // If no user, stop
+    if (!user) return history.push("/login");
+    // If we don't have an author, stop
+    if (!user.name) history.push("/login");
+    // If no token, stop
+    if (!user.token) history.push("/login");
   }
 
   public render() {
@@ -406,8 +414,20 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       type => this.state.typesOfSauces[type].checked
     );
 
+    const { user, history } = this.props;
+    // If no history, stop
+    if (!history) {
+      window.location.href = "/login";
+      return;
+    }
+    // If no user, stop
+    if (!user) {
+      history.push("/login");
+      return;
+    }
+
     // make sure token is still good/not expired
-    if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
+    if (!Auth.isUserAuthenticated()) history.push("/login");
 
     const {
       name,
@@ -419,8 +439,8 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       author
     } = this.state;
 
-    const token = this.props.user.token;
-    if (!token) this.props.history.push("/login");
+    const token = user.token;
+    if (!token) history.push("/login");
 
     // construct FormData object since we are passing image file
     const sauce: ISauce = {
@@ -449,20 +469,24 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     formData.append("image", image);
     formData.append("user", JSON.stringify({ user: { token } }));
 
-    this.props
-      .addSauce({ formData })
-      .then(res => {
-        // Go to sauce page if they do not want to add a review
-        if (this.state.addReview === false) {
-          this.props.history.push(`/sauce/${res.data.sauces[0].slug}`);
-        }
+    if (this.props.addSauce) {
+      this.props
+        .addSauce({ formData })
+        .then(res => {
+          // Go to sauce page if they do not want to add a review
+          if (this.state.addReview === false) {
+            history.push(`/sauce/${res.data.sauces[0].slug}`);
+          }
 
-        // Go to review page for specific sauce
-        this.props.history.push(`/review/add/${res.data.sauces[0].slug}`);
-      })
-      .catch(err => {
-        // TODO better error handling
-      });
+          // Go to review page for specific sauce
+          history.push(`/review/add/${res.data.sauces[0].slug}`);
+        })
+        .catch(err => {
+          // TODO better error handling
+        });
+    } else {
+      // error window?
+    }
   };
 
   private dataURItoBlob = (dataURI: string) => {
