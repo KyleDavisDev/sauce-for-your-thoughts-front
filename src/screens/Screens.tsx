@@ -4,6 +4,7 @@ import Loadable from "react-loadable";
 
 import styled from "../theme/styled-components";
 import Loading from "../components/Holder/Holder";
+import Auth from "../utils/Auth/Auth";
 
 const StyledDiv = styled.div`
   margin: 0;
@@ -96,7 +97,17 @@ const Screens = (
   <StyledDiv>
     {/* {flashMessageVisible && <FlashMessage />} */}
     <Route exact path="/" component={Home} />
-    <Route exact path="/sauce/add" component={SauceAdd} />
+    <Route
+      exact
+      path="/sauce/add"
+      render={props => {
+        return Auth.isUserAuthenticated() ? (
+          <SauceAdd />
+        ) : (
+          <Redirect to="/login" />
+        );
+      }}
+    />
     <Route path="/review/add" component={ReviewAdd} />
     <Route path="/sauces" component={Sauces} />
     <Route path="/register" component={Register} />
