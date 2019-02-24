@@ -1,11 +1,9 @@
 import * as React from "react";
 import { Route, Redirect } from "react-router-dom";
-// import { connect } from "react-redux";
 import Loadable from "react-loadable";
 
 import styled from "../theme/styled-components";
 import Loading from "../components/Holder/Holder";
-import Auth from "../utils/Auth/Auth";
 
 const StyledDiv = styled.div`
   margin: 0;
@@ -92,21 +90,13 @@ const SauceSpotlight = Loadable({
   )
 });
 
+// Components themselves will handle who should be able to visit.
+// Cannot connect to redux using react-router-dom's children method so this is best alternative
 const Screens = (
   <StyledDiv>
     {/* {flashMessageVisible && <FlashMessage />} */}
     <Route exact path="/" component={Home} />
-    <Route
-      exact
-      path="/sauce/add"
-      render={props => {
-        return Auth.isUserAuthenticated() ? (
-          <SauceAdd history={props.history} />
-        ) : (
-          <Redirect to="/login" />
-        );
-      }}
-    />
+    <Route exact path="/sauce/add" component={SauceAdd} />
     <Route path="/review/add" component={ReviewAdd} />
     <Route path="/sauces" component={Sauces} />
     <Route path="/register" component={Register} />
