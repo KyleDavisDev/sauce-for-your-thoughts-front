@@ -102,7 +102,7 @@ const Screens = (
       path="/sauce/add"
       render={props => {
         return Auth.isUserAuthenticated() ? (
-          <SauceAdd />
+          <SauceAdd history={props.history} />
         ) : (
           <Redirect to="/login" />
         );
