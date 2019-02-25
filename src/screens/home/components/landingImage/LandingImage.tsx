@@ -24,7 +24,7 @@ export interface LandingImageState {
     value: string;
   };
   filter: {
-    all: string[];
+    types: string[];
     selectedValue: string;
   };
 }
@@ -36,12 +36,11 @@ class LandingImage extends React.Component<
   constructor(props: LandingImageProps) {
     super(props);
 
-    const types: string[] = this.props.types;
-    types.unshift("All");
+    const types: string[] = ["All", ...this.props.types];
 
     this.state = {
       search: { value: "" },
-      filter: { all: types, selectedValue: "all" }
+      filter: { types, selectedValue: "all" }
     };
   }
 
@@ -53,7 +52,7 @@ class LandingImage extends React.Component<
           <HeroTitle>Find your perfect sauce</HeroTitle>
           <StyledDiv>
             <StyledDropDown
-              options={this.state.filter.all}
+              options={this.state.filter.types}
               selectedValue={this.state.filter.selectedValue}
               onSelect={this.onSelect}
             />
