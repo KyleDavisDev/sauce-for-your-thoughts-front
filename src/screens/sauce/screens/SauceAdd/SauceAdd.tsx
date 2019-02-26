@@ -456,18 +456,24 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       types
     };
 
-    const lastModified = this.state.DropNCropValue.files[0].lastModified;
-    const fileType = this.state.DropNCropValue.filetype;
-    const blob = this.dataURItoBlob(this.state.DropNCropValue.result);
-    const image = new File([blob], "test.png", {
-      type: fileType,
-      lastModified
-    });
-
+    // Construct FormData
     const formData = new FormData();
     formData.append("sauce", JSON.stringify({ sauce }));
-    formData.append("image", image);
     formData.append("user", JSON.stringify({ user: { token } }));
+
+    // Append image if available
+    if (this.state.DropNCropValue.result) {
+      const lastModified = this.state.DropNCropValue.files[0].lastModified;
+      const fileType = this.state.DropNCropValue.filetype;
+      const blob = this.dataURItoBlob(this.state.DropNCropValue.result);
+      const image = new File([blob], "image.png", {
+        type: fileType,
+        lastModified
+      });
+
+      // append
+      formData.append("image", image);
+    }
 
     if (this.props.addSauce) {
       this.props
