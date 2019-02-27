@@ -429,20 +429,26 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     // make sure token is still good/not expired
     if (!Auth.isUserAuthenticated()) history.push("/login");
 
+    // Grab values
     const {
       name,
       maker,
       description,
       ingredients,
       shu,
-      location,
-      author
+      author,
+      country,
+      state,
+      city
     } = this.state;
+    const location = { country, state, city }; // Create location obj
 
     const token = user.token;
     if (!token) history.push("/login");
 
-    // construct FormData object since we are passing image file
+    // Construct FormData since we are passing image file
+    const formData = new FormData();
+    // Create expected suace object
     const sauce: ISauce = {
       _id: 1,
       author,
@@ -456,9 +462,9 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       types
     };
 
-    // Construct FormData
-    const formData = new FormData();
     formData.append("sauce", JSON.stringify({ sauce }));
+
+    // Append user
     formData.append("user", JSON.stringify({ user: { token } }));
 
     // Append image if available
