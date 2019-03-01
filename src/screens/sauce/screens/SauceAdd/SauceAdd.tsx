@@ -487,11 +487,11 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
         .then(res => {
           // Go to sauce page if they do not want to add a review
           if (this.state.addReview === false) {
-            history.push(`/sauce/${res.data.sauces[0].slug}`);
+            history.push(`/sauce?s=${res}`);
+          } else {
+            // Go to review page for specific sauce
+            history.push(`/review/add?s=${res}`);
           }
-
-          // Go to review page for specific sauce
-          history.push(`/review/add/${res.data.sauces[0].slug}`);
         })
         .catch(err => {
           // TODO better error handling
