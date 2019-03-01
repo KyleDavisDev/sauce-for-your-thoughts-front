@@ -24,6 +24,7 @@ import {
   StyledEmptyStar,
   StyledFullStar
 } from "./ReviewAddStyle";
+import Auth from "../../utils/Auth/Auth";
 
 export interface ReviewAddProps {
   addReview: ({ data }: any) => Promise<any>;
@@ -47,22 +48,22 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     super(props);
 
     this.state = {
-      overall: { rating: 0, txt: "" },
-      label: { rating: 0, txt: "" },
-      aroma: { rating: 0, txt: "" },
-      taste: { rating: 0, txt: "" },
-      heat: { rating: 0, txt: "" },
-      note: { rating: 0, txt: "" }
+      overall: { rating: 3, txt: "overall here" },
+      label: { rating: 3, txt: "label here   " },
+      aroma: { rating: 3, txt: "aroma here" },
+      taste: { rating: 2, txt: "taste here" },
+      heat: { rating: 2, txt: "heat hereeeee" },
+      note: { rating: 0, txt: "We got an extra note too" }
     };
   }
 
   public componentDidMount() {
-    const page: string | null = this.getPageFromPath(
+    const slug: string | null = this.getPageFromPath(
       this.props.location.search
     );
 
     // Sauce slug is whack, redirect user
-    if (page === null) {
+    if (slug === null) {
       this.props.history.push("/");
       // Maybe display banner too?
     }
@@ -269,17 +270,28 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
   private onSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
 
-    // Make sure token is still good/not expired
-    // if (!Auth.isUserAuthenticated()) this.props.history.push("/login");
-
-    // TODO Grab author token
+    const { user, history } = this.props;
 
     // Get sauce from URL
-    const values: OutputParams = queryString.parse(this.props.location.search);
-    // Make sure s is not undefined or an array
-    if (!values.s || Array.isArray(values.s)) return;
-    // Get ID
-    const s: string = values.s;
+    const slug: string | null = this.getPageFromPath(
+      this.props.location.search
+    );
+
+    // Sauce slug is whack, redirect user
+    if (slug === null) {
+      history.push("/"); // Maybe display banner too?
+      return;
+    }
+
+    // make sure token is still good/not expired
+    if (!Auth.isUserAuthenticated()) history.push("/login");
+
+    // Make sure we have token
+    const token = user.token;
+    if (!token) {
+      history.push("/login");
+      return;
+    }
 
     const data: {
       user: { token: string };
@@ -289,12 +301,10 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
         ...this.state,
         _id: 0,
         author: { _id: "" },
-        sauce: { _id: s },
+        sauce: { slug },
         created: new Date()
       },
-      user: {
-        token: "abc"
-      }
+      user: { token }
     };
 
     this.props
@@ -322,7 +332,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
 
 function mapStateToProps(state: IinitialState): any {
   return {
-    user: { token: state.users.self.token || "" }
+    user: { token: state.users.self.token }
   };
 }
 
