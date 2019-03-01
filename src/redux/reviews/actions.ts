@@ -1,4 +1,4 @@
-import api from "../../utils/api/api";
+import { API } from "../../utils/api/Api";
 import { IReviewsAction, ReviewsActionTypes, IReview } from "./types";
 
 /** @description add review(s) to store
@@ -33,7 +33,7 @@ export const addReview = ({
 }: {
   data: { user: { token: string }; review: IReview };
 }) => (dispatch: any) =>
-  api.review.add(data).then(res => {
+  API.review.add(data).then((res: any) => {
     // format review so reducer can understand it
     const byId: { [key: string]: IReview } = {
       [res.data.review._id]: res.data.review
