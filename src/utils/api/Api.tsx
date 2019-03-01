@@ -1,5 +1,6 @@
 import axios, { AxiosPromise } from "axios";
 import { IRegisterUser, ILoginUser } from "../../redux/users/types";
+import { IReview } from "../../redux/reviews/types";
 
 export const host =
   process.env.API_ENV === "prod"
@@ -38,5 +39,14 @@ export const API = {
           throw new Error(res.data.msg);
         });
     }
+  },
+  review: {
+    add: (data: { user: { token: string }; review: IReview }): AxiosPromise =>
+      axios.post(`${host}/api/review/add`, data).then(res => {
+        if (res.data.isGood) {
+          return res.data;
+        }
+        throw new Error(res.data.msg);
+      })
   }
 };
