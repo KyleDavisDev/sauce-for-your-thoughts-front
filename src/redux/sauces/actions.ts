@@ -56,22 +56,15 @@ export const updatedSaucesItems = ({
  *      @param {String} data.user.token - unique string
  *    @param {ISauce} data.sauce - sauce object
  *  @returns {Promise}
- *    @returns {null}
+ *    @returns {String}
  */
 export const addSauce = ({ formData }: { formData: FormData }) => async (
   dispatch: any
 ): Promise<null> => {
   return API.sauce.add({ formData }).then((res: any) => {
-    // flatten response
-    // const { sauces } = flatten(res.data.sauces); // Might need to play around with this
+    const { slug } = res.data.sauce;
 
-    // // Add sauce to store
-    // dispatch(addedSauces(sauces));
-
-    // Add user to store
-    // dispatch(addUsers({ users: authors }));
-
-    return null;
+    return slug;
   });
 };
 
