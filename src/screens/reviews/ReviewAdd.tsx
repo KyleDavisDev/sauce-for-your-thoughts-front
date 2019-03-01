@@ -57,15 +57,18 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
   }
 
   public componentDidMount() {
-    const page: number | null = this.getPageFromPath(
+    const page: string | null = this.getPageFromPath(
       this.props.location.search
     );
 
-    // Sauce id is whack, redirect user
+    // Sauce slug is whack, redirect user
     if (page === null) {
       this.props.history.push("/");
       // Maybe display banner too?
     }
+
+    // Make sure we are at top of page
+    window.scrollTo(0, 0);
   }
 
   public render() {
@@ -304,21 +307,16 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
       });
   };
 
-  private getPageFromPath(path: string): number | null {
-    let s: number;
-
+  private getPageFromPath(path: string): string | null {
     // Get s from string
     const values: OutputParams = queryString.parse(path);
 
-    // Make sure s is defined, not an array, and a number
-    if (!values.s || Array.isArray(values.s) || isNaN(parseInt(values.s, 10))) {
+    // Make sure s is defined, not an array
+    if (!values.s || Array.isArray(values.s)) {
       return null;
     }
 
-    // Make sure it's a valid number
-    s = parseInt(values.s, 10);
-
-    return s;
+    return values.s;
   }
 }
 
