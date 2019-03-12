@@ -142,25 +142,11 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
 
 /** @description grab single sauce related to slug
  *  @param {String} slug - keyword to lookup
- *  @returns {NULL}
+ *  @returns {Promise}
+ *    @returns {String}
  */
-export const getSauceBySlug = slug => dispatch =>
-  api.sauce.getBySlug(slug).then(res => {
-    // flatten response obj
-    const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
-
-    // make sauces were flattened
-    if (flatChecker(sauces)) {
-      dispatch(addedSauces({ sauces }));
-    }
-
-    // make sure review were flattened
-    if (flatChecker(reviews)) {
-      dispatch(addedReviews({ reviews }));
-    }
-
-    // make sure users were flattened
-    if (flatChecker(authors)) {
-      dispatch(addUsers({ users: authors }));
-    }
-  });
+export const getSauceBySlug = (slug: string) => async (
+  dispatch: any
+): Promise<null> => {
+  return API.sauce.getBySlug(slug).then(res => {});
+};
