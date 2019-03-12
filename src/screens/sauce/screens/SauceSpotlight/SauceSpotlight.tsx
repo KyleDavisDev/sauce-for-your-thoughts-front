@@ -40,6 +40,9 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
       // Maybe display banner too?
     }
     window.scrollTo(0, 0); // Move screen to top
+
+    // Go look for sauce data
+    // this.props.
   }
 
   public render() {
