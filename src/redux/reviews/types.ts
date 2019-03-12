@@ -27,7 +27,7 @@ export interface IReview {
   _id: number | string;
   author: IUserRef; // User reference
   sauce: ISauceRef;
-  created: Date;
+  created: string;
   overall: IReviewSection; // Only review bit that is required
   label?: IReviewSection;
   aroma?: IReviewSection;
