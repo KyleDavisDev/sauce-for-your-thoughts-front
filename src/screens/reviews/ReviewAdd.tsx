@@ -310,7 +310,8 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     this.props
       .addReview({ data })
       .then(res => {
-        // Go to sauce page??
+        // Take user to sauce page
+        history.push(`/sauce?s=${slug}`);
       })
       .catch(err => {
         // TODO better error handling
