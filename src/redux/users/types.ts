@@ -9,7 +9,8 @@ export interface IUser {
 
 // Trimmed down for reference only
 export interface IUserRef {
-  _id: string;
+  _id?: number | string;
+  displayName: string;
 }
 
 // Used for redux reducer
