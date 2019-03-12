@@ -34,12 +34,5 @@ export const addReview = ({
   data: { user: { token: string }; review: IReview };
 }) => (dispatch: any) =>
   API.review.add(data).then((res: any) => {
-    // format review so reducer can understand it
-    const byId: { [key: string]: IReview } = {
-      [res.data.review._id]: res.data.review
-    };
-    const allIds: number[] = [res.data.review._id];
-
-    // add review to redux store
-    dispatch(addedReviews({ byId, allIds }));
+    return null;
   });
