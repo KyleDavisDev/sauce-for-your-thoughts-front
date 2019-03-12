@@ -9,13 +9,24 @@ export const host =
 
 export const API = {
   user: {
+    /** @description Add new user to DB
+     *  @param {IRegisterUser} credentials - user credentials
+     *  @return {AxiosPromise} AxiosPromise
+     *  @resolves {Object} -
+     *  @reject {String} error message
+     */
     register: (credentials: IRegisterUser): AxiosPromise =>
       axios.post(`${host}/api/user/register`, credentials).then(res => {
         if (res.data.isGood) {
-          return res.data;
+          return res;
         }
         throw new Error(res.data.msg);
       }),
+    /** @description Add new user to DB
+     *  @param {ILoginUser} credentials - user credentials
+     *  @returns {AxiosPromise} AxiosPromise
+     *    @returns {Object} res
+     */
     login: (credentials: ILoginUser): AxiosPromise =>
       axios.post(`${host}/api/user/login`, credentials).then(res => {
         if (res.data.isGood) {
@@ -25,6 +36,13 @@ export const API = {
       })
   },
   sauce: {
+    /** @description Add sauce to DB
+     *  @param {FormData} formData object w/ all required suace and user information
+     *    @param {String} formData.user.token user's unique token
+     *    @param {ISauce} formData.sauce - sauce being added
+     *    @param {File} formData.image - image associated w/ sauce
+     *  @returns {AxiosPromise} AxiosPromise
+     */
     add: ({ formData }: { formData: FormData }): AxiosPromise => {
       return axios
         .post(`${host}/api/sauce/add`, formData, {
