@@ -112,20 +112,20 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
  *  @returns {Promise}
  *    @returns {null}
  */
-export const updateSauce = ({
-  data
-}: {
-  data: {
-    user: { token: string };
-    sauce: ISauce;
-    review: IReview;
-    photo?: Blob;
-  };
-}) => (dispatch: any) => {
-  return api.sauce.update(data).then((res: any) => {
-    // dispatch(updatedSaucesItems({ sauce }));
-  });
-};
+// export const updateSauce = ({
+//   data
+// }: {
+//   data: {
+//     user: { token: string };
+//     sauce: ISauce;
+//     review: IReview;
+//     photo?: Blob;
+//   };
+// }) => (dispatch: any) => {
+//   return api.sauce.update(data).then((res: any) => {
+//     // dispatch(updatedSaucesItems({ sauce }));
+//   });
+// };
 
 // export const getSaucesByTag = data => dispatch =>
 //   api.sauces.getSaucesByTag(data).then(res => {
@@ -140,27 +140,27 @@ export const updateSauce = ({
 //       res
 //   );
 
-// /** @description grab single sauce related to slug
-//  *  @param {String} slug - keyword to lookup
-//  *  @returns {NULL}
-//  */
-// export const getSauceBySlug = slug => dispatch =>
-//   api.sauce.getBySlug(slug).then(res => {
-//     // flatten response obj
-//     const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
+/** @description grab single sauce related to slug
+ *  @param {String} slug - keyword to lookup
+ *  @returns {NULL}
+ */
+export const getSauceBySlug = slug => dispatch =>
+  api.sauce.getBySlug(slug).then(res => {
+    // flatten response obj
+    const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
 
-//     // make sauces were flattened
-//     if (flatChecker(sauces)) {
-//       dispatch(addedSauces({ sauces }));
-//     }
+    // make sauces were flattened
+    if (flatChecker(sauces)) {
+      dispatch(addedSauces({ sauces }));
+    }
 
-//     // make sure review were flattened
-//     if (flatChecker(reviews)) {
-//       dispatch(addedReviews({ reviews }));
-//     }
+    // make sure review were flattened
+    if (flatChecker(reviews)) {
+      dispatch(addedReviews({ reviews }));
+    }
 
-//     // make sure users were flattened
-//     if (flatChecker(authors)) {
-//       dispatch(addUsers({ users: authors }));
-//     }
-//   });
+    // make sure users were flattened
+    if (flatChecker(authors)) {
+      dispatch(addUsers({ users: authors }));
+    }
+  });
