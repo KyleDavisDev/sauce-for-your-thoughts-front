@@ -7,7 +7,7 @@ import TopBar from "../../../../components/TopBar/TopBar";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
 import Navigation from "../../../../components/Navigation/Navigation";
 import Footer from "../../../../components/Footer/Footer";
-import SauceSpotlight from "./components/SauceSpotlight/SauceSpotlight";
+import SauceHero from "./components/SauceHero/SauceHero";
 import SauceReviews from "./components/SauceReviews/SauceReviews";
 import SauceAuthor from "./components/SauceAuthor/SauceAuthor";
 import {
@@ -59,7 +59,7 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
           <StyledLeftContainer>
             <PageTitle>{sauce ? sauce.name : "Loading..."}</PageTitle>
             {/* Spotlight */}
-            {sauce && <SauceSpotlight sauce={sauce} />}
+            {sauce && <SauceHero sauce={sauce} />}
 
             {/* Reviews */}
             <StyledDescriptor title="Reviews">
