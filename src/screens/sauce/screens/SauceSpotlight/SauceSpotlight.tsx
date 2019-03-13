@@ -19,6 +19,7 @@ import {
 } from "./SauceSpotlightStyle";
 import { dummyData } from "./dummyData";
 import { ISauce } from "../../../../redux/sauce/types";
+import { getSauceBySlug } from "../../../../redux/sauces/actions";
 
 export interface SauceSingleProps {
   location: { search: string };
@@ -44,7 +45,7 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
     window.scrollTo(0, 0); // Move screen to top
 
     // Go look for sauce data
-    // this.props.
+    this.props.getSauceBySlug;
   }
 
   public render() {
@@ -59,12 +60,13 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
           <StyledLeftContainer>
             <PageTitle>{sauce ? sauce.name : "Loading..."}</PageTitle>
             {/* Spotlight */}
-            {sauce && <SauceHero sauce={sauce} />}
+            {sauce ? <SauceHero sauce={sauce} /> : "Loading..."}
 
             {/* Reviews */}
             <StyledDescriptor title="Reviews">
               The opinions expressed are soley those of the author.
             </StyledDescriptor>
+
             {sauce && sauce.slug && (
               <SauceReviews slug={sauce.slug} reviews={sauce.reviews} />
             )}
@@ -97,4 +99,11 @@ const mapState2Props = (state: IinitialState) => {
   return {};
 };
 
-export default connect(mapState2Props)(SauceSingle);
+const mapDispatch2Props = {
+  getSauceBySlug
+};
+
+export default connect(
+  mapState2Props,
+  mapDispatch2Props
+)(SauceSingle);
