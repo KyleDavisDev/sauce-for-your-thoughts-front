@@ -4,6 +4,7 @@ import { IinitialState } from "../../../../../../redux/configureStore";
 import styled from "styled-components";
 import { Link } from "../../../../../../components/Link/Link";
 import { Button } from "../../../../../../components/Button/Button";
+import { ISauce } from "../../../../../../redux/sauce/types";
 
 const StyledSauceContainer = styled.div`
   background-color: ${props => props.theme.formContainerBackgroundColor};
@@ -31,10 +32,10 @@ const StyledSauceInfoContainer = styled.div`
 `;
 
 export interface SauceSpotlightProps {
-  id: string; // This is sauce's id that will have to be looked up
+  sauce: ISauce; // This is sauce's slug that will have to be looked up
 }
 
-class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
+class SauceSpotlight extends React.PureComponent<SauceSpotlightProps, any> {
   public constructor(props: SauceSpotlightProps) {
     super(props);
   }
