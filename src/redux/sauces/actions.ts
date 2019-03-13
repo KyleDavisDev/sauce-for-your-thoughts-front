@@ -56,7 +56,7 @@ export const updatedSaucesItems = ({
  *      @param {String} data.user.token - unique string
  *    @param {ISauce} data.sauce - sauce object
  *  @returns {Promise}
- *    @returns {String}
+ *    @returns {String} slug - unique sauce slug
  */
 export const addSauce = ({ formData }: { formData: FormData }) => async (
   dispatch: any
