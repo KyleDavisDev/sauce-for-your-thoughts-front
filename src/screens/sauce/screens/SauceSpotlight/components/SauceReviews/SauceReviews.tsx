@@ -21,7 +21,7 @@ const StyledContainer = styled.div`
 
 export interface SauceReviewsProps {
   slug: string;
-  reviews?: IReview[];
+  reviews: IReview[];
   unfoundReviews?: string[];
 }
 
