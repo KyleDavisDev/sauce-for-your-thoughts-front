@@ -1,4 +1,6 @@
-export const dummyData = [
+import { IReview } from "../../../../redux/reviews/types";
+
+export const dummyData: IReview[] = [
   {
     _id: "58c6a8aafb4d61115815f8b4",
     created: "2017-03-13T14:11:54.848Z",
