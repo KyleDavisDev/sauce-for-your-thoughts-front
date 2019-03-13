@@ -31,12 +31,12 @@ const StyledSauceInfoContainer = styled.div`
   padding: 0 1em;
 `;
 
-export interface SauceSpotlightProps {
+export interface SauceHeroProps {
   sauce: ISauce; // This is sauce's slug that will have to be looked up
 }
 
-class SauceSpotlight extends React.PureComponent<SauceSpotlightProps, any> {
-  public constructor(props: SauceSpotlightProps) {
+class SauceHero extends React.PureComponent<SauceHeroProps, any> {
+  public constructor(props: SauceHeroProps) {
     super(props);
   }
 
@@ -81,4 +81,4 @@ const mapState2Props = (state: IinitialState) => {
   return {};
 };
 
-export default connect(mapState2Props)(SauceSpotlight);
+export default connect(mapState2Props)(SauceHero);
