@@ -12,7 +12,19 @@ export const API = {
     /** @description Add new user to DB
      *  @param {IRegisterUser} credentials - user credentials
      *  @return {AxiosPromise} AxiosPromise
-     *  @resolves {Object} -
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {String} res.data.msg - message accociated with isGood
+     *
+     *  {Object} res.data.user - user data
+     *
+     *  {String} res.data.user.token - unique user JWT
+     *
+     *  {String} res.data.user.name - user's display name
+     *
+     *  {String} res.data.email - user's email
      *  @reject {String} error message
      */
     register: (credentials: IRegisterUser): AxiosPromise =>
@@ -25,12 +37,25 @@ export const API = {
     /** @description Add new user to DB
      *  @param {ILoginUser} credentials - user credentials
      *  @returns {AxiosPromise} AxiosPromise
-     *    @returns {Object} res
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {String} res.data.msg - message accociated with isGood
+     *
+     *  {Object} res.data.user - user data
+     *
+     *  {String} res.data.user.token - unique user JWT
+     *
+     *  {String} res.data.user.name - user's display name
+     *
+     *  {String} res.data.email - user's email
+     *  @reject {String} error message
      */
     login: (credentials: ILoginUser): AxiosPromise =>
       axios.post(`${host}/api/user/login`, credentials).then(res => {
         if (res.data.isGood) {
-          return res.data;
+          return res;
         }
         throw new Error(res.data.msg);
       })
@@ -42,6 +67,14 @@ export const API = {
      *    @param {ISauce} formData.sauce - sauce being added
      *    @param {File} formData.image - image associated w/ sauce
      *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {Object} res.data.sauce - sauce data
+     *
+     *  {String} res.data.sauce.slug - unique sauce slug
+     *  @reject {String} error message
      */
     add: ({ formData }: { formData: FormData }): AxiosPromise => {
       return axios
@@ -51,8 +84,8 @@ export const API = {
           }
         })
         .then(res => {
-          if (res.data.isGood && res.status === 200) {
-            return res.data;
+          if (res.data.isGood) {
+            return res;
           }
           throw new Error(res.data.msg);
         });
