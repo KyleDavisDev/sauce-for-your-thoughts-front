@@ -18,10 +18,12 @@ import {
   StyledH2
 } from "./SauceSpotlightStyle";
 import { dummyData } from "./dummyData";
+import { ISauce } from "../../../../redux/sauce/types";
 
 export interface SauceSingleProps {
   location: { search: string };
   history: { push: (location: string) => any };
+  sauce?: ISauce;
 }
 
 class SauceSingle extends React.Component<SauceSingleProps, any> {
@@ -46,6 +48,8 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
   }
 
   public render() {
+    const { sauce } = this.props;
+
     return (
       <div>
         <TopBar />
@@ -53,16 +57,19 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
 
         <StyledArticle>
           <StyledLeftContainer>
-            <PageTitle>Chalulu hot sauce</PageTitle>
+            <PageTitle>{sauce ? sauce.name : "Loading..."}</PageTitle>
             {/* Spotlight */}
-            <SauceSpotlight id={"5"} />
+            {sauce && <SauceSpotlight sauce={sauce} />}
 
             {/* Reviews */}
             <StyledDescriptor title="Reviews">
               The opinions expressed are soley those of the author.
             </StyledDescriptor>
-            <SauceReviews slug={"5"} reviews={dummyData} />
+            {sauce && sauce.slug && sauce.reviews && (
+              <SauceReviews slug={sauce.slug} reviews={sauce.reviews} />
+            )}
           </StyledLeftContainer>
+
           <StyledRightContainer>
             <StyledH2>Author</StyledH2>
             <SauceAuthor id={"5"} />
