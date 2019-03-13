@@ -45,7 +45,7 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
     window.scrollTo(0, 0); // Move screen to top
 
     // Go look for sauce data
-    this.props.getSauceBySlug;
+    // this.props.getSauceBySlug;
   }
 
   public render() {
