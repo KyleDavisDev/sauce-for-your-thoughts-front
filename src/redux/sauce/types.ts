@@ -1,3 +1,5 @@
+import { IReview } from "../reviews/types";
+
 export interface ISauce {
   _id: number;
   name: string;
@@ -9,13 +11,13 @@ export interface ISauce {
   description: string;
   photo?: string;
   shu?: number | string;
-  reviews?: string[];
+  reviews?: IReview[];
   location?: {
     city?: string;
     state?: string;
     country?: string;
   };
-  tags?: string[];
+  slug?: string;
 }
 
 // Trimmed down for reference only
