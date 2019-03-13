@@ -21,7 +21,7 @@ const StyledContainer = styled.div`
 
 export interface SauceReviewsProps {
   slug: string;
-  reviews: IReview[];
+  reviews?: IReview[];
   unfoundReviews?: string[];
 }
 
@@ -31,10 +31,11 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
   }
 
   public render() {
+    const { reviews } = this.props;
     return (
       <div>
-        {this.props.reviews ? (
-          this.props.reviews.map(review => {
+        {reviews && reviews.length > 0 ? (
+          reviews.map(review => {
             return <SauceReviewBlock review={review} key={review._id} />;
           })
         ) : (

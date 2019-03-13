@@ -65,14 +65,14 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
             <StyledDescriptor title="Reviews">
               The opinions expressed are soley those of the author.
             </StyledDescriptor>
-            {sauce && sauce.slug && sauce.reviews && (
+            {sauce && sauce.slug && (
               <SauceReviews slug={sauce.slug} reviews={sauce.reviews} />
             )}
           </StyledLeftContainer>
 
           <StyledRightContainer>
             <StyledH2>Author</StyledH2>
-            <SauceAuthor id={"5"} />
+            {sauce && sauce.author ? <SauceAuthor id={"5"} /> : "Loading..."}
           </StyledRightContainer>
         </StyledArticle>
         <Footer />
