@@ -145,8 +145,10 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
  *  @returns {Promise}
  *    @returns {String}
  */
-export const getSauceBySlug = (slug: string) => async (
-  dispatch: any
-): Promise<null> => {
-  return API.sauce.getBySlug(slug).then(res => {});
+export const getSauceBySlug = ({
+  data
+}: {
+  data: { sauce: { slug: string } };
+}) => async (dispatch: any): Promise<null> => {
+  return API.sauce.getBySlug(data).then(res => {});
 };
