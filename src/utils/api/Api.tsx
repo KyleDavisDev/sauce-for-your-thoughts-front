@@ -34,6 +34,7 @@ export const API = {
         }
         throw new Error(res.data.msg);
       }),
+
     /** @description Add new user to DB
      *  @param {ILoginUser} credentials - user credentials
      *  @returns {AxiosPromise} AxiosPromise
@@ -79,6 +80,37 @@ export const API = {
     add: ({ formData }: { formData: FormData }): AxiosPromise => {
       return axios
         .post(`${host}/api/sauce/add`, formData, {
+          headers: {
+            "content-type": `multipart/form-data`
+          }
+        })
+        .then(res => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
+    },
+
+    /** @description Find sauce information given the sauce's slug
+     *  @param {Object} data object w/ all required suace and user information
+     *    @param {String} data.sauce.slug sauce's unique slug
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {ISauce} res.data.sauce - sauce data
+     *
+     *  @reject {String} error message
+     */
+    getBySlug: ({
+      data
+    }: {
+      data: { sauce: { slug: string } };
+    }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/sauce/get/by/slug/`, data, {
           headers: {
             "content-type": `multipart/form-data`
           }
