@@ -92,10 +92,21 @@ export const API = {
     }
   },
   review: {
+    /** @description Add review to DB
+     *  @param {Object} data data object
+     *    @param {string} data.user.token user's unique token
+     *    @param {IReview} data.review - review being added
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {String} error message
+     */
     add: (data: { user: { token: string }; review: IReview }): AxiosPromise =>
       axios.post(`${host}/api/review/add`, data).then(res => {
         if (res.data.isGood) {
-          return res.data;
+          return res;
         }
         throw new Error(res.data.msg);
       })
