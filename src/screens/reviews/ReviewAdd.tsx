@@ -297,21 +297,21 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
       user: { token: string };
       review: IReview;
     } = {
+      user: { token },
       review: {
         ...this.state,
         _id: 0,
-        author: { _id: "" },
+        author: { displayName: "" },
         sauce: { slug },
-        created: new Date()
-      },
-      user: { token }
+        created: ""
+      }
     };
 
     this.props
       .addReview({ data })
       .then(res => {
         // Take user to sauce page
-        history.push(`/sauce?s=${slug}`);
+        history.push(`/sauce/?s=${slug}`);
       })
       .catch(err => {
         // TODO better error handling
