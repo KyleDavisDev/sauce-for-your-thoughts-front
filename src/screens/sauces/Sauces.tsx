@@ -95,7 +95,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
                     author="John Davis Guy"
                     maker="Tasty sauces inc."
                     type="Hot Sauce"
-                    to={`/sauce?s=${5}`}
+                    to={`/sauce/?s=${5}`}
                   />
                 </StyledCardHolder>
               );
