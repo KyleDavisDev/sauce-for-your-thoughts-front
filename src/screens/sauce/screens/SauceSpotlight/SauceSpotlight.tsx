@@ -17,14 +17,14 @@ import {
   StyledDescriptor,
   StyledH2
 } from "./SauceSpotlightStyle";
-import { dummyData } from "./dummyData";
 import { ISauce } from "../../../../redux/sauce/types";
-import { getSauceBySlug } from "../../../../redux/sauces/actions";
+import { getSauceBySlug } from "../../../../redux/sauce/actions";
 
 export interface SauceSingleProps {
   location: { search: string };
   history: { push: (location: string) => any };
   sauce?: ISauce;
+  getSauceBySlug: ({ data }: { data: { sauce: { slug: string } } }) => any;
 }
 
 class SauceSingle extends React.Component<SauceSingleProps, any> {
@@ -41,11 +41,15 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
     if (slug === null) {
       this.props.history.push("/");
       // Maybe display banner too?
+      return;
     }
     window.scrollTo(0, 0); // Move screen to top
 
+    // construct data obj
+    const data = { sauce: { slug } };
+
     // Go look for sauce data
-    // this.props.getSauceBySlug;
+    this.props.getSauceBySlug({ data }).catch((err: any) => console.log(err));
   }
 
   public render() {
