@@ -155,11 +155,6 @@ class Login extends React.Component<LoginProps, LoginState> {
     });
   };
 
-  private onClick = (event: React.MouseEvent<HTMLInputElement>): void => {
-    // Update stae
-    this.setState({ rememberMe: !this.state.rememberMe });
-  };
-
   private onSubmit = async (event: React.FormEvent): Promise<any> => {
     event.preventDefault();
 
