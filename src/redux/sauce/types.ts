@@ -2,6 +2,7 @@ import { IReview } from "../reviews/types";
 
 export interface ISauce {
   _id: number;
+  _addedToStore?: Date;
   name: string;
   ingredients: string;
   author: string;
