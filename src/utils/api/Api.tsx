@@ -109,18 +109,12 @@ export const API = {
     }: {
       data: { sauce: { slug: string } };
     }): AxiosPromise => {
-      return axios
-        .post(`${host}/api/sauce/get/by/slug/`, data, {
-          headers: {
-            "content-type": `multipart/form-data`
-          }
-        })
-        .then(res => {
-          if (res.data.isGood) {
-            return res;
-          }
-          throw new Error(res.data.msg);
-        });
+      return axios.post(`${host}/api/sauce/get/by/slug/`, data).then(res => {
+        if (res.data.isGood) {
+          return res;
+        }
+        throw new Error(res.data.msg);
+      });
     }
   },
   review: {
