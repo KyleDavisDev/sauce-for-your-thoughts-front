@@ -9,11 +9,12 @@ import { IReview } from "../reviews/types.js";
 // import { addUsers } from "./users";
 
 /** @description Add sauce(s) to array of sauces
- *  @param {ISaucesAction} object - object of sauce information
- *    @param {Object} object.byId - dictionary of id => ISauce pairs
- *    @param {number[]} object.allIds - array of sauce id's
- *    @param {Object} object.query - dictionary of queryString => id pairs
- *    @param {number} object.total - total number of suaces we know about
+ *  @param {Object} byId - dictionary of id => ISauce pairs
+ *    @param {ISauce} byId.id - dictionary of id => ISauce pairs
+ *  @param {String[]} allIds - array of sauce id's
+ *  @param {Object} query - dictionary of queryString => id pairs
+ *    @param {String[]} query - dictionary of queryString => id pairs
+ *  @param {Number} total - total number of suaces we know about
  *  @return {ISaucesAction} sauce and action type
  */
 export const addedSauces = ({
