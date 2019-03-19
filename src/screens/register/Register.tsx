@@ -180,7 +180,19 @@ class Register extends React.Component<RegisterProps, RegisterState> {
       return;
     }
 
-    const credentials: IRegisterUser = { user: this.state };
+    // Grab values from state
+    const {
+      email,
+      confirmEmail,
+      password,
+      confirmPassword,
+      displayName
+    } = this.state;
+
+    // Create credentials obj
+    const credentials: IRegisterUser = {
+      user: { email, confirmEmail, password, confirmPassword, displayName }
+    };
     try {
       // dispatch action which calls API to register user
       await this.props.register({ credentials });
