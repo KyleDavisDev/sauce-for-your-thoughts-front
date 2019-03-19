@@ -1,18 +1,18 @@
 {
-  "name": "now-thats-delicious",
+  "name": "sauce-for-your-thoughts-front",
   "version": "2.0.0",
   "description": "Web Application for sauce fanatics to review their sauce experiences.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/KyleBonar/now-thats-delicious-front.git"
+    "url": "https://github.com/KyleDavisDev/sauce-for-your-thoughts-front-front.git"
   },
   "scripts": {
     "dev": "webpack-dev-server",
     "test": "jest --watchAll",
     "prod": "webpack -p --config webpack.prod.js --define process.env.API_ENV='\"prod\"'"
   },
-  "author": "Kyle Bonar",
+  "author": "Kyle Davis",
   "license": "ISC",
   "dependencies": {
     "@synapsestudios/react-drop-n-crop": "^0.2.0",
