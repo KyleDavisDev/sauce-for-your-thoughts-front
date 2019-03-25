@@ -13,11 +13,9 @@ export interface ISauce {
   photo?: string;
   shu?: number | string;
   reviews?: IReview[];
-  location?: {
-    city?: string;
-    state?: string;
-    country?: string;
-  };
+  city?: string;
+  state?: string;
+  country?: string;
   slug?: string;
 }
 
