@@ -5,7 +5,7 @@ import DropNCrop from "@synapsestudios/react-drop-n-crop";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 
-import { addSauce } from "../../../../redux/sauces/actions";
+import { addSauce } from "../../../../redux/sauce/actions";
 import { ISauce } from "../../../../redux/sauce/types";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
 import { CheckBox } from "../../../../components/CheckBox/CheckBox";
@@ -441,7 +441,6 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       state,
       city
     } = this.state;
-    const location = { country, state, city }; // Create location obj
 
     const token = user.token;
     if (!token) history.push("/login");
@@ -458,7 +457,9 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       description,
       ingredients,
       shu,
-      location,
+      country,
+      state,
+      city,
       types
     };
 
