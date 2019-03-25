@@ -180,7 +180,7 @@ class Login extends React.Component<LoginProps, LoginState> {
       // dispatch action which calls API to login user
       const { token, displayName } = await this.props.login({ credentials });
 
-      // If user wants to be remembered, we need to set localstorage items
+      // Set user to be remembered
       Auth.authenticateUser({ token, displayName });
 
       // Redirect user to sauces page -- Maybe take them to user home page instead?
