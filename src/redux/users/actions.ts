@@ -56,12 +56,18 @@ export const userLoggedOut = () => ({
 /** @description pass credentials to server to register user
  *  @param {IRegisterUser} credentials - credentials object
  *  @fires user#userLoggedIn - set self.token in redux store
- *  @return {Promise}
- *    @return {NULL}
+ *  @return {Promise} Promise
+ *  @resolves {Object} token - unique user token
+ *
+ *  {String} token - unique user token
+ *
+ *  {String} displayName - unique user displayName
+ *
+ *  @reject {String} error message
  */
 export const register = ({ credentials }: { credentials: IRegisterUser }) => (
   dispatch: any
-): Promise<any> => {
+): Promise<object> => {
   return API.user.register(credentials).then(res => {
     // Grab token and name
     const { token, name }: { token?: string; name?: string } = res.data.user;
@@ -80,14 +86,22 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
 
     // Dispatch user login
     dispatch(userLoggedIn({ token, displayName }));
+
+    return { token, displayName };
   });
 };
 
 /** @description pass credentials to server to log user in
  *  @param {ILoginUser} credentials - credentials object
  *  @fires user#userLoggedIn - set self.token in redux store
- * @return {Promise}
- *    @return {object}
+ *  @return {Promise} Promise
+ *  @resolves {Object} token - unique user token
+ *
+ *  {String} token - unique user token
+ *
+ *  {String} displayName - unique user displayName
+ *
+ *  @reject {String} error message
  */
 export const login = ({ credentials }: { credentials: ILoginUser }) => (
   dispatch: any
