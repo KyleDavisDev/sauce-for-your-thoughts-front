@@ -2,16 +2,16 @@ import { API } from "../../utils/api/Api";
 import { addedSauces } from "../sauces/actions";
 
 /** @description Add sauce to DB
- *  @param {Object} data - Form Data that has been JSONified
- *    @param {Object} data.user - author of the sauce
- *      @param {String} data.user.token - unique string
- *    @param {ISauce} data.sauce - sauce object
+ *  @param {FormData} formdata - Form Data that has been JSONified
+ *    @param {Object} formdata.user - author of the sauce
+ *      @param {String} formdata.user.token - unique string
+ *    @param {ISauce} formdata.sauce - sauce object
  *  @returns {Promise}
  *    @returns {String} slug - unique sauce slug
  */
 export const addSauce = ({ formData }: { formData: FormData }) => async (
   dispatch: any
-): Promise<null> => {
+): Promise<string> => {
   return API.sauce.add({ formData }).then((res: any) => {
     const { slug } = res.data.sauce;
 
