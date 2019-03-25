@@ -21,6 +21,7 @@ import {
   FlashMessageProps
 } from "../../components/FlashMessage/FlashMessage";
 import Err from "../../utils/Err/Err";
+import Auth from "../../utils/Auth/Auth";
 
 export interface RegisterProps {
   register: any;
@@ -195,7 +196,10 @@ class Register extends React.Component<RegisterProps, RegisterState> {
     };
     try {
       // dispatch action which calls API to register user
-      await this.props.register({ credentials });
+      const { token } = await this.props.register({ credentials });
+
+      // Set user to be remembered
+      Auth.authenticateUser({ token, displayName });
 
       // Redirect user to sauces page -- Maybe take them to user home page instead?
       this.props.history.push("/sauces");
