@@ -8,14 +8,14 @@ module.exports = {
   mode: "development",
   context: resolve(__dirname, "src"),
   entry: [
-    "webpack-dev-server/client?http://localhost:8080",
     // bundle the client for webpack-dev-server
     // and connect to the provided endpoint
     "webpack/hot/only-dev-server",
     // bundle the client for hot reloading
     // only- means to only hot reload for successful updates
-    "./index.tsx"
+    "webpack-dev-server/client?http://localhost:8080",
     // the entry point of our app
+    "./index.tsx"
   ],
   output: {
     path: resolve(__dirname, "dist"),
