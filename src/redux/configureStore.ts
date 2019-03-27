@@ -48,7 +48,7 @@ export const configureStore = () => {
       byId: {},
       total: 0,
       query: {},
-      types: ["Hot Sauce", "BBQ", "Gravy", "Marinade", "Salsa", "Meat"]
+      types: ["Hot Sauce", "BBQ Sauce", "Gravy", "Marinade", "Salsa", "Meat Sauce"]
     },
     users: {
       self: {
