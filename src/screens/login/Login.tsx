@@ -107,7 +107,7 @@ class Login extends React.Component<LoginProps, LoginState> {
             )}
             <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
               <TextInput
-                type="text"
+                type="email"
                 onChange={this.onTextChange}
                 showLabel={true}
                 label={"Email"}
@@ -158,15 +158,24 @@ class Login extends React.Component<LoginProps, LoginState> {
   private onSubmit = async (event: React.FormEvent): Promise<any> => {
     event.preventDefault();
 
-    // If not email or password is too short, don't even send network request
-    if (
-      !validator.isEmail(this.state.email) ||
-      this.state.password.length < 8
-    ) {
+    // If not email don't even send network request
+    if (!validator.isEmail(this.state.email)) {
       this.setState({
         flashMessage: {
           isVisible: true,
-          text: "Invalid username or password.",
+          text: "An email must be used.",
+          type: "alert"
+        }
+      });
+      return;
+    }
+
+    // If password too short, don't send network request
+    if (this.state.password.length < 8) {
+      this.setState({
+        flashMessage: {
+          isVisible: true,
+          text: "Password must be longer than 8 characters",
           type: "alert"
         }
       });
