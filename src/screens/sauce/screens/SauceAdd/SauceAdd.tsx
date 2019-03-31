@@ -25,6 +25,7 @@ import {
   StyledDescriptor,
   StyledRightSide,
   StyledTextInput,
+  StyledTextArea,
   StyledDiv,
   StyledDiv2,
   StyledDropdownContainer,
@@ -151,14 +152,13 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
                   etc. This is NOT your review.
                 </StyledDescriptor>
                 <StyledRightSide>
-                  <StyledTextInput
+                  <StyledTextArea
                     onChange={this.onTextChange}
                     label="Description"
                     name="description"
                     id="description"
                     showLabel={true}
                     value={this.state.description}
-                    type="textarea"
                     required={true}
                   />
                 </StyledRightSide>
@@ -169,14 +169,13 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
                   seperated list found somewhere on the sauce label.
                 </StyledDescriptor>
                 <StyledRightSide>
-                  <StyledTextInput
+                  <StyledTextArea
                     onChange={this.onTextChange}
                     label="Ingredients"
                     name="ingredients"
                     id="ingredients"
                     showLabel={true}
                     value={this.state.ingredients}
-                    type="textarea"
                     required={true}
                   />
                 </StyledRightSide>

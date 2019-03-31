@@ -1,5 +1,6 @@
 import Descriptor from "../../../../components/Descriptor/Descriptor";
 import TextInput from "../../../../components/TextInput/TextInput";
+import TextArea from "../../../../components/TextArea/TextArea";
 import styled from "../../../../theme/styled-components";
 import { Button } from "../../../../components/Button/Button";
 
@@ -56,11 +57,16 @@ export const StyledRightSide = styled.div`
 `;
 
 export const StyledTextInput = styled(TextInput)`
+  width: 100%;
   float: left;
-  max-width: ${props =>
-    props.type === "textarea"
-      ? "100%"
-      : "50%"}; // give Textarea full width and text 50%
+  max-width: 50%;
+  box-sizing: border-box;
+  padding: 0 1rem;
+`;
+
+export const StyledTextArea = styled(TextArea)`
+  float: left;
+  max-width: 100%;
   box-sizing: border-box;
   padding: 0 1rem;
 `;
