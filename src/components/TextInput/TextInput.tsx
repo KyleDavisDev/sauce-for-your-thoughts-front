@@ -2,7 +2,7 @@ import * as React from "react";
 import * as shortid from "shortid";
 
 import Label from "../Label/Label";
-import { StyledDiv, StyledInput, StyledTextArea } from "./TextInputStyle";
+import { StyledDiv, StyledInput } from "./TextInputStyle";
 
 interface TextInputProps {
   id?: string;
@@ -48,9 +48,7 @@ class TextInput extends React.PureComponent<TextInputProps, TextInputState> {
         )}
 
         {/* Make sure prop passed and is either 'text' or 'password' */}
-        {this.props.type &&
-        (this.props.type.toLowerCase() === "text" ||
-          this.props.type.toLowerCase() === "password") ? (
+        {this.props.type && (
           <StyledInput
             type={this.props.type}
             id={this.state.id}
@@ -58,17 +56,6 @@ class TextInput extends React.PureComponent<TextInputProps, TextInputState> {
             value={this.props.value}
             placeholder={this.props.placeholder}
             onChange={this.props.onChange}
-            required={this.props.required}
-          />
-        ) : (
-          <StyledTextArea
-            id={this.state.id}
-            name={this.props.name}
-            cols={30}
-            rows={10}
-            placeholder={this.props.placeholder}
-            onChange={this.props.onChange}
-            value={this.props.value}
             required={this.props.required}
           />
         )}
