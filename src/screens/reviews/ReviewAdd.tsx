@@ -7,7 +7,7 @@ import queryString, { OutputParams } from "query-string";
 import { addReview } from "../../redux/reviews/actions";
 import { IReviewSection, IReview } from "../../redux/reviews/types";
 import PageTitle from "../../components/PageTitle/PageTitle";
-import TextInput from "../../components/TextInput/TextInput";
+import TextArea from "../../components/TextArea/TextArea";
 import Label from "../../components/Label/Label";
 import ArrowRight from "../../images/icons/ArrowRight";
 import { IinitialState } from "../../redux/configureStore";
@@ -95,14 +95,13 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     onClick={e => this.onStarClick(e, "taste")}
                     initialRating={this.state.taste.rating}
                   />
-                  <TextInput
+                  <TextArea
                     onChange={this.onTextChange}
                     label="Description"
                     name="taste"
                     id="taste"
                     showLabel={true}
                     value={this.state.taste.txt}
-                    type="textarea"
                   />
                 </StyledRightSide>
               </StyledRow>
@@ -122,14 +121,13 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     onClick={e => this.onStarClick(e, "aroma")}
                     initialRating={this.state.aroma.rating}
                   />
-                  <TextInput
+                  <TextArea
                     onChange={this.onTextChange}
                     label="Description"
                     name="aroma"
                     id="aroma"
                     showLabel={true}
                     value={this.state.aroma ? this.state.aroma.txt : ""}
-                    type="textarea"
                   />
                 </StyledRightSide>
               </StyledRow>
@@ -149,14 +147,13 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     onClick={e => this.onStarClick(e, "label")}
                     initialRating={this.state.label.rating}
                   />
-                  <TextInput
+                  <TextArea
                     onChange={this.onTextChange}
                     label="Description"
                     name="label"
                     id="label"
                     showLabel={true}
                     value={this.state.label ? this.state.label.txt : ""}
-                    type="textarea"
                   />
                 </StyledRightSide>
               </StyledRow>
@@ -175,14 +172,13 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     onClick={e => this.onStarClick(e, "heat")}
                     initialRating={this.state.heat.rating}
                   />
-                  <TextInput
+                  <TextArea
                     onChange={this.onTextChange}
                     label="Description"
                     name="heat"
                     id="heat"
                     showLabel={true}
                     value={this.state.heat ? this.state.heat.txt : ""}
-                    type="textarea"
                   />
                 </StyledRightSide>
               </StyledRow>
@@ -201,7 +197,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     onClick={e => this.onStarClick(e, "overall")}
                     initialRating={this.state.overall.rating}
                   />
-                  <TextInput
+                  <TextArea
                     onChange={this.onTextChange}
                     required={true}
                     label="Description"
@@ -209,7 +205,6 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     id="overall"
                     showLabel={true}
                     value={this.state.overall ? this.state.overall.txt : ""}
-                    type="textarea"
                   />
                 </StyledRightSide>
               </StyledRow>
@@ -221,14 +216,13 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                   it here!
                 </StyledDescriptor>
                 <StyledRightSide>
-                  <TextInput
+                  <TextArea
                     onChange={this.onTextChange}
                     label="Description"
                     name="note"
                     id="note"
                     showLabel={true}
                     value={this.state.note ? this.state.note.txt : ""}
-                    type="textarea"
                   />
                 </StyledRightSide>
               </StyledRow>
