@@ -51,11 +51,7 @@ export const updatedSaucesItems = ({
  *
  *  @returns {Promise}
  *  @fires sauces.addsauce - add sauce to redux store
- *  @resolves {Object} res.data - relevant info to request
- *
- *  {Boolean} res.data.isGood - whether request was good or not
- *
- *  {ISauce} res.data.sauce - sauce data
+ *  @resolves {Null}
  *
  *  @reject {String} error message
  */
@@ -65,11 +61,11 @@ export const getSauceBySlug = ({
   data: { sauce: { slug: string } };
 }) => async (dispatch: any): Promise<null> => {
   return API.sauce.getBySlug({ data }).then((res: any) => {
-    const { slug } = res.data.sauce;
+    const { sauce } = res.data.sauce;
 
     // Push sauce into redux store
     // dispatch(addedSauces({}))
-    return slug;
+    return null;
   });
 };
 
