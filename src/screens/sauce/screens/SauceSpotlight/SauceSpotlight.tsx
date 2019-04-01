@@ -17,8 +17,8 @@ import {
   StyledDescriptor,
   StyledH2
 } from "./SauceSpotlightStyle";
-import { ISauce } from "../../../../redux/sauce/types";
-import { getSauceBySlug } from "../../../../redux/sauce/actions";
+import { ISauce } from "../../../../redux/sauces/types";
+import { getSauceBySlug } from "../../../../redux/sauces/actions";
 
 export interface SauceSingleProps {
   location: { search: string };

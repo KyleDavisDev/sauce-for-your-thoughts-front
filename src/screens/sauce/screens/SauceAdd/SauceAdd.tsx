@@ -5,8 +5,8 @@ import DropNCrop from "@synapsestudios/react-drop-n-crop";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 
-import { addSauce } from "../../../../redux/sauce/actions";
-import { ISauce } from "../../../../redux/sauce/types";
+import { addSauce } from "../../../../redux/sauces/actions";
+import { ISauce } from "../../../../redux/sauces/types";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
 import { CheckBox } from "../../../../components/CheckBox/CheckBox";
 import Label from "../../../../components/Label/Label";
