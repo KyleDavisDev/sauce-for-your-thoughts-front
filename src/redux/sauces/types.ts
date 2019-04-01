@@ -1,4 +1,4 @@
-import { ISauce } from "../sauce/types";
+import { IReview } from "../reviews/types";
 
 // Used for action emitters and reducer
 export interface ISaucesAction {
@@ -7,6 +7,31 @@ export interface ISaucesAction {
   query?: IQuery;
   byId?: { [key: string]: ISauce };
   allIds?: number[];
+}
+
+export interface ISauce {
+  _id: number;
+  _addedToStore?: Date;
+  name: string;
+  ingredients: string;
+  author: string;
+  created: Date;
+  types?: string[];
+  maker: string;
+  description: string;
+  photo?: string;
+  shu?: number | string;
+  reviews?: IReview[];
+  city?: string;
+  state?: string;
+  country?: string;
+  slug?: string;
+}
+
+// Trimmed down for reference only
+export interface ISauceRef {
+  _id?: number | string;
+  slug: string;
 }
 
 // Used for redux state

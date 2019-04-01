@@ -2,7 +2,6 @@ import { API } from "../../utils/api/Api";
 // import { normalize } from "normalizr";
 
 import { ISaucesAction, SaucesActionTypes } from "./types";
-import { ISauce } from "../sauce/types";
 import { IReview } from "../reviews/types.js";
 
 // import { addedReviews } from "./reviews";
