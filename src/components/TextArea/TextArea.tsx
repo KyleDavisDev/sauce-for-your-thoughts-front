@@ -1,17 +1,16 @@
 import * as React from "react";
 import * as shortid from "shortid";
 
+import { StyledDiv, StyledTextArea } from "./TextAreaStyle";
 import Label from "../Label/Label";
-import { StyledDiv, StyledInput } from "./TextInputStyle";
 
-interface TextInputProps {
+export interface TextAreaProps {
   id?: string;
   name?: string;
   placeholder?: string;
   required?: boolean;
   label?: string;
   showLabel?: boolean;
-  type?: "text" | "textarea" | "password" | string; // have to allow 'string' or else styled components complains
   value?: string | number;
   className?: string;
   onChange(
@@ -21,15 +20,17 @@ interface TextInputProps {
   ): void;
 }
 
-interface TextInputState {
+interface TextAreaState {
   id: string;
 }
 
-class TextInput extends React.PureComponent<TextInputProps, TextInputState> {
+export default class TextArea extends React.PureComponent<
+  TextAreaProps,
+  TextAreaState
+> {
   public static defaultProps = {
     showLabel: false,
-    required: false,
-    type: "text"
+    required: false
   };
 
   public componentWillMount() {
@@ -46,22 +47,17 @@ class TextInput extends React.PureComponent<TextInputProps, TextInputState> {
             {this.props.required ? "*" : ""}
           </Label>
         )}
-
-        {/* Make sure prop passed and is either 'text' or 'password' */}
-        {this.props.type && (
-          <StyledInput
-            type={this.props.type}
-            id={this.state.id}
-            name={this.props.name}
-            value={this.props.value}
-            placeholder={this.props.placeholder}
-            onChange={this.props.onChange}
-            required={this.props.required}
-          />
-        )}
+        <StyledTextArea
+          id={this.state.id}
+          name={this.props.name}
+          cols={30}
+          rows={10}
+          placeholder={this.props.placeholder}
+          onChange={this.props.onChange}
+          value={this.props.value}
+          required={this.props.required}
+        />
       </StyledDiv>
     );
   }
 }
-
-export default TextInput;

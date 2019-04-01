@@ -93,7 +93,7 @@ export const API = {
     },
 
     /** @description Find sauce information given the sauce's slug
-     *  @param {Object} data object w/ all required suace and user information
+     *  @param {Object} data object w/ required sauce slug
      *    @param {String} data.sauce.slug sauce's unique slug
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request

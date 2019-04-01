@@ -73,7 +73,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
             )}
             <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
               <TextInput
-                type="text"
+                type="email"
                 onChange={this.onTextChange}
                 showLabel={true}
                 label={"Email"}
@@ -82,7 +82,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
                 required={true}
               />
               <TextInput
-                type="text"
+                type="email"
                 onChange={this.onTextChange}
                 showLabel={true}
                 label={"Confirm Email"}

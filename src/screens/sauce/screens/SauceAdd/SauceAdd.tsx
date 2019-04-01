@@ -5,8 +5,8 @@ import DropNCrop from "@synapsestudios/react-drop-n-crop";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 
-import { addSauce } from "../../../../redux/sauce/actions";
-import { ISauce } from "../../../../redux/sauce/types";
+import { addSauce } from "../../../../redux/sauces/actions";
+import { ISauce } from "../../../../redux/sauces/types";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
 import { CheckBox } from "../../../../components/CheckBox/CheckBox";
 import Label from "../../../../components/Label/Label";
@@ -25,6 +25,7 @@ import {
   StyledDescriptor,
   StyledRightSide,
   StyledTextInput,
+  StyledTextArea,
   StyledDiv,
   StyledDiv2,
   StyledDropdownContainer,
@@ -151,14 +152,13 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
                   etc. This is NOT your review.
                 </StyledDescriptor>
                 <StyledRightSide>
-                  <StyledTextInput
+                  <StyledTextArea
                     onChange={this.onTextChange}
                     label="Description"
                     name="description"
                     id="description"
                     showLabel={true}
                     value={this.state.description}
-                    type="textarea"
                     required={true}
                   />
                 </StyledRightSide>
@@ -169,14 +169,13 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
                   seperated list found somewhere on the sauce label.
                 </StyledDescriptor>
                 <StyledRightSide>
-                  <StyledTextInput
+                  <StyledTextArea
                     onChange={this.onTextChange}
                     label="Ingredients"
                     name="ingredients"
                     id="ingredients"
                     showLabel={true}
                     value={this.state.ingredients}
-                    type="textarea"
                     required={true}
                   />
                 </StyledRightSide>
