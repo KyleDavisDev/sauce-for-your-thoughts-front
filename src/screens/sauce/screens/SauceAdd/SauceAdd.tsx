@@ -83,7 +83,7 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
         "Here will be a long description, maybe a few thing's too.      asd      gg",
       photo: "",
       typesOfSauces: types,
-      author: (this.props.user && this.props.user.name) || "",
+      author: { displayName: (this.props.user && this.props.user.name) || "" },
       created: new Date(),
       shu: "",
       country: "United States",
@@ -448,7 +448,6 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     const formData = new FormData();
     // Create expected suace object
     const sauce: ISauce = {
-      _id: 1,
       author,
       created: new Date(),
       name,
