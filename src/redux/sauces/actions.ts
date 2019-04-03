@@ -1,5 +1,5 @@
 import { API } from "../../utils/api/Api";
-// import { normalize } from "normalizr";
+import { normalize } from "normalizr";
 
 import { ISaucesAction, SaucesActionTypes } from "./types";
 import { IReview } from "../reviews/types.js";
@@ -61,7 +61,11 @@ export const getSauceBySlug = ({
   data: { sauce: { slug: string } };
 }) => async (dispatch: any): Promise<null> => {
   return API.sauce.getBySlug({ data }).then((res: any) => {
-    const { sauce } = res.data.sauce;
+    // Define a users schema
+    const user = new schema.Entity("users");
+
+    // Will need to normalize sauce before pushing to redux
+    // const normlized =
 
     // Push sauce into redux store
     // dispatch(addedSauces({}))
