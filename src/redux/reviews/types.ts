@@ -1,5 +1,5 @@
 import { IUserRef } from "../users/types";
-import { ISauceRef } from "../sauce/types";
+import { ISauceRef } from "../sauces/types";
 
 export interface IReviewSection {
   rating: number;
@@ -24,7 +24,8 @@ export const enum ReviewsActionTypes {
 }
 
 export interface IReview {
-  _id: number | string;
+  _id?: number | string;
+  hashID?: string;
   author: IUserRef; // User reference
   sauce: ISauceRef;
   created: string;

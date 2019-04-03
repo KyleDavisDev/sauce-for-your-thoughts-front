@@ -1,8 +1,8 @@
 import { API } from "../../utils/api/Api";
-// import { normalize } from "normalizr";
 
 import { ISaucesAction, SaucesActionTypes } from "./types";
 import { IReview } from "../reviews/types.js";
+import Flatn from "../../utils/Flatn/Flatn";
 
 // import { addedReviews } from "./reviews";
 // import { addUsers } from "./users";
@@ -61,7 +61,10 @@ export const getSauceBySlug = ({
   data: { sauce: { slug: string } };
 }) => async (dispatch: any): Promise<null> => {
   return API.sauce.getBySlug({ data }).then((res: any) => {
-    const { sauce } = res.data.sauce;
+    // Will need to normalize sauce before pushing to redux
+    const reviews = Flatn.reviews({ reviews: res.data.sauce.reviews });
+
+    console.log(reviews);
 
     // Push sauce into redux store
     // dispatch(addedSauces({}))

@@ -1,4 +1,5 @@
 import { IReview } from "../reviews/types";
+import { IUserRef } from "../users/types";
 
 // Used for action emitters and reducer
 export interface ISaucesAction {
@@ -10,11 +11,11 @@ export interface ISaucesAction {
 }
 
 export interface ISauce {
-  _id: number;
+  _id?: number;
   _addedToStore?: Date;
   name: string;
   ingredients: string;
-  author: string;
+  author: IUserRef;
   created: Date;
   types?: string[];
   maker: string;
