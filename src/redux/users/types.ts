@@ -1,9 +1,9 @@
 // User shape
 export interface IUser {
-  _id: number;
-  reviews: string[];
-  created: Date;
-  name: string;
+  _id?: number;
+  reviews?: string[];
+  created: string;
+  displayName: string;
   email?: string;
 }
 
@@ -23,8 +23,8 @@ export interface IUserAction {
 // Used for redux state
 export interface IUserState {
   self: { token?: string; displayName?: string };
-  byId?: { [key: string]: IUser };
-  allIds?: string[];
+  byDisplayName?: { [key: string]: IUser };
+  allDisplayName?: string[];
 }
 
 // Register user
