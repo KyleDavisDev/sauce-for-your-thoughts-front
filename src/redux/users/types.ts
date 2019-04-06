@@ -1,8 +1,9 @@
 // User shape
 export interface IUser {
   _id?: number;
+  _addedToStore?: number; // Unix time for when added to redux
   reviews?: string[];
-  created: string;
+  created: number;
   displayName: string;
   email?: string;
 }
@@ -18,13 +19,14 @@ export interface IUserAction {
   type: string;
   token?: string;
   displayName?: string;
+  user?: IUser;
 }
 
 // Used for redux state
 export interface IUserState {
-  self: { token?: string; displayName?: string };
+  self?: { token?: string; displayName?: string };
   byDisplayName?: { [key: string]: IUser };
-  allDisplayName?: string[];
+  allDisplayNames?: string[];
 }
 
 // Register user
@@ -50,7 +52,8 @@ export interface ILoginUser {
 // be compiled away leaving only the final value in your compiled code.
 export const enum UsersActionTypes {
   USER_LOGGED_IN = "@@users/USER_LOGGED_IN",
+  USER_LOGGED_OUT = "@@users/USER_LOGGED_OUT",
   USER_GOT_INFO = "@@users/USER_GOT_INFO",
   USER_UPDATED = "@@users/USER_UPDATED",
-  USER_LOGGED_OUT = "@@users/USER_LOGGED_OUT"
+  USER_ADDED = "@@users/USER_ADDED"
 }
