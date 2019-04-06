@@ -25,9 +25,10 @@ export const enum ReviewsActionTypes {
 
 export interface IReview {
   _id?: number | string;
+  _addedToStore?: number;
   hashID?: string;
-  author: IUserRef; // User reference
-  sauce: ISauceRef;
+  author: string; // User's displayName
+  sauce: string; // Sauce's slug
   created: string;
   overall: IReviewSection; // Only review bit that is required
   label?: IReviewSection;
