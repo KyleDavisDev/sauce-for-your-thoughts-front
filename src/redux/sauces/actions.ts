@@ -1,10 +1,10 @@
 import { API } from "../../utils/api/Api";
 
-import { ISaucesAction, SaucesActionTypes } from "./types";
-import { IReview } from "../reviews/types.js";
+import { ISaucesAction, SaucesActionTypes, ISauce } from "./types";
+import { IReview, IReviewsState } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
 
-// import { addedReviews } from "./reviews";
+import { addedReviews } from "../reviews/actions";
 // import { addUsers } from "./users";
 
 /** @description Add sauce(s) to array of sauces
@@ -61,10 +61,22 @@ export const getSauceBySlug = ({
   data: { sauce: { slug: string } };
 }) => async (dispatch: any): Promise<null> => {
   return API.sauce.getBySlug({ data }).then((res: any) => {
-    // Will need to normalize sauce before pushing to redux
-    const reviews = Flatn.reviews({ reviews: res.data.sauce.reviews });
+    // Pull sauce out
+    const { sauce } = res.data;
 
-    console.log(reviews);
+    if (sauce.reviews && sauce.reviews.length > 0) {
+      const reviews: IReview[] = sauce.reviews;
+      // Normalize reviews
+      const normalizedReviews: IReviewsState = Flatn.reviews({
+        reviews
+      });
+
+      // Push reviews to redux
+      dispatch(addedReviews({ reviews: normalizedReviews }));
+
+      // Update reviews on sauce
+      sauce.reviews = normalizedReviews.allHashIDs;
+    }
 
     // Push sauce into redux store
     // dispatch(addedSauces({}))
@@ -118,7 +130,7 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
 
 //     // make sure review were flattened
 //     if (flatChecker(reviews)) {
-//       dispatch(addedReviews({ reviews }));
+// dispatch(addedReviews({ reviews }));
 //     }
 
 //     // make sure users were flattened
