@@ -12,10 +12,10 @@ export interface ISaucesAction {
 
 export interface ISauce {
   _id?: number;
-  _addedToStore?: Date;
+  _addedToStore?: number;
   name: string;
   ingredients: string;
-  author: IUserRef;
+  author: string;
   created: Date;
   types?: string[];
   maker: string;
