@@ -22,7 +22,7 @@ export interface ISauce {
   description: string;
   photo?: string;
   shu?: number | string;
-  reviews?: IReview[];
+  reviews?: string[];
   city?: string;
   state?: string;
   country?: string;
@@ -37,8 +37,8 @@ export interface ISauceRef {
 
 // Used for redux state
 export interface ISaucesState {
-  allIds: number[];
-  byId: null | { [key: string]: ISauce };
+  allSlugs: string[];
+  bySlug: null | { [key: string]: ISauce };
   total: null | number;
   query: null | IQuery;
 }
