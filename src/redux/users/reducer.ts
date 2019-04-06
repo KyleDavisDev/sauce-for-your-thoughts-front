@@ -4,7 +4,7 @@ import { Reducer } from "redux";
 const initialState: IUserState = {
   self: {},
   byDisplayName: {},
-  allDisplayName: [""]
+  allDisplayNames: [""]
 };
 
 const userReducer: Reducer<IUserState> = (
@@ -21,13 +21,9 @@ const userReducer: Reducer<IUserState> = (
     case UsersActionTypes.USER_LOGGED_OUT:
       // remove all user.self stuff
       return { ...state, self: {} };
-    // case UsersActionTypes.USER_UPDATED:
-    //   return {
-    //     ...state,
-    //     email: action.email,
-    //     name: action.name
-    //   };
-
+    case UsersActionTypes.USER_ADDED:
+      const byDisplayName = { ...state.byDisplayName, ...action.user };
+      return { ...state };
     default:
       return state;
   }
