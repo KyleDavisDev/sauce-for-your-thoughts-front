@@ -9,8 +9,8 @@ export interface IReviewSection {
 // All actions emitted must follow this form
 export interface IReviewsAction {
   type: string;
-  allIds: number[];
-  byId: { [key: string]: IReview };
+  allHashIDs: string[];
+  byHashID: { [key: string]: IReview };
 }
 
 // Use const enums for better autocompletion of action type names. These will
@@ -37,12 +37,10 @@ export interface IReview {
   note?: IReviewSection;
 }
 
-// Used for state
-// Declare state types with `readonly` modifier to get compile time immutability.
-// https://github.com/piotrwitek/react-redux-typescript-guide#state-with-type-level-immutability
+// Used for redux state
 export interface IReviewsState {
-  readonly allIds: number[];
-  readonly byId: null | { [key: string]: IReview };
+  allHashIDs: string[];
+  byHashID: { [key: string]: IReview };
 }
 
 // Trimmed down for reference only
