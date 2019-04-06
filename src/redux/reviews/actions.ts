@@ -1,21 +1,26 @@
 import { API } from "../../utils/api/Api";
-import { IReviewsAction, ReviewsActionTypes, IReview } from "./types";
+import {
+  IReviewsAction,
+  ReviewsActionTypes,
+  IReview,
+  IReviewsState
+} from "./types";
 
 /** @description add review(s) to store
  *  @param {number[]} allIds - array of review objects
  *  @param {IReview} byId - object with nested review objects
  */
 export const addedReviews = ({
-  allIds,
-  byId
+  reviews
 }: {
-  allIds: number[];
-  byId: { [key: string]: IReview };
-}): IReviewsAction => ({
-  type: ReviewsActionTypes.REVIEWS_ADDED,
-  allIds,
-  byId
-});
+  reviews: IReviewsState;
+}): IReviewsAction => {
+  return {
+    type: ReviewsActionTypes.REVIEWS_ADDED,
+    allHashIDs: reviews.allHashIDs,
+    byHashID: reviews.byHashID
+  };
+};
 
 /** @description add a single review to the DB
  *  @param {Object} data - all encompasing object
