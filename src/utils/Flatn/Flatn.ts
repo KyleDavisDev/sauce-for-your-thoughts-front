@@ -1,18 +1,9 @@
-import { IReview } from "../../redux/reviews/types";
+import { IReview, IReviewsState } from "../../redux/reviews/types";
 
 class Flatn {
   // flatten array of reviews
-  public static reviews({
-    reviews
-  }: {
-    reviews: IReview[];
-  }): {
-    allHashID: string[];
-    byHashID: {
-      [key: string]: IReview;
-    };
-  } {
-    const allHashID: string[] = [];
+  public static reviews({ reviews }: { reviews: IReview[] }): IReviewsState {
+    const allHashIDs: string[] = [];
     const byHashID: { [key: string]: IReview } = {};
 
     for (let i = 0, len = reviews.length; i < len; i++) {
@@ -22,13 +13,13 @@ class Flatn {
       if (!hashID) continue;
 
       // Push into array
-      allHashID.push(hashID);
+      allHashIDs.push(hashID);
 
       // Add to obj
       byHashID[hashID] = reviews[i];
     }
 
-    return { allHashID, byHashID };
+    return { allHashIDs, byHashID };
   }
 }
 
