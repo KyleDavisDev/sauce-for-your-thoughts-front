@@ -1,11 +1,11 @@
 import { API } from "../../utils/api/API";
-import { IRegisterUser, UsersActionTypes, ILoginUser } from "./types";
+import { IRegisterUser, UsersActionTypes, ILoginUser, IUser } from "./types";
 // import { store } from "../../components/App";
 
-// export const addUsers = ({ users }) => ({
-//   type: "USERS_ADDED",
-//   users
-// });
+export const addUsers = ({ user }: { user: IUser }) => ({
+  type: UsersActionTypes.USER_ADDED,
+  user
+});
 
 // action to og user in
 export const userLoggedIn = ({
