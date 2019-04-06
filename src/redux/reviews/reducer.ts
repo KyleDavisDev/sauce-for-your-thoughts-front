@@ -2,8 +2,8 @@ import { Reducer } from "redux";
 import { IReviewsState, IReviewsAction, ReviewsActionTypes } from "./types";
 
 const initialState: IReviewsState = {
-  allIds: [],
-  byId: {}
+  allHashIDs: [],
+  byHashID: {}
 };
 
 const reviewReducer: Reducer<IReviewsState> = (
@@ -12,16 +12,23 @@ const reviewReducer: Reducer<IReviewsState> = (
 ): IReviewsState => {
   switch (action.type) {
     case ReviewsActionTypes.REVIEWS_ADDED:
+      // construct individual components
+      const byHashID = { ...state.byHashID, ...action.byHashID }; // concat new review to old
+      const allHashIDs = [
+        ...state.allHashIDs, // old HashIDs
+        ...action.allHashIDs.filter(
+          x => state.allHashIDs.indexOf(x) === -1 // concat only HashID that are not already in the array
+        )
+      ];
+
       // construct return object
-      return {
-        byId: { ...state.byId, ...action.byId }, // concat new review to old
-        allIds: [
-          ...state.allIds, // old ids
-          ...action.allIds.filter(
-            x => state.allIds.indexOf(x) === -1 // concat only id that are not already in the array
-          )
-        ]
+      const obj: IReviewsState = {
+        byHashID,
+        allHashIDs
       };
+
+      // Return obj
+      return obj;
 
     default:
       return state;
