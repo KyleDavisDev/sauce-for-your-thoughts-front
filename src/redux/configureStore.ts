@@ -6,7 +6,7 @@ import flashMessage from "./flashMessage/reducer";
 import sauces from "./sauces/reducer";
 import reviews from "./reviews/reducer";
 import users from "./users/reducer";
-import { ISauce } from "./sauce/types";
+import { ISauce } from "./sauces/types";
 import { IQuery } from "./sauces/types";
 import { IUser } from "./users/types";
 import { IReview } from "./reviews/types";
@@ -30,12 +30,12 @@ export interface IinitialState {
   };
   users: {
     self: { token?: string; displayName?: string; avatar?: string };
-    byId?: { [key: string]: IUser };
-    allIds?: string[];
+    byDisplayName?: { [key: string]: IUser };
+    allDisplayNames?: string[];
   };
   reviews: {
-    byId?: { [key: string]: IReview };
-    allIds?: string[];
+    byHashID?: { [key: string]: IReview };
+    allHashIDs?: string[];
   };
   flashMessage: IFlashState;
 }
@@ -48,17 +48,24 @@ export const configureStore = () => {
       byId: {},
       total: 0,
       query: {},
-      types: ["Hot Sauce", "BBQ Sauce", "Gravy", "Marinade", "Salsa", "Meat Sauce"]
+      types: [
+        "Hot Sauce",
+        "BBQ Sauce",
+        "Gravy",
+        "Marinade",
+        "Salsa",
+        "Meat Sauce"
+      ]
     },
     users: {
       self: {
         token: Auth.isUserAuthenticated() ? Auth.getToken() : undefined,
         displayName: Auth.isUserAuthenticated ? Auth.getName() : undefined
       },
-      byId: {},
-      allIds: []
+      byDisplayName: {},
+      allDisplayNames: []
     },
-    reviews: { byId: {}, allIds: [] },
+    reviews: { byHashID: {}, allHashIDs: [] },
     flashMessage: { isVisible: false, type: null, text: null, slug: null }
   };
 
