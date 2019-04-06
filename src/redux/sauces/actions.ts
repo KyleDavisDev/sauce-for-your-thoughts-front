@@ -5,6 +5,8 @@ import { IReview, IReviewsState } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
 
 import { addedReviews } from "../reviews/actions";
+import { IUser } from "../users/types";
+import { addUsers } from "../users/actions";
 // import { addUsers } from "./users";
 
 /** @description Add sauce(s) to array of sauces
@@ -51,6 +53,7 @@ export const updatedSaucesItems = ({
  *
  *  @returns {Promise}
  *  @fires sauces.addsauce - add sauce to redux store
+ *  @fires reviews.addedReviews - add reviews to redux store
  *  @resolves {Null}
  *
  *  @reject {String} error message
@@ -64,6 +67,7 @@ export const getSauceBySlug = ({
     // Pull sauce out
     const { sauce } = res.data;
 
+    // Update sauce and dispatch reviews if we have them
     if (sauce.reviews && sauce.reviews.length > 0) {
       const reviews: IReview[] = sauce.reviews;
       // Normalize reviews
@@ -77,6 +81,11 @@ export const getSauceBySlug = ({
       // Update reviews on sauce
       sauce.reviews = normalizedReviews.allHashIDs;
     }
+
+    // Update sauce and dispatch author from sauce
+    const author: IUser = sauce.author;
+    // const normalizedUser = F
+    dispatch(addUsers({ user: author }));
 
     // Push sauce into redux store
     // dispatch(addedSauces({}))
