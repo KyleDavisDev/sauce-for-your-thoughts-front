@@ -3,8 +3,8 @@ import { Reducer } from "redux";
 
 const initialState: IUserState = {
   self: {},
-  byId: {},
-  allIds: [""]
+  byDisplayName: {},
+  allDisplayName: [""]
 };
 
 const userReducer: Reducer<IUserState> = (
