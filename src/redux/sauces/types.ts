@@ -1,18 +1,10 @@
 import { IReview } from "../reviews/types";
 import { IUserRef } from "../users/types";
 
-// Used for action emitters and reducer
-export interface ISaucesAction {
-  type: string;
-  total?: number;
-  query?: IQuery;
-  byId?: { [key: string]: ISauce };
-  allIds?: number[];
-}
-
 export interface ISauce {
   _id?: number;
-  _addedToStore?: number;
+  _addedToStore?: number; // Unix time added to redux store
+  _full?: boolean; // Whether we have full sauce or partial
   name: string;
   ingredients: string;
   author: string;
@@ -35,16 +27,25 @@ export interface ISauceRef {
   slug: string;
 }
 
+// Used for action emitters and reducer
+export interface ISaucesAction {
+  type: string;
+  total?: number;
+  query?: IQuery;
+  bySlug?: { [key: string]: ISauce };
+  allSlugs?: string[];
+}
+
 // Used for redux state
 export interface ISaucesState {
   allSlugs: string[];
-  bySlug: null | { [key: string]: ISauce };
-  total: null | number;
-  query: null | IQuery;
+  bySlug?: { [key: string]: ISauce };
+  total?: number;
+  query?: IQuery;
 }
 
 export interface IQuery {
-  [key: string]: { sauces: number[] };
+  [key: string]: { sauces: string[] };
 }
 
 // Use const enums for better autocompletion of action type names. These will
