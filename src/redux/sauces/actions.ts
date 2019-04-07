@@ -1,6 +1,11 @@
 import { API } from "../../utils/api/Api";
 
-import { ISaucesAction, SaucesActionTypes, ISauce } from "./types";
+import {
+  ISaucesAction,
+  SaucesActionTypes,
+  ISauce,
+  ISaucesState
+} from "./types";
 import { IReview, IReviewsState } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
 
@@ -19,16 +24,15 @@ import { addUsers } from "../users/actions";
  *  @return {ISaucesAction} sauce and action type
  */
 export const addedSauces = ({
-  byId,
-  allIds,
-  query,
-  total
-}: ISaucesAction): ISaucesAction => ({
+  sauce
+}: {
+  sauce: ISaucesState;
+}): ISaucesAction => ({
   type: SaucesActionTypes.SAUCES_ADDED,
-  allIds,
-  byId,
-  query,
-  total
+  allSlugs: sauce.allSlugs,
+  bySlug: sauce.bySlug,
+  query: sauce.query,
+  total: sauce.total
 });
 
 /** @description Add sauce(s) to array of sauces
@@ -37,14 +41,14 @@ export const addedSauces = ({
  *    @param {number[]} object.allIds - array of sauce id's
  *  @return {ISaucesAction} sauce and action type
  */
-export const updatedSaucesItems = ({
-  allIds,
-  byId
-}: ISaucesAction): ISaucesAction => ({
-  type: SaucesActionTypes.UPDATE_SAUCE,
-  allIds,
-  byId
-});
+// export const updatedSaucesItems = ({
+//   allIds,
+//   byId
+// }: ISaucesAction): ISaucesAction => ({
+//   type: SaucesActionTypes.UPDATE_SAUCE,
+//   allIds,
+//   byId
+// });
 
 /** @description grab single sauce related to slug
  *  @param {Object} data - object containing slug we are interested in
@@ -82,13 +86,23 @@ export const getSauceBySlug = ({
       sauce.reviews = normalizedReviews.allHashIDs;
     }
 
-    // Update sauce and dispatch author from sauce
+    // Now we need to normalize author and update sauce
+    // Grab author
     const author: IUser = sauce.author;
+    // Normalize author
     const normalizedUser: IUserState = Flatn.users({ users: [author] });
+    // Dispatch user
     dispatch(addUsers({ user: normalizedUser }));
+    // Update sauce w/ author and set _full to true
+    sauce.author = author.displayName;
 
-    // Push sauce into redux store
-    // dispatch(addedSauces({}))
+    // Normalize sauce and dispatch
+    sauce._full = true; // Set here for Flatn will auto-set to false
+    const normalizedSauce: ISaucesState = Flatn.sauces({ sauces: [sauce] });
+
+    // Lastly dispatch sauce
+    dispatch(addedSauces({ sauce: normalizedSauce }));
+
     return null;
   });
 };
