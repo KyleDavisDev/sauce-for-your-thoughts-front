@@ -22,8 +22,8 @@ const rootReducer = combineReducers({
 
 export interface IinitialState {
   sauces: {
-    allIds?: string[];
-    byId?: { [key: string]: ISauce };
+    allSlugs?: string[];
+    bySlug?: { [key: string]: ISauce };
     total?: number;
     query?: IQuery;
     types: string[];
@@ -44,8 +44,8 @@ export const configureStore = () => {
   // was of type 'object'
   const initialState: IinitialState = {
     sauces: {
-      allIds: [],
-      byId: {},
+      allSlugs: [],
+      bySlug: {},
       total: 0,
       query: {},
       types: [
