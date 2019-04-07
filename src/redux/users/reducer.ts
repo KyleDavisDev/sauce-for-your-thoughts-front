@@ -22,8 +22,19 @@ const userReducer: Reducer<IUserState> = (
       // remove all user.self stuff
       return { ...state, self: {} };
     case UsersActionTypes.USER_ADDED:
-      const byDisplayName = { ...state.byDisplayName, ...action.user };
-      return { ...state };
+      // This will concat onto dictionary and overwrite an old key if new appears
+      const byDisplayName = { ...state.byDisplayName, ...action.byDisplayName };
+
+      // Make sure we don't have undefined here.
+      const stateAllDisplayNames = state.allDisplayNames || [];
+      const actionAllDisplayNames = action.allDisplayNames || [];
+      const allDisplayNames = [
+        ...stateAllDisplayNames, // old DisplayNames
+        ...actionAllDisplayNames.filter(
+          x => stateAllDisplayNames.indexOf(x) === -1 // concat only DisplayName that are not already in the array
+        )
+      ];
+      return { ...state, byDisplayName, allDisplayNames };
     default:
       return state;
   }
