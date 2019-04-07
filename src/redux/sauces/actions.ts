@@ -5,7 +5,7 @@ import { IReview, IReviewsState } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
 
 import { addedReviews } from "../reviews/actions";
-import { IUser } from "../users/types";
+import { IUser, IUserState } from "../users/types";
 import { addUsers } from "../users/actions";
 // import { addUsers } from "./users";
 
@@ -84,8 +84,8 @@ export const getSauceBySlug = ({
 
     // Update sauce and dispatch author from sauce
     const author: IUser = sauce.author;
-    // const normalizedUser = F
-    dispatch(addUsers({ user: author }));
+    const normalizedUser: IUserState = Flatn.users({ users: [author] });
+    dispatch(addUsers({ user: normalizedUser }));
 
     // Push sauce into redux store
     // dispatch(addedSauces({}))
