@@ -2,6 +2,7 @@ import moment from "moment";
 
 import { IReview, IReviewsState } from "../../redux/reviews/types";
 import { IUser, IUserState } from "../../redux/users/types";
+import { ISauce, ISaucesState } from "../../redux/sauces/types";
 
 class Flatn {
   // flatten array of reviews
@@ -59,6 +60,40 @@ class Flatn {
     }
 
     return { allDisplayNames, byDisplayName };
+  }
+
+  // flatten array of sauces
+  public static sauces({ sauces }: { sauces: ISauce[] }): ISaucesState {
+    const allSlugs: string[] = [];
+    const bySlug: { [key: string]: ISauce } = {};
+
+    // Will assign this to sauces if need to.
+    // Creating it once here will save computing time and give all sauces same value
+    const addedToStore: number = moment().unix();
+
+    for (let i = 0, len = sauces.length; i < len; i++) {
+      const slug: string | undefined = sauces[i].slug;
+
+      if (!slug) continue;
+
+      // Push into array
+      allSlugs.push(slug);
+
+      // Add to obj
+      bySlug[slug] = sauces[i];
+
+      // If review doesn't have _addedToStore prop, we will add it
+      if (!bySlug[slug]._addedToStore) {
+        bySlug[slug]._addedToStore = addedToStore;
+      }
+
+      // If we don't have _full assigned, assume to be false and set to false
+      if (!bySlug[slug]._full) {
+        bySlug[slug]._full = false;
+      }
+    }
+
+    return { allSlugs, bySlug };
   }
 }
 
