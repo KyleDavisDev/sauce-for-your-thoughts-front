@@ -20,25 +20,25 @@ import {
 import { ISauce } from "../../../../redux/sauces/types";
 import { getSauceBySlug } from "../../../../redux/sauces/actions";
 
-export interface SauceSingleProps {
+export interface SauceSpotlightProps {
   location: { search: string };
   history: { push: (location: string) => any };
   sauce?: ISauce;
   getSauceBySlug: ({ data }: { data: { sauce: { slug: string } } }) => any;
+  slug?: string;
 }
 
-class SauceSingle extends React.Component<SauceSingleProps, any> {
-  constructor(props: SauceSingleProps) {
+class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
+  constructor(props: SauceSpotlightProps) {
     super(props);
   }
   public componentDidMount() {
+    console.log("whats up");
     // Get slug from URL
-    const slug: string | null = this.getPageFromPath(
-      this.props.location.search // this value is what react-router assings to '?s=....'
-    );
+    const { slug }: { slug?: string } = this.props;
 
     // Sauce slug is whack, redirect user
-    if (slug === null) {
+    if (!slug) {
       this.props.history.push("/");
       // Maybe display banner too?
       return;
@@ -71,9 +71,7 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
               The opinions expressed are soley those of the author.
             </StyledDescriptor>
 
-            {sauce && sauce.slug && (
-              <SauceReviews slug={sauce.slug} reviews={sauce.reviews} />
-            )}
+            {sauce && sauce.slug && <SauceReviews slug={sauce.slug} />}
           </StyledLeftContainer>
 
           <StyledRightContainer>
@@ -99,8 +97,28 @@ class SauceSingle extends React.Component<SauceSingleProps, any> {
   }
 }
 
-const mapState2Props = (state: IinitialState) => {
-  return {};
+const mapState2Props = (
+  state: IinitialState,
+  ownProps: SauceSpotlightProps
+) => {
+  // Check for undefined
+  const bySlug = state.sauces.bySlug;
+  if (!bySlug) return state;
+
+  // Find our slug
+  const values: OutputParams = queryString.parse(ownProps.location.search);
+  // Make sure s is defined, not an array
+  if (!values.s || Array.isArray(values.s)) {
+    // Stop here since we will not have a slug
+    ownProps.history.push("/");
+    return;
+  }
+  // Assign slug
+  const slug: string = values.s;
+
+  // Find the specific sauce for our page
+  const sauce = bySlug[slug];
+  return { sauce, slug };
 };
 
 const mapDispatch2Props = {
@@ -110,4 +128,4 @@ const mapDispatch2Props = {
 export default connect(
   mapState2Props,
   mapDispatch2Props
-)(SauceSingle);
+)(SauceSpotlight);
