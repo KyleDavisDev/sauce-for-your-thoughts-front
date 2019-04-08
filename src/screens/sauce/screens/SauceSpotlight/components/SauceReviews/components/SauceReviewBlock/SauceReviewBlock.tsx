@@ -249,7 +249,10 @@ const mapState2Props = (
   ownProps: SauceReviewBlockProps
 ) => {
   // Make sure we have authors, and specifically the author we want, in redux
-  if (!state.users.byId || !state.users.byId[ownProps.review.author._id]) {
+  if (
+    !state.users.byDisplayName ||
+    !state.users.byDisplayName[ownProps.review.author._id]
+  ) {
     return { author: "N/A" };
   }
 
