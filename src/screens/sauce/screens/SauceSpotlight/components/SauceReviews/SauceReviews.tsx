@@ -1,9 +1,12 @@
 import * as React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
+
 import { IReview } from "../../../../../../redux/reviews/types";
 import { Button } from "../../../../../../components/Button/Button";
 import { Link } from "../../../../../../components/Link/Link";
 import SauceReviewBlock from "./components/SauceReviewBlock/SauceReviewBlock";
+import { IinitialState } from "../../../../../../redux/configureStore";
 
 const StyledContainer = styled.div`
   background-color: ${props => props.theme.formContainerBackgroundColor};
@@ -36,7 +39,7 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
       <div>
         {reviews && reviews.length > 0 ? (
           reviews.map(review => {
-            return <SauceReviewBlock review={review} key={review._id} />;
+            // return <SauceReviewBlock review={review} key={review._id} />;
           })
         ) : (
           <StyledContainer>
@@ -53,4 +56,14 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
   }
 }
 
-export default SauceReviews;
+const mapState2Props = (state: IinitialState, ownProps: SauceReviewsProps) => {
+  // console.log(state, ownProps);
+  return {};
+};
+
+const mapDispatch2Props = {};
+
+export default connect(
+  mapState2Props,
+  mapDispatch2Props
+)(SauceReviews);
