@@ -4,7 +4,7 @@ import { IinitialState } from "../../../../../../redux/configureStore";
 import styled from "styled-components";
 import { Link } from "../../../../../../components/Link/Link";
 import { Button } from "../../../../../../components/Button/Button";
-import { ISauce } from "../../../../../../redux/sauce/types";
+import { ISauce } from "../../../../../../redux/sauces/types";
 
 const StyledSauceContainer = styled.div`
   background-color: ${props => props.theme.formContainerBackgroundColor};
@@ -41,6 +41,8 @@ class SauceHero extends React.PureComponent<SauceHeroProps, any> {
   }
 
   public render() {
+    const { sauce } = this.props;
+
     return (
       <StyledSauceContainer>
         <StyledImageContainer>
@@ -48,27 +50,21 @@ class SauceHero extends React.PureComponent<SauceHeroProps, any> {
         </StyledImageContainer>
         <StyledSauceInfoContainer>
           <p>
-            <i>Maker:</i> Cholula
+            <i>Maker:</i> {sauce.maker}
           </p>
           <p>
-            <i>Description:</i> Cholula Chipotle Hot Sauce...featuring a savory
-            blend of Cholula's original "Flavorful Fire" and the smokey and
-            slightly sweet flavor notes or real Chipotle peppers. It brings
-            sensational new flavor to soups, ranch dressing, steaks, chicken and
-            more
+            <i>Description:</i> {sauce.description}
           </p>
           <p>
-            <i>Ingredients:</i> Water, Vinegar (white And Apple), Sugar, Peppers
-            (chipotle, Guajillo, Arbol And Piquin), Salt, Natural Flavors,
-            Spices, Xanthan Gum, Silicon Dioxide, Citric Acid,caramel
+            <i>Ingredients:</i> {sauce.ingredients}
           </p>
           <p>
-            <i>Type:</i> Hot Sauce
+            <i>Type:</i> {sauce.types && sauce.types.join(", ")}
           </p>
           <p>
             <i>Made in:</i> Mexico
           </p>
-          <Link to={`/review/add/?s=${5}`}>
+          <Link to={`/review/add/?s=${sauce.slug}`}>
             <Button displayType="solid">Add Review</Button>
           </Link>
         </StyledSauceInfoContainer>
