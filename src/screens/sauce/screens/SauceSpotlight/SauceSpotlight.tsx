@@ -101,11 +101,7 @@ const mapState2Props = (
   state: IinitialState,
   ownProps: SauceSpotlightProps
 ) => {
-  // Check for undefined
-  const bySlug = state.sauces.bySlug;
-  if (!bySlug) return state;
-
-  // Find our slug
+  // Find our slug -- If we can't find one, we are immediately done
   const values: OutputParams = queryString.parse(ownProps.location.search);
   // Make sure s is defined, not an array
   if (!values.s || Array.isArray(values.s)) {
@@ -115,6 +111,10 @@ const mapState2Props = (
   }
   // Assign slug
   const slug: string = values.s;
+
+  // Check for undefined
+  const bySlug = state.sauces.bySlug;
+  if (!bySlug) return state;
 
   // Find the specific sauce for our page
   const sauce = bySlug[slug];
