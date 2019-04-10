@@ -24,8 +24,7 @@ const StyledContainer = styled.div`
 
 export interface SauceReviewsProps {
   slug: string;
-  reviews?: IReview[];
-  unfoundReviews?: string[];
+  reviews: string[];
 }
 
 class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
@@ -57,7 +56,10 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
 }
 
 const mapState2Props = (state: IinitialState, ownProps: SauceReviewsProps) => {
-  // console.log(state, ownProps);
+  // Grab slug from ownProps
+  const { slug } = ownProps;
+  console.log(state);
+  // Find our
   return {};
 };
 
