@@ -83,18 +83,6 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
       </div>
     );
   }
-
-  private getPageFromPath(path: string): string | null {
-    // Get s from string
-    const values: OutputParams = queryString.parse(path);
-
-    // Make sure s is defined, not an array
-    if (!values.s || Array.isArray(values.s)) {
-      return null;
-    }
-
-    return values.s;
-  }
 }
 
 const mapState2Props = (
