@@ -71,7 +71,9 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
               The opinions expressed are soley those of the author.
             </StyledDescriptor>
 
-            {sauce && sauce.slug && <SauceReviews slug={sauce.slug} />}
+            {sauce && sauce.reviews && sauce.slug && (
+              <SauceReviews slug={sauce.slug} reviews={sauce.reviews} />
+            )}
           </StyledLeftContainer>
 
           <StyledRightContainer>
