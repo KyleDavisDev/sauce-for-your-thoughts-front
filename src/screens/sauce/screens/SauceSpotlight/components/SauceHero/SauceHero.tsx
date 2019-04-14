@@ -32,7 +32,7 @@ const StyledSauceInfoContainer = styled.div`
 `;
 
 export interface SauceHeroProps {
-  sauce: ISauce; // This is sauce's slug that will have to be looked up
+  sauce?: ISauce; // This is sauce's slug that will have to be looked up
 }
 
 class SauceHero extends React.PureComponent<SauceHeroProps, any> {
@@ -46,27 +46,34 @@ class SauceHero extends React.PureComponent<SauceHeroProps, any> {
     return (
       <StyledSauceContainer>
         <StyledImageContainer>
-          <StyleImg src="https://hotsaucefever.com/images/sauces/451/ancho_and_morita_smokey_tamarind_sauce.jpg" />
+          {sauce && sauce.photo ? (
+            <StyleImg src={`${sauce.photo}`} />
+          ) : (
+            <StyleImg src="https://www.snhrc.com/wp-content/uploads/2018/09/Image-Coming-Soon.png" />
+          )}
         </StyledImageContainer>
         <StyledSauceInfoContainer>
           <p>
-            <i>Maker:</i> {sauce.maker}
+            <i>Maker:</i> {(sauce && sauce.maker) || "Loading..."}
           </p>
           <p>
-            <i>Description:</i> {sauce.description}
+            <i>Description:</i> {(sauce && sauce.description) || "Loading..."}
           </p>
           <p>
-            <i>Ingredients:</i> {sauce.ingredients}
+            <i>Ingredients:</i> {(sauce && sauce.ingredients) || "Loading..."}
           </p>
           <p>
-            <i>Type:</i> {sauce.types && sauce.types.join(", ")}
+            <i>Type:</i>{" "}
+            {(sauce && sauce.types && sauce.types.join(", ")) || "Loading..."}
           </p>
           <p>
-            <i>Made in:</i> Mexico
+            <i>Made in:</i> {(sauce && sauce.country) || "Loading..."}
           </p>
-          <Link to={`/review/add/?s=${sauce.slug}`}>
-            <Button displayType="solid">Add Review</Button>
-          </Link>
+          {sauce && (
+            <Link to={`/review/add/?s=${sauce.slug}`}>
+              <Button displayType="solid">Add Review</Button>
+            </Link>
+          )}
         </StyledSauceInfoContainer>
       </StyledSauceContainer>
     );
