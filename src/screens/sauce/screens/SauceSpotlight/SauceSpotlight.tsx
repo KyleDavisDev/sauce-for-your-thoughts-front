@@ -33,7 +33,6 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
     super(props);
   }
   public componentDidMount() {
-    console.log("whats up");
     // Get slug from URL
     const { slug }: { slug?: string } = this.props;
 
@@ -64,7 +63,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
           <StyledLeftContainer>
             <PageTitle>{sauce ? sauce.name : "Loading..."}</PageTitle>
             {/* Spotlight */}
-            {sauce ? <SauceHero sauce={sauce} /> : "Loading..."}
+            <SauceHero sauce={sauce} />
 
             {/* Reviews */}
             <StyledDescriptor title="Reviews">
