@@ -1,4 +1,4 @@
-import { IUserRef } from "../users/types";
+import { IUserRef, IUser } from "../users/types";
 import { ISauceRef } from "../sauces/types";
 
 export interface IReviewSection {
@@ -29,7 +29,22 @@ export interface IReview {
   hashID?: string;
   author: string; // User's displayName
   sauce: string; // Sauce's slug
-  created: string;
+  created: number;
+  overall: IReviewSection; // Only review bit that is required
+  label?: IReviewSection;
+  aroma?: IReviewSection;
+  taste?: IReviewSection;
+  heat?: IReviewSection;
+  note?: IReviewSection;
+}
+
+export interface IReviewAPI {
+  _id?: number | string;
+  _addedToStore?: number;
+  hashID?: string;
+  author: IUser; // User's displayName
+  sauce: string; // Sauce's slug
+  created: number;
   overall: IReviewSection; // Only review bit that is required
   label?: IReviewSection;
   aroma?: IReviewSection;
