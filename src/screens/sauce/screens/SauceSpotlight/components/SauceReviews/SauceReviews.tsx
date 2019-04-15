@@ -33,7 +33,6 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
   }
 
   public render() {
-    console.log(this.props);
     const { reviews } = this.props;
     return (
       <div>
