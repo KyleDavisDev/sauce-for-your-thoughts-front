@@ -106,7 +106,7 @@ const mapState2Props = (
 
   // Check for undefined
   const bySlug = state.sauces.bySlug;
-  if (!bySlug) return state;
+  if (!bySlug) return { slug };
 
   // Find the specific sauce for our page
   const sauce = bySlug[slug];
