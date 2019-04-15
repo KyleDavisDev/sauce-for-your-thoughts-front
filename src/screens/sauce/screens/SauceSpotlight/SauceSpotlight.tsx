@@ -19,11 +19,13 @@ import {
 } from "./SauceSpotlightStyle";
 import { ISauce } from "../../../../redux/sauces/types";
 import { getSauceBySlug } from "../../../../redux/sauces/actions";
+import { IReview } from "../../../../redux/reviews/types";
 
 export interface SauceSpotlightProps {
   location: { search: string };
   history: { push: (location: string) => any };
   sauce?: ISauce;
+  reviews?: IReview[];
   getSauceBySlug: ({ data }: { data: { sauce: { slug: string } } }) => any;
   slug?: string;
 }
@@ -52,7 +54,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
   }
 
   public render() {
-    const { sauce } = this.props;
+    const { sauce, reviews } = this.props;
 
     return (
       <div>
@@ -70,9 +72,10 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
               The opinions expressed are soley those of the author.
             </StyledDescriptor>
 
-            {sauce && sauce.reviews && sauce.slug && (
-              <SauceReviews slug={sauce.slug} reviews={sauce.reviews} />
-            )}
+            <SauceReviews
+              slug={sauce && sauce.slug ? sauce.slug : undefined}
+              reviews={reviews}
+            />
           </StyledLeftContainer>
 
           <StyledRightContainer>
@@ -107,6 +110,23 @@ const mapState2Props = (
 
   // Find the specific sauce for our page
   const sauce = bySlug[slug];
+  if (!sauce) return { slug }; // or stop here if we cant
+
+  // If we have reviews, get those too. Else return what we have
+  const byHashID = state.reviews.byHashID || {};
+  const revs = sauce.reviews || [];
+  if (revs && revs.length > 0 && byHashID && Object.keys(byHashID).length > 0) {
+    // Push all reviews in reviews array
+    const reviews: IReview[] = revs.map(hashID => {
+      // push specific review into array
+      return byHashID[hashID];
+    });
+
+    // Return w/ the found reviews
+    return { sauce, slug, reviews };
+  }
+
+  // return sauce and slug only
   return { sauce, slug };
 };
 
