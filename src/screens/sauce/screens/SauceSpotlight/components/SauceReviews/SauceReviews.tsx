@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
   font-family: AvenirNextReg;
   padding: 1.5rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   margin-bottom: 1.5em;
 
@@ -23,8 +23,8 @@ const StyledContainer = styled.div`
 `;
 
 export interface SauceReviewsProps {
-  slug: string;
-  reviews: string[];
+  slug?: string;
+  reviews?: IReview[];
 }
 
 class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
@@ -33,12 +33,13 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
   }
 
   public render() {
+    console.log(this.props);
     const { reviews } = this.props;
     return (
       <div>
         {reviews && reviews.length > 0 ? (
           reviews.map(review => {
-            // return <SauceReviewBlock review={review} key={review._id} />;
+            return <SauceReviewBlock review={review} key={review.hashID} />;
           })
         ) : (
           <StyledContainer>
@@ -55,17 +56,4 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
   }
 }
 
-const mapState2Props = (state: IinitialState, ownProps: SauceReviewsProps) => {
-  // Grab slug from ownProps
-  const { slug } = ownProps;
-  console.log(state);
-  // Find our
-  return {};
-};
-
-const mapDispatch2Props = {};
-
-export default connect(
-  mapState2Props,
-  mapDispatch2Props
-)(SauceReviews);
+export default SauceReviews;
