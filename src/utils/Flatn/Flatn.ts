@@ -1,30 +1,34 @@
 import moment from "moment";
 
-import { IReview, IReviewsState } from "../../redux/reviews/types";
+import { IReview, IReviewsState, IReviewAPI } from "../../redux/reviews/types";
 import { IUser, IUserState } from "../../redux/users/types";
 import { ISauce, ISaucesState } from "../../redux/sauces/types";
 
 class Flatn {
   // flatten array of reviews
-  public static reviews({ reviews }: { reviews: IReview[] }): IReviewsState {
+  public static reviews({ reviews }: { reviews: IReviewAPI[] }) {
     const allHashIDs: string[] = [];
     const byHashID: { [key: string]: IReview } = {};
+    const users: IUser[] = [];
 
     // Will assign this to reviews if need to.
     // Creating it once here will save computing time and give all reviews same value
     const addedToStore: number = moment().unix();
 
     for (let i = 0, len = reviews.length; i < len; i++) {
-      const hashID: string | undefined = reviews[i].hashID;
+      const review = reviews[i];
+      const hashID: string | undefined = review.hashID;
 
       // Make sure review has a hashID or we wont be doing anything with it
       if (!hashID) continue;
-
       // Push into array
       allHashIDs.push(hashID);
 
-      // Add to obj
-      byHashID[hashID] = reviews[i];
+      // Grab user
+      users.push(review.author);
+
+      // Add to obj and reassign author to match desired format
+      byHashID[hashID] = { ...review, author: review.author.displayName };
 
       // If review doesn't have _addedToStore prop, we will add it
       if (!byHashID[hashID]._addedToStore) {
@@ -32,7 +36,7 @@ class Flatn {
       }
     }
 
-    return { allHashIDs, byHashID };
+    return { allHashIDs, byHashID, users };
   }
 
   // flatten array of users
@@ -53,7 +57,7 @@ class Flatn {
       // Add to obj
       byDisplayName[displayName] = users[i];
 
-      // If review doesn't have _addedToStore prop, we will add it
+      // If user doesn't have _addedToStore prop, we will add it
       if (!byDisplayName[displayName]._addedToStore) {
         byDisplayName[displayName]._addedToStore = addedToStore;
       }
@@ -82,7 +86,7 @@ class Flatn {
       // Add to obj
       bySlug[slug] = sauces[i];
 
-      // If review doesn't have _addedToStore prop, we will add it
+      // If sauce doesn't have _addedToStore prop, we will add it
       if (!bySlug[slug]._addedToStore) {
         bySlug[slug]._addedToStore = addedToStore;
       }
