@@ -1,6 +1,3 @@
-import { IReview } from "../reviews/types";
-import { IUserRef } from "../users/types";
-
 export interface ISauce {
   _id?: number;
   _addedToStore?: number; // Unix time added to redux store
