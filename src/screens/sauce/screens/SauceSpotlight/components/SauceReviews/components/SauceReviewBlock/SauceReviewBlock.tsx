@@ -114,10 +114,28 @@ class SauceReviewBlock extends React.Component<
 
         <StyledContentContainer>
           <i>Reviewer:</i> {this.props.author} on{" "}
-          {new Date(review.created).toLocaleDateString("en-US", dateOptions)}
+          {/* {new Date(review.created).toLocaleDateString("en-US", dateOptions)} */}
           {/* Show content if state allows it otherwise show empty */}
           {this.state.isOpen && (
             <div>
+              {/* Overall */}
+              {review.overall && (
+                <div>
+                  <StyledCategoryContainer>
+                    <i>Overall:</i>
+                    <ReactRating
+                      initialRating={review.overall.rating}
+                      readonly={true}
+                      emptySymbol={<StyledEmptyStar height={20} />}
+                      fullSymbol={<StyledFullStar height={20} />}
+                    />{" "}
+                    <small>({review.overall.rating.toString()})</small>
+                  </StyledCategoryContainer>
+                  <StyledCategoryDescription>
+                    {review.overall.txt}
+                  </StyledCategoryDescription>
+                </div>
+              )}
               {/* Aroma */}
               {review.aroma && (
                 <div>
@@ -199,35 +217,9 @@ class SauceReviewBlock extends React.Component<
                 <div>
                   <StyledCategoryContainer>
                     <i>Note:</i>
-                    <ReactRating
-                      initialRating={review.note.rating}
-                      readonly={true}
-                      emptySymbol={<StyledEmptyStar height={20} />}
-                      fullSymbol={<StyledFullStar height={20} />}
-                    />{" "}
-                    <small>({review.note.rating.toString()})</small>
                   </StyledCategoryContainer>
                   <StyledCategoryDescription>
                     {review.note.txt}
-                  </StyledCategoryDescription>
-                </div>
-              )}
-
-              {/* Overall */}
-              {review.overall && (
-                <div>
-                  <StyledCategoryContainer>
-                    <i>Overall:</i>
-                    <ReactRating
-                      initialRating={review.overall.rating}
-                      readonly={true}
-                      emptySymbol={<StyledEmptyStar height={20} />}
-                      fullSymbol={<StyledFullStar height={20} />}
-                    />{" "}
-                    <small>({review.overall.rating.toString()})</small>
-                  </StyledCategoryContainer>
-                  <StyledCategoryDescription>
-                    {review.overall.txt}
                   </StyledCategoryDescription>
                 </div>
               )}
@@ -251,14 +243,14 @@ const mapState2Props = (
   // Make sure we have authors, and specifically the author we want, in redux
   if (
     !state.users.byDisplayName ||
-    !state.users.byDisplayName[ownProps.review.author._id]
+    !state.users.byDisplayName[ownProps.review.author]
   ) {
     return { author: "N/A" };
   }
 
   // Get the name of the author via the author's _id
   const author: string =
-    state.users.byId[ownProps.review.author._id].name || "N/A";
+    state.users.byDisplayName[ownProps.review.author].displayName || "N/A";
   return { author };
 };
 
