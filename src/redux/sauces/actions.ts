@@ -6,7 +6,7 @@ import {
   ISauce,
   ISaucesState
 } from "./types";
-import { IReview, IReviewsState } from "../reviews/types.js";
+import { IReview, IReviewsState, IReviewAPI } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
 
 import { addedReviews } from "../reviews/actions";
@@ -72,12 +72,15 @@ export const getSauceBySlug = ({
     const { sauce } = res.data;
 
     // Update sauce and dispatch reviews if we have them
-    if (sauce.reviews && sauce.reviews.length > 0) {
-      const reviews: IReview[] = sauce.reviews;
+    const reviews: IReviewAPI[] = [...sauce.reviews];
+    if (reviews && reviews.length > 0) {
       // Normalize reviews
-      const normalizedReviews: IReviewsState = Flatn.reviews({
+      const { byHashID, allHashIDs, users } = Flatn.reviews({
         reviews
       });
+
+      // Create obj to redux
+      const normalizedReviews: IReviewsState = { byHashID, allHashIDs };
 
       // Push reviews to redux
       dispatch(addedReviews({ reviews: normalizedReviews }));
@@ -89,8 +92,14 @@ export const getSauceBySlug = ({
     // Now we need to normalize author and update sauce
     // Grab author
     const author: IUser = sauce.author;
-    // Normalize author
-    const normalizedUser: IUserState = Flatn.users({ users: [author] });
+    // Normalize author/users
+    const j = reviews.map((review: any) => {
+      return review.author;
+    });
+
+    const normalizedUser: IUserState = Flatn.users({
+      users: [author, ...j]
+    });
     // Dispatch user
     dispatch(addUsers({ user: normalizedUser }));
     // Update sauce w/ author and set _full to true
