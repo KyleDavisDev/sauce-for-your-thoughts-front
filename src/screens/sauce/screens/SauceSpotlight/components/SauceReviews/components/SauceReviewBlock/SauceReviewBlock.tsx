@@ -114,7 +114,11 @@ class SauceReviewBlock extends React.Component<
 
         <StyledContentContainer>
           <i>Reviewer:</i> {this.props.author} on{" "}
-          {/* {new Date(review.created).toLocaleDateString("en-US", dateOptions)} */}
+          {/* Convert epoch to human-readable */}
+          {new Date(review.created * 1000).toLocaleDateString(
+            "en-US",
+            dateOptions
+          )}
           {/* Show content if state allows it otherwise show empty */}
           {this.state.isOpen && (
             <div>
@@ -240,6 +244,7 @@ const mapState2Props = (
   state: IinitialState,
   ownProps: SauceReviewBlockProps
 ) => {
+  console.log(state.users.byDisplayName, ownProps.review);
   // Make sure we have authors, and specifically the author we want, in redux
   if (
     !state.users.byDisplayName ||
