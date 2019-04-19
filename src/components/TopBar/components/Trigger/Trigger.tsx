@@ -19,7 +19,7 @@ interface TriggerProps {
     | string
     | Element
     | JSX.Element
-    | Array<string | Element | JSX.Element>;
+    | Array<string | Element | JSX.Element|undefined>;
   className?: string;
   onClick?: () => any;
 }

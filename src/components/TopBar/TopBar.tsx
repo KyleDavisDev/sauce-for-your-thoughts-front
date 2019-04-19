@@ -63,6 +63,7 @@ const StyledBody = styled(Body)`
 
 export interface TopBarProps {
   isLoggedIn?: boolean;
+  displayName?: string;
 }
 
 const TopBar: React.SFC<TopBarProps> = props => {
@@ -73,7 +74,7 @@ const TopBar: React.SFC<TopBarProps> = props => {
           <StyledDropDown>
             <StyledTrigger>
               <ChevronDown />
-              Me
+              {props.displayName}
             </StyledTrigger>
             <StyledBody>
               <Menu />
@@ -101,7 +102,9 @@ TopBar.defaultProps = {
 
 const mapState2Props = (state: IinitialState) => {
   return {
-    isLoggedIn: !!state.users.self.token // will be bool
+    isLoggedIn: !!state.users.self.token, // will be bool
+    displayName: state.users.self.displayName
+
   };
 };
 
