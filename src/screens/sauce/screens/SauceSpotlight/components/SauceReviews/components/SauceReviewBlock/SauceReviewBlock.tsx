@@ -3,14 +3,15 @@ import { connect } from "react-redux";
 import ReactRating from "react-rating";
 import { IReview } from "../../../../../../../../redux/reviews/types";
 import { IinitialState } from "../../../../../../../../redux/configureStore";
-import {StyledContainer,
+import {
+  StyledContainer,
   StyledButton,
   StyledContentContainer,
   StyledCategoryContainer,
   StyledCategoryDescription,
   StyledEmptyStar,
-  StyledFullStar} from "./SauceReviewBlockStyle"
-
+  StyledFullStar
+} from "./SauceReviewBlockStyle";
 
 export interface SauceReviewBlockProps {
   review: IReview;
@@ -149,7 +150,7 @@ class SauceReviewBlock extends React.Component<
               )}
 
               {/* Note */}
-              {review.note && (
+              {review.note && review.note.txt && (
                 <div>
                   <StyledCategoryContainer>
                     <i>Note:</i>
@@ -176,7 +177,6 @@ const mapState2Props = (
   state: IinitialState,
   ownProps: SauceReviewBlockProps
 ) => {
-  console.log(state.users.byDisplayName, ownProps.review);
   // Make sure we have authors, and specifically the author we want, in redux
   if (
     !state.users.byDisplayName ||
