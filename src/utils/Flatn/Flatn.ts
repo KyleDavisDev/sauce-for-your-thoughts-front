@@ -9,7 +9,6 @@ class Flatn {
   public static reviews({ reviews }: { reviews: IReviewAPI[] }) {
     const allHashIDs: string[] = [];
     const byHashID: { [key: string]: IReview } = {};
-    const users: IUser[] = [];
 
     // Will assign this to reviews if need to.
     // Creating it once here will save computing time and give all reviews same value
@@ -24,9 +23,6 @@ class Flatn {
       // Push into array
       allHashIDs.push(hashID);
 
-      // Grab user
-      users.push(review.author);
-
       // Add to obj and reassign author to match desired format
       byHashID[hashID] = { ...review, author: review.author.displayName };
 
@@ -36,7 +32,7 @@ class Flatn {
       }
     }
 
-    return { allHashIDs, byHashID, users };
+    return { allHashIDs, byHashID };
   }
 
   // flatten array of users
