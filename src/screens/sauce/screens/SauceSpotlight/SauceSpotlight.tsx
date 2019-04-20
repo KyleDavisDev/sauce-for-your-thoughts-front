@@ -9,17 +9,19 @@ import Navigation from "../../../../components/Navigation/Navigation";
 import Footer from "../../../../components/Footer/Footer";
 import SauceHero from "./components/SauceHero/SauceHero";
 import SauceReviews from "./components/SauceReviews/SauceReviews";
-import SauceAuthor from "./components/SauceAuthor/SauceAuthor";
 import {
   StyledArticle,
   StyledLeftContainer,
   StyledRightContainer,
   StyledDescriptor,
-  StyledH2
+  StyledH2,
+  StyledPageTitle
 } from "./SauceSpotlightStyle";
 import { ISauce } from "../../../../redux/sauces/types";
 import { getSauceBySlug } from "../../../../redux/sauces/actions";
 import { IReview } from "../../../../redux/reviews/types";
+import { Link } from "../../../../components/Link/Link";
+import { Button } from "../../../../components/Button/Button";
 
 export interface SauceSpotlightProps {
   location: { search: string };
@@ -62,8 +64,8 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
         <Navigation />
 
         <StyledArticle>
+          <StyledPageTitle>{sauce ? sauce.name : "Loading..."}</StyledPageTitle>
           <StyledLeftContainer>
-            <PageTitle>{sauce ? sauce.name : "Loading..."}</PageTitle>
             {/* Spotlight */}
             <SauceHero sauce={sauce} />
 
@@ -79,8 +81,11 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
           </StyledLeftContainer>
 
           <StyledRightContainer>
-            <StyledH2>Author</StyledH2>
-            {sauce && sauce.author ? <SauceAuthor id={"5"} /> : "Loading..."}
+            {sauce && (
+              <Link to={`/review/add/?s=${sauce.slug}`}>
+                <Button displayType="solid">Add Review</Button>
+              </Link>
+            )}
           </StyledRightContainer>
         </StyledArticle>
         <Footer />
