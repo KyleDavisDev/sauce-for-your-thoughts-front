@@ -75,7 +75,7 @@ export const getSauceBySlug = ({
     const reviews: IReviewAPI[] = [...sauce.reviews];
     if (reviews && reviews.length > 0) {
       // Normalize reviews
-      const { byHashID, allHashIDs, users } = Flatn.reviews({
+      const { byHashID, allHashIDs } = Flatn.reviews({
         reviews
       });
 
@@ -90,15 +90,15 @@ export const getSauceBySlug = ({
     }
 
     // Now we need to normalize author and update sauce
-    // Grab author
+    // Grab author from sauce
     const author: IUser = sauce.author;
-    // Normalize author/users
-    const j = reviews.map((review: any) => {
+    // grab the author from reviews
+    const usersFromReviews = reviews.map((review: any) => {
       return review.author;
     });
 
     const normalizedUser: IUserState = Flatn.users({
-      users: [author, ...j]
+      users: [author, ...usersFromReviews]
     });
     // Dispatch user
     dispatch(addUsers({ user: normalizedUser }));
