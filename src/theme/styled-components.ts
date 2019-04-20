@@ -49,6 +49,8 @@ export interface ThemeInterface {
   smToMd: string;
   defaultFontSize: string;
 
+  border: string;
+
   white: string;
   grey: string;
   lightGrey: string;
@@ -121,6 +123,8 @@ export const theme = {
   scaleH6: scale.scaleH6,
   smToMd: scale.smToMd,
   defaultFontSize: scale.defaultFontSize,
+
+  border: "1px solid #ddd",
 
   white: colors.white,
   grey: colors.grey,

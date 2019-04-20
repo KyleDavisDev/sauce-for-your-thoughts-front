@@ -3,7 +3,7 @@ import Star from "../../../../../../../../images/icons/Star";
 import { Button } from "../../../../../../../../components/Button/Button";
 
 export const StyledContainer = styled.div`
-  background-color: ${props => props.theme.formContainerBackgroundColor};
+  border: ${props => props.theme.border};
   font-family: AvenirNextReg;
   display: flex;
   flex-direction: row;

@@ -4,7 +4,7 @@ import DropDown from "../../../../components/DropDown/DropDown";
 import { Button } from "../../../../components/Button/Button";
 
 const StyledFormContainer = styled.div`
-  background-color: ${props => props.theme.formContainerBackgroundColor};
+  border: ${props => props.theme.border};
   padding: 1.5rem;
   display: flex;
   flex-direction: row;

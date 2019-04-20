@@ -33,7 +33,7 @@ const StyledArticle = styled(Article)`
   max-width: 600px;
 `;
 const StyledFormContainer = styled.div`
-  background-color: ${props => props.theme.formContainerBackgroundColor};
+  border: ${props => props.theme.border};
   padding: 1.5rem;
   display: flex;
   flex-direction: row;

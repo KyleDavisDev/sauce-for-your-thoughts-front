@@ -1,6 +1,7 @@
 import Article from "../../../../components/Article/Article";
 import styled from "../../../../theme/styled-components";
 import Descriptor from "../../../../components/Descriptor/Descriptor";
+import PageTitle from "../../../../components/PageTitle/PageTitle";
 
 export const StyledArticle = styled(Article)`
   max-width: 1200px;
@@ -16,7 +17,7 @@ export const StyledLeftContainer = styled.div`
   padding: 0 1em;
 
   @media (min-width: ${props => props.theme.smToMd}) {
-    width: 66%;
+    width: 80%;
   }
 `;
 
@@ -26,7 +27,7 @@ export const StyledRightContainer = styled.div`
   padding: 0 1em;
 
   @media (min-width: ${props => props.theme.smToMd}) {
-    width: 33%;
+    width: 20%;
   }
 `;
 
@@ -44,4 +45,8 @@ export const StyledH2 = styled.h2`
   @media (min-width: ${props => props.theme.smToMd}) {
     margin-top: 51px;
   }
+`;
+
+export const StyledPageTitle = styled(PageTitle)`
+  width: 100%;
 `;

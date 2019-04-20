@@ -4,16 +4,11 @@ import { Link } from "../Link/Link";
 export const Div = styled.div`
   max-width: 350px;
   margin: 0 1em;
-  background-color: ${props => props.theme.cardBackgroundColor};
+  border: ${props => props.theme.border};
   display: flex;
   flex-direction: column;
   transition: all 0.2 ease;
   padding-bottom: 1em;
-
-  &:hover,
-  &:focus {
-    box-shadow: 0px 3px 8px 4px rgba(112, 112, 112, 0.2);
-  }
 `;
 
 export const Image = styled.img`

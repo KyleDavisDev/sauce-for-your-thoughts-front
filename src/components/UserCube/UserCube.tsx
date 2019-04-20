@@ -9,15 +9,9 @@ const StyledDiv = styled.div`
   align-items: center;
   min-width: 100px;
   min-height: 100px;
-  border-radius: 5px;
-  background-color: ${props => props.theme.userCubeBackgroundColor};
+  border: ${props => props.theme.border};
   padding: 1em;
   margin: 0.25em;
-
-  &:hover,
-  &:focus {
-    box-shadow: 0px 3px 8px 4px rgba(112, 112, 112, 0.2);
-  }
 `;
 
 const StyledP = styled.p`
