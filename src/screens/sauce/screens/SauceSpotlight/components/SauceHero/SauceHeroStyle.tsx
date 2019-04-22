@@ -32,3 +32,12 @@ export const StyledSauceInfoContainer = styled.div`
     width: 50%;
   }
 `;
+
+export const StyledH2 = styled.h2`
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    margin-top: 51px;
+  }
+`;
