@@ -1,7 +1,6 @@
 import Article from "../../../../components/Article/Article";
 import styled from "../../../../theme/styled-components";
 import Descriptor from "../../../../components/Descriptor/Descriptor";
-import PageTitle from "../../../../components/PageTitle/PageTitle";
 
 export const StyledArticle = styled(Article)`
   max-width: 1200px;
@@ -9,6 +8,12 @@ export const StyledArticle = styled(Article)`
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
+
+  margin-top: 1em;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    margin-top: 2em;
+  }
 `;
 
 export const StyledLeftContainer = styled.div`
@@ -36,17 +41,4 @@ export const StyledDescriptor = styled(Descriptor)`
     margin-top: 0;
     font-style: italic;
   }
-`;
-
-export const StyledH2 = styled.h2`
-  margin-top: 16px;
-  margin-bottom: 16px;
-
-  @media (min-width: ${props => props.theme.smToMd}) {
-    margin-top: 51px;
-  }
-`;
-
-export const StyledPageTitle = styled(PageTitle)`
-  width: 100%;
 `;
