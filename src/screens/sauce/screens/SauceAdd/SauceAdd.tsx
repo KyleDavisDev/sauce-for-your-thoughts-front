@@ -83,7 +83,7 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
         "Here will be a long description, maybe a few thing's too.      asd      gg",
       photo: "",
       typesOfSauces: types,
-      author: { displayName: (this.props.user && this.props.user.name) || "" },
+      author: (this.props.user && this.props.user.name) || "",
       created: new Date(),
       shu: "",
       country: "United States",
@@ -468,12 +468,12 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
 
     // Append image if available
     if (this.state.DropNCropValue.result) {
-      const lastModified = this.state.DropNCropValue.files[0].lastModified;
+      console.log(this.state.DropNCropValue);
+      // const lastModified = this.state.DropNCropValue.files[0].lastModified;
       const fileType = this.state.DropNCropValue.filetype;
       const blob = this.dataURItoBlob(this.state.DropNCropValue.result);
       const image = new File([blob], "image.png", {
-        type: fileType,
-        lastModified
+        type: fileType
       });
 
       // append
