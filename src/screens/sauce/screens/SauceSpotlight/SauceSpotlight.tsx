@@ -4,7 +4,6 @@ import queryString, { OutputParams } from "query-string";
 
 import { IinitialState } from "../../../../redux/configureStore";
 import TopBar from "../../../../components/TopBar/TopBar";
-import PageTitle from "../../../../components/PageTitle/PageTitle";
 import Navigation from "../../../../components/Navigation/Navigation";
 import Footer from "../../../../components/Footer/Footer";
 import SauceHero from "./components/SauceHero/SauceHero";
@@ -13,9 +12,7 @@ import {
   StyledArticle,
   StyledLeftContainer,
   StyledRightContainer,
-  StyledDescriptor,
-  StyledH2,
-  StyledPageTitle
+  StyledDescriptor
 } from "./SauceSpotlightStyle";
 import { ISauce } from "../../../../redux/sauces/types";
 import { getSauceBySlug } from "../../../../redux/sauces/actions";
@@ -64,7 +61,6 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
         <Navigation />
 
         <StyledArticle>
-          <StyledPageTitle>{sauce ? sauce.name : "Loading..."}</StyledPageTitle>
           <StyledLeftContainer>
             {/* Spotlight */}
             <SauceHero sauce={sauce} />
