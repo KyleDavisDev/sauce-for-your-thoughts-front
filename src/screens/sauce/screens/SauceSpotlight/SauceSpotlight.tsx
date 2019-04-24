@@ -19,6 +19,7 @@ import { getSauceBySlug } from "../../../../redux/sauces/actions";
 import { IReview } from "../../../../redux/reviews/types";
 import { Link } from "../../../../components/Link/Link";
 import { Button } from "../../../../components/Button/Button";
+import List from "../../../../components/List/List";
 
 export interface SauceSpotlightProps {
   location: { search: string };
@@ -27,7 +28,6 @@ export interface SauceSpotlightProps {
   reviews?: IReview[];
   getSauceBySlug: ({ data }: { data: { sauce: { slug: string } } }) => any;
   slug?: string;
-  related?: [{ name: string; slug: string }];
 }
 
 class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
@@ -55,6 +55,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
 
   public render() {
     const { sauce, reviews } = this.props;
+    console.log(sauce);
 
     return (
       <div>
@@ -82,6 +83,14 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
               <Link to={`/review/add/?s=${sauce.slug}`}>
                 <Button displayType="solid">Add Review</Button>
               </Link>
+            )}
+            {sauce && sauce._related && sauce._related.length > 0 && (
+              <List
+                items={sauce._related.map(x => {
+                  return { link: x.slug, text: x.name };
+                })}
+                title="Related"
+              />
             )}
           </StyledRightContainer>
         </StyledArticle>
