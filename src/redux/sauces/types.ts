@@ -2,6 +2,7 @@ export interface ISauce {
   _id?: number;
   _addedToStore?: number; // Unix time added to redux store
   _full?: boolean; // Whether we have full sauce or partial
+  _related?: [{ name: string; slug: string }]; // List of related sauces
   name: string;
   ingredients: string;
   author: string;
