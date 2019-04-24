@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import List from "../List/List";
+import List from "../../../List/List";
 import { IinitialState } from "../../../../redux/configureStore";
 
 export interface TypesProps {

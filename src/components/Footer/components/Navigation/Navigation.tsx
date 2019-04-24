@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import List from "../List/List";
+import List from "../../../List/List";
 
 class Navigation extends React.PureComponent {
   private items = [
