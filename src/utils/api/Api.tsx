@@ -102,6 +102,8 @@ export const API = {
      *
      *  {ISauce} res.data.sauce - sauce data
      *
+     *  {Object[]} res.data.related - array of related sauces
+     *
      *  @reject {String} error message
      */
     getBySlug: ({
