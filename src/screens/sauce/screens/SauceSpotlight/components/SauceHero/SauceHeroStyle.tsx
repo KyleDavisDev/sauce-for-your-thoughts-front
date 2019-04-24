@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledSauceContainer = styled.div`
   background-color: ${props => props.theme.formContainerBackgroundColor};
-  padding: 1.5rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -11,9 +10,12 @@ export const StyledSauceContainer = styled.div`
 
 export const StyledImageContainer = styled.div`
   max-width: 100%;
+  padding: 0 5px;
+  box-sizing: border-box;
 
   @media (min-width: ${props => props.theme.smToMd}) {
     width: 50%;
+    padding: 0 15px;
   }
 `;
 
@@ -23,13 +25,13 @@ export const StyleImg = styled.img`
 `;
 
 export const StyledSauceInfoContainer = styled.div`
-  font-family: AvenirNextReg;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 1em;
+  padding: 0 5px;
 
   @media (min-width: ${props => props.theme.smToMd}) {
     width: 50%;
+    padding: 0 15px;
   }
 `;
 

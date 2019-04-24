@@ -14,6 +14,10 @@ export const StyledArticle = styled(Article)`
   @media (min-width: ${props => props.theme.smToMd}) {
     margin-top: 2em;
   }
+
+  > div {
+    padding: 1em;
+  }
 `;
 
 export const StyledLeftContainer = styled.div`
@@ -30,9 +34,17 @@ export const StyledRightContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
   padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 
   @media (min-width: ${props => props.theme.smToMd}) {
     width: 20%;
+  }
+
+  button {
+    width: 100%;
   }
 `;
 
