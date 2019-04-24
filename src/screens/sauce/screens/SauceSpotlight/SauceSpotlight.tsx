@@ -27,6 +27,7 @@ export interface SauceSpotlightProps {
   reviews?: IReview[];
   getSauceBySlug: ({ data }: { data: { sauce: { slug: string } } }) => any;
   slug?: string;
+  related?: [{ name: string; slug: string }];
 }
 
 class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
