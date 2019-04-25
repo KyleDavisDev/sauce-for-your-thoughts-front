@@ -4,8 +4,13 @@ import * as shortid from "shortid";
 
 import styled from "../../theme/styled-components";
 
+const StyledDiv = styled.div`
+  padding: 10px;
+`;
+StyledDiv.displayName = "StyledDiv";
+
 const StyledH5 = styled.h5`
-  margin: 0.5em 0;
+  margin: 0 0 0.5em 0;
   font-weight: 400;
   padding: 0;
   text-transform: uppercase;
@@ -54,7 +59,7 @@ interface ListProps {
 class List extends React.PureComponent<ListProps> {
   public render() {
     return (
-      <div className={this.props.className}>
+      <StyledDiv className={this.props.className}>
         <StyledH5>{this.props.title}</StyledH5>
         <StyledUl>
           {this.props.items.map(item => {
@@ -65,7 +70,7 @@ class List extends React.PureComponent<ListProps> {
             );
           })}
         </StyledUl>
-      </div>
+      </StyledDiv>
     );
   }
 }
