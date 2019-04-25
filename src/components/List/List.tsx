@@ -9,7 +9,6 @@ const StyledH5 = styled.h5`
   font-weight: 400;
   padding: 0;
   text-transform: uppercase;
-  color: ${props => props.theme.white};
   font-size: ${props => props.theme.scaleH5};
 `;
 StyledH5.displayName = "StyledH5";
@@ -34,9 +33,7 @@ const StyledUl = styled.ul`
 StyledUl.displayName = "StyledUl";
 
 const StyledLink = styled(Link)`
-  color: ${props => props.theme.white};
-  font-family: AvenirNextReg;
-
+color: ${props => props.theme.primaryThemeColor}
   &:hover,
   &:focus {
     color: ${props => props.theme.secondaryThemeColor};
