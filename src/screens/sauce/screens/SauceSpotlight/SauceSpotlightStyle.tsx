@@ -46,6 +46,10 @@ export const StyledRightContainer = styled.div`
   button {
     width: 100%;
   }
+
+  > * {
+    margin-bottom: 2em;
+  }
 `;
 
 export const StyledDescriptor = styled(Descriptor)`
