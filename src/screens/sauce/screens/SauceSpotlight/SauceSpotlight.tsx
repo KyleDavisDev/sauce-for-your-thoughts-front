@@ -55,7 +55,6 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
 
   public render() {
     const { sauce, reviews } = this.props;
-    console.log(sauce);
 
     return (
       <div>
@@ -89,7 +88,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
                 items={sauce._related.map(x => {
                   return { link: x.slug, text: x.name };
                 })}
-                title="Related"
+                title="Related Sauces"
               />
             )}
           </StyledRightContainer>
