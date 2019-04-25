@@ -1,6 +1,14 @@
 import * as React from "react";
 
 import List from "../../../List/List";
+import styled from "styled-components";
+
+const StyledList = styled(List)`
+  h5,
+  a {
+    color: ${x => x.theme.white};
+  }
+`;
 
 class Navigation extends React.PureComponent {
   private items = [
@@ -12,7 +20,7 @@ class Navigation extends React.PureComponent {
   ];
 
   public render() {
-    return <List title="Navigation" items={this.items} />;
+    return <StyledList title="Navigation" items={this.items} />;
   }
 }
 

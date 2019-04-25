@@ -3,6 +3,14 @@ import { connect } from "react-redux";
 
 import List from "../../../List/List";
 import { IinitialState } from "../../../../redux/configureStore";
+import styled from "styled-components";
+
+const StyledList = styled(List)`
+  h5,
+  a {
+    color: ${x => x.theme.white};
+  }
+`;
 
 export interface TypesProps {
   types: string[];
@@ -14,7 +22,7 @@ class Types extends React.PureComponent<TypesProps, any> {
   });
 
   public render() {
-    return <List title="Type of Sauce" items={this.items} />;
+    return <StyledList title="Type of Sauce" items={this.items} />;
   }
 }
 
