@@ -49,8 +49,7 @@ class SauceHero extends React.PureComponent<SauceHeroProps, any> {
             <i>Ingredients:</i> {(sauce && sauce.ingredients) || "Loading..."}
           </p>
           <p>
-            <i>Type:</i>{" "}
-            {(sauce && sauce.types && sauce.types.join(", ")) || "Loading..."}
+            <i>Type:</i> {this.RenderType()}
           </p>
           <p>
             <i>Made in:</i> {(sauce && sauce.country) || "Loading..."}
@@ -59,6 +58,17 @@ class SauceHero extends React.PureComponent<SauceHeroProps, any> {
       </StyledSauceContainer>
     );
   }
+
+  // Renders the type of sauce
+  private RenderType = () => {
+    const { sauce } = this.props;
+
+    if (!sauce) return "Loading...";
+
+    if (sauce.types && sauce.types.length > 0) return sauce.types.join(", ");
+
+    return "N/A";
+  };
 }
 
 const mapState2Props = (state: IinitialState) => {
