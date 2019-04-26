@@ -468,7 +468,6 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
 
     // Append image if available
     if (this.state.DropNCropValue.result) {
-      console.log(this.state.DropNCropValue);
       // const lastModified = this.state.DropNCropValue.files[0].lastModified;
       const fileType = this.state.DropNCropValue.filetype;
       const blob = this.dataURItoBlob(this.state.DropNCropValue.result);
