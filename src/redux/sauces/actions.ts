@@ -107,7 +107,6 @@ export const getSauceBySlug = ({
 
     // Normalize sauce and dispatch
     sauce._full = true; // Set here for Flatn will auto-set to false
-    sauce._related = res.data.related; // Assign related values
     const normalizedSauce: ISaucesState = Flatn.sauces({ sauces: [sauce] });
 
     // Lastly dispatch sauce
