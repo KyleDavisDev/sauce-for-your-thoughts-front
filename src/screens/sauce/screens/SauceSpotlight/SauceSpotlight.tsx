@@ -28,6 +28,7 @@ export interface SauceSpotlightProps {
   reviews?: IReview[];
   getSauceBySlug: ({ data }: { data: { sauce: { slug: string } } }) => any;
   slug?: string;
+  saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
 }
 
 class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
@@ -49,12 +50,15 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
     // construct data obj
     const data = { sauce: { slug } };
 
-    // Go look for sauce data
-    this.props.getSauceBySlug({ data }).catch((err: any) => console.log(err));
+    // If we don't have sauce, go look for it
+    if (!this.props.sauce) {
+      // Go look for sauce data
+      this.props.getSauceBySlug({ data }).catch((err: any) => console.log(err));
+    }
   }
 
   public render() {
-    const { sauce, reviews } = this.props;
+    const { sauce, reviews, saucesWithNewestReviews } = this.props;
 
     return (
       <div>
@@ -91,6 +95,14 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
                 title="Related Sauces"
               />
             )}
+            {saucesWithNewestReviews && saucesWithNewestReviews.length > 0 && (
+              <List
+                items={saucesWithNewestReviews.map(x => {
+                  return { link: x.slug, text: x.name };
+                })}
+                title="Newly Added Reviews"
+              />
+            )}
           </StyledRightContainer>
         </StyledArticle>
         <Footer />
@@ -122,6 +134,9 @@ const mapState2Props = (
   const sauce = bySlug[slug];
   if (!sauce) return { slug }; // or stop here if we cant
 
+  // Grab recently reviewed sauces
+  const { saucesWithNewestReviews } = state.sauces;
+
   // If we have reviews, get those too. Else return what we have
   const byHashID = state.reviews.byHashID || {};
   const revs = sauce.reviews || [];
@@ -133,11 +148,11 @@ const mapState2Props = (
     });
 
     // Return w/ the found reviews
-    return { sauce, slug, reviews };
+    return { sauce, slug, reviews, saucesWithNewestReviews };
   }
 
   // return sauce and slug only
-  return { sauce, slug };
+  return { sauce, slug, saucesWithNewestReviews };
 };
 
 const mapDispatch2Props = {
