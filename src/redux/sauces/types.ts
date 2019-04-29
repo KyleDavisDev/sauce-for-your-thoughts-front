@@ -32,6 +32,7 @@ export interface ISaucesAction {
   query?: IQuery;
   bySlug?: { [key: string]: ISauce };
   allSlugs?: string[];
+  saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
 }
 
 // Used for redux state
@@ -40,6 +41,7 @@ export interface ISaucesState {
   bySlug?: { [key: string]: ISauce };
   total?: number;
   query?: IQuery;
+  saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
 }
 
 export interface IQuery {
