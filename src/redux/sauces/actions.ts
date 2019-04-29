@@ -24,15 +24,18 @@ import { addUsers } from "../users/actions";
  *  @return {ISaucesAction} sauce and action type
  */
 export const addedSauces = ({
-  sauce
+  sauce,
+  saucesWithNewestReviews
 }: {
   sauce: ISaucesState;
+  saucesWithNewestReviews: Array<{ name: string; slug: string }>;
 }): ISaucesAction => ({
   type: SaucesActionTypes.SAUCES_ADDED,
   allSlugs: sauce.allSlugs,
   bySlug: sauce.bySlug,
   query: sauce.query,
-  total: sauce.total
+  total: sauce.total,
+  saucesWithNewestReviews
 });
 
 /** @description Add sauce(s) to array of sauces
@@ -109,8 +112,11 @@ export const getSauceBySlug = ({
     sauce._full = true; // Set here for Flatn will auto-set to false
     const normalizedSauce: ISaucesState = Flatn.sauces({ sauces: [sauce] });
 
+    // Grab newest reviews
+    const { saucesWithNewestReviews } = res.data;
+
     // Lastly dispatch sauce
-    dispatch(addedSauces({ sauce: normalizedSauce }));
+    dispatch(addedSauces({ sauce: normalizedSauce, saucesWithNewestReviews }));
 
     return null;
   });
