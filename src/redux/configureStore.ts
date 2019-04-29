@@ -27,6 +27,7 @@ export interface IinitialState {
     total?: number;
     query?: IQuery;
     types: string[];
+    saucesWithNewestReviews: [];
   };
   users: {
     self: { token?: string; displayName?: string; avatar?: string };
@@ -55,7 +56,8 @@ export const configureStore = () => {
         "Marinade",
         "Salsa",
         "Meat Sauce"
-      ]
+      ],
+      saucesWithNewestReviews: []
     },
     users: {
       self: {
