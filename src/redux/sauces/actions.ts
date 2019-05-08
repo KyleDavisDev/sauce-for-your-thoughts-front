@@ -135,45 +135,19 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
   });
 };
 
-// This may not be used anymore
-// export const saucesByTagFound = ({ sauces }) => ({
-//   type: SaucesActionTypes.SAUCES_BY_TAG_FOUND,
-//   sauces
-// });
-
-// /** @description Grab all sauces available (will limit this to only set amount at a time in future)
+// /** @description Grab sauces according to query
 //  *  @param {String?} query - optional query string to search for
 //  *  @return {NULL}
 //  */
-// export const getSauces = ({ query }) => dispatch => {
-//   api.sauces.get({ query }).then(res => {
-//     // flatten data
-//     const { sauces, reviews, authors } = flattenSauces(res.data.sauces);
+export const getSaucesByQuery = ({ query }: { query?: string }) => async (
+  dispatch: any
+) => {
+  return API.sauces.findByQuery({ query }).then(res => {
+    console.log(res);
 
-//     // construct just-searched query
-//     const sauceQuery = { [query]: { sauces: sauces.allIds } };
-
-//     // get total from response
-//     const total = res.data.total || 6;
-
-//     // make sauces were flattened
-//     if (flatChecker(sauces)) {
-//       dispatch(addedSauces({ sauces, query: sauceQuery, total }));
-//     }
-
-//     // make sure review were flattened
-//     if (flatChecker(reviews)) {
-// dispatch(addedReviews({ reviews }));
-//     }
-
-//     // make sure users were flattened
-//     if (flatChecker(authors)) {
-//       dispatch(addUsers({ users: authors }));
-//     }
-
-//     return res;
-//   });
-// };
+    return null;
+  });
+};
 
 /** @description Update sauce in DB
  *  @param {FormData} data - Form Data that has been JSONified
