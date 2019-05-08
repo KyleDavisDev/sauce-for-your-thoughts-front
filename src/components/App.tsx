@@ -21,7 +21,7 @@ injectGlobal`
   }
 
   html {
-    // background-color: #f5f5f5;
+    background-color: #fbfbfb;
     font-family: AvenirNextReg;
   }
 
