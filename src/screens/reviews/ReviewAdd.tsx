@@ -294,10 +294,10 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
       user: { token },
       review: {
         ...this.state,
-        _id: 0,
-        author: { displayName: "" },
-        sauce: { slug },
-        created: ""
+        _id: 0, // Server will overwrite this
+        author: "", // Server will overwrite this
+        sauce: slug,
+        created: 0 // Server will overwrite this
       }
     };
 
