@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledSauceContainer = styled.div`
-  background-color: ${props => props.theme.formContainerBackgroundColor};
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
