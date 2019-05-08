@@ -2,6 +2,7 @@ import styled from "../../theme/styled-components";
 import Star from "../../images/icons/Star";
 import Descriptor from "../../components/Descriptor/Descriptor";
 import { Button } from "../../components/Button/Button";
+import TextArea from "../../components/TextArea/TextArea";
 
 export const StyledFormContainer = styled.div`
   border: ${props => props.theme.border};
@@ -86,4 +87,8 @@ export const StyledFullStar = styled(Star)`
   .center {
     fill: ${props => props.theme.primaryThemeColor};
   }
+`;
+
+export const StyledTextArea = styled(TextArea)`
+  margin-top: 16px;
 `;
