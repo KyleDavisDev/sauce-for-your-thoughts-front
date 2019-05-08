@@ -45,11 +45,11 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
             <p style={{ marginTop: "0" }}>
               <i>No reviews found! Have you tried this sauce? Add a review!</i>
             </p>
-            <Link to={`/review/add/?s=${this.props.slug}`}>
-              <Button>Add Review</Button>
-            </Link>
           </StyledContainer>
         )}
+        <Link to={`/review/add/?s=${this.props.slug}`}>
+          <Button>Add Review</Button>
+        </Link>
       </div>
     );
   }
