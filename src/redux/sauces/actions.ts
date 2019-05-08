@@ -1,12 +1,7 @@
 import { API } from "../../utils/api/Api";
 
-import {
-  ISaucesAction,
-  SaucesActionTypes,
-  ISauce,
-  ISaucesState
-} from "./types";
-import { IReview, IReviewsState, IReviewAPI } from "../reviews/types.js";
+import { ISaucesAction, SaucesActionTypes, ISaucesState } from "./types";
+import { IReviewsState, IReviewAPI } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
 
 import { addedReviews } from "../reviews/actions";
