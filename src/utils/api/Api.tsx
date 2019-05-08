@@ -119,6 +119,29 @@ export const API = {
       });
     }
   },
+  sauces: {
+    /** @description Grab sauces from DB
+     *  @param {String?} query string with parsable params
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {Object[]} res.data.sauces - Array of suaces
+     *
+     *  @reject {String} error message
+     */
+    findByQuery: ({ query }: { query?: string }): AxiosPromise => {
+      // Assign query if falsy
+      if (!query) query = "";
+      return axios.get(`${host}/api/sauces/findByQuery/${query}`).then(res => {
+        if (res.data.isGood) {
+          return res;
+        }
+        throw new Error(res.data.msg);
+      });
+    }
+  },
   review: {
     /** @description Add review to DB
      *  @param {Object} data data object
