@@ -4,17 +4,18 @@ import { connect } from "react-redux";
 import Rating from "react-rating";
 import queryString, { OutputParams } from "query-string";
 
-import { addReview } from "../../redux/reviews/actions";
 import { IReviewSection, IReview } from "../../redux/reviews/types";
+import { addReview } from "../../redux/reviews/actions";
+import ArrowRight from "../../images/icons/ArrowRight";
+import Auth from "../../utils/Auth/Auth";
+import Article from "../../components/Article/Article";
+import Footer from "../../components/Footer/Footer";
+import { IinitialState } from "../../redux/configureStore";
+import Label from "../../components/Label/Label";
+import Navigation from "../../components/Navigation/Navigation";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import TextArea from "../../components/TextArea/TextArea";
-import Label from "../../components/Label/Label";
-import ArrowRight from "../../images/icons/ArrowRight";
-import { IinitialState } from "../../redux/configureStore";
-import Article from "../../components/Article/Article";
 import TopBar from "../../components/TopBar/TopBar";
-import Navigation from "../../components/Navigation/Navigation";
-import Footer from "../../components/Footer/Footer";
 import {
   StyledFormContainer,
   StyledRow,
@@ -22,9 +23,9 @@ import {
   StyledRightSide,
   StyledButton,
   StyledEmptyStar,
-  StyledFullStar
+  StyledFullStar,
+  StyledTextArea
 } from "./ReviewAddStyle";
-import Auth from "../../utils/Auth/Auth";
 
 export interface ReviewAddProps {
   addReview: ({ data }: any) => Promise<any>;
@@ -95,7 +96,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     onClick={e => this.onStarClick(e, "taste")}
                     initialRating={this.state.taste.rating}
                   />
-                  <TextArea
+                  <StyledTextArea
                     onChange={this.onTextChange}
                     label="Description"
                     name="taste"
@@ -121,7 +122,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     onClick={e => this.onStarClick(e, "aroma")}
                     initialRating={this.state.aroma.rating}
                   />
-                  <TextArea
+                  <StyledTextArea
                     onChange={this.onTextChange}
                     label="Description"
                     name="aroma"
@@ -147,7 +148,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     onClick={e => this.onStarClick(e, "label")}
                     initialRating={this.state.label.rating}
                   />
-                  <TextArea
+                  <StyledTextArea
                     onChange={this.onTextChange}
                     label="Description"
                     name="label"
@@ -172,7 +173,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     onClick={e => this.onStarClick(e, "heat")}
                     initialRating={this.state.heat.rating}
                   />
-                  <TextArea
+                  <StyledTextArea
                     onChange={this.onTextChange}
                     label="Description"
                     name="heat"
@@ -197,7 +198,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     onClick={e => this.onStarClick(e, "overall")}
                     initialRating={this.state.overall.rating}
                   />
-                  <TextArea
+                  <StyledTextArea
                     onChange={this.onTextChange}
                     required={true}
                     label="Description"
