@@ -1,37 +1,18 @@
 import * as React from "react";
 import queryString, { OutputParams } from "query-string";
 
-import Article from "../../components/Article/Article";
-import PageTitle from "../../components/PageTitle/PageTitle";
-import TopBar from "../../components/TopBar/TopBar";
-import Navigation from "../../components/Navigation/Navigation";
-import Footer from "../../components/Footer/Footer";
 import FilterBar from "./components/FilterBar/FilterBar";
-import Card from "../../components/Card/Card";
-import styled from "styled-components";
+import Footer from "../../components/Footer/Footer";
+import Navigation from "../../components/Navigation/Navigation";
+import PageTitle from "../../components/PageTitle/PageTitle";
 import Pagination from "./components/pagination/Pagination";
-
-const StyledArticle = styled(Article)`
-  max-width: 1200px;
-`;
-
-const StyledCardContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-`;
-
-const StyledCardHolder = styled.div`
-  padding: 1em;
-  width: 100%;
-  box-sizing: border-box;
-  max-width: 300px;
-`;
-
-const StyledCard = styled(Card)`
-  margin: 0;
-`;
+import TopBar from "../../components/TopBar/TopBar";
+import {
+  StyledArticle,
+  StyledCardContainer,
+  StyledCardHolder,
+  StyledCard
+} from "./SaucesStyles";
 
 export interface SaucesProps {
   location: { search: string };
@@ -62,6 +43,8 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     this.setState({ ...this.state, page });
 
     window.scrollTo(0, 0); // Move screen to top
+
+    // Call API
   }
 
   public componentWillReceiveProps(props: SaucesProps) {
