@@ -1,15 +1,12 @@
 import * as React from "react";
 import styled from "styled-components";
-import { connect } from "react-redux";
 
 import { IReview } from "../../../../../../redux/reviews/types";
 import { Button } from "../../../../../../components/Button/Button";
 import { Link } from "../../../../../../components/Link/Link";
 import SauceReviewBlock from "./components/SauceReviewBlock/SauceReviewBlock";
-import { IinitialState } from "../../../../../../redux/configureStore";
 
 const StyledContainer = styled.div`
-  background-color: ${props => props.theme.formContainerBackgroundColor};
   font-family: AvenirNextReg;
   padding: 1.5rem;
   display: flex;
