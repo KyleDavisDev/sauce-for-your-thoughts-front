@@ -1,6 +1,7 @@
 import * as React from "react";
 import queryString, { OutputParams } from "query-string";
 
+import { getSaucesByQuery } from "../../redux/sauces/actions";
 import FilterBar from "./components/FilterBar/FilterBar";
 import Footer from "../../components/Footer/Footer";
 import Navigation from "../../components/Navigation/Navigation";
@@ -13,9 +14,12 @@ import {
   StyledCardHolder,
   StyledCard
 } from "./SaucesStyles";
+import { connect } from "react-redux";
+import { IinitialState } from "../../redux/configureStore";
 
 export interface SaucesProps {
   location: { search: string };
+  getSaucesByQuery: ({ query }: { query?: string }) => Promise<any>;
 }
 
 export interface SaucesState {
@@ -45,6 +49,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     window.scrollTo(0, 0); // Move screen to top
 
     // Call API
+    this.props.getSaucesByQuery({}).catch(err => console.log(err));
   }
 
   public componentWillReceiveProps(props: SaucesProps) {
@@ -114,4 +119,17 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
   }
 }
 
-export default Sauces;
+function mapStateToProps(state: IinitialState): any {
+  return {
+    user: { token: state.users.self.token }
+  };
+}
+
+const mapDispatchToProps = {
+  getSaucesByQuery
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Sauces);
