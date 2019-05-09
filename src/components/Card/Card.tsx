@@ -59,9 +59,7 @@ const Card: React.SFC<CardProps> = props => {
       </Body>
       {props.showLink && (
         <StyledLink to={props.to}>
-          <Button displayType="outline">
-            {props.anchorText || "View Sauce"}
-          </Button>
+          <Button displayType="outline">{props.anchorText || "View"}</Button>
         </StyledLink>
       )}
     </Div>
