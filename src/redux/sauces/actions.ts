@@ -142,7 +142,7 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
 export const getSaucesByQuery = ({ query }: { query?: string }) => async (
   dispatch: any
 ) => {
-  return API.sauces.findByQuery({ query }).then(res => {
+  return API.sauces.getByQuery({ query }).then(res => {
     console.log(res);
 
     return null;
