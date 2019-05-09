@@ -32,4 +32,10 @@ export const StyledTextContainer = styled.div`
 export const StyledLink = styled(Link)`
   padding: 0.5em 1em;
   margin: 0 auto;
+
+  button {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
 `;
