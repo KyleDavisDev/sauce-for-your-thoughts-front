@@ -131,10 +131,10 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    findByQuery: ({ query }: { query?: string }): AxiosPromise => {
+    getByQuery: ({ query }: { query?: string }): AxiosPromise => {
       // Assign query if falsy
-      if (!query) query = "";
-      return axios.get(`${host}/api/sauces/findByQuery/${query}`).then(res => {
+      if (!query) query = "type=all";
+      return axios.get(`${host}/api/sauces/getByQuery/?${query}`).then(res => {
         if (res.data.isGood) {
           return res;
         }
