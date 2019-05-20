@@ -17,6 +17,13 @@ import {
 import { connect } from "react-redux";
 import { IinitialState } from "../../redux/configureStore";
 
+export interface SaucesParams {
+  page: number;
+  limit: number;
+  order: string;
+  type: string;
+}
+
 export interface SaucesProps {
   location: { search: string };
   getSaucesByQuery: ({ query }: { query?: string }) => Promise<any>;
@@ -42,23 +49,28 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
   }
 
   public componentDidMount() {
-    const page: number = this.getPageFromPath(this.props.location.search);
+    const params: SaucesParams = this.getParamsFromPath({
+      path: this.props.location.search
+    });
 
-    this.setState({ ...this.state, page });
+    this.setState({ ...this.state, page: params.page });
 
     window.scrollTo(0, 0); // Move screen to top
 
     // Call API
-    this.props.getSaucesByQuery({}).catch(err => console.log(err));
+    const query = "type=all&order=newest&page=1&lim=8";
+    this.props.getSaucesByQuery({ query }).catch(err => console.log(err));
   }
 
   public componentWillReceiveProps(props: SaucesProps) {
     // Going to compare current page vs page in URL
-    const pageFromURL: number = this.getPageFromPath(props.location.search);
+    const params: SaucesParams = this.getParamsFromPath({
+      path: props.location.search
+    });
     const { page: pageFromState } = this.state;
 
-    if (pageFromURL !== pageFromState) {
-      this.setState({ ...this.state, page: pageFromURL });
+    if (params.page !== pageFromState) {
+      this.setState({ ...this.state, page: params.page });
     }
 
     window.scrollTo(0, 0); // Move screen to top
@@ -71,7 +83,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
         <Navigation />
         <StyledArticle>
           <PageTitle>Sauces</PageTitle>
-          <FilterBar />
+          <FilterBar onSubmit={this.onSubmit} />
           <StyledCardContainer>
             {new Array(8).fill(undefined).map((x, ind) => {
               return (
@@ -101,22 +113,44 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     );
   }
 
-  private getPageFromPath(path: string): number {
+  private getParamsFromPath({ path }: { path: string }): SaucesParams {
     let page: number;
-    // Get page from string
+    let limit: number;
+
+    // Get values from string
     const values: OutputParams = queryString.parse(path);
+
     // Make sure page is not undefined or an array
-    if (!values.page || Array.isArray(values.page)) {
-      page = 1;
-    } else {
+    if (values.page && !Array.isArray(values.page)) {
       // Make sure it's a valid number
       page = parseInt(values.page, 10);
       page = page > this.state.maxPage ? this.state.maxPage : page;
       page = page < this.state.minPage ? this.state.minPage : page;
+    } else {
+      page = 1; // set default
     }
 
-    return page;
+    // Make sure limit is not undefined or an array
+    if (values.limit && !Array.isArray(values.limit)) {
+      // Make sure it's a valid number
+      limit = parseInt(values.limit, 10);
+      limit = limit < 0 ? 1 : limit;
+    } else {
+      limit = 8; // set default
+    }
+
+    const type: string =
+      values.type && !Array.isArray(values.type) ? values.type : "all";
+
+    const order: string =
+      values.order && !Array.isArray(values.order) ? values.order : "newest";
+
+    return { page, type, order, limit };
   }
+
+  private onSubmit = ({ type, order }: { type: string; order: string }) => {
+    console.log(type, order);
+  };
 }
 
 function mapStateToProps(state: IinitialState): any {
