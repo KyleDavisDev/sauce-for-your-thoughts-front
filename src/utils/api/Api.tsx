@@ -133,7 +133,7 @@ export const API = {
      */
     getByQuery: ({ query }: { query?: string }): AxiosPromise => {
       // Assign query if falsy
-      if (!query) query = "type=all";
+      if (!query) query = "";
       return axios.get(`${host}/api/sauces/getByQuery/?${query}`).then(res => {
         if (res.data.isGood) {
           return res;
