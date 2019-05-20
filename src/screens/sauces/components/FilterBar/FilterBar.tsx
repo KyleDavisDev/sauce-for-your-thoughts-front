@@ -29,7 +29,9 @@ const StyledDropDown = styled(DropDown)`
   }
 `;
 
-export interface FilterBarProps {}
+export interface FilterBarProps {
+  onSubmit: ({ type, order }: { type: string; order: string }) => void;
+}
 
 export interface FilterBarState {
   types: { options: string[]; selected: string };
@@ -84,9 +86,14 @@ export default class FilterBar extends React.PureComponent<
   }
 
   private onSubmit = (event: React.FormEvent): void => {
+    // prevent default to stop form submission
     event.preventDefault();
 
-    // Do the things.
+    // Lift values to parent
+    this.props.onSubmit({
+      type: this.state.types.selected,
+      order: this.state.order.selected
+    });
   };
 
   private onDropDownChange = (
