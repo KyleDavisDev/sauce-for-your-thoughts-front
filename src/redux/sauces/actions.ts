@@ -1,6 +1,12 @@
 import { API } from "../../utils/api/Api";
 
-import { ISaucesAction, SaucesActionTypes, ISaucesState } from "./types";
+import {
+  ISaucesAction,
+  SaucesActionTypes,
+  ISaucesState,
+  IQuery,
+  ISauce
+} from "./types";
 import { IReviewsState, IReviewAPI } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
 
@@ -19,17 +25,23 @@ import { addUsers } from "../users/actions";
  *  @return {ISaucesAction} sauce and action type
  */
 export const addedSauces = ({
-  sauce,
+  allSlugs,
+  bySlug,
+  query,
+  total,
   saucesWithNewestReviews
 }: {
-  sauce: ISaucesState;
-  saucesWithNewestReviews: Array<{ name: string; slug: string }>;
+  allSlugs: string[];
+  bySlug?: { [key: string]: ISauce };
+  total?: number;
+  query?: IQuery;
+  saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
 }): ISaucesAction => ({
   type: SaucesActionTypes.SAUCES_ADDED,
-  allSlugs: sauce.allSlugs,
-  bySlug: sauce.bySlug,
-  query: sauce.query,
-  total: sauce.total,
+  allSlugs,
+  bySlug,
+  query,
+  total,
   saucesWithNewestReviews
 });
 
@@ -105,13 +117,15 @@ export const getSauceBySlug = ({
 
     // Normalize sauce and dispatch
     sauce._full = true; // Set here for Flatn will auto-set to false
-    const normalizedSauce: ISaucesState = Flatn.sauces({ sauces: [sauce] });
+    const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
+      sauces: [sauce]
+    });
 
     // Grab newest reviews
     const { saucesWithNewestReviews } = res.data;
 
     // Lastly dispatch sauce
-    dispatch(addedSauces({ sauce: normalizedSauce, saucesWithNewestReviews }));
+    dispatch(addedSauces({ allSlugs, bySlug, saucesWithNewestReviews }));
 
     return null;
   });
@@ -135,15 +149,29 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
   });
 };
 
-// /** @description Grab sauces according to query
-//  *  @param {String?} query - optional query string to search for
-//  *  @return {NULL}
-//  */
+/** @description Grab sauces according to query
+ *  @param {String?} query - optional query string to search for
+ *  @return {NULL}
+ */
 export const getSaucesByQuery = ({ query }: { query?: string }) => async (
   dispatch: any
 ) => {
   return API.sauces.getByQuery({ query }).then(res => {
-    console.log(res);
+    // Normalize sauces
+    const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
+      sauces: res.data.sauces
+    });
+
+    // format query as expected
+    const tmpQuery: IQuery = {};
+    if (query) {
+      tmpQuery[query] = allSlugs || [];
+    } else {
+      tmpQuery.default = allSlugs;
+    }
+
+    // dispatch sauce
+    dispatch(addedSauces({ allSlugs, bySlug, query: tmpQuery }));
 
     return null;
   });
