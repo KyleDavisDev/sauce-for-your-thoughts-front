@@ -1,9 +1,11 @@
 import { Reducer } from "redux";
 import {
   ISaucesState,
-  SaucesActionTypes,
-  ISaucesAction,
-  ISauce
+  SAUCES_ADDED,
+  UPDATE_SAUCE,
+  SAUCES_BY_TAG_FOUND,
+  SAUCE_FOUND,
+  ISaucesReturnAction
 } from "./types";
 
 const initialState: ISaucesState = {
@@ -16,10 +18,10 @@ const initialState: ISaucesState = {
 
 const sauceReducer: Reducer<ISaucesState> = (
   state: ISaucesState = initialState,
-  action: ISaucesAction
+  action: ISaucesReturnAction
 ): ISaucesState => {
   switch (action.type) {
-    case SaucesActionTypes.SAUCES_ADDED:
+    case SAUCES_ADDED:
       // Make sure we are not using undefined objects
       const stateBySlug = state.bySlug || {};
       const actionBySlug = action.bySlug || {};
@@ -75,7 +77,7 @@ const sauceReducer: Reducer<ISaucesState> = (
         saucesWithNewestReviews
       };
 
-    case SaucesActionTypes.UPDATE_SAUCE:
+    case UPDATE_SAUCE:
       if (!action.allSlugs) return state;
       // update single sauces item if sauces is already set
       return {
@@ -83,11 +85,11 @@ const sauceReducer: Reducer<ISaucesState> = (
         bySlug: { ...state.bySlug, ...action.bySlug },
         allSlugs: [...state.allSlugs, ...action.allSlugs]
       };
-    case SaucesActionTypes.SAUCES_BY_TAG_FOUND:
+    case SAUCES_BY_TAG_FOUND:
       return state; // Will come back to this
 
     // TODO: add sauce to .byIds and add id to .allIds
-    case SaucesActionTypes.SAUCE_FOUND:
+    case SAUCE_FOUND:
       return state; // Will come back to this
 
     default:
