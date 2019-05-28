@@ -7,7 +7,7 @@ import LogoSFYT from "../../images/icons/LogoSFYT";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import TextInput from "../../components/TextInput/TextInput";
 import { Link } from "../../components/Link/Link";
-import { IinitialState } from "../../redux/configureStore";
+import { AppState } from "../../redux/configureStore";
 import {
   StyledDiv,
   StyledLogoContainer,
@@ -217,7 +217,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
   };
 }
 
-const mapState2Props = (state: IinitialState) => {
+const mapState2Props = (state: AppState) => {
   return {};
 };
 

@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import queryString, { OutputParams } from "query-string";
 
-import { IinitialState } from "../../../../redux/configureStore";
+import { AppState } from "../../../../redux/configureStore";
 import TopBar from "../../../../components/TopBar/TopBar";
 import Navigation from "../../../../components/Navigation/Navigation";
 import Footer from "../../../../components/Footer/Footer";
@@ -112,7 +112,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
 }
 
 const mapState2Props = (
-  state: IinitialState,
+  state: AppState,
   ownProps: SauceSpotlightProps
 ) => {
   // Find our slug -- If we can't find one, we are immediately done

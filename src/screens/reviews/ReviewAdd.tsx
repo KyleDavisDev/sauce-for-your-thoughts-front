@@ -10,7 +10,7 @@ import ArrowRight from "../../images/icons/ArrowRight";
 import Auth from "../../utils/Auth/Auth";
 import Article from "../../components/Article/Article";
 import Footer from "../../components/Footer/Footer";
-import { IinitialState } from "../../redux/configureStore";
+import { AppState } from "../../redux/configureStore";
 import Label from "../../components/Label/Label";
 import Navigation from "../../components/Navigation/Navigation";
 import PageTitle from "../../components/PageTitle/PageTitle";
@@ -326,7 +326,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
   }
 }
 
-function mapStateToProps(state: IinitialState): any {
+function mapStateToProps(state: AppState): any {
   return {
     user: { token: state.users.self.token }
   };

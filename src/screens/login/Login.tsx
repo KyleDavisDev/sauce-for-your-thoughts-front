@@ -9,7 +9,7 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import TextInput from "../../components/TextInput/TextInput";
 import { Button } from "../../components/Button/Button";
 import { Link } from "../../components/Link/Link";
-import { IinitialState } from "../../redux/configureStore";
+import { AppState } from "../../redux/configureStore";
 import { ILoginUser } from "../../redux/users/types";
 import { login } from "../../redux/users/actions";
 import {
@@ -207,7 +207,7 @@ class Login extends React.Component<LoginProps, LoginState> {
   };
 }
 
-const mapState2Props = (state: IinitialState) => {
+const mapState2Props = (state: AppState) => {
   return {};
 };
 

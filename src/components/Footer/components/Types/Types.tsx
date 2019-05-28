@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import List from "../../../List/List";
-import { IinitialState } from "../../../../redux/configureStore";
+import { AppState } from "../../../../redux/configureStore";
 import styled from "styled-components";
 
 const StyledList = styled(List)`
@@ -26,7 +26,7 @@ class Types extends React.PureComponent<TypesProps, any> {
   }
 }
 
-const mapState2Props = (state: IinitialState) => {
+const mapState2Props = (state: AppState) => {
   return { types: state.sauces.types };
 };
 

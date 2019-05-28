@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { IinitialState } from "../../../../redux/configureStore";
+import { AppState } from "../../../../redux/configureStore";
 import { Button } from "../../../../components/Button/Button";
 import {
   HeroContainer,
@@ -109,7 +109,7 @@ class LandingImage extends React.Component<
   };
 }
 
-const mapState2Props = (state: IinitialState) => {
+const mapState2Props = (state: AppState) => {
   return { types: state.sauces.types };
 };
 

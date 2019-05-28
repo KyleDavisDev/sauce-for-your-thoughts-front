@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import styled from "styled-components";
-import { IinitialState } from "../../../../redux/configureStore";
+import { AppState } from "../../../../redux/configureStore";
 import Profile from "./components/Profile/Profile";
 import Account from "./components/Account/Account";
 import Help from "./components/Help/Help";
@@ -54,7 +54,7 @@ class Menu extends React.Component<MenuProps, any> {
   };
 }
 
-const mapState2Props = (state: IinitialState) => {
+const mapState2Props = (state: AppState) => {
   return {};
 };
 

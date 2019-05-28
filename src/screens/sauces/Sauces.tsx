@@ -14,7 +14,7 @@ import {
   StyledCard
 } from "./SaucesStyles";
 import { connect } from "react-redux";
-import { IinitialState, MyThunkDispatch } from "../../redux/configureStore";
+import { AppState, MyThunkDispatch } from "../../redux/configureStore";
 import { ISauce, SaucesParams } from "../../redux/sauces/types";
 import Utils from "../../utils/Utils/Utils";
 
@@ -124,7 +124,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
   };
 }
 
-function mapStateToProps(state: IinitialState, myProps: any): any {
+function mapStateToProps(state: AppState, myProps: any): any {
   const { limit, order, page, type } = Utils.getParamsFromPath({
     path: myProps.match.params
   });

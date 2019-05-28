@@ -14,7 +14,7 @@ import { RadioButton } from "../../../../components/RadioButton/RadioButton";
 import { Button } from "../../../../components/Button/Button";
 import ArrowRight from "../../../../images/icons/ArrowRight";
 
-import { IinitialState } from "../../../../redux/configureStore";
+import { AppState } from "../../../../redux/configureStore";
 import TopBar from "../../../../components/TopBar/TopBar";
 import Navigation from "../../../../components/Navigation/Navigation";
 import Footer from "../../../../components/Footer/Footer";
@@ -551,7 +551,7 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
   };
 }
 
-function mapStateToProps(state: IinitialState): any {
+function mapStateToProps(state: AppState): any {
   return {
     user: {
       token: state.users.self.token || "",

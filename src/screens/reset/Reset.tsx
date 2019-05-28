@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { IinitialState } from "../../redux/configureStore";
+import { AppState } from "../../redux/configureStore";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import TextInput from "../../components/TextInput/TextInput";
 import { Link } from "../../components/Link/Link";

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { IinitialState } from "../../../../../../redux/configureStore";
+import { AppState } from "../../../../../../redux/configureStore";
 import styled from "../../../../../../theme/styled-components";
 import { IUser } from "../../../../../../redux/users/types";
 
@@ -60,7 +60,7 @@ class SauceAuthor extends React.Component<SauceAuthorProps, any> {
   }
 }
 
-const mapState2Props = (state: IinitialState, ownProps: SauceAuthorProps) => {
+const mapState2Props = (state: AppState, ownProps: SauceAuthorProps) => {
   // Want to check that we have sauce, the sauce for the page we are on, and users to find the author
   const sauces = state.sauces.byId;
   const users = state.users.byId;

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import styled from "../../theme/styled-components";
 import { Dropdown, Trigger, Body } from "./components/Dropdown/Dropdown";
-import { IinitialState } from "../../redux/configureStore";
+import { AppState } from "../../redux/configureStore";
 import Menu from "./components/Menu/Menu";
 
 // SVG icons
@@ -100,7 +100,7 @@ TopBar.defaultProps = {
   isLoggedIn: false
 };
 
-const mapState2Props = (state: IinitialState) => {
+const mapState2Props = (state: AppState) => {
   return {
     isLoggedIn: !!state.users.self.token, // will be bool
     displayName: state.users.self.displayName

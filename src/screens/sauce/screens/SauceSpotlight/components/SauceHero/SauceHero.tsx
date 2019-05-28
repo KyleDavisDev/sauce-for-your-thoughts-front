@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { IinitialState } from "../../../../../../redux/configureStore";
+import { AppState } from "../../../../../../redux/configureStore";
 import { ISauce } from "../../../../../../redux/sauces/types";
 
 import {
@@ -71,7 +71,7 @@ class SauceHero extends React.PureComponent<SauceHeroProps, any> {
   };
 }
 
-const mapState2Props = (state: IinitialState) => {
+const mapState2Props = (state: AppState) => {
   return {};
 };
 

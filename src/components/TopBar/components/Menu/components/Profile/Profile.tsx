@@ -8,7 +8,7 @@ import {
   StyledFoot
 } from "./ProfileStyle";
 import { Button } from "../../../../../Button/Button";
-import { IinitialState } from "../../../../../../redux/configureStore";
+import { AppState } from "../../../../../../redux/configureStore";
 
 interface ProfileProps {
   displayName?: string;
@@ -46,7 +46,7 @@ class Profile extends React.PureComponent<ProfileProps, any> {
   }
 }
 
-const mapState2Props = (state: IinitialState) => {
+const mapState2Props = (state: AppState) => {
   return {
     displayName: state.users.self.displayName,
     avatar: state.users.self.avatar

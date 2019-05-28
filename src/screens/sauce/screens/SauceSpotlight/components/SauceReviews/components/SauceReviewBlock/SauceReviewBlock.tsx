@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import ReactRating from "react-rating";
 import { IReview } from "../../../../../../../../redux/reviews/types";
-import { IinitialState } from "../../../../../../../../redux/configureStore";
+import { AppState } from "../../../../../../../../redux/configureStore";
 import {
   StyledContainer,
   StyledButton,
@@ -174,7 +174,7 @@ class SauceReviewBlock extends React.Component<
 }
 
 const mapState2Props = (
-  state: IinitialState,
+  state: AppState,
   ownProps: SauceReviewBlockProps
 ) => {
   // Make sure we have authors, and specifically the author we want, in redux

@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
   users
 });
 
-export interface IinitialState {
+export interface AppState {
   sauces: {
     allSlugs?: string[];
     bySlug?: { [key: string]: ISauce };
@@ -43,7 +43,7 @@ export interface IinitialState {
 
 export const configureStore = () => {
   // was of type 'object'
-  const initialState: IinitialState = {
+  const initialState: AppState = {
     sauces: {
       allSlugs: [],
       bySlug: {},
@@ -83,6 +83,6 @@ export const configureStore = () => {
 };
 
 // Defining thunk properties
-export type MyThunkResult<R> = ThunkAction<R, IinitialState, undefined, Action>;
+export type MyThunkResult<R> = ThunkAction<R, AppState, undefined, Action>;
 // It is important to use Action as last type argument, does not work with any.
-export type MyThunkDispatch = ThunkDispatch<IinitialState, undefined, Action>;
+export type MyThunkDispatch = ThunkDispatch<AppState, undefined, Action>;
