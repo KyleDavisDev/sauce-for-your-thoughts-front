@@ -46,7 +46,10 @@ const Pagination: React.SFC<PaginationProps> = props => {
       {/* Show past few pages */}
       {new Array(page - lowerBound).fill(undefined).map((x, ind) => {
         return (
-          <Link to={`/sauces/?page=${lowerBound + ind}&limit=${limit}`}>
+          <Link
+            to={`/sauces/?page=${lowerBound + ind}&limit=${limit}`}
+            key={ind}
+          >
             {(lowerBound + ind).toString()}
           </Link>
         );
@@ -58,7 +61,7 @@ const Pagination: React.SFC<PaginationProps> = props => {
       {/* Show future few button */}
       {new Array(upperBound - page).fill(undefined).map((x, ind) => {
         return (
-          <Link to={`/sauces/?page=${page + ind + 1}&limit=${limit}`}>
+          <Link to={`/sauces/?page=${page + ind + 1}&limit=${limit}`} key={ind}>
             {(page + ind + 1).toString()}
           </Link>
         );
