@@ -14,14 +14,14 @@ import {
   StyledCard
 } from "./SaucesStyles";
 import { connect } from "react-redux";
-import { IinitialState } from "../../redux/configureStore";
+import { IinitialState, MyThunkDispatch } from "../../redux/configureStore";
 import { ISauce, SaucesParams } from "../../redux/sauces/types";
 import Utils from "../../utils/Utils/Utils";
 
 export interface SaucesProps {
   location: { search: string };
   sauces?: ISauce[];
-  getSaucesByQuery: ({ query }: { query?: string }) => Promise<any>;
+  getSaucesByQuery: ({ query }: { query?: string }) => Promise<null>;
 }
 
 export interface SaucesState {
@@ -62,6 +62,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
       params.page
     }&type=${params.type}`;
     // Call API
+    console.log("QUERY: ", query);
     this.props.getSaucesByQuery({ query }).catch(err => console.log(err));
   }
 
@@ -157,9 +158,11 @@ function mapStateToProps(state: IinitialState, myProps: any): any {
   };
 }
 
-const mapDispatchToProps = {
-  getSaucesByQuery
-};
+// For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
+const mapDispatchToProps = (dispatch: MyThunkDispatch) => ({
+  getSaucesByQuery: ({ query }: { query?: string }) =>
+    dispatch(getSaucesByQuery({ query }))
+});
 
 export default connect(
   mapStateToProps,
