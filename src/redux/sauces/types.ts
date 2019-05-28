@@ -25,14 +25,18 @@ export interface ISauceRef {
   slug: string;
 }
 
-// Used for action emitters and reducer
-export interface ISaucesAction {
-  type: string;
+// Add Sauces to redux action
+export interface IAddSaucesAction {
+  allSlugs: string[];
+  bySlug?: { [key: string]: ISauce };
   total?: number;
   query?: IQuery;
-  bySlug?: { [key: string]: ISauce };
-  allSlugs?: string[];
   saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
+}
+
+// Used for action emitters and reducer
+export interface ISaucesReturnAction extends IAddSaucesAction {
+  type: string;
 }
 
 // Used for redux state
@@ -56,11 +60,11 @@ export interface SaucesParams {
   type: string;
 }
 
-// Use const enums for better autocompletion of action type names. These will
-// be compiled away leaving only the final value in your compiled code.
-export const enum SaucesActionTypes {
-  SAUCES_ADDED = "@@sauces/SAUCES_ADDED",
-  UPDATE_SAUCE = "@@sauces/UPDATE_SAUCE",
-  SAUCES_BY_TAG_FOUND = "@@sauces/SAUCES_BY_TAG_FOUND",
-  SAUCE_FOUND = "@@sauces/SAUCE_FOUND"
-}
+// Action strings
+export const SAUCES_ADDED = "SAUCES_ADDED";
+export const UPDATE_SAUCE = "UPDATE_SAUCE";
+export const SAUCES_BY_TAG_FOUND = "SAUCES_BY_TAG_FOUND";
+export const SAUCE_FOUND = "SAUCE_FOUND";
+
+// Collection of possible sauces Action Types
+export type SaucesActionTypes = IAddSaucesAction;
