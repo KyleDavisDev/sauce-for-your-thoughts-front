@@ -1,6 +1,6 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
+import { createStore, applyMiddleware, combineReducers, Action } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
-import thunk from "redux-thunk";
+import thunk, { ThunkAction, ThunkDispatch } from "redux-thunk";
 
 import flashMessage from "./flashMessage/reducer";
 import sauces from "./sauces/reducer";
@@ -81,3 +81,8 @@ export const configureStore = () => {
     );
   }
 };
+
+// Defining thunk properties
+export type MyThunkResult<R> = ThunkAction<R, IinitialState, undefined, Action>;
+// It is important to use Action as last type argument, does not work with any.
+export type MyThunkDispatch = ThunkDispatch<IinitialState, undefined, Action>;
