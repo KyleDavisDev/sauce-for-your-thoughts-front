@@ -132,8 +132,8 @@ export const API = {
      *  @reject {String} error message
      */
     getByQuery: ({ query }: { query?: string }): AxiosPromise => {
-      // Assign query if falsy
-      if (!query) query = "";
+      // Assign default query if falsy
+      if (!query) query = "type=all&order=newest&page=1&lim=8";
       return axios.get(`${host}/api/sauces/getByQuery/?${query}`).then(res => {
         if (res.data.isGood) {
           return res;
