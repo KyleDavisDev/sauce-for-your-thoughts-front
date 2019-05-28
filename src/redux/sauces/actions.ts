@@ -1,11 +1,11 @@
 import { API } from "../../utils/api/Api";
 
 import {
-  ISaucesAction,
-  SaucesActionTypes,
+  ISaucesReturnAction,
   ISaucesState,
   IQuery,
-  ISauce
+  SAUCES_ADDED,
+  IAddSaucesAction
 } from "./types";
 import { IReviewsState, IReviewAPI } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
@@ -13,6 +13,7 @@ import Flatn from "../../utils/Flatn/Flatn";
 import { addedReviews } from "../reviews/actions";
 import { IUser, IUserState } from "../users/types";
 import { addUsers } from "../users/actions";
+import { MyThunkResult } from "../configureStore";
 // import { addUsers } from "./users";
 
 /** @description Add sauce(s) to array of sauces
@@ -22,7 +23,7 @@ import { addUsers } from "../users/actions";
  *  @param {Object} query - dictionary of queryString => id pairs
  *    @param {String[]} query - dictionary of queryString => id pairs
  *  @param {Number} total - total number of suaces we know about
- *  @return {ISaucesAction} sauce and action type
+ *  @return {ISaucesReturnAction} sauce and action type
  */
 export const addedSauces = ({
   allSlugs,
@@ -30,14 +31,8 @@ export const addedSauces = ({
   query,
   total,
   saucesWithNewestReviews
-}: {
-  allSlugs: string[];
-  bySlug?: { [key: string]: ISauce };
-  total?: number;
-  query?: IQuery;
-  saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
-}): ISaucesAction => ({
-  type: SaucesActionTypes.SAUCES_ADDED,
+}: IAddSaucesAction): ISaucesReturnAction => ({
+  type: SAUCES_ADDED,
   allSlugs,
   bySlug,
   query,
@@ -55,7 +50,7 @@ export const addedSauces = ({
 //   allIds,
 //   byId
 // }: ISaucesAction): ISaucesAction => ({
-//   type: SaucesActionTypes.UPDATE_SAUCE,
+//   type: UPDATE_SAUCE,
 //   allIds,
 //   byId
 // });
@@ -151,11 +146,16 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
 
 /** @description Grab sauces according to query
  *  @param {String?} query - optional query string to search for
- *  @return {NULL}
+ *  @returns {Promise}
+ *  @fires sauces.addedSauces - add sauces to redux store
+ *  @resolves {NULL}
  */
-export const getSaucesByQuery = ({ query }: { query?: string }) => async (
-  dispatch: any
-) => {
+export const getSaucesByQuery = ({
+  query
+}: {
+  query?: string;
+}): MyThunkResult<Promise<null>> => dispatch => {
+  console.log(query);
   return API.sauces.getByQuery({ query }).then(res => {
     // Normalize sauces
     const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
