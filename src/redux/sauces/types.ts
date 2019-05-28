@@ -45,7 +45,15 @@ export interface ISaucesState {
 }
 
 export interface IQuery {
-  [key: string]: { sauces: string[] };
+  [key: string]: string[];
+}
+
+// Params we can pass to API
+export interface SaucesParams {
+  page: number;
+  limit: number;
+  order: string;
+  type: string;
 }
 
 // Use const enums for better autocompletion of action type names. These will
