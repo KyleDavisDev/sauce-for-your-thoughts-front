@@ -111,12 +111,14 @@ export const API = {
     }: {
       data: { sauce: { slug: string } };
     }): AxiosPromise => {
-      return axios.post(`${host}/api/sauce/get/by/slug/`, data).then(res => {
-        if (res.data.isGood) {
-          return res;
-        }
-        throw new Error(res.data.msg);
-      });
+      return axios
+        .get(`${host}/api/sauce/get/by/slug/?s=${data.sauce.slug}`)
+        .then(res => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
     }
   },
   sauces: {
