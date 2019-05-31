@@ -57,13 +57,15 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
 
     window.scrollTo(0, 0); // Move screen to top
 
-    // Construct query string
-    const query = `lim=${params.limit}&order=${params.order}&page=${
-      params.page
-    }&type=${params.type}`;
-    // Call API
-    console.log("QUERY: ", query);
-    this.props.getSaucesByQuery({ query }).catch(err => console.log(err));
+    // If we don't have sauces, go look for them!
+    if (!this.props.sauces) {
+      // Construct query string
+      const query = `lim=${params.limit}&order=${params.order}&page=${
+        params.page
+      }&type=${params.type}`;
+      // Call API
+      this.props.getSaucesByQuery({ query }).catch(err => console.log(err));
+    }
   }
 
   public componentWillReceiveProps(props: SaucesProps) {
@@ -131,6 +133,11 @@ function mapStateToProps(state: AppState, myProps: any): any {
   // Construct query string
   const queryString = `lim=${limit}&order=${order}&page=${page}&type=${type}`;
 
+  // // If query already exists in store, use that
+  // if (state.sauces.query && state.sauces.query[queryString]) {
+  //   console.log("we already found this!");
+  //   return
+  // }
   // Find the sauces we will render by first getting the array of slugs
   const sauceSlugs2Render: string[] | undefined = state.sauces.query
     ? state.sauces.query[queryString]
