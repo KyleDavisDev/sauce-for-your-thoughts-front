@@ -10,14 +10,12 @@ export const StyledCardContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 
 export const StyledCardHolder = styled.div`
-  padding: 1em;
-  width: 100%;
+  padding-bottom: 2em;
   box-sizing: border-box;
-  max-width: 300px;
 `;
 
 export const StyledCard = styled(Card)`
