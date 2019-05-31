@@ -111,10 +111,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
   }
 }
 
-const mapState2Props = (
-  state: AppState,
-  ownProps: SauceSpotlightProps
-) => {
+const mapState2Props = (state: AppState, ownProps: SauceSpotlightProps) => {
   // Find our slug -- If we can't find one, we are immediately done
   const values: OutputParams = queryString.parse(ownProps.location.search);
   // Make sure s is defined, not an array
@@ -130,9 +127,9 @@ const mapState2Props = (
   const bySlug = state.sauces.bySlug;
   if (!bySlug) return { slug };
 
-  // Find the specific sauce for our page
+  // Find the specific sauce for our page and make sure it's full
   const sauce = bySlug[slug];
-  if (!sauce) return { slug }; // or stop here if we cant
+  if (!sauce || !sauce._full) return { slug };
 
   // Grab recently reviewed sauces
   const { saucesWithNewestReviews } = state.sauces;
