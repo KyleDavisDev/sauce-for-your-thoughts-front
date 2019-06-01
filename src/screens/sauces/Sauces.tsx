@@ -22,6 +22,8 @@ export interface SaucesProps {
   location: { search: string };
   sauces?: ISauce[];
   getSaucesByQuery: ({ query }: { query?: string }) => Promise<null>;
+  count?: number;
+  page?: number;
 }
 
 export interface SaucesState {
@@ -83,7 +85,11 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
   }
 
   public render() {
+    // Assign for convenience later
     const sauces = this.props.sauces ? this.props.sauces : [];
+    const count = this.props.count || 0;
+    const page = this.props.page || 1;
+
     return (
       <div>
         <TopBar />
@@ -109,12 +115,9 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
                 );
               })}
           </StyledCardContainer>
-          <Pagination
-            total={this.state.total}
-            page={this.state.page}
-            limit={5}
-            range={3}
-          />
+          {count > 0 && (
+            <Pagination total={count} page={page} limit={5} range={3} />
+          )}
         </StyledArticle>
         <Footer />
       </div>
@@ -133,11 +136,6 @@ function mapStateToProps(state: AppState, myProps: any): any {
   // Construct query string
   const queryString = `lim=${limit}&order=${order}&page=${page}&type=${type}`;
 
-  // // If query already exists in store, use that
-  // if (state.sauces.query && state.sauces.query[queryString]) {
-  //   console.log("we already found this!");
-  //   return
-  // }
   // Find the sauces we will render by first getting the array of slugs
   const sauceSlugs2Render: string[] | undefined = state.sauces.query
     ? state.sauces.query[queryString]
@@ -161,7 +159,9 @@ function mapStateToProps(state: AppState, myProps: any): any {
   if (sauces.length === 0) return {};
 
   return {
-    sauces
+    sauces,
+    total: state.sauces.total || 0,
+    page: page || 1
   };
 }
 
