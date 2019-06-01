@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import queryString, { OutputParams } from "query-string";
 
-import { AppState } from "../../../../redux/configureStore";
+import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
 import TopBar from "../../../../components/TopBar/TopBar";
 import Navigation from "../../../../components/Navigation/Navigation";
 import Footer from "../../../../components/Footer/Footer";
@@ -26,7 +26,7 @@ export interface SauceSpotlightProps {
   history: { push: (location: string) => any };
   sauce?: ISauce;
   reviews?: IReview[];
-  getSauceBySlug: ({ data }: { data: { sauce: { slug: string } } }) => any;
+  getSauceBySlug: ({ slug }: { slug: string }) => Promise<null>;
   slug?: string;
   saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
 }
@@ -47,13 +47,9 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
     }
     window.scrollTo(0, 0); // Move screen to top
 
-    // construct data obj
-    const data = { sauce: { slug } };
-
     // If we don't have sauce, go look for it
     if (!this.props.sauce) {
-      // Go look for sauce data
-      this.props.getSauceBySlug({ data }).catch((err: any) => console.log(err));
+      this.props.getSauceBySlug({ slug }).catch((err: any) => console.log(err));
     }
   }
 
@@ -152,9 +148,11 @@ const mapState2Props = (state: AppState, ownProps: SauceSpotlightProps) => {
   return { sauce, slug, saucesWithNewestReviews };
 };
 
-const mapDispatch2Props = {
-  getSauceBySlug
-};
+// For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
+const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
+  getSauceBySlug: ({ slug }: { slug: string }) =>
+    dispatch(getSauceBySlug({ slug }))
+});
 
 export default connect(
   mapState2Props,
