@@ -129,7 +129,9 @@ export const API = {
      *
      *  {Boolean} res.data.isGood - whether request was good or not
      *
-     *  {Object[]} res.data.sauces - Array of suaces
+     *  {Object[]} res.data.sauces - Array of sauces
+     *
+     *  {Number} res.data.count - how many sauces are in DB
      *
      *  @reject {String} error message
      */
