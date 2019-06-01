@@ -154,27 +154,27 @@ export const getSaucesByQuery = ({
   query
 }: {
   query?: string;
-}): MyThunkResult<Promise<null>> => dispatch => {
-  console.log(query);
-  return API.sauces.getByQuery({ query }).then(res => {
-    // Normalize sauces
-    const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
-      sauces: res.data.sauces
-    });
+}): MyThunkResult<Promise<null>> => async dispatch => {
+  const res = await API.sauces.getByQuery({ query });
 
-    // format query as expected
-    const tmpQuery: IQuery = {};
-    if (query) {
-      tmpQuery[query] = allSlugs || [];
-    } else {
-      tmpQuery.default = allSlugs;
-    }
-
-    // dispatch sauce
-    dispatch(addedSauces({ allSlugs, bySlug, query: tmpQuery }));
-
-    return null;
+  // Normalize sauces
+  const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
+    sauces: res.data.sauces
   });
+
+  // format query as expected
+  const tmpQuery: IQuery = {};
+  if (query) {
+    tmpQuery[query] = allSlugs || [];
+  } else {
+    tmpQuery.default = allSlugs;
+  }
+
+  // dispatch sauce
+  dispatch(
+    addedSauces({ allSlugs, bySlug, query: tmpQuery, total: res.data.count })
+  );
+  return null;
 };
 
 /** @description Update sauce in DB
