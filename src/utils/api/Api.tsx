@@ -93,8 +93,7 @@ export const API = {
     },
 
     /** @description Find sauce information given the sauce's slug
-     *  @param {Object} data object w/ required sauce slug
-     *    @param {String} data.sauce.slug sauce's unique slug
+     *  @param {String} slug sauce's unique slug
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -106,19 +105,13 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    getBySlug: ({
-      data
-    }: {
-      data: { sauce: { slug: string } };
-    }): AxiosPromise => {
-      return axios
-        .get(`${host}/api/sauce/get/by/slug/?s=${data.sauce.slug}`)
-        .then(res => {
-          if (res.data.isGood) {
-            return res;
-          }
-          throw new Error(res.data.msg);
-        });
+    getBySlug: ({ slug }: { slug: string }): AxiosPromise => {
+      return axios.get(`${host}/api/sauce/get/by/slug/?s=${slug}`).then(res => {
+        if (res.data.isGood) {
+          return res;
+        }
+        throw new Error(res.data.msg);
+      });
     }
   },
   sauces: {
