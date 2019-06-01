@@ -21,7 +21,11 @@ const StyledArticle = styled.article`
 `;
 
 interface ArticleProps {
-  children: Element | JSX.Element | Array<Element | JSX.Element>;
+  children:
+    | false
+    | Element
+    | JSX.Element
+    | Array<Element | JSX.Element | false>;
   className?: string;
 }
 
