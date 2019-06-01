@@ -68,62 +68,57 @@ export const addedSauces = ({
  *  @reject {String} error message
  */
 export const getSauceBySlug = ({
-  data
+  slug
 }: {
-  data: { sauce: { slug: string } };
-}) => async (dispatch: any): Promise<null> => {
-  return API.sauce.getBySlug({ data }).then((res: any) => {
-    // Pull sauce out
-    const { sauce } = res.data;
+  slug: string;
+}): MyThunkResult<Promise<null>> => async dispatch => {
+  const res = await API.sauce.getBySlug({ slug });
 
-    // Update sauce and dispatch reviews if we have them
-    const reviews: IReviewAPI[] = [...sauce.reviews];
-    if (reviews && reviews.length > 0) {
-      // Normalize reviews
-      const { byHashID, allHashIDs } = Flatn.reviews({
-        reviews
-      });
+  // Pull sauce out
+  const { sauce } = res.data;
 
-      // Create obj to redux
-      const normalizedReviews: IReviewsState = { byHashID, allHashIDs };
-
-      // Push reviews to redux
-      dispatch(addedReviews({ reviews: normalizedReviews }));
-
-      // Update reviews on sauce
-      sauce.reviews = normalizedReviews.allHashIDs;
-    }
-
-    // Now we need to normalize author and update sauce
-    // Grab author from sauce
-    const author: IUser = sauce.author;
-    // grab the author from reviews
-    const usersFromReviews = reviews.map((review: any) => {
-      return review.author;
+  // Update sauce and dispatch reviews if we have them
+  const reviews: IReviewAPI[] = [...sauce.reviews];
+  if (reviews && reviews.length > 0) {
+    // Normalize reviews
+    const { byHashID, allHashIDs } = Flatn.reviews({
+      reviews
     });
+    // Create obj to redux
+    const normalizedReviews: IReviewsState = { byHashID, allHashIDs };
+    // Push reviews to redux
+    dispatch(addedReviews({ reviews: normalizedReviews }));
+    // Update reviews on sauce
+    sauce.reviews = normalizedReviews.allHashIDs;
+  }
 
-    const normalizedUser: IUserState = Flatn.users({
-      users: [author, ...usersFromReviews]
-    });
-    // Dispatch user
-    dispatch(addUsers({ user: normalizedUser }));
-    // Update sauce w/ author and set _full to true
-    sauce.author = author.displayName;
-
-    // Normalize sauce and dispatch
-    sauce._full = true; // Set here for Flatn will auto-set to false
-    const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
-      sauces: [sauce]
-    });
-
-    // Grab newest reviews
-    const { saucesWithNewestReviews } = res.data;
-
-    // Lastly dispatch sauce
-    dispatch(addedSauces({ allSlugs, bySlug, saucesWithNewestReviews }));
-
-    return null;
+  // Now we need to normalize author and update sauce
+  // Grab author from sauce
+  const author: IUser = sauce.author;
+  // grab the author from reviews
+  const usersFromReviews = reviews.map((review: any) => {
+    return review.author;
   });
+  const normalizedUser: IUserState = Flatn.users({
+    users: [author, ...usersFromReviews]
+  });
+  // Dispatch user
+  dispatch(addUsers({ user: normalizedUser }));
+  // Update sauce w/ author and set _full to true
+  sauce.author = author.displayName;
+
+  // Normalize sauce and dispatch
+  sauce._full = true; // Set here for Flatn will auto-set to false
+  const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
+    sauces: [sauce]
+  });
+
+  // Grab newest reviews
+  const { saucesWithNewestReviews } = res.data;
+
+  // Lastly dispatch sauce
+  dispatch(addedSauces({ allSlugs, bySlug, saucesWithNewestReviews }));
+  return null;
 };
 
 /** @description Add sauce to DB
