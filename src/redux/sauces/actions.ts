@@ -5,7 +5,8 @@ import {
   ISaucesState,
   IQuery,
   SAUCES_ADDED,
-  IAddSaucesAction
+  IAddSaucesAction,
+  SAUCES_UPDATE
 } from "./types";
 import { IReviewsState, IReviewAPI } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
@@ -40,20 +41,18 @@ export const addedSauces = ({
   saucesWithNewestReviews
 });
 
-/** @description Add sauce(s) to array of sauces
+/** @description Update specific sauce
  *  @param {ISaucesAction} object - object of sauce information
  *    @param {Object} object.byId - dictionary of id => ISauce pairs
  *    @param {number[]} object.allIds - array of sauce id's
  *  @return {ISaucesAction} sauce and action type
  */
-// export const updatedSaucesItems = ({
-//   allIds,
-//   byId
-// }: ISaucesAction): ISaucesAction => ({
-//   type: UPDATE_SAUCE,
-//   allIds,
-//   byId
-// });
+export const updatedSauces = ({
+  bySlug
+}: IAddSaucesAction): ISaucesReturnAction => ({
+  type: SAUCES_UPDATE,
+  bySlug
+});
 
 /** @description grab single sauce related to slug
  *  @param {Object} data - object containing slug we are interested in
