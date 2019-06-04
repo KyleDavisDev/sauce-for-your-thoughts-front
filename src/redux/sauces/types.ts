@@ -27,7 +27,7 @@ export interface ISauceRef {
 
 // Add Sauces to redux action
 export interface IAddSaucesAction {
-  allSlugs: string[];
+  allSlugs?: string[];
   bySlug?: { [key: string]: ISauce };
   total?: number;
   query?: IQuery;
@@ -62,7 +62,7 @@ export interface SaucesParams {
 
 // Action strings
 export const SAUCES_ADDED = "SAUCES_ADDED";
-export const UPDATE_SAUCE = "UPDATE_SAUCE";
+export const SAUCES_UPDATE = "SAUCES_UPDATE";
 export const SAUCES_BY_TAG_FOUND = "SAUCES_BY_TAG_FOUND";
 export const SAUCE_FOUND = "SAUCE_FOUND";
 
