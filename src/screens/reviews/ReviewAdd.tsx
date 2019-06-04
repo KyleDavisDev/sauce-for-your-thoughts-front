@@ -6,11 +6,12 @@ import queryString, { OutputParams } from "query-string";
 
 import { IReviewSection, IReview } from "../../redux/reviews/types";
 import { addReview } from "../../redux/reviews/actions";
+import { getSauceBySlug } from "../../redux/sauces/actions";
 import ArrowRight from "../../images/icons/ArrowRight";
 import Auth from "../../utils/Auth/Auth";
 import Article from "../../components/Article/Article";
 import Footer from "../../components/Footer/Footer";
-import { AppState } from "../../redux/configureStore";
+import { AppState, MyThunkDispatch } from "../../redux/configureStore";
 import Label from "../../components/Label/Label";
 import Navigation from "../../components/Navigation/Navigation";
 import PageTitle from "../../components/PageTitle/PageTitle";
@@ -26,9 +27,15 @@ import {
   StyledFullStar,
   StyledTextArea
 } from "./ReviewAddStyle";
+import { async } from "q";
 
 export interface ReviewAddProps {
-  addReview: ({ data }: any) => Promise<any>;
+  addReview: ({
+    data
+  }: {
+    data: { user: { token: string }; review: IReview };
+  }) => Promise<null>;
+  getSauceBySlug: ({ slug }: { slug: string }) => Promise<null>;
   history: { push: (location: string) => any };
   user: { token?: string };
   location: { search: string };
@@ -262,7 +269,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     });
   };
 
-  private onSubmit = (event: React.FormEvent): void => {
+  private onSubmit = async (event: React.FormEvent): Promise<null> => {
     event.preventDefault();
 
     const { user, history } = this.props;
@@ -275,7 +282,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     // Sauce slug is whack, redirect user
     if (slug === null) {
       history.push("/"); // Maybe display banner too?
-      return;
+      return null;
     }
 
     // make sure token is still good/not expired
@@ -285,7 +292,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     const token = user.token;
     if (!token) {
       history.push("/login");
-      return;
+      return null;
     }
 
     const data: {
@@ -302,15 +309,16 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
       }
     };
 
-    this.props
-      .addReview({ data })
-      .then(res => {
-        // Take user to sauce page
-        history.push(`/sauce/?s=${slug}`);
-      })
-      .catch(err => {
-        // TODO better error handling
-      });
+    await this.props.addReview({ data }).catch(err => {
+      // TODO better error handling
+    });
+
+    await this.props.getSauceBySlug({ slug });
+
+    // Take user to sauce page
+    history.push(`/sauce/?s=${slug}`);
+
+    return null;
   };
 
   private getPageFromPath(path: string): string | null {
@@ -332,11 +340,25 @@ function mapStateToProps(state: AppState): any {
   };
 }
 
-const mapDispatchToProps = {
-  addReview
-};
+// For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
+const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
+  addReview: ({
+    data
+  }: {
+    data: { user: { token: string }; review: IReview };
+  }) => dispatch(addReview({ data })),
+  getSauceBySlug: ({ slug }: { slug: string }) =>
+    dispatch(getSauceBySlug({ slug }))
+});
+
+// const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
+
+// data: {
+//   user: { token: string };
+//   review: IReview;
+// }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatch2Props
 )(ReviewAdd);
