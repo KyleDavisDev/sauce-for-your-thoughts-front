@@ -5,6 +5,7 @@ import {
   IReview,
   IReviewsState
 } from "./types";
+import { MyThunkResult } from "../configureStore";
 
 /** @description add review(s) to store
  *  @param {number[]} allIds - array of review objects
@@ -37,7 +38,9 @@ export const addReview = ({
   data
 }: {
   data: { user: { token: string }; review: IReview };
-}) => (dispatch: any) =>
-  API.review.add(data).then((res: any) => {
-    return null;
-  });
+}): MyThunkResult<Promise<null>> => async dispatch => {
+  // Add review
+  await API.review.add(data);
+
+  return null;
+};
