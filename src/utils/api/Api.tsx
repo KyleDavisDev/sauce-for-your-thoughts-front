@@ -157,6 +157,33 @@ export const API = {
           return res;
         }
         throw new Error(res.data.msg);
+      }),
+    /** @description Check if user is eligible to submit a review or not (maybe suace is private or have already submitted one)
+     *  @param {Object} data data object
+     *    @param {string} data.user.token user's unique token
+     *    @param {string} data.sauce.slug unique sauce string
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {Boolean} res.data.canSubmit - whether user can submit or not
+     *
+     *  @reject {String} error message
+     */
+    canUserSubmit: ({
+      data
+    }: {
+      data: {
+        user: { token: string };
+        sauce: { slug: string };
+      };
+    }): AxiosPromise =>
+      axios.post(`${host}/api/review/canusersubmit`, data).then(res => {
+        if (res.data.isGood) {
+          return res;
+        }
+        throw new Error(res.data.msg);
       })
   }
 };
