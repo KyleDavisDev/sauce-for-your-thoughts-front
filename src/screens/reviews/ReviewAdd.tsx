@@ -27,7 +27,7 @@ import {
   StyledFullStar,
   StyledTextArea
 } from "./ReviewAddStyle";
-import { async } from "q";
+import { API } from "../../utils/api/API";
 
 export interface ReviewAddProps {
   addReview: ({
@@ -72,12 +72,27 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
 
     // Sauce slug is whack, redirect user
     if (slug === null) {
+      // Get user outta here
       this.props.history.push("/");
       // Maybe display banner too?
+
+      return;
     }
 
     // Make sure we are at top of page
     window.scrollTo(0, 0);
+
+    // Make sure user can add review or not
+    const token = Auth.getToken();
+    if (!token || token.length === 0) {
+      // Get user outta here
+      this.props.history.push("/");
+
+      return;
+    }
+
+    const data = { user: { token }, sauce: { slug } };
+    API.review.canUserSubmit({ data });
   }
 
   public render() {
