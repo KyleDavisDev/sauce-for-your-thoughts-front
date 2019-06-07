@@ -178,12 +178,13 @@ export const API = {
         user: { token: string };
         sauce: { slug: string };
       };
-    }): AxiosPromise =>
-      axios.post(`${host}/api/review/canusersubmit`, data).then(res => {
-        if (res.data.isGood) {
+    }): AxiosPromise => {
+      return axios.post(`${host}/api/review/canusersubmit`, data).then(res => {
+        if (res.data.isGood && res.data.canUserSubmit) {
           return res;
         }
         throw new Error(res.data.msg);
-      })
+      });
+    }
   }
 };
