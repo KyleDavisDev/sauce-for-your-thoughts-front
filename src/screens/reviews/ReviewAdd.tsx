@@ -92,7 +92,12 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     }
 
     const data = { user: { token }, sauce: { slug } };
-    API.review.canUserSubmit({ data });
+
+    API.review.canUserSubmit({ data }).catch(err => {
+      console.log("ERR: ", err);
+
+      //Going to disable form here
+    });
   }
 
   public render() {
@@ -324,14 +329,20 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
       }
     };
 
-    await this.props.addReview({ data }).catch(err => {
-      // TODO better error handling
-    });
+    try {
+      await this.props.addReview({ data }).catch(err => {
+        // TODO better error handling
+      });
 
-    await this.props.getSauceBySlug({ slug });
+      console.log("make it here?");
 
-    // Take user to sauce page
-    history.push(`/sauce/?s=${slug}`);
+      await this.props.getSauceBySlug({ slug });
+
+      // Take user to sauce page
+      history.push(`/sauce/?s=${slug}`);
+    } catch (err) {
+      console.log("ERR: ", err);
+    }
 
     return null;
   };
