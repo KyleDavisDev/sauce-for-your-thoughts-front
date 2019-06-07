@@ -13,6 +13,8 @@ export interface TextAreaProps {
   showLabel?: boolean;
   value?: string | number;
   className?: string;
+  disabled?: boolean;
+  readonly?: boolean;
   onChange(
     event:
       | React.ChangeEvent<HTMLInputElement>
@@ -30,7 +32,9 @@ export default class TextArea extends React.PureComponent<
 > {
   public static defaultProps = {
     showLabel: false,
-    required: false
+    required: false,
+    disabled: false,
+    readOnly: false
   };
 
   public componentWillMount() {
@@ -56,6 +60,8 @@ export default class TextArea extends React.PureComponent<
           onChange={this.props.onChange}
           value={this.props.value}
           required={this.props.required}
+          disabled={this.props.disabled}
+          readOnly={this.props.readonly}
         />
       </StyledDiv>
     );
