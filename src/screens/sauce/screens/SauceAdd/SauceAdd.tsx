@@ -35,6 +35,7 @@ import {
 } from "./SauceAddStyle";
 import Auth from "../../../../utils/Auth/Auth";
 import { SauceTitle } from "./components/SauceTitle/SauceTitle";
+import SauceDescription from "./components/SauceDescription/SauceDescription";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
@@ -128,24 +129,10 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
               />
 
               {/* Official Description */}
-              <StyledRow>
-                <StyledDescriptor title="Official Description">
-                  How does the maker describe the suace and/or flavor? This
-                  might be found directly on the bottle, a website, in an email,
-                  etc. This is NOT your review.
-                </StyledDescriptor>
-                <StyledRightSide>
-                  <StyledTextArea
-                    onChange={this.onTextChange}
-                    label="Description"
-                    name="description"
-                    id="description"
-                    showLabel={true}
-                    value={this.state.description}
-                    required={true}
-                  />
-                </StyledRightSide>
-              </StyledRow>
+              <SauceDescription
+                onTextChange={this.onTextChange}
+                description={this.state.description}
+              />
 
               {/* Ingredients */}
               <StyledRow>
