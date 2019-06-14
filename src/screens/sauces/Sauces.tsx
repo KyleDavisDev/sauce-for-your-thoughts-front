@@ -33,11 +33,6 @@ export interface SaucesState {
   total: number;
 }
 
-export const host =
-  process.env.API_ENV === "prod"
-    ? "https://sauceforyourthoughts.com"
-    : "http://localhost:7777";
-
 class Sauces extends React.Component<SaucesProps, SaucesState> {
   constructor(props: SaucesProps) {
     super(props);
@@ -104,7 +99,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
                   <StyledCardHolder key={ind}>
                     <StyledCard
                       title={sauce.name}
-                      imageLink={`${host}/public/uploads/${sauce.photo}`}
+                      imageLink={`${sauce.photo}`}
                       description={sauce.description}
                       author={sauce.author}
                       maker={sauce.maker}
