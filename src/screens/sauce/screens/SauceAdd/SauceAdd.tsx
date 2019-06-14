@@ -34,6 +34,7 @@ import {
   StyledImageButtonContainer
 } from "./SauceAddStyle";
 import Auth from "../../../../utils/Auth/Auth";
+import { SauceTitle } from "./components/SauceTitle/SauceTitle";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
@@ -119,32 +120,14 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
           <PageTitle>Add Sauce</PageTitle>
           <StyledFormContainer>
             <form onSubmit={this.onSubmit} style={{ maxWidth: "100%" }}>
-              <StyledRow>
-                <StyledDescriptor title="Title">
-                  What is the name of the sauce? Who is the maker? This is
-                  required.
-                </StyledDescriptor>
-                <StyledRightSide>
-                  <StyledTextInput
-                    onChange={this.onTextChange}
-                    label="Name"
-                    name="name"
-                    id="name"
-                    showLabel={true}
-                    value={this.state.name}
-                    required={true}
-                  />
-                  <StyledTextInput
-                    onChange={this.onTextChange}
-                    label="Maker"
-                    name="maker"
-                    id="maker"
-                    showLabel={true}
-                    value={this.state.maker}
-                    required={true}
-                  />
-                </StyledRightSide>
-              </StyledRow>
+              {/* Title */}
+              <SauceTitle
+                onTextChange={this.onTextChange}
+                name={this.state.name}
+                maker={this.state.maker}
+              />
+
+              {/* Official Description */}
               <StyledRow>
                 <StyledDescriptor title="Official Description">
                   How does the maker describe the suace and/or flavor? This
@@ -163,6 +146,8 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
                   />
                 </StyledRightSide>
               </StyledRow>
+
+              {/* Ingredients */}
               <StyledRow>
                 <StyledDescriptor title="Ingredients">
                   Which ingredients make up the sauce? This should be a comma
