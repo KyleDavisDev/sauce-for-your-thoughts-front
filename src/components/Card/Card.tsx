@@ -8,9 +8,6 @@ interface CardProps {
   to: string;
   showLink?: boolean;
   imageLink?: string;
-  maker?: string;
-  author?: string;
-  type?: string;
   className?: string;
   anchorText?: string;
 }
@@ -18,7 +15,13 @@ interface CardProps {
 const Card: React.SFC<CardProps> = props => {
   return (
     <Div className={props.className}>
-      <Image src={props.imageLink} alt={props.description} />
+      {props.showLink ? (
+        <StyledLink to={props.to}>
+          <Image src={props.imageLink} alt={props.description} />
+        </StyledLink>
+      ) : (
+        <Image src={props.imageLink} alt={props.description} />
+      )}
       <Body>
         <h4>{props.title}</h4>
         <StyledTextContainer>
@@ -28,33 +31,6 @@ const Card: React.SFC<CardProps> = props => {
               ? props.description.substring(0, 24) + "..."
               : props.description}
           </p>
-
-          {props.type && (
-            <p>
-              <i>Type: </i>
-              {props.type && props.type.length > 25
-                ? props.type.substring(0, 24) + "..."
-                : props.type}
-            </p>
-          )}
-
-          {props.maker && (
-            <p>
-              <i>Maker: </i>
-              {props.maker && props.maker.length > 25
-                ? props.maker.substring(0, 24) + "..."
-                : props.maker}
-            </p>
-          )}
-
-          {props.author && (
-            <p>
-              <i>Author: </i>
-              {props.author && props.author.length > 25
-                ? props.author.substring(0, 24) + "..."
-                : props.author}
-            </p>
-          )}
         </StyledTextContainer>
       </Body>
       {props.showLink && (
