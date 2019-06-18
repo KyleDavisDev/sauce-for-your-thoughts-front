@@ -2,12 +2,9 @@ import * as React from "react";
 import { connect } from "react-redux";
 import validator from "validator";
 
-import styled from "styled-components";
 import LogoSFYT from "../../images/icons/LogoSFYT";
-import Article from "../../components/Article/Article";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import TextInput from "../../components/TextInput/TextInput";
-import { Button } from "../../components/Button/Button";
 import { Link } from "../../components/Link/Link";
 import { AppState } from "../../redux/configureStore";
 import { ILoginUser } from "../../redux/users/types";
@@ -16,52 +13,16 @@ import {
   FlashMessageProps,
   FlashMessage
 } from "../../components/FlashMessage/FlashMessage";
-import { CheckBox } from "../../components/CheckBox/CheckBox";
 import Auth from "../../utils/Auth/Auth";
-
-const StyledDiv = styled.div`
-  height: 100vh;
-`;
-
-const StyledLogoContainer = styled.div`
-  max-width: 150px;
-  margin: 0 auto;
-  padding: 1em;
-`;
-
-const StyledArticle = styled(Article)`
-  max-width: 600px;
-`;
-const StyledFormContainer = styled.div`
-  border: ${props => props.theme.border};
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
-const StyledButton = styled(Button)`
-  text-align: center;
-`;
-
-const StyledText = styled.p`
-  text-align: center;
-  width: 100%;
-  max-width: 80%;
-  margin: 0.5em auto;
-`;
-
-const StyledFooterDivs = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-
-  > div > label {
-    font-size: 0.85rem;
-    text-transform: inherit;
-  }
-`;
+import {
+  StyledDiv,
+  StyledLogoContainer,
+  StyledArticle,
+  StyledFormContainer,
+  StyledButton,
+  StyledText,
+  StyledFooterDivs
+} from "./LoginStyle";
 
 export interface LoginProps {
   login: ({ credentials }: { credentials: ILoginUser }) => any;
