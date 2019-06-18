@@ -3,7 +3,6 @@ import { IUser } from "../users/types";
 export interface IReviewSection {
   rating: number;
   txt: string;
-  disabled: boolean;
 }
 
 // All actions emitted must follow this form
