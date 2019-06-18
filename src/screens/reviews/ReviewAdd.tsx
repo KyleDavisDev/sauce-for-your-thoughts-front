@@ -27,6 +27,10 @@ import {
   StyledTextArea
 } from "./ReviewAddStyle";
 import { API } from "../../utils/api/API";
+import {
+  FlashMessageProps,
+  FlashMessage
+} from "../../components/FlashMessage/FlashMessage";
 
 export interface ReviewAddProps {
   addReview: ({
@@ -48,7 +52,7 @@ export interface ReviewAddState {
   taste: IReviewSection;
   heat: IReviewSection;
   note: IReviewSection;
-  // [key: string]: IReviewSection;
+  flashMessage: FlashMessageProps;
 }
 
 class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
@@ -62,7 +66,10 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
       aroma: { rating: 3, txt: "aroma here" },
       taste: { rating: 2, txt: "taste here" },
       heat: { rating: 2, txt: "heat hereeeee" },
-      note: { rating: 0, txt: "We got an extra note too" }
+      note: { rating: 0, txt: "We got an extra note too" },
+      flashMessage: {
+        isVisible: false
+      }
     };
   }
 
@@ -104,8 +111,13 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
         });
       })
       .catch(err => {
+        // Disable form components and show flashmessage
         this.setState(prevState => {
-          return { ...prevState, enabled: false };
+          return {
+            ...prevState,
+            enabled: false,
+            flashMessage: { isVisible: true, text: "You cannot submit homie" }
+          };
         });
       });
   }
@@ -119,6 +131,11 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
           <PageTitle>Add Review</PageTitle>
           <StyledFormContainer>
             <form onSubmit={this.onSubmit} style={{ maxWidth: "100%" }}>
+              {this.state.flashMessage.isVisible && (
+                <FlashMessage type={this.state.flashMessage.type} isVisible>
+                  {this.state.flashMessage.text}
+                </FlashMessage>
+              )}
               {/* Taste */}
               <StyledRow>
                 <StyledDescriptor title="Taste">
