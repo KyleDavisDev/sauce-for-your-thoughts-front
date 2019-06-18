@@ -15,7 +15,6 @@ import { AppState, MyThunkDispatch } from "../../redux/configureStore";
 import Label from "../../components/Label/Label";
 import Navigation from "../../components/Navigation/Navigation";
 import PageTitle from "../../components/PageTitle/PageTitle";
-import TextArea from "../../components/TextArea/TextArea";
 import TopBar from "../../components/TopBar/TopBar";
 import {
   StyledFormContainer,
@@ -42,13 +41,14 @@ export interface ReviewAddProps {
 }
 
 export interface ReviewAddState {
+  enabled: boolean;
   overall: IReviewSection;
   label: IReviewSection;
   aroma: IReviewSection;
   taste: IReviewSection;
   heat: IReviewSection;
   note: IReviewSection;
-  [key: string]: IReviewSection;
+  // [key: string]: IReviewSection;
 }
 
 class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
@@ -56,12 +56,13 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     super(props);
 
     this.state = {
-      overall: { rating: 3, txt: "overall here", disabled: true },
-      label: { rating: 3, txt: "label here   ", disabled: true },
-      aroma: { rating: 3, txt: "aroma here", disabled: true },
-      taste: { rating: 2, txt: "taste here", disabled: true },
-      heat: { rating: 2, txt: "heat hereeeee", disabled: true },
-      note: { rating: 0, txt: "We got an extra note too", disabled: true }
+      enabled: true,
+      overall: { rating: 3, txt: "overall here" },
+      label: { rating: 3, txt: "label here   " },
+      aroma: { rating: 3, txt: "aroma here" },
+      taste: { rating: 2, txt: "taste here" },
+      heat: { rating: 2, txt: "heat hereeeee" },
+      note: { rating: 0, txt: "We got an extra note too" }
     };
   }
 
@@ -91,31 +92,20 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
       return;
     }
 
+    // Construct data obj
     const data = { user: { token }, sauce: { slug } };
 
+    // Find out if user is eligible to submit a review for this sauce or not
     API.review
       .canUserSubmit({ data })
       .then(res => {
-        this.setState(() => {
-          return Object.keys(this.state)
-            .map(key => {
-              return { [key]: { ...this.state[key], disabled: false } };
-            })
-            .reduce((accum, cur) => {
-              return { ...accum, ...cur };
-            }, {});
+        this.setState(prevState => {
+          return { ...prevState, enabled: true };
         });
       })
       .catch(err => {
-        console.log("in catch");
-        this.setState(() => {
-          return Object.keys(this.state)
-            .map(key => {
-              return { [key]: { ...this.state[key], disabled: true } };
-            })
-            .reduce((accum, cur) => {
-              return { ...accum, ...cur };
-            }, {});
+        this.setState(prevState => {
+          return { ...prevState, enabled: false };
         });
       });
   }
@@ -142,6 +132,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     fullSymbol={<StyledFullStar />}
                     onClick={e => this.onStarClick(e, "taste")}
                     initialRating={this.state.taste.rating}
+                    readonly={!this.state.enabled}
                   />
                   <StyledTextArea
                     onChange={this.onTextChange}
@@ -150,8 +141,8 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     id="taste"
                     showLabel={true}
                     value={this.state.taste.txt}
-                    disabled={this.state.taste.disabled}
-                    readonly={this.state.taste.disabled}
+                    disabled={!this.state.enabled}
+                    readonly={!this.state.enabled}
                   />
                 </StyledRightSide>
               </StyledRow>
@@ -170,6 +161,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     fullSymbol={<StyledFullStar />}
                     onClick={e => this.onStarClick(e, "aroma")}
                     initialRating={this.state.aroma.rating}
+                    readonly={!this.state.enabled}
                   />
                   <StyledTextArea
                     onChange={this.onTextChange}
@@ -178,8 +170,8 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     id="aroma"
                     showLabel={true}
                     value={this.state.aroma ? this.state.aroma.txt : ""}
-                    disabled={this.state.aroma.disabled}
-                    readonly={this.state.aroma.disabled}
+                    disabled={!this.state.enabled}
+                    readonly={!this.state.enabled}
                   />
                 </StyledRightSide>
               </StyledRow>
@@ -198,6 +190,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     fullSymbol={<StyledFullStar />}
                     onClick={e => this.onStarClick(e, "label")}
                     initialRating={this.state.label.rating}
+                    readonly={!this.state.enabled}
                   />
                   <StyledTextArea
                     onChange={this.onTextChange}
@@ -206,8 +199,8 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     id="label"
                     showLabel={true}
                     value={this.state.label ? this.state.label.txt : ""}
-                    disabled={this.state.label.disabled}
-                    readonly={this.state.label.disabled}
+                    disabled={!this.state.enabled}
+                    readonly={!this.state.enabled}
                   />
                 </StyledRightSide>
               </StyledRow>
@@ -225,6 +218,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     fullSymbol={<StyledFullStar />}
                     onClick={e => this.onStarClick(e, "heat")}
                     initialRating={this.state.heat.rating}
+                    readonly={!this.state.enabled}
                   />
                   <StyledTextArea
                     onChange={this.onTextChange}
@@ -233,8 +227,8 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     id="heat"
                     showLabel={true}
                     value={this.state.heat ? this.state.heat.txt : ""}
-                    disabled={this.state.heat.disabled}
-                    readonly={this.state.heat.disabled}
+                    disabled={!this.state.enabled}
+                    readonly={!this.state.enabled}
                   />
                 </StyledRightSide>
               </StyledRow>
@@ -252,6 +246,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     fullSymbol={<StyledFullStar />}
                     onClick={e => this.onStarClick(e, "overall")}
                     initialRating={this.state.overall.rating}
+                    readonly={!this.state.enabled}
                   />
                   <StyledTextArea
                     onChange={this.onTextChange}
@@ -261,8 +256,8 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     id="overall"
                     showLabel={true}
                     value={this.state.overall ? this.state.overall.txt : ""}
-                    disabled={this.state.overall.disabled}
-                    readonly={this.state.overall.disabled}
+                    disabled={!this.state.enabled}
+                    readonly={!this.state.enabled}
                   />
                 </StyledRightSide>
               </StyledRow>
@@ -281,8 +276,8 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                     id="note"
                     showLabel={true}
                     value={this.state.note ? this.state.note.txt : ""}
-                    disabled={this.state.note.disabled}
-                    readonly={this.state.note.disabled}
+                    disabled={!this.state.enabled}
+                    readonly={!this.state.enabled}
                   />
                 </StyledRightSide>
               </StyledRow>
