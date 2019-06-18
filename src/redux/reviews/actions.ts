@@ -1,4 +1,4 @@
-import { API } from "../../utils/api/Api";
+import { API } from "../../utils/api/API";
 import {
   IReviewsAction,
   ReviewsActionTypes,
