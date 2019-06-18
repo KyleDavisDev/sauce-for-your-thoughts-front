@@ -10,11 +10,11 @@ export const StyledCardContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 export const StyledCardHolder = styled.div`
-  padding-bottom: 2em;
+  padding: 1em;
   box-sizing: border-box;
 `;
 
