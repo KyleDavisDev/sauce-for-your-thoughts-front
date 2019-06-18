@@ -2,7 +2,7 @@ import styled from "../../theme/styled-components";
 import { Link } from "../Link/Link";
 
 export const Div = styled.div`
-  max-width: 350px;
+  max-width: 200px;
   margin: 0 1em;
   border: ${props => props.theme.border};
   display: flex;
@@ -30,7 +30,6 @@ export const StyledTextContainer = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
-  padding: 0.5em 1em;
   margin: 0 auto;
 
   button {
