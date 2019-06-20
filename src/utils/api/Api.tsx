@@ -137,8 +137,27 @@ export const API = {
         }
         throw new Error(res.data.msg);
       });
+    },
+    /** @description Grab newest sauces from DB
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {Object[]} res.data.saucesByNewest - Array of sauces
+     *
+     *  @reject {String} error message
+     */
+    getByNewest: (): AxiosPromise => {
+      return axios.get(`${host}/api/sauces/get/by/newest/`).then(res => {
+        if (res.data.isGood) {
+          return res;
+        }
+        throw new Error(res.data.msg);
+      });
     }
   },
+
   review: {
     /** @description Add review to DB
      *  @param {Object} data data object
