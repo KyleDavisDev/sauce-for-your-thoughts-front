@@ -28,6 +28,7 @@ export interface AppState {
     query?: IQuery;
     types: string[];
     saucesWithNewestReviews: [];
+    newest: [];
   };
   users: {
     self: { token?: string; displayName?: string; avatar?: string };
@@ -57,7 +58,8 @@ export const configureStore = () => {
         "Salsa",
         "Meat Sauce"
       ],
-      saucesWithNewestReviews: []
+      saucesWithNewestReviews: [],
+      newest: []
     },
     users: {
       self: {
