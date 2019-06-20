@@ -31,14 +31,16 @@ export const addedSauces = ({
   bySlug,
   query,
   total,
-  saucesWithNewestReviews
+  saucesWithNewestReviews,
+  newest
 }: IAddSaucesAction): ISaucesReturnAction => ({
   type: SAUCES_ADDED,
   allSlugs,
   bySlug,
   query,
   total,
-  saucesWithNewestReviews
+  saucesWithNewestReviews,
+  newest
 });
 
 /** @description Update specific sauce
@@ -168,6 +170,27 @@ export const getSaucesByQuery = ({
   dispatch(
     addedSauces({ allSlugs, bySlug, query: tmpQuery, total: res.data.count })
   );
+  return null;
+};
+
+/** @description Grab newest sauces
+ *  @returns {Promise}
+ *  @fires sauces.addedSauces - add sauces to redux store
+ *  @resolves {NULL}
+ */
+export const getSaucesByNewest = (): MyThunkResult<
+  Promise<null>
+> => async dispatch => {
+  const res = await API.sauces.getByNewest();
+  console.log(res);
+
+  // Normalize sauces
+  const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
+    sauces: res.data.saucesByNewest
+  });
+
+  // dispatch sauces
+  dispatch(addedSauces({ allSlugs, bySlug, newest: allSlugs }));
   return null;
 };
 
