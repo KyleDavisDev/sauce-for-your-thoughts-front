@@ -101,9 +101,6 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
                       title={sauce.name}
                       imageLink={`${sauce.photo}`}
                       description={sauce.description}
-                      author={sauce.author}
-                      maker={sauce.maker}
-                      type={sauce.types ? sauce.types.join(", ") : "N/A"}
                       to={`/sauce/?s=${sauce.slug}`}
                     />
                   </StyledCardHolder>
