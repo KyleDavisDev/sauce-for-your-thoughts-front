@@ -32,6 +32,7 @@ export interface IAddSaucesAction {
   total?: number;
   query?: IQuery;
   saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
+  newest?: string[];
 }
 
 // Used for action emitters and reducer
@@ -46,6 +47,7 @@ export interface ISaucesState {
   total?: number;
   query?: IQuery;
   saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
+  newest?: [];
 }
 
 export interface IQuery {
