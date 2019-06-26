@@ -47,6 +47,7 @@ export interface ThemeInterface {
   scaleH5: string;
   scaleH6: string;
   smToMd: string;
+  mdToLg: string;
   defaultFontSize: string;
 
   border: string;
@@ -82,7 +83,8 @@ const enum scale {
   scaleH4 = "1.875rem",
   scaleH5 = "1.125rem",
   scaleH6 = "1rem",
-  smToMd = "768px"
+  smToMd = "768px",
+  mdToLg = "1024px"
 }
 
 export const theme = {
@@ -122,6 +124,7 @@ export const theme = {
   scaleH5: scale.scaleH5,
   scaleH6: scale.scaleH6,
   smToMd: scale.smToMd,
+  mdToLg: scale.mdToLg,
   defaultFontSize: scale.defaultFontSize,
 
   border: "1px solid #ddd",
