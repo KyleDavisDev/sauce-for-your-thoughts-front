@@ -182,7 +182,6 @@ export const getSaucesByNewest = (): MyThunkResult<
   Promise<null>
 > => async dispatch => {
   const res = await API.sauces.getByNewest();
-  console.log(res);
 
   // Normalize sauces
   const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
