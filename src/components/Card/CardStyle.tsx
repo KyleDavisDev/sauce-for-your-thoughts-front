@@ -3,7 +3,7 @@ import { Link } from "../Link/Link";
 
 export const Div = styled.div`
   max-width: 200px;
-  margin: 0 1em;
+  margin: 0 0em;
   border: ${props => props.theme.border};
   display: flex;
   flex-direction: column;
