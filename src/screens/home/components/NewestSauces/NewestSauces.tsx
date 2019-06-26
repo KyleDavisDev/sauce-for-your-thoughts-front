@@ -1,35 +1,16 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import styled from "../../../../theme/styled-components";
-import Card from "../../../../components/Card/Card";
 import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 import { MyThunkDispatch, AppState } from "../../../../redux/configureStore";
 import { ISauce } from "../../../../redux/sauces/types";
 import { getSaucesByNewest } from "../../../../redux/sauces/actions";
-
-const StyledDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 1em;
-`;
-
-const StyledCard = styled(Card)`
-  box-sizing: border-box;
-  width: 100%;
-  margin-bottom: 16px;
-
-  // @media (min-width: ${props => props.theme.smToMd}) {
-  //   width: 33%;
-  // }
-`;
-
-export const StyledCardHolder = styled.div`
-  padding: 1em;
-  box-sizing: border-box;
-`;
+import {
+  StyledDiv,
+  StyledCard,
+  StyledCardHolder,
+  StyledCardContainer
+} from "./NewestSaucesStyles";
 
 export interface NewestSaucesProps {
   className?: string;
@@ -64,20 +45,22 @@ class NewestSauces extends React.Component<
           title="Newest Sauces"
           description="We are always adding new sauces to our knowledgebase!"
         />
-        {sauces.newest && sauces.newest.length > 0
-          ? sauces.newest.map((sauce, ind) => {
-              return (
-                <StyledCardHolder key={ind}>
-                  <StyledCard
-                    title={sauce.name}
-                    imageLink={`${sauce.photo}`}
-                    description={sauce.description}
-                    to={`/sauce/?s=${sauce.slug}`}
-                  />
-                </StyledCardHolder>
-              );
-            })
-          : ""}
+        <StyledCardContainer>
+          {sauces.newest && sauces.newest.length > 0
+            ? sauces.newest.map((sauce, ind) => {
+                return (
+                  <StyledCardHolder key={ind}>
+                    <StyledCard
+                      title={sauce.name}
+                      imageLink={`${sauce.photo}`}
+                      description={sauce.description}
+                      to={`/sauce/?s=${sauce.slug}`}
+                    />
+                  </StyledCardHolder>
+                );
+              })
+            : ""}
+        </StyledCardContainer>
       </StyledDiv>
     );
   }
