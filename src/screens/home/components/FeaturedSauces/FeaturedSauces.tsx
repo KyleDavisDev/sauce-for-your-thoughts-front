@@ -65,8 +65,8 @@ class FeaturedSauces extends React.PureComponent<FeaturedSaucesProps, {}> {
 
 function mapStateToProps(state: AppState, myProps: any): any {
   // Find the sauces we will render by first getting the array of slugs
-  const sauceSlugs2Render: string[] | undefined = state.sauces.newest
-    ? state.sauces.newest
+  const sauceSlugs2Render: string[] | undefined = state.sauces.featured
+    ? state.sauces.featured
     : [];
 
   // Make sure we have something to work with
@@ -79,17 +79,17 @@ function mapStateToProps(state: AppState, myProps: any): any {
   if (!bySlug) return { sauces: {} };
 
   // Find actual sauces
-  const newest = sauceSlugs2Render
+  const featured = sauceSlugs2Render
     ? sauceSlugs2Render.map(slug => {
         return bySlug[slug];
       })
     : [];
 
   // Make sure we found the sauces
-  if (newest.length === 0) return { sauces: {} };
+  if (featured.length === 0) return { sauces: {} };
 
   return {
-    sauces: { newest }
+    sauces: { featured }
   };
 }
 
