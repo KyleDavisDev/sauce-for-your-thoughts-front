@@ -20,7 +20,7 @@ export interface NewestSaucesProps {
 
 export interface NewestSaucesState {}
 
-class NewestSauces extends React.Component<
+class NewestSauces extends React.PureComponent<
   NewestSaucesProps,
   NewestSaucesState
 > {
