@@ -155,6 +155,24 @@ export const API = {
         }
         throw new Error(res.data.msg);
       });
+    },
+    /** @description Grab featured sauces from DB
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {Object[]} res.data.saucesByFeatured - Array of sauces
+     *
+     *  @reject {String} error message
+     */
+    getByFeatured: (): AxiosPromise => {
+      return axios.get(`${host}/api/sauces/get/by/featured/`).then(res => {
+        if (res.data.isGood) {
+          return res;
+        }
+        throw new Error(res.data.msg);
+      });
     }
   },
 
