@@ -29,6 +29,7 @@ export interface AppState {
     types: string[];
     saucesWithNewestReviews: [];
     newest: [];
+    featured: [];
   };
   users: {
     self: { token?: string; displayName?: string; avatar?: string };
@@ -59,7 +60,8 @@ export const configureStore = () => {
         "Meat Sauce"
       ],
       saucesWithNewestReviews: [],
-      newest: []
+      newest: [],
+      featured: []
     },
     users: {
       self: {
