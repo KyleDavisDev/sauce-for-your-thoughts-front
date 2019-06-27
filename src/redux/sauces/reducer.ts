@@ -14,7 +14,8 @@ const initialState: ISaucesState = {
   query: {},
   total: 0,
   saucesWithNewestReviews: [],
-  newest: []
+  newest: [],
+  featured: []
 };
 
 const sauceReducer: Reducer<ISaucesState> = (
@@ -76,7 +77,8 @@ const sauceReducer: Reducer<ISaucesState> = (
         query: { ...state.query, ...action.query },
         total: action.total || state.total,
         saucesWithNewestReviews,
-        newest: action.newest || state.newest
+        newest: action.newest || state.newest,
+        featured: action.featured || state.featured
       };
 
     case UPDATE_SAUCE:
