@@ -1,6 +1,7 @@
 import styled from "../../theme/styled-components";
 
 export const StyledFooter = styled.footer`
+  padding: 1em;
   width: 100%;
   background-color: ${props => props.theme.primaryThemeColor};
 `;
