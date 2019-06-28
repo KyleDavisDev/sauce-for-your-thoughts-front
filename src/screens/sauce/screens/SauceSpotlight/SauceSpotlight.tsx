@@ -35,6 +35,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
   constructor(props: SauceSpotlightProps) {
     super(props);
   }
+
   public componentDidMount() {
     // Get slug from URL
     const { slug }: { slug?: string } = this.props;
@@ -51,6 +52,33 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
     if (!this.props.sauce) {
       this.props.getSauceBySlug({ slug }).catch((err: any) => console.log(err));
     }
+  }
+
+  public componentDidUpdate(prevProps: SauceSpotlightProps) {
+    // If page has changed
+    if (prevProps.location.search !== this.props.location.search) {
+      // Get slug from URL
+      const { slug }: { slug?: string } = this.props;
+
+      // Sauce slug is whack, redirect user
+      if (!slug) {
+        this.props.history.push("/");
+        // Maybe display banner too?
+        return;
+      }
+
+      this.props.getSauceBySlug({ slug }).catch((err: any) => console.log(err));
+    }
+  }
+
+  public shouldComponentUpdate(nextProps: SauceSpotlightProps) {
+    // If sauce not passed to component, we should update
+    if (!this.props.sauce) return true;
+
+    // If page has changed
+    if (nextProps.location.search !== this.props.location.search) return true;
+
+    return false;
   }
 
   public render() {
@@ -86,7 +114,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
             {sauce && sauce._related && sauce._related.length > 0 && (
               <List
                 items={sauce._related.map(x => {
-                  return { link: x.slug, text: x.name };
+                  return { link: `/sauce/?s=${x.slug}`, text: x.name };
                 })}
                 title="Related Sauces"
               />
@@ -94,7 +122,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
             {saucesWithNewestReviews && saucesWithNewestReviews.length > 0 && (
               <List
                 items={saucesWithNewestReviews.map(x => {
-                  return { link: x.slug, text: x.name };
+                  return { link: `/sauce/?s=${x.slug}`, text: x.name };
                 })}
                 title="Newly Added Reviews"
               />
