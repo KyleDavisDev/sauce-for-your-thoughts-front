@@ -35,6 +35,7 @@ import {
 } from "./SauceAddStyle";
 import Auth from "../../../../utils/Auth/Auth";
 import SauceType from "./components/SauceType/SauceType";
+import SauceSpice from "./components/SauceSpice/SauceSpice";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
@@ -146,23 +147,10 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
               />
 
               {/* Spice */}
-              <StyledRow>
-                <StyledDescriptor title="Spice">
-                  Is this sauce spicy? How spicy is it? What does the maker say
-                  the Scoville Heat Unit (SHU) rating is? Note: this may only be
-                  applicable to Hot Sauces.
-                </StyledDescriptor>
-                <StyledRightSide>
-                  <StyledTextInput
-                    onChange={this.onTextChange}
-                    label="SHU"
-                    name="shu"
-                    id="shu"
-                    showLabel={true}
-                    value={this.state.shu}
-                  />
-                </StyledRightSide>
-              </StyledRow>
+              <SauceSpice
+                shu={this.state.shu}
+                onTextChange={this.onTextChange}
+              />
 
               {/* Location */}
               <StyledRow>
