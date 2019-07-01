@@ -11,7 +11,6 @@ import SauceIngredients from "./components/SauceIngredients/SauceIngredients";
 import { addSauce } from "../../../../redux/sauces/actions";
 import { ISauce } from "../../../../redux/sauces/types";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
-import { CheckBox } from "../../../../components/CheckBox/CheckBox";
 import Label from "../../../../components/Label/Label";
 import { RadioButton } from "../../../../components/RadioButton/RadioButton";
 import { Button } from "../../../../components/Button/Button";
@@ -35,6 +34,7 @@ import {
   StyledImageButtonContainer
 } from "./SauceAddStyle";
 import Auth from "../../../../utils/Auth/Auth";
+import SauceType from "./components/SauceType/SauceType";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
@@ -140,29 +140,10 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
               />
 
               {/* Type */}
-              <StyledRow>
-                <StyledDescriptor title="Type">
-                  What type of sauce is this? What is it primarily used for?
-                </StyledDescriptor>
-                <StyledRightSide>
-                  <StyledDiv2>
-                    <Label>Type of Sauce</Label>
-
-                    {Object.keys(this.state.typesOfSauces).map(type => {
-                      return (
-                        <CheckBox
-                          id={this.state.typesOfSauces[type].key}
-                          key={this.state.typesOfSauces[type].key}
-                          value={this.state.typesOfSauces[type].value}
-                          label={this.state.typesOfSauces[type].value}
-                          checked={this.state.typesOfSauces[type].checked}
-                          onClick={this.onCheckBoxClick}
-                        />
-                      );
-                    })}
-                  </StyledDiv2>
-                </StyledRightSide>
-              </StyledRow>
+              <SauceType
+                typesOfSauces={this.state.typesOfSauces}
+                onCheckBoxClick={this.onCheckBoxClick}
+              />
 
               {/* Spice */}
               <StyledRow>
