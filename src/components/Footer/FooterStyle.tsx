@@ -4,6 +4,7 @@ export const StyledFooter = styled.footer`
   padding: 1em;
   width: 100%;
   background-color: ${props => props.theme.primaryThemeColor};
+  box-sizing: border-box;
 `;
 
 export const StyledDiv = styled.div`
