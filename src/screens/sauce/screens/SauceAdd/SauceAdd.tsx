@@ -1,6 +1,5 @@
 import * as React from "react";
 import shortid from "shortid";
-import DropNCrop from "@synapsestudios/react-drop-n-crop";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 
@@ -12,7 +11,6 @@ import { ISauce } from "../../../../redux/sauces/types";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
 import Label from "../../../../components/Label/Label";
 import { RadioButton } from "../../../../components/RadioButton/RadioButton";
-import { Button } from "../../../../components/Button/Button";
 import ArrowRight from "../../../../images/icons/ArrowRight";
 import { AppState } from "../../../../redux/configureStore";
 import TopBar from "../../../../components/TopBar/TopBar";
@@ -25,14 +23,13 @@ import {
   StyledDescriptor,
   StyledRightSide,
   StyledDiv2,
-  StyledPhotoContainer,
-  StyledButton,
-  StyledImageButtonContainer
+  StyledButton
 } from "./SauceAddStyle";
 import Auth from "../../../../utils/Auth/Auth";
 import SauceType from "./components/SauceType/SauceType";
 import SauceSpice from "./components/SauceSpice/SauceSpice";
 import SauceLocation from "./components/SauceLocation/SauceLocation";
+import SaucePhoto from "./components/SaucePhoto/SaucePhoto";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
@@ -160,33 +157,14 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
               />
 
               {/* Photo */}
-              <StyledRow>
-                <StyledDescriptor title="Photo">
-                  If you have a picture of the bottle, please upload it! If the
-                  picture is unclear, blurry, or missing completely, an admin
-                  may replace it with a different one.
-                </StyledDescriptor>
-                <StyledPhotoContainer>
-                  <DropNCrop
-                    ref="cropper"
-                    onChange={this.onDropNCropChange.bind(this)}
-                    value={this.state.DropNCropValue}
-                    canvasWidth={"100%"}
-                    cropperOptions={this.state.cropperOptions}
-                    maxFileSize={4145728}
-                  />
-
-                  <StyledImageButtonContainer>
-                    <Button onClick={this.onImageLock}>
-                      {this.state.isImageLocked ? "Unlock Image" : "Lock Image"}
-                    </Button>
-
-                    <Button onClick={this.onClearImageClick}>
-                      Clear Image
-                    </Button>
-                  </StyledImageButtonContainer>
-                </StyledPhotoContainer>
-              </StyledRow>
+              <SaucePhoto
+                DropNCropValue={this.state.DropNCropValue}
+                cropperOptions={this.state.cropperOptions}
+                isImageLocked={this.state.isImageLocked}
+                onDropNCropChange={this.onDropNCropChange}
+                onImageLock={this.onImageLock}
+                onClearImageClick={this.onClearImageClick}
+              />
 
               {/* Review */}
               <StyledRow>
@@ -420,24 +398,11 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     return new Blob([ia], { type: mimeString });
   };
 
-  private onImageLock = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    // Find out if locked or not
-    const isLocked: boolean = this.state.isImageLocked;
-
-    if (isLocked) {
-      // Unlock Cropper component
-      // @ts-ignore
-      this.refs.cropper.cropperRef.cropper.enable();
-    } else {
-      // Lock component
-      // @ts-ignore
-      this.refs.cropper.cropperRef.cropper.disable();
-    }
-
+  private onImageLock = (lock: boolean): void => {
     // Update state
     this.setState({
       ...this.state,
-      isImageLocked: !isLocked
+      isImageLocked: lock
     });
   };
 
