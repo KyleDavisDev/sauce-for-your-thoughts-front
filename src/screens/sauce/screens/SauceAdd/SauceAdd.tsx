@@ -6,30 +6,21 @@ import { connect } from "react-redux";
 import { SauceTitle } from "./components/SauceTitle/SauceTitle";
 import SauceDescription from "./components/SauceDescription/SauceDescription";
 import SauceIngredients from "./components/SauceIngredients/SauceIngredients";
-import { addSauce } from "../../../../redux/sauces/actions";
-import { ISauce } from "../../../../redux/sauces/types";
-import PageTitle from "../../../../components/PageTitle/PageTitle";
-import Label from "../../../../components/Label/Label";
-import { RadioButton } from "../../../../components/RadioButton/RadioButton";
-import ArrowRight from "../../../../images/icons/ArrowRight";
-import { AppState } from "../../../../redux/configureStore";
-import TopBar from "../../../../components/TopBar/TopBar";
-import Navigation from "../../../../components/Navigation/Navigation";
-import Footer from "../../../../components/Footer/Footer";
-import {
-  Article,
-  StyledFormContainer,
-  StyledRow,
-  StyledDescriptor,
-  StyledRightSide,
-  StyledDiv2,
-  StyledButton
-} from "./SauceAddStyle";
-import Auth from "../../../../utils/Auth/Auth";
 import SauceType from "./components/SauceType/SauceType";
 import SauceSpice from "./components/SauceSpice/SauceSpice";
 import SauceLocation from "./components/SauceLocation/SauceLocation";
 import SaucePhoto from "./components/SaucePhoto/SaucePhoto";
+import SauceReview from "./components/SauceReview/SauceReview";
+import TopBar from "../../../../components/TopBar/TopBar";
+import Navigation from "../../../../components/Navigation/Navigation";
+import PageTitle from "../../../../components/PageTitle/PageTitle";
+import Footer from "../../../../components/Footer/Footer";
+import { addSauce } from "../../../../redux/sauces/actions";
+import { ISauce } from "../../../../redux/sauces/types";
+import ArrowRight from "../../../../images/icons/ArrowRight";
+import { AppState } from "../../../../redux/configureStore";
+import Auth from "../../../../utils/Auth/Auth";
+import { Article, StyledFormContainer, StyledButton } from "./SauceAddStyle";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
@@ -167,37 +158,10 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
               />
 
               {/* Review */}
-              <StyledRow>
-                <StyledDescriptor title="Review">
-                  Would you like to add a review too? Do not review your own
-                  sauce. Blatantly altering scores will get your account banned
-                  and your review removed. Don't do it.
-                </StyledDescriptor>
-                <StyledRightSide>
-                  <StyledDiv2>
-                    <Label>Add Review</Label>
-
-                    <RadioButton
-                      id={shortid.generate()}
-                      key={shortid.generate()}
-                      value={"Yes"}
-                      label={"Yes"}
-                      checked={this.state.addReview}
-                      onClick={this.onRadioClick}
-                      name="addReview"
-                    />
-                    <RadioButton
-                      id={shortid.generate()}
-                      key={shortid.generate()}
-                      value={"No"}
-                      label={"No"}
-                      checked={!this.state.addReview}
-                      onClick={this.onRadioClick}
-                      name="addReview"
-                    />
-                  </StyledDiv2>
-                </StyledRightSide>
-              </StyledRow>
+              <SauceReview
+                onRadioClick={this.onRadioClick}
+                addReview={this.state.addReview}
+              />
 
               <StyledButton onClick={() => {}} type="submit">
                 Submit
