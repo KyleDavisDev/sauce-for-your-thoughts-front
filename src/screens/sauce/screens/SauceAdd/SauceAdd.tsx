@@ -5,6 +5,9 @@ import DropNCrop from "@synapsestudios/react-drop-n-crop";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 
+import { SauceTitle } from "./components/SauceTitle/SauceTitle";
+import SauceDescription from "./components/SauceDescription/SauceDescription";
+import SauceIngredients from "./components/SauceIngredients/SauceIngredients";
 import { addSauce } from "../../../../redux/sauces/actions";
 import { ISauce } from "../../../../redux/sauces/types";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
@@ -13,7 +16,6 @@ import Label from "../../../../components/Label/Label";
 import { RadioButton } from "../../../../components/RadioButton/RadioButton";
 import { Button } from "../../../../components/Button/Button";
 import ArrowRight from "../../../../images/icons/ArrowRight";
-
 import { AppState } from "../../../../redux/configureStore";
 import TopBar from "../../../../components/TopBar/TopBar";
 import Navigation from "../../../../components/Navigation/Navigation";
@@ -25,7 +27,6 @@ import {
   StyledDescriptor,
   StyledRightSide,
   StyledTextInput,
-  StyledTextArea,
   StyledDiv,
   StyledDiv2,
   StyledDropdownContainer,
@@ -34,8 +35,6 @@ import {
   StyledImageButtonContainer
 } from "./SauceAddStyle";
 import Auth from "../../../../utils/Auth/Auth";
-import { SauceTitle } from "./components/SauceTitle/SauceTitle";
-import SauceDescription from "./components/SauceDescription/SauceDescription";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
@@ -135,23 +134,10 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
               />
 
               {/* Ingredients */}
-              <StyledRow>
-                <StyledDescriptor title="Ingredients">
-                  Which ingredients make up the sauce? This should be a comma
-                  seperated list found somewhere on the sauce label.
-                </StyledDescriptor>
-                <StyledRightSide>
-                  <StyledTextArea
-                    onChange={this.onTextChange}
-                    label="Ingredients"
-                    name="ingredients"
-                    id="ingredients"
-                    showLabel={true}
-                    value={this.state.ingredients}
-                    required={true}
-                  />
-                </StyledRightSide>
-              </StyledRow>
+              <SauceIngredients
+                onTextChange={this.onTextChange}
+                ingredients={this.state.ingredients}
+              />
 
               {/* Type */}
               <StyledRow>
