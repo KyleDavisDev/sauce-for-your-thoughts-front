@@ -1,6 +1,5 @@
 import * as React from "react";
 import shortid from "shortid";
-import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import DropNCrop from "@synapsestudios/react-drop-n-crop";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
@@ -25,10 +24,7 @@ import {
   StyledRow,
   StyledDescriptor,
   StyledRightSide,
-  StyledTextInput,
-  StyledDiv,
   StyledDiv2,
-  StyledDropdownContainer,
   StyledPhotoContainer,
   StyledButton,
   StyledImageButtonContainer
@@ -36,6 +32,7 @@ import {
 import Auth from "../../../../utils/Auth/Auth";
 import SauceType from "./components/SauceType/SauceType";
 import SauceSpice from "./components/SauceSpice/SauceSpice";
+import SauceLocation from "./components/SauceLocation/SauceLocation";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
@@ -153,41 +150,14 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
               />
 
               {/* Location */}
-              <StyledRow>
-                <StyledDescriptor title="Location">
-                  Where was the sauce made?
-                </StyledDescriptor>
-                <StyledRightSide>
-                  <StyledDiv>
-                    <Label>Country</Label>
-                    <StyledDropdownContainer>
-                      <CountryDropdown
-                        value={this.state.country}
-                        onChange={this.onCountryChange}
-                      />
-                    </StyledDropdownContainer>
-                  </StyledDiv>
-
-                  <StyledDiv>
-                    <Label>State</Label>
-                    <StyledDropdownContainer>
-                      <RegionDropdown
-                        country={this.state.country}
-                        value={this.state.state}
-                        onChange={this.onStateChange}
-                      />
-                    </StyledDropdownContainer>
-                  </StyledDiv>
-                  <StyledTextInput
-                    onChange={this.onTextChange}
-                    label="City"
-                    name="city"
-                    id="city"
-                    showLabel={true}
-                    value={this.state.city}
-                  />
-                </StyledRightSide>
-              </StyledRow>
+              <SauceLocation
+                state={this.state.state}
+                city={this.state.city}
+                country={this.state.country}
+                onTextChange={this.onTextChange}
+                onCountryChange={this.onCountryChange}
+                onStateChange={this.onStateChange}
+              />
 
               {/* Photo */}
               <StyledRow>
