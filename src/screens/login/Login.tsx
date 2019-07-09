@@ -1,6 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import validator from "validator";
+import queryString, { OutputParams } from "query-string";
 
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import PageTitle from "../../components/PageTitle/PageTitle";
@@ -153,8 +154,16 @@ class Login extends React.Component<LoginProps, LoginState> {
       // Set user to be remembered
       Auth.authenticateUser({ token, displayName });
 
-      // Redirect user to sauces page -- Maybe take them to user home page instead?
-      this.props.history.push("/sauces");
+      const returnURL: string | null = this.getReturnFromPath(
+        this.props.location.search
+      );
+
+      // Redirect user to where they were or to sauces page
+      if (returnURL) {
+        this.props.history.push(returnURL);
+      } else {
+        this.props.history.push("/sauces");
+      }
     } catch (err) {
       // Create warning flash
       this.setState({
@@ -166,6 +175,18 @@ class Login extends React.Component<LoginProps, LoginState> {
       });
     }
   };
+
+  private getReturnFromPath(path: string): string | null {
+    // Get s from string
+    const values: OutputParams = queryString.parse(path);
+
+    // Make sure return is defined, not an array
+    if (!values.return || Array.isArray(values.return)) {
+      return null;
+    }
+
+    return values.return;
+  }
 }
 
 const mapState2Props = (state: AppState) => {
