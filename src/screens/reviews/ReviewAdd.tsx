@@ -42,7 +42,7 @@ export interface ReviewAddProps {
   getSauceBySlug: ({ slug }: { slug: string }) => Promise<null>;
   history: { push: (location: string) => any };
   user: { token?: string };
-  location: { search: string };
+  location: { pathname: string; search: string };
 }
 
 export interface ReviewAddState {
@@ -54,6 +54,7 @@ export interface ReviewAddState {
   heat: IReviewSection;
   note: IReviewSection;
   flashMessage: FlashMessageProps;
+  [name: string]: any;
 }
 
 class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
@@ -82,8 +83,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     // Sauce slug is whack, redirect user
     if (slug === null) {
       // Get user outta here
-      this.props.history.push("/");
-      // Maybe display banner too?
+      this.props.history.push("/sauces");
 
       return;
     }
@@ -94,8 +94,12 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     // Make sure user can add review or not
     const token = Auth.getToken();
     if (!token || token.length === 0) {
-      // Get user outta here
-      this.props.history.push("/");
+      // Redirect user to login w/ appropriate return address
+      this.props.history.push(
+        `/login?return=${this.props.location.pathname}${
+          this.props.location.search
+        }`
+      );
 
       return;
     }
