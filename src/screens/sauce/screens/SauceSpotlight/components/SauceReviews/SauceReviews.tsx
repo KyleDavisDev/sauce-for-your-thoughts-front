@@ -44,7 +44,7 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
             </p>
           </StyledContainer>
         )}
-        <Link to={`/review/add/?s=${this.props.slug}`}>
+        <Link to={`/review/add?s=${this.props.slug}`}>
           <Button>Add Review</Button>
         </Link>
       </div>
