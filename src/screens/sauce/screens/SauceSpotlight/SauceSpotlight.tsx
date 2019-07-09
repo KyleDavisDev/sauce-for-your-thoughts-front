@@ -107,7 +107,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
 
           <StyledRightContainer>
             {sauce && (
-              <Link to={`/review/add/?s=${sauce.slug}`}>
+              <Link to={`/review/add?s=${sauce.slug}`}>
                 <Button displayType="solid">Add Review</Button>
               </Link>
             )}
