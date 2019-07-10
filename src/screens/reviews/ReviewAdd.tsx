@@ -123,12 +123,16 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
             enabled: false,
             flashMessage: {
               isVisible: true,
-              text: "You cannot submit homie",
-              slugText: "Edit your review here",
-              slug: "/"
+              text:
+                "You've already submitted a review for this sauce! Redirecting... ",
+              slugText: "Click here if redirect failed.",
+              slug: `/review/edit${this.props.location.search}`
             }
           };
         });
+
+        // Redirect user to edit page
+        this.props.history.push(`/review/edit${this.props.location.search}`);
       });
   }
 
