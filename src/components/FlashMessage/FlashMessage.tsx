@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import { Link } from "../Link/Link";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -14,6 +15,7 @@ export interface FlashMessageProps {
   type?: "success" | "warning" | "alert";
   isVisible: boolean;
   slug?: string;
+  slugText?: string;
   text?: string;
   children?: string;
 }
@@ -21,7 +23,16 @@ export interface FlashMessageProps {
 const FlashMessage: React.SFC<FlashMessageProps> = props => {
   return (
     <StyledContainer className={props.className}>
-      {props.isVisible && <div>{props.children || props.text}</div>}
+      {props.isVisible && (
+        <div>
+          {props.children || props.text}{" "}
+          {props.slug && props.slugText ? (
+            <Link to={props.slug}>{props.slugText}</Link>
+          ) : (
+            ""
+          )}{" "}
+        </div>
+      )}
     </StyledContainer>
   );
 };
@@ -54,6 +65,21 @@ const StyledFlashMessage = styled(FlashMessage)`
         : props.type === "warning"
         ? "#8a6d3b"
         : "#a94442"};
+    a {
+      color: ${props =>
+        props.type === "success"
+          ? "#3c763d"
+          : props.type === "warning"
+          ? "#8a6d3b"
+          : "#a94442"};
+      font-weight: 700;
+      transition: all 0.2s ease;
+
+      &:hover,
+      &:focus {
+        color: #333;
+      }
+    }
   }
 `;
 
