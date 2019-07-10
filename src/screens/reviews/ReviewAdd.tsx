@@ -342,9 +342,13 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
   };
 
   private onStarClick = (value: number, id: string): void => {
+    // If user clicks on star that is already selected, we want to reset value to zero.
     this.setState({
       ...this.state,
-      [id]: { ...this.state[id], rating: value }
+      [id]: {
+        ...this.state[id],
+        rating: value === this.state[id].rating ? 0 : value
+      }
     });
   };
 
