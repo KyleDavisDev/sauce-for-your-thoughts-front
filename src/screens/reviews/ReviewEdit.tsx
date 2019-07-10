@@ -104,16 +104,16 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
       return;
     }
 
-    return;
+    // return;
     // Construct data obj
     const data = { user: { token }, sauce: { slug } };
 
     // Find out if user is eligible to submit a review for this sauce or not
     API.review
-      .canUserSubmit({ data })
+      .get(data)
       .then(res => {
         this.setState(prevState => {
-          return { ...prevState, enabled: true };
+          return { ...prevState, enabled: true, ...res };
         });
       })
       .catch(err => {
@@ -125,9 +125,11 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
             flashMessage: {
               isVisible: true,
               text:
-                "You've already submitted a review for this sauce! Redirecting... ",
-              slugText: "Click here if redirect failed.",
-              slug: `/review/edit${this.props.location.search}`
+                "You are ineligible to edit the review. Please try logging out and logging back in.",
+              slug: `/login?return=${this.props.location.pathname}${
+                this.props.location.search
+              }`,
+              slugText: "Login"
             }
           };
         });
