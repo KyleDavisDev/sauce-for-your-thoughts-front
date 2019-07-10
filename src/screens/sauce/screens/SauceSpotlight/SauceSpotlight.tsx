@@ -114,7 +114,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
             {sauce && sauce._related && sauce._related.length > 0 && (
               <List
                 items={sauce._related.map(x => {
-                  return { link: `/sauce/?s=${x.slug}`, text: x.name };
+                  return { link: `/sauce?s=${x.slug}`, text: x.name };
                 })}
                 title="Related Sauces"
               />
@@ -122,7 +122,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
             {saucesWithNewestReviews && saucesWithNewestReviews.length > 0 && (
               <List
                 items={saucesWithNewestReviews.map(x => {
-                  return { link: `/sauce/?s=${x.slug}`, text: x.name };
+                  return { link: `/sauce?s=${x.slug}`, text: x.name };
                 })}
                 title="Newly Added Reviews"
               />

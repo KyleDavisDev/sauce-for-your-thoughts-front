@@ -385,7 +385,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
       await this.props.getSauceBySlug({ slug });
 
       // Take user to sauce page
-      history.push(`/sauce/?s=${slug}`);
+      history.push(`/sauce?s=${slug}`);
     } catch (err) {
       console.log("ERR: ", err);
     }

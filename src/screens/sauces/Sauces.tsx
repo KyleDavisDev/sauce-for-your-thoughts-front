@@ -101,7 +101,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
                       title={sauce.name}
                       imageLink={`${sauce.photo}`}
                       description={sauce.description}
-                      to={`/sauce/?s=${sauce.slug}`}
+                      to={`/sauce?s=${sauce.slug}`}
                     />
                   </StyledCardHolder>
                 );

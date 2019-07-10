@@ -51,7 +51,7 @@ class FeaturedSauces extends React.PureComponent<FeaturedSaucesProps, {}> {
                       title={sauce.name}
                       imageLink={`${sauce.photo}`}
                       description={sauce.description}
-                      to={`/sauce/?s=${sauce.slug}`}
+                      to={`/sauce?s=${sauce.slug}`}
                     />
                   </StyledCardHolder>
                 );
