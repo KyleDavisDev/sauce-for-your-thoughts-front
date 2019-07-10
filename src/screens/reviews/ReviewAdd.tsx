@@ -121,7 +121,12 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
           return {
             ...prevState,
             enabled: false,
-            flashMessage: { isVisible: true, text: "You cannot submit homie" }
+            flashMessage: {
+              isVisible: true,
+              text: "You cannot submit homie",
+              slugText: "Edit your review here",
+              slug: "/"
+            }
           };
         });
       });
@@ -137,7 +142,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
           <StyledFormContainer>
             <form onSubmit={this.onSubmit} style={{ maxWidth: "100%" }}>
               {this.state.flashMessage.isVisible && (
-                <FlashMessage type={this.state.flashMessage.type} isVisible>
+                <FlashMessage {...this.state.flashMessage}>
                   {this.state.flashMessage.text}
                 </FlashMessage>
               )}
@@ -422,13 +427,6 @@ const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
   getSauceBySlug: ({ slug }: { slug: string }) =>
     dispatch(getSauceBySlug({ slug }))
 });
-
-// const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-
-// data: {
-//   user: { token: string };
-//   review: IReview;
-// }
 
 export default connect(
   mapStateToProps,
