@@ -51,6 +51,16 @@ const ReviewAdd = Loadable({
   )
 });
 
+// Edit Review
+const ReviewEdit = Loadable({
+  loader: () => import("./reviews/ReviewEdit"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 // Register
 const Register = Loadable({
   loader: () => import("./register/Register"),
@@ -109,6 +119,7 @@ const Screens = (
       }}
     />
     <Route path="/review/add" component={ReviewAdd} />
+    <Route path="/review/edit" component={ReviewEdit} />
     <Route path="/sauces" component={Sauces} />
     <Route path="/register" component={Register} />
     <Route path="/login" component={Login} />
