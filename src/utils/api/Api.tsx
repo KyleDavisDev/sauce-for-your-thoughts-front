@@ -195,6 +195,29 @@ export const API = {
         }
         throw new Error(res.data.msg);
       }),
+    /** @description Add review to DB
+     *  @param {Object} data data object
+     *    @param {string} data.user.token user's unique token
+     *    @param {IReview} data.sauce.slug - unique sauce slug
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {Object} res.data.review - review information
+     *
+     *  @reject {String} error message
+     */
+    get: (data: {
+      user: { token: string };
+      sauce: { slug: string };
+    }): AxiosPromise =>
+      axios.post(`${host}/api/review/get`, data).then(res => {
+        if (res.data.isGood) {
+          return res.data.sauce.reviews[0];
+        }
+        throw new Error(res.data.msg);
+      }),
     /** @description Check if user is eligible to submit a review or not (maybe suace is private or have already submitted one)
      *  @param {Object} data data object
      *    @param {string} data.user.token user's unique token
