@@ -40,7 +40,7 @@ export interface IReview {
 export interface IReviewAPI {
   _id?: number | string;
   _addedToStore?: number;
-  hashID?: string;
+  reviewID?: string;
   author: IUser; // User's displayName
   sauce: string; // Sauce's slug
   created: number;
