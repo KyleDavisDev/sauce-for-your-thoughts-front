@@ -25,7 +25,7 @@ import {
   StyledEmptyStar,
   StyledFullStar,
   StyledTextArea
-} from "./ReviewStyle
+} from "./ReviewStyle";
 import { API } from "../../utils/api/API";
 import {
   FlashMessageProps,
