@@ -106,7 +106,7 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
 
     // Construct data obj
     const data = { user: { token }, sauce: { slug } };
-    console.log(this.props.history.location.state);
+
     // Show flashmessage if we came from the 'Add' page
     const showFlashMessage: boolean = this.props.history.location.state.includes(
       "/review/add"
@@ -329,7 +329,7 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
                 </StyledRow>
 
                 <StyledButton onClick={() => {}} type="submit">
-                  Submit
+                  Update
                   <ArrowRight />
                 </StyledButton>
               </Overlay>
@@ -407,9 +407,8 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
     };
 
     try {
-      await this.props.addReview({ data });
-
-      await this.props.getSauceBySlug({ slug });
+      // Edit review
+      await API.review.edit(data);
 
       // Take user to sauce page
       history.push(`/sauce?s=${slug}`);
