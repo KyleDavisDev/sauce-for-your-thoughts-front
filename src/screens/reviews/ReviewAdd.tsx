@@ -40,7 +40,7 @@ export interface ReviewAddProps {
     data: { user: { token: string }; review: IReview };
   }) => Promise<null>;
   getSauceBySlug: ({ slug }: { slug: string }) => Promise<null>;
-  history: { push: (location: string) => any };
+  history: { push: (location: string, state?: string) => any };
   user: { token?: string };
   location: { pathname: string; search: string };
 }
@@ -132,7 +132,11 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
         });
 
         // Redirect user to edit page
-        this.props.history.push(`/review/edit${this.props.location.search}`);
+        // this.props.history.push(`/review/edit${this.props.location.search}`);
+        this.props.history.push(
+          `/review/edit${this.props.location.search}`,
+          this.props.location.pathname
+        );
       });
   }
 
