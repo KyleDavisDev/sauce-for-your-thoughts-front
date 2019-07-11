@@ -8,8 +8,8 @@ export interface IReviewSection {
 // All actions emitted must follow this form
 export interface IReviewsAction {
   type: string;
-  allHashIDs: string[];
-  byHashID: { [key: string]: IReview };
+  allReviewIDs: string[];
+  byReviewID: { [key: string]: IReview };
 }
 
 // Use const enums for better autocompletion of action type names. These will
@@ -25,7 +25,7 @@ export const enum ReviewsActionTypes {
 export interface IReview {
   _id?: number | string;
   _addedToStore?: number;
-  hashID?: string;
+  reviewID?: string;
   author: string; // User's displayName
   sauce: string; // Sauce's slug
   created: number;
@@ -54,8 +54,8 @@ export interface IReviewAPI {
 
 // Used for redux state
 export interface IReviewsState {
-  allHashIDs: string[];
-  byHashID: { [key: string]: IReview };
+  allReviewIDs: string[];
+  byReviewID: { [key: string]: IReview };
 }
 
 // Trimmed down for reference only

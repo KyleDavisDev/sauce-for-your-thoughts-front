@@ -84,15 +84,15 @@ export const getSauceBySlug = ({
   const reviews: IReviewAPI[] = [...sauce.reviews];
   if (reviews && reviews.length > 0) {
     // Normalize reviews
-    const { byHashID, allHashIDs } = Flatn.reviews({
+    const { byReviewID, allReviewIDs } = Flatn.reviews({
       reviews
     });
     // Create obj to redux
-    const normalizedReviews: IReviewsState = { byHashID, allHashIDs };
+    const normalizedReviews: IReviewsState = { byReviewID, allReviewIDs };
     // Push reviews to redux
     dispatch(addedReviews({ reviews: normalizedReviews }));
     // Update reviews on sauce
-    sauce.reviews = normalizedReviews.allHashIDs;
+    sauce.reviews = normalizedReviews.allReviewIDs;
   }
 
   // Now we need to normalize author and update sauce

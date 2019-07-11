@@ -35,7 +35,7 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
       <div>
         {reviews && reviews.length > 0 ? (
           reviews.map(review => {
-            return <SauceReviewBlock review={review} key={review.hashID} />;
+            return <SauceReviewBlock review={review} key={review.reviewID} />;
           })
         ) : (
           <StyledContainer>

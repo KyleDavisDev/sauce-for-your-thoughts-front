@@ -37,8 +37,8 @@ export interface AppState {
     allDisplayNames?: string[];
   };
   reviews: {
-    byHashID?: { [key: string]: IReview };
-    allHashIDs?: string[];
+    byReviewID?: { [key: string]: IReview };
+    allReviewIDs?: string[];
   };
   flashMessage: IFlashState;
 }
@@ -71,7 +71,7 @@ export const configureStore = () => {
       byDisplayName: {},
       allDisplayNames: []
     },
-    reviews: { byHashID: {}, allHashIDs: [] },
+    reviews: { byReviewID: {}, allReviewIDs: [] },
     flashMessage: { isVisible: false, type: null, text: null, slug: null }
   };
 

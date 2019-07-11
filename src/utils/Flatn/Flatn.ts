@@ -7,8 +7,8 @@ import { ISauce, ISaucesState } from "../../redux/sauces/types";
 class Flatn {
   // flatten array of reviews
   public static reviews({ reviews }: { reviews: IReviewAPI[] }) {
-    const allHashIDs: string[] = [];
-    const byHashID: { [key: string]: IReview } = {};
+    const allReviewIDs: string[] = [];
+    const byReviewID: { [key: string]: IReview } = {};
 
     // Will assign this to reviews if need to.
     // Creating it once here will save computing time and give all reviews same value
@@ -21,18 +21,18 @@ class Flatn {
       // Make sure review has a hashID or we wont be doing anything with it
       if (!hashID) continue;
       // Push into array
-      allHashIDs.push(hashID);
+      allReviewIDs.push(hashID);
 
       // Add to obj and reassign author to match desired format
-      byHashID[hashID] = { ...review, author: review.author.displayName };
+      byReviewID[hashID] = { ...review, author: review.author.displayName };
 
       // If review doesn't have _addedToStore prop, we will add it
-      if (!byHashID[hashID]._addedToStore) {
-        byHashID[hashID]._addedToStore = addedToStore;
+      if (!byReviewID[hashID]._addedToStore) {
+        byReviewID[hashID]._addedToStore = addedToStore;
       }
     }
 
-    return { allHashIDs, byHashID };
+    return { allReviewIDs, byReviewID };
   }
 
   // flatten array of users

@@ -18,8 +18,8 @@ export const addedReviews = ({
 }): IReviewsAction => {
   return {
     type: ReviewsActionTypes.REVIEWS_ADDED,
-    allHashIDs: reviews.allHashIDs,
-    byHashID: reviews.byHashID
+    allReviewIDs: reviews.allReviewIDs,
+    byReviewID: reviews.byReviewID
   };
 };
 

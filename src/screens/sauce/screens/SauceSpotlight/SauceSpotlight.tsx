@@ -159,13 +159,18 @@ const mapState2Props = (state: AppState, ownProps: SauceSpotlightProps) => {
   const { saucesWithNewestReviews } = state.sauces;
 
   // If we have reviews, get those too. Else return what we have
-  const byHashID = state.reviews.byHashID || {};
+  const byReviewID = state.reviews.byReviewID || {};
   const revs = sauce.reviews || [];
-  if (revs && revs.length > 0 && byHashID && Object.keys(byHashID).length > 0) {
+  if (
+    revs &&
+    revs.length > 0 &&
+    byReviewID &&
+    Object.keys(byReviewID).length > 0
+  ) {
     // Push all reviews in reviews array
     const reviews: IReview[] = revs.map(hashID => {
       // push specific review into array
-      return byHashID[hashID];
+      return byReviewID[hashID];
     });
 
     // Return w/ the found reviews
