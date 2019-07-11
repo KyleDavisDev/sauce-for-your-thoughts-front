@@ -1,6 +1,6 @@
 import moment from "moment";
 
-import { IReview, IReviewsState, IReviewAPI } from "../../redux/reviews/types";
+import { IReview, IReviewAPI } from "../../redux/reviews/types";
 import { IUser, IUserState } from "../../redux/users/types";
 import { ISauce, ISaucesState } from "../../redux/sauces/types";
 
@@ -16,7 +16,7 @@ class Flatn {
 
     for (let i = 0, len = reviews.length; i < len; i++) {
       const review = reviews[i];
-      const hashID: string | undefined = review.hashID;
+      const hashID: string | undefined = review.reviewID;
 
       // Make sure review has a hashID or we wont be doing anything with it
       if (!hashID) continue;
