@@ -40,7 +40,7 @@ export interface ReviewEditProps {
     data: { user: { token: string }; review: IReview };
   }) => Promise<null>;
   getSauceBySlug: ({ slug }: { slug: string }) => Promise<null>;
-  history: { push: (location: string) => any };
+  history: { push: (location: string) => any; location: { state: string } };
   user: { token?: string };
   location: { pathname: string; search: string };
 }
@@ -104,16 +104,30 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
       return;
     }
 
-    // return;
     // Construct data obj
     const data = { user: { token }, sauce: { slug } };
+    console.log(this.props.history.location.state);
+    // Show flashmessage if we came from the 'Add' page
+    const showFlashMessage: boolean = this.props.history.location.state.includes(
+      "/review/add"
+    );
 
     // Find out if user is eligible to submit a review for this sauce or not
     API.review
       .get(data)
       .then(res => {
         this.setState(prevState => {
-          return { ...prevState, enabled: true, ...res };
+          return {
+            ...prevState,
+            enabled: true,
+            flashMessage: {
+              isVisible: showFlashMessage,
+              type: "success",
+              text:
+                "You already have a review for this sauce. You are now editing your review instead."
+            },
+            ...res
+          };
         });
       })
       .catch(err => {
