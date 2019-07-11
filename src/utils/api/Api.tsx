@@ -195,10 +195,10 @@ export const API = {
         }
         throw new Error(res.data.msg);
       }),
-    /** @description Add review to DB
+    /** @description Get review from server
      *  @param {Object} data data object
      *    @param {string} data.user.token user's unique token
-     *    @param {IReview} data.sauce.slug - unique sauce slug
+     *    @param {string} data.sauce.slug - unique sauce slug
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -215,6 +215,24 @@ export const API = {
       axios.post(`${host}/api/review/get`, data).then(res => {
         if (res.data.isGood) {
           return res.data.sauce.reviews[0];
+        }
+        throw new Error(res.data.msg);
+      }),
+    /** @description Add review to DB
+     *  @param {Object} data data object
+     *    @param {string} data.user.token user's unique token
+     *    @param {IReview} data.review - review info
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {String} error message
+     */
+    edit: (data: { user: { token: string }; review: IReview }): AxiosPromise =>
+      axios.post(`${host}/api/review/edit`, data).then(res => {
+        if (res.data.isGood) {
+          return res;
         }
         throw new Error(res.data.msg);
       }),
