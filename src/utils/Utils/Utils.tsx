@@ -2,6 +2,12 @@ import queryString, { OutputParams } from "query-string";
 
 import { SaucesParams } from "../../redux/sauces/types";
 
+// Constants
+const DEFAULT_LIMIT_COUNT = 15;
+const DEFAULT_PAGE = 1;
+const DEFAULT_TYPE = "all";
+const DEFAULT_ORDER = "newest";
+
 class Utils {
   /** @description Parse the path location string into components we can comprehend
    *  @param {String} path string with parsable params
@@ -20,7 +26,7 @@ class Utils {
       // Make sure it's a valid number
       page = parseInt(values.page, 10);
     } else {
-      page = 1; // set default
+      page = DEFAULT_PAGE; // set default
     }
 
     let limit: number;
@@ -30,14 +36,16 @@ class Utils {
       limit = parseInt(values.limit, 10);
       limit = limit < 0 ? 1 : limit;
     } else {
-      limit = 15; // set default
+      limit = DEFAULT_LIMIT_COUNT; // set default
     }
 
     const type: string =
-      values.type && !Array.isArray(values.type) ? values.type : "all";
+      values.type && !Array.isArray(values.type) ? values.type : DEFAULT_TYPE;
 
     const order: string =
-      values.order && !Array.isArray(values.order) ? values.order : "newest";
+      values.order && !Array.isArray(values.order)
+        ? values.order
+        : DEFAULT_ORDER;
 
     return { limit, order, page, type };
   }
