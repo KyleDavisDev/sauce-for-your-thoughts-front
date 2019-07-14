@@ -11,10 +11,11 @@ const StyledDiv = styled.div`
 
 interface TitleProps {
   children: string;
+  className?: string;
 }
 
 const Title: React.SFC<TitleProps> = props => {
-  return <StyledDiv>{props.children}</StyledDiv>;
+  return <StyledDiv className={props.className}>{props.children}</StyledDiv>;
 };
 
 export default Title;
