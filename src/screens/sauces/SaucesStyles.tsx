@@ -18,6 +18,17 @@ export const StyledCardHolder = styled.div`
   box-sizing: border-box;
   display: flex;
   flex: 1 auto auto;
+  width: 50%;
+
+  @media (min-width: ${props => props.theme.exToSm}) {
+    width: 33%;
+  }
+  @media (min-width: ${props => props.theme.smToMd}) {
+    width: 25%;
+  }
+  @media (min-width: ${props => props.theme.mdToLg}) {
+    width: 20%;
+  }
 `;
 
 export const StyledCard = styled(Card)`
