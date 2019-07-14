@@ -10,6 +10,10 @@ export const Div = styled.div`
   transition: all 0.2 ease;
   padding-bottom: 1em;
   justify-content: flex-start;
+
+  a:last-child {
+    margin: auto auto 0;
+  }
 `;
 
 export const Image = styled.img`
@@ -31,7 +35,7 @@ export const StyledTextContainer = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
-  margin: auto auto 0;
+  margin: 0 auto 0;
 
   button {
     text-transform: uppercase;
