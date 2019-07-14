@@ -26,7 +26,6 @@ const Card: React.SFC<CardProps> = props => {
         <h4>{props.title}</h4>
         <StyledTextContainer>
           <p>
-            <i>Description: </i>
             {props.description.length > 25
               ? props.description.substring(0, 24) + "..."
               : props.description}
