@@ -18,6 +18,8 @@ export const StyledCard = styled(Card)`
 export const StyledCardHolder = styled.div`
   padding: 1em;
   box-sizing: border-box;
+  display: flex;
+  flex: 1 auto auto;
 `;
 
 export const StyledCardContainer = styled.div`
