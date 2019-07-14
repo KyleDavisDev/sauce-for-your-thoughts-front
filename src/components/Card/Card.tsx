@@ -17,7 +17,14 @@ const Card: React.SFC<CardProps> = props => {
     <Div className={props.className}>
       {props.showLink ? (
         <StyledLink to={props.to}>
-          <Image src={props.imageLink} alt={props.description} />
+          <Image
+            src={props.imageLink}
+            alt={props.description}
+            onError={e =>
+              (e.target.src =
+                "https://www.snhrc.com/wp-content/uploads/2018/09/Image-Coming-Soon.png")
+            }
+          />
         </StyledLink>
       ) : (
         <Image src={props.imageLink} alt={props.description} />
