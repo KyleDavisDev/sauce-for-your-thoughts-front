@@ -19,6 +19,12 @@ const StyledContainer = styled.div`
   }
 `;
 
+const StyledLink = styled(Link)`
+  > div {
+    display: inline;
+  }
+`;
+
 export interface SauceReviewsProps {
   slug?: string;
   reviews?: IReview[];
@@ -44,9 +50,9 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
             </p>
           </StyledContainer>
         )}
-        <Link to={`/review/add?s=${this.props.slug}`}>
+        <StyledLink to={`/review/add?s=${this.props.slug}`}>
           <Button>Add Review</Button>
-        </Link>
+        </StyledLink>
       </div>
     );
   }
