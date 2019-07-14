@@ -9,6 +9,7 @@ export const Div = styled.div`
   flex-direction: column;
   transition: all 0.2 ease;
   padding-bottom: 1em;
+  justify-content: flex-start;
 `;
 
 export const Image = styled.img`
@@ -30,13 +31,12 @@ export const StyledTextContainer = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
-  margin: 0 auto;
+  margin: auto auto 0;
 
   button {
     text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 1px;
     margin: auto auto 0;
-
   }
 `;
