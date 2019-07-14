@@ -29,7 +29,7 @@ class SauceReviewBlock extends React.Component<
   constructor(props: SauceReviewBlockProps) {
     super(props);
 
-    this.state = { isOpen: true };
+    this.state = { isOpen: false };
   }
 
   public render() {
@@ -53,7 +53,7 @@ class SauceReviewBlock extends React.Component<
             dateOptions
           )}
           {/* Show content if state allows it otherwise show empty */}
-          {this.state.isOpen && (
+          {this.state.isOpen ? (
             <div>
               {/* Overall */}
               {review.overall && (
@@ -161,6 +161,22 @@ class SauceReviewBlock extends React.Component<
                 </div>
               )}
             </div>
+          ) : (
+            /* Overall */
+            review.overall && (
+              <div>
+                <StyledCategoryContainer>
+                  <i>Overall:</i>
+                  <ReactRating
+                    initialRating={review.overall.rating}
+                    readonly={true}
+                    emptySymbol={<StyledEmptyStar height={20} />}
+                    fullSymbol={<StyledFullStar height={20} />}
+                  />{" "}
+                  <small>({review.overall.rating.toString()})</small>
+                </StyledCategoryContainer>
+              </div>
+            )
           )}
         </StyledContentContainer>
       </StyledContainer>
@@ -173,10 +189,7 @@ class SauceReviewBlock extends React.Component<
   };
 }
 
-const mapState2Props = (
-  state: AppState,
-  ownProps: SauceReviewBlockProps
-) => {
+const mapState2Props = (state: AppState, ownProps: SauceReviewBlockProps) => {
   // Make sure we have authors, and specifically the author we want, in redux
   if (
     !state.users.byDisplayName ||
