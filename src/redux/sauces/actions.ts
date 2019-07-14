@@ -87,8 +87,10 @@ export const getSauceBySlug = ({
     const { byReviewID, allReviewIDs } = Flatn.reviews({
       reviews
     });
+    console.log(byReviewID, allReviewIDs);
     // Create obj to redux
     const normalizedReviews: IReviewsState = { byReviewID, allReviewIDs };
+    console.log(normalizedReviews);
     // Push reviews to redux
     dispatch(addedReviews({ reviews: normalizedReviews }));
     // Update reviews on sauce
