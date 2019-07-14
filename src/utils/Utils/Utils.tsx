@@ -30,7 +30,7 @@ class Utils {
       limit = parseInt(values.limit, 10);
       limit = limit < 0 ? 1 : limit;
     } else {
-      limit = 12; // set default
+      limit = 15; // set default
     }
 
     const type: string =
