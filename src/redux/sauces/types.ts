@@ -68,7 +68,9 @@ export interface SaucesParams {
 export const SAUCES_ADDED = "SAUCES_ADDED";
 export const SAUCES_UPDATE = "SAUCES_UPDATE";
 export const SAUCES_BY_TAG_FOUND = "SAUCES_BY_TAG_FOUND";
+export const SAUCES_REMOVED = "SAUCES_REMOVED";
 export const SAUCE_FOUND = "SAUCE_FOUND";
+export const SAUCE_UPDATE = "SAUCE_UPDATE";
 
 // Collection of possible sauces Action Types
 export type SaucesActionTypes = IAddSaucesAction;
