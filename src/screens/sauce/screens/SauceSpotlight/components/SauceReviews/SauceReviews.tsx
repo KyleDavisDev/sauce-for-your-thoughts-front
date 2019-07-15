@@ -5,8 +5,6 @@ import { IReview } from "../../../../../../redux/reviews/types";
 import { Button } from "../../../../../../components/Button/Button";
 import { Link } from "../../../../../../components/Link/Link";
 import SauceReviewBlock from "./components/SauceReviewBlock/SauceReviewBlock";
-import { connect } from "react-redux";
-import { AppState } from "../../../../../../redux/configureStore";
 
 const StyledContainer = styled.div`
   font-family: AvenirNextReg;
@@ -30,7 +28,7 @@ const StyledLink = styled(Link)`
 export interface SauceReviewsProps {
   slug?: string;
   reviews?: IReview[];
-  displayEditLink: boolean;
+  displayEditLink?: boolean;
 }
 
 class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
@@ -68,30 +66,4 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
   }
 }
 
-const mapState2Props = (state: AppState, ownProps: SauceReviewsProps) => {
-  // Grab user from store
-  const user = state.users.self.displayName;
-  // If no user, return normal props
-  if (!user) return { ...ownProps };
-
-  // Grab reviews
-  const reviews = ownProps.reviews;
-  // If no reviews, return
-  if (!reviews) return { ...ownProps };
-
-  let displayEditLink: boolean = false;
-  const len = reviews.length;
-  for (let i = 0; i < len; i++) {
-    if (reviews[i].author === user) {
-      displayEditLink = true;
-      break;
-    }
-  }
-
-  return { ...ownProps, displayEditLink };
-};
-
-export default connect(
-  mapState2Props,
-  null
-)(SauceReviews);
+export default SauceReviews;
