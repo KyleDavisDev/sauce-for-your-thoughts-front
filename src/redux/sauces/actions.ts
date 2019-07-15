@@ -5,6 +5,7 @@ import {
   ISaucesState,
   IQuery,
   SAUCES_ADDED,
+  SAUCES_REMOVED,
   IAddSaucesAction,
   SAUCES_UPDATE
 } from "./types";
@@ -27,6 +28,34 @@ import { MyThunkResult } from "../configureStore";
  *  @return {ISaucesReturnAction} sauce and action type
  */
 export const addedSauces = ({
+  allSlugs,
+  bySlug,
+  query,
+  total,
+  saucesWithNewestReviews,
+  newest,
+  featured
+}: IAddSaucesAction): ISaucesReturnAction => ({
+  type: SAUCES_ADDED,
+  allSlugs,
+  bySlug,
+  query,
+  total,
+  saucesWithNewestReviews,
+  newest,
+  featured
+});
+
+/** @description Add sauce(s) to array of sauces
+ *  @param {Object} byId - dictionary of id => ISauce pairs
+ *    @param {ISauce} byId.id - dictionary of id => ISauce pairs
+ *  @param {String[]} allIds - array of sauce id's
+ *  @param {Object} query - dictionary of queryString => id pairs
+ *    @param {String[]} query - dictionary of queryString => id pairs
+ *  @param {Number} total - total number of suaces we know about
+ *  @return {ISaucesReturnAction} sauce and action type
+ */
+export const removedSauces = ({
   allSlugs,
   bySlug,
   query,
