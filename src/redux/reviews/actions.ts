@@ -44,3 +44,25 @@ export const addReview = ({
 
   return null;
 };
+
+/** @description Edit a single review
+ *  @param {Object} data - all encompasing object
+ *    @param {Object} data.user - holds user information
+ *      @param {String} data.user.token - unique user identifier
+ *    @param {Object} data.sauce - hold sauce information
+ *      @param {String} data.sauce.token - unique sauce string
+ *    @param {IReview} data.review
+ *  @fires reviews#addedReview - add review to store
+ *  @returns {Promise}
+ *    @returns {NULL}
+ */
+export const editReview = ({
+  data
+}: {
+  data: { user: { token: string }; review: IReview };
+}): MyThunkResult<Promise<null>> => async dispatch => {
+  // Add review
+  await API.review.edit(data);
+
+  return null;
+};
