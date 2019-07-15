@@ -2,7 +2,8 @@ import { Reducer } from "redux";
 import {
   ISaucesState,
   SAUCES_ADDED,
-  UPDATE_SAUCE,
+  SAUCE_UPDATE,
+  SAUCES_REMOVED,
   SAUCES_BY_TAG_FOUND,
   SAUCE_FOUND,
   ISaucesReturnAction
@@ -81,7 +82,7 @@ const sauceReducer: Reducer<ISaucesState> = (
         featured: action.featured || state.featured
       };
 
-    case UPDATE_SAUCE:
+    case SAUCE_UPDATE:
       if (!action.allSlugs) return state;
       // update single sauces item if sauces is already set
       return {
@@ -89,6 +90,27 @@ const sauceReducer: Reducer<ISaucesState> = (
         bySlug: { ...state.bySlug, ...action.bySlug },
         allSlugs: [...state.allSlugs, ...action.allSlugs]
       };
+    case SAUCES_REMOVED:
+      // Make sure we have sauces to remove
+      const actionAllSlugs2 = action.allSlugs;
+      if (!actionAllSlugs2) return state;
+
+      // Make sure we have suaces currently in store
+      if (!state.allSlugs) return state;
+
+      // Find difference between the two arrays.
+      // Keep elements in state.allSlugs that are not in action.allSlugs
+      const allSlugs2 = state.allSlugs.filter((slug: string) => {
+        return actionAllSlugs2.indexOf(slug) === -1;
+      });
+
+      console.log(allSlugs2);
+
+      return {
+        ...state,
+        allSlugs: allSlugs2
+      };
+
     case SAUCES_BY_TAG_FOUND:
       return state; // Will come back to this
 
