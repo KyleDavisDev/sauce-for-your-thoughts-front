@@ -29,6 +29,7 @@ export interface SauceSpotlightProps {
   getSauceBySlug: ({ slug }: { slug: string }) => Promise<null>;
   slug?: string;
   saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
+  displayEditLink?: boolean;
 }
 
 class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
@@ -82,7 +83,12 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
   }
 
   public render() {
-    const { sauce, reviews, saucesWithNewestReviews } = this.props;
+    const {
+      sauce,
+      reviews,
+      saucesWithNewestReviews,
+      displayEditLink
+    } = this.props;
 
     return (
       <div>
@@ -102,15 +108,12 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
             <SauceReviews
               slug={sauce && sauce.slug ? sauce.slug : undefined}
               reviews={reviews}
+              displayEditLink
             />
           </StyledLeftContainer>
 
           <StyledRightContainer>
-            {sauce && (
-              <Link to={`/review/add?s=${sauce.slug}`}>
-                <Button displayType="solid">Add Review</Button>
-              </Link>
-            )}
+            {this.showAppropriateReviewButton()}
             {sauce && sauce._related && sauce._related.length > 0 && (
               <List
                 items={sauce._related.map(x => {
@@ -132,6 +135,30 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
         <Footer />
       </div>
     );
+  }
+
+  // Return appropriate "Edit" or "Add" review button. Or loading text.
+  public showAppropriateReviewButton(): JSX.Element {
+    const { sauce, displayEditLink } = this.props;
+    // Make sure we have sauce
+    if (sauce) {
+      // Determine which button to return
+      if (displayEditLink) {
+        return (
+          <Link to={`/review/edit?s=${sauce.slug}`}>
+            <Button displayType="solid">Edit Your Review</Button>
+          </Link>
+        );
+      }
+
+      return (
+        <Link to={`/review/add?s=${sauce.slug}`}>
+          <Button displayType="solid">Add Review</Button>
+        </Link>
+      );
+    }
+
+    return <p>Loading ....</p>;
   }
 }
 
@@ -173,8 +200,22 @@ const mapState2Props = (state: AppState, ownProps: SauceSpotlightProps) => {
       return byReviewID[hashID];
     });
 
+    // initialize boolean for determing if we should display "Edit Review" button or "Submit Review" instead
+    let displayEditLink: boolean = false;
+    // Grab user from store
+    const user = state.users.self.displayName;
+    if (user !== undefined) {
+      const len = reviews.length;
+      for (let i = 0; i < len; i++) {
+        if (reviews[i].author === user) {
+          displayEditLink = true;
+          break;
+        }
+      }
+    }
+
     // Return w/ the found reviews
-    return { sauce, slug, reviews, saucesWithNewestReviews };
+    return { sauce, slug, reviews, saucesWithNewestReviews, displayEditLink };
   }
 
   // return sauce and slug only
