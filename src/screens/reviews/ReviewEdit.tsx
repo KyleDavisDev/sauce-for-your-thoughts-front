@@ -5,8 +5,7 @@ import Rating from "react-rating";
 import queryString, { OutputParams } from "query-string";
 
 import { IReviewSection, IReview } from "../../redux/reviews/types";
-import { addReview } from "../../redux/reviews/actions";
-import { getSauceBySlug } from "../../redux/sauces/actions";
+import { editReview } from "../../redux/reviews/actions";
 import ArrowRight from "../../images/icons/ArrowRight";
 import Auth from "../../utils/Auth/Auth";
 import Article from "../../components/Article/Article";
@@ -34,12 +33,11 @@ import {
 import { Overlay } from "../../components/Overlay/Overlay";
 
 export interface ReviewEditProps {
-  addReview: ({
+  editReview: ({
     data
   }: {
     data: { user: { token: string }; review: IReview };
   }) => Promise<null>;
-  getSauceBySlug: ({ slug }: { slug: string }) => Promise<null>;
   history: { push: (location: string) => any; location: { state?: string } };
   user: { token?: string };
   location: { pathname: string; search: string };
@@ -409,7 +407,9 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
 
     try {
       // Edit review
-      await API.review.edit(data);
+      await this.props.editReview({ data });
+      // await API.review.edit(data);
+      console.log("made it here");
 
       // Take user to sauce page
       history.push(`/sauce?s=${slug}`);
@@ -441,13 +441,11 @@ function mapStateToProps(state: AppState): any {
 
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
 const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  addReview: ({
+  editReview: ({
     data
   }: {
     data: { user: { token: string }; review: IReview };
-  }) => dispatch(addReview({ data })),
-  getSauceBySlug: ({ slug }: { slug: string }) =>
-    dispatch(getSauceBySlug({ slug }))
+  }) => dispatch(editReview({ data }))
 });
 
 export default connect(
