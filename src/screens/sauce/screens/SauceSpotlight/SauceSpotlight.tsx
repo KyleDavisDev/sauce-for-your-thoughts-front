@@ -108,7 +108,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
             <SauceReviews
               slug={sauce && sauce.slug ? sauce.slug : undefined}
               reviews={reviews}
-              displayEditLink
+              displayEditLink={displayEditLink}
             />
           </StyledLeftContainer>
 
