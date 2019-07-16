@@ -12,7 +12,7 @@ export interface IReviewSection {
 // All actions emitted must follow this form
 export interface IReviewsAction {
   type: string;
-  allReviewIDs: string[];
+  allReviewIDs?: string[];
   byReviewID: { [key: string]: IReview };
 }
 
