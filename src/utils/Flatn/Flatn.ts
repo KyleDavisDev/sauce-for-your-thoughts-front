@@ -6,7 +6,7 @@ import { ISauce, ISaucesState } from "../../redux/sauces/types";
 
 class Flatn {
   // flatten array of reviews
-  public static reviews({ reviews }: { reviews: IReviewAPI[] }) {
+  public static reviews({ reviews }: { reviews: IReviewAPI[] | IReview[] }) {
     const allReviewIDs: string[] = [];
     const byReviewID: { [key: string]: IReview } = {};
 
@@ -24,7 +24,14 @@ class Flatn {
       allReviewIDs.push(hashID);
 
       // Add to obj and reassign author to match desired format
-      byReviewID[hashID] = { ...review, author: review.author.displayName };
+      let author = review.author;
+      if (typeof author === "string") {
+        // do not need to do anything
+      } else {
+        // dig little deeper
+        author = author.displayName;
+      }
+      byReviewID[hashID] = { ...review, author };
 
       // If review doesn't have _addedToStore prop, we will add it
       if (!byReviewID[hashID]._addedToStore) {
