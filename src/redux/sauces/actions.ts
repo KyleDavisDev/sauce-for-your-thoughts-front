@@ -56,22 +56,10 @@ export const addedSauces = ({
  *  @return {ISaucesReturnAction} sauce and action type
  */
 export const removedSauces = ({
-  allSlugs,
-  bySlug,
-  query,
-  total,
-  saucesWithNewestReviews,
-  newest,
-  featured
+  allSlugs
 }: IAddSaucesAction): ISaucesReturnAction => ({
-  type: SAUCES_ADDED,
-  allSlugs,
-  bySlug,
-  query,
-  total,
-  saucesWithNewestReviews,
-  newest,
-  featured
+  type: SAUCES_REMOVED,
+  allSlugs
 });
 
 /** @description Update specific sauce
