@@ -1,15 +1,18 @@
 import { API } from "../../utils/api/API";
 import {
   IReviewsAction,
-  ReviewsActionTypes,
+  REVIEWS_ADDED,
+  REVIEWS_UPDATED,
   IReview,
   IReviewsState
 } from "./types";
 import { MyThunkResult } from "../configureStore";
+import Flatn from "../../utils/Flatn/Flatn";
 
 /** @description add review(s) to store
- *  @param {number[]} allIds - array of review objects
- *  @param {IReview} byId - object with nested review objects
+ *  @param {object} reviews - container object
+ *  @param {String[]} reviews.allReviewIDs - array of review objects
+ *  @param {IReview} reviews.byReviewID - object with nested review objects
  */
 export const addedReviews = ({
   reviews
@@ -17,9 +20,25 @@ export const addedReviews = ({
   reviews: IReviewsState;
 }): IReviewsAction => {
   return {
-    type: ReviewsActionTypes.REVIEWS_ADDED,
+    type: REVIEWS_ADDED,
     allReviewIDs: reviews.allReviewIDs,
     byReviewID: reviews.byReviewID
+  };
+};
+
+/** @description add review(s) to store
+ *  @param {object} reviews - container object
+ *  @param {String[]} reviews.allReviewIDs - array of review objects
+ *  @param {IReview} reviews.byReviewID - object with nested review objects
+ */
+export const updatedReviews = ({
+  byReviewID
+}: {
+  byReviewID: { [key: string]: IReview };
+}): IReviewsAction => {
+  return {
+    type: REVIEWS_UPDATED,
+    byReviewID
   };
 };
 
@@ -63,6 +82,16 @@ export const editReview = ({
 }): MyThunkResult<Promise<null>> => async dispatch => {
   // Add review
   await API.review.edit(data);
+
+  // Normalize reviews
+  const { byReviewID } = Flatn.reviews({
+    reviews: [data.review]
+  });
+
+  // Update specific review in store
+  dispatch(updatedReviews({ byReviewID }));
+
+  console.log("After dispatch);");
 
   return null;
 };
