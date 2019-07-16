@@ -1,5 +1,9 @@
 import { IUser } from "../users/types";
 
+// Action strings constants
+export const REVIEWS_ADDED = "REVIEWS_ADDED";
+export const REVIEWS_UPDATED = "REVIEWS_ADDED";
+
 export interface IReviewSection {
   rating: number;
   txt: string;
@@ -10,16 +14,6 @@ export interface IReviewsAction {
   type: string;
   allReviewIDs: string[];
   byReviewID: { [key: string]: IReview };
-}
-
-// Use const enums for better autocompletion of action type names. These will
-// be compiled away leaving only the final value in your compiled code.
-//
-// Define however naming conventions you'd like for your action types, but
-// personally, I use the `@@context/ACTION_TYPE` convention, to follow the convention
-// of Redux's `@@INIT` action.
-export const enum ReviewsActionTypes {
-  REVIEWS_ADDED = "@@reviews/REVIEWS_ADDED"
 }
 
 export interface IReview {
