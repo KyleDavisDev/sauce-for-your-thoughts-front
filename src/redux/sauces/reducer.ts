@@ -24,7 +24,7 @@ const sauceReducer: Reducer<ISaucesState> = (
   action: ISaucesReturnAction
 ): ISaucesState => {
   switch (action.type) {
-    case SAUCES_ADDED:
+    case SAUCES_ADDED: {
       // Make sure we are not using undefined objects
       const stateBySlug = state.bySlug || {};
       const actionBySlug = action.bySlug || {};
@@ -81,8 +81,9 @@ const sauceReducer: Reducer<ISaucesState> = (
         newest: action.newest || state.newest,
         featured: action.featured || state.featured
       };
+    }
 
-    case SAUCE_UPDATE:
+    case SAUCE_UPDATE: {
       if (!action.allSlugs) return state;
       // update single sauces item if sauces is already set
       return {
@@ -90,34 +91,41 @@ const sauceReducer: Reducer<ISaucesState> = (
         bySlug: { ...state.bySlug, ...action.bySlug },
         allSlugs: [...state.allSlugs, ...action.allSlugs]
       };
-    case SAUCES_REMOVED:
+    }
+    case SAUCES_REMOVED: {
       // Make sure we have sauces to remove
-      const actionAllSlugs2 = action.allSlugs;
-      if (!actionAllSlugs2) return state;
+      const actionAllSlugs = action.allSlugs;
+      if (!actionAllSlugs) return state;
 
       // Make sure we have suaces currently in store
       if (!state.allSlugs) return state;
 
       // Find difference between the two arrays.
       // Keep elements in state.allSlugs that are not in action.allSlugs
-      const allSlugs2 = state.allSlugs.filter((slug: string) => {
-        return actionAllSlugs2.indexOf(slug) === -1;
+      const allSlugs = state.allSlugs.filter((slug: string) => {
+        return actionAllSlugs.indexOf(slug) === -1;
       });
 
-      console.log(allSlugs2);
+      // Remove slug from obj
+      const bySlug = state.bySlug || {};
+      for (let i = 0, len = Object.keys(bySlug).length; i < len; i++) {
+        delete bySlug[actionAllSlugs[i]];
+      }
 
       return {
         ...state,
-        allSlugs: allSlugs2
+        allSlugs,
+        bySlug
       };
+    }
 
-    case SAUCES_BY_TAG_FOUND:
+    case SAUCES_BY_TAG_FOUND: {
       return state; // Will come back to this
-
+    }
     // TODO: add sauce to .byIds and add id to .allIds
-    case SAUCE_FOUND:
+    case SAUCE_FOUND: {
       return state; // Will come back to this
-
+    }
     default:
       return state;
   }
