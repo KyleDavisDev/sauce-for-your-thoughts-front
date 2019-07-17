@@ -107,17 +107,7 @@ const Screens = (
   <StyledDiv>
     {/* {flashMessageVisible && <FlashMessage />} */}
     <Route exact path="/" component={Home} />
-    <Route
-      exact
-      path="/sauce/add"
-      render={props => {
-        return Auth.isUserAuthenticated() ? (
-          <SauceAdd history={props.history} />
-        ) : (
-          <Redirect to="/account/login" />
-        );
-      }}
-    />
+    <Route exact path="/sauce/add" component={SauceAdd} />
     <Route path="/review/add" component={ReviewAdd} />
     <Route path="/review/edit" component={ReviewEdit} />
     <Route path="/sauces" component={Sauces} />
