@@ -18,6 +18,7 @@ import {
   FlashMessage,
   FlashMessageProps
 } from "../../../components/FlashMessage/FlashMessage";
+import ArrowRight from "../../../images/icons/ArrowRight";
 
 export interface SettingsProps {
   Settings: any;
@@ -65,7 +66,9 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
             <p>Edit Profile</p>
 
             <Link to="/account/settings/profile">
-              <StyledButton type="button">Edit Profile</StyledButton>
+              <StyledButton type="button">
+                Edit Profile <ArrowRight />
+              </StyledButton>
             </Link>
           </StyledFormContainer>
         </StyledArticle>
