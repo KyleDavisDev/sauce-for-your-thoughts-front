@@ -1,13 +1,13 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { register } from "../../redux/users/actions";
-import { IRegisterUser } from "../../redux/users/types";
-import LogoSFYT from "../../images/icons/LogoSFYT";
-import PageTitle from "../../components/PageTitle/PageTitle";
-import TextInput from "../../components/TextInput/TextInput";
-import { Link } from "../../components/Link/Link";
-import { AppState } from "../../redux/configureStore";
+import { register } from "../../../redux/users/actions";
+import { IRegisterUser } from "../../../redux/users/types";
+import LogoSFYT from "../../../images/icons/LogoSFYT";
+import PageTitle from "../../../components/PageTitle/PageTitle";
+import TextInput from "../../../components/TextInput/TextInput";
+import { Link } from "../../../components/Link/Link";
+import { AppState } from "../../../redux/configureStore";
 import {
   StyledDiv,
   StyledLogoContainer,
@@ -19,9 +19,9 @@ import {
 import {
   FlashMessage,
   FlashMessageProps
-} from "../../components/FlashMessage/FlashMessage";
-import Err from "../../utils/Err/Err";
-import Auth from "../../utils/Auth/Auth";
+} from "../../../components/FlashMessage/FlashMessage";
+import Err from "../../../utils/Err/Err";
+import Auth from "../../../utils/Auth/Auth";
 
 export interface RegisterProps {
   register: any;
