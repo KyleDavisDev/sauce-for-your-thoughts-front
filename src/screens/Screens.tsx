@@ -80,6 +80,16 @@ const Settings = Loadable({
   )
 });
 
+// User settings - profile
+const SettingsProfile = Loadable({
+  loader: () => import("./account/settings/profile/Profile"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 // User Login
 const Login = Loadable({
   loader: () => import("./account/login/Login"),
@@ -121,7 +131,8 @@ const Screens = (
     <Route path="/review/edit" component={ReviewEdit} />
     <Route path="/sauces" component={Sauces} />
     <Route path="/account/register" component={Register} />
-    <Route path="/account/settings" component={Settings} />
+    <Route exact path="/account/settings" component={Settings} />
+    <Route path="/account/settings/profile" component={SettingsProfile} />
     <Route path="/account/login" component={Login} />
     <Route path="/reset" component={Reset} />
     <Route exact path="/sauce" component={SauceSpotlight} />
