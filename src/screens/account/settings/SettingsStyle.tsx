@@ -18,9 +18,6 @@ export const StyledArticle = styled(Article)`
 export const StyledFormContainer = styled.div`
   border: ${props => props.theme.border};
   padding: 1.5rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 `;
 
 export const StyledText = styled.p`
@@ -29,6 +26,4 @@ export const StyledText = styled.p`
   text-align: center;
 `;
 
-export const StyledButton = styled(Button)`
-  text-align: center;
-`;
+export const StyledButton = styled(Button)``;
