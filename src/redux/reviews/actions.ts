@@ -28,7 +28,6 @@ export const addedReviews = ({
 
 /** @description add review(s) to store
  *  @param {object} reviews - container object
- *  @param {String[]} reviews.allReviewIDs - array of review objects
  *  @param {IReview} reviews.byReviewID - object with nested review objects
  */
 export const updatedReviews = ({
@@ -87,11 +86,8 @@ export const editReview = ({
   const { byReviewID } = Flatn.reviews({
     reviews: [data.review]
   });
-
   // Update specific review in store
   dispatch(updatedReviews({ byReviewID }));
-
-  console.log("After dispatch);");
 
   return null;
 };
