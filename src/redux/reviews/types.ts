@@ -2,7 +2,7 @@ import { IUser } from "../users/types";
 
 // Action strings constants
 export const REVIEWS_ADDED = "REVIEWS_ADDED";
-export const REVIEWS_UPDATED = "REVIEWS_ADDED";
+export const REVIEWS_UPDATED = "REVIEWS_UPDATED";
 
 export interface IReviewSection {
   rating: number;
