@@ -88,13 +88,15 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     const { user, history } = this.props;
 
     // If no history, stop
-    if (!history) return (window.location.href = "/account/login");
+    if (!history) {
+      return (window.location.href = "/account/login?return=/sauce/add");
+    }
     // If no user, stop
-    if (!user) return history.push("/account/login");
+    if (!user) return history.push("/account/login?return=/sauce/add");
     // If we don't have an author, stop
-    if (!user.name) history.push("/account/login");
+    if (!user.name) history.push("/account/login?return=/sauce/add");
     // If no token, stop
-    if (!user.token) history.push("/account/login");
+    if (!user.token) history.push("/account/login?return=/sauce/add");
   }
 
   public render() {
