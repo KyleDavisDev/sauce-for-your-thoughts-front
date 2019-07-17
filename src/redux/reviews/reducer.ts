@@ -39,7 +39,11 @@ const reviewReducer: Reducer<IReviewsState> = (
       return obj;
     }
     case REVIEWS_UPDATED: {
-      return state;
+      // Simply overwrite old review with the new ones
+      const byReviewID = { ...state.byReviewID, ...action.byReviewID };
+
+      // return state
+      return { ...state, byReviewID };
     }
 
     default:
