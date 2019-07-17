@@ -28,6 +28,7 @@ import {
 export interface LoginProps {
   login: ({ credentials }: { credentials: ILoginUser }) => any;
   history: { push: (location: string) => null };
+  location: { search: string };
 }
 
 export interface LoginState {
