@@ -408,8 +408,6 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
     try {
       // Edit review
       await this.props.editReview({ data });
-      // await API.review.edit(data);
-      console.log("made it here");
 
       // Take user to sauce page
       history.push(`/sauce?s=${slug}`);
