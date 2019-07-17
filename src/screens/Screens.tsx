@@ -122,7 +122,7 @@ const Screens = (
     <Route path="/review/edit" component={ReviewEdit} />
     <Route path="/sauces" component={Sauces} />
     <Route path="/account/register" component={Register} />
-    <Route path="/acount/login" component={Login} />
+    <Route path="/account/login" component={Login} />
     <Route path="/reset" component={Reset} />
     <Route exact path="/sauce" component={SauceSpotlight} />
 
