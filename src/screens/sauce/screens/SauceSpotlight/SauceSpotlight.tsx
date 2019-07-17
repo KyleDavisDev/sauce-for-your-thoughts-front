@@ -101,7 +101,9 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
             <SauceHero sauce={sauce} />
 
             {/* Reviews */}
-            <StyledDescriptor title="Reviews">
+            <StyledDescriptor
+              title={`Reviews (${reviews ? reviews.length : 0})`}
+            >
               The opinions expressed are soley those of the author.
             </StyledDescriptor>
 
