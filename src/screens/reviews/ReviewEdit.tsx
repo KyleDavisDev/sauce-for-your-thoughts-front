@@ -382,12 +382,12 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
     }
 
     // make sure token is still good/not expired
-    if (!Auth.isUserAuthenticated()) history.push("/login");
+    if (!Auth.isUserAuthenticated()) history.push("/account/login");
 
     // Make sure we have token
     const token = user.token;
     if (!token) {
-      history.push("/login");
+      history.push("/account/login");
       return null;
     }
 

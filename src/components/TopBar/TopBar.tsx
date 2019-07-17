@@ -87,7 +87,7 @@ const TopBar: React.SFC<TopBarProps> = props => {
             <UserIcon />
             Register
           </StyledLink>
-          <StyledLink to="/login">
+          <StyledLink to="/account/login">
             <LoginIcon />
             Log in
           </StyledLink>

@@ -88,13 +88,13 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     const { user, history } = this.props;
 
     // If no history, stop
-    if (!history) return (window.location.href = "/login");
+    if (!history) return (window.location.href = "/account/login");
     // If no user, stop
-    if (!user) return history.push("/login");
+    if (!user) return history.push("/account/login");
     // If we don't have an author, stop
-    if (!user.name) history.push("/login");
+    if (!user.name) history.push("/account/login");
     // If no token, stop
-    if (!user.token) history.push("/login");
+    if (!user.token) history.push("/account/login");
   }
 
   public render() {
@@ -255,17 +255,17 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     const { user, history } = this.props;
     // If no history, stop
     if (!history) {
-      window.location.href = "/login";
+      window.location.href = "/account/login";
       return;
     }
     // If no user, stop
     if (!user) {
-      history.push("/login");
+      history.push("/account/login");
       return;
     }
 
     // make sure token is still good/not expired
-    if (!Auth.isUserAuthenticated()) history.push("/login");
+    if (!Auth.isUserAuthenticated()) history.push("/account/login");
 
     // Grab values
     const {
@@ -281,7 +281,7 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     } = this.state;
 
     const token = user.token;
-    if (!token) history.push("/login");
+    if (!token) history.push("/account/login");
 
     // Construct FormData since we are passing image file
     const formData = new FormData();

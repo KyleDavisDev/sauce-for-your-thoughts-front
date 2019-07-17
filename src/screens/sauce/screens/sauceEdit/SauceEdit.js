@@ -18,7 +18,7 @@ class SauceEdit extends Component {
       !this.props.match.param &&
       !this.props.match.param.id
     )
-      this.props.history.push("/login");
+      this.props.history.push("/account/login");
   }
 
   componentDidMount() {

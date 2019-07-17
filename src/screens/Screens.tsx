@@ -114,7 +114,7 @@ const Screens = (
         return Auth.isUserAuthenticated() ? (
           <SauceAdd history={props.history} />
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/account/login" />
         );
       }}
     />
@@ -133,7 +133,7 @@ const Screens = (
     {/* <Route exact path="/register" component={Register} />
     <Route exact path="/account" component={Account} /> */}
     {/* <Route exact path="/account/reset/:token" component={ResetPassword} /> */}
-    {/* <Route exact path="/login" component={Login} /> */}
+    {/* <Route exact path="/account/login" component={Login} /> */}
   </StyledDiv>
 );
 
