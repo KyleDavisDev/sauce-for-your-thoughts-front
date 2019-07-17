@@ -94,7 +94,8 @@ class Login extends React.Component<LoginProps, LoginState> {
               </StyledText>
 
               <StyledText>
-                Don't have an account yet? <Link to="/register">Sign up!</Link>
+                Don't have an account yet?{" "}
+                <Link to="/account/register">Sign up!</Link>
               </StyledText>
             </form>
           </StyledFormContainer>

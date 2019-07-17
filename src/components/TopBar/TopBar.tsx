@@ -83,7 +83,7 @@ const TopBar: React.SFC<TopBarProps> = props => {
         </StyledDiv>
       ) : (
         <StyledDiv>
-          <StyledLink to="/register">
+          <StyledLink to="/account/register">
             <UserIcon />
             Register
           </StyledLink>
@@ -104,7 +104,6 @@ const mapState2Props = (state: AppState) => {
   return {
     isLoggedIn: !!state.users.self.token, // will be bool
     displayName: state.users.self.displayName
-
   };
 };
 
