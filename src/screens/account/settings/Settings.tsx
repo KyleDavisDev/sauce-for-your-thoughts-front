@@ -117,11 +117,8 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
                 value={this.state.displayName}
                 required={true}
               />
-              <StyledText>
-                By clicking 'Settings', you agree to Sauce For Your Thoughts{" "}
-                <Link to="#">Terms and Conditions</Link>
-              </StyledText>
-              <StyledButton type="submit">Settings</StyledButton>
+
+              <StyledButton type="submit">Update</StyledButton>
             </form>
           </StyledFormContainer>
         </StyledArticle>
