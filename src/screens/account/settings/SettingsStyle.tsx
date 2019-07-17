@@ -26,4 +26,21 @@ export const StyledText = styled.p`
   text-align: center;
 `;
 
-export const StyledButton = styled(Button)``;
+export const StyledButton = styled(Button)`
+  button {
+    color: #333;
+
+    &:hover,
+    &:focus {
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+  svg {
+    width: 20px;
+    padding-left: 10px;
+    fill: #333;
+    transition: all 0.2s ease;
+  }
+`;
