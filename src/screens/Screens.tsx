@@ -1,10 +1,9 @@
 import * as React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Loadable from "react-loadable";
 
 import styled from "../theme/styled-components";
 import Loading from "../components/Holder/Holder";
-import Auth from "../utils/Auth/Auth";
 
 const StyledDiv = styled.div`
   margin: 0;
@@ -61,7 +60,7 @@ const ReviewEdit = Loadable({
   )
 });
 
-// Register
+// User Register
 const Register = Loadable({
   loader: () => import("./account/register/Register"),
   loading: () => (
@@ -71,7 +70,17 @@ const Register = Loadable({
   )
 });
 
-// Login
+// User settings
+const Settings = Loadable({
+  loader: () => import("./account/settings/Settings"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
+// User Login
 const Login = Loadable({
   loader: () => import("./account/login/Login"),
   loading: () => (
@@ -112,6 +121,7 @@ const Screens = (
     <Route path="/review/edit" component={ReviewEdit} />
     <Route path="/sauces" component={Sauces} />
     <Route path="/account/register" component={Register} />
+    <Route path="/account/settings" component={Settings} />
     <Route path="/account/login" component={Login} />
     <Route path="/reset" component={Reset} />
     <Route exact path="/sauce" component={SauceSpotlight} />
