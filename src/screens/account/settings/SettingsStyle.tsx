@@ -15,7 +15,7 @@ export const StyledLogoContainer = styled.div`
 export const StyledArticle = styled(Article)`
   max-width: 600px;
 `;
-export const StyledFormContainer = styled.div`
+export const StyledContainer = styled.div`
   border: ${props => props.theme.border};
   padding: 1.5rem;
 `;
@@ -29,18 +29,15 @@ export const StyledText = styled.p`
 export const StyledButton = styled(Button)`
   button {
     color: #333;
-
-    &:hover,
-    &:focus {
-      svg {
-        fill: #fff;
-      }
-    }
   }
+
   svg {
     width: 20px;
     padding-left: 10px;
-    fill: #333;
     transition: all 0.2s ease;
   }
+`;
+
+export const StyledGroup = styled.div`
+  margin-bottom: 32px;
 `;
