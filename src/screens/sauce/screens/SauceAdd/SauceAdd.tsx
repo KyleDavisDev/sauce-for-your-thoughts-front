@@ -24,7 +24,7 @@ import { Article, StyledFormContainer, StyledButton } from "./SauceAddStyle";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
-  history?: { push: (location: string) => any };
+  history?: { replace: (location: string) => any };
   user?: { token: string; name: string };
   types?: string[];
 }
@@ -92,11 +92,11 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       return (window.location.href = "/account/login?return=/sauce/add");
     }
     // If no user, stop
-    if (!user) return history.push("/account/login?return=/sauce/add");
+    if (!user) return history.replace("/account/login?return=/sauce/add");
     // If we don't have an author, stop
-    if (!user.name) history.push("/account/login?return=/sauce/add");
+    if (!user.name) history.replace("/account/login?return=/sauce/add");
     // If no token, stop
-    if (!user.token) history.push("/account/login?return=/sauce/add");
+    if (!user.token) history.replace("/account/login?return=/sauce/add");
   }
 
   public render() {
