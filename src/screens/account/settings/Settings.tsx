@@ -11,14 +11,16 @@ import {
   StyledDiv,
   StyledLogoContainer,
   StyledArticle,
-  StyledFormContainer,
-  StyledButton
+  StyledContainer,
+  StyledButton,
+  StyledGroup
 } from "./SettingsStyle";
 import {
   FlashMessage,
   FlashMessageProps
 } from "../../../components/FlashMessage/FlashMessage";
 import ArrowRight from "../../../images/icons/ArrowRight";
+import ArrowLeft from "../../../images/icons/ArrowLeft";
 
 export interface SettingsProps {
   Settings: any;
@@ -62,15 +64,31 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
         <hr />
         <StyledArticle>
           <PageTitle>Settings</PageTitle>
-          <StyledFormContainer>
-            <p>Edit Profile</p>
+          <StyledContainer>
+            <StyledGroup>
+              <h4>Edit Profile</h4>
+              <Link to="/account/settings/profile">
+                <StyledButton type="button">
+                  Edit Profile <ArrowRight />
+                </StyledButton>
+              </Link>
+            </StyledGroup>
 
-            <Link to="/account/settings/profile">
-              <StyledButton type="button">
-                Edit Profile <ArrowRight />
+            <StyledGroup>
+              <h4>Update Password</h4>
+              <Link to="/account/settings/profile">
+                <StyledButton type="button">
+                  Edit Profile <ArrowRight />
+                </StyledButton>
+              </Link>
+            </StyledGroup>
+
+            <Link to="/">
+              <StyledButton type="button" displayType="outline">
+                <ArrowLeft /> Return Home
               </StyledButton>
             </Link>
-          </StyledFormContainer>
+          </StyledContainer>
         </StyledArticle>
       </StyledDiv>
     );
