@@ -63,6 +63,16 @@ const StyledButton = styled(Button)`
         props.displayType === "outline"
           ? props.theme.secondaryThemeColor
           : props.theme.white};
+
+      svg {
+        fill: ${props =>
+          props.displayType === "outline"
+            ? props.theme.secondaryThemeColor
+            : props.theme.white};
+      }
+    }
+    svg {
+      fill: inherit;
     }
   }
 `;
