@@ -40,7 +40,10 @@ export interface ReviewAddProps {
     data: { user: { token: string }; review: IReview };
   }) => Promise<null>;
   getSauceBySlug: ({ slug }: { slug: string }) => Promise<null>;
-  history: { push: (location: string, state?: string) => any };
+  history: {
+    replace: (location: string, state?: string) => any;
+    push: (location: string, state?: string) => any;
+  };
   user: { token?: string };
   location: { pathname: string; search: string };
 }
@@ -83,7 +86,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     // Sauce slug is whack, redirect user
     if (slug === null) {
       // Get user outta here
-      this.props.history.push("/sauces");
+      this.props.history.replace("/sauces");
 
       return;
     }
@@ -95,8 +98,8 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     const token = Auth.getToken();
     if (!token || token.length === 0) {
       // Redirect user to login w/ appropriate return address
-      this.props.history.push(
-        `/login?return=${this.props.location.pathname}${
+      this.props.history.replace(
+        `/account/login?return=${this.props.location.pathname}${
           this.props.location.search
         }`
       );
@@ -132,8 +135,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
         });
 
         // Redirect user to edit page
-        // this.props.history.push(`/review/edit${this.props.location.search}`);
-        this.props.history.push(
+        this.props.history.replace(
           `/review/edit${this.props.location.search}`,
           this.props.location.pathname
         );
@@ -368,17 +370,27 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
 
     // Sauce slug is whack, redirect user
     if (slug === null) {
-      history.push("/"); // Maybe display banner too?
+      history.replace("/"); // Maybe display banner too?
       return null;
     }
 
     // make sure token is still good/not expired
-    if (!Auth.isUserAuthenticated()) history.push("/account/login");
+    if (!Auth.isUserAuthenticated()) {
+      history.replace(
+        `/account/login?return=${this.props.location.pathname}${
+          this.props.location.search
+        }`
+      );
+    }
 
     // Make sure we have token
     const token = user.token;
     if (!token) {
-      history.push("/account/login");
+      history.replace(
+        `/account/login?return=${this.props.location.pathname}${
+          this.props.location.search
+        }`
+      );
       return null;
     }
 
