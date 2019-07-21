@@ -78,7 +78,7 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
               <h4>Update Password</h4>
               <Link to="/account/settings/profile">
                 <StyledButton type="button">
-                  Edit Profile <ArrowRight />
+                  Update Password <ArrowRight />
                 </StyledButton>
               </Link>
             </StyledGroup>
