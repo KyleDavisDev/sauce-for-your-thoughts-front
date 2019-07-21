@@ -8,7 +8,7 @@ import {
   USER_LOGGED_IN,
   USER_LOGGED_OUT
 } from "./types";
-// import { store } from "../../components/App";
+import { MyThunkResult } from "../configureStore";
 
 export const addUsers = ({ user }: { user: IUserState }): IUserAction => {
   return {
@@ -18,7 +18,7 @@ export const addUsers = ({ user }: { user: IUserState }): IUserAction => {
   };
 };
 
-// action to og user in
+// action to log user in
 export const userLoggedIn = ({
   token,
   displayName
@@ -147,4 +147,14 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
 export const logout = () => (dispatch: any) => {
   // remove users.self info
   dispatch(userLoggedOut());
+};
+
+export const getInfo = ({
+  data
+}: {
+  data: { user: { token: string }; displayName: string };
+}): MyThunkResult<Promise<null>> => async dispatch => {
+  await API.user.getInfo({ data });
+
+  return null;
 };
