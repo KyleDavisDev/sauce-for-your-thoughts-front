@@ -1,4 +1,10 @@
-import { UsersActionTypes, IUserState, IUserAction } from "./types";
+import {
+  IUserState,
+  IUserAction,
+  USER_LOGGED_IN,
+  USER_LOGGED_OUT,
+  USER_ADDED
+} from "./types";
 import { Reducer } from "redux";
 
 const initialState: IUserState = {
@@ -12,16 +18,16 @@ const userReducer: Reducer<IUserState> = (
   action: IUserAction
 ): IUserState => {
   switch (action.type) {
-    case UsersActionTypes.USER_LOGGED_IN:
+    case USER_LOGGED_IN:
       // Set user.self info
       return {
         ...state,
         self: { token: action.token, displayName: action.displayName }
       };
-    case UsersActionTypes.USER_LOGGED_OUT:
+    case USER_LOGGED_OUT:
       // remove all user.self stuff
       return { ...state, self: {} };
-    case UsersActionTypes.USER_ADDED:
+    case USER_ADDED:
       // This will concat onto dictionary and overwrite an old key if new appears
       const byDisplayName = { ...state.byDisplayName, ...action.byDisplayName };
 

@@ -49,12 +49,9 @@ export interface ILoginUser {
   };
 }
 
-// Use const enums for better autocompletion of action type names. These will
-// be compiled away leaving only the final value in your compiled code.
-export const enum UsersActionTypes {
-  USER_LOGGED_IN = "@@users/USER_LOGGED_IN",
-  USER_LOGGED_OUT = "@@users/USER_LOGGED_OUT",
-  USER_GOT_INFO = "@@users/USER_GOT_INFO",
-  USER_UPDATED = "@@users/USER_UPDATED",
-  USER_ADDED = "@@users/USER_ADDED"
-}
+// Action strings
+export const USER_LOGGED_IN = "USER_LOGGED_IN";
+export const USER_LOGGED_OUT = "USER_LOGGED_OUT";
+export const USER_GOT_INFO = "USER_GOT_INFO";
+export const USER_UPDATED = "USER_UPDATED";
+export const USER_ADDED = "USER_ADDED";

@@ -1,16 +1,18 @@
 import { API } from "../../utils/api/API";
 import {
   IRegisterUser,
-  UsersActionTypes,
   ILoginUser,
   IUserState,
-  IUserAction
+  IUserAction,
+  USER_ADDED,
+  USER_LOGGED_IN,
+  USER_LOGGED_OUT
 } from "./types";
 // import { store } from "../../components/App";
 
 export const addUsers = ({ user }: { user: IUserState }): IUserAction => {
   return {
-    type: UsersActionTypes.USER_ADDED,
+    type: USER_ADDED,
     byDisplayName: user.byDisplayName,
     allDisplayNames: user.allDisplayNames
   };
@@ -24,14 +26,14 @@ export const userLoggedIn = ({
   token: string;
   displayName: string;
 }) => ({
-  type: UsersActionTypes.USER_LOGGED_IN,
+  type: USER_LOGGED_IN,
   token,
   displayName
 });
 
 // action to log user out
 export const userLoggedOut = () => ({
-  type: UsersActionTypes.USER_LOGGED_OUT
+  type: USER_LOGGED_OUT
 });
 
 // export const gotUserInfo = ({ _id, email, name }) => ({
