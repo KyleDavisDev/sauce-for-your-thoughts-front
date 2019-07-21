@@ -208,6 +208,7 @@ const mapState2Props = (state: AppState, ownProps: SauceSpotlightProps) => {
     const user = state.users.self.displayName;
     if (user !== undefined) {
       const len = reviews.length;
+
       for (let i = 0; i < len; i++) {
         if (reviews[i].author === user) {
           displayEditLink = true;
