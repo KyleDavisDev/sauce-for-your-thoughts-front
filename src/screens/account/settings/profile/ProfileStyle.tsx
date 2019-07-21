@@ -23,12 +23,6 @@ export const StyledFormContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const StyledText = styled.p`
-  width: 80%;
-  margin: 0 auto 1em;
-  text-align: center;
-`;
-
 export const StyledButton = styled(Button)`
   text-align: center;
 `;
