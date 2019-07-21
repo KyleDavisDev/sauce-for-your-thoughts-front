@@ -27,13 +27,14 @@ export const API = {
      *  {String} res.data.email - user's email
      *  @reject {String} error message
      */
-    register: (credentials: IRegisterUser): AxiosPromise =>
-      axios.post(`${host}/api/user/register`, credentials).then(res => {
+    register: (credentials: IRegisterUser): AxiosPromise => {
+      return axios.post(`${host}/api/user/register`, credentials).then(res => {
         if (res.data.isGood) {
           return res;
         }
         throw new Error(res.data.msg);
-      }),
+      });
+    },
 
     /** @description Add new user to DB
      *  @param {ILoginUser} credentials - user credentials
@@ -53,13 +54,45 @@ export const API = {
      *  {String} res.data.email - user's email
      *  @reject {String} error message
      */
-    login: (credentials: ILoginUser): AxiosPromise =>
-      axios.post(`${host}/api/user/login`, credentials).then(res => {
+    login: (credentials: ILoginUser): AxiosPromise => {
+      return axios.post(`${host}/api/user/login`, credentials).then(res => {
         if (res.data.isGood) {
           return res;
         }
         throw new Error(res.data.msg);
-      })
+      });
+    },
+
+    /** @description Get user information from server
+     *  @param {string} token - user token
+     *  @param {string?} displayName - specific user interested in
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {String} res.data.msg - message accociated with isGood
+     *
+     *  {Array} res.data.user[] - user data
+     *
+     *  {String} res.data.user[].displayName - user's display name
+     *
+     *  {String} res.data.user[].email - user's email
+     *
+     *  @reject {String} error message
+     */
+    getInfo: ({
+      data
+    }: {
+      data: { user: { token: string }; displayName?: string };
+    }): AxiosPromise => {
+      return axios.post(`${host}/api/user/getInfo`, data).then(res => {
+        if (res.data.isGood) {
+          return res;
+        }
+        throw new Error(res.data.msg);
+      });
+    }
   },
   sauce: {
     /** @description Add sauce to DB
