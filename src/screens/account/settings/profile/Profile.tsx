@@ -5,7 +5,7 @@ import { Profile } from "../../../../redux/users/actions";
 import { IProfileUser } from "../../../../redux/users/types";
 import LogoSFYT from "../../../../images/icons/LogoSFYT";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
-import TextInput from "../../../../components/TextInput/TextInput";
+import { TextInput } from "../../../../components/TextInput/TextInput";
 import { Link } from "../../../../components/Link/Link";
 import { AppState } from "../../../../redux/configureStore";
 import {
@@ -13,7 +13,6 @@ import {
   StyledLogoContainer,
   StyledArticle,
   StyledFormContainer,
-  StyledText,
   StyledButton
 } from "./ProfileStyle";
 import {
@@ -31,8 +30,9 @@ export interface ProfileProps {
 export interface ProfileState {
   email: string;
   confirmEmail: string;
+  disabledConfirmEmail: boolean;
   password: string;
-  confirmPassword: string;
+  disabledPassword: boolean;
   displayName: string;
   flashMessage: FlashMessageProps;
 }
@@ -45,8 +45,9 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
     this.state = {
       email: "",
       confirmEmail: "",
+      disabledConfirmEmail: true,
       password: "",
-      confirmPassword: "",
+      disabledPassword: true,
       displayName: "",
       flashMessage: {
         isVisible: false
@@ -84,6 +85,7 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
               <TextInput
                 type="email"
                 onChange={this.onTextChange}
+                disabled={this.state.disabledConfirmEmail}
                 showLabel={true}
                 label={"Confirm Email"}
                 name={"confirmEmail"}
@@ -93,19 +95,11 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
               <TextInput
                 type="password"
                 onChange={this.onTextChange}
+                disabled={true}
                 showLabel={true}
                 label={"Password"}
                 name={"password"}
                 value={this.state.password}
-                required={true}
-              />
-              <TextInput
-                type="password"
-                onChange={this.onTextChange}
-                showLabel={true}
-                label={"Confirm Password"}
-                name={"confirmPassword"}
-                value={this.state.confirmPassword}
                 required={true}
               />
               <TextInput
