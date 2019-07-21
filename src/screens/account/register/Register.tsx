@@ -5,7 +5,7 @@ import { register } from "../../../redux/users/actions";
 import { IRegisterUser } from "../../../redux/users/types";
 import LogoSFYT from "../../../images/icons/LogoSFYT";
 import PageTitle from "../../../components/PageTitle/PageTitle";
-import TextInput from "../../../components/TextInput/TextInput";
+import { TextInput } from "../../../components/TextInput/TextInput";
 import { Link } from "../../../components/Link/Link";
 import { AppState } from "../../../redux/configureStore";
 import {

@@ -1,6 +1,6 @@
 import styled from "../../../../theme/styled-components";
 import DropDown from "../../../../components/DropDown/DropDown";
-import TextInput from "../../../../components/TextInput/TextInput";
+import { TextInput } from "../../../../components/TextInput/TextInput";
 import { Link } from "../../../../components/Link/Link";
 
 export const HeroContainer = styled.div`

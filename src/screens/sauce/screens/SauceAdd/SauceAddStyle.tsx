@@ -1,5 +1,5 @@
 import Descriptor from "../../../../components/Descriptor/Descriptor";
-import TextInput from "../../../../components/TextInput/TextInput";
+import { TextInput } from "../../../../components/TextInput/TextInput";
 import TextArea from "../../../../components/TextArea/TextArea";
 import styled from "../../../../theme/styled-components";
 import { Button } from "../../../../components/Button/Button";

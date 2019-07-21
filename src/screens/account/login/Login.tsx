@@ -5,7 +5,7 @@ import queryString, { OutputParams } from "query-string";
 
 import LogoSFYT from "../../../images/icons/LogoSFYT";
 import PageTitle from "../../../components/PageTitle/PageTitle";
-import TextInput from "../../../components/TextInput/TextInput";
+import { TextInput } from "../../../components/TextInput/TextInput";
 import { Link } from "../../../components/Link/Link";
 import { AppState } from "../../../redux/configureStore";
 import { ILoginUser } from "../../../redux/users/types";
