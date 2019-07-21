@@ -39,7 +39,7 @@ export interface ReviewEditProps {
     data: { user: { token: string }; review: IReview };
   }) => Promise<null>;
   history: { push: (location: string) => any; location: { state?: string } };
-  user: { token?: string };
+  user: { token?: string; displayName?: string };
   location: { pathname: string; search: string };
 }
 
@@ -391,6 +391,13 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
       return null;
     }
 
+    // Make sure we have displayName
+    const displayName = user.displayName;
+    if (!displayName) {
+      history.push("/account/login");
+      return null;
+    }
+
     const data: {
       user: { token: string };
       review: IReview;
@@ -399,7 +406,7 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
       review: {
         ...this.state,
         _id: 0, // Server will overwrite this
-        author: "", // Server will overwrite this
+        author: displayName,
         sauce: slug,
         created: 0 // Server will overwrite this
       }
@@ -433,7 +440,10 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
 
 function mapStateToProps(state: AppState): any {
   return {
-    user: { token: state.users.self.token }
+    user: {
+      token: state.users.self.token,
+      displayName: state.users.self.displayName
+    }
   };
 }
 
