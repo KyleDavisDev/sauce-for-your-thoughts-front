@@ -3,6 +3,7 @@ import * as shortid from "shortid";
 
 import Label from "../Label/Label";
 import { StyledDiv, StyledInput } from "./TextInputStyle";
+import styled from "../../theme/styled-components";
 
 interface TextInputProps {
   id?: string;
@@ -14,6 +15,7 @@ interface TextInputProps {
   type?: "text" | "textarea" | "password" | string; // have to allow 'string' or else styled components complains
   value?: string | number;
   className?: string;
+  disabled?: boolean;
   onChange(
     event:
       | React.ChangeEvent<HTMLInputElement>
@@ -29,7 +31,8 @@ class TextInput extends React.PureComponent<TextInputProps, TextInputState> {
   public static defaultProps = {
     showLabel: false,
     required: false,
-    type: "text"
+    type: "text",
+    disabled: false
   };
 
   public componentWillMount() {
@@ -57,6 +60,9 @@ class TextInput extends React.PureComponent<TextInputProps, TextInputState> {
             placeholder={this.props.placeholder}
             onChange={this.props.onChange}
             required={this.props.required}
+            aria-required={this.props.required}
+            disabled={this.props.disabled}
+            aria-disabled={this.props.disabled}
           />
         )}
       </StyledDiv>
@@ -64,4 +70,15 @@ class TextInput extends React.PureComponent<TextInputProps, TextInputState> {
   }
 }
 
-export default TextInput;
+const StyledTextInput = styled(TextInput)`
+  input {
+    background-color: ${props => (props.disabled ? "#eee" : props.theme.white)};
+
+    :hover,
+    :focus {
+      cursor: ${props => (props.disabled ? "not-allowed" : "pointer")};
+    }
+  }
+`;
+
+export { StyledTextInput as TextInput };
