@@ -120,22 +120,22 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
                 required={true}
               />
               <TextInput
-                type="password"
-                onChange={this.onTextChange}
-                disabled={!this.state.enabled.password}
-                showLabel={true}
-                label={"Password"}
-                name={"password"}
-                value={this.state.enabled.password ? this.state.password : ""}
-                required={true}
-              />
-              <TextInput
                 type="text"
                 onChange={this.onTextChange}
                 showLabel={true}
                 label={"Display Name"}
                 name={"displayName"}
                 value={this.state.updated.displayName}
+                required={true}
+              />
+              <TextInput
+                type="password"
+                onChange={this.onPasswordChange}
+                disabled={!this.toggleConfirmPassword()}
+                showLabel={true}
+                label={"Password"}
+                name={"password"}
+                value={this.state.enabled.password ? this.state.password : ""}
                 required={true}
               />
 
@@ -162,8 +162,26 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
     // Update local state
     this.setState({
       ...this.state,
-      [name]: value,
+      updated: { ...this.state.updated, [name]: value },
       enabled: { ...this.state.enabled, email: enabledEmail }
+    });
+  };
+
+  private onPasswordChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    if (!event || !event.target) {
+      return;
+    }
+    // Grab the name and value
+    let { value }: { name: string; value: string } = event.target;
+
+    // Check if we should enable 'confirm password' box
+    const enabledPassword = enabledEmail;
+    // Update local state
+    this.setState({
+      ...this.state,
+      password: this.state.password
     });
   };
 
@@ -179,7 +197,10 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
   };
 
   private toggleConfirmPassword = (): boolean => {
-    return true;
+    return (
+      validator.isEmail(this.state.updated.email) &&
+      this.state.updated.email === this.state.updated.confirmEmail
+    );
   };
 
   private onSubmit = async (event: React.FormEvent): Promise<any> => {
