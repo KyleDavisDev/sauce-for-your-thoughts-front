@@ -41,9 +41,7 @@ const StyledButton = styled(Button)`
         : props.theme.primaryThemeColor};
     border: ${props => "2px solid " + props.theme.primaryThemeColor};
     color: ${props =>
-      props.displayType === "outline"
-        ? props.theme.primaryThemeColor
-        : props.theme.white};
+      props.displayType === "outline" ? props.theme.black : props.theme.white};
 
     &:hover,
     &:focus {
