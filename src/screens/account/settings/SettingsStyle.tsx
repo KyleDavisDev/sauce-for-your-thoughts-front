@@ -28,6 +28,10 @@ export const StyledText = styled.p`
 
 export const StyledButton = styled(Button)`
   display: inline-block;
+
+  > button {
+    color: #333;
+  }
 `;
 
 export const StyledGroup = styled.div`
