@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import validator from "validator";
 
 import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
+import { updateEmail } from "../../../../redux/users/actions";
 import LogoSFYT from "../../../../images/icons/LogoSFYT";
 import ArrowLeft from "../../../../images/icons/ArrowLeft";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
@@ -20,10 +21,13 @@ import {
   FlashMessage,
   FlashMessageProps
 } from "../../../../components/FlashMessage/FlashMessage";
+import { IUserUpdateEmail } from "../../../../redux/users/types";
+import Auth from "../../../../utils/Auth/Auth";
 
 export interface UpdateEmailProps {
   history: { push: (location: string) => null };
   user: { token: string; displayName: string };
+  updateEmail: ({ data }: { data: IUserUpdateEmail }) => Promise<null>;
 }
 
 export interface UpdateEmailState {
@@ -160,8 +164,11 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     // Prevent normal form submission
     event.preventDefault();
 
+    // Grab variables
+    const { email, confirmEmail, password } = this.state;
+
     // Confirm one last time that the values are the same.
-    if (this.state.email !== this.state.confirmEmail) {
+    if (email !== confirmEmail) {
       this.setState({
         flashMessage: {
           isVisible: true,
@@ -173,7 +180,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     }
 
     // Confirm password is longer than 8 characters
-    if (this.state.password.length < 8) {
+    if (password.length < 8) {
       this.setState({
         flashMessage: {
           isVisible: true,
@@ -183,6 +190,30 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
         }
       });
       return;
+    }
+
+    // Get token or else redirect
+    const token = Auth.getToken();
+    if (!token) {
+      this.props.history.push("/account/login?return=/account/settings/email");
+      return;
+    }
+
+    // Construct data
+    const data: IUserUpdateEmail = {
+      user: { token, email, confirmEmail, password }
+    };
+    try {
+      await this.props.updateEmail({ data });
+    } catch (err) {
+      this.setState({
+        ...this.state,
+        flashMessage: {
+          isVisible: true,
+          text: err.response.data.msg,
+          type: "warning"
+        }
+      });
     }
   };
 
@@ -251,7 +282,10 @@ const mapState2Props = (state: AppState) => {
 };
 
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
-const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({});
+const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
+  updateEmail: ({ data }: { data: IUserUpdateEmail }) =>
+    dispatch(updateEmail({ data }))
+});
 
 export default connect(
   mapState2Props,
