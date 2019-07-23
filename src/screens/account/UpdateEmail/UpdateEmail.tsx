@@ -2,27 +2,27 @@ import * as React from "react";
 import { connect } from "react-redux";
 import validator from "validator";
 
-import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
-import { getInfo } from "../../../../redux/users/actions";
-import LogoSFYT from "../../../../images/icons/LogoSFYT";
-import ArrowLeft from "../../../../images/icons/ArrowLeft";
-import PageTitle from "../../../../components/PageTitle/PageTitle";
-import { TextInput } from "../../../../components/TextInput/TextInput";
-import { Link } from "../../../../components/Link/Link";
-import { Button } from "../../../../components/Button/Button";
+import { AppState, MyThunkDispatch } from "../../../redux/configureStore";
+import { getInfo } from "../../../redux/users/actions";
+import LogoSFYT from "../../../images/icons/LogoSFYT";
+import ArrowLeft from "../../../images/icons/ArrowLeft";
+import PageTitle from "../../../components/PageTitle/PageTitle";
+import { TextInput } from "../../../components/TextInput/TextInput";
+import { Link } from "../../../components/Link/Link";
+import { Button } from "../../../components/Button/Button";
 import {
   StyledDiv,
   StyledLogoContainer,
   StyledArticle,
   StyledFormContainer,
   StyledButtonHolder
-} from "./ProfileStyle";
+} from "./UpdateEmailStyle";
 import {
   FlashMessage,
   FlashMessageProps
-} from "../../../../components/FlashMessage/FlashMessage";
+} from "../../../components/FlashMessage/FlashMessage";
 
-export interface ProfileProps {
+export interface UpdateEmailProps {
   history: { push: (location: string) => null };
   getInfo: ({
     data
@@ -32,7 +32,7 @@ export interface ProfileProps {
   user: { token: string; displayName: string };
 }
 
-export interface ProfileState {
+export interface UpdateEmailState {
   original: {
     email: string;
     displayName: string;
@@ -50,8 +50,8 @@ export interface ProfileState {
   flashMessage: FlashMessageProps;
 }
 
-class Profile extends React.Component<ProfileProps, ProfileState> {
-  constructor(props: ProfileProps) {
+class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
+  constructor(props: UpdateEmailProps) {
     super(props);
 
     // Init state
@@ -92,7 +92,7 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
         </StyledLogoContainer>
         <hr />
         <StyledArticle>
-          <PageTitle>Profile</PageTitle>
+          <PageTitle>Update Email</PageTitle>
           <StyledFormContainer>
             {this.state.flashMessage.isVisible && (
               <FlashMessage type={this.state.flashMessage.type} isVisible>
@@ -264,8 +264,8 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
   //     user: { email, confirmEmail, password, confirmPassword, displayName }
   //   };
   //   try {
-  //     // dispatch action which calls API to Profile user
-  //     const { token } = await this.props.Profile({ credentials });
+  //     // dispatch action which calls API to UpdateEmail user
+  //     const { token } = await this.props.UpdateEmail({ credentials });
 
   //     // Set user to be remembered
   //     Auth.authenticateUser({ token, displayName });
@@ -302,4 +302,4 @@ const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
 export default connect(
   mapState2Props,
   mapDispatch2Props
-)(Profile);
+)(UpdateEmail);
