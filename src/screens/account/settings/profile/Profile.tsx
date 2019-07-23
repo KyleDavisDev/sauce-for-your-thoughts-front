@@ -15,12 +15,14 @@ import {
   StyledLogoContainer,
   StyledArticle,
   StyledFormContainer,
-  StyledButton
+  StyledButton,
+  StyledButtonHolder
 } from "./ProfileStyle";
 import {
   FlashMessage,
   FlashMessageProps
 } from "../../../../components/FlashMessage/FlashMessage";
+import ArrowLeft from "../../../../images/icons/ArrowLeft";
 
 export interface ProfileProps {
   history: { push: (location: string) => null };
@@ -104,7 +106,7 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
                 type="email"
                 onChange={this.onTextChange}
                 showLabel={true}
-                label={"Email"}
+                label={"New Email"}
                 name={"email"}
                 value={this.state.updated.email}
                 required={true}
@@ -114,7 +116,7 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
                 onChange={this.onTextChange}
                 disabled={!this.state.enabled.email}
                 showLabel={true}
-                label={"Confirm Email"}
+                label={"Confirm New Email"}
                 name={"confirmEmail"}
                 value={this.state.updated.confirmEmail}
                 required={true}
@@ -139,7 +141,14 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
                 required={true}
               />
 
-              <StyledButton type="submit">Update</StyledButton>
+              <StyledButtonHolder>
+                <Link to="/account/settings">
+                  <StyledButton type="button" displayType="outline">
+                    <ArrowLeft /> Settings
+                  </StyledButton>
+                </Link>
+                <StyledButton type="submit">Update</StyledButton>
+              </StyledButtonHolder>
             </form>
           </StyledFormContainer>
         </StyledArticle>
