@@ -33,18 +33,10 @@ export interface UpdateEmailProps {
 }
 
 export interface UpdateEmailState {
-  original: {
-    email: string;
-    displayName: string;
-  };
-  updated: {
-    email: string;
-    confirmEmail: string;
-    displayName: string;
-  };
+  email: string;
+  confirmEmail: string;
   password: string;
   enabled: {
-    password: boolean;
     email: boolean;
   };
   flashMessage: FlashMessageProps;
@@ -56,19 +48,11 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
 
     // Init state
     this.state = {
-      original: {
-        email: "",
-        displayName: ""
-      },
-      updated: {
-        email: "",
-        confirmEmail: "",
-        displayName: ""
-      },
+      email: "",
+      confirmEmail: "",
       password: "",
       enabled: {
-        email: false,
-        password: false
+        email: false
       },
       flashMessage: {
         isVisible: false
@@ -106,7 +90,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
                 showLabel={true}
                 label={"New Email"}
                 name={"email"}
-                value={this.state.updated.email}
+                value={this.state.email}
                 required={true}
               />
               <TextInput
@@ -116,16 +100,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
                 showLabel={true}
                 label={"Confirm New Email"}
                 name={"confirmEmail"}
-                value={this.state.updated.confirmEmail}
-                required={true}
-              />
-              <TextInput
-                type="text"
-                onChange={this.onTextChange}
-                showLabel={true}
-                label={"Display Name"}
-                name={"displayName"}
-                value={this.state.updated.displayName}
+                value={this.state.confirmEmail}
                 required={true}
               />
               <TextInput
@@ -135,7 +110,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
                 showLabel={true}
                 label={"Password"}
                 name={"password"}
-                value={this.state.enabled.password ? this.state.password : ""}
+                value={this.state.password}
                 required={true}
               />
 
@@ -164,13 +139,12 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     // Check if we should enable 'confirm email' box
     const enabledEmail = this.toggleConfirmEmail(name, value);
 
-    // Check if we should enable 'confirm password' box
-    const enabledPassword = enabledEmail;
     // Update local state
     this.setState({
       ...this.state,
-      updated: { ...this.state.updated, [name]: value },
-      enabled: { ...this.state.enabled, email: enabledEmail }
+      [name]: value,
+      password: enabledEmail ? "" : this.state.password, // Reset password if necessary
+      enabled: { email: enabledEmail }
     });
   };
 
@@ -181,14 +155,12 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
       return;
     }
     // Grab the name and value
-    let { value }: { name: string; value: string } = event.target;
+    const { value }: { value: string } = event.target;
 
-    // Check if we should enable 'confirm password' box
-    const enabledPassword = enabledEmail;
     // Update local state
     this.setState({
       ...this.state,
-      password: this.state.password
+      password: value
     });
   };
 
@@ -205,8 +177,8 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
 
   private toggleConfirmPassword = (): boolean => {
     return (
-      validator.isEmail(this.state.updated.email) &&
-      this.state.updated.email === this.state.updated.confirmEmail
+      validator.isEmail(this.state.email) &&
+      this.state.email === this.state.confirmEmail
     );
   };
 
