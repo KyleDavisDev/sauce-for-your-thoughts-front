@@ -39,8 +39,8 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
 
     // Init state
     this.state = {
-      email: "",
-      confirmEmail: "",
+      email: "15@gmail.com",
+      confirmEmail: "15@gmail.com",
       password: "",
       flashMessage: {
         isVisible: false
@@ -120,9 +120,6 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     // Grab the name and value
     const { name, value }: { name: string; value: string } = event.target;
 
-    // Check if we should enable 'confirm email' box
-    // const enabledEmail = this.toggleConfirmEmail(name, value);
-
     // Update local state
     this.setState({
       ...this.state,
@@ -160,20 +157,34 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
   };
 
   private onSubmit = async (event: React.FormEvent): Promise<any> => {
-    return;
-  };
-  //   event.preventDefault();
+    // Prevent normal form submission
+    event.preventDefault();
 
-  //   if (this.state.email !== this.state.confirmEmail) {
-  //     this.setState({
-  //       flashMessage: {
-  //         isVisible: true,
-  //         text: "Your emails do not match. Please fix this before continuing.",
-  //         type: "alert"
-  //       }
-  //     });
-  //     return;
-  //   }
+    // Confirm one last time that the values are the same.
+    if (this.state.email !== this.state.confirmEmail) {
+      this.setState({
+        flashMessage: {
+          isVisible: true,
+          text: "Your emails do not match. Please fix this before continuing.",
+          type: "alert"
+        }
+      });
+      return;
+    }
+
+    // Confirm password is longer than 8 characters
+    if (this.state.password.length < 8) {
+      this.setState({
+        flashMessage: {
+          isVisible: true,
+          text:
+            "Your password is too short! Password length must be at least 8 characters.",
+          type: "alert"
+        }
+      });
+      return;
+    }
+  };
 
   //   if (this.state.password !== this.state.confirmPassword) {
   //     this.setState({
