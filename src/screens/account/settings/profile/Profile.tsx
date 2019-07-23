@@ -2,27 +2,25 @@ import * as React from "react";
 import { connect } from "react-redux";
 import validator from "validator";
 
-// import { Profile } from "../../../../redux/users/actions";
-// import { IRegisterUser } from "../../../../redux/users/types";
+import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
+import { getInfo } from "../../../../redux/users/actions";
 import LogoSFYT from "../../../../images/icons/LogoSFYT";
+import ArrowLeft from "../../../../images/icons/ArrowLeft";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
 import { TextInput } from "../../../../components/TextInput/TextInput";
 import { Link } from "../../../../components/Link/Link";
-import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
-import { getInfo } from "../../../../redux/users/actions";
+import { Button } from "../../../../components/Button/Button";
 import {
   StyledDiv,
   StyledLogoContainer,
   StyledArticle,
   StyledFormContainer,
-  StyledButton,
   StyledButtonHolder
 } from "./ProfileStyle";
 import {
   FlashMessage,
   FlashMessageProps
 } from "../../../../components/FlashMessage/FlashMessage";
-import ArrowLeft from "../../../../images/icons/ArrowLeft";
 
 export interface ProfileProps {
   history: { push: (location: string) => null };
@@ -143,11 +141,11 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
 
               <StyledButtonHolder>
                 <Link to="/account/settings">
-                  <StyledButton type="button" displayType="outline">
+                  <Button type="button" displayType="outline">
                     <ArrowLeft /> Settings
-                  </StyledButton>
+                  </Button>
                 </Link>
-                <StyledButton type="submit">Update</StyledButton>
+                <Button type="submit">Update</Button>
               </StyledButtonHolder>
             </form>
           </StyledFormContainer>
