@@ -81,7 +81,7 @@ const Settings = Loadable({
 });
 
 // User settings - profile
-const SettingsProfile = Loadable({
+const UpdateEmail = Loadable({
   loader: () => import("./account/settings/UpdateEmail/UpdateEmail"),
   loading: () => (
     <div>
@@ -132,7 +132,7 @@ const Screens = (
     <Route path="/sauces" component={Sauces} />
     <Route path="/account/register" component={Register} />
     <Route exact path="/account/settings" component={Settings} />
-    <Route path="/account/settings/profile" component={SettingsProfile} />
+    <Route path="/account/settings/email" component={UpdateEmail} />
     <Route path="/account/login" component={Login} />
     <Route path="/reset" component={Reset} />
     <Route exact path="/sauce" component={SauceSpotlight} />
