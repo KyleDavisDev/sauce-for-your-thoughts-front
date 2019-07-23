@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import validator from "validator";
 
 import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
-import { getInfo } from "../../../../redux/users/actions";
 import LogoSFYT from "../../../../images/icons/LogoSFYT";
 import ArrowLeft from "../../../../images/icons/ArrowLeft";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
@@ -24,11 +23,6 @@ import {
 
 export interface UpdateEmailProps {
   history: { push: (location: string) => null };
-  getInfo: ({
-    data
-  }: {
-    data: { user: { token: string }; displayName: string };
-  }) => Promise<null>;
   user: { token: string; displayName: string };
 }
 
@@ -36,9 +30,6 @@ export interface UpdateEmailState {
   email: string;
   confirmEmail: string;
   password: string;
-  enabled: {
-    email: boolean;
-  };
   flashMessage: FlashMessageProps;
 }
 
@@ -51,20 +42,13 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
       email: "",
       confirmEmail: "",
       password: "",
-      enabled: {
-        email: false
-      },
       flashMessage: {
         isVisible: false
       }
     };
   }
 
-  public async componentDidMount() {
-    const { token, displayName } = this.props.user;
-    const data = { user: { token }, displayName };
-    await this.props.getInfo({ data });
-  }
+  public async componentDidMount() {}
 
   public render() {
     return (
@@ -96,7 +80,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
               <TextInput
                 type="email"
                 onChange={this.onTextChange}
-                disabled={!this.state.enabled.email}
+                disabled={!this.toggleConfirmEmail()}
                 showLabel={true}
                 label={"Confirm New Email"}
                 name={"confirmEmail"}
@@ -120,7 +104,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
                     <ArrowLeft /> Settings
                   </Button>
                 </Link>
-                <Button type="submit">Update</Button>
+                <Button type="submit">Update!</Button>
               </StyledButtonHolder>
             </form>
           </StyledFormContainer>
@@ -137,14 +121,13 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     const { name, value }: { name: string; value: string } = event.target;
 
     // Check if we should enable 'confirm email' box
-    const enabledEmail = this.toggleConfirmEmail(name, value);
+    // const enabledEmail = this.toggleConfirmEmail(name, value);
 
     // Update local state
     this.setState({
       ...this.state,
       [name]: value,
-      password: enabledEmail ? "" : this.state.password, // Reset password if necessary
-      enabled: { email: enabledEmail }
+      password: this.toggleConfirmEmail() ? "" : this.state.password // Reset password if necessary
     });
   };
 
@@ -164,15 +147,9 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     });
   };
 
-  private toggleConfirmEmail = (name: string, value: string): boolean => {
-    // Will only consider when the email textbox is being used
-    if (name === "email") {
-      // If textbox has valid email, enable confirm textbox.
-      return validator.isEmail(value) ? true : false;
-    }
-
-    // Return whichever value is already there
-    return this.state.enabled.email;
+  private toggleConfirmEmail = (): boolean => {
+    // If textbox has valid email, enable confirm textbox.
+    return validator.isEmail(this.state.email);
   };
 
   private toggleConfirmPassword = (): boolean => {
@@ -263,13 +240,7 @@ const mapState2Props = (state: AppState) => {
 };
 
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
-const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  getInfo: ({
-    data
-  }: {
-    data: { user: { token: string }; displayName: string };
-  }) => dispatch(getInfo({ data }))
-});
+const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({});
 
 export default connect(
   mapState2Props,
