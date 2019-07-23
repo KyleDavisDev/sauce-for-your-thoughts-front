@@ -49,6 +49,16 @@ export interface ILoginUser {
   };
 }
 
+// Update user email
+export interface IUserUpdateEmail {
+  user: {
+    token: string;
+    email: string;
+    confirmEmail: string;
+    password: string;
+  };
+}
+
 // Action strings
 export const USER_LOGGED_IN = "USER_LOGGED_IN";
 export const USER_LOGGED_OUT = "USER_LOGGED_OUT";
