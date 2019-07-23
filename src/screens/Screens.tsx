@@ -82,7 +82,7 @@ const Settings = Loadable({
 
 // User settings - profile
 const SettingsProfile = Loadable({
-  loader: () => import("./account/settings/profile/Profile"),
+  loader: () => import("./account/settings/UpdateEmail/UpdateEmail"),
   loading: () => (
     <div>
       <Loading />
