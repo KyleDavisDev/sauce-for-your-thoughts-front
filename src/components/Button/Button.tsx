@@ -39,10 +39,7 @@ const StyledButton = styled(Button)`
       props.displayType === "outline"
         ? "transparent"
         : props.theme.primaryThemeColor};
-    border: ${props =>
-      props.displayType === "outline"
-        ? "2px solid " + props.theme.primaryThemeColor
-        : "none"};
+    border: ${props => "2px solid " + props.theme.primaryThemeColor};
     color: ${props =>
       props.displayType === "outline"
         ? props.theme.primaryThemeColor
@@ -55,10 +52,7 @@ const StyledButton = styled(Button)`
         props.displayType === "outline"
           ? "transparent"
           : props.theme.secondaryThemeColor};
-      border: ${props =>
-        props.displayType === "outline"
-          ? "2px solid " + props.theme.secondaryThemeColor
-          : "none"};
+      border: ${props => "2px solid " + props.theme.secondaryThemeColor};
       color: ${props =>
         props.displayType === "outline"
           ? props.theme.secondaryThemeColor
@@ -72,6 +66,9 @@ const StyledButton = styled(Button)`
       }
     }
     svg {
+      width: 20px;
+      padding-left: 10px;
+      transition: all 0.2s ease;
       fill: inherit;
     }
   }
