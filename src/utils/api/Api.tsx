@@ -1,5 +1,9 @@
 import axios, { AxiosPromise } from "axios";
-import { IRegisterUser, ILoginUser } from "../../redux/users/types";
+import {
+  IRegisterUser,
+  ILoginUser,
+  IUserUpdateEmail
+} from "../../redux/users/types";
 import { IReview } from "../../redux/reviews/types";
 
 export const host =
@@ -87,6 +91,35 @@ export const API = {
       data: { user: { token: string }; displayName?: string };
     }): AxiosPromise => {
       return axios.post(`${host}/api/user/getInfo`, data).then(res => {
+        if (res.data.isGood) {
+          return res;
+        }
+        throw new Error(res.data.msg);
+      });
+    },
+    /** @description Update a user's email
+     *  @param {IUserUpdateEmail} data - container for user information
+     *  @param {string} data.user.token - user token
+     *  @param {string} data.user.email - new email address
+     *  @param {string} data.user.confirmEmail - confirmed email adress
+     *  @param {string} data.user.password - user password
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {String} res.data.msg - message accociated with isGood
+     *
+     *  {Array} res.data.user[] - user data
+     *
+     *  {String} res.data.user[].displayName - user's display name
+     *
+     *  {String} res.data.user[].email - user's email
+     *
+     *  @reject {String} error message
+     */
+    updateEmail: ({ data }: { data: IUserUpdateEmail }): AxiosPromise => {
+      return axios.post(`${host}/api/user/update/email`, data).then(res => {
         if (res.data.isGood) {
           return res;
         }
