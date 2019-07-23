@@ -20,9 +20,17 @@ export const StyledButton = styled(Button)`
 
   > button {
     background-color: inherit;
+    border-color: ${props => props.theme.lightGrey};
     transition: none;
     padding: 0.25em;
     margin: 0;
+
+    &:hover {
+      border-color: ${props => props.theme.secondaryThemeColor};
+    }
+    &:focus {
+      border-color: ${props => props.theme.lightGrey};
+    }
 
     &:hover,
     &:focus {
