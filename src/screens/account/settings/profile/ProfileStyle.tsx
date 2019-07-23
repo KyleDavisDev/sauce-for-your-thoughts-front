@@ -24,5 +24,14 @@ export const StyledFormContainer = styled.div`
 `;
 
 export const StyledButton = styled(Button)`
-  text-align: center;
+  button {
+    color: #333;
+  }
+`;
+
+export const StyledButtonHolder = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
 `;
