@@ -23,12 +23,6 @@ export const StyledFormContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const StyledButton = styled(Button)`
-  button {
-    color: #333;
-  }
-`;
-
 export const StyledButtonHolder = styled.div`
   display: flex;
   flex-direction: row;
