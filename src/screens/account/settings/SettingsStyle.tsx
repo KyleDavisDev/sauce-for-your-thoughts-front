@@ -28,16 +28,6 @@ export const StyledText = styled.p`
 
 export const StyledButton = styled(Button)`
   display: inline-block;
-
-  button {
-    color: #333;
-  }
-
-  svg {
-    width: 20px;
-    padding-left: 10px;
-    transition: all 0.2s ease;
-  }
 `;
 
 export const StyledGroup = styled.div`
