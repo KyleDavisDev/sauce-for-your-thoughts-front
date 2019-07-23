@@ -6,7 +6,8 @@ import {
   IUserAction,
   USER_ADDED,
   USER_LOGGED_IN,
-  USER_LOGGED_OUT
+  USER_LOGGED_OUT,
+  IUserUpdateEmail
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 
@@ -148,13 +149,51 @@ export const logout = () => (dispatch: any) => {
   // remove users.self info
   dispatch(userLoggedOut());
 };
-
+/** @description pass credentials to server to log user in
+ *  @param {Object} data - user information container
+ *  @param {string} data.user.token - unique user string
+ *  @param {string?} data.displayName - person we are interested in
+ *  @return {Promise} Promise
+ *  @resolves {Null}
+ *
+ *  @reject {String} error message
+ */
 export const getInfo = ({
   data
 }: {
   data: { user: { token: string }; displayName: string };
 }): MyThunkResult<Promise<null>> => async dispatch => {
   await API.user.getInfo({ data });
+
+  return null;
+};
+
+/** @description pass credentials to server to log user in
+ *  @param {IUserUpdateEmail} data - container for user information
+ *  @param {string} data.user.token - user token
+ *  @param {string} data.user.email - new email address
+ *  @param {string} data.user.confirmEmail - confirmed email adress
+ *  @param {string} data.user.password - user password
+ *  @fires user#userUpdateEmail - set self.token in redux store
+ *  @return {Promise} Promise
+ *  @resolves {Object} token - unique user token
+ *
+ *  {String} token - unique user token
+ *
+ *  {String} displayName - unique user displayName
+ *
+ *  @reject {String} error message
+ */
+export const updateEmail = ({
+  data
+}: {
+  data: IUserUpdateEmail;
+}): MyThunkResult<Promise<null>> => async dispatch => {
+  await API.user.updateEmail({ data });
+
+  // We will have new token so need to update
+  // Dispatch user login
+  // dispatch(userLoggedIn({ token, displayName }));
 
   return null;
 };
