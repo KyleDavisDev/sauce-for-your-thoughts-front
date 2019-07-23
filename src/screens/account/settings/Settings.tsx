@@ -66,10 +66,10 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
           <PageTitle>Settings</PageTitle>
           <StyledContainer>
             <StyledGroup>
-              <h4>Edit Profile</h4>
-              <Link to="/account/settings/profile">
+              <h4>Update email</h4>
+              <Link to="/account/settings/email">
                 <StyledButton type="button">
-                  Edit Profile <ArrowRight />
+                  Update email <ArrowRight />
                 </StyledButton>
               </Link>
             </StyledGroup>
