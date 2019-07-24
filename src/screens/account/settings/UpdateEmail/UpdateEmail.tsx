@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import validator from "validator";
 
 import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
-import { updateEmail } from "../../../../redux/users/actions";
+import { updateEmail, logout } from "../../../../redux/users/actions";
 import LogoSFYT from "../../../../images/icons/LogoSFYT";
 import ArrowLeft from "../../../../images/icons/ArrowLeft";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
@@ -28,6 +28,7 @@ export interface UpdateEmailProps {
   history: { push: (location: string) => null };
   user: { token: string; displayName: string };
   updateEmail: ({ data }: { data: IUserUpdateEmail }) => Promise<null>;
+  logout: () => null;
 }
 
 export interface UpdateEmailState {
@@ -52,7 +53,14 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     };
   }
 
-  public async componentDidMount() {}
+  public async componentDidMount() {
+    // Get token or else redirect
+    const token = Auth.getToken();
+    if (!token) {
+      this.props.history.push("/account/login?return=/account/settings/email");
+      return;
+    }
+  }
 
   public render() {
     return (
@@ -206,8 +214,18 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     try {
       await this.props.updateEmail({ data });
     } catch (err) {
+      // Account locked
+      if (err.response.status === 403) {
+        this.props.logout();
+
+        this.props.history.push("/account/login");
+        return;
+      }
+
+      // Password bad
       this.setState({
         ...this.state,
+        password: "",
         flashMessage: {
           isVisible: true,
           text: err.response.data.msg,
@@ -284,7 +302,8 @@ const mapState2Props = (state: AppState) => {
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
 const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
   updateEmail: ({ data }: { data: IUserUpdateEmail }) =>
-    dispatch(updateEmail({ data }))
+    dispatch(updateEmail({ data })),
+  logout: () => dispatch(logout())
 });
 
 export default connect(
