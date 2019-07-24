@@ -10,6 +10,7 @@ import {
   IUserUpdateEmail
 } from "./types";
 import { MyThunkResult } from "../configureStore";
+import Auth from "../../utils/Auth/Auth";
 
 export const addUsers = ({ user }: { user: IUserState }): IUserAction => {
   return {
@@ -146,6 +147,9 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
  *  @returns {NULL}
  */
 export const logout = () => (dispatch: any) => {
+  // remove token from storage
+  Auth.deauthenticateUser();
+
   // remove users.self info
   dispatch(userLoggedOut());
 };
