@@ -234,65 +234,6 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
       });
     }
   };
-
-  //   if (this.state.password !== this.state.confirmPassword) {
-  //     this.setState({
-  //       flashMessage: {
-  //         isVisible: true,
-  //         text:
-  //           "Your passwords do not match. Please fix this before continuing.",
-  //         type: "alert"
-  //       }
-  //     });
-  //     return;
-  //   }
-
-  //   if (this.state.password.length < 8) {
-  //     this.setState({
-  //       flashMessage: {
-  //         isVisible: true,
-  //         text:
-  //           "Your password is too weak! Please make your password over 8 characters long.",
-  //         type: "alert"
-  //       }
-  //     });
-  //     return;
-  //   }
-
-  //   // Grab values from state
-  //   const {
-  //     email,
-  //     confirmEmail,
-  //     password,
-  //     confirmPassword,
-  //     displayName
-  //   } = this.state;
-
-  //   // Create credentials obj
-  //   const credentials: IRegisterUser = {
-  //     user: { email, confirmEmail, password, confirmPassword, displayName }
-  //   };
-  //   try {
-  //     // dispatch action which calls API to UpdateEmail user
-  //     const { token } = await this.props.UpdateEmail({ credentials });
-
-  //     // Set user to be remembered
-  //     Auth.authenticateUser({ token, displayName });
-
-  //     // Redirect user to sauces page -- Maybe take them to user home page instead?
-  //     this.props.history.push("/sauces");
-  //   } catch (err) {
-  //     const text = Err.getError({ err });
-  //     // Create warning flash
-  //     this.setState({
-  //       flashMessage: {
-  //         isVisible: true,
-  //         text,
-  //         type: "warning"
-  //       }
-  //     });
-  //   }
-  // };
 }
 
 const mapState2Props = (state: AppState) => {
