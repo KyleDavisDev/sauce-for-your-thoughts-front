@@ -44,8 +44,8 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
 
     // Init state
     this.state = {
-      email: "15@gmail.com",
-      confirmEmail: "15@gmail.com",
+      email: "",
+      confirmEmail: "",
       password: "",
       flashMessage: {
         isVisible: false
@@ -75,7 +75,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
           <PageTitle>Update Email</PageTitle>
           <StyledFormContainer>
             {this.state.flashMessage.isVisible && (
-              <FlashMessage type={this.state.flashMessage.type} isVisible>
+              <FlashMessage {...this.state.flashMessage}>
                 {this.state.flashMessage.text}
               </FlashMessage>
             )}
@@ -116,7 +116,9 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
                     <ArrowLeft /> Settings
                   </Button>
                 </Link>
-                <Button type="submit">Update!</Button>
+                <Button type="submit" disabled={!this.toggleUpdateButton()}>
+                  Update!
+                </Button>
               </StyledButtonHolder>
             </form>
           </StyledFormContainer>
@@ -163,9 +165,12 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
 
   private toggleConfirmPassword = (): boolean => {
     return (
-      validator.isEmail(this.state.email) &&
-      this.state.email === this.state.confirmEmail
+      this.toggleConfirmEmail() && this.state.email === this.state.confirmEmail
     );
+  };
+
+  private toggleUpdateButton = (): boolean => {
+    return this.toggleConfirmPassword() && this.state.password.length > 8;
   };
 
   private onSubmit = async (event: React.FormEvent): Promise<any> => {
@@ -213,6 +218,21 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     };
     try {
       await this.props.updateEmail({ data });
+
+      // clear input and display flash
+      this.setState({
+        ...this.state,
+        email: "",
+        confirmEmail: "",
+        password: "",
+        flashMessage: {
+          isVisible: true,
+          text: "Success! Email updated.",
+          type: "success",
+          slug: "/account/settings",
+          slugText: "Back to Settings"
+        }
+      });
     } catch (err) {
       // Account locked
       if (err.response.status === 403) {
@@ -222,7 +242,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
         return;
       }
 
-      // Password bad
+      // Password bad or acc locked so going to reset
       this.setState({
         ...this.state,
         password: "",
