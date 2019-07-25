@@ -67,7 +67,7 @@ const enum colors {
   lightGrey = "#CCCCCC",
   darkGrey = "#555",
   mustard = "#FFA816",
-  darkMustard = "#e28e00",
+  darkMustard = "#c97e00",
   lightMustard = "#fff4e3",
   smoke = "#f5f5f5",
   black = "#333333"
