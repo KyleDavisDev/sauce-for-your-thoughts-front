@@ -145,7 +145,7 @@ export const API = {
      *  @reject {String} error message
      */
     updatePassword: ({ data }: { data: IUserUpdatePassword }): AxiosPromise => {
-      return axios.post(`${host}/api/user/update/email`, data).then(res => {
+      return axios.post(`${host}/api/user/update/password`, data).then(res => {
         if (res.data.isGood) {
           return res;
         }
