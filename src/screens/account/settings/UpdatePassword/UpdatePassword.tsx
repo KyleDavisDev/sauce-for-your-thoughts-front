@@ -26,7 +26,7 @@ import Auth from "../../../../utils/Auth/Auth";
 export interface UpdatePasswordProps {
   history: { push: (location: string) => null };
   user: { token: string; displayName: string };
-  UpdatePassword: ({ data }: { data: IUserUpdatePassword }) => Promise<null>;
+  updatePassword: ({ data }: { data: IUserUpdatePassword }) => Promise<null>;
   logout: () => null;
 }
 
@@ -46,9 +46,9 @@ class UpdatePassword extends React.Component<
 
     // Init state
     this.state = {
-      password: "",
-      newPassword: "",
-      confirmNewPassword: "",
+      password: "2@gmail.com",
+      newPassword: "1@gmail.com",
+      confirmNewPassword: "1@gmail.com",
       flashMessage: {
         isVisible: false
       }
@@ -181,14 +181,15 @@ class UpdatePassword extends React.Component<
     event.preventDefault();
 
     // Grab variables
-    const { email, confirmEmail, password } = this.state;
+    const { newPassword, confirmNewPassword, password } = this.state;
 
     // Confirm one last time that the values are the same.
-    if (email !== confirmEmail) {
+    if (newPassword !== confirmNewPassword) {
       this.setState({
         flashMessage: {
           isVisible: true,
-          text: "Your emails do not match. Please fix this before continuing.",
+          text:
+            "Your passwords do not match. Please fix this before continuing.",
           type: "alert"
         }
       });
@@ -201,7 +202,7 @@ class UpdatePassword extends React.Component<
         flashMessage: {
           isVisible: true,
           text:
-            "Your password is too short! Password length must be at least 8 characters.",
+            "Your new password is too short! Password length must be at least 8 characters.",
           type: "alert"
         }
       });
@@ -217,20 +218,20 @@ class UpdatePassword extends React.Component<
 
     // Construct data
     const data: IUserUpdatePassword = {
-      user: { token, email, confirmEmail, password }
+      user: { token, password, newPassword, confirmNewPassword }
     };
     try {
-      await this.props.UpdatePassword({ data });
+      await this.props.updatePassword({ data });
 
       // clear input and display flash
       this.setState({
         ...this.state,
-        email: "",
-        confirmEmail: "",
         password: "",
+        newPassword: "",
+        confirmNewPassword: "",
         flashMessage: {
           isVisible: true,
-          text: "Success! Email updated.",
+          text: "Success! Password updated.",
           type: "success",
           slug: "/account/settings",
           slugText: "Back to Settings"
@@ -265,8 +266,8 @@ const mapState2Props = (state: AppState) => {
 
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
 const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  UpdatePassword: ({ data }: { data: IUserUpdatePassword }) =>
-    dispatch(UpdatePassword({ data })),
+  updatePassword: ({ data }: { data: IUserUpdatePassword }) =>
+    dispatch(updatePassword({ data })),
   logout: () => dispatch(logout())
 });
 
