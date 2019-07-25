@@ -2,7 +2,8 @@ import axios, { AxiosPromise } from "axios";
 import {
   IRegisterUser,
   ILoginUser,
-  IUserUpdateEmail
+  IUserUpdateEmail,
+  IUserUpdatePassword
 } from "../../redux/users/types";
 import { IReview } from "../../redux/reviews/types";
 
@@ -110,15 +111,40 @@ export const API = {
      *
      *  {String} res.data.msg - message accociated with isGood
      *
-     *  {Array} res.data.user[] - user data
+     *  {Object} res.data.user - user data object
      *
-     *  {String} res.data.user[].displayName - user's display name
+     *  {String} res.data.user.token - unique user token
      *
-     *  {String} res.data.user[].email - user's email
+     *  {String} res.data.user.displayName - user's display name
+     *
+     *  {String} res.data.user.email - user's email
      *
      *  @reject {String} error message
      */
     updateEmail: ({ data }: { data: IUserUpdateEmail }): AxiosPromise => {
+      return axios.post(`${host}/api/user/update/email`, data).then(res => {
+        if (res.data.isGood) {
+          return res;
+        }
+        throw new Error(res.data.msg);
+      });
+    },
+    /** @description Call Server to update password
+     *  @param {IUserUpdatePassword} data - container for user information
+     *  @param {string} data.user.token - user token
+     *  @param {string} data.user.password - original password
+     *  @param {string} data.user.newPassword - new user password
+     *  @param {string} data.user.confirmNewPassword - confirm new user password
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {String} res.data.msg - message accociated with isGood
+     *
+     *  @reject {String} error message
+     */
+    updatePassword: ({ data }: { data: IUserUpdatePassword }): AxiosPromise => {
       return axios.post(`${host}/api/user/update/email`, data).then(res => {
         if (res.data.isGood) {
           return res;
