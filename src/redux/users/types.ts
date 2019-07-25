@@ -65,7 +65,7 @@ export interface IUserUpdatePassword {
     token: string;
     password: string;
     newPassword: string;
-    confrimNewPassword: string;
+    confirmNewPassword: string;
   };
 }
 
