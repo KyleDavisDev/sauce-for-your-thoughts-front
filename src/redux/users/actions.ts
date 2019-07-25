@@ -11,6 +11,7 @@ import {
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 import Auth from "../../utils/Auth/Auth";
+import Err from "../../utils/Err/Err";
 
 export const addUsers = ({ user }: { user: IUserState }): IUserAction => {
   return {
@@ -193,11 +194,25 @@ export const updateEmail = ({
 }: {
   data: IUserUpdateEmail;
 }): MyThunkResult<Promise<null>> => async dispatch => {
-  await API.user.updateEmail({ data });
+  const res = await API.user.updateEmail({ data });
 
-  // We will have new token so need to update
+  // Grab token and name
+  const {
+    token,
+    displayName
+  }: { token?: string; displayName?: string } = res.data.user;
+
+  // If we can't find token, stop
+  if (!token || !displayName) {
+    // throw error
+    throw Err({
+      msg: "Unable to verify your login. Please try again.",
+      status: 400
+    });
+  }
+
   // Dispatch user login
-  // dispatch(userLoggedIn({ token, displayName }));
+  dispatch(userLoggedIn({ token, displayName }));
 
   return null;
 };
