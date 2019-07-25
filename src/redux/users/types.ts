@@ -59,6 +59,16 @@ export interface IUserUpdateEmail {
   };
 }
 
+// Update user password
+export interface IUserUpdatePassword {
+  user: {
+    token: string;
+    password: string;
+    newPassword: string;
+    confrimNewPassword: string;
+  };
+}
+
 // Action strings
 export const USER_LOGGED_IN = "USER_LOGGED_IN";
 export const USER_LOGGED_OUT = "USER_LOGGED_OUT";
