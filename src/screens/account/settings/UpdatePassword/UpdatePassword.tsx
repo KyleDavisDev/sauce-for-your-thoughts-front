@@ -1,9 +1,8 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import validator from "validator";
 
 import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
-import { UpdatePassword, logout } from "../../../../redux/users/actions";
+import { updatePassword, logout } from "../../../../redux/users/actions";
 import LogoSFYT from "../../../../images/icons/LogoSFYT";
 import ArrowLeft from "../../../../images/icons/ArrowLeft";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
