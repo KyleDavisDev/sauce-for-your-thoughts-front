@@ -20,7 +20,6 @@ import {
   FlashMessage,
   FlashMessageProps
 } from "../../../components/FlashMessage/FlashMessage";
-import Err from "../../../utils/Err/Err";
 import Auth from "../../../utils/Auth/Auth";
 
 export interface RegisterProps {
@@ -204,12 +203,11 @@ class Register extends React.Component<RegisterProps, RegisterState> {
       // Redirect user to sauces page -- Maybe take them to user home page instead?
       this.props.history.push("/sauces");
     } catch (err) {
-      const text = Err.getError({ err });
       // Create warning flash
       this.setState({
         flashMessage: {
           isVisible: true,
-          text,
+          text: err.response.data.msg,
           type: "warning"
         }
       });
