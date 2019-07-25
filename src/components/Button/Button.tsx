@@ -12,12 +12,18 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset";
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   style?: React.CSSProperties;
+  disabled?: boolean;
 }
 
 const Button: React.SFC<ButtonProps> = props => {
   return (
     <div className={props.className} style={props.style}>
-      <button onClick={props.onClick} type={props.type}>
+      <button
+        onClick={props.onClick}
+        type={props.type}
+        disabled={props.disabled}
+        aria-disabled={props.disabled}
+      >
         {props.children}
       </button>
     </div>
@@ -26,7 +32,8 @@ const Button: React.SFC<ButtonProps> = props => {
 
 Button.defaultProps = {
   displayType: "outline",
-  type: "button"
+  type: "button",
+  disabled: false
 };
 
 const StyledButton = styled(Button)`
@@ -43,9 +50,40 @@ const StyledButton = styled(Button)`
     color: ${props =>
       props.displayType === "outline" ? props.theme.black : props.theme.white};
 
+    &:disabled {
+      color: ${props =>
+        props.displayType === "outline"
+          ? props.theme.black
+          : props.theme.white};
+      background-color: ${props =>
+        props.displayType === "outline"
+          ? props.theme.lightGrey
+          : props.theme.primaryDarkThemeColor};
+      border: ${props =>
+        props.displayType === "outline"
+          ? "2px solid " + props.theme.lightGrey
+          : "2px solid " + props.theme.primaryDarkThemeColor};
+
+      &:hover,
+      &:focus {
+        color: ${props =>
+          props.displayType === "outline"
+            ? props.theme.black
+            : props.theme.white};
+        background-color: ${props =>
+          props.displayType === "outline"
+            ? props.theme.lightGrey
+            : props.theme.primaryDarkThemeColor};
+        border: ${props =>
+          props.displayType === "outline"
+            ? "2px solid " + props.theme.lightGrey
+            : "2px solid " + props.theme.primaryDarkThemeColor};
+      }
+    }
+
     &:hover,
     &:focus {
-      cursor: pointer;
+      cursor: ${props => (props.disabled ? "not-allowed" : "pointer")};
       background-color: ${props =>
         props.displayType === "outline"
           ? "transparent"
