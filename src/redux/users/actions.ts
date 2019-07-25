@@ -7,7 +7,8 @@ import {
   USER_ADDED,
   USER_LOGGED_IN,
   USER_LOGGED_OUT,
-  IUserUpdateEmail
+  IUserUpdateEmail,
+  IUserUpdatePassword
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 import Auth from "../../utils/Auth/Auth";
@@ -173,7 +174,7 @@ export const getInfo = ({
   return null;
 };
 
-/** @description pass credentials to server to log user in
+/** @description Update a user's email
  *  @param {IUserUpdateEmail} data - container for user information
  *  @param {string} data.user.token - user token
  *  @param {string} data.user.email - new email address
@@ -213,6 +214,28 @@ export const updateEmail = ({
 
   // Dispatch user login
   dispatch(userLoggedIn({ token, displayName }));
+
+  return null;
+};
+
+/** @description pass credentials to server to log user in
+ *  @param {IUserUpdateEmail} data - container for user information
+ *  @param {string} data.user.token - user token
+ *  @param {string} data.user.password - original password
+ *  @param {string} data.user.newPassword - new user password
+ *  @param {string} data.user.confirmNewPassword - confirm new user password
+ *  @return {Promise} Promise
+ *  @resolves {NULL} token - unique user token
+ *
+ *  @reject {IErrReturn} error object
+ */
+export const updatePassword = ({
+  data
+}: {
+  data: IUserUpdatePassword;
+}): MyThunkResult<Promise<null>> => async dispatch => {
+  // Call API
+  await API.user.updatePassword({ data });
 
   return null;
 };
