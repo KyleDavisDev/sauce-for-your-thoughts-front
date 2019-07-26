@@ -41,34 +41,6 @@ export const userLoggedOut = () => ({
   type: USER_LOGGED_OUT
 });
 
-// export const gotUserInfo = ({ _id, email, name }) => ({
-//   type: "USERS_SET_INFO",
-//   _id,
-//   email,
-//   name
-// });
-
-/** @description update a specific user's DB info
- *  @param {Object} credentials - data container
- *    @param {Object} credentials.user - user container
- *      @param {String} credentials.user.token - unique user identifier
- *      @param {String} credentials.user.name - new name to update to
- *      @param {String} credentials.user.email - new email to update to
- *  @fires users#gotUserInfo - set user.self properties
- *  @fires flash#flashSuccess - show user success message
- *  @returns {Promise}
- *    @returns {NULL}
- */
-// export const updateUser = credentials => dispatch =>
-//   api.user.update(credentials).then(res => {
-//     const { email, name } = res.user;
-//     // update by setting again
-//     dispatch(gotUserInfo({ email, name }));
-//     const text = `Your name was saved as: ${name} and your email was saved as: ${email}.`;
-//     dispatch(flashSuccess({ text }));
-//     return res.user;
-//   });
-
 /** @description pass credentials to server to register user
  *  @param {IRegisterUser} credentials - credentials object
  *  @fires user#userLoggedIn - set self.token in redux store
