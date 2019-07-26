@@ -7,7 +7,8 @@ import {
   SAUCES_ADDED,
   SAUCES_REMOVED,
   IAddSaucesAction,
-  SAUCES_UPDATE
+  SAUCES_UPDATE,
+  SAUCES_CLEARED
 } from "./types";
 import { IReviewsState, IReviewAPI } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
@@ -73,6 +74,13 @@ export const updatedSauces = ({
 }: IAddSaucesAction): ISaucesReturnAction => ({
   type: SAUCES_UPDATE,
   bySlug
+});
+
+/** @description Reset sauces in store
+ *  @return {ISaucesAction} sauce and action type
+ */
+export const saucesCleared = (): ISaucesReturnAction => ({
+  type: SAUCES_CLEARED
 });
 
 /** @description grab single sauce related to slug
