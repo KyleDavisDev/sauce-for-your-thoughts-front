@@ -46,9 +46,9 @@ class UpdatePassword extends React.Component<
 
     // Init state
     this.state = {
-      password: "2@gmail.com",
-      newPassword: "1@gmail.com",
-      confirmNewPassword: "1@gmail.com",
+      password: "",
+      newPassword: "",
+      confirmNewPassword: "",
       flashMessage: {
         isVisible: false
       }
