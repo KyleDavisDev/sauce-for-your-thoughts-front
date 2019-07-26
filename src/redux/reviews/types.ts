@@ -3,6 +3,7 @@ import { IUser } from "../users/types";
 // Action strings constants
 export const REVIEWS_ADDED = "REVIEWS_ADDED";
 export const REVIEWS_UPDATED = "REVIEWS_UPDATED";
+export const REVIEWS_CLEARED = "REVIEWS_CLEARED";
 
 export interface IReviewSection {
   rating: number;
@@ -13,7 +14,7 @@ export interface IReviewSection {
 export interface IReviewsAction {
   type: string;
   allReviewIDs?: string[];
-  byReviewID: { [key: string]: IReview };
+  byReviewID?: { [key: string]: IReview };
 }
 
 export interface IReview {
