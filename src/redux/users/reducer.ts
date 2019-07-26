@@ -3,7 +3,8 @@ import {
   IUserAction,
   USER_LOGGED_IN,
   USER_LOGGED_OUT,
-  USER_ADDED
+  USER_ADDED,
+  USER_CLEARED
 } from "./types";
 import { Reducer } from "redux";
 
@@ -43,6 +44,9 @@ const userReducer: Reducer<IUserState> = (
         )
       ];
       return { ...state, byDisplayName, allDisplayNames };
+    }
+    case USER_CLEARED: {
+      return initialState;
     }
 
     default:
