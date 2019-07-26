@@ -69,6 +69,16 @@ export interface IUserUpdatePassword {
   };
 }
 
+// Update user displayname
+export interface IUserUpdateDisplayName {
+  user: {
+    token: string;
+    password: string;
+    displayName: string;
+    confirmDisplayName: string;
+  };
+}
+
 // Action strings
 export const USER_LOGGED_IN = "USER_LOGGED_IN";
 export const USER_LOGGED_OUT = "USER_LOGGED_OUT";
