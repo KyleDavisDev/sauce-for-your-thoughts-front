@@ -18,16 +18,18 @@ const userReducer: Reducer<IUserState> = (
   action: IUserAction
 ): IUserState => {
   switch (action.type) {
-    case USER_LOGGED_IN:
+    case USER_LOGGED_IN: {
       // Set user.self info
       return {
         ...state,
         self: { token: action.token, displayName: action.displayName }
       };
-    case USER_LOGGED_OUT:
+    }
+    case USER_LOGGED_OUT: {
       // remove all user.self stuff
       return { ...state, self: {} };
-    case USER_ADDED:
+    }
+    case USER_ADDED: {
       // This will concat onto dictionary and overwrite an old key if new appears
       const byDisplayName = { ...state.byDisplayName, ...action.byDisplayName };
 
@@ -41,6 +43,8 @@ const userReducer: Reducer<IUserState> = (
         )
       ];
       return { ...state, byDisplayName, allDisplayNames };
+    }
+
     default:
       return state;
   }
