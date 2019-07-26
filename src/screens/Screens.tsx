@@ -100,6 +100,17 @@ const UpdatePassword = Loadable({
   )
 });
 
+// User settings - display name update
+const UpdateDisplayName = Loadable({
+  loader: () =>
+    import("./account/settings/UpdateDisplayName/UpdateDisplayName"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 // User Login
 const Login = Loadable({
   loader: () => import("./account/login/Login"),
@@ -144,6 +155,7 @@ const Screens = (
     <Route exact path="/account/settings" component={Settings} />
     <Route path="/account/settings/email" component={UpdateEmail} />
     <Route path="/account/settings/password" component={UpdatePassword} />
+    <Route path="/account/settings/displayname" component={UpdateDisplayName} />
     <Route path="/account/login" component={Login} />
     <Route path="/reset" component={Reset} />
     <Route exact path="/sauce" component={SauceSpotlight} />
