@@ -222,10 +222,10 @@ class UpdateDisplayName extends React.Component<
 
     // Construct data
     const data: IUserUpdateDisplayName = {
-      user: { token, email, confirmDisplayName, password }
+      user: { token, displayName, confirmDisplayName, password }
     };
     try {
-      await this.props.UpdateDisplayName({ data });
+      await this.props.updateDisplayName({ data });
 
       // clear input and display flash
       this.setState({
@@ -270,8 +270,8 @@ const mapState2Props = (state: AppState) => {
 
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
 const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  UpdateDisplayName: ({ data }: { data: IUserUpdateDisplayName }) =>
-    dispatch(UpdateDisplayName({ data })),
+  updateDisplayName: ({ data }: { data: IUserUpdateDisplayName }) =>
+    dispatch(updateDisplayName({ data })),
   logout: () => dispatch(logout())
 });
 
