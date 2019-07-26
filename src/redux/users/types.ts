@@ -85,3 +85,4 @@ export const USER_LOGGED_OUT = "USER_LOGGED_OUT";
 export const USER_GOT_INFO = "USER_GOT_INFO";
 export const USER_UPDATED = "USER_UPDATED";
 export const USER_ADDED = "USER_ADDED";
+export const USER_CLEARED = "USER_CLEARED";
