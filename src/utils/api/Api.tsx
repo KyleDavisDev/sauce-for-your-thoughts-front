@@ -3,7 +3,8 @@ import {
   IRegisterUser,
   ILoginUser,
   IUserUpdateEmail,
-  IUserUpdatePassword
+  IUserUpdatePassword,
+  IUserUpdateDisplayName
 } from "../../redux/users/types";
 import { IReview } from "../../redux/reviews/types";
 
@@ -151,6 +152,35 @@ export const API = {
         }
         throw new Error(res.data.msg);
       });
+    },
+    /** @description Call Server to update display name
+     *  @param {IUserUpdateDisplayName} data - container for user information
+     *  @param {string} data.user.token - user token
+     *  @param {string} data.user.password - original password
+     *  @param {string} data.user.displayName - new user display name
+     *  @param {string} data.user.confirmDisplayName - confirm new display name
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {String} res.data.msg - message accociated with isGood
+     *
+     *  @reject {String} error message
+     */
+    updateDisplayName: ({
+      data
+    }: {
+      data: IUserUpdateDisplayName;
+    }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/user/update/displayname`, data)
+        .then(res => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
     }
   },
   sauce: {
