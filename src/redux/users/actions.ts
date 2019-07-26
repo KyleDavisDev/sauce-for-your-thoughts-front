@@ -15,6 +15,8 @@ import {
 import { MyThunkResult } from "../configureStore";
 import Auth from "../../utils/Auth/Auth";
 import Err from "../../utils/Err/Err";
+import { saucesCleared } from "../sauces/actions";
+import { reviewsCleared } from "../reviews/actions";
 
 export const addUsers = ({ user }: { user: IUserState }): IUserAction => {
   return {
@@ -24,21 +26,27 @@ export const addUsers = ({ user }: { user: IUserState }): IUserAction => {
   };
 };
 
-// action to log user in
+/** @description Save user data to self since they are logged in now
+ *  @param {String} token - unique user string
+ *  @param {String} displayName - unique person name
+ *  @return {IUserAction} sauce and action type
+ */
 export const userLoggedIn = ({
   token,
   displayName
 }: {
   token: string;
   displayName: string;
-}) => ({
+}): IUserAction => ({
   type: USER_LOGGED_IN,
   token,
   displayName
 });
 
-// remove all users from store
-export const userCleared = ({}) => ({
+/** @description Reset users in store
+ *  @return {IUserAction} sauce and action type
+ */
+export const userCleared = (): IUserAction => ({
   type: USER_CLEARED
 });
 
@@ -242,6 +250,9 @@ export const updateDisplayName = ({
   // If all is good, we need to update displayName in 4 places (1)Sauces, (1)Reviews, (2)Users
   // OR
   // Wipe those and let them repopulate with the updated information (we choose this one for now)
+  dispatch(userCleared()); // Users cleared -- clear 2 references
+  dispatch(saucesCleared()); // Sauces cleared -- clear 1 reference
+  dispatch(reviewsCleared()); // Reviews cleared -- clear 1 refenence
 
   return null;
 };
