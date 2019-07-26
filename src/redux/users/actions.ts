@@ -7,6 +7,7 @@ import {
   USER_ADDED,
   USER_LOGGED_IN,
   USER_LOGGED_OUT,
+  USER_CLEARED,
   IUserUpdateEmail,
   IUserUpdatePassword,
   IUserUpdateDisplayName
@@ -34,6 +35,11 @@ export const userLoggedIn = ({
   type: USER_LOGGED_IN,
   token,
   displayName
+});
+
+// remove all users from store
+export const userCleared = ({}) => ({
+  type: USER_CLEARED
 });
 
 // action to log user out
@@ -128,6 +134,7 @@ export const logout = () => (dispatch: any) => {
   // remove users.self info
   dispatch(userLoggedOut());
 };
+
 /** @description pass credentials to server to log user in
  *  @param {Object} data - user information container
  *  @param {string} data.user.token - unique user string
@@ -231,6 +238,10 @@ export const updateDisplayName = ({
 }): MyThunkResult<Promise<null>> => async dispatch => {
   // Call API
   await API.user.updateDisplayName({ data });
+
+  // If all is good, we need to update displayName in 4 places (1)Sauces, (1)Reviews, (2)Users
+  // OR
+  // Wipe those and let them repopulate with the updated information (we choose this one for now)
 
   return null;
 };
