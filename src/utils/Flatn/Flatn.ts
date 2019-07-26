@@ -7,7 +7,6 @@ import { ISauce, ISaucesState } from "../../redux/sauces/types";
 class Flatn {
   // flatten array of reviews
   public static reviews({ reviews }: { reviews: IReviewAPI[] | IReview[] }) {
-    const allReviewIDs: string[] = [];
     const byReviewID: { [key: string]: IReview } = {};
 
     // Will assign this to reviews if need to.
@@ -20,8 +19,6 @@ class Flatn {
 
       // Make sure review has a hashID or we wont be doing anything with it
       if (!hashID) continue;
-      // Push into array
-      allReviewIDs.push(hashID);
 
       // Add to obj and reassign author to match desired format
       let author = review.author;
@@ -39,12 +36,13 @@ class Flatn {
       }
     }
 
+    const allReviewIDs: string[] = Object.keys(byReviewID);
+
     return { allReviewIDs, byReviewID };
   }
 
   // flatten array of users
   public static users({ users }: { users: IUser[] }): IUserState {
-    const allDisplayNames: string[] = [];
     const byDisplayName: { [key: string]: IUser } = {};
 
     // Will assign this to users if need to.
@@ -53,9 +51,6 @@ class Flatn {
 
     for (let i = 0, len = users.length; i < len; i++) {
       const displayName: string = users[i].displayName;
-
-      // Push into array
-      allDisplayNames.push(displayName);
 
       // Add to obj
       byDisplayName[displayName] = users[i];
@@ -66,12 +61,13 @@ class Flatn {
       }
     }
 
+    const allDisplayNames: string[] = Object.keys(byDisplayName);
+
     return { allDisplayNames, byDisplayName };
   }
 
   // flatten array of sauces
   public static sauces({ sauces }: { sauces: ISauce[] }): ISaucesState {
-    const allSlugs: string[] = [];
     const bySlug: { [key: string]: ISauce } = {};
 
     // Will assign this to sauces if need to.
@@ -82,9 +78,6 @@ class Flatn {
       const slug: string | undefined = sauces[i].slug;
 
       if (!slug) continue;
-
-      // Push into array
-      allSlugs.push(slug);
 
       // Add to obj
       bySlug[slug] = sauces[i];
@@ -99,6 +92,8 @@ class Flatn {
         bySlug[slug]._full = false;
       }
     }
+
+    const allSlugs: string[] = Object.keys(bySlug);
 
     return { allSlugs, bySlug };
   }
