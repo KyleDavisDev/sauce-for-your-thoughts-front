@@ -8,7 +8,8 @@ import {
   USER_LOGGED_IN,
   USER_LOGGED_OUT,
   IUserUpdateEmail,
-  IUserUpdatePassword
+  IUserUpdatePassword,
+  IUserUpdateDisplayName
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 import Auth from "../../utils/Auth/Auth";
@@ -218,7 +219,7 @@ export const updateEmail = ({
   return null;
 };
 
-/** @description pass credentials to server to log user in
+/** @description Call API to update user's password
  *  @param {IUserUpdateEmail} data - container for user information
  *  @param {string} data.user.token - user token
  *  @param {string} data.user.password - original password
@@ -236,6 +237,28 @@ export const updatePassword = ({
 }): MyThunkResult<Promise<null>> => async dispatch => {
   // Call API
   await API.user.updatePassword({ data });
+
+  return null;
+};
+
+/** @description Call API to update user's display name
+ *  @param {IUserUpdateDisplayName} data - container for user information
+ *  @param {string} data.user.token - user token
+ *  @param {string} data.user.password - original password
+ *  @param {string} data.user.displayName - new user display name
+ *  @param {string} data.user.confirmDisplayName - confirm new display name
+ *  @return {Promise} Promise
+ *  @resolves {NULL} token - unique user token
+ *
+ *  @reject {IErrReturn} error object
+ */
+export const updateDisplayName = ({
+  data
+}: {
+  data: IUserUpdateDisplayName;
+}): MyThunkResult<Promise<null>> => async dispatch => {
+  // Call API
+  await API.user.updateDisplayName({ data });
 
   return null;
 };
