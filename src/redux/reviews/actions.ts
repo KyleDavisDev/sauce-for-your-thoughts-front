@@ -4,7 +4,8 @@ import {
   REVIEWS_ADDED,
   REVIEWS_UPDATED,
   IReview,
-  IReviewsState
+  IReviewsState,
+  REVIEWS_CLEARED
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 import Flatn from "../../utils/Flatn/Flatn";
@@ -23,6 +24,15 @@ export const addedReviews = ({
     type: REVIEWS_ADDED,
     allReviewIDs: reviews.allReviewIDs,
     byReviewID: reviews.byReviewID
+  };
+};
+
+/** @description Reset reviews in store
+ *  @return {IReviewsAction}
+ */
+export const reviewsCleared = (): IReviewsAction => {
+  return {
+    type: REVIEWS_CLEARED
   };
 };
 
