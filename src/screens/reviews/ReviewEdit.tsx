@@ -3,6 +3,7 @@ import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 import Rating from "react-rating";
 import queryString, { OutputParams } from "query-string";
+import moment from "moment";
 
 import { IReviewSection, IReview } from "../../redux/reviews/types";
 import { editReview } from "../../redux/reviews/actions";
@@ -408,7 +409,7 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
         _id: 0, // Server will overwrite this
         author: displayName,
         sauce: slug,
-        created: 0 // Server will overwrite this
+        created: moment().unix() // Server will overwrite this but providing info here for redux
       }
     };
 
