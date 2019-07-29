@@ -5,11 +5,15 @@ import {
   StyledFrom,
   StyledDropDown
 } from "./FilterBarStyle";
+import { connect } from "react-redux";
+import { MyThunkDispatch, AppState } from "../../../../redux/configureStore";
 
 export interface FilterBarProps {
   onSubmit: ({ type, order }: { type: string; order: string }) => void;
-  typeSelected?: string;
-  orderSelected?: string;
+  typeFromPath?: string;
+  orderFromPath?: string;
+  types?: { options: string[]; selected: string };
+  order?: { options: string[]; selected: string };
 }
 
 export interface FilterBarState {
@@ -18,56 +22,55 @@ export interface FilterBarState {
   [key: string]: { options: string[]; selected: string };
 }
 
-export default class FilterBar extends React.PureComponent<
-  FilterBarProps,
-  FilterBarState
-> {
+class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
   public constructor(props: FilterBarProps) {
     super(props);
 
     this.state = {
-      types: { options: ["All", "Hot Sauce", "Gravy"], selected: "All" },
-      order: {
-        options: ["Newest", "Name", "Times Reviewed", "Avg Rating"],
-        selected: "Newest"
-      }
+      types: { options: [], selected: this.props.typeFromPath || "" },
+      order: { options: [], selected: this.props.orderFromPath || "" }
     };
   }
 
   public componentWillReceiveProps(props: FilterBarProps) {
-    const typeSelected = props.typeSelected || "All";
-    const orderSelected = props.orderSelected || "Newest";
-    this.setState({
-      ...this.state,
-      type: { ...this.state.type, selected: typeSelected },
-      order: { ...this.state.order, selected: orderSelected }
-    });
+    const { types, order } = props;
+    if (!types || !order) {
+      return;
+    }
+
+    this.setState({ ...this.state, types, order });
   }
 
   public render() {
+    const { types, order } = this.state;
+
     return (
       <StyledFormContainer>
-        <StyledFrom onSubmit={this.onSubmit}>
-          <StyledDropDown
-            showLabel={true}
-            label={"Type"}
-            name={"types"}
-            options={this.state.types.options}
-            onSelect={this.onDropDownChange}
-            selectedValue={this.state.types.selected}
-          />
+        {types && order ? (
+          <StyledFrom onSubmit={this.onSubmit}>
+            <StyledDropDown
+              showLabel={true}
+              label={"Type"}
+              name={"types"}
+              options={types.options}
+              onSelect={this.onDropDownChange}
+              selectedValue={types.selected}
+            />
 
-          <StyledDropDown
-            showLabel={true}
-            label={"Order"}
-            name={"order"}
-            options={this.state.order.options}
-            onSelect={this.onDropDownChange}
-            selectedValue={this.state.order.selected}
-          />
+            <StyledDropDown
+              showLabel={true}
+              label={"Order"}
+              name={"order"}
+              options={order.options}
+              onSelect={this.onDropDownChange}
+              selectedValue={order.selected}
+            />
 
-          <Button type={"submit"}>Filter</Button>
-        </StyledFrom>
+            <Button type={"submit"}>Filter</Button>
+          </StyledFrom>
+        ) : (
+          "Loading..."
+        )}
       </StyledFormContainer>
     );
   }
@@ -91,8 +94,53 @@ export default class FilterBar extends React.PureComponent<
     const { name, value }: { name: string; value: string } = event.target;
 
     this.setState({
-      ...this.state,
       [name]: { ...this.state[name], selected: value }
     });
   };
 }
+
+function mapStateToProps(
+  state: AppState,
+  myProps: FilterBarProps
+): FilterBarProps {
+  // Grab submit
+  const { onSubmit } = myProps;
+
+  // Make sure we have types
+  const { types } = state.sauces;
+  if (types.length === 0 || !types) {
+    return { onSubmit };
+  }
+
+  // Make sure we have orders
+  const { orders } = state.sauces;
+  if (orders.length === 0 || !orders) {
+    return { onSubmit };
+  }
+
+  // Figure out which option should be selected. Do some massaging too.
+  let typeFromPath = myProps.typeFromPath || types[0];
+  typeFromPath = UpperCaseFirstLetter(typeFromPath.toLowerCase());
+  let orderFromPath = myProps.orderFromPath || orders[0];
+  orderFromPath = UpperCaseFirstLetter(orderFromPath.toLowerCase());
+
+  return {
+    types: { options: types, selected: typeFromPath },
+    order: { options: orders, selected: orderFromPath },
+    onSubmit,
+    orderFromPath,
+    typeFromPath
+  };
+}
+
+// For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
+const mapDispatchToProps = (dispatch: MyThunkDispatch) => ({});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FilterBar);
+
+const UpperCaseFirstLetter = (s: string): string => {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
