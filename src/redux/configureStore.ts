@@ -27,6 +27,7 @@ export interface AppState {
     total?: number;
     query?: IQuery;
     types: string[];
+    orders: string[];
     saucesWithNewestReviews: [];
     newest: [];
     featured: [];
@@ -52,6 +53,7 @@ export const configureStore = () => {
       total: 0,
       query: {},
       types: [
+        "All",
         "Hot Sauce",
         "BBQ Sauce",
         "Gravy",
@@ -59,6 +61,7 @@ export const configureStore = () => {
         "Salsa",
         "Meat Sauce"
       ],
+      orders: ["Newest", "Name", "Times Reviewed", "Avg Rating"],
       saucesWithNewestReviews: [],
       newest: [],
       featured: []
