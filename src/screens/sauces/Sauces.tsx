@@ -84,10 +84,25 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     const { page, limit, order, type }: SaucesParams = getParamsFromPath({
       path: props.location.search
     });
-    const { page: pageFromState } = this.state;
+    const {
+      page: pageFromState,
+      limit: limitFromState,
+      order: orderFromState,
+      type: typeFromState
+    } = this.state;
 
-    // Update state if page has changed
-    if (page !== pageFromState) {
+    // Update and call API if anything has changed
+    if (
+      page !== pageFromState ||
+      limit !== limitFromState ||
+      order !== orderFromState ||
+      type !== typeFromState
+    ) {
+      // Construct query string
+      const query = `lim=${limit}&order=${order}&page=${page}&type=${type}`;
+      // Call API
+      this.props.getSaucesByQuery({ query }).catch(err => console.log(err));
+
       this.setState({ ...this.state, page, limit, order, type });
     }
 
@@ -99,8 +114,8 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     const sauces = this.props.sauces ? this.props.sauces : [];
     const count = this.props.count || 0;
     const page = this.props.page || 1;
+    const limit = this.state.limit;
 
-    console.log(sauces);
     return (
       <div>
         <TopBar />
@@ -109,8 +124,8 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
           <PageTitle>Sauces</PageTitle>
           <FilterBar
             onSubmit={this.onSubmit}
-            orderSelected={this.state.order}
-            typeSelected={this.state.type}
+            typeFromPath={this.state.type}
+            orderFromPath={this.state.order}
           />
           <StyledCardContainer>
             {sauces.length > 0 &&
@@ -128,7 +143,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
               })}
           </StyledCardContainer>
           {count > 0 && (
-            <Pagination total={count} page={page} limit={5} range={3} />
+            <Pagination total={count} page={page} limit={limit} range={3} />
           )}
         </StyledArticle>
         <Footer />
@@ -185,7 +200,7 @@ function mapStateToProps(state: AppState, myProps: any): any {
 
   return {
     sauces,
-    total: state.sauces.total || 0,
+    count: state.sauces.total || 0,
     page: page || 1
   };
 }
