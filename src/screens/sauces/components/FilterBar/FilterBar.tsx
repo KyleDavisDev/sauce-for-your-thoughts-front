@@ -8,6 +8,8 @@ import {
 
 export interface FilterBarProps {
   onSubmit: ({ type, order }: { type: string; order: string }) => void;
+  typeSelected?: string;
+  orderSelected?: string;
 }
 
 export interface FilterBarState {
@@ -32,6 +34,16 @@ export default class FilterBar extends React.PureComponent<
     };
   }
 
+  public componentWillReceiveProps(props: FilterBarProps) {
+    const typeSelected = props.typeSelected || "All";
+    const orderSelected = props.orderSelected || "Newest";
+    this.setState({
+      ...this.state,
+      type: { ...this.state.type, selected: typeSelected },
+      order: { ...this.state.order, selected: orderSelected }
+    });
+  }
+
   public render() {
     return (
       <StyledFormContainer>
@@ -54,9 +66,7 @@ export default class FilterBar extends React.PureComponent<
             selectedValue={this.state.order.selected}
           />
 
-          <Button type={"submit"} onClick={() => {}}>
-            Filter
-          </Button>
+          <Button type={"submit"}>Filter</Button>
         </StyledFrom>
       </StyledFormContainer>
     );
