@@ -20,6 +20,11 @@ export interface ISauce {
 }
 
 // Trimmed down for reference only
+export interface ISaucesFromQuery {
+  [key: string]: ISauce | number;
+}
+
+// Trimmed down for reference only
 export interface ISauceRef {
   _id?: number | string;
   slug: string;
@@ -53,7 +58,7 @@ export interface ISaucesState {
 }
 
 export interface IQuery {
-  [key: string]: string[];
+  [key: string]: { sauces: string[]; total: number };
 }
 
 // Params we can pass to API
