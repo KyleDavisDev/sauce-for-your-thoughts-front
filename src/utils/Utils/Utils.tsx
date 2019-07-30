@@ -49,6 +49,38 @@ class Utils {
 
     return { limit, order, page, type };
   }
+
+  /** @description Checks if input is an array or not
+   *  @param {any} input any input
+   *  @returns {Boolean} true if is an array else false
+   */
+  public static isArray(input: any) {
+    return Object.prototype.toString.call(input) === "[object Array]";
+  }
+
+  /** @description Checks if input is an object or not
+   *  @param {any} input any input
+   *  @returns {Boolean} true if is an object else false
+   */
+  public static isObject(input: any) {
+    return Object.prototype.toString.call(input) === "[object Object]";
+  }
+
+  /** @description Checks if input is an string or not
+   *  @param {any} input any input
+   *  @returns {Boolean} true if is an string else false
+   */
+  public static isString(input: any) {
+    return Object.prototype.toString.call(input) === "[object String]";
+  }
+
+  /** @description Checks if input is an number or not
+   *  @param {any} input any input
+   *  @returns {Boolean} true if is an number else false
+   */
+  public static isNumber(input: any) {
+    return Object.prototype.toString.call(input) === "[object Number]";
+  }
 }
 
 export default Utils;
