@@ -137,7 +137,7 @@ export const getSauceBySlug = ({
 
   // Normalize sauce and dispatch
   sauce._full = true; // Set here for Flatn will auto-set to false
-  const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
+  const { allSlugs, bySlug }: ISaucesState = Flatn.saucesArr({
     sauces: [sauce]
   });
 
@@ -176,22 +176,20 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
 export const getSaucesByQuery = ({
   query
 }: {
-  query?: string;
+  query: string;
 }): MyThunkResult<Promise<null>> => async dispatch => {
   const res = await API.sauces.getByQuery({ query });
 
   // Normalize sauces
-  const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
+  const { allSlugs, bySlug }: ISaucesState = Flatn.saucesObj({
     sauces: res.data.sauces
   });
 
+  console.log(res.data.sauces);
+
   // format query as expected
   const tmpQuery: IQuery = {};
-  if (query) {
-    tmpQuery[query] = allSlugs || [];
-  } else {
-    tmpQuery.default = allSlugs;
-  }
+  tmpQuery[query] = { sauces: allSlugs || [], total: res.data.sauces.total };
 
   // dispatch sauce
   dispatch(
@@ -211,7 +209,7 @@ export const getSaucesByNewest = (): MyThunkResult<
   const res = await API.sauces.getByNewest();
 
   // Normalize sauces
-  const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
+  const { allSlugs, bySlug }: ISaucesState = Flatn.saucesArr({
     sauces: res.data.saucesByNewest
   });
 
@@ -231,7 +229,7 @@ export const getSaucesByFeatured = (): MyThunkResult<
   const res = await API.sauces.getByFeatured();
 
   // Normalize sauces
-  const { allSlugs, bySlug }: ISaucesState = Flatn.sauces({
+  const { allSlugs, bySlug }: ISaucesState = Flatn.saucesArr({
     sauces: res.data.saucesByFeatured
   });
 
