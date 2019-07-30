@@ -176,10 +176,13 @@ function mapStateToProps(state: AppState, myProps: any): any {
   // Construct key string
   const key = `lim=${limit}&order=${order}&page=${page}&type=${type}`;
 
+  const { query } = state.sauces;
+  if (!query || Object.keys(query).length === 0) {
+    return {};
+  }
+
   // Find the sauces we will render by first getting the array of slugs
-  const sauceSlugs2Render: string[] | undefined = state.sauces.query
-    ? state.sauces.query[key]
-    : [];
+  const sauceSlugs2Render: string[] = query ? query[key].sauces : [];
 
   // Make sure we have something to work with
   if (!sauceSlugs2Render || sauceSlugs2Render.length === 0) return {};
@@ -207,7 +210,7 @@ function mapStateToProps(state: AppState, myProps: any): any {
 
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
 const mapDispatchToProps = (dispatch: MyThunkDispatch) => ({
-  getSaucesByQuery: ({ query }: { query?: string }) =>
+  getSaucesByQuery: ({ query }: { query: string }) =>
     dispatch(getSaucesByQuery({ query }))
 });
 
