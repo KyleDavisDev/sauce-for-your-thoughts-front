@@ -185,15 +185,13 @@ export const getSaucesByQuery = ({
     sauces: res.data.sauces
   });
 
-  console.log(res.data.sauces);
-
   // format query as expected
   const tmpQuery: IQuery = {};
   tmpQuery[query] = { sauces: allSlugs || [], total: res.data.sauces.total };
 
   // dispatch sauce
   dispatch(
-    addedSauces({ allSlugs, bySlug, query: tmpQuery, total: res.data.count })
+    addedSauces({ allSlugs, bySlug, query: tmpQuery, total: res.data.total })
   );
   return null;
 };
