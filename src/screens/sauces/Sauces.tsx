@@ -71,7 +71,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     // If we don't have sauces, go look for them!
     if (!this.props.sauces) {
       // Construct query string
-      const query = `lim=${limit}&order=${order}&page=${page}&type=${type}`;
+      const query = `limit=${limit}&order=${order}&page=${page}&type=${type}`;
       // Call API
       this.props.getSaucesByQuery({ query }).catch(err => console.log(err));
 
@@ -99,7 +99,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
       type !== typeFromState
     ) {
       // Construct query string
-      const query = `lim=${limit}&order=${order}&page=${page}&type=${type}`;
+      const query = `limit=${limit}&order=${order}&page=${page}&type=${type}`;
       // Call API
       this.props.getSaucesByQuery({ query }).catch(err => console.log(err));
 
@@ -126,6 +126,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
             onSubmit={this.onSubmit}
             typeFromPath={this.state.type}
             orderFromPath={this.state.order}
+            limitFromPath={this.state.limit}
           />
           <StyledCardContainer>
             {sauces.length > 0 &&
@@ -151,14 +152,22 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     );
   }
 
-  private onSubmit = ({ type, order }: { type: string; order: string }) => {
+  private onSubmit = ({
+    type,
+    order,
+    limit
+  }: {
+    type: string;
+    order: string;
+    limit: string;
+  }) => {
     // Get any params from path
     const params: SaucesParams = getParamsFromPath({
       path: this.props.location.search
     });
 
     // Construct query string
-    const query = `/sauces?lim=${params.limit}&order=${order}&page=${
+    const query = `/sauces?limit=${limit}&order=${order}&page=${
       params.page
     }&type=${type}`;
 
@@ -174,10 +183,16 @@ function mapStateToProps(state: AppState, myProps: any): any {
   });
 
   // Construct key string
-  const key = `lim=${limit}&order=${order}&page=${page}&type=${type}`;
+  const key = `limit=${limit}&order=${order}&page=${page}&type=${type}`;
 
+  // Get query and sanity check
   const { query } = state.sauces;
   if (!query || Object.keys(query).length === 0) {
+    return {};
+  }
+
+  // Make sure we have a query[key]
+  if (!query[key]) {
     return {};
   }
 
@@ -203,7 +218,7 @@ function mapStateToProps(state: AppState, myProps: any): any {
 
   return {
     sauces,
-    count: state.sauces.total || 0,
+    count: query[key].total,
     page: page || 1
   };
 }
