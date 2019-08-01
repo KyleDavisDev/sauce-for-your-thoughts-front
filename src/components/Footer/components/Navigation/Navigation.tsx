@@ -12,11 +12,11 @@ const StyledList = styled(List)`
 
 class Navigation extends React.PureComponent {
   private items = [
-    { link: "#", text: "Home" },
-    { link: "#", text: "All Sauces" },
-    { link: "#", text: "Add Sauce" },
-    { link: "#", text: "Register" },
-    { link: "#", text: "Log In" }
+    { link: "/", text: "Home" },
+    { link: "/sauces", text: "All Sauces" },
+    { link: "/sauce/add", text: "Add Sauce" },
+    { link: "/account/register", text: "Register" },
+    { link: "/account/login", text: "Log In" }
   ];
 
   public render() {
