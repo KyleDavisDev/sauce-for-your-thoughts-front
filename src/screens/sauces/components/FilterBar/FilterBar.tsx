@@ -9,9 +9,17 @@ import { connect } from "react-redux";
 import { MyThunkDispatch, AppState } from "../../../../redux/configureStore";
 
 export interface FilterBarProps {
-  onSubmit: ({ type, order }: { type: string; order: string }) => void;
+  onSubmit: ({
+    type,
+    order
+  }: {
+    type: string;
+    order: string;
+    limit: string;
+  }) => void;
   typeFromPath?: string;
   orderFromPath?: string;
+  limitFromPath?: string;
   types?: { options: string[]; selected: string };
   order?: { options: string[]; selected: string };
 }
@@ -19,6 +27,7 @@ export interface FilterBarProps {
 export interface FilterBarState {
   types: { options: string[]; selected: string };
   order: { options: string[]; selected: string };
+  limit: { options: string[]; selected: string };
   [key: string]: { options: string[]; selected: string };
 }
 
@@ -28,7 +37,11 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
 
     this.state = {
       types: { options: [], selected: this.props.typeFromPath || "" },
-      order: { options: [], selected: this.props.orderFromPath || "" }
+      order: { options: [], selected: this.props.orderFromPath || "" },
+      limit: {
+        options: ["5", "10", "15", "25", "50"],
+        selected: this.props.limitFromPath || "15"
+      }
     };
   }
 
@@ -42,7 +55,7 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
   }
 
   public render() {
-    const { types, order } = this.state;
+    const { types, order, limit } = this.state;
 
     return (
       <StyledFormContainer>
@@ -66,6 +79,15 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
               selectedValue={order.selected}
             />
 
+            <StyledDropDown
+              showLabel={true}
+              label={"Limit"}
+              name={"limit"}
+              options={limit.options}
+              onSelect={this.onDropDownChange}
+              selectedValue={limit.selected}
+            />
+
             <Button type={"submit"}>Filter</Button>
           </StyledFrom>
         ) : (
@@ -82,7 +104,8 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
     // Lift values to parent
     this.props.onSubmit({
       type: this.state.types.selected,
-      order: this.state.order.selected
+      order: this.state.order.selected,
+      limit: this.state.limit.selected
     });
   };
 
@@ -120,9 +143,9 @@ function mapStateToProps(
 
   // Figure out which option should be selected. Do some massaging too.
   let typeFromPath = myProps.typeFromPath || types[0];
-  typeFromPath = UpperCaseFirstLetter(typeFromPath.toLowerCase());
+  typeFromPath = typeFromPath.toLowerCase();
   let orderFromPath = myProps.orderFromPath || orders[0];
-  orderFromPath = UpperCaseFirstLetter(orderFromPath.toLowerCase());
+  orderFromPath = orderFromPath.toLowerCase();
 
   return {
     types: { options: types, selected: typeFromPath },
