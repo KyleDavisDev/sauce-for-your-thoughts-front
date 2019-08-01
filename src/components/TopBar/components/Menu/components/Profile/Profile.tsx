@@ -18,7 +18,7 @@ interface ProfileProps {
 class Profile extends React.PureComponent<ProfileProps, any> {
   public render() {
     return (
-      <StyledLink href="#PathToProfile">
+      <StyledLink href="#">
         <StyledHead>
           <div>
             <StyledImage
@@ -39,7 +39,7 @@ class Profile extends React.PureComponent<ProfileProps, any> {
         </StyledHead>
 
         <StyledFoot>
-          <Button displayType="outline">View profile</Button>
+          <Button displayType="outline">View profile (Coming Soon)</Button>
         </StyledFoot>
       </StyledLink>
     );

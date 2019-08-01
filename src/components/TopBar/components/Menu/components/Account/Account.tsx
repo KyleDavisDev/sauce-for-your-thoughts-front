@@ -16,7 +16,7 @@ class Account extends React.PureComponent<AccountProps, any> {
       <div>
         <StyledTitle>Account</StyledTitle>
         <Item to="/account/settings">Settings</Item>
-        <Item to="#profile">Profile</Item>
+        <Item to="#">Profile (Coming Soon)</Item>
       </div>
     );
   }

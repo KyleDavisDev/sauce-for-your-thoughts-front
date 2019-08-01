@@ -15,8 +15,8 @@ class Help extends React.PureComponent<HelpProps, any> {
     return (
       <div>
         <StyledTitle>Need Help?</StyledTitle>
-        <Item to="#quickguide">Quick Guide</Item>
-        <Item to="#contactus">Contact Us</Item>
+        <Item to="#">Quick Guide (Coming Soon)</Item>
+        <Item to="#">Contact Us (Coming Soon)</Item>
       </div>
     );
   }
