@@ -49,7 +49,7 @@ class DropDown extends React.PureComponent<DropDownProps, DropDownState> {
           >
             {this.props.options.map(opt => {
               return (
-                <option key={shortid.generate()} value={opt}>
+                <option key={shortid.generate()} value={opt.toLowerCase()}>
                   {opt}
                 </option>
               );
