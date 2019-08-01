@@ -18,7 +18,10 @@ export interface TypesProps {
 
 class Types extends React.PureComponent<TypesProps, any> {
   private items = this.props.types.map(type => {
-    return { link: "#", text: type };
+    return {
+      link: `/sauces?limit=15&order=newest&page=1&type=${type}`,
+      text: type
+    };
   });
 
   public render() {
