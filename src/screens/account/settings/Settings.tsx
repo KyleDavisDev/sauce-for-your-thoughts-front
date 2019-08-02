@@ -84,6 +84,15 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
             </StyledGroup>
 
             <StyledGroup>
+              <h4>Update Avatar</h4>
+              <Link to="/account/settings/avatar">
+                <StyledButton type="button">
+                  Update Avatar <ArrowRight />
+                </StyledButton>
+              </Link>
+            </StyledGroup>
+
+            <StyledGroup>
               <h4>Update Password</h4>
               <Link to="/account/settings/password">
                 <StyledButton type="button">
