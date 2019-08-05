@@ -22,6 +22,8 @@ import {
 } from "../../../../components/FlashMessage/FlashMessage";
 import { IUserUpdateAvatar } from "../../../../redux/users/types";
 import Auth from "../../../../utils/Auth/Auth";
+import { API } from "../../../../utils/api/API";
+import { RadioButton } from "../../../../components/RadioButton/RadioButton";
 
 export interface UpdateAvatarProps {
   history: { push: (location: string) => null };
@@ -31,8 +33,7 @@ export interface UpdateAvatarProps {
 }
 
 export interface UpdateAvatarState {
-  displayName: string;
-  confirmDisplayName: string;
+  urls: string[];
   password: string;
   flashMessage: FlashMessageProps;
 }
@@ -46,8 +47,7 @@ class UpdateAvatar extends React.Component<
 
     // Init state
     this.state = {
-      displayName: "",
-      confirmDisplayName: "",
+      urls: [],
       password: "",
       flashMessage: {
         isVisible: false
@@ -62,9 +62,21 @@ class UpdateAvatar extends React.Component<
       this.props.history.push("/account/login?return=/account/settings/email");
       return;
     }
+
+    const urls = await API.image
+      .getAvatarURLs({ user: { token } })
+      .then(res => {
+        return res.data.urls;
+      })
+      .catch(err => console.log(err));
+
+    // console.log(urls);
+    this.setState({ ...this.state, urls });
   }
 
   public render() {
+    const { urls } = this.state;
+
     return (
       <StyledDiv>
         <StyledLogoContainer>
@@ -82,6 +94,18 @@ class UpdateAvatar extends React.Component<
               </FlashMessage>
             )}
             <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
+              {urls.map(url => {
+                return (
+                  <RadioButton
+                    label={this.avatarImage(url)}
+                    checked={false}
+                    id={url}
+                    name={"Avatar"}
+                    value={url}
+                    onClick={() => {}}
+                  />
+                );
+              })}
               <StyledButtonHolder>
                 <Link to="/account/settings">
                   <Button type="button" displayType="outline">
@@ -103,83 +127,85 @@ class UpdateAvatar extends React.Component<
     // Prevent normal form submission
     event.preventDefault();
 
-    // Grab variables
-    const { displayName, confirmDisplayName, password } = this.state;
+    // // Grab variables
+    // const { displayName, confirmDisplayName, password } = this.state;
 
-    // Confirm one last time that the values are the same.
-    if (displayName !== confirmDisplayName) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text: "Your emails do not match. Please fix this before continuing.",
-          type: "alert"
-        }
-      });
-      return;
-    }
+    // // Confirm one last time that the values are the same.
+    // if (displayName !== confirmDisplayName) {
+    //   this.setState({
+    //     flashMessage: {
+    //       isVisible: true,
+    //       text: "Your emails do not match. Please fix this before continuing.",
+    //       type: "alert"
+    //     }
+    //   });
+    //   return;
+    // }
 
-    // Confirm password is longer than 8 characters
-    if (password.length < 8) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text:
-            "Your password is too short! Password length must be at least 8 characters.",
-          type: "alert"
-        }
-      });
-      return;
-    }
+    // // Confirm password is longer than 8 characters
+    // if (password.length < 8) {
+    //   this.setState({
+    //     flashMessage: {
+    //       isVisible: true,
+    //       text:
+    //         "Your password is too short! Password length must be at least 8 characters.",
+    //       type: "alert"
+    //     }
+    //   });
+    //   return;
+    // }
 
-    // Get token or else redirect
-    const token = Auth.getToken();
-    if (!token) {
-      this.props.history.push("/account/login?return=/account/settings/email");
-      return;
-    }
+    // // Get token or else redirect
+    // const token = Auth.getToken();
+    // if (!token) {
+    //   this.props.history.push("/account/login?return=/account/settings/email");
+    //   return;
+    // }
 
-    // Construct data
-    const data: IUserUpdateAvatar = {
-      user: { token, displayName, confirmDisplayName, password }
-    };
-    try {
-      await this.props.UpdateAvatar({ data });
+    // // Construct data
+    // const data: IUserUpdateAvatar = {
+    //   user: { token, displayName, confirmDisplayName, password }
+    // };
+    // try {
+    //   await this.props.UpdateAvatar({ data });
 
-      // clear input and display flash
-      this.setState({
-        ...this.state,
-        displayName: "",
-        confirmDisplayName: "",
-        password: "",
-        flashMessage: {
-          isVisible: true,
-          text: "Success! Display Name updated.",
-          type: "success",
-          slug: "/account/settings",
-          slugText: "Back to Settings"
-        }
-      });
-    } catch (err) {
-      // Account locked
-      if (err.response.status === 403) {
-        this.props.logout();
+    //   // clear input and display flash
+    //   this.setState({
+    //     ...this.state,
+    //     password: "",
+    //     flashMessage: {
+    //       isVisible: true,
+    //       text: "Success! Display Name updated.",
+    //       type: "success",
+    //       slug: "/account/settings",
+    //       slugText: "Back to Settings"
+    //     }
+    //   });
+    // } catch (err) {
+    //   // Account locked
+    //   if (err.response.status === 403) {
+    //     this.props.logout();
 
-        this.props.history.push("/account/login");
-        return;
-      }
+    //     this.props.history.push("/account/login");
+    //     return;
+    //   }
 
-      // Password bad or acc locked so going to reset
-      this.setState({
-        ...this.state,
-        password: "",
-        flashMessage: {
-          isVisible: true,
-          text: err.response.data.msg,
-          type: "warning"
-        }
-      });
-    }
+    //   // Password bad or acc locked so going to reset
+    //   this.setState({
+    //     ...this.state,
+    //     password: "",
+    //     flashMessage: {
+    //       isVisible: true,
+    //       text: err.response.data.msg,
+    //       type: "warning"
+    //     }
+    //   });
+    // }
   };
+
+  private avatarImage(url: string): JSX.Element {
+    return <img src={url} />;
+  }
 
   private authorContribution(): JSX.Element {
     return (
