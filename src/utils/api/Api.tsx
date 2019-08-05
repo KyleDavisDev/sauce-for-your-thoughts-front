@@ -386,5 +386,29 @@ export const API = {
         throw new Error(res.data.msg);
       });
     }
+  },
+
+  image: {
+    /** @description Get the URL paths to avatars
+     *  @param {Object} data data object
+     *    @param {string} data.user.token user's unique token
+     *    @param {IReview} data.review - review info
+     *  @return {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {String[]} res.data.urls[] - Array of paths
+     *
+     *  @reject {String} error message
+     */
+    getAvatarURLs: (data: { user: { token: string } }): AxiosPromise => {
+      return axios.post(`${host}/api/images/getAvatars`, data).then(res => {
+        if (res.data.isGood) {
+          return res;
+        }
+        throw new Error(res.data.msg);
+      });
+    }
   }
 };
