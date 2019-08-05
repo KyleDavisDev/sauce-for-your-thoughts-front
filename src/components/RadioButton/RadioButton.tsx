@@ -6,7 +6,7 @@ interface RadioButtonProps {
   checked: boolean;
   id: string;
   value: string;
-  label: string;
+  label: string | JSX.Element | Element;
   onClick: (event: React.MouseEvent<HTMLInputElement>) => void;
   name: string;
   className?: string;
