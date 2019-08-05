@@ -6,15 +6,16 @@ interface RadioButtonProps {
   checked: boolean;
   id: string;
   value: string;
-  label: string | JSX.Element | Element;
+  label: string | JSX.Element;
   onClick: (event: React.MouseEvent<HTMLInputElement>) => void;
   name: string;
   className?: string;
+  key?: string;
 }
 
 const RadioButton: React.SFC<RadioButtonProps> = props => {
   return (
-    <div className={props.className}>
+    <div className={props.className} key={props.key}>
       <Label htmlFor={props.id}>
         <input
           defaultChecked={props.checked}
