@@ -6,7 +6,6 @@ import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
 import LogoSFYT from "../../../../images/icons/LogoSFYT";
 import ArrowLeft from "../../../../images/icons/ArrowLeft";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
-import { TextInput } from "../../../../components/TextInput/TextInput";
 import { Link } from "../../../../components/Link/Link";
 import { Button } from "../../../../components/Button/Button";
 import {
@@ -14,7 +13,9 @@ import {
   StyledLogoContainer,
   StyledArticle,
   StyledFormContainer,
-  StyledButtonHolder
+  StyledButtonHolder,
+  StyledRadioButton,
+  StyledAvatarImg
 } from "./UpdateAvatarStyle";
 import {
   FlashMessage,
@@ -23,7 +24,6 @@ import {
 import { IUserUpdateAvatar } from "../../../../redux/users/types";
 import Auth from "../../../../utils/Auth/Auth";
 import { API } from "../../../../utils/api/API";
-import { RadioButton } from "../../../../components/RadioButton/RadioButton";
 
 export interface UpdateAvatarProps {
   history: { push: (location: string) => null };
@@ -96,11 +96,12 @@ class UpdateAvatar extends React.Component<
             <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
               {urls.map(url => {
                 return (
-                  <RadioButton
+                  <StyledRadioButton
                     label={this.avatarImage(url)}
                     checked={false}
                     id={url}
                     name={"Avatar"}
+                    key={url}
                     value={url}
                     onClick={() => {}}
                   />
@@ -204,7 +205,7 @@ class UpdateAvatar extends React.Component<
   };
 
   private avatarImage(url: string): JSX.Element {
-    return <img src={url} />;
+    return <StyledAvatarImg src={url} />;
   }
 
   private authorContribution(): JSX.Element {
