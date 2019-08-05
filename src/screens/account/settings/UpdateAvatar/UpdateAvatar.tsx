@@ -1,5 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
+import shortid from "shortid";
 
 import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
 // import { UpdateAvatar, logout } from "../../../../redux/users/actions";
@@ -101,7 +102,7 @@ class UpdateAvatar extends React.Component<
                     checked={false}
                     id={url}
                     name={"Avatar"}
-                    key={url}
+                    key={shortid.generate()}
                     value={url}
                     onClick={() => {}}
                   />
