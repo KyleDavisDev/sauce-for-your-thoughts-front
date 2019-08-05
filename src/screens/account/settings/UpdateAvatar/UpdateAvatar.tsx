@@ -34,7 +34,7 @@ export interface UpdateAvatarProps {
 }
 
 export interface UpdateAvatarState {
-  urls: string[];
+  urls: Array<{ key: string; path: string }>;
   password: string;
   flashMessage: FlashMessageProps;
 }
@@ -64,12 +64,16 @@ class UpdateAvatar extends React.Component<
       return;
     }
 
-    const urls = await API.image
+    const strings: string[] = await API.image
       .getAvatarURLs({ user: { token } })
       .then(res => {
         return res.data.urls;
       })
       .catch(err => console.log(err));
+
+    const urls = strings.map((str: string) => {
+      return { key: shortid.generate(), path: str };
+    });
 
     // console.log(urls);
     this.setState({ ...this.state, urls });
@@ -98,13 +102,13 @@ class UpdateAvatar extends React.Component<
               {urls.map(url => {
                 return (
                   <StyledRadioButton
-                    label={this.avatarImage(url)}
+                    label={this.avatarImage(url.path)}
                     checked={false}
-                    id={url}
+                    id={url.key}
                     name={"Avatar"}
-                    key={shortid.generate()}
-                    value={url}
-                    onClick={() => {}}
+                    key={url.key}
+                    value={url.key}
+                    onClick={this.onRadioClick}
                   />
                 );
               })}
@@ -232,6 +236,12 @@ class UpdateAvatar extends React.Component<
       </div>
     );
   }
+
+  private onRadioClick = (event: React.MouseEvent<HTMLInputElement>) => {
+    if (!event || !event.target) {
+      return;
+    }
+  };
 }
 
 const mapState2Props = (state: AppState) => {
