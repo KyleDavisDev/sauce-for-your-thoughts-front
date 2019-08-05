@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Article from "../../../../components/Article/Article";
+import { RadioButton } from "../../../../components/RadioButton/RadioButton";
 
 export const StyledDiv = styled.div`
   height: 100vh;
@@ -27,4 +28,12 @@ export const StyledButtonHolder = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
+`;
+
+export const StyledRadioButton = styled(RadioButton)`
+  max-width: 25%;
+`;
+
+export const StyledAvatarImg = styled.img`
+  max-width: 100%;
 `;
