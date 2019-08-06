@@ -195,10 +195,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
     };
     try {
       // dispatch action which calls API to register user
-      const { token } = await this.props.register({ credentials });
-
-      // Set user to be remembered
-      Auth.authenticateUser({ token, displayName });
+      await this.props.register({ credentials });
 
       // Redirect user to sauces page -- Maybe take them to user home page instead?
       this.props.history.push("/sauces");
