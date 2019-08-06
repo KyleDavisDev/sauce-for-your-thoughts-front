@@ -37,6 +37,7 @@ export interface UpdateAvatarState {
   urls: Array<{ key: string; path: string }>;
   password: string;
   flashMessage: FlashMessageProps;
+  selected: string;
 }
 
 class UpdateAvatar extends React.Component<
@@ -49,6 +50,7 @@ class UpdateAvatar extends React.Component<
     // Init state
     this.state = {
       urls: [],
+      selected: "",
       password: "",
       flashMessage: {
         isVisible: false
@@ -103,7 +105,7 @@ class UpdateAvatar extends React.Component<
                 return (
                   <StyledRadioButton
                     label={this.avatarImage(url.path)}
-                    checked={false}
+                    checked={url.key === this.state.selected}
                     id={url.key}
                     name={"Avatar"}
                     key={url.key}
@@ -241,6 +243,10 @@ class UpdateAvatar extends React.Component<
     if (!event || !event.target) {
       return;
     }
+
+    const { id }: { id: string } = event.target as HTMLTextAreaElement;
+
+    this.setState({ ...this.state, selected: id });
   };
 }
 
