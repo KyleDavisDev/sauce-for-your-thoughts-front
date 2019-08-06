@@ -33,14 +33,17 @@ export const addUsers = ({ user }: { user: IUserState }): IUserAction => {
  */
 export const userLoggedIn = ({
   token,
-  displayName
+  displayName,
+  avatarURL
 }: {
   token: string;
   displayName: string;
+  avatarURL?: string;
 }): IUserAction => ({
   type: USER_LOGGED_IN,
   token,
-  displayName
+  displayName,
+  avatarURL
 });
 
 /** @description Reset users in store
@@ -110,7 +113,11 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
 ): Promise<object> => {
   return API.user.login(credentials).then(res => {
     // Grab token and name
-    const { token, name }: { token?: string; name?: string } = res.data.user;
+    const {
+      token,
+      name,
+      avatarURL
+    }: { token?: string; name?: string; avatarURL?: string } = res.data.user;
 
     // If we can't find token, stop
     if (!token) {
@@ -131,7 +138,7 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
     });
 
     // Dispatch user login
-    dispatch(userLoggedIn({ token, displayName }));
+    dispatch(userLoggedIn({ token, displayName, avatarURL }));
 
     return { token, displayName };
   });
