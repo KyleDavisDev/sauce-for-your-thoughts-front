@@ -124,6 +124,12 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
         ? res.data.user.displayName || "Me"
         : name;
 
+    // Set user to be remembered
+    Auth.authenticateUser({
+      token,
+      displayName
+    });
+
     // Dispatch user login
     dispatch(userLoggedIn({ token, displayName }));
 
@@ -234,6 +240,9 @@ export const updatePassword = ({
  *  @param {string} data.user.password - original password
  *  @param {string} data.user.displayName - new user display name
  *  @param {string} data.user.confirmDisplayName - confirm new display name
+ *  @fires users#userCleared - remove user from user store
+ *  @fires sauces#saucesCleared - remove sauces
+ *  @fires reviews#reviewsCleared - remove reviews
  *  @return {Promise} Promise
  *  @resolves {NULL} token - unique user token
  *
@@ -245,7 +254,9 @@ export const updateDisplayName = ({
   data: IUserUpdateDisplayName;
 }): MyThunkResult<Promise<null>> => async dispatch => {
   // Call API
-  await API.user.updateDisplayName({ data });
+  const res = await API.user.updateDisplayName({ data });
+
+  const { token, displayName } = res.data.user;
 
   // If all is good, we need to update displayName in 4 places (1)Sauces, (1)Reviews, (2)Users
   // OR
@@ -253,6 +264,20 @@ export const updateDisplayName = ({
   dispatch(userCleared()); // Users cleared -- clear 2 references
   dispatch(saucesCleared()); // Sauces cleared -- clear 1 reference
   dispatch(reviewsCleared()); // Reviews cleared -- clear 1 refenence
+
+  // Set user to be remembered
+  Auth.authenticateUser({
+    token,
+    displayName
+  });
+
+  // Dispatch user login
+  dispatch(
+    userLoggedIn({
+      token,
+      displayName
+    })
+  );
 
   return null;
 };
