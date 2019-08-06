@@ -6,6 +6,7 @@ export interface IUser {
   created: number;
   displayName: string;
   email?: string;
+  avatarURL?: string;
 }
 
 // Trimmed down for reference only
@@ -19,6 +20,7 @@ export interface IUserAction {
   type: string;
   token?: string;
   displayName?: string;
+  avatarURL?: string;
   byDisplayName?: { [key: string]: IUser };
   allDisplayNames?: string[];
 }
