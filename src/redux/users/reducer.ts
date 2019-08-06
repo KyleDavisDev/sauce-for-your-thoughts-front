@@ -23,7 +23,11 @@ const userReducer: Reducer<IUserState> = (
       // Set user.self info
       return {
         ...state,
-        self: { token: action.token, displayName: action.displayName }
+        self: {
+          token: action.token,
+          displayName: action.displayName,
+          avatarURL: action.avatarURL
+        }
       };
     }
     case USER_LOGGED_OUT: {
