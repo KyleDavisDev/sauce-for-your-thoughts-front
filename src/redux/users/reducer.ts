@@ -9,7 +9,6 @@ import {
 import { Reducer } from "redux";
 
 const initialState: IUserState = {
-  self: {},
   byDisplayName: {},
   allDisplayNames: [""]
 };
@@ -20,13 +19,20 @@ const userReducer: Reducer<IUserState> = (
 ): IUserState => {
   switch (action.type) {
     case USER_LOGGED_IN: {
+      console.log(action);
+      // Grab values
+      const { token, displayName, avatarURL } = action;
+
+      // Make sure we have each value
+      if (!token || !displayName || !avatarURL) return state;
+
       // Set user.self info
       return {
         ...state,
         self: {
-          token: action.token,
-          displayName: action.displayName,
-          avatarURL: action.avatarURL
+          token,
+          displayName,
+          avatarURL
         }
       };
     }
