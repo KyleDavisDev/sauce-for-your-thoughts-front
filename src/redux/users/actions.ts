@@ -29,6 +29,7 @@ export const addUsers = ({ user }: { user: IUserState }): IUserAction => {
 /** @description Save user data to self since they are logged in now
  *  @param {String} token - unique user string
  *  @param {String} displayName - unique person name
+ *  @param {String} avatarURL - path to person avatar
  *  @return {IUserAction} sauce and action type
  */
 export const userLoggedIn = ({
@@ -75,10 +76,14 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
 ): Promise<object> => {
   return API.user.register(credentials).then(res => {
     // Grab token and name
-    const { token, name }: { token?: string; name?: string } = res.data.user;
+    const {
+      token,
+      name,
+      avatarURL
+    }: { token?: string; name?: string; avatarURL?: string } = res.data.user;
 
     // If we can't find token, stop
-    if (!token) {
+    if (!token || !avatarURL) {
       throw new Error("Unable to verify your login. Please try again.");
     }
 
@@ -90,7 +95,7 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
         : name;
 
     // Dispatch user login
-    dispatch(userLoggedIn({ token, displayName }));
+    dispatch(userLoggedIn({ token, displayName, avatarURL }));
 
     return { token, displayName };
   });
@@ -120,7 +125,7 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
     }: { token?: string; name?: string; avatarURL?: string } = res.data.user;
 
     // If we can't find token, stop
-    if (!token) {
+    if (!token || !avatarURL) {
       throw new Error("Unable to verify your login. Please try again.");
     }
 
@@ -134,7 +139,8 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
     // Set user to be remembered
     Auth.authenticateUser({
       token,
-      displayName
+      displayName,
+      avatarURL
     });
 
     // Dispatch user login
