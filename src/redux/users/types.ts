@@ -27,7 +27,7 @@ export interface IUserAction {
 
 // Used for redux state
 export interface IUserState {
-  self?: { token?: string; displayName?: string };
+  self?: { token: string; displayName: string; avatarURL: string };
   byDisplayName?: { [key: string]: IUser };
   allDisplayNames?: string[];
 }
