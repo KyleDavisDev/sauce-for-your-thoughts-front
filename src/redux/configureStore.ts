@@ -1,17 +1,15 @@
-import { createStore, applyMiddleware, combineReducers, Action } from "redux";
+import { Action, applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk, { ThunkAction, ThunkDispatch } from "redux-thunk";
-
-import flashMessage from "./flashMessage/reducer";
-import sauces from "./sauces/reducer";
-import reviews from "./reviews/reducer";
-import users from "./users/reducer";
-import { ISauce } from "./sauces/types";
-import { IQuery } from "./sauces/types";
-import { IUser } from "./users/types";
-import { IReview } from "./reviews/types";
-import { IFlashState } from "./flashMessage/types";
 import Auth from "../utils/Auth/Auth";
+import flashMessage from "./flashMessage/reducer";
+import { IFlashState } from "./flashMessage/types";
+import reviews from "./reviews/reducer";
+import { IReview } from "./reviews/types";
+import sauces from "./sauces/reducer";
+import { IQuery, ISauce } from "./sauces/types";
+import users from "./users/reducer";
+import { IUser } from "./users/types";
 
 const rootReducer = combineReducers({
   flashMessage,
