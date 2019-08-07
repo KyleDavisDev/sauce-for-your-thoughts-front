@@ -45,7 +45,19 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
     };
   }
 
+  public componentWillMount() {
+    // Grab info from props -- make sure we have it
+    const { types, order } = this.props;
+    if (!types || !order) {
+      return;
+    }
+
+    // Assign to state
+    this.setState({ ...this.state, types, order });
+  }
+
   public componentWillReceiveProps(props: FilterBarProps) {
+    // Grab info from props -- make sure we have it
     const { types, order } = props;
     if (!types || !order) {
       return;
@@ -131,6 +143,7 @@ function mapStateToProps(
 
   // Make sure we have types
   const { types } = state.sauces;
+
   if (types.length === 0 || !types) {
     return { onSubmit };
   }
@@ -163,7 +176,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(FilterBar);
-
-const UpperCaseFirstLetter = (s: string): string => {
-  return s.charAt(0).toUpperCase() + s.slice(1);
-};
