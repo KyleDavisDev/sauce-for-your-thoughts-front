@@ -12,7 +12,7 @@ import { AppState } from "../../../../../../redux/configureStore";
 
 interface ProfileProps {
   displayName?: string;
-  avatar?: string;
+  avatarURL?: string;
 }
 
 class Profile extends React.PureComponent<ProfileProps, any> {
@@ -23,7 +23,7 @@ class Profile extends React.PureComponent<ProfileProps, any> {
           <div>
             <StyledImage
               src={
-                this.props.avatar ||
+                this.props.avatarURL ||
                 "https://images.catsolonline.com/cache/uzyl82mxhzrvloeffavq-500x500.jpg"
               }
               alt={this.props.displayName}
@@ -49,7 +49,7 @@ class Profile extends React.PureComponent<ProfileProps, any> {
 const mapState2Props = (state: AppState) => {
   return {
     displayName: state.users.self.displayName,
-    avatar: state.users.self.avatar
+    avatarURL: state.users.self.avatarURL
   };
 };
 
