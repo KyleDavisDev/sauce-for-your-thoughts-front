@@ -151,10 +151,7 @@ class Login extends React.Component<LoginProps, LoginState> {
     };
     try {
       // dispatch action which calls API to login user
-      const { token, displayName } = await this.props.login({ credentials });
-
-      // Set user to be remembered
-      Auth.authenticateUser({ token, displayName });
+      await this.props.login({ credentials });
 
       const returnURL: string | null = this.getReturnFromPath(
         this.props.location.search
