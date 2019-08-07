@@ -31,7 +31,15 @@ export const StyledButtonHolder = styled.div`
 `;
 
 export const StyledRadioButton = styled(RadioButton)`
-  max-width: 25%;
+  max-width: 50%;
+
+  @media (min-width: ${props => props.theme.exToSm}) {
+    max-width: 33%;
+  }
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    max-width: 25%;
+  }
 `;
 
 export const StyledAvatarImg = styled.img`
