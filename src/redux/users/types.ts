@@ -81,6 +81,11 @@ export interface IUserUpdateDisplayName {
   };
 }
 
+// Update user avatar
+export interface IUserUpdateAvatar {
+  user: { token: string; password: string; avatarURL: string };
+}
+
 // Action strings
 export const USER_LOGGED_IN = "USER_LOGGED_IN";
 export const USER_LOGGED_OUT = "USER_LOGGED_OUT";
