@@ -2,13 +2,15 @@ class Auth {
   // set local storage w/ token and datetime
   public static authenticateUser({
     token,
-    displayName
+    displayName,
+    avatarURL
   }: {
     token: string;
     displayName: string;
+    avatarURL: string;
   }) {
     const timestamp: number = new Date().getTime();
-    const sfytKey = { token, timestamp, displayName };
+    const sfytKey = { token, timestamp, displayName, avatarURL };
     localStorage.setItem("sfytKey", JSON.stringify(sfytKey));
   }
 
@@ -73,6 +75,18 @@ class Auth {
     // if exists, send back
     if (sfytKey !== null) {
       return JSON.parse(sfytKey).displayName || null;
+    }
+    return undefined;
+  }
+
+  // Return avatarURL
+  public static getAvatarURL(): undefined | string {
+    // Grab key
+    const sfytKey: string | null = localStorage.getItem("sfytKey");
+
+    // if exists, send back
+    if (sfytKey !== null) {
+      return JSON.parse(sfytKey).avatarURL || null;
     }
     return undefined;
   }
