@@ -25,6 +25,7 @@ import {
 import { IUserUpdateAvatar } from "../../../../redux/users/types";
 import Auth from "../../../../utils/Auth/Auth";
 import { API } from "../../../../utils/api/API";
+import { TextInput } from "../../../../components/TextInput/TextInput";
 
 export interface UpdateAvatarProps {
   history: { push: (location: string) => null };
@@ -114,6 +115,18 @@ class UpdateAvatar extends React.Component<
                   />
                 );
               })}
+              <br />
+              <br />
+              <TextInput
+                type="password"
+                onChange={this.onTextChange}
+                disabled={false}
+                showLabel={true}
+                label={"Password"}
+                name={"password"}
+                value={this.state.password}
+                required={true}
+              />
               <StyledButtonHolder>
                 <Link to="/account/settings">
                   <Button type="button" displayType="outline">
@@ -135,80 +148,101 @@ class UpdateAvatar extends React.Component<
     // Prevent normal form submission
     event.preventDefault();
 
-    // // Grab variables
-    // const { displayName, confirmDisplayName, password } = this.state;
+    // Grab variables
+    const { selected, password } = this.state;
 
-    // // Confirm one last time that the values are the same.
-    // if (displayName !== confirmDisplayName) {
-    //   this.setState({
-    //     flashMessage: {
-    //       isVisible: true,
-    //       text: "Your emails do not match. Please fix this before continuing.",
-    //       type: "alert"
-    //     }
-    //   });
-    //   return;
-    // }
+    // Get the avatar with the slected key
+    const avatar = this.state.urls.find(val => val.key === selected);
 
-    // // Confirm password is longer than 8 characters
-    // if (password.length < 8) {
-    //   this.setState({
-    //     flashMessage: {
-    //       isVisible: true,
-    //       text:
-    //         "Your password is too short! Password length must be at least 8 characters.",
-    //       type: "alert"
-    //     }
-    //   });
-    //   return;
-    // }
+    if (!avatar) {
+      this.setState({
+        flashMessage: {
+          isVisible: true,
+          text: "You must select an avatar in order to update.",
+          type: "warning"
+        }
+      });
+      window.scrollTo(0, 0); // Move screen to top
+      return;
+    }
 
-    // // Get token or else redirect
-    // const token = Auth.getToken();
-    // if (!token) {
-    //   this.props.history.push("/account/login?return=/account/settings/email");
-    //   return;
-    // }
+    // Grab the actual path
+    const avatarURL = avatar.path;
 
-    // // Construct data
-    // const data: IUserUpdateAvatar = {
-    //   user: { token, displayName, confirmDisplayName, password }
-    // };
-    // try {
-    //   await this.props.UpdateAvatar({ data });
+    // Confirm password is longer than 8 characters
+    if (password.length < 8) {
+      this.setState({
+        flashMessage: {
+          isVisible: true,
+          text:
+            "Your password is too short! Password length must be at least 8 characters.",
+          type: "warning"
+        }
+      });
+      window.scrollTo(0, 0); // Move screen to top
+      return;
+    }
 
-    //   // clear input and display flash
-    //   this.setState({
-    //     ...this.state,
-    //     password: "",
-    //     flashMessage: {
-    //       isVisible: true,
-    //       text: "Success! Display Name updated.",
-    //       type: "success",
-    //       slug: "/account/settings",
-    //       slugText: "Back to Settings"
-    //     }
-    //   });
-    // } catch (err) {
-    //   // Account locked
-    //   if (err.response.status === 403) {
-    //     this.props.logout();
+    // Get token or else redirect
+    const token = Auth.getToken();
+    if (!token) {
+      this.props.history.push("/account/login?return=/account/settings/avatar");
+      return;
+    }
 
-    //     this.props.history.push("/account/login");
-    //     return;
-    //   }
+    // Construct data
+    const data: IUserUpdateAvatar = {
+      user: { token, password, avatarURL }
+    };
+    try {
+      await this.props.UpdateAvatar({ data });
 
-    //   // Password bad or acc locked so going to reset
-    //   this.setState({
-    //     ...this.state,
-    //     password: "",
-    //     flashMessage: {
-    //       isVisible: true,
-    //       text: err.response.data.msg,
-    //       type: "warning"
-    //     }
-    //   });
-    // }
+      //   // clear input and display flash
+      //   this.setState({
+      //     ...this.state,
+      //     password: "",
+      //     flashMessage: {
+      //       isVisible: true,
+      //       text: "Success! Display Name updated.",
+      //       type: "success",
+      //       slug: "/account/settings",
+      //       slugText: "Back to Settings"
+      //     }
+      //   });
+    } catch (err) {
+      // Account locked
+      if (err.response.status === 403) {
+        this.props.logout();
+
+        this.props.history.push("/account/login");
+        return;
+      }
+
+      // Password bad or acc locked so going to reset
+      this.setState({
+        ...this.state,
+        password: "",
+        flashMessage: {
+          isVisible: true,
+          text: err.response.data.msg,
+          type: "warning"
+        }
+      });
+    }
+  };
+
+  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    if (!event || !event.target) {
+      return;
+    }
+    // Grab the name and value
+    const { name, value }: { name: string; value: string } = event.target;
+
+    // Update local state
+    this.setState({
+      ...this.state,
+      [name]: value
+    });
   };
 
   private avatarImage(url: string): JSX.Element {
@@ -246,7 +280,11 @@ class UpdateAvatar extends React.Component<
 
     const { id }: { id: string } = event.target as HTMLTextAreaElement;
 
-    this.setState({ ...this.state, selected: id });
+    this.setState({
+      ...this.state,
+      selected: id,
+      flashMessage: { isVisible: false }
+    });
   };
 }
 
