@@ -39,7 +39,7 @@ class Auth {
 
     // token hasn't expired yet, update token and return true
     if (diffInMinutes < timeLimit) {
-      return this.updateUserToken();
+      return this.updateTimestamp();
     } else {
       // token exists but is old, should remove
       this.deauthenticateUser();
@@ -94,18 +94,19 @@ class Auth {
   // update existing token
   // should ONLY be called from isUserAuthenticated so will
   // not be doing same sanity checks as above
-  private static updateUserToken(): boolean {
+  private static updateTimestamp(): boolean {
     // Grab key
     const sfytKey: string | null = localStorage.getItem("sfytKey");
 
     // Make sure we have key
     if (sfytKey === null) return false;
 
-    // grab token and displayName
+    // grab values from key
     const {
       token,
-      displayName
-    }: { token: string | null; displayName: string | null } = JSON.parse(
+      displayName,
+      avatarURL
+    }: { token: string; displayName: string; avatarURL: string } = JSON.parse(
       sfytKey
     );
 
@@ -121,7 +122,8 @@ class Auth {
       const key = {
         token,
         timestamp: new Date().getTime(),
-        displayName
+        displayName,
+        avatarURL
       };
       // set key
       localStorage.setItem("sfytKey", JSON.stringify(key));
