@@ -33,7 +33,7 @@ export interface AppState {
     featured: [];
   };
   users: {
-    self: { token?: string; displayName?: string; avatar?: string };
+    self: { token?: string; displayName?: string; avatarURL?: string };
     byDisplayName?: { [key: string]: IUser };
     allDisplayNames?: string[];
   };
@@ -69,7 +69,8 @@ export const configureStore = () => {
     users: {
       self: {
         token: Auth.isUserAuthenticated() ? Auth.getToken() : undefined,
-        displayName: Auth.isUserAuthenticated ? Auth.getName() : undefined
+        displayName: Auth.isUserAuthenticated() ? Auth.getName() : undefined,
+        avatarURL: Auth.isUserAuthenticated() ? Auth.getAvatarURL() : undefined
       },
       byDisplayName: {},
       allDisplayNames: []
