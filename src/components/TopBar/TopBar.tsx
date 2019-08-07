@@ -61,9 +61,15 @@ const StyledBody = styled(Body)`
   right: 0;
 `;
 
+const StyledAvatar = styled.img`
+  max-width: 35px;
+  margin-left: 5px;
+`;
+
 export interface TopBarProps {
   isLoggedIn?: boolean;
   displayName?: string;
+  avatarURL?: string;
 }
 
 const TopBar: React.SFC<TopBarProps> = props => {
@@ -75,6 +81,7 @@ const TopBar: React.SFC<TopBarProps> = props => {
             <StyledTrigger>
               <ChevronDown />
               {props.displayName}
+              <StyledAvatar src={props.avatarURL} />
             </StyledTrigger>
             <StyledBody>
               <Menu />
@@ -103,7 +110,8 @@ TopBar.defaultProps = {
 const mapState2Props = (state: AppState) => {
   return {
     isLoggedIn: !!state.users.self.token, // will be bool
-    displayName: state.users.self.displayName
+    displayName: state.users.self.displayName,
+    avatarURL: state.users.self.avatarURL
   };
 };
 
