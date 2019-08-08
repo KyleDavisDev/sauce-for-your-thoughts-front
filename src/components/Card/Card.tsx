@@ -22,7 +22,7 @@ const Card: React.SFC<CardProps> = props => {
             alt={props.description}
             onError={e =>
               (e.target.src =
-                "https://www.snhrc.com/wp-content/uploads/2018/09/Image-Coming-Soon.png")
+                "https://res.cloudinary.com/sfyt/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png")
             }
           />
         </StyledLink>
