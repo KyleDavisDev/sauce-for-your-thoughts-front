@@ -110,15 +110,9 @@ export const API = {
      *
      *  {Boolean} res.data.isGood - whether request was good or not
      *
-     *  {String} res.data.msg - message accociated with isGood
-     *
      *  {Object} res.data.user - user data object
      *
      *  {String} res.data.user.token - unique user token
-     *
-     *  {String} res.data.user.displayName - user's display name
-     *
-     *  {String} res.data.user.email - user's email
      *
      *  @reject {String} error message
      */
