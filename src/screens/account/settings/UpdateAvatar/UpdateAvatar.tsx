@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import shortid from "shortid";
 
 import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
-// import { UpdateAvatar, logout } from "../../../../redux/users/actions";
+import { UpdateAvatar, logout } from "../../../../redux/users/actions";
 import LogoSFYT from "../../../../images/icons/LogoSFYT";
 import ArrowLeft from "../../../../images/icons/ArrowLeft";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
