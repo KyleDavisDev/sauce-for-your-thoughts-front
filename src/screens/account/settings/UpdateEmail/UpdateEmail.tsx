@@ -26,8 +26,16 @@ import Auth from "../../../../utils/Auth/Auth";
 
 export interface UpdateEmailProps {
   history: { push: (location: string) => null };
-  user: { token: string; displayName: string };
-  updateEmail: ({ data }: { data: IUserUpdateEmail }) => Promise<null>;
+  user: { token: string; displayName: string; avatarURL: string };
+  updateEmail: ({
+    data,
+    displayName,
+    avatarURL
+  }: {
+    data: IUserUpdateEmail;
+    displayName: string;
+    avatarURL: string;
+  }) => Promise<null>;
   logout: () => null;
 }
 
@@ -212,12 +220,19 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
       return;
     }
 
+    // Get displayName and avatarURL or else redirect
+    const { displayName, avatarURL } = this.props.user;
+    if (!displayName || !avatarURL) {
+      this.props.history.push("/account/login?return=/account/settings/email");
+      return;
+    }
+
     // Construct data
     const data: IUserUpdateEmail = {
       user: { token, email, confirmEmail, password }
     };
     try {
-      await this.props.updateEmail({ data });
+      await this.props.updateEmail({ data, displayName, avatarURL });
 
       // clear input and display flash
       this.setState({
@@ -262,8 +277,15 @@ const mapState2Props = (state: AppState) => {
 
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
 const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  updateEmail: ({ data }: { data: IUserUpdateEmail }) =>
-    dispatch(updateEmail({ data })),
+  updateEmail: ({
+    data,
+    displayName,
+    avatarURL
+  }: {
+    data: IUserUpdateEmail;
+    displayName: string;
+    avatarURL: string;
+  }) => dispatch(updateEmail({ data, displayName, avatarURL })),
   logout: () => dispatch(logout())
 });
 
