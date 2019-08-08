@@ -10,7 +10,8 @@ import {
   USER_CLEARED,
   IUserUpdateEmail,
   IUserUpdatePassword,
-  IUserUpdateDisplayName
+  IUserUpdateDisplayName,
+  IUserUpdateAvatar
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 import Auth from "../../utils/Auth/Auth";
@@ -39,7 +40,7 @@ export const userLoggedIn = ({
 }: {
   token: string;
   displayName: string;
-  avatarURL?: string;
+  avatarURL: string;
 }): IUserAction => ({
   type: USER_LOGGED_IN,
   token,
@@ -189,29 +190,28 @@ export const getInfo = ({
  *  @param {string} data.user.password - user password
  *  @fires user#userUpdateEmail - set self.token in redux store
  *  @return {Promise} Promise
- *  @resolves {Object} token - unique user token
+ *  @resolves {Object} res.data.user - user container
  *
- *  {String} token - unique user token
- *
- *  {String} displayName - unique user displayName
+ *  {String} res.data.user.token - unique user token
  *
  *  @reject {String} error message
  */
 export const updateEmail = ({
-  data
+  data,
+  displayName,
+  avatarURL
 }: {
   data: IUserUpdateEmail;
+  displayName: string;
+  avatarURL: string;
 }): MyThunkResult<Promise<null>> => async dispatch => {
   const res = await API.user.updateEmail({ data });
 
-  // Grab token and name
-  const {
-    token,
-    displayName
-  }: { token?: string; displayName?: string } = res.data.user;
+  // Grab token
+  const { token }: { token?: string } = res.data.user;
 
   // If we can't find token, stop
-  if (!token || !displayName) {
+  if (!token) {
     // throw error
     throw Err({
       msg: "Unable to verify your login. Please try again.",
@@ -219,8 +219,11 @@ export const updateEmail = ({
     });
   }
 
+  // Update token in local storage
+  Auth.updateToken(token);
+
   // Dispatch user login
-  dispatch(userLoggedIn({ token, displayName }));
+  dispatch(userLoggedIn({ token, displayName, avatarURL }));
 
   return null;
 };
@@ -278,11 +281,43 @@ export const updateDisplayName = ({
   dispatch(saucesCleared()); // Sauces cleared -- clear 1 reference
   dispatch(reviewsCleared()); // Reviews cleared -- clear 1 refenence
 
-  // Set user to be remembered
-  Auth.authenticateUser({
-    token,
-    displayName
-  });
+  // Update displayName in local storage
+  Auth.updateDisplayName(displayName);
+
+  // Dispatch user login
+  dispatch(
+    userLoggedIn({
+      token,
+      displayName
+    })
+  );
+
+  return null;
+};
+
+/** @description Call API to update user's display name
+ *  @param {IUserUpdateAvatar} data - container for user information
+ *  @param {string} data.user.token - user token
+ *  @param {string} data.user.password - original password
+ *  @param {string} data.user.avatarURL - new user avatar url
+ *  @fires users#userCleared - remove users from redux store
+ *  @return {Promise} Promise
+ *  @resolves {NULL} token - unique user token
+ *
+ *  @reject {IErrReturn} error object
+ */
+export const updateAvatar = ({
+  data
+}: {
+  data: IUserUpdateAvatar;
+}): MyThunkResult<Promise<null>> => async dispatch => {
+  // Call API
+  const res = await API.user.updateAvatar({ data });
+
+  const { token, displayName } = res.data.user;
+
+  // Update displayName in local storage
+  Auth.updateDisplayName(displayName);
 
   // Dispatch user login
   dispatch(
