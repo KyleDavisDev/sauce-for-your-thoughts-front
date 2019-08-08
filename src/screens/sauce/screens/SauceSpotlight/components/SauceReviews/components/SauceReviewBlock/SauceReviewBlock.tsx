@@ -1,21 +1,25 @@
 import * as React from "react";
-import { connect } from "react-redux";
 import ReactRating from "react-rating";
-import { IReview } from "../../../../../../../../redux/reviews/types";
+import { connect } from "react-redux";
+import { IUser } from "../../../../../../../../redux/users/types";
 import { AppState } from "../../../../../../../../redux/configureStore";
+import { IReview } from "../../../../../../../../redux/reviews/types";
 import {
-  StyledContainer,
+  StyledAvatar,
   StyledButton,
-  StyledContentContainer,
   StyledCategoryContainer,
   StyledCategoryDescription,
+  StyledContainer,
+  StyledContentContainer,
   StyledEmptyStar,
-  StyledFullStar
+  StyledFullStar,
+  StyledReviewerContainer,
+  StyledReviewer
 } from "./SauceReviewBlockStyle";
 
 export interface SauceReviewBlockProps {
   review: IReview;
-  author?: string;
+  author?: IUser;
 }
 
 export interface SauceReviewBlockState {
@@ -46,12 +50,22 @@ class SauceReviewBlock extends React.Component<
         </StyledButton>
 
         <StyledContentContainer>
-          <i>Reviewer:</i> {this.props.author} on{" "}
-          {/* Convert epoch to human-readable */}
-          {new Date(review.created * 1000).toLocaleDateString(
-            "en-US",
-            dateOptions
-          )}
+          <StyledReviewerContainer>
+            <i>Reviewer:</i>
+            {this.props.author ? (
+              <StyledReviewer>
+                {this.props.author.displayName}
+                <StyledAvatar src={this.props.author.avatarURL} />
+              </StyledReviewer>
+            ) : (
+              "N/A"
+            )}{" "}
+            on {/* Convert epoch to human-readable */}
+            {new Date(review.created * 1000).toLocaleDateString(
+              "en-US",
+              dateOptions
+            )}
+          </StyledReviewerContainer>
           {/* Show content if state allows it otherwise show empty */}
           {this.state.isOpen ? (
             <div>
@@ -199,8 +213,7 @@ const mapState2Props = (state: AppState, ownProps: SauceReviewBlockProps) => {
   }
 
   // Get the name of the author via the author's _id
-  const author: string =
-    state.users.byDisplayName[ownProps.review.author].displayName || "N/A";
+  const author: IUser = state.users.byDisplayName[ownProps.review.author];
   return { author };
 };
 
