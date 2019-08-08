@@ -133,6 +133,55 @@ class Auth {
     }
   }
 
+  // Update a token
+  public static updateToken(token: string): boolean {
+    // Quick sanity check
+    if (!token) return false;
+
+    // Grab key
+    const sfytKey: string | null = localStorage.getItem("sfytKey");
+
+    // Make sure we have key
+    if (sfytKey === null) return false;
+
+    // grab values from key
+    const {
+      avatarURL,
+      origToken,
+      timestamp,
+      displayName
+    }: {
+      origToken: string;
+      displayName: string;
+      avatarURL: string;
+      timestamp: number;
+    } = JSON.parse(sfytKey);
+
+    // Make sure we have token to replace
+    if (origToken === null) return false;
+
+    // make sure token is string and not empty
+    if (
+      Object.prototype.toString.call(origToken) === "[object String]" &&
+      origToken.length > 0
+    ) {
+      // apply new time to key
+      const key = {
+        token,
+        timestamp,
+        displayName,
+        avatarURL
+      };
+      // set key
+      localStorage.setItem("sfytKey", JSON.stringify(key));
+      return true;
+    } else {
+      // remove local storage item
+      this.deauthenticateUser();
+      return false;
+    }
+  }
+
   // update existing token
   // should ONLY be called from isUserAuthenticated so will
   // not be doing same sanity checks as above
