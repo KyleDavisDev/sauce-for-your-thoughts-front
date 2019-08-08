@@ -29,10 +29,12 @@ export interface UpdateEmailProps {
   user: { token: string; displayName: string; avatarURL: string };
   updateEmail: ({
     data,
+    token,
     displayName,
     avatarURL
   }: {
     data: IUserUpdateEmail;
+    token: string;
     displayName: string;
     avatarURL: string;
   }) => Promise<null>;
@@ -232,7 +234,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
       user: { token, email, confirmEmail, password }
     };
     try {
-      await this.props.updateEmail({ data, displayName, avatarURL });
+      await this.props.updateEmail({ data, displayName, avatarURL, token });
 
       // clear input and display flash
       this.setState({
@@ -279,13 +281,15 @@ const mapState2Props = (state: AppState) => {
 const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
   updateEmail: ({
     data,
+    token,
     displayName,
     avatarURL
   }: {
     data: IUserUpdateEmail;
+    token: string;
     displayName: string;
     avatarURL: string;
-  }) => dispatch(updateEmail({ data, displayName, avatarURL })),
+  }) => dispatch(updateEmail({ data, token, displayName, avatarURL })),
   logout: () => dispatch(logout())
 });
 
