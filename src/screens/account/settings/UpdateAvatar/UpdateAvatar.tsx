@@ -29,7 +29,7 @@ import { TextInput } from "../../../../components/TextInput/TextInput";
 
 export interface UpdateAvatarProps {
   history: { push: (location: string) => null };
-  user: { token: string; displayName: string };
+  user: { token: string; displayName: string; avatarURL: string };
   UpdateAvatar: ({ data }: { data: IUserUpdateAvatar }) => Promise<null>;
   logout: () => null;
 }
@@ -74,12 +74,44 @@ class UpdateAvatar extends React.Component<
       })
       .catch(err => console.log(err));
 
+    // Construct urls as component expects
     const urls = strings.map((str: string) => {
       return { key: shortid.generate(), path: str };
     });
 
+    // Get the avatar that the user has selected
+    const selectedAvatar = urls.find(url => {
+      return url.path === this.props.user.avatarURL;
+    });
+
+    if (!selectedAvatar) return;
+
+    // Grab the key
+    const selected = selectedAvatar.key;
+
     // console.log(urls);
-    this.setState({ ...this.state, urls });
+    this.setState({ ...this.state, urls, selected });
+  }
+
+  public componentWillReceiveProps(props: UpdateAvatarProps) {
+    // Grab info from props -- make sure we have it
+    const { user } = props;
+    const { urls } = this.state;
+    if (!user || !urls) {
+      return;
+    }
+
+    const selectedAvatar = urls.find(url => {
+      return url.path === user.avatarURL;
+    });
+
+    if (!selectedAvatar) return;
+
+    const selected = selectedAvatar.key;
+
+    console.log(selected);
+
+    this.setState({ ...this.state, selected });
   }
 
   public render() {
@@ -197,18 +229,18 @@ class UpdateAvatar extends React.Component<
     try {
       await this.props.UpdateAvatar({ data });
 
-      //   // clear input and display flash
-      //   this.setState({
-      //     ...this.state,
-      //     password: "",
-      //     flashMessage: {
-      //       isVisible: true,
-      //       text: "Success! Display Name updated.",
-      //       type: "success",
-      //       slug: "/account/settings",
-      //       slugText: "Back to Settings"
-      //     }
-      //   });
+      // clear input and display flash
+      this.setState({
+        ...this.state,
+        password: "",
+        flashMessage: {
+          isVisible: true,
+          text: "Success! Display Name updated.",
+          type: "success",
+          slug: "/account/settings",
+          slugText: "Back to Settings"
+        }
+      });
     } catch (err) {
       // Account locked
       if (err.response.status === 403) {
