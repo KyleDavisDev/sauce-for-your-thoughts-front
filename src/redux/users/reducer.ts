@@ -19,7 +19,6 @@ const userReducer: Reducer<IUserState> = (
 ): IUserState => {
   switch (action.type) {
     case USER_LOGGED_IN: {
-      console.log(action);
       // Grab values
       const { token, displayName, avatarURL } = action;
 
@@ -38,7 +37,10 @@ const userReducer: Reducer<IUserState> = (
     }
     case USER_LOGGED_OUT: {
       // remove all user.self stuff
-      return { ...state, self: {} };
+      return {
+        ...state,
+        self: undefined
+      };
     }
     case USER_ADDED: {
       // This will concat onto dictionary and overwrite an old key if new appears
