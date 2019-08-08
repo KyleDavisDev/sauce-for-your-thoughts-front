@@ -198,32 +198,14 @@ export const getInfo = ({
  */
 export const updateEmail = ({
   data,
-  displayName,
-  avatarURL
+  displayName
 }: {
   data: IUserUpdateEmail;
+  token: string;
   displayName: string;
   avatarURL: string;
 }): MyThunkResult<Promise<null>> => async dispatch => {
   const res = await API.user.updateEmail({ data });
-
-  // Grab token
-  const { token }: { token?: string } = res.data.user;
-
-  // If we can't find token, stop
-  if (!token) {
-    // throw error
-    throw Err({
-      msg: "Unable to verify your login. Please try again.",
-      status: 400
-    });
-  }
-
-  // Update token in local storage
-  Auth.updateToken(token);
-
-  // Dispatch user login
-  dispatch(userLoggedIn({ token, displayName, avatarURL }));
 
   return null;
 };
@@ -272,8 +254,7 @@ export const updateDisplayName = ({
   // Call API
   const res = await API.user.updateDisplayName({ data });
 
-  const { token, displayName } = res.data.user;
-
+  // const displayName =
   // If all is good, we need to update displayName in 4 places (1)Sauces, (1)Reviews, (2)Users
   // OR
   // Wipe those and let them repopulate with the updated information (we choose this one for now)
@@ -281,16 +262,17 @@ export const updateDisplayName = ({
   dispatch(saucesCleared()); // Sauces cleared -- clear 1 reference
   dispatch(reviewsCleared()); // Reviews cleared -- clear 1 refenence
 
-  // Update displayName in local storage
-  Auth.updateDisplayName(displayName);
+  // // Update displayName in local storage
+  // Auth.updateDisplayName(displayName);
 
-  // Dispatch user login
-  dispatch(
-    userLoggedIn({
-      token,
-      displayName
-    })
-  );
+  // // Dispatch user login
+  // dispatch(
+  //   userLoggedIn({
+  //     token,
+  //     displayName,
+  //     avatarURL
+  //   })
+  // );
 
   return null;
 };
