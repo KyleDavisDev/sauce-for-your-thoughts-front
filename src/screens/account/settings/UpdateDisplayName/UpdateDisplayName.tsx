@@ -1,6 +1,5 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import validator from "validator";
 
 import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
 import { updateDisplayName, logout } from "../../../../redux/users/actions";
@@ -28,9 +27,11 @@ export interface UpdateDisplayNameProps {
   history: { push: (location: string) => null };
   user: { token: string; displayName: string };
   updateDisplayName: ({
-    data
+    data,
+    oldDisplayName
   }: {
     data: IUserUpdateDisplayName;
+    oldDisplayName: string;
   }) => Promise<null>;
   logout: () => null;
 }
@@ -225,7 +226,10 @@ class UpdateDisplayName extends React.Component<
       user: { token, displayName, confirmDisplayName, password }
     };
     try {
-      await this.props.updateDisplayName({ data });
+      await this.props.updateDisplayName({
+        data,
+        oldDisplayName: this.props.user.displayName
+      });
 
       // clear input and display flash
       this.setState({
@@ -270,8 +274,13 @@ const mapState2Props = (state: AppState) => {
 
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
 const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  updateDisplayName: ({ data }: { data: IUserUpdateDisplayName }) =>
-    dispatch(updateDisplayName({ data })),
+  updateDisplayName: ({
+    data,
+    oldDisplayName
+  }: {
+    data: IUserUpdateDisplayName;
+    oldDisplayName: string;
+  }) => dispatch(updateDisplayName({ data, oldDisplayName })),
   logout: () => dispatch(logout())
 });
 
