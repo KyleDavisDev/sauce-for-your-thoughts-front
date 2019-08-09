@@ -89,6 +89,7 @@ const userReducer: Reducer<IUserState> = (
         ...state.byDisplayName,
         [displayName]: state.byDisplayName[oldDisplayName]
       };
+      delete byDisplayName[oldDisplayName];
 
       return { self, allDisplayNames, byDisplayName };
     }
