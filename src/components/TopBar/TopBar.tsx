@@ -56,6 +56,9 @@ TopBar.defaultProps = {
 };
 
 const mapState2Props = (state: AppState) => {
+  const { self } = state.users;
+  if (!self) return {};
+
   return {
     isLoggedIn: !!state.users.self.token, // will be bool
     displayName: state.users.self.displayName,

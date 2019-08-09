@@ -47,9 +47,15 @@ class Profile extends React.PureComponent<ProfileProps, any> {
 }
 
 const mapState2Props = (state: AppState) => {
+  const { self } = state.users;
+  if (!self) return {};
+
+  const { displayName, avatarURL } = self;
+  if (!displayName || !avatarURL) return {};
+
   return {
-    displayName: state.users.self.displayName,
-    avatarURL: state.users.self.avatarURL
+    displayName,
+    avatarURL
   };
 };
 
