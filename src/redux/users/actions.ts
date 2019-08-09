@@ -190,9 +190,7 @@ export const getInfo = ({
  *  @param {string} data.user.password - user password
  *  @fires user#userUpdateEmail - set self.token in redux store
  *  @return {Promise} Promise
- *  @resolves {Object} res.data.user - user container
- *
- *  {String} res.data.user.token - unique user token
+ *  @resolves {Object} res.data - data container
  *
  *  @reject {String} error message
  */
@@ -201,7 +199,7 @@ export const updateEmail = ({
 }: {
   data: IUserUpdateEmail;
 }): MyThunkResult<Promise<null>> => async dispatch => {
-  const res = await API.user.updateEmail({ data });
+  await API.user.updateEmail({ data });
 
   return null;
 };
