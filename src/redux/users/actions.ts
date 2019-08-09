@@ -11,7 +11,8 @@ import {
   IUserUpdateEmail,
   IUserUpdatePassword,
   IUserUpdateDisplayName,
-  IUserUpdateAvatar
+  IUserUpdateAvatar,
+  USER_UPDATE_DISPLAYNAME
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 import Auth from "../../utils/Auth/Auth";
@@ -46,6 +47,24 @@ export const userLoggedIn = ({
   token,
   displayName,
   avatarURL
+});
+
+/** @description Update a single user's display name wherever it is found
+ *  @param {String} token - unique user string
+ *  @param {String} displayName - unique person name
+ *  @param {String} avatarURL - path to person avatar
+ *  @return {IUserAction} sauce and action type
+ */
+export const updatedDisplayName = ({
+  oldDisplayName,
+  displayName
+}: {
+  oldDisplayName: string;
+  displayName: string;
+}): IUserAction => ({
+  type: USER_UPDATE_DISPLAYNAME,
+  oldDisplayName,
+  displayName
 });
 
 /** @description Reset users in store
@@ -213,32 +232,34 @@ export const updatePassword = ({
  *  @param {string} data.user.password - original password
  *  @param {string} data.user.displayName - new user display name
  *  @param {string} data.user.confirmDisplayName - confirm new display name
- *  @fires users#userCleared - remove user from user store
- *  @fires sauces#saucesCleared - remove sauces
- *  @fires reviews#reviewsCleared - remove reviews
+ *  @param {string} oldDisplayName - user's old display name
+ *  @fires users#updatedDisplayName - update user from user store
+ *  @fires sauces#updatedDisplayName - update user in sauces
+ *  @fires reviews#updatedDisplayName - update user in reviews
  *  @return {Promise} Promise
- *  @resolves {NULL} token - unique user token
  *
  *  @reject {IErrReturn} error object
  */
 export const updateDisplayName = ({
-  data
+  data,
+  oldDisplayName
 }: {
   data: IUserUpdateDisplayName;
+  oldDisplayName: string;
 }): MyThunkResult<Promise<null>> => async dispatch => {
   // Call API
-  const res = await API.user.updateDisplayName({ data });
+  await API.user.updateDisplayName({ data });
 
-  // const displayName =
-  // If all is good, we need to update displayName in 4 places (1)Sauces, (1)Reviews, (2)Users
-  // OR
-  // Wipe those and let them repopulate with the updated information (we choose this one for now)
-  dispatch(userCleared()); // Users cleared -- clear 2 references
-  dispatch(saucesCleared()); // Sauces cleared -- clear 1 reference
-  dispatch(reviewsCleared()); // Reviews cleared -- clear 1 refenence
+  // Update user in users section
+  dispatch(
+    updatedDisplayName({
+      oldDisplayName,
+      displayName: data.user.displayName
+    })
+  );
 
-  // // Update displayName in local storage
-  // Auth.updateDisplayName(displayName);
+  // Update displayName in local storage
+  Auth.updateDisplayName(data.user.displayName);
 
   // // Dispatch user login
   // dispatch(
@@ -269,20 +290,20 @@ export const updateAvatar = ({
   data: IUserUpdateAvatar;
 }): MyThunkResult<Promise<null>> => async dispatch => {
   // Call API
-  const res = await API.user.updateAvatar({ data });
+  // const res = await API.user.updateAvatar({ data });
 
-  const { token, displayName } = res.data.user;
+  // const { token, displayName } = res.data.user;
 
-  // Update displayName in local storage
-  Auth.updateDisplayName(displayName);
+  // // Update displayName in local storage
+  // Auth.updateDisplayName(displayName);
 
-  // Dispatch user login
-  dispatch(
-    userLoggedIn({
-      token,
-      displayName
-    })
-  );
+  // // Dispatch user login
+  // dispatch(
+  //   userLoggedIn({
+  //     token,
+  //     displayName
+  //   })
+  // );
 
   return null;
 };
