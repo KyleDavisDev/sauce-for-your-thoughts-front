@@ -163,25 +163,6 @@ export const logout = () => (dispatch: any) => {
   dispatch(userLoggedOut());
 };
 
-/** @description pass credentials to server to log user in
- *  @param {Object} data - user information container
- *  @param {string} data.user.token - unique user string
- *  @param {string?} data.displayName - person we are interested in
- *  @return {Promise} Promise
- *  @resolves {Null}
- *
- *  @reject {String} error message
- */
-export const getInfo = ({
-  data
-}: {
-  data: { user: { token: string }; displayName: string };
-}): MyThunkResult<Promise<null>> => async dispatch => {
-  await API.user.getInfo({ data });
-
-  return null;
-};
-
 /** @description Update a user's email
  *  @param {IUserUpdateEmail} data - container for user information
  *  @param {string} data.user.token - user token
