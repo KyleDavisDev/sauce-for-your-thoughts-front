@@ -197,13 +197,9 @@ export const getInfo = ({
  *  @reject {String} error message
  */
 export const updateEmail = ({
-  data,
-  displayName
+  data
 }: {
   data: IUserUpdateEmail;
-  token: string;
-  displayName: string;
-  avatarURL: string;
 }): MyThunkResult<Promise<null>> => async dispatch => {
   const res = await API.user.updateEmail({ data });
 
