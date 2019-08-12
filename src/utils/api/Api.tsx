@@ -4,7 +4,8 @@ import {
   ILoginUser,
   IUserUpdateEmail,
   IUserUpdatePassword,
-  IUserUpdateDisplayName
+  IUserUpdateDisplayName,
+  IUserUpdateAvatar
 } from "../../redux/users/types";
 import { IReview } from "../../redux/reviews/types";
 
@@ -175,6 +176,30 @@ export const API = {
           }
           throw new Error(res.data.msg);
         });
+    },
+    /** @description Update a user's avatar
+     *  @param {IUserUpdateAvatar} data - container for user information
+     *  @param {string} data.user.token - user token
+     *  @param {string} data.user.password - original password
+     *  @param {string} data.user.avatarURL - new user avatar url
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {Object} res.data.user - user data object
+     *
+     *  {String} res.data.user.token - unique user token
+     *
+     *  @reject {String} error message
+     */
+    updateAvatar: ({ data }: { data: IUserUpdateAvatar }): AxiosPromise => {
+      return axios.post(`${host}/api/user/update/avatar`, data).then(res => {
+        if (res.data.isGood) {
+          return res;
+        }
+        throw new Error(res.data.msg);
+      });
     }
   },
   sauce: {
