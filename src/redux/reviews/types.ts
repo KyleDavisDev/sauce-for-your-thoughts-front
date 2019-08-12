@@ -4,6 +4,7 @@ import { IUser } from "../users/types";
 export const REVIEWS_ADDED = "REVIEWS_ADDED";
 export const REVIEWS_UPDATED = "REVIEWS_UPDATED";
 export const REVIEWS_CLEARED = "REVIEWS_CLEARED";
+export const REVIEWS_UPDATED_DISPLAYNAME = "REVIEWS_UPDATED_DISPLAYNAME";
 
 export interface IReviewSection {
   rating: number;
@@ -15,6 +16,8 @@ export interface IReviewsAction {
   type: string;
   allReviewIDs?: string[];
   byReviewID?: { [key: string]: IReview };
+  oldDisplayName?: string;
+  displayName?: string;
 }
 
 export interface IReview {
