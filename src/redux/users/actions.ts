@@ -18,7 +18,7 @@ import { MyThunkResult } from "../configureStore";
 import Auth from "../../utils/Auth/Auth";
 import Err from "../../utils/Err/Err";
 import { updatedDisplayName as saucesUpdatedDisplayName } from "../sauces/actions";
-import { reviewsCleared } from "../reviews/actions";
+import { updatedDisplayName as reviewsUpdatedDisplayName } from "../reviews/actions";
 
 export const addUsers = ({ user }: { user: IUserState }): IUserAction => {
   return {
@@ -263,18 +263,16 @@ export const updateDisplayName = ({
       displayName: data.user.displayName
     })
   );
+  // Update user in reviews
+  dispatch(
+    reviewsUpdatedDisplayName({
+      oldDisplayName,
+      displayName: data.user.displayName
+    })
+  );
 
   // Update displayName in local storage
   Auth.updateDisplayName(data.user.displayName);
-
-  // // Dispatch user login
-  // dispatch(
-  //   userLoggedIn({
-  //     token,
-  //     displayName,
-  //     avatarURL
-  //   })
-  // );
 
   return null;
 };
