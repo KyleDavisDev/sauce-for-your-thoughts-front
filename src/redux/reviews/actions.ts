@@ -5,7 +5,8 @@ import {
   REVIEWS_UPDATED,
   IReview,
   IReviewsState,
-  REVIEWS_CLEARED
+  REVIEWS_CLEARED,
+  REVIEWS_UPDATED_DISPLAYNAME
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 import Flatn from "../../utils/Flatn/Flatn";
@@ -35,6 +36,23 @@ export const reviewsCleared = (): IReviewsAction => {
     type: REVIEWS_CLEARED
   };
 };
+
+/** @description Update a single user's display name wherever it is found
+ *  @param {String} displayName - new person's name
+ *  @param {String} oldDisplayName - old person's name
+ *  @return {IUserAction} sauce and action type
+ */
+export const updatedDisplayName = ({
+  oldDisplayName,
+  displayName
+}: {
+  oldDisplayName: string;
+  displayName: string;
+}): IReviewsAction => ({
+  type: REVIEWS_UPDATED_DISPLAYNAME,
+  oldDisplayName,
+  displayName
+});
 
 /** @description add review(s) to store
  *  @param {object} reviews - container object
