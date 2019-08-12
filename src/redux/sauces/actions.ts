@@ -8,7 +8,8 @@ import {
   SAUCES_REMOVED,
   IAddSaucesAction,
   SAUCES_UPDATE,
-  SAUCES_CLEARED
+  SAUCES_CLEARED,
+  SAUCES_UPDATE_DISPLAYNAME
 } from "./types";
 import { IReviewsState, IReviewAPI } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
@@ -17,7 +18,6 @@ import { addedReviews } from "../reviews/actions";
 import { IUser, IUserState } from "../users/types";
 import { addUsers } from "../users/actions";
 import { MyThunkResult } from "../configureStore";
-// import { addUsers } from "./users";
 
 /** @description Add sauce(s) to array of sauces
  *  @param {Object} byId - dictionary of id => ISauce pairs
@@ -45,6 +45,24 @@ export const addedSauces = ({
   saucesWithNewestReviews,
   newest,
   featured
+});
+
+/** @description Update a single user's display name wherever it is found
+ *  @param {String} token - unique user string
+ *  @param {String} displayName - unique person name
+ *  @param {String} avatarURL - path to person avatar
+ *  @return {IUserAction} sauce and action type
+ */
+export const updatedDisplayName = ({
+  oldDisplayName,
+  displayName
+}: {
+  oldDisplayName: string;
+  displayName: string;
+}): ISaucesReturnAction => ({
+  type: SAUCES_UPDATE_DISPLAYNAME,
+  oldDisplayName,
+  displayName
 });
 
 /** @description Add sauce(s) to array of sauces
