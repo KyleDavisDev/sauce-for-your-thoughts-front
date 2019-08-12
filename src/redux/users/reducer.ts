@@ -5,7 +5,8 @@ import {
   USER_LOGGED_OUT,
   USER_ADDED,
   USER_CLEARED,
-  USER_UPDATE_DISPLAYNAME
+  USER_UPDATE_DISPLAYNAME,
+  USER_UPDATE_AVATARURL
 } from "./types";
 import { Reducer } from "redux";
 
@@ -92,6 +93,37 @@ const userReducer: Reducer<IUserState> = (
       delete byDisplayName[oldDisplayName];
 
       return { self, allDisplayNames, byDisplayName };
+    }
+
+    case USER_UPDATE_AVATARURL: {
+      // grab vars
+      const { avatarURL, displayName } = action;
+      // If cannot find then return immediately.
+      if (!displayName || !avatarURL) return state;
+      // init
+      let byDisplayName = {};
+
+      // Make sure we have self
+      if (!state.self) return state;
+      // Update self
+      const self = { ...state.self, avatarURL };
+
+      // update byDisplayName
+      if (
+        state.byDisplayName &&
+        Object.keys(state.byDisplayName).length > 0 &&
+        state.byDisplayName[displayName]
+      ) {
+        // Keep all byDisplayName records, update single specific with new avatarURL
+        byDisplayName = {
+          ...state.byDisplayName,
+          [displayName]: { ...state.byDisplayName[displayName], avatarURL }
+        };
+      } else {
+        // do nothing
+      }
+
+      return { ...state, self, byDisplayName };
     }
 
     default:
