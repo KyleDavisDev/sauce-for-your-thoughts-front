@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import shortid from "shortid";
 
 import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
-import { UpdateAvatar, logout } from "../../../../redux/users/actions";
+import { updateAvatar, logout } from "../../../../redux/users/actions";
 import LogoSFYT from "../../../../images/icons/LogoSFYT";
 import ArrowLeft from "../../../../images/icons/ArrowLeft";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
@@ -30,7 +30,13 @@ import { TextInput } from "../../../../components/TextInput/TextInput";
 export interface UpdateAvatarProps {
   history: { push: (location: string) => null };
   user: { token: string; displayName: string; avatarURL: string };
-  UpdateAvatar: ({ data }: { data: IUserUpdateAvatar }) => Promise<null>;
+  updateAvatar: ({
+    data,
+    displayName
+  }: {
+    data: IUserUpdateAvatar;
+    displayName: string;
+  }) => Promise<null>;
   logout: () => null;
 }
 
@@ -108,8 +114,6 @@ class UpdateAvatar extends React.Component<
     if (!selectedAvatar) return;
 
     const selected = selectedAvatar.key;
-
-    console.log(selected);
 
     this.setState({ ...this.state, selected });
   }
@@ -227,7 +231,10 @@ class UpdateAvatar extends React.Component<
       user: { token, password, avatarURL }
     };
     try {
-      await this.props.UpdateAvatar({ data });
+      await this.props.updateAvatar({
+        data,
+        displayName: this.props.user.displayName
+      });
 
       // clear input and display flash
       this.setState({
@@ -326,8 +333,13 @@ const mapState2Props = (state: AppState) => {
 
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
 const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  UpdateAvatar: ({ data }: { data: IUserUpdateAvatar }) =>
-    dispatch(UpdateAvatar({ data })),
+  updateAvatar: ({
+    data,
+    displayName
+  }: {
+    data: IUserUpdateAvatar;
+    displayName: string;
+  }) => dispatch(updateAvatar({ data, displayName })),
   logout: () => dispatch(logout())
 });
 
