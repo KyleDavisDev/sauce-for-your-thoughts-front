@@ -17,7 +17,7 @@ import {
 import { MyThunkResult } from "../configureStore";
 import Auth from "../../utils/Auth/Auth";
 import Err from "../../utils/Err/Err";
-import { saucesCleared } from "../sauces/actions";
+import { updatedDisplayName as saucesUpdatedDisplayName } from "../sauces/actions";
 import { reviewsCleared } from "../reviews/actions";
 
 export const addUsers = ({ user }: { user: IUserState }): IUserAction => {
@@ -253,6 +253,13 @@ export const updateDisplayName = ({
   // Update user in users section
   dispatch(
     updatedDisplayName({
+      oldDisplayName,
+      displayName: data.user.displayName
+    })
+  );
+  // Update user in sauces
+  dispatch(
+    saucesUpdatedDisplayName({
       oldDisplayName,
       displayName: data.user.displayName
     })
