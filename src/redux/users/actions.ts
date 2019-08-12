@@ -50,9 +50,8 @@ export const userLoggedIn = ({
 });
 
 /** @description Update a single user's display name wherever it is found
- *  @param {String} token - unique user string
- *  @param {String} displayName - unique person name
- *  @param {String} avatarURL - path to person avatar
+ *  @param {String} displayName - new person's name
+ *  @param {String} oldDisplayName - old person's name
  *  @return {IUserAction} sauce and action type
  */
 export const updatedDisplayName = ({
