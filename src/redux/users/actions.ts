@@ -12,7 +12,8 @@ import {
   IUserUpdatePassword,
   IUserUpdateDisplayName,
   IUserUpdateAvatar,
-  USER_UPDATE_DISPLAYNAME
+  USER_UPDATE_DISPLAYNAME,
+  USER_UPDATE_AVATARURL
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 import Auth from "../../utils/Auth/Auth";
@@ -63,6 +64,23 @@ export const updatedDisplayName = ({
 }): IUserAction => ({
   type: USER_UPDATE_DISPLAYNAME,
   oldDisplayName,
+  displayName
+});
+
+/** @description Update a single user's avatar wherever found
+ *  @param {String} displayName - new person's name
+ *  @param {String} avatarURL - new avatarURL
+ *  @return {IUserAction} sauce and action type
+ */
+export const updatedAvatarURL = ({
+  displayName,
+  avatarURL
+}: {
+  displayName: string;
+  avatarURL: string;
+}): IUserAction => ({
+  type: USER_UPDATE_AVATARURL,
+  avatarURL,
   displayName
 });
 
@@ -289,17 +307,20 @@ export const updateDisplayName = ({
  *  @reject {IErrReturn} error object
  */
 export const updateAvatar = ({
-  data
+  data,
+  displayName
 }: {
   data: IUserUpdateAvatar;
+  displayName: string;
 }): MyThunkResult<Promise<null>> => async dispatch => {
   // Call API
-  // const res = await API.user.updateAvatar({ data });
+  await API.user.updateAvatar({ data });
 
-  // const { token, displayName } = res.data.user;
+  // Update user avatar
+  dispatch(updatedAvatarURL({ displayName, avatarURL: data.user.avatarURL }));
 
-  // // Update displayName in local storage
-  // Auth.updateDisplayName(displayName);
+  // Update displayName in local storage
+  Auth.updateAvatar(data.user.avatarURL);
 
   // // Dispatch user login
   // dispatch(
