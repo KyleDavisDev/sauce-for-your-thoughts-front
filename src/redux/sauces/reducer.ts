@@ -4,7 +4,7 @@ import {
   SAUCES_ADDED,
   SAUCE_UPDATE,
   SAUCES_REMOVED,
-  SAUCES_BY_TAG_FOUND,
+  SAUCES_UPDATE_DISPLAYNAME,
   SAUCE_FOUND,
   ISaucesReturnAction
 } from "./types";
@@ -119,8 +119,41 @@ const sauceReducer: Reducer<ISaucesState> = (
       };
     }
 
-    case SAUCES_BY_TAG_FOUND: {
-      return state; // Will come back to this
+    case SAUCES_UPDATE_DISPLAYNAME: {
+      // Grab variables from action.
+      const { displayName, oldDisplayName } = action;
+      // If cannot find then return immediately.
+      if (!displayName || !oldDisplayName) return state;
+      // If the same, return immediately
+      if (displayName === oldDisplayName) return state;
+      // init
+      let bySlug = {};
+
+      // make sure we have .bySlug
+      if (state.bySlug && Object.keys(state.bySlug).length > 0) {
+        // Go through items and update name
+        bySlug = Object.keys(state.bySlug).map(slug => {
+          // make sure we have a sauce -- Here bc TS gets upset otherwise
+          if (!state.bySlug) return;
+
+          // If the sauce doesn't have an author, can return now
+          if (!state.bySlug[slug].author) return { ...state.bySlug[slug] };
+
+          // Find old display name
+          if (state.bySlug[slug].author === oldDisplayName) {
+            // update display name
+            state.bySlug[slug].author = displayName;
+          }
+
+          return { ...state.bySlug[slug] };
+        });
+      } else {
+        // Nothing to update since displayNAme is only in bySlug
+        return state;
+      }
+
+      // Return
+      return { ...state, bySlug };
     }
     // TODO: add sauce to .byIds and add id to .allIds
     case SAUCE_FOUND: {
