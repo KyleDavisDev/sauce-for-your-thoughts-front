@@ -27,18 +27,26 @@ const StyledArticle = styled(Article)`
   }
 `;
 
-const Home = ({}) => (
-  <div>
-    <TopBar />
-    <Navigation />
-    <StyledLandingImage />
-    <StyledArticle>
-      <NewestSauces />
-      <FeaturedSauces />
-      <FeaturedUsers />
-    </StyledArticle>
-    <Footer />
-  </div>
-);
+export interface HomeProps {
+  history: { push: (location: string) => any };
+}
+
+class Home extends React.PureComponent<HomeProps, {}> {
+  public render() {
+    return (
+      <div>
+        <TopBar />
+        <Navigation />
+        <StyledLandingImage history={this.props.history} />
+        <StyledArticle>
+          <NewestSauces />
+          <FeaturedSauces />
+          <FeaturedUsers />
+        </StyledArticle>
+        <Footer />
+      </div>
+    );
+  }
+}
 
 export default Home;
