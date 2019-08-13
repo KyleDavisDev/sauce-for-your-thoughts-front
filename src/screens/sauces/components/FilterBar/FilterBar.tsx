@@ -19,7 +19,7 @@ export interface FilterBarProps {
   }) => void;
   typeFromPath?: string;
   orderFromPath?: string;
-  limitFromPath?: string;
+  limitFromPath?: number;
   types?: { options: string[]; selected: string };
   order?: { options: string[]; selected: string };
 }
@@ -40,7 +40,9 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
       order: { options: [], selected: this.props.orderFromPath || "" },
       limit: {
         options: ["5", "10", "15", "25", "50"],
-        selected: this.props.limitFromPath || "15"
+        selected: this.props.limitFromPath
+          ? this.props.limitFromPath.toString()
+          : "15"
       }
     };
   }
