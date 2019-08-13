@@ -2,7 +2,6 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import { AppState } from "../../../../redux/configureStore";
-import { Button } from "../../../../components/Button/Button";
 import {
   HeroContainer,
   HeroImage,
@@ -11,12 +10,13 @@ import {
   StyledDiv,
   StyledDropDown,
   StyledInput,
-  StyledLink
+  StyledButton
 } from "./LandingImageStyle";
 
 export interface LandingImageProps {
   className?: string;
   types: string[];
+  history: { push: (location: string) => any };
 }
 
 export interface LandingImageState {
@@ -50,28 +50,37 @@ class LandingImage extends React.Component<
         <HeroImage />
         <HeroBody>
           <HeroTitle>Find your perfect sauce</HeroTitle>
-          <StyledDiv>
-            <StyledDropDown
-              options={this.state.filter.types}
-              selectedValue={this.state.filter.selectedValue}
-              onSelect={this.onSelect}
-            />
-            <StyledInput
-              type="text"
-              id="Hero__Search"
-              name="Hero__Search"
-              onChange={this.onTextChange}
-              value={this.state.search.value}
-              placeholder="Search..."
-            />
-            <StyledLink to="#">
-              <Button onClick={() => {}}>Search</Button>
-            </StyledLink>
-          </StyledDiv>
+          <form onSubmit={this.onSubmit}>
+            <StyledDiv>
+              <StyledDropDown
+                options={this.state.filter.types}
+                selectedValue={this.state.filter.selectedValue}
+                onSelect={this.onSelect}
+              />
+              <StyledInput
+                type="text"
+                id="Hero__Search"
+                name="Hero__Search"
+                onChange={this.onTextChange}
+                value={this.state.search.value}
+                placeholder="Search..."
+              />
+
+              <StyledButton type="submit">Search</StyledButton>
+            </StyledDiv>
+          </form>
         </HeroBody>
       </HeroContainer>
     );
   }
+
+  private onSubmit = async (event: React.FormEvent): Promise<null> => {
+    event.preventDefault();
+
+    // take person to sauces page w/ prefilled search query
+    this.props.history.push(`/sauces?limit=5&order=newest&page=1`);
+    return null;
+  };
 
   private onSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     if (!event || !event.target || !event.target.value) {
