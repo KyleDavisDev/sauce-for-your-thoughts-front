@@ -60,7 +60,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
   }
 
   public componentDidMount() {
-    const { page, limit, order, type }: SaucesParams = getParamsFromPath({
+    const { page, limit, order, type, srch }: SaucesParams = getParamsFromPath({
       path: this.props.location.search
     });
 
@@ -169,7 +169,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     // Construct query string
     const query = `/sauces?limit=${limit}&order=${order}&page=${
       params.page
-    }&type=${type}`;
+    }&type=${type}&like=test`;
 
     // Go to new page
     this.props.history.push(query);
@@ -239,7 +239,8 @@ export default connect(
  *  @returns {Number} limit - # of sauces per page
  *  @returns {String} order - how the sauces should be sorted
  *  @returns {Number} page - current page
- *  @returns {type} type - which sauces should be returned
+ *  @returns {string} type - which sauces should be returned
+ *  @returns {string?} srch - filter for name
  */
 function getParamsFromPath({ path }: { path: string }): SaucesParams {
   // Get values from string
