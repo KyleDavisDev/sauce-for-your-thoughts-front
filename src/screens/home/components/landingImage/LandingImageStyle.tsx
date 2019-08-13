@@ -2,6 +2,7 @@ import styled from "../../../../theme/styled-components";
 import DropDown from "../../../../components/DropDown/DropDown";
 import { TextInput } from "../../../../components/TextInput/TextInput";
 import { Link } from "../../../../components/Link/Link";
+import { Button } from "../../../../components/Button/Button";
 
 export const HeroContainer = styled.div`
   background: #000;
@@ -72,9 +73,6 @@ export const StyledInput = styled(TextInput)`
   }
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledButton = styled(Button)`
   display: flex;
-  div {
-    display: flex;
-  }
 `;
