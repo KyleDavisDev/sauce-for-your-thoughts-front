@@ -11,7 +11,7 @@ export const StyledInput = styled.input`
   max-width: 100%;
   padding: 10px;
   box-sizing: border-box;
-  border: 1px solid #ababab;
+  border: ${props => props.theme.inputBorder};
   margin-top: 5px;
   margin-bottom: 15px;
 `;
