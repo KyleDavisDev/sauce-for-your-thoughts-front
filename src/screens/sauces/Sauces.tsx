@@ -6,7 +6,7 @@ import FilterBar from "./components/FilterBar/FilterBar";
 import Footer from "../../components/Footer/Footer";
 import Navigation from "../../components/Navigation/Navigation";
 import PageTitle from "../../components/PageTitle/PageTitle";
-import Pagination from "./components/pagination/Pagination";
+import Pagination from "./components/Pagination/Pagination";
 import TopBar from "../../components/TopBar/TopBar";
 import {
   StyledArticle,
@@ -36,6 +36,7 @@ export interface SaucesState {
   minPage: number;
   maxPage: number;
   total: number;
+  srch?: string;
 }
 
 // Constants
@@ -76,7 +77,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
       // Call API
       this.props.getSaucesByQuery({ query }).catch(err => console.log(err));
 
-      this.setState({ ...this.state, page, limit, order, type });
+      this.setState({ ...this.state, page, limit, order, type, srch });
     }
   }
 
@@ -89,7 +90,8 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
       page: pageFromState,
       limit: limitFromState,
       order: orderFromState,
-      type: typeFromState
+      type: typeFromState,
+      srch: srchFromState
     } = this.state;
 
     // Update and call API if anything has changed
@@ -97,7 +99,8 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
       page !== pageFromState ||
       limit !== limitFromState ||
       order !== orderFromState ||
-      type !== typeFromState
+      type !== typeFromState ||
+      srch !== srchFromState
     ) {
       // Construct query string
       let query = `limit=${limit}&order=${order}&page=${page}&type=${type}`;
@@ -105,7 +108,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
       // Call API
       this.props.getSaucesByQuery({ query }).catch(err => console.log(err));
 
-      this.setState({ ...this.state, page, limit, order, type });
+      this.setState({ ...this.state, page, limit, order, type, srch });
     }
 
     window.scrollTo(0, 0); // Move screen to top
@@ -117,6 +120,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     const count = this.props.count || 0;
     const page = this.props.page || 1;
     const limit = this.state.limit;
+    const srch = this.state.srch;
 
     return (
       <div>
@@ -129,6 +133,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
             typeFromPath={this.state.type}
             orderFromPath={this.state.order}
             limitFromPath={this.state.limit}
+            srchFromPath={this.state.srch}
           />
           <StyledCardContainer>
             {sauces.length > 0 &&
@@ -169,9 +174,10 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     });
 
     // Construct query string
-    const query = `/sauces?limit=${limit}&order=${order}&page=${
+    let query = `/sauces?limit=${limit}&order=${order}&page=${
       params.page
-    }&type=${type}&like=test`;
+    }&type=${type}`;
+    if (params.srch) query += `&srch=${params.srch}`;
 
     // Go to new page
     this.props.history.push(query);
