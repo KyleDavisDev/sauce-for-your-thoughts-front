@@ -46,6 +46,11 @@ class SauceHero extends React.PureComponent<SauceHeroProps, any> {
           <p>
             <i>Type:</i> {this.RenderType()}
           </p>
+          {sauce && sauce.shu && (
+            <p>
+              <i>SHU:</i> {sauce.shu} scoville
+            </p>
+          )}
           <p>
             <i>Made in:</i> {(sauce && sauce.country) || "Loading..."}
           </p>
