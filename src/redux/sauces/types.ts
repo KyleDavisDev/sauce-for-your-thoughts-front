@@ -69,6 +69,7 @@ export interface SaucesParams {
   limit: number;
   order: string;
   type: string;
+  srch?: string;
 }
 
 // Action strings
