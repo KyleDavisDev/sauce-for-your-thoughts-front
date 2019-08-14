@@ -3,7 +3,8 @@ import { Button } from "../../../../components/Button/Button";
 import {
   StyledFormContainer,
   StyledFrom,
-  StyledDropDown
+  StyledDropDown,
+  StyledInput
 } from "./FilterBarStyle";
 import { connect } from "react-redux";
 import { MyThunkDispatch, AppState } from "../../../../redux/configureStore";
@@ -20,6 +21,7 @@ export interface FilterBarProps {
   typeFromPath?: string;
   orderFromPath?: string;
   limitFromPath?: number;
+  srchFromPath?: string;
   types?: { options: string[]; selected: string };
   order?: { options: string[]; selected: string };
 }
@@ -28,7 +30,8 @@ export interface FilterBarState {
   types: { options: string[]; selected: string };
   order: { options: string[]; selected: string };
   limit: { options: string[]; selected: string };
-  [key: string]: { options: string[]; selected: string };
+  srch: string;
+  [key: string]: { options: string[]; selected: string } | string;
 }
 
 class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
@@ -43,7 +46,8 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
         selected: this.props.limitFromPath
           ? this.props.limitFromPath.toString()
           : "15"
-      }
+      },
+      srch: ""
     };
   }
 
@@ -54,8 +58,11 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
       return;
     }
 
+    // Find srch if we have one or assign default val
+    const srch = this.props.srchFromPath || "";
+
     // Assign to state
-    this.setState({ ...this.state, types, order });
+    this.setState({ ...this.state, types, order, srch });
   }
 
   public componentWillReceiveProps(props: FilterBarProps) {
@@ -65,11 +72,14 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
       return;
     }
 
-    this.setState({ ...this.state, types, order });
+    // Find srch if we have one or assign default val
+    const srch = this.props.srchFromPath || "";
+
+    this.setState({ ...this.state, types, order, srch });
   }
 
   public render() {
-    const { types, order, limit } = this.state;
+    const { types, order, limit, srch } = this.state;
 
     return (
       <StyledFormContainer>
@@ -102,6 +112,13 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
               selectedValue={limit.selected}
             />
 
+            <StyledInput
+              showLabel={true}
+              label={"Name like..."}
+              value={srch}
+              onChange={() => {}}
+            />
+
             <Button type={"submit"}>Filter</Button>
           </StyledFrom>
         ) : (
@@ -130,8 +147,13 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
 
     const { name, value }: { name: string; value: string } = event.target;
 
+    // Make sure we are dealing with object
+    const dropdownObj = this.state[name];
+    if (typeof dropdownObj !== "object") return;
+
     this.setState({
-      [name]: { ...this.state[name], selected: value }
+      ...this.state,
+      [name]: { ...dropdownObj, selected: value }
     });
   };
 }
