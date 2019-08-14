@@ -78,7 +78,7 @@ class LandingImage extends React.Component<
     event.preventDefault();
 
     // take person to sauces page w/ prefilled search query
-    this.props.history.push(`/sauces?limit=5&order=newest&page=1`);
+    this.props.history.push(`/sauces?srch=${this.state.search.value}`);
     return null;
   };
 
