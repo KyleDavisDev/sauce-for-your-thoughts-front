@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import DropDown from "../../../../components/DropDown/DropDown";
+import { TextInput } from "../../../../components/TextInput/TextInput";
 
 export const StyledFormContainer = styled.div`
   border: ${props => props.theme.border};
@@ -20,9 +21,17 @@ export const StyledFrom = styled.form`
 `;
 
 export const StyledDropDown = styled(DropDown)`
-  width: 25%;
+  width: 20%;
 
   select {
+    height: 35px;
+  }
+`;
+
+export const StyledInput = styled(TextInput)`
+  width: 20%;
+  input {
+    margin-bottom: 0px;
     height: 35px;
   }
 `;
