@@ -43,6 +43,7 @@ const DEFAULT_LIMIT_COUNT = 15;
 const DEFAULT_PAGE = 1;
 const DEFAULT_TYPE = "all";
 const DEFAULT_ORDER = "newest";
+const MAX_SRCH_LENGTH = 20;
 
 class Sauces extends React.Component<SaucesProps, SaucesState> {
   constructor(props: SaucesProps) {
@@ -64,14 +65,14 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
       path: this.props.location.search
     });
 
-    // this.setState({ ...this.state, page: page });
-
     window.scrollTo(0, 0); // Move screen to top
 
     // If we don't have sauces, go look for them!
     if (!this.props.sauces) {
       // Construct query string
-      const query = `limit=${limit}&order=${order}&page=${page}&type=${type}`;
+      let query = `limit=${limit}&order=${order}&page=${page}&type=${type}`;
+      if (srch) query += `&srch=${srch}`;
+
       // Call API
       this.props.getSaucesByQuery({ query }).catch(err => console.log(err));
 
@@ -81,7 +82,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
 
   public componentWillReceiveProps(props: SaucesProps) {
     // Going to compare current page vs page in URL
-    const { page, limit, order, type }: SaucesParams = getParamsFromPath({
+    const { page, limit, order, type, srch }: SaucesParams = getParamsFromPath({
       path: props.location.search
     });
     const {
@@ -99,7 +100,8 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
       type !== typeFromState
     ) {
       // Construct query string
-      const query = `limit=${limit}&order=${order}&page=${page}&type=${type}`;
+      let query = `limit=${limit}&order=${order}&page=${page}&type=${type}`;
+      if (srch) query += `&srch=${srch}`;
       // Call API
       this.props.getSaucesByQuery({ query }).catch(err => console.log(err));
 
@@ -178,12 +180,13 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
 
 function mapStateToProps(state: AppState, myProps: any): any {
   // Get path params
-  const { limit, order, page, type } = getParamsFromPath({
+  const { limit, order, page, type, srch } = getParamsFromPath({
     path: myProps.location.search
   });
 
   // Construct key string
-  const key = `limit=${limit}&order=${order}&page=${page}&type=${type}`;
+  let key = `limit=${limit}&order=${order}&page=${page}&type=${type}`;
+  if (srch) key += `&srch=${srch}`;
 
   // Get query and sanity check
   const { query } = state.sauces;
@@ -275,5 +278,12 @@ function getParamsFromPath({ path }: { path: string }): SaucesParams {
       ? values.order.toLowerCase()
       : DEFAULT_ORDER;
 
-  return { limit, order, page, type };
+  const srch =
+    values.srch &&
+    !Array.isArray(values.srch) &&
+    values.srch.length < MAX_SRCH_LENGTH
+      ? values.srch.toLowerCase()
+      : undefined;
+
+  return { limit, order, page, type, srch };
 }
