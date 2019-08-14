@@ -20,9 +20,11 @@ export const SelectContainer = styled.div`
 
 export const StyledSelect = styled.select`
   width: 100%;
-  background-color: transparent;
+  background-color: white;
   appearance: none;
-  border: 0;
+  border: ${props => props.theme.inputBorder};
+  box-shadow: 0;
+  border-radius: 0;
   cursor: pointer;
   display: inline-block;
   position: relative;
