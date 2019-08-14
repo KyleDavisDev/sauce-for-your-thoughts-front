@@ -53,6 +53,8 @@ export interface ThemeInterface {
 
   border: string;
 
+  inputBorder: string;
+
   white: string;
   grey: string;
   lightGrey: string;
@@ -131,6 +133,8 @@ export const theme = {
   defaultFontSize: scale.defaultFontSize,
 
   border: "1px solid #ddd",
+
+  inputBorder: "1px solid #ababab",
 
   white: colors.white,
   grey: colors.grey,
