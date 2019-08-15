@@ -162,11 +162,13 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
   private onSubmit = ({
     type,
     order,
-    limit
+    limit,
+    srch
   }: {
     type: string;
     order: string;
     limit: string;
+    srch: string;
   }) => {
     // Get any params from path
     const params: SaucesParams = getParamsFromPath({
@@ -177,7 +179,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     let query = `/sauces?limit=${limit}&order=${order}&page=${
       params.page
     }&type=${type}`;
-    if (params.srch) query += `&srch=${params.srch}`;
+    if (srch) query += `&srch=${srch}`;
 
     // Go to new page
     this.props.history.push(query);
