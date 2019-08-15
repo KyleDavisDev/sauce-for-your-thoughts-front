@@ -20,11 +20,6 @@ export interface ISauce {
 }
 
 // Trimmed down for reference only
-export interface ISaucesFromQuery {
-  [key: string]: ISauce;
-}
-
-// Trimmed down for reference only
 export interface ISauceRef {
   _id?: number | string;
   slug: string;
