@@ -197,6 +197,10 @@ export const getSaucesByQuery = ({
 }): MyThunkResult<Promise<null>> => async dispatch => {
   const res = await API.sauces.getByQuery({ query });
 
+  // immediately grab total and remove from obj
+  const totalForQuery = res.data.sauces.total;
+  delete res.data.sauces.total;
+
   // Normalize sauces
   const { allSlugs, bySlug }: ISaucesState = Flatn.saucesObj({
     sauces: res.data.sauces
@@ -204,7 +208,7 @@ export const getSaucesByQuery = ({
 
   // format query as expected
   const tmpQuery: IQuery = {};
-  tmpQuery[query] = { sauces: allSlugs || [], total: res.data.sauces.total };
+  tmpQuery[query] = { sauces: allSlugs || [], total: totalForQuery };
 
   // dispatch sauce
   dispatch(
