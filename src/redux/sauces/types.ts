@@ -21,7 +21,7 @@ export interface ISauce {
 
 // Trimmed down for reference only
 export interface ISaucesFromQuery {
-  [key: string]: ISauce | number;
+  [key: string]: ISauce;
 }
 
 // Trimmed down for reference only
