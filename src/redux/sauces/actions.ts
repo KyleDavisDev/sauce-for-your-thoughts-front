@@ -198,11 +198,10 @@ export const getSaucesByQuery = ({
   const res = await API.sauces.getByQuery({ query });
 
   // immediately grab total and remove from obj
-  const totalForQuery = res.data.sauces.total;
-  delete res.data.sauces.total;
+  const totalForQuery = res.data.totalForQuery;
 
   // Normalize sauces
-  const { allSlugs, bySlug }: ISaucesState = Flatn.saucesObj({
+  const { allSlugs, bySlug }: ISaucesState = Flatn.saucesArr({
     sauces: res.data.sauces
   });
 
