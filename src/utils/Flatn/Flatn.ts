@@ -2,12 +2,7 @@ import moment from "moment";
 
 import { IReview, IReviewAPI } from "../../redux/reviews/types";
 import { IUser, IUserState } from "../../redux/users/types";
-import {
-  ISauce,
-  ISaucesState,
-  ISaucesFromQuery
-} from "../../redux/sauces/types";
-import Utils from "../Utils/Utils";
+import { ISauce, ISaucesState } from "../../redux/sauces/types";
 
 class Flatn {
   // flatten array of reviews
@@ -75,17 +70,22 @@ class Flatn {
   public static saucesArr({ sauces }: { sauces: ISauce[] }): ISaucesState {
     // init
     const bySlug: { [key: string]: ISauce } = {};
+    const allSlugs: string[] = [];
 
     // Will assign this to sauces if need to.
     // Creating it once here will save computing time and give all sauces same value
     const addedToStore: number = moment().unix();
     for (let i = 0, len = sauces.length; i < len; i++) {
-      const slug: string | undefined = sauces[i].slug;
-
+      // Grab sauce and slug
+      const sauce = sauces[i];
+      const slug = sauce.slug;
       if (!slug) continue;
 
-      // Add to obj
-      bySlug[slug] = sauces[i];
+      // Add to obj and array
+      if (!bySlug[slug]) {
+        bySlug[slug] = sauce;
+        allSlugs.push(slug);
+      }
 
       // If sauce doesn't have _addedToStore prop, we will add it
       if (!bySlug[slug]._addedToStore) {
@@ -97,48 +97,6 @@ class Flatn {
         bySlug[slug]._full = false;
       }
     }
-
-    const allSlugs: string[] = Object.keys(bySlug);
-
-    return { allSlugs, bySlug };
-  }
-
-  // flatten object of sauces
-  public static saucesObj({
-    sauces
-  }: {
-    sauces: ISaucesFromQuery;
-  }): ISaucesState {
-    // init
-    const bySlug: { [key: string]: ISauce } = {};
-
-    // Will assign this to sauces if need to.
-    // Creating it once here will save computing time and give all sauces same value
-    const addedToStore: number = moment().unix();
-    for (let i = 0, len = Object.keys(sauces).length - 1; i < len; i++) {
-      // make sure we aren't dealing with number
-      const val = sauces[i];
-      if (typeof val === "number") continue;
-
-      const slug = val.slug;
-
-      if (!slug) continue;
-
-      // Add to obj
-      bySlug[slug] = val;
-
-      // If sauce doesn't have _addedToStore prop, we will add it
-      if (!bySlug[slug]._addedToStore) {
-        bySlug[slug]._addedToStore = addedToStore;
-      }
-
-      // If we don't have _full assigned, assume to be false and set to false
-      if (!bySlug[slug]._full) {
-        bySlug[slug]._full = false;
-      }
-    }
-
-    const allSlugs: string[] = Object.keys(bySlug);
 
     return { allSlugs, bySlug };
   }
