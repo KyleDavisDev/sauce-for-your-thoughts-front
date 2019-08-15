@@ -12,11 +12,14 @@ import { MyThunkDispatch, AppState } from "../../../../redux/configureStore";
 export interface FilterBarProps {
   onSubmit: ({
     type,
-    order
+    order,
+    limit,
+    srch
   }: {
     type: string;
     order: string;
     limit: string;
+    srch: string;
   }) => void;
   typeFromPath?: string;
   orderFromPath?: string;
@@ -116,7 +119,8 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
               showLabel={true}
               label={"Name like..."}
               value={srch}
-              onChange={() => {}}
+              onChange={this.onTextChange}
+              name={"srch"}
             />
 
             <Button type={"submit"}>Filter</Button>
@@ -136,8 +140,15 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
     this.props.onSubmit({
       type: this.state.types.selected,
       order: this.state.order.selected,
-      limit: this.state.limit.selected
+      limit: this.state.limit.selected,
+      srch: this.state.srch
     });
+  };
+
+  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const { name, value } = event.target;
+
+    this.setState({ ...this.state, [name]: value });
   };
 
   private onDropDownChange = (
