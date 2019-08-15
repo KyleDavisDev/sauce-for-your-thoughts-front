@@ -1,7 +1,6 @@
 import styled from "../../../../theme/styled-components";
 import DropDown from "../../../../components/DropDown/DropDown";
 import { TextInput } from "../../../../components/TextInput/TextInput";
-import { Link } from "../../../../components/Link/Link";
 import { Button } from "../../../../components/Button/Button";
 
 export const HeroContainer = styled.div`
@@ -45,9 +44,16 @@ export const StyledDiv = styled.div`
 
 export const StyledDropDown = styled(DropDown)`
   min-height: 30px;
+  border: 0px;
+  box-sizing: border-box;
+
+  > div {
+    width: auto;
+  }
 
   select {
     width: auto;
+    border: 0;
   }
 `;
 
