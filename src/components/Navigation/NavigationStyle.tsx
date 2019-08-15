@@ -39,11 +39,14 @@ export const StyledButton = styled(Button)`
 
   button {
     background-color: transparent;
+    border: 0;
     width: 100%;
+
 
     &:hover,
     &:focus {
       background-color: transparent;
+      border: 0;
       outline: 0;
     }
 
