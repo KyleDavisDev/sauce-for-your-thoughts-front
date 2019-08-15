@@ -36,11 +36,9 @@ class LandingImage extends React.Component<
   constructor(props: LandingImageProps) {
     super(props);
 
-    const types: string[] = ["All", ...this.props.types];
-
     this.state = {
       search: { value: "" },
-      filter: { types, selectedValue: "all" }
+      filter: { types: this.props.types, selectedValue: "all" }
     };
   }
 
@@ -77,8 +75,13 @@ class LandingImage extends React.Component<
   private onSubmit = async (event: React.FormEvent): Promise<null> => {
     event.preventDefault();
 
+    let query = `/sauces?srch=${this.state.search.value}`;
+    if (this.state.filter.selectedValue.toLowerCase() !== "all") {
+      query += `&type=${this.state.filter.selectedValue}`;
+    }
+
     // take person to sauces page w/ prefilled search query
-    this.props.history.push(`/sauces?srch=${this.state.search.value}`);
+    this.props.history.push(query);
     return null;
   };
 
