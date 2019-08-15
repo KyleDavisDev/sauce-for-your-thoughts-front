@@ -76,7 +76,7 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
     }
 
     // Find srch if we have one or assign default val
-    const srch = this.props.srchFromPath || "";
+    const srch = props.srchFromPath || "";
 
     this.setState({ ...this.state, types, order, srch });
   }
@@ -195,12 +195,16 @@ function mapStateToProps(
   let orderFromPath = myProps.orderFromPath || orders[0];
   orderFromPath = orderFromPath.toLowerCase();
 
+  // Find srch if we have one or assign default val
+  const srchFromPath = myProps.srchFromPath || "";
+
   return {
     types: { options: types, selected: typeFromPath },
     order: { options: orders, selected: orderFromPath },
     onSubmit,
     orderFromPath,
-    typeFromPath
+    typeFromPath,
+    srchFromPath
   };
 }
 
