@@ -1,10 +1,10 @@
 import * as React from "react";
-import { Button } from "../../../../components/Button/Button";
 import {
   StyledFormContainer,
   StyledFrom,
   StyledDropDown,
-  StyledInput
+  StyledInput,
+  StyledButton
 } from "./FilterBarStyle";
 import { connect } from "react-redux";
 import { MyThunkDispatch, AppState } from "../../../../redux/configureStore";
@@ -123,7 +123,7 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
               name={"srch"}
             />
 
-            <Button type={"submit"}>Filter</Button>
+            <StyledButton type={"submit"}>Filter</StyledButton>
           </StyledFrom>
         ) : (
           "Loading..."
