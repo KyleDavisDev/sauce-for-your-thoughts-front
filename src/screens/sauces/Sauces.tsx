@@ -133,10 +133,10 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
             typeFromPath={this.state.type}
             orderFromPath={this.state.order}
             limitFromPath={this.state.limit}
-            srchFromPath={this.state.srch}
+            srchFromPath={srch}
           />
           <StyledCardContainer>
-            {sauces.length > 0 &&
+            {sauces.length > 0 ? (
               sauces.map((sauce, ind) => {
                 return (
                   <StyledCardHolder key={ind}>
@@ -148,7 +148,13 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
                     />
                   </StyledCardHolder>
                 );
-              })}
+              })
+            ) : (
+              <p>
+                Could not find any sauces! Try adjusting the items in the filter
+                bar to find your perfect sauce.
+              </p>
+            )}
           </StyledCardContainer>
           {count > 0 && (
             <Pagination total={count} page={page} limit={limit} range={3} />
