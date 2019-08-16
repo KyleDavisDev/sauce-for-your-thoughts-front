@@ -228,7 +228,7 @@ export const getSaucesByNewest = (): MyThunkResult<
 
   // Normalize sauces
   const { allSlugs, bySlug }: ISaucesState = Flatn.saucesArr({
-    sauces: res.data.saucesByNewest
+    sauces: res.data.saucesByNewest.sauces
   });
 
   // dispatch sauces
@@ -248,7 +248,7 @@ export const getSaucesByFeatured = (): MyThunkResult<
 
   // Normalize sauces
   const { allSlugs, bySlug }: ISaucesState = Flatn.saucesArr({
-    sauces: res.data.saucesByFeatured
+    sauces: res.data.saucesByFeatured.sauces
   });
 
   // dispatch sauces
