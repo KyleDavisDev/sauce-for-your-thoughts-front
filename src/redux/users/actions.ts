@@ -131,6 +131,13 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
         ? res.data.user.displayName || "Me"
         : name;
 
+    // Set user to be remembered
+    Auth.authenticateUser({
+      token,
+      displayName,
+      avatarURL
+    });
+
     // Dispatch user login
     dispatch(userLoggedIn({ token, displayName, avatarURL }));
 
