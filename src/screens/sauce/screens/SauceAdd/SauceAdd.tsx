@@ -21,10 +21,17 @@ import ArrowRight from "../../../../images/icons/ArrowRight";
 import { AppState } from "../../../../redux/configureStore";
 import Auth from "../../../../utils/Auth/Auth";
 import { Article, StyledFormContainer, StyledButton } from "./SauceAddStyle";
+import {
+  FlashMessageProps,
+  FlashMessage
+} from "../../../../components/FlashMessage/FlashMessage";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
-  history?: { replace: (location: string) => any };
+  history?: {
+    replace: (location: string) => any;
+    push: (location: string) => any;
+  };
   user?: { token: string; name: string };
   types?: string[];
 }
@@ -44,6 +51,7 @@ export interface SauceAddState extends ISauce {
   DropNCropValue: any;
   isImageLocked: boolean;
   addReview: boolean;
+  flashMessage: FlashMessageProps;
 }
 
 class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
@@ -80,7 +88,10 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       cropperOptions: { zoomOnWheel: false, aspectRatio: 2 / 3, movable: true },
       DropNCropValue: {},
       isImageLocked: false,
-      addReview: true
+      addReview: true,
+      flashMessage: {
+        isVisible: false
+      }
     };
   }
 
@@ -107,6 +118,11 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
         <Article>
           <PageTitle>Add Sauce</PageTitle>
           <StyledFormContainer>
+            {this.state.flashMessage.isVisible && (
+              <FlashMessage type={this.state.flashMessage.type} isVisible>
+                {this.state.flashMessage.text}
+              </FlashMessage>
+            )}
             <form onSubmit={this.onSubmit} style={{ maxWidth: "100%" }}>
               {/* Title */}
               <SauceTitle
@@ -334,6 +350,19 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
         })
         .catch(err => {
           // TODO better error handling
+
+          // Move screen to top
+          window.scrollTo(0, 0);
+
+          // Create warning flash
+          this.setState({
+            ...this.state,
+            flashMessage: {
+              isVisible: true,
+              text: err.response.data.msg,
+              type: "warning"
+            }
+          });
         });
     } else {
       // error window?
