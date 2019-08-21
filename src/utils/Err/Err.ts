@@ -1,5 +1,5 @@
 // Return interface
-interface IErrReturn {
+export interface IErrReturn {
   response: { data: { msg: string; status: number } };
 }
 
