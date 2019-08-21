@@ -8,6 +8,7 @@ import {
   IUserUpdateAvatar
 } from "../../redux/users/types";
 import { IReview } from "../../redux/reviews/types";
+import Err from "../Err/Err";
 
 export const host =
   process.env.API_ENV === "prod"
@@ -314,6 +315,33 @@ export const API = {
         }
         throw new Error(res.data.msg);
       });
+    },
+
+    /** @description Check if user is eligible to submit a sauce or not (maybe user has not verified email yet)
+     *  @param {Object} data data object
+     *    @param {string} data.user.token user's unique token
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {IErrReturn} error object
+     */
+    canUserSubmit: ({
+      data
+    }: {
+      data: {
+        user: { token: string };
+      };
+    }): AxiosPromise => {
+      return axios.post(`${host}/api/review/canusersubmit`, data).then(res => {
+        if (res.data.isGood && res.data.canUserSubmit) {
+          return res;
+        }
+
+        // Throw error in handle-able format
+        throw Err({ msg: res.data.msg, status: res.status });
+      });
     }
   },
 
@@ -385,8 +413,6 @@ export const API = {
      *  @resolves {Object} res.data - relevant info to request
      *
      *  {Boolean} res.data.isGood - whether request was good or not
-     *
-     *  {Boolean} res.data.canSubmit - whether user can submit or not
      *
      *  @reject {String} error message
      */
