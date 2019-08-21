@@ -25,6 +25,9 @@ import {
   FlashMessageProps,
   FlashMessage
 } from "../../../../components/FlashMessage/FlashMessage";
+import { API } from "../../../../utils/api/API";
+import { IErrReturn } from "../../../../utils/Err/Err";
+import { Overlay } from "../../../../components/Overlay/Overlay";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
@@ -52,6 +55,7 @@ export interface SauceAddState extends ISauce {
   isImageLocked: boolean;
   addReview: boolean;
   flashMessage: FlashMessageProps;
+  enabled: boolean;
 }
 
 class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
@@ -84,6 +88,7 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       country: "United States",
       state: "",
       city: "",
+      enabled: true,
 
       cropperOptions: { zoomOnWheel: false, aspectRatio: 2 / 3, movable: true },
       DropNCropValue: {},
@@ -108,6 +113,31 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     if (!user.name) history.replace("/account/login?return=/sauce/add");
     // If no token, stop
     if (!user.token) history.replace("/account/login?return=/sauce/add");
+
+    // Construct data obj
+    const data = { user: { token: user.token } };
+
+    // Find out if user is eligible to submit a review for this sauce or not
+    API.sauces
+      .canUserSubmit({ data })
+      .then(res => {
+        this.setState(prevState => {
+          return { ...prevState, enabled: true };
+        });
+      })
+      .catch((err: IErrReturn) => {
+        // Disable form components and show flashmessage
+        this.setState(prevState => {
+          return {
+            ...prevState,
+            enabled: false,
+            flashMessage: {
+              isVisible: true,
+              text: err.response.data.msg
+            }
+          };
+        });
+      });
   }
 
   public render() {
@@ -118,73 +148,75 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
         <Article>
           <PageTitle>Add Sauce</PageTitle>
           <StyledFormContainer>
-            {this.state.flashMessage.isVisible && (
-              <FlashMessage type={this.state.flashMessage.type} isVisible>
-                {this.state.flashMessage.text}
-              </FlashMessage>
-            )}
             <form onSubmit={this.onSubmit} style={{ maxWidth: "100%" }}>
-              {/* Title */}
-              <SauceTitle
-                onTextChange={this.onTextChange}
-                name={this.state.name}
-                maker={this.state.maker}
-              />
+              {this.state.flashMessage.isVisible && (
+                <FlashMessage type={this.state.flashMessage.type} isVisible>
+                  {this.state.flashMessage.text}
+                </FlashMessage>
+              )}
+              <Overlay enabled={this.state.enabled}>
+                {/* Title */}
+                <SauceTitle
+                  onTextChange={this.onTextChange}
+                  name={this.state.name}
+                  maker={this.state.maker}
+                />
 
-              {/* Official Description */}
-              <SauceDescription
-                onTextChange={this.onTextChange}
-                description={this.state.description}
-              />
+                {/* Official Description */}
+                <SauceDescription
+                  onTextChange={this.onTextChange}
+                  description={this.state.description}
+                />
 
-              {/* Ingredients */}
-              <SauceIngredients
-                onTextChange={this.onTextChange}
-                ingredients={this.state.ingredients}
-              />
+                {/* Ingredients */}
+                <SauceIngredients
+                  onTextChange={this.onTextChange}
+                  ingredients={this.state.ingredients}
+                />
 
-              {/* Type */}
-              <SauceType
-                typesOfSauces={this.state.typesOfSauces}
-                onCheckBoxClick={this.onCheckBoxClick}
-              />
+                {/* Type */}
+                <SauceType
+                  typesOfSauces={this.state.typesOfSauces}
+                  onCheckBoxClick={this.onCheckBoxClick}
+                />
 
-              {/* Spice */}
-              <SauceSpice
-                shu={this.state.shu}
-                onTextChange={this.onTextChange}
-              />
+                {/* Spice */}
+                <SauceSpice
+                  shu={this.state.shu}
+                  onTextChange={this.onTextChange}
+                />
 
-              {/* Location */}
-              <SauceLocation
-                state={this.state.state}
-                city={this.state.city}
-                country={this.state.country}
-                onTextChange={this.onTextChange}
-                onCountryChange={this.onCountryChange}
-                onStateChange={this.onStateChange}
-              />
+                {/* Location */}
+                <SauceLocation
+                  state={this.state.state}
+                  city={this.state.city}
+                  country={this.state.country}
+                  onTextChange={this.onTextChange}
+                  onCountryChange={this.onCountryChange}
+                  onStateChange={this.onStateChange}
+                />
 
-              {/* Photo */}
-              <SaucePhoto
-                DropNCropValue={this.state.DropNCropValue}
-                cropperOptions={this.state.cropperOptions}
-                isImageLocked={this.state.isImageLocked}
-                onDropNCropChange={this.onDropNCropChange}
-                onImageLock={this.onImageLock}
-                onClearImageClick={this.onClearImageClick}
-              />
+                {/* Photo */}
+                <SaucePhoto
+                  DropNCropValue={this.state.DropNCropValue}
+                  cropperOptions={this.state.cropperOptions}
+                  isImageLocked={this.state.isImageLocked}
+                  onDropNCropChange={this.onDropNCropChange}
+                  onImageLock={this.onImageLock}
+                  onClearImageClick={this.onClearImageClick}
+                />
 
-              {/* Review */}
-              <SauceReview
-                onRadioClick={this.onRadioClick}
-                addReview={this.state.addReview}
-              />
+                {/* Review */}
+                <SauceReview
+                  onRadioClick={this.onRadioClick}
+                  addReview={this.state.addReview}
+                />
 
-              <StyledButton onClick={() => {}} type="submit">
-                Submit
-                <ArrowRight />
-              </StyledButton>
+                <StyledButton onClick={() => {}} type="submit">
+                  Submit
+                  <ArrowRight />
+                </StyledButton>
+              </Overlay>
             </form>
           </StyledFormContainer>
         </Article>
