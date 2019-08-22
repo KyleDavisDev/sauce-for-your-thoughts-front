@@ -32,6 +32,7 @@ import {
   FlashMessage
 } from "../../components/FlashMessage/FlashMessage";
 import { Overlay } from "../../components/Overlay/Overlay";
+import { IErrReturn } from "../../utils/Err/Err";
 
 export interface ReviewAddProps {
   addReview: ({
@@ -118,27 +119,27 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
           return { ...prevState, enabled: true };
         });
       })
-      .catch(err => {
-        // Disable form components and show flashmessage
-        this.setState(prevState => {
-          return {
-            ...prevState,
-            enabled: false,
-            flashMessage: {
-              isVisible: true,
-              text:
-                "You've already submitted a review for this sauce! Redirecting... ",
-              slugText: "Click here if redirect failed.",
-              slug: `/review/edit${this.props.location.search}`
-            }
-          };
-        });
-
-        // Redirect user to edit page
-        this.props.history.replace(
-          `/review/edit${this.props.location.search}`,
-          this.props.location.pathname
-        );
+      .catch((err: IErrReturn) => {
+        // 401 === unauthorized
+        if (err.response.data.status === 401) {
+          // Disable form components and show flashmessage
+          this.setState(prevState => {
+            return {
+              ...prevState,
+              enabled: false,
+              flashMessage: {
+                isVisible: true,
+                text: err.response.data.msg
+              }
+            };
+          });
+        } else {
+          // Redirect user to edit page
+          this.props.history.replace(
+            `/review/edit${this.props.location.search}`,
+            this.props.location.pathname
+          );
+        }
       });
   }
 
