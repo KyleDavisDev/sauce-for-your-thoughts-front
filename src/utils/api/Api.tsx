@@ -334,14 +334,23 @@ export const API = {
         user: { token: string };
       };
     }): AxiosPromise => {
-      return axios.post(`${host}/api/review/canusersubmit`, data).then(res => {
-        if (res.data.isGood && res.data.canUserSubmit) {
-          return res;
-        }
+      return axios
+        .post(`${host}/api/review/canusersubmit`, data)
+        .then(res => {
+          if (res.data.isGood && res.data.canUserSubmit) {
+            return res;
+          }
 
-        // Throw error in handle-able format
-        throw Err({ msg: res.data.msg, status: res.status });
-      });
+          // Throw error in handle-able format
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status
+          });
+        });
     }
   },
 
@@ -414,7 +423,7 @@ export const API = {
      *
      *  {Boolean} res.data.isGood - whether request was good or not
      *
-     *  @reject {String} error message
+     *  @reject {IErrReturn} error message
      */
     canUserSubmit: ({
       data
@@ -424,12 +433,23 @@ export const API = {
         sauce: { slug: string };
       };
     }): AxiosPromise => {
-      return axios.post(`${host}/api/review/canusersubmit`, data).then(res => {
-        if (res.data.isGood && res.data.canUserSubmit) {
-          return res;
-        }
-        throw new Error(res.data.msg);
-      });
+      return axios
+        .post(`${host}/api/review/canusersubmit`, data)
+        .then(res => {
+          if (res.data.isGood && res.data.canUserSubmit) {
+            return res;
+          }
+
+          // Throw error in handle-able format
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status
+          });
+        });
     }
   },
 
