@@ -201,6 +201,42 @@ export const API = {
         }
         throw new Error(res.data.msg);
       });
+    },
+
+    /** @description Confirm a user's email
+     *  @param {Object} data email
+     *    @param {String} data.email - email to validate
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {IErrReturn} error object
+     */
+    confirmEmail: ({
+      data
+    }: {
+      data: {
+        email: string;
+      };
+    }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/user/confirm/email`, data)
+        .then(res => {
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // Throw error in handle-able format
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status
+          });
+        });
     }
   },
   sauce: {
