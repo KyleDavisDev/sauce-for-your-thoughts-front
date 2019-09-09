@@ -177,11 +177,7 @@ const Screens = (
     <Route path="/account/settings/password" component={UpdatePassword} />
     <Route path="/account/settings/displayname" component={UpdateDisplayName} />
     <Route path="/account/settings/avatar" component={UpdateAvatar} />
-    <Route
-      exact
-      path="/account/confirm/email/:email"
-      component={ConfirmEmail}
-    />
+    <Route path="/account/confirm/email/:email" component={ConfirmEmail} />
     <Route path="/account/login" component={Login} />
     <Route path="/reset" component={Reset} />
     <Route exact path="/sauce" component={SauceSpotlight} />
