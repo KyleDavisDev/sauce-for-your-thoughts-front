@@ -17,7 +17,7 @@ import {
   FlashMessageProps
 } from "../../../../components/FlashMessage/FlashMessage";
 import { IUserUpdateEmail } from "../../../../redux/users/types";
-import Auth from "../../../../utils/Auth/Auth";
+import { API } from "../../../../utils/api/API";
 
 export interface UpdateEmailProps {
   history: { push: (location: string) => null };
@@ -56,6 +56,9 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
 
     // Grab email
     const email = this.props.match.params.email;
+
+    // Call API to validate email
+    await API.user.confirmEmail({ data: { email } });
   }
 
   public render() {
