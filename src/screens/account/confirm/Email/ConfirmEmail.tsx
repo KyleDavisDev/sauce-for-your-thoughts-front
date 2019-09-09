@@ -21,6 +21,7 @@ import Auth from "../../../../utils/Auth/Auth";
 
 export interface UpdateEmailProps {
   history: { push: (location: string) => null };
+  match?: { params?: { email?: string } };
   user: { token: string; displayName: string; avatarURL: string };
   updateEmail: ({ data }: { data: IUserUpdateEmail }) => Promise<null>;
   logout: () => null;
@@ -42,7 +43,20 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     };
   }
 
-  public async componentDidMount() {}
+  public async componentDidMount() {
+    // Make sure we have something to work with
+    if (
+      !this.props.match ||
+      !this.props.match.params ||
+      !this.props.match.params.email
+    ) {
+      this.props.history.push("/");
+      return;
+    }
+
+    // Grab email
+    const email = this.props.match.params.email;
+  }
 
   public render() {
     return (
