@@ -371,9 +371,9 @@ export const API = {
       };
     }): AxiosPromise => {
       return axios
-        .post(`${host}/api/review/canusersubmit`, data)
+        .post(`${host}/api/sauce/canusersubmit`, data)
         .then(res => {
-          if (res.data.isGood && res.data.canUserSubmit) {
+          if (res.data.isGood) {
             return res;
           }
 
