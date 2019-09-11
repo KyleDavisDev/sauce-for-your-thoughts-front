@@ -56,7 +56,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     }
 
     // Grab email
-    const email = this.props.match.params.email + "1";
+    const email = this.props.match.params.email;
 
     // Call API to validate email
     await API.user
@@ -66,7 +66,9 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
           flashMessage: {
             isVisible: true,
             text: res.data.msg,
-            type: res.data.isGood ? "success" : "alert"
+            type: res.data.isGood ? "success" : "alert",
+            slug: "/sauces",
+            slugText: "Click here to start finding Sauces!"
           }
         });
       })
@@ -74,8 +76,11 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
         this.setState({
           flashMessage: {
             isVisible: true,
-            text: err.response.data.msg,
-            type: err.response.data.isGood ? "success" : "alert"
+            text:
+              err.response.data.msg +
+              " Please contact SFYT admins at sfytadmin@gmail.com if this continues to occur.",
+            type: err.response.data.isGood ? "success" : "alert",
+            slug: ""
           }
         });
       });
