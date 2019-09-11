@@ -15,8 +15,6 @@ export const StyledArticle = styled(Article)`
   max-width: 600px;
 `;
 export const StyledFormContainer = styled.div`
-  border: ${props => props.theme.border};
-  padding: 1.5rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
