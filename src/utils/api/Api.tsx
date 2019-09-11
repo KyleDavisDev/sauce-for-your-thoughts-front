@@ -473,18 +473,23 @@ export const API = {
       return axios
         .post(`${host}/api/review/canusersubmit`, data)
         .then(res => {
-          if (res.data.isGood && res.data.canUserSubmit) {
+          if (res.data.isGood) {
             return res;
           }
 
           // Throw error in handle-able format
-          throw Err({ msg: res.data.msg, status: res.status });
+          throw Err({
+            msg: res.data.msg,
+            status: res.status,
+            isGood: res.data.isGood
+          });
         })
         .catch((err: any) => {
           // Throw error in handle-able format
           throw Err({
             msg: err.response.data.msg,
-            status: err.response.status
+            status: err.response.status,
+            isGood: res.data.isGood
           });
         });
     }
