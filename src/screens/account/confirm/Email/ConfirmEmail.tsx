@@ -18,6 +18,7 @@ import {
 } from "../../../../components/FlashMessage/FlashMessage";
 import { IUserUpdateEmail } from "../../../../redux/users/types";
 import { API } from "../../../../utils/api/API";
+import { IErrReturn } from "../../../../utils/Err/Err";
 
 export interface UpdateEmailProps {
   history: { push: (location: string) => null };
@@ -55,10 +56,29 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     }
 
     // Grab email
-    const email = this.props.match.params.email;
+    const email = this.props.match.params.email + "1";
 
     // Call API to validate email
-    await API.user.confirmEmail({ data: { email } });
+    await API.user
+      .confirmEmail({ data: { email } })
+      .then(res => {
+        this.setState({
+          flashMessage: {
+            isVisible: true,
+            text: res.data.msg,
+            type: res.data.isGood ? "success" : "alert"
+          }
+        });
+      })
+      .catch((err: IErrReturn) => {
+        this.setState({
+          flashMessage: {
+            isVisible: true,
+            text: err.response.data.msg,
+            type: err.response.data.isGood ? "success" : "alert"
+          }
+        });
+      });
   }
 
   public render() {
