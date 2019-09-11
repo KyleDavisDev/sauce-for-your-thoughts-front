@@ -91,7 +91,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
         </StyledLogoContainer>
         <hr />
         <StyledArticle>
-          <PageTitle>Update Email</PageTitle>
+          <PageTitle>Confirm Email</PageTitle>
           <StyledFormContainer>
             {this.state.flashMessage.isVisible && (
               <FlashMessage {...this.state.flashMessage}>
