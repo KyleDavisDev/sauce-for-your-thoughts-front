@@ -234,7 +234,8 @@ export const API = {
           // Throw error in handle-able format
           throw Err({
             msg: err.response.data.msg,
-            status: err.response.status
+            status: err.response.status,
+            isGood: err.response.data.isGood || false
           });
         });
     }
