@@ -57,36 +57,34 @@ class TextInput extends React.PureComponent<TextInputProps, TextInputState> {
 
         {/* Make sure prop passed and is either 'text' or 'password' */}
         {this.props.type && (
-          <div>
-            <StyledInput
-              type={this.props.type}
-              id={this.state.id}
-              name={this.props.name}
-              value={this.props.value}
-              placeholder={this.props.placeholder}
-              onChange={this.props.onChange}
-              required={this.props.required}
-              aria-required={this.props.required}
-              disabled={this.props.disabled}
-              aria-disabled={this.props.disabled}
-              style={{
-                marginBottom: this.props.requirementText ? "0px" : "15px"
-              }}
-            />
-            {this.props.requirementText ? (
-              <p
-                style={{
-                  fontSize: ".85rem",
-                  marginTop: "1px",
-                  marginBottom: "15px"
-                }}
-              >
-                {this.props.requirementText}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>
+          <StyledInput
+            type={this.props.type}
+            id={this.state.id}
+            name={this.props.name}
+            value={this.props.value}
+            placeholder={this.props.placeholder}
+            onChange={this.props.onChange}
+            required={this.props.required}
+            aria-required={this.props.required}
+            disabled={this.props.disabled}
+            aria-disabled={this.props.disabled}
+            style={{
+              marginBottom: this.props.requirementText && "0px"
+            }}
+          />
+        )}
+        {this.props.requirementText ? (
+          <p
+            style={{
+              fontSize: ".85rem",
+              marginTop: "1px",
+              marginBottom: "15px"
+            }}
+          >
+            {this.props.requirementText}
+          </p>
+        ) : (
+          ""
         )}
       </StyledDiv>
     );
