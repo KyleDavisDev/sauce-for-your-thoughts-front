@@ -98,6 +98,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
                 name={"confirmEmail"}
                 value={this.state.confirmEmail}
                 required={true}
+                requirementText={"Must match above."}
               />
               <TextInput
                 type="password"
