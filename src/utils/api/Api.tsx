@@ -101,6 +101,7 @@ export const API = {
         throw new Error(res.data.msg);
       });
     },
+
     /** @description Update a user's email
      *  @param {IUserUpdateEmail} data - container for user information
      *  @param {string} data.user.token - user token
@@ -126,6 +127,7 @@ export const API = {
         throw new Error(res.data.msg);
       });
     },
+
     /** @description Call Server to update password
      *  @param {IUserUpdatePassword} data - container for user information
      *  @param {string} data.user.token - user token
@@ -149,6 +151,7 @@ export const API = {
         throw new Error(res.data.msg);
       });
     },
+
     /** @description Call Server to update display name
      *  @param {IUserUpdateDisplayName} data - container for user information
      *  @param {string} data.user.token - user token
@@ -178,6 +181,7 @@ export const API = {
           throw new Error(res.data.msg);
         });
     },
+
     /** @description Update a user's avatar
      *  @param {IUserUpdateAvatar} data - container for user information
      *  @param {string} data.user.token - user token
@@ -229,6 +233,47 @@ export const API = {
 
           // Throw error in handle-able format
           throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood || false
+          });
+        });
+    },
+
+    /** @description Check to see if email is confirmed or not
+     *  @param {Object} data data object
+     *    @param {String} data.user.token - user JWT
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {IErrReturn} error object
+     */
+    isEmailConfirmed: ({
+      data
+    }: {
+      data: {
+        user: { token: string };
+      };
+    }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/user/check/email`, data)
+        .then(res => {
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // Throw error in handle-able format
+          throw Err({
+            msg: res.data.msg,
+            status: res.status,
+            isGood: res.data.isGood || false
+          });
         })
         .catch((err: any) => {
           // Throw error in handle-able format
