@@ -15,6 +15,7 @@ export interface TextAreaProps {
   className?: string;
   disabled?: boolean;
   readonly?: boolean;
+  requirementText?: string;
   onChange(
     event:
       | React.ChangeEvent<HTMLInputElement>
@@ -48,7 +49,11 @@ export default class TextArea extends React.PureComponent<
         {this.props.showLabel && this.props.label && (
           <Label htmlFor={this.state.id}>
             {this.props.label}
-            {this.props.required ? "*" : ""}
+            {this.props.required ? (
+              <span style={{ color: "#B20000" }}>*</span>
+            ) : (
+              ""
+            )}
           </Label>
         )}
         <StyledTextArea
@@ -62,7 +67,23 @@ export default class TextArea extends React.PureComponent<
           required={this.props.required}
           disabled={this.props.disabled}
           readOnly={this.props.readonly}
+          style={{
+            marginBottom: this.props.requirementText && "0px"
+          }}
         />
+        {this.props.requirementText ? (
+          <p
+            style={{
+              fontSize: ".85rem",
+              marginTop: "1px",
+              marginBottom: "15px"
+            }}
+          >
+            {this.props.requirementText}
+          </p>
+        ) : (
+          ""
+        )}
       </StyledDiv>
     );
   }
