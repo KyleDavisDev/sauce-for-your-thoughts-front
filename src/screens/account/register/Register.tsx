@@ -88,6 +88,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
                 name={"confirmEmail"}
                 value={this.state.confirmEmail}
                 required={true}
+                requirementText={"Must match above."}
               />
               <TextInput
                 type="password"
@@ -97,6 +98,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
                 name={"password"}
                 value={this.state.password}
                 required={true}
+                requirementText={"Must be at least 9 characters long."}
               />
               <TextInput
                 type="password"
@@ -106,6 +108,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
                 name={"confirmPassword"}
                 value={this.state.confirmPassword}
                 required={true}
+                requirementText={"Must match above."}
               />
               <TextInput
                 type="text"
@@ -115,6 +118,7 @@ class Register extends React.Component<RegisterProps, RegisterState> {
                 name={"displayName"}
                 value={this.state.displayName}
                 required={true}
+                requirementText={"Must be at least 6 characters long."}
               />
               <StyledText>
                 By clicking 'Register', you agree to Sauce For Your Thoughts{" "}
@@ -174,6 +178,18 @@ class Register extends React.Component<RegisterProps, RegisterState> {
           isVisible: true,
           text:
             "Your password is too weak! Please make your password over 8 characters long.",
+          type: "alert"
+        }
+      });
+      return;
+    }
+
+    if (this.state.displayName.length < 6) {
+      this.setState({
+        flashMessage: {
+          isVisible: true,
+          text:
+            "Your display name is not long enough. It must be at least 6 characters long.",
           type: "alert"
         }
       });
