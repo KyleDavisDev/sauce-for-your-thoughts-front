@@ -90,6 +90,7 @@ class UpdatePassword extends React.Component<
                 name={"newPassword"}
                 value={this.state.newPassword}
                 required={true}
+                requirementText={"Must be at least 9 characters long."}
               />
               <TextInput
                 type="password"
@@ -100,6 +101,7 @@ class UpdatePassword extends React.Component<
                 name={"confirmNewPassword"}
                 value={this.state.confirmNewPassword}
                 required={true}
+                requirementText={"Must match above."}
               />
               <TextInput
                 type="password"
