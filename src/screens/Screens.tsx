@@ -172,13 +172,13 @@ const Screens = (
     <Route path="/review/edit" component={ReviewEdit} />
     <Route path="/sauces" component={Sauces} />
     <Route path="/account/register" component={Register} />
+    <Route path="/account/login" component={Login} />
     <Route exact path="/account/settings" component={Settings} />
     <Route path="/account/settings/email" component={UpdateEmail} />
     <Route path="/account/settings/password" component={UpdatePassword} />
     <Route path="/account/settings/displayname" component={UpdateDisplayName} />
     <Route path="/account/settings/avatar" component={UpdateAvatar} />
     <Route path="/account/confirm/email/:email" component={ConfirmEmail} />
-    <Route path="/account/login" component={Login} />
     <Route path="/reset" component={Reset} />
     <Route exact path="/sauce" component={SauceSpotlight} />
 
