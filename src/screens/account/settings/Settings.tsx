@@ -1,8 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { Settings } from "../../../redux/users/actions";
-import { ISettingsUser } from "../../../redux/users/types";
 import LogoSFYT from "../../../images/icons/LogoSFYT";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { Link } from "../../../components/Link/Link";
@@ -15,25 +13,23 @@ import {
   StyledButton,
   StyledGroup
 } from "./SettingsStyle";
-import {
-  FlashMessage,
-  FlashMessageProps
-} from "../../../components/FlashMessage/FlashMessage";
+
 import ArrowRight from "../../../images/icons/ArrowRight";
 import ArrowLeft from "../../../images/icons/ArrowLeft";
 
+import Auth from "../../../utils/Auth/Auth";
+import { API } from "../../../utils/api/API";
+import { IErrReturn } from "../../../utils/Err/Err";
+
 export interface SettingsProps {
-  Settings: any;
-  history: { push: (location: string) => null };
+  history: {
+    replace: (location: string) => null;
+  };
+  location: { pathname: string };
 }
 
 export interface SettingsState {
-  email: string;
-  confirmEmail: string;
-  password: string;
-  confirmPassword: string;
-  displayName: string;
-  flashMessage: FlashMessageProps;
+  isEmailConfirmed: boolean;
 }
 
 class Settings extends React.Component<SettingsProps, SettingsState> {
@@ -42,15 +38,32 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
 
     // Init state
     this.state = {
-      email: "",
-      confirmEmail: "",
-      password: "",
-      confirmPassword: "",
-      displayName: "",
-      flashMessage: {
-        isVisible: false
-      }
+      isEmailConfirmed: true
     };
+  }
+
+  public async componentDidMount() {
+    // get token or redirect to login
+    const token = Auth.getToken();
+    if (!token) {
+      this.props.history.replace(
+        `/account/login?return=${this.props.location.pathname}`
+      );
+      return;
+    }
+
+    // Call API to see if email has been verified or not
+    const data = { user: { token } };
+    API.user
+      .isEmailConfirmed({ data })
+      .then(res => {
+        // Set state so we know if we should display the button or not
+        this.setState({ isEmailConfirmed: res.data.isGood });
+      })
+      .catch((err: IErrReturn) => {
+        // Set state so we know if we should display the button or not
+        this.setState({ isEmailConfirmed: err.response.data.isGood });
+      });
   }
 
   public render() {
@@ -101,6 +114,17 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
               </Link>
             </StyledGroup>
 
+            {!this.state.isEmailConfirmed && (
+              <StyledGroup>
+                <h4>Request Email Confirmation</h4>
+                <Link to="/account/settings/password">
+                  <StyledButton type="button">
+                    Request Email Confirmation <ArrowRight />
+                  </StyledButton>
+                </Link>
+              </StyledGroup>
+            )}
+
             <Link to="/">
               <StyledButton type="button" displayType="outline">
                 <ArrowLeft /> Return Home
@@ -113,13 +137,4 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
   }
 }
 
-const mapState2Props = (state: AppState) => {
-  return {};
-};
-
-const mapDispatch2Props = {};
-
-export default connect(
-  mapState2Props,
-  mapDispatch2Props
-)(Settings);
+export default Settings;
