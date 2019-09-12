@@ -96,6 +96,7 @@ class UpdateDisplayName extends React.Component<
                 name={"displayName"}
                 value={this.state.displayName}
                 required={true}
+                requirementText={"Must be at least 6 characters long."}
               />
               <TextInput
                 type="text"
@@ -106,6 +107,7 @@ class UpdateDisplayName extends React.Component<
                 name={"confirmDisplayName"}
                 value={this.state.confirmDisplayName}
                 required={true}
+                requirementText={"Must match above."}
               />
               <TextInput
                 type="password"
