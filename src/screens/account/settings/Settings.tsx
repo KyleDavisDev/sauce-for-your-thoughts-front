@@ -117,11 +117,9 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
             {!this.state.isEmailConfirmed && (
               <StyledGroup>
                 <h4>Request Email Confirmation</h4>
-                <Link to="/account/settings/password">
-                  <StyledButton type="button">
-                    Request Email Confirmation <ArrowRight />
-                  </StyledButton>
-                </Link>
+                <StyledButton type="button" onClick={this.onButtonClick}>
+                  Request Email Confirmation <ArrowRight />
+                </StyledButton>
               </StyledGroup>
             )}
 
@@ -135,6 +133,11 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
       </StyledDiv>
     );
   }
+
+  private onButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(event);
+    // Fire off event to resend email
+  };
 }
 
 export default Settings;
