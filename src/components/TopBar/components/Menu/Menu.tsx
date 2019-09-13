@@ -24,6 +24,7 @@ const StyledUL = styled.ul`
 
 export interface MenuProps {
   logout: () => void;
+  isAdmin: boolean;
 }
 
 class Menu extends React.Component<MenuProps, any> {
@@ -39,6 +40,11 @@ class Menu extends React.Component<MenuProps, any> {
         <li>
           <Help />
         </li>
+        {this.props.isAdmin && (
+          <li>
+            <Help />
+          </li>
+        )}
         <hr style={{ margin: 0 }} />
         <Item onClick={this.logout}>Logout</Item>
       </StyledUL>
@@ -55,7 +61,7 @@ class Menu extends React.Component<MenuProps, any> {
 }
 
 const mapState2Props = (state: AppState) => {
-  return {};
+  return { isAdmin: state.users.self.isAdmin || false };
 };
 
 const mapDispatch2Props = { logout };
