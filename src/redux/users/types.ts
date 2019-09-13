@@ -24,11 +24,17 @@ export interface IUserAction {
   byDisplayName?: { [key: string]: IUser };
   allDisplayNames?: string[];
   oldDisplayName?: string;
+  isAdmin?: boolean;
 }
 
 // Used for redux state
 export interface IUserState {
-  self?: { token: string; displayName: string; avatarURL: string };
+  self?: {
+    token: string;
+    displayName: string;
+    avatarURL: string;
+    isAdmin: boolean;
+  };
   byDisplayName?: { [key: string]: IUser };
   allDisplayNames?: string[];
 }
