@@ -8,9 +8,9 @@ const StyledTitle = styled(Title)`
   padding-bottom: 0px;
 `;
 
-export interface HelpProps {}
+export interface HelpMenuItemProps {}
 
-class Help extends React.PureComponent<HelpProps, any> {
+class HelpMenuItem extends React.PureComponent<HelpMenuItemProps, any> {
   public render() {
     return (
       <div>
@@ -22,4 +22,4 @@ class Help extends React.PureComponent<HelpProps, any> {
   }
 }
 
-export default Help;
+export default HelpMenuItem;

@@ -10,12 +10,12 @@ import {
 import { Button } from "../../../../../Button/Button";
 import { AppState } from "../../../../../../redux/configureStore";
 
-interface ProfileProps {
+interface ProfileMenuItemProps {
   displayName?: string;
   avatarURL?: string;
 }
 
-class Profile extends React.PureComponent<ProfileProps, any> {
+class ProfileMenuItem extends React.PureComponent<ProfileMenuItemProps, any> {
   public render() {
     return (
       <StyledLink href="#">
@@ -59,4 +59,4 @@ const mapState2Props = (state: AppState) => {
   };
 };
 
-export default connect(mapState2Props)(Profile);
+export default connect(mapState2Props)(ProfileMenuItem);

@@ -8,9 +8,9 @@ const StyledTitle = styled(Title)`
   padding-bottom: 0px;
 `;
 
-export interface AccountProps {}
+export interface AccountMenuItemProps {}
 
-class Account extends React.PureComponent<AccountProps, any> {
+class AccountMenuItem extends React.PureComponent<AccountMenuItemProps, any> {
   public render() {
     return (
       <div>
@@ -22,4 +22,4 @@ class Account extends React.PureComponent<AccountProps, any> {
   }
 }
 
-export default Account;
+export default AccountMenuItem;
