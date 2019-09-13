@@ -3,14 +3,16 @@ class Auth {
   public static authenticateUser({
     token,
     displayName,
-    avatarURL
+    avatarURL,
+    isAdmin
   }: {
     token: string;
     displayName: string;
     avatarURL: string;
+    isAdmin: boolean;
   }) {
     const timestamp: number = new Date().getTime();
-    const sfytKey = { token, timestamp, displayName, avatarURL };
+    const sfytKey = { token, timestamp, displayName, avatarURL, isAdmin };
     localStorage.setItem("sfytKey", JSON.stringify(sfytKey));
   }
 
@@ -45,6 +47,17 @@ class Auth {
       this.deauthenticateUser();
       return false;
     }
+  }
+
+  // check if user is an admin or not
+  public static isAdmin(): boolean {
+    // Grab key
+    const sfytKey: string | null = localStorage.getItem("sfytKey");
+
+    // if token doesn't exist, stop
+    if (sfytKey === null) return false;
+
+    return JSON.parse(sfytKey).isAdmin || false;
   }
 
   // remove authentication token
@@ -97,40 +110,17 @@ class Auth {
     const sfytKey: string | null = localStorage.getItem("sfytKey");
 
     // Make sure we have key
-    if (sfytKey === null) return false;
-
-    // grab values from key
-    const {
-      token,
-      avatarURL,
-      timestamp
-    }: { token: string; avatarURL: string; timestamp: number } = JSON.parse(
-      sfytKey
-    );
-
-    // Make sure we have token
-    if (token === null) return false;
-
-    // make sure token is string and not empty
-    if (
-      Object.prototype.toString.call(token) === "[object String]" &&
-      token.length > 0
-    ) {
-      // apply new time to key
-      const key = {
-        token,
-        timestamp,
-        displayName,
-        avatarURL
-      };
-      // set key
-      localStorage.setItem("sfytKey", JSON.stringify(key));
-      return true;
-    } else {
+    if (sfytKey === null) {
       // remove local storage item
       this.deauthenticateUser();
       return false;
     }
+
+    // apply new time to key
+    const key = { ...JSON.parse(sfytKey), displayName };
+    // set key
+    localStorage.setItem("sfytKey", JSON.stringify(key));
+    return true;
   }
 
   // Update a token
@@ -142,44 +132,17 @@ class Auth {
     const sfytKey: string | null = localStorage.getItem("sfytKey");
 
     // Make sure we have key
-    if (sfytKey === null) return false;
-
-    // grab values from key
-    const {
-      avatarURL,
-      origToken,
-      timestamp,
-      displayName
-    }: {
-      origToken: string;
-      displayName: string;
-      avatarURL: string;
-      timestamp: number;
-    } = JSON.parse(sfytKey);
-
-    // Make sure we have token to replace
-    if (origToken === null) return false;
-
-    // make sure token is string and not empty
-    if (
-      Object.prototype.toString.call(origToken) === "[object String]" &&
-      origToken.length > 0
-    ) {
-      // apply new time to key
-      const key = {
-        token,
-        timestamp,
-        displayName,
-        avatarURL
-      };
-      // set key
-      localStorage.setItem("sfytKey", JSON.stringify(key));
-      return true;
-    } else {
+    if (sfytKey === null) {
       // remove local storage item
       this.deauthenticateUser();
       return false;
     }
+
+    // apply new time to key
+    const key = { ...JSON.parse(sfytKey), token };
+    // set key
+    localStorage.setItem("sfytKey", JSON.stringify(key));
+    return true;
   }
 
   // Update avatar
@@ -191,42 +154,17 @@ class Auth {
     const sfytKey: string | null = localStorage.getItem("sfytKey");
 
     // Make sure we have key
-    if (sfytKey === null) return false;
-
-    // grab values from key
-    const {
-      token,
-      timestamp,
-      displayName
-    }: {
-      token: string;
-      displayName: string;
-      timestamp: number;
-    } = JSON.parse(sfytKey);
-
-    // Make sure we have token to replace
-    if (token === null) return false;
-
-    // make sure token is string and not empty
-    if (
-      Object.prototype.toString.call(token) === "[object String]" &&
-      token.length > 0
-    ) {
-      // apply new time to key
-      const key = {
-        token,
-        timestamp,
-        displayName,
-        avatarURL
-      };
-      // set key
-      localStorage.setItem("sfytKey", JSON.stringify(key));
-      return true;
-    } else {
+    if (sfytKey === null) {
       // remove local storage item
       this.deauthenticateUser();
       return false;
     }
+
+    // apply new time to key
+    const key = { ...JSON.parse(sfytKey), avatarURL };
+    // set key
+    localStorage.setItem("sfytKey", JSON.stringify(key));
+    return true;
   }
 
   // update existing token
