@@ -15,7 +15,7 @@ class AdminMenuItem extends React.PureComponent<AdminMenuItemProps, any> {
     return (
       <div>
         <StyledTitle>Admin</StyledTitle>
-        <Item to="#">Approve Submissions</Item>
+        <Item to="/admin/approvesubmissions">Approve Submissions</Item>
       </div>
     );
   }
