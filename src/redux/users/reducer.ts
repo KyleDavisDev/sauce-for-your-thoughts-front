@@ -22,7 +22,7 @@ const userReducer: Reducer<IUserState> = (
   switch (action.type) {
     case USER_LOGGED_IN: {
       // Grab values
-      const { token, displayName, avatarURL } = action;
+      const { token, displayName, avatarURL, isAdmin = false } = action;
 
       // Make sure we have each value
       if (!token || !displayName || !avatarURL) return state;
@@ -33,7 +33,8 @@ const userReducer: Reducer<IUserState> = (
         self: {
           token,
           displayName,
-          avatarURL
+          avatarURL,
+          isAdmin
         }
       };
     }
