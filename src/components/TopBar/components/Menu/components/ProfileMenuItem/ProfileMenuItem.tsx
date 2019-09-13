@@ -6,7 +6,7 @@ import {
   StyledHead,
   StyledImage,
   StyledFoot
-} from "./ProfileStyle";
+} from "./ProfileMenuItemStyle";
 import { Button } from "../../../../../Button/Button";
 import { AppState } from "../../../../../../redux/configureStore";
 

@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 
 import styled from "styled-components";
 import { AppState } from "../../../../redux/configureStore";
-import Profile from "./components/Profile/Profile";
-import Account from "./components/Account/Account";
-import Help from "./components/Help/Help";
+import ProfileMenuItem from "./components/ProfileMenuItem/ProfileMenuItem";
+import AccountMenuItem from "./components/AccountMenuItem/AccountMenuItem";
+import HelpMenuItem from "./components/HelpMenuItem/HelpMenuItem";
 import Item from "./components/Item/Item";
 import Auth from "../../../../utils/Auth/Auth";
 import { logout } from "../../../../redux/users/actions";
@@ -32,17 +32,17 @@ class Menu extends React.Component<MenuProps, any> {
     return (
       <StyledUL>
         <li>
-          <Profile />
+          <ProfileMenuItem />
         </li>
         <li>
-          <Account />
+          <AccountMenuItem />
         </li>
         <li>
-          <Help />
+          <HelpMenuItem />
         </li>
         {this.props.isAdmin && (
           <li>
-            <Help />
+            <HelpMenuItem />
           </li>
         )}
         <hr style={{ margin: 0 }} />
