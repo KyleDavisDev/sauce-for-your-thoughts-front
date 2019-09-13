@@ -33,21 +33,25 @@ export const addUsers = ({ user }: { user: IUserState }): IUserAction => {
  *  @param {String} token - unique user string
  *  @param {String} displayName - unique person name
  *  @param {String} avatarURL - path to person avatar
+ *  @param {Boolean} isAdmin - is user an admin?
  *  @return {IUserAction} sauce and action type
  */
 export const userLoggedIn = ({
   token,
   displayName,
-  avatarURL
+  avatarURL,
+  isAdmin
 }: {
   token: string;
   displayName: string;
   avatarURL: string;
+  isAdmin: boolean;
 }): IUserAction => ({
   type: USER_LOGGED_IN,
   token,
   displayName,
-  avatarURL
+  avatarURL,
+  isAdmin
 });
 
 /** @description Update a single user's display name wherever it is found
@@ -116,8 +120,14 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
     const {
       token,
       name,
-      avatarURL
-    }: { token?: string; name?: string; avatarURL?: string } = res.data.user;
+      avatarURL,
+      isAdmin = false
+    }: {
+      token?: string;
+      name?: string;
+      avatarURL?: string;
+      isAdmin: boolean;
+    } = res.data.user;
 
     // If we can't find token, stop
     if (!token || !avatarURL) {
@@ -135,11 +145,12 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
     Auth.authenticateUser({
       token,
       displayName,
-      avatarURL
+      avatarURL,
+      isAdmin
     });
 
     // Dispatch user login
-    dispatch(userLoggedIn({ token, displayName, avatarURL }));
+    dispatch(userLoggedIn({ token, displayName, avatarURL, isAdmin }));
 
     return { token, displayName };
   });
@@ -161,34 +172,34 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
   dispatch: any
 ): Promise<object> => {
   return API.user.login(credentials).then(res => {
-    // Grab token and name
+    // Grab return vals
     const {
       token,
-      name,
-      avatarURL
-    }: { token?: string; name?: string; avatarURL?: string } = res.data.user;
+      displayName,
+      avatarURL,
+      isAdmin = false
+    }: {
+      token?: string;
+      displayName?: string;
+      avatarURL?: string;
+      isAdmin: boolean;
+    } = res.data.user;
 
     // If we can't find token, stop
-    if (!token || !avatarURL) {
+    if (!token || !avatarURL || !displayName) {
       throw new Error("Unable to verify your login. Please try again.");
     }
-
-    // if name is undefined or empty string  we should look in
-    // the return object to see if displayName was sent instead or set to "Me"
-    const displayName =
-      name === undefined || name.length === 0
-        ? res.data.user.displayName || "Me"
-        : name;
 
     // Set user to be remembered
     Auth.authenticateUser({
       token,
       displayName,
-      avatarURL
+      avatarURL,
+      isAdmin
     });
 
     // Dispatch user login
-    dispatch(userLoggedIn({ token, displayName, avatarURL }));
+    dispatch(userLoggedIn({ token, displayName, avatarURL, isAdmin }));
 
     return { token, displayName };
   });
