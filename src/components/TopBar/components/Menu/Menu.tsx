@@ -6,6 +6,7 @@ import { AppState } from "../../../../redux/configureStore";
 import ProfileMenuItem from "./components/ProfileMenuItem/ProfileMenuItem";
 import AccountMenuItem from "./components/AccountMenuItem/AccountMenuItem";
 import HelpMenuItem from "./components/HelpMenuItem/HelpMenuItem";
+import AdminMenuItem from "./components/AdminMenuItem/AdminMenuItem";
 import Item from "./components/Item/Item";
 import Auth from "../../../../utils/Auth/Auth";
 import { logout } from "../../../../redux/users/actions";
@@ -42,7 +43,7 @@ class Menu extends React.Component<MenuProps, any> {
         </li>
         {this.props.isAdmin && (
           <li>
-            <HelpMenuItem />
+            <AdminMenuItem />
           </li>
         )}
         <hr style={{ margin: 0 }} />
