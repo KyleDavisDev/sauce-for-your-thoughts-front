@@ -161,6 +161,16 @@ const SauceSpotlight = Loadable({
   )
 });
 
+// Admin
+const ApproveSubmissions = Loadable({
+  loader: () => import("./admin/ApproveSubmissions/ApproveSubmissions"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 // Components themselves will handle who should be able to visit.
 // Cannot connect to redux using react-router-dom's children method so this is best alternative
 const Screens = (
@@ -181,6 +191,7 @@ const Screens = (
     <Route path="/account/confirm/email/:email" component={ConfirmEmail} />
     <Route path="/reset" component={Reset} />
     <Route exact path="/sauce" component={SauceSpotlight} />
+    <Route path="/admin/approvesubmissions" component={ApproveSubmissions} />
 
     {/* <Route exact path="/sauce/edit/:id" component={SauceEdit} />
     <Route exact path="/sauce/single/:slug" component={SauceSingle} /> */}
