@@ -553,5 +553,37 @@ export const API = {
         throw new Error(res.data.msg);
       });
     }
+  },
+
+  admin: {
+    /** @description Get all unapproved sauces
+     *  @param {Object} data data object
+     *    @param {String} data.user.token - user JWT
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {Object[]} res.data.sauces - Array of sauces
+     *
+     *  {Number} res.data.count - how many sauces are in DB
+     *
+     *  @reject {String} error message
+     */
+    getUnapproved: ({
+      data
+    }: {
+      data: {
+        user: { token: string };
+      };
+    }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/admin/sauces/unapproved`, data)
+        .then(res => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
+    }
   }
 };
