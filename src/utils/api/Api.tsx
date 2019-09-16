@@ -525,7 +525,7 @@ export const API = {
           throw Err({
             msg: err.response.data.msg,
             status: err.response.status,
-            isGood: res.data.isGood
+            isGood: err.response.data.isGood
           });
         });
     }
