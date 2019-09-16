@@ -100,9 +100,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     if (!token || token.length === 0) {
       // Redirect user to login w/ appropriate return address
       this.props.history.replace(
-        `/account/login?return=${this.props.location.pathname}${
-          this.props.location.search
-        }`
+        `/account/login?return=${this.props.location.pathname}${this.props.location.search}`
       );
 
       return;
@@ -120,8 +118,11 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
         });
       })
       .catch((err: IErrReturn) => {
-        // 401 === unauthorized
-        if (err.response.data.status === 401) {
+        // 401 === unauthorized, 403 === forbidden
+        if (
+          err.response.data.status === 401 ||
+          err.response.data.status === 403
+        ) {
           // Disable form components and show flashmessage
           this.setState(prevState => {
             return {
@@ -129,7 +130,9 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
               enabled: false,
               flashMessage: {
                 isVisible: true,
-                text: err.response.data.msg
+                text: err.response.data.msg,
+                slug: `/login?return=${this.props.location.pathname}${this.props.location.search}`,
+                slugText: "Login"
               }
             };
           });
@@ -378,9 +381,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     // make sure token is still good/not expired
     if (!Auth.isUserAuthenticated()) {
       history.replace(
-        `/account/login?return=${this.props.location.pathname}${
-          this.props.location.search
-        }`
+        `/account/login?return=${this.props.location.pathname}${this.props.location.search}`
       );
     }
 
@@ -388,9 +389,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
     const token = user.token;
     if (!token) {
       history.replace(
-        `/account/login?return=${this.props.location.pathname}${
-          this.props.location.search
-        }`
+        `/account/login?return=${this.props.location.pathname}${this.props.location.search}`
       );
       return null;
     }
