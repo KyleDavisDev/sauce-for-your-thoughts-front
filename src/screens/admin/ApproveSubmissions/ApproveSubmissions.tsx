@@ -6,10 +6,32 @@ import TopBar from "../../../components/TopBar/TopBar";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { AppState } from "../../../redux/configureStore";
 import Footer from "../../../components/Footer/Footer";
+import Auth from "../../../utils/Auth/Auth";
+import { API } from "../../../utils/api/API";
 
-export interface IApproveSubmissionsProps {}
+export interface IApproveSubmissionsProps {
+  history: { replace: (location: string) => void };
+  location: { pathname: string; search: string };
+}
 
 class ApproveSubmissions extends React.Component<IApproveSubmissionsProps> {
+  public async componentDidMount() {
+    // Grab token
+    const token = Auth.getToken();
+    if (!token || token.length === 0) {
+      // Redirect user to login w/ appropriate return address
+      this.props.history.replace(
+        `/account/login?return=${this.props.location.pathname}${this.props.location.search}`
+      );
+      return;
+    }
+
+    // Get sauces
+    const data = { user: { token } };
+    const res = await API.admin.getUnapproved({ data });
+    console.log(res);
+  }
+
   public render() {
     return (
       <div>
