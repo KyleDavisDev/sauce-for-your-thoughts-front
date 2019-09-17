@@ -8,10 +8,28 @@ import { AppState } from "../../../redux/configureStore";
 import Footer from "../../../components/Footer/Footer";
 import Auth from "../../../utils/Auth/Auth";
 import { API } from "../../../utils/api/API";
+import Utils from "../../../utils/Utils/Utils";
 
 export interface IApproveSubmissionsProps {
   history: { replace: (location: string) => void };
   location: { pathname: string; search: string };
+}
+
+interface SaucesFromAPI {
+  SHU: string;
+  city: string;
+  country: string;
+  created: number;
+  description: string;
+  displayName: string;
+  ingredients: string;
+  maker: string;
+  name: string;
+  photo: string;
+  sauceID: number;
+  slug: string;
+  state: string;
+  types: string;
 }
 
 class ApproveSubmissions extends React.Component<IApproveSubmissionsProps> {
@@ -29,7 +47,7 @@ class ApproveSubmissions extends React.Component<IApproveSubmissionsProps> {
     // Get sauces
     const data = { user: { token } };
     const res = await API.admin.getUnapproved({ data });
-    console.log(res);
+    const sauces: [SaucesFromAPI] = Utils.toCamel(res.data.sauces);
   }
 
   public render() {
