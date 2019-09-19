@@ -584,6 +584,38 @@ export const API = {
           }
           throw new Error(res.data.msg);
         });
+    },
+    /** @description Approve of a single sauce
+     *  @param {Object} data data object
+     *    @param {String} data.user.token - user JWT
+     *    @param {Number} data.sauce.sauceID - sauce id
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {IErrReturn} handleable error object
+     */
+    approveSauce: ({
+      data
+    }: {
+      data: {
+        user: { token: string };
+        sauce: { sauceID: number };
+      };
+    }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/admin/sauces/aprove`, data)
+        .then(res => {
+          return res;
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood
+          });
+        });
     }
   }
 };
