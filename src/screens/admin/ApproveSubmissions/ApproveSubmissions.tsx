@@ -35,6 +35,7 @@ interface SaucesFromAPI {
   slug: string;
   state: string;
   types: string;
+  hidden?: boolean;
 }
 
 const StyledSauceContainer = styled.div`
@@ -44,6 +45,16 @@ const StyledSauceContainer = styled.div`
   padding: 1em;
   margin-bottom: 2em;
   background-color: white;
+
+  transition: 0.5 ease all;
+  max-height: auto;
+
+  &.hidden {
+    max-height: 0px;
+    padding: 0px;
+    margin-bottom: 0px;
+    display: none;
+  }
 `;
 
 const StyledImageHolder = styled.div`
@@ -110,7 +121,10 @@ class ApproveSubmissions extends React.Component<
           {this.state.sauces &&
             this.state.sauces.map(sauce => {
               return (
-                <StyledSauceContainer key={sauce.sauceID}>
+                <StyledSauceContainer
+                  key={sauce.sauceID}
+                  className={sauce.hidden ? "hidden" : ""}
+                >
                   <StyledImageHolder>
                     {sauce && sauce.photo ? (
                       <img src={`${sauce.photo}`} />
@@ -180,8 +194,13 @@ class ApproveSubmissions extends React.Component<
     const res = await API.admin.approveSauce({ data });
     if (res.data.isGood) {
       if (this.state.sauces && this.state.sauces.length > 0) {
-        const sauces = this.state.sauces.filter(sauce => {
-          return sauce.sauceID !== sauceID;
+        // update hidden on element
+        const sauces = this.state.sauces.map(sauce => {
+          if (sauce.sauceID === sauceID) {
+            sauce.hidden = true;
+          }
+
+          return sauce;
         });
         // remove item from state
         this.setState({
