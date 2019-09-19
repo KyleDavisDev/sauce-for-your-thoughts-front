@@ -42,18 +42,19 @@ const StyledSauceContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 1em;
   margin-bottom: 2em;
-  background-color: white;
+  background-color: tan;
+  visibility: visible;
+  max-height: 9999px;
+  padding: 1em;
 
-  transition: 0.5 ease all;
-  max-height: auto;
+  transition: max-height 1s ease, padding 1s ease, all 1s ease;
 
   &.hidden {
     max-height: 0px;
+    overflow: hidden;
     padding: 0px;
     margin-bottom: 0px;
-    display: none;
   }
 `;
 
