@@ -35,7 +35,7 @@ export const StyledTextContainer = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
-  margin: 0 auto 0;
+  // margin: 0 auto 0;
 
   button {
     text-transform: uppercase;
