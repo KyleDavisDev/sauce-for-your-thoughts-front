@@ -11,6 +11,7 @@ import { API } from "../../../utils/api/API";
 import Utils from "../../../utils/Utils/Utils";
 import styled from "../../../theme/styled-components";
 import { Button } from "../../../components/Button/Button";
+import { Link } from "../../../components/Link/Link";
 
 export interface IApproveSubmissionsProps {
   history: { replace: (location: string) => void };
@@ -168,6 +169,9 @@ class ApproveSubmissions extends React.Component<
                     </p>
                   </StyledSauceContent>
                   <StyledButtonContainer>
+                    <Link to={`/sauce/edit?s=${sauce.slug}`}>
+                      <Button>Edit</Button>
+                    </Link>
                     <Button
                       onClick={this.onApproveClick.bind(this, sauce.sauceID)}
                     >
