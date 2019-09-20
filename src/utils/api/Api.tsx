@@ -307,6 +307,49 @@ export const API = {
         });
     },
 
+    /** @description Get
+     *  @param {Object} data container object
+     *    @param {String} data.user.token user's unique token
+     *    @param {String} data.sauce.slug unique sauce slug
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {Object} res.data.sauce - sauce data
+     *
+     *  {String} res.data.msg - msg related to query
+     *  @reject {String} error message
+     */
+    edit: ({
+      data
+    }: {
+      data: { user: { token: string }; sauce: { slug: string } };
+    }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/sauce/edit`, data)
+        .then(res => {
+          if (res.data.isGood) {
+            return res.data.sauce;
+          }
+
+          // Throw error in handle-able format
+          throw Err({
+            msg: res.data.msg,
+            status: res.status,
+            isGood: res.data.isGood
+          });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood
+          });
+        });
+    },
+
     /** @description Find sauce information given the sauce's slug
      *  @param {String} slug sauce's unique slug
      *  @returns {AxiosPromise} AxiosPromise
@@ -327,6 +370,48 @@ export const API = {
         }
         throw new Error(res.data.msg);
       });
+    },
+
+    /** @description Check if user is eligible to edit a sauce
+     *  @param {Object} data data object
+     *    @param {string} data.user.token user's unique token
+     *    @param {string} data.sauce.slug unique sauce slug
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {IErrReturn} error object
+     */
+    canUserEdit: ({
+      data
+    }: {
+      data: {
+        user: { token: string };
+        sauce: { slug: string };
+      };
+    }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/sauce/canuseredit`, data)
+        .then(res => {
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // Throw error in handle-able format
+          throw Err({
+            msg: res.data.msg,
+            status: res.status,
+            isGood: res.data.isGood
+          });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status
+          });
+        });
     }
   },
   sauces: {
@@ -353,6 +438,7 @@ export const API = {
         throw new Error(res.data.msg);
       });
     },
+
     /** @description Grab newest sauces from DB
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
@@ -371,6 +457,7 @@ export const API = {
         throw new Error(res.data.msg);
       });
     },
+
     /** @description Grab featured sauces from DB
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
@@ -416,48 +503,6 @@ export const API = {
 
           // Throw error in handle-able format
           throw Err({ msg: res.data.msg, status: res.status });
-        })
-        .catch((err: any) => {
-          // Throw error in handle-able format
-          throw Err({
-            msg: err.response.data.msg,
-            status: err.response.status
-          });
-        });
-    },
-
-    /** @description Check if user is eligible to edit a sauce
-     *  @param {Object} data data object
-     *    @param {string} data.user.token user's unique token
-     *    @param {string} data.sauce.slug unique sauce slug
-     *  @returns {AxiosPromise} AxiosPromise
-     *  @resolves {Object} res.data - relevant info to request
-     *
-     *  {Boolean} res.data.isGood - whether request was good or not
-     *
-     *  @reject {IErrReturn} error object
-     */
-    canUserEdit: ({
-      data
-    }: {
-      data: {
-        user: { token: string };
-        sauce: { slug: string };
-      };
-    }): AxiosPromise => {
-      return axios
-        .post(`${host}/api/sauce/canuseredit`, data)
-        .then(res => {
-          if (res.data.isGood) {
-            return res;
-          }
-
-          // Throw error in handle-able format
-          throw Err({
-            msg: res.data.msg,
-            status: res.status,
-            msg: res.data.msg
-          });
         })
         .catch((err: any) => {
           // Throw error in handle-able format
