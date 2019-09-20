@@ -424,6 +424,48 @@ export const API = {
             status: err.response.status
           });
         });
+    },
+
+    /** @description Check if user is eligible to edit a sauce
+     *  @param {Object} data data object
+     *    @param {string} data.user.token user's unique token
+     *    @param {string} data.sauce.slug unique sauce slug
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {IErrReturn} error object
+     */
+    canUserEdit: ({
+      data
+    }: {
+      data: {
+        user: { token: string };
+        sauce: { slug: string };
+      };
+    }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/sauce/canuseredit`, data)
+        .then(res => {
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // Throw error in handle-able format
+          throw Err({
+            msg: res.data.msg,
+            status: res.status,
+            msg: res.data.msg
+          });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status
+          });
+        });
     }
   },
 
