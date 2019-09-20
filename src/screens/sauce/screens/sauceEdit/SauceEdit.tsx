@@ -220,12 +220,6 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
                   onClearImageClick={this.onClearImageClick}
                 />
 
-                {/* Review */}
-                <SauceReview
-                  onRadioClick={this.onRadioClick}
-                  addReview={this.state.addReview}
-                />
-
                 <StyledButton onClick={() => {}} type="submit">
                   Submit
                   <ArrowRight />
