@@ -130,13 +130,15 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
     // If no token, stop
     if (!user.token) history.replace("/account/login?return=/sauce/add");
 
-    // Construct data obj
-    const data = { user: { token: user.token }, sauce: { slug } };
-
-    // Find out if user is eligible to submit a review for this sauce or not
     try {
+      // Construct data obj
+      const data = { user: { token: user.token }, sauce: { slug } };
       // Make sure we can edit -- will be pushed into catch block if ineligible
-      await API.sauces.canUserEdit({ data });
+      await API.sauce.canUserEdit({ data });
+
+      const sauce = await API.sauce.edit({ data });
+
+      this.setState({ ...this.state, ...sauce });
     } catch (err) {
       // Disable form components and show flashmessage
       this.setState(prevState => {
