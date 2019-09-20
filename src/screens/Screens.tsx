@@ -30,6 +30,16 @@ const SauceAdd = Loadable({
   )
 });
 
+// Edit Sauce
+const SauceEdit = Loadable({
+  loader: () => import("./sauce/screens/SauceEdit/SauceEdit"),
+  loading: () => (
+    <div>
+      <Loading />
+    </div>
+  )
+});
+
 // All Sauces
 const Sauces = Loadable({
   loader: () => import("./sauces/Sauces"),
@@ -178,6 +188,7 @@ const Screens = (
     {/* {flashMessageVisible && <FlashMessage />} */}
     <Route exact path="/" component={Home} />
     <Route exact path="/sauce/add" component={SauceAdd} />
+    <Route exact path="/sauce/edit" component={SauceEdit} />
     <Route path="/review/add" component={ReviewAdd} />
     <Route path="/review/edit" component={ReviewEdit} />
     <Route path="/sauces" component={Sauces} />
