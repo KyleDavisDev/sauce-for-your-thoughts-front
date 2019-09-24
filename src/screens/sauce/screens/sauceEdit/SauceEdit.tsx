@@ -136,9 +136,29 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
       // Make sure we can edit -- will be pushed into catch block if ineligible
       await API.sauce.canUserEdit({ data });
 
-      const sauce = await API.sauce.edit({ data });
+      const sauce: any = await API.sauce.edit({ data });
 
-      this.setState({ ...this.state, ...sauce });
+      // Need to do some massaging to get 'types' how we want it
+      // Loop through each 'type' and add necessary keys to it
+      if (sauce.types) {
+        // Init
+        const types: {
+          [key: string]: { value: string; checked: boolean; key: string };
+        } = this.state.typesOfSauces || {};
+        // Loop through and add fields
+        sauce.types.forEach((type: string) => {
+          types[type] = {
+            value: type,
+            checked: true,
+            key: shortid.generate()
+          };
+        });
+
+        // set state
+        this.setState(prevState => {
+          return { ...prevState, ...sauce, typesOfSauces: types };
+        });
+      }
     } catch (err) {
       // Disable form components and show flashmessage
       this.setState(prevState => {
