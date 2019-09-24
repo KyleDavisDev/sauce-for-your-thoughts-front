@@ -240,8 +240,8 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
                   onClearImageClick={this.onClearImageClick}
                 />
 
-                <StyledButton onClick={() => {}} type="submit">
-                  Submit
+                <StyledButton type="submit">
+                  Update
                   <ArrowRight />
                 </StyledButton>
               </Overlay>
@@ -294,16 +294,6 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
     });
   };
 
-  private onRadioClick = (event: React.MouseEvent<HTMLInputElement>): void => {
-    // Cast EventTarget to be HTMLInput Element so we can be sure to have a .value property
-    const checkbox: HTMLInputElement = event.target as HTMLInputElement;
-
-    // Grab value from the element
-    const value: boolean = checkbox.value === "Yes" ? true : false;
-
-    this.setState({ ...this.state, addReview: value });
-  };
-
   private onCountryChange = (val: string) => {
     this.setState({
       ...this.state,
@@ -330,20 +320,14 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
       type => this.state.typesOfSauces[type].checked
     );
 
+    // Grab variables and sanity checks
+    const token = Auth.getToken();
     const { user, history } = this.props;
-    // If no history, stop
-    if (!history) {
+    // If no history or user, stop
+    if (!history || !user || !token) {
       window.location.href = "/account/login";
       return;
     }
-    // If no user, stop
-    if (!user) {
-      history.push("/account/login");
-      return;
-    }
-
-    // make sure token is still good/not expired
-    if (!Auth.isUserAuthenticated()) history.push("/account/login");
 
     // Grab values
     const {
@@ -357,9 +341,6 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
       state,
       city
     } = this.state;
-
-    const token = user.token;
-    if (!token) history.push("/account/login");
 
     // Construct FormData since we are passing image file
     const formData = new FormData();
