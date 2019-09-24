@@ -36,7 +36,12 @@ export default class SaucePhoto extends React.PureComponent<
           with a different one.
         </StyledDescriptor>
         <StyledPhotoContainer>
-          {this.props.photo && <img src={this.props.photo} />}
+          {this.props.photo && (
+            <div style={{ marginBottom: "15px" }}>
+              <h5> Current image:</h5>
+              <img src={this.props.photo} />
+            </div>
+          )}
           <DropNCrop
             ref="cropper"
             onChange={this.props.onDropNCropChange.bind(this)}
