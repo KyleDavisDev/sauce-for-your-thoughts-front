@@ -20,6 +20,19 @@ export default class SauceType extends React.PureComponent<
   ISauceTypeProps,
   {}
 > {
+  public componentWillReceiveProps(props: ISauceTypeProps) {
+    // grab types
+    const { typesOfSauces } = props;
+
+    // Sanity check
+    if (!typesOfSauces) return;
+
+    // update state w/ new sauces
+    this.setState(prevState => {
+      return { ...prevState, typesOfSauces };
+    });
+  }
+
   public render() {
     return (
       <StyledRow>
