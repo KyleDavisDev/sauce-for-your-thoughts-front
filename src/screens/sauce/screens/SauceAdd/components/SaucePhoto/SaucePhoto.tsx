@@ -20,6 +20,7 @@ export interface ISaucePhotoProps {
     movable: boolean;
   };
   isImageLocked: boolean;
+  photo?: string;
 }
 
 export default class SaucePhoto extends React.PureComponent<
@@ -35,6 +36,7 @@ export default class SaucePhoto extends React.PureComponent<
           with a different one.
         </StyledDescriptor>
         <StyledPhotoContainer>
+          {this.props.photo && <img src={this.props.photo} />}
           <DropNCrop
             ref="cropper"
             onChange={this.props.onDropNCropChange.bind(this)}
