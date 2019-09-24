@@ -45,6 +45,15 @@ export interface SauceEditProps {
   types?: string[];
 }
 
+interface IDropNCropValue {
+  error: string | null;
+  filename: string;
+  files?: File[];
+  filetype: string;
+  result: string;
+  src: string;
+}
+
 export interface SauceEditState extends ISauce {
   typesOfSauces: {
     [key: string]: { value: string; checked: boolean; key: string };
@@ -57,7 +66,7 @@ export interface SauceEditState extends ISauce {
     aspectRatio?: number;
     movable: boolean;
   };
-  DropNCropValue: any;
+  DropNCropValue?: IDropNCropValue;
   isImageLocked: boolean;
   addReview: boolean;
   flashMessage: FlashMessageProps;
@@ -96,7 +105,7 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
       enabled: true,
 
       cropperOptions: { zoomOnWheel: false, aspectRatio: 2 / 3, movable: true },
-      DropNCropValue: {},
+      DropNCropValue: undefined,
       isImageLocked: false,
       addReview: true,
       flashMessage: {
@@ -138,13 +147,14 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
 
       const sauce: any = await API.sauce.edit({ data });
 
+      // Init
+      const types: {
+        [key: string]: { value: string; checked: boolean; key: string };
+      } = this.state.typesOfSauces || {};
+
       // Need to do some massaging to get 'types' how we want it
       // Loop through each 'type' and add necessary keys to it
       if (sauce.types) {
-        // Init
-        const types: {
-          [key: string]: { value: string; checked: boolean; key: string };
-        } = this.state.typesOfSauces || {};
         // Loop through and add fields
         sauce.types.forEach((type: string) => {
           types[type] = {
@@ -153,12 +163,12 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
             key: shortid.generate()
           };
         });
-
-        // set state
-        this.setState(prevState => {
-          return { ...prevState, ...sauce, typesOfSauces: types };
-        });
       }
+
+      // set state
+      this.setState(prevState => {
+        return { ...prevState, ...sauce, typesOfSauces: types };
+      });
     } catch (err) {
       // Disable form components and show flashmessage
       this.setState(prevState => {
@@ -232,6 +242,7 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
 
                 {/* Photo */}
                 <SaucePhoto
+                  photo={this.state.photo}
                   DropNCropValue={this.state.DropNCropValue}
                   cropperOptions={this.state.cropperOptions}
                   isImageLocked={this.state.isImageLocked}
@@ -365,7 +376,7 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
     formData.append("user", JSON.stringify({ user: { token } }));
 
     // Append image if available
-    if (this.state.DropNCropValue.result) {
+    if (this.state.DropNCropValue && this.state.DropNCropValue.result) {
       // const lastModified = this.state.DropNCropValue.files[0].lastModified;
       const fileType = this.state.DropNCropValue.filetype;
       const blob = this.dataURItoBlob(this.state.DropNCropValue.result);
@@ -434,6 +445,14 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
     return new Blob([ia], { type: mimeString });
   };
 
+  // private blobToDataURL(blob: Blob, callback: any) {
+  //   const a = new FileReader();
+  //   a.onload = function(e) {
+  //     callback(e.target.result);
+  //   };
+  //   a.readAsDataURL(blob);
+  // }
+
   private onImageLock = (lock: boolean): void => {
     // Update state
     this.setState({
@@ -445,7 +464,11 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
   private onClearImageClick = (
     event: React.MouseEvent<HTMLButtonElement>
   ): void => {
-    this.setState({ ...this.state, isImageLocked: false, DropNCropValue: {} });
+    this.setState({
+      ...this.state,
+      isImageLocked: false,
+      DropNCropValue: undefined
+    });
   };
 }
 
