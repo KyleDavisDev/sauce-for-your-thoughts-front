@@ -16,7 +16,7 @@ import TopBar from "../../../../components/TopBar/TopBar";
 import Navigation from "../../../../components/Navigation/Navigation";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
 import Footer from "../../../../components/Footer/Footer";
-import { addSauce } from "../../../../redux/sauces/actions";
+import { editSauce } from "../../../../redux/sauces/actions";
 import { ISauce } from "../../../../redux/sauces/types";
 import ArrowRight from "../../../../images/icons/ArrowRight";
 import { AppState } from "../../../../redux/configureStore";
@@ -35,7 +35,7 @@ import { IErrReturn } from "../../../../utils/Err/Err";
 import { Overlay } from "../../../../components/Overlay/Overlay";
 
 export interface SauceEditProps {
-  addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
+  editSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
   history: {
     replace: (location: string) => any;
     push: (location: string) => any;
@@ -71,6 +71,7 @@ export interface SauceEditState extends ISauce {
   addReview: boolean;
   flashMessage: FlashMessageProps;
   enabled: boolean;
+  slug: string;
 }
 
 class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
@@ -103,6 +104,7 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
       state: "",
       city: "",
       enabled: true,
+      slug: "",
 
       cropperOptions: { zoomOnWheel: false, aspectRatio: 2 / 3, movable: true },
       DropNCropValue: undefined,
@@ -167,7 +169,7 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
 
       // set state
       this.setState(prevState => {
-        return { ...prevState, ...sauce, typesOfSauces: types };
+        return { ...prevState, ...sauce, typesOfSauces: types, slug };
       });
     } catch (err) {
       // Disable form components and show flashmessage
@@ -350,7 +352,9 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
       author,
       country,
       state,
-      city
+      city,
+      photo,
+      slug
     } = this.state;
 
     // Construct FormData since we are passing image file
@@ -367,7 +371,9 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
       country,
       state,
       city,
-      types
+      types,
+      photo,
+      slug
     };
 
     formData.append("sauce", JSON.stringify({ sauce }));
@@ -388,9 +394,9 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
       formData.append("image", image);
     }
 
-    if (this.props.addSauce) {
+    if (this.props.editSauce) {
       this.props
-        .addSauce({ formData })
+        .editSauce({ formData })
         .then(res => {
           // Go to sauce page if they do not want to add a review
           if (this.state.addReview === false) {
@@ -445,14 +451,6 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
     return new Blob([ia], { type: mimeString });
   };
 
-  // private blobToDataURL(blob: Blob, callback: any) {
-  //   const a = new FileReader();
-  //   a.onload = function(e) {
-  //     callback(e.target.result);
-  //   };
-  //   a.readAsDataURL(blob);
-  // }
-
   private onImageLock = (lock: boolean): void => {
     // Update state
     this.setState({
@@ -483,7 +481,7 @@ function mapStateToProps(state: AppState): any {
 }
 
 const mapDispatchToProps = {
-  addSauce
+  editSauce
 };
 
 export default connect(
