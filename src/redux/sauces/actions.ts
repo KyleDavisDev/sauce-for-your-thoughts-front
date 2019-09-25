@@ -184,6 +184,23 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
   });
 };
 
+/** @description Edit a sauce
+ *  @param {FormData} formdata - Form Data that has been JSONified
+ *    @param {String} formdata.user.token - unique user token
+ *    @param {ISauce} formdata.sauce - sauce object
+ *  @returns {Promise}
+ *    @returns {String} slug - unique sauce slug
+ */
+export const editSauce = ({ formData }: { formData: FormData }) => async (
+  dispatch: any
+): Promise<string> => {
+  return API.sauce.update({ formData }).then((res: any) => {
+    const { slug } = res.data.sauce;
+
+    return slug;
+  });
+};
+
 /** @description Grab sauces according to query
  *  @param {String?} query - optional query string to search for
  *  @returns {Promise}
