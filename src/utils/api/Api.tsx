@@ -307,7 +307,7 @@ export const API = {
         });
     },
 
-    /** @description Get
+    /** @description Get sauce to edit
      *  @param {Object} data container object
      *    @param {String} data.user.token user's unique token
      *    @param {String} data.sauce.slug unique sauce slug
@@ -328,6 +328,50 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/sauce/edit`, data)
+        .then(res => {
+          if (res.data.isGood) {
+            return res.data.sauce;
+          }
+
+          // Throw error in handle-able format
+          throw Err({
+            msg: res.data.msg,
+            status: res.status,
+            isGood: res.data.isGood
+          });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood
+          });
+        });
+    },
+
+    /** @description Update a specific sauce
+     *  @param {FormData} formData object w/ all required suace and user information
+     *    @param {String} formData.user.token user's unique token
+     *    @param {ISauce} formData.sauce - sauce being added
+     *    @param {File} formData.image - image associated w/ sauce
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {Object} res.data.sauce - sauce data
+     *
+     *  {String} res.data.sauce.slug - unique sauce slug
+     *  @reject {String} error message
+     */
+    update: ({ formData }: { formData: FormData }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/sauce/update`, formData, {
+          headers: {
+            "content-type": `multipart/form-data`
+          }
+        })
         .then(res => {
           if (res.data.isGood) {
             return res.data.sauce;
