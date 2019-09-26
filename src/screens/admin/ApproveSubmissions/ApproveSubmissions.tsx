@@ -12,10 +12,12 @@ import Utils from "../../../utils/Utils/Utils";
 import styled from "../../../theme/styled-components";
 import { Button } from "../../../components/Button/Button";
 import { Link } from "../../../components/Link/Link";
+import { logout } from "../../../redux/users/actions";
 
 export interface IApproveSubmissionsProps {
   history: { replace: (location: string) => void };
   location: { pathname: string; search: string };
+  logout: () => void;
 }
 export interface IApproveSubmissionsState {
   sauces?: SaucesFromAPI[];
@@ -117,11 +119,25 @@ class ApproveSubmissions extends React.Component<
         Auth.deauthenticateUser();
 
         // update redux
+        this.props.logout();
 
         // Redirect user to login w/ appropriate return address
         this.props.history.replace(
           `/account/login?return=${this.props.location.pathname}${this.props.location.search}`
         );
+        return;
+      }
+
+      // bad credentials
+      if (err.response.data.status === 400) {
+        // Remove token from storage
+        Auth.deauthenticateUser();
+
+        // update redux
+        this.props.logout();
+
+        // Take user home
+        this.props.history.replace(`/`);
         return;
       }
     }
@@ -234,4 +250,9 @@ const mapState2Props = (state: AppState) => {
   return {};
 };
 
-export default connect(mapState2Props)(ApproveSubmissions);
+const mapDispatch2Props = { logout };
+
+export default connect(
+  mapState2Props,
+  mapDispatch2Props
+)(ApproveSubmissions);
