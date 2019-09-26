@@ -698,7 +698,7 @@ export const API = {
      *
      *  {Number} res.data.count - how many sauces are in DB
      *
-     *  @reject {String} error message
+     *  @reject {IErrReturn} handleable error object
      */
     getUnapproved: ({
       data
@@ -714,6 +714,14 @@ export const API = {
             return res;
           }
           throw new Error(res.data.msg);
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood
+          });
         });
     },
     /** @description Approve of a single sauce
