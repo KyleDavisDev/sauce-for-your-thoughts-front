@@ -110,7 +110,21 @@ class ApproveSubmissions extends React.Component<
       const res = await API.admin.getUnapproved({ data });
       const sauces: [SaucesFromAPI] = Utils.toCamel(res.data.sauces);
       this.setState({ sauces });
-    } catch (err) {}
+    } catch (err) {
+      // login expired
+      if (err.response.data.status === 403) {
+        // Remove token from storage
+        Auth.deauthenticateUser();
+
+        // update redux
+
+        // Redirect user to login w/ appropriate return address
+        this.props.history.replace(
+          `/account/login?return=${this.props.location.pathname}${this.props.location.search}`
+        );
+        return;
+      }
+    }
   }
 
   public render() {
