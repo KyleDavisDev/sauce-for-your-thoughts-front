@@ -31,7 +31,7 @@ export default class SauceSpice extends React.PureComponent<
             name="shu"
             id="shu"
             showLabel={true}
-            value={this.props.shu}
+            value={this.props.shu || ""}
           />
         </StyledRightSide>
       </StyledRow>
