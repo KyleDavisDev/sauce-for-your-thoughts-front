@@ -189,15 +189,13 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
  *    @param {String} formdata.user.token - unique user token
  *    @param {ISauce} formdata.sauce - sauce object
  *  @returns {Promise}
- *    @returns {String} slug - unique sauce slug
+ *    @returns {Object} response object
  */
 export const editSauce = ({ formData }: { formData: FormData }) => async (
   dispatch: any
 ): Promise<string> => {
   return API.sauce.update({ formData }).then((res: any) => {
-    const { slug } = res.data.sauce;
-
-    return slug;
+    return res;
   });
 };
 
