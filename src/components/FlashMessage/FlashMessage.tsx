@@ -1,6 +1,7 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled from "../../theme/styled-components";
 import { Link } from "../Link/Link";
+import { Button } from "../Button/Button";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -8,6 +9,18 @@ const StyledContainer = styled.div`
 
   width: 100%;
   margin-bottom: 15px;
+`;
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  justify-content: space-between;
+`;
+
+const StyledContent = styled.div`
+  max-width: 90%;
+  width: 100%;
 `;
 
 export interface FlashMessageProps {
@@ -20,29 +33,48 @@ export interface FlashMessageProps {
   children?: string;
 }
 
-const FlashMessage: React.SFC<FlashMessageProps> = props => {
-  return (
-    <StyledContainer className={props.className}>
-      {props.isVisible && (
-        <div>
-          {props.children || props.text}{" "}
-          {props.slug && props.slugText ? (
-            <Link to={props.slug}>{props.slugText}</Link>
-          ) : (
-            ""
-          )}{" "}
-        </div>
-      )}
-    </StyledContainer>
-  );
-};
+class FlashMessage extends React.PureComponent<FlashMessageProps, any> {
+  public static defaultProps = {
+    isVisible: true
+  };
 
-FlashMessage.defaultProps = {
-  isVisible: true
-};
+  constructor(props: FlashMessageProps) {
+    super(props);
+
+    this.state = { isVisible: this.props.isVisible };
+  }
+
+  public componentWillReceiveProps(props: FlashMessageProps) {
+    this.setState({ ...props });
+  }
+
+  public render() {
+    return (
+      <StyledContainer className={this.props.className}>
+        {this.state.isVisible && (
+          <StyledDiv>
+            <StyledContent>
+              {this.props.children || this.props.text}{" "}
+              {this.props.slug && this.props.slugText ? (
+                <Link to={this.props.slug}>{this.props.slugText}</Link>
+              ) : (
+                ""
+              )}{" "}
+            </StyledContent>
+            <Button onClick={this.onCloseClick}>X</Button>
+          </StyledDiv>
+        )}
+      </StyledContainer>
+    );
+  }
+
+  private onCloseClick = () => {
+    this.setState({ isVisible: false });
+  };
+}
 
 const StyledFlashMessage = styled(FlashMessage)`
-  div {
+  > div {
     padding: 10px 15px;
     width: 100%;
     box-sizing: border-box;
@@ -78,6 +110,20 @@ const StyledFlashMessage = styled(FlashMessage)`
       &:hover,
       &:focus {
         color: #333;
+      }
+    }
+
+    button {
+      background-color: transparent;
+      border: 0;
+      color: ${props => props.theme.black};
+      padding: 0;
+
+      &:hover,
+      &:focus {
+        border: 0;
+        color: ${props => props.theme.black};
+        background-color: transparent;
       }
     }
   }
