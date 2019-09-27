@@ -374,7 +374,7 @@ export const API = {
         })
         .then(res => {
           if (res.data.isGood) {
-            return res.data.sauce;
+            return res;
           }
 
           // Throw error in handle-able format
