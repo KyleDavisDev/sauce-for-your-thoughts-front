@@ -398,17 +398,20 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
       this.props
         .editSauce({ formData })
         .then(res => {
-          // Go to sauce page if they do not want to add a review
-          if (this.state.addReview === false) {
-            history.push(`/sauce?s=${res}`);
-          } else {
-            // Go to review page for specific sauce
-            history.push(`/review/add?s=${res}`);
-          }
-        })
-        .catch(err => {
-          // TODO better error handling
+          // Move screen to top
+          window.scrollTo(0, 0);
 
+          // Create warning flash
+          this.setState({
+            ...this.state,
+            flashMessage: {
+              isVisible: true,
+              text: res.data.msg,
+              type: "success"
+            }
+          });
+        })
+        .catch((err: IErrReturn) => {
           // Move screen to top
           window.scrollTo(0, 0);
 
