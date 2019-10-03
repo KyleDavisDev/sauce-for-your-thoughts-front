@@ -225,7 +225,7 @@ export const API = {
       };
     }): AxiosPromise => {
       return axios
-        .post(`${host}/api/user/confirm/email`, data)
+        .post(`${host}/api/user/email/confirm`, data)
         .then(res => {
           if (res.data.isGood) {
             return res;
@@ -262,7 +262,39 @@ export const API = {
       };
     }): AxiosPromise => {
       return axios
-        .post(`${host}/api/user/check/email`, data)
+        .post(`${host}/api/user/email/check`, data)
+        .then(res => {
+          return res;
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood || false
+          });
+        });
+    },
+
+    /** @description Request for the verification email to be sent again
+     *  @param {Object} data data object
+     *    @param {String} data.user.token - user JWT
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {IErrReturn} error object
+     */
+    resendVerificationEmail: ({
+      data
+    }: {
+      data: {
+        user: { token: string };
+      };
+    }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/user/email/resend`, data)
         .then(res => {
           return res;
         })
