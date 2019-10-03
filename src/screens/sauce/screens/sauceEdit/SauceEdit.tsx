@@ -245,6 +245,7 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
                 {/* Photo */}
                 <SaucePhoto
                   photo={this.state.photo}
+                  onImageRemove={this.onImageRemove}
                   DropNCropValue={this.state.DropNCropValue}
                   cropperOptions={this.state.cropperOptions}
                   isImageLocked={this.state.isImageLocked}
@@ -398,6 +399,7 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
       this.props
         .editSauce({ formData })
         .then(res => {
+          console.log(res);
           // Move screen to top
           window.scrollTo(0, 0);
 
@@ -469,6 +471,15 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
       ...this.state,
       isImageLocked: false,
       DropNCropValue: undefined
+    });
+  };
+
+  private onImageRemove = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    this.setState({
+      ...this.state,
+      photo: undefined
     });
   };
 }
