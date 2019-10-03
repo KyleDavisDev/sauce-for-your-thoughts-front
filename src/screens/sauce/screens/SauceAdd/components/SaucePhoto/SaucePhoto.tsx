@@ -13,6 +13,7 @@ export interface ISaucePhotoProps {
   onDropNCropChange: (val: any) => void;
   onImageLock: (lock: boolean) => void;
   onClearImageClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onImageRemove?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   DropNCropValue: any;
   cropperOptions: {
     zoomOnWheel?: boolean;
@@ -39,7 +40,8 @@ export default class SaucePhoto extends React.PureComponent<
           {this.props.photo && (
             <div style={{ marginBottom: "15px" }}>
               <h5> Current image:</h5>
-              <img src={this.props.photo} />
+              <img src={this.props.photo} style={{ maxWidth: "200px" }} />
+              <Button onClick={this.onImageRemove}>Remove image</Button>
             </div>
           )}
           <DropNCrop
@@ -78,5 +80,13 @@ export default class SaucePhoto extends React.PureComponent<
     }
 
     this.props.onImageLock(!isLocked);
+  };
+
+  private onImageRemove = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    if (this.props.onImageRemove) {
+      this.props.onImageRemove(event);
+    }
   };
 }
