@@ -202,6 +202,12 @@ class ApproveSubmissions extends React.Component<
                     <Link to={`/sauce/edit?s=${sauce.slug}`}>
                       <Button>Edit</Button>
                     </Link>
+
+                    <Button
+                      onClick={this.onDeclineClick.bind(this, sauce.sauceID)}
+                    >
+                      Decline
+                    </Button>
                     <Button
                       onClick={this.onApproveClick.bind(this, sauce.sauceID)}
                     >
@@ -216,6 +222,7 @@ class ApproveSubmissions extends React.Component<
       </div>
     );
   }
+
   private async onApproveClick(sauceID: number) {
     const token = Auth.getToken();
     if (!token || token.length === 0) {
@@ -227,6 +234,35 @@ class ApproveSubmissions extends React.Component<
     }
     const data = { user: { token }, sauce: { sauceID } };
     const res = await API.admin.approveSauce({ data });
+    if (res.data.isGood) {
+      if (this.state.sauces && this.state.sauces.length > 0) {
+        // update hidden on element
+        const sauces = this.state.sauces.map(sauce => {
+          if (sauce.sauceID === sauceID) {
+            sauce.hidden = true;
+          }
+
+          return sauce;
+        });
+        // remove item from state
+        this.setState({
+          sauces
+        });
+      }
+    }
+  }
+
+  private async onDeclineClick(sauceID: number) {
+    const token = Auth.getToken();
+    if (!token || token.length === 0) {
+      // Redirect user to login w/ appropriate return address
+      this.props.history.replace(
+        `/account/login?return=${this.props.location.pathname}${this.props.location.search}`
+      );
+      return;
+    }
+    const data = { user: { token }, sauce: { sauceID } };
+    const res = await API.admin.declineSauce({ data });
     if (res.data.isGood) {
       if (this.state.sauces && this.state.sauces.length > 0) {
         // update hidden on element
