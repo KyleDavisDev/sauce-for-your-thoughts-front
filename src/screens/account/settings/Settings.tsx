@@ -20,6 +20,10 @@ import ArrowLeft from "../../../images/icons/ArrowLeft";
 import Auth from "../../../utils/Auth/Auth";
 import { API } from "../../../utils/api/API";
 import { IErrReturn } from "../../../utils/Err/Err";
+import {
+  FlashMessageProps,
+  FlashMessage
+} from "../../../components/FlashMessage/FlashMessage";
 
 export interface SettingsProps {
   history: {
@@ -30,6 +34,7 @@ export interface SettingsProps {
 
 export interface SettingsState {
   isEmailConfirmed: boolean;
+  flashMessage: FlashMessageProps;
 }
 
 class Settings extends React.Component<SettingsProps, SettingsState> {
@@ -38,7 +43,10 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
 
     // Init state
     this.state = {
-      isEmailConfirmed: true
+      isEmailConfirmed: true,
+      flashMessage: {
+        isVisible: false
+      }
     };
   }
 
@@ -84,6 +92,12 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
         <StyledArticle>
           <PageTitle>Settings</PageTitle>
           <StyledContainer>
+            {this.state.flashMessage.isVisible && (
+              <FlashMessage type={this.state.flashMessage.type} isVisible>
+                {this.state.flashMessage.text}
+              </FlashMessage>
+            )}
+
             <StyledGroup>
               <h4>Update email</h4>
               <Link to="/account/settings/email">
@@ -141,8 +155,25 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
   }
 
   private onButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(event);
-    // Fire off event to resend email
+    // get token or redirect to login
+    const token = Auth.getToken();
+    if (!token) {
+      this.props.history.replace(
+        `/account/login?return=${this.props.location.pathname}`
+      );
+      return;
+    }
+
+    // Call API to see if email has been verified or not
+    const data = { user: { token } };
+    API.user.resendVerificationEmail({ data }).then(res => {
+      // Show flash message and update state
+      this.setState({
+        ...this.state,
+        isEmailConfirmed: true,
+        flashMessage: { isVisible: true, text: res.data.msg, type: "success" }
+      });
+    });
   };
 }
 
