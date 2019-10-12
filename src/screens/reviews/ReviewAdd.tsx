@@ -130,9 +130,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
               enabled: false,
               flashMessage: {
                 isVisible: true,
-                text: err.response.data.msg,
-                slug: `/login?return=${this.props.location.pathname}${this.props.location.search}`,
-                slugText: "Login"
+                text: err.response.data.msg
               }
             };
           });
@@ -364,6 +362,11 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
 
   private onSubmit = async (event: React.FormEvent): Promise<null> => {
     event.preventDefault();
+
+    // if form disabled, don't do anything.
+    if (!this.state.enabled) {
+      return null;
+    }
 
     const { user, history } = this.props;
 
