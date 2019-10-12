@@ -40,9 +40,9 @@ class Navigation extends React.PureComponent<{}, NavigationState> {
           <li>
             <StyledLink to="/sauce/add">Add Sauce</StyledLink>
           </li>
-          <li>
+          {/* <li>
             <span>icon here</span>
-          </li>
+          </li> */}
         </StyledUl>
       </Header>
     );
