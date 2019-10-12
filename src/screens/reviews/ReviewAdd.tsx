@@ -322,7 +322,11 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
                   </StyledRightSide>
                 </StyledRow>
 
-                <StyledButton onClick={() => {}} type="submit">
+                <StyledButton
+                  onClick={() => {}}
+                  type="submit"
+                  disabled={!this.state.enabled}
+                >
                   Submit
                   <ArrowRight />
                 </StyledButton>
