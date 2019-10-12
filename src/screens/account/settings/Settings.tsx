@@ -71,13 +71,8 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
       .catch((err: IErrReturn) => {
         // Set state so we know if we should display the button or not
         this.setState({ isEmailConfirmed: err.response.data.isGood });
-
-        // if error take user away
-        this.props.history.replace(
-          `/account/login?return=${this.props.location.pathname}`
-        );
-        return;
       });
+    window.scrollTo(0, 0); // Move screen to top
   }
 
   public render() {
