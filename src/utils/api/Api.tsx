@@ -597,7 +597,7 @@ export const API = {
     }): AxiosPromise =>
       axios.post(`${host}/api/review/get`, data).then(res => {
         if (res.data.isGood) {
-          return res.data.sauce.reviews[0];
+          return res.data.review;
         }
         throw new Error(res.data.msg);
       }),
