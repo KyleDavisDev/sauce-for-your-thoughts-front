@@ -41,7 +41,7 @@ class Home extends React.PureComponent<HomeProps, {}> {
         <StyledArticle>
           <NewestSauces />
           <FeaturedSauces />
-          <FeaturedUsers />
+          {/* <FeaturedUsers /> */}
         </StyledArticle>
         <Footer />
       </div>
