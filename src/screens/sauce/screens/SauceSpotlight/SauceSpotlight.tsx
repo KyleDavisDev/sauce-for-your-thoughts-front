@@ -20,6 +20,7 @@ import { IReview } from "../../../../redux/reviews/types";
 import { Link } from "../../../../components/Link/Link";
 import { Button } from "../../../../components/Button/Button";
 import List from "../../../../components/List/List";
+import { FlashMessage } from "../../../../components/FlashMessage/FlashMessage";
 
 export interface SauceSpotlightProps {
   location: { search: string };
@@ -97,6 +98,17 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
 
         <StyledArticle>
           <StyledLeftContainer>
+            {/* FlashMessage */}
+            {sauce && (
+              <FlashMessage
+                isVisible={sauce.isAdminApproved ? false : true}
+                text={
+                  "This sauce has not been approved by an admin yet and, as a result, will not appear listed with the other sauces."
+                }
+                type="warning"
+              ></FlashMessage>
+            )}
+
             {/* Spotlight */}
             <SauceHero sauce={sauce} />
 
