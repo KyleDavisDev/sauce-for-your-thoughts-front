@@ -248,6 +248,7 @@ class UpdateAvatar extends React.Component<
           slugText: "Back to Settings"
         }
       });
+      window.scrollTo(0, 0); // Move screen to top
     } catch (err) {
       // Account locked
       if (err.response.status === 403) {
