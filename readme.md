@@ -18,21 +18,20 @@ To run in production, run `npm run prod`. This will push the code through (webpa
 
 # Roadmap
 
-- [ ] Continue to write and improve code documentation.
 - [x] Build out a 'Rating' component.
 - [x] Allow users to submit review directly on sauce page.
 - [x] Add query limit when looking at sauces (i.e. Don't pull all of the sauces at once)
 - [ ] Add user pages.
 - [x] Finalize a structure for src folder.
-- [ ] Add content to website home page.
-- [ ] Improve design / improve brand identity.
-- [ ] Improve how the search feature works.
+- [x] Add content to website home page.
+- [x] Improve design / improve brand identity.
+- [x] Improve how the search feature works.
 - [ ] Update how 'Forgot my password' works.
 - [ ] Write tests.
 - [ ] Make sure site is fully ADA compliant.
 - [ ] Add links out to social media.
-- [ ] Investigate more into styled components.
+- [x] Investigate more into styled components.
 - [ ] Write 'privacy' page.
-- [ ] Add 'Display Name' for users on signup and as something they are able to update.
+- [x] Add 'Display Name' for users on signup and as something they are able to update.
 - [x] Impliment 'fractal' code architecture.
 
