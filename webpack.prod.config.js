@@ -1,4 +1,6 @@
-const path = require("path");
+// const path = require("path");
+const { resolve } = require("path");
+const buildPath = resolve(__dirname, "dist");
 
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
@@ -7,26 +9,46 @@ const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
-const buildPath = path.resolve(__dirname, "dist");
-
 module.exports = {
   devtool: "source-map",
+  mode: "production",
   context: resolve(__dirname, "src"),
-  entry: "./src/index.js",
+  entry: "./index.tsx",
   output: {
     path: buildPath,
     filename: "[name].[hash:20].js",
     publicPath: "/"
   },
+  resolve: {
+    // Add '.ts' and '.tsx' as resolvable extensions.
+    extensions: [".ts", ".tsx", ".js", ".json"]
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        enforce: "pre",
+        test: /\.(ts|tsx)?$/,
+        loader: "tslint-loader",
+        exclude: [resolve(__dirname, "node_modules")]
       },
+      // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
+      {
+        test: /\.(ts|tsx)?$/,
+        use: [
+          {
+            loader: "ts-loader",
+            options: {
+              transpileOnly: true,
+              compilerOptions: {
+                module: "es2015"
+              }
+            }
+          }
+        ],
+        exclude: [resolve(__dirname, "node_modules")]
+      },
+      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
         test: /\.(png|jpg|pdf)$/,
         use: {
@@ -38,44 +60,7 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: [
-            {
-              // translates CSS into CommonJS
-              loader: "css-loader",
-              options: {
-                sourceMap: true
-              }
-            },
-            {
-              // Runs compiled CSS through postcss for vendor prefixing
-              loader: "postcss-loader",
-              options: {
-                sourceMap: true
-              }
-            },
-            {
-              loader: "resolve-url-loader",
-              options: {
-                sourceMap: true
-              }
-            },
-            {
-              // compiles Sass to CSS
-              loader: "sass-loader",
-              options: {
-                outputStyle: "expanded",
-                sourceMap: true,
-                sourceMapContents: true
-              }
-            }
-          ]
-        })
-      },
-      {
-        test: /\.(eot|otf|svg|ttf|woff|woff2)$/,
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
         use: {
           loader: "file-loader",
           options: {
@@ -83,6 +68,10 @@ module.exports = {
             outputPath: "fonts/"
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
@@ -93,31 +82,31 @@ module.exports = {
       inject: "body"
     }),
     new CleanWebpackPlugin(buildPath),
-    new FaviconsWebpackPlugin({
-      // Your source logo
-      logo: "./src/images/icons/favicon.png",
-      // The prefix for all image files (might be a folder or a name)
-      prefix: "icons-[hash]/",
-      // Generate a cache file with control hashes and
-      // don't rebuild the favicons until those hashes change
-      persistentCache: true,
-      // Inject the html into the html-webpack-plugin
-      inject: true,
-      background: "#fff",
-      title: "Sauce For Your Thoughts",
-      icons: {
-        android: true,
-        appleIcon: true,
-        appleStartup: true,
-        coast: false,
-        favicons: true,
-        firefox: true,
-        opengraph: false,
-        twitter: false,
-        yandex: false,
-        windows: false
-      }
-    }),
+    // new FaviconsWebpackPlugin({
+    //   // Your source logo
+    //   logo: "/src/images/icons/favicon.png",
+    //   // The prefix for all image files (might be a folder or a name)
+    //   prefix: "icons-[hash]/",
+    //   // Generate a cache file with control hashes and
+    //   // don't rebuild the favicons until those hashes change
+    //   persistentCache: true,
+    //   // Inject the html into the html-webpack-plugin
+    //   inject: true,
+    //   background: "#fff",
+    //   title: "Sauce For Your Thoughts",
+    //   icons: {
+    //     android: true,
+    //     appleIcon: true,
+    //     appleStartup: true,
+    //     coast: false,
+    //     favicons: true,
+    //     firefox: true,
+    //     opengraph: false,
+    //     twitter: false,
+    //     yandex: false,
+    //     windows: false
+    //   }
+    // }),
     new UglifyJSPlugin({
       sourceMap: true,
       output: {
