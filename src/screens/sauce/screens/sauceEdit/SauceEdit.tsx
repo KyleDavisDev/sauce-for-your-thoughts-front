@@ -399,7 +399,6 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
       this.props
         .editSauce({ formData })
         .then(res => {
-          console.log(res);
           // Move screen to top
           window.scrollTo(0, 0);
 
