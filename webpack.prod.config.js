@@ -5,7 +5,7 @@ const buildPath = resolve(__dirname, "dist");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
@@ -49,6 +49,17 @@ module.exports = {
       },
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+      // process any .js files if found.
+      {
+        test: /\.m?js$/,
+        exclude: /(bower_components)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"]
+          }
+        }
+      },
       {
         test: /\.(png|jpg|pdf)$/,
         use: {
@@ -75,9 +86,12 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    minimizer: [new UglifyJsPlugin()]
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./index.html",
       filename: "index.html",
       inject: "body"
     }),
@@ -107,15 +121,9 @@ module.exports = {
     //     windows: false
     //   }
     // }),
-    new UglifyJSPlugin({
-      sourceMap: true,
-      output: {
-        comments: false
-      }
-    }),
-    new ExtractTextPlugin("styles.[contentHash].css", {
-      allChunks: true
-    }),
+    // new ExtractTextPlugin("styles.[contentHash].css", {
+    //   allChunks: true
+    // }),
     new OptimizeCssAssetsPlugin({
       cssProcessor: require("cssnano"),
       cssProcessorOptions: {
