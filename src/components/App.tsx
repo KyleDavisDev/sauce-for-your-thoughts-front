@@ -5,19 +5,20 @@ import { Provider } from "react-redux";
 import Screens from "../screens/Screens"; // Routing
 import { configureStore } from "../redux/configureStore"; // redux store
 import { ThemeProvider, theme, injectGlobal } from "../theme/styled-components"; // theme
+import AvenirNextReg from "../theme/fonts/AvenirNext-Regular.ttf";
 
 // Configure/initialize redux store
 const store = configureStore();
 
 // tslint:disable-next-line:no-unused-expression
-injectGlobal`
+export default injectGlobal`
   @font-face {
     font-family: FuturaMedium;
     src: url("/theme/fonts/Futura-Medium.ttf");
   }
   @font-face {
     font-family: AvenirNextReg;
-    src: url("/theme/fonts/AvenirNext-Regular.ttf");
+    src: url('${AvenirNextReg}') format('truetype');
   }
 
   html {
@@ -31,7 +32,7 @@ injectGlobal`
   }
 `;
 
-class App extends React.Component<{}, {}> {
+export class App extends React.Component<{}, {}> {
   public render(): JSX.Element {
     return (
       <BrowserRouter>
@@ -44,5 +45,3 @@ class App extends React.Component<{}, {}> {
     );
   }
 }
-
-export default App;
