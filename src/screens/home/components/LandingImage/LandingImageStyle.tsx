@@ -2,6 +2,7 @@ import styled from "../../../../theme/styled-components";
 import DropDown from "../../../../components/DropDown/DropDown";
 import { TextInput } from "../../../../components/TextInput/TextInput";
 import { Button } from "../../../../components/Button/Button";
+import SaucesImage from "../../../../images/photos/Sauces.jpg";
 
 export const HeroContainer = styled.div`
   background: #000;
@@ -10,7 +11,7 @@ export const HeroContainer = styled.div`
 `;
 
 export const HeroImage = styled.div`
-  background-image: url("../../../../images/photos/Sauces.jpg");
+  background-image: url('${SaucesImage}');
   background-size: cover;
   background-position-y: 45%;
   opacity: 0.45;
