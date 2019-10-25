@@ -2,7 +2,7 @@
 const { resolve } = require("path");
 const buildPath = resolve(__dirname, "dist");
 
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const AppManifestWebpackPlugin = require("app-manifest-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
@@ -95,32 +95,23 @@ module.exports = {
       filename: "index.html",
       inject: "body"
     }),
+    // favicons
+    new AppManifestWebpackPlugin({
+      // Your source logo
+      logo: "./images/icons/favicon.png",
+      // Prefix for file names
+      prefix: "/assets/icons/", // default '/'
+      // Output path for icons (icons will be saved to output.path(webpack config) + this key)
+      output: "/icons-[hash:8]/", // default '/'. Can be absolute or relative
+      statsFilename: "iconstats.json",
+      persistentCache: false,
+      config: {
+        path: "/static/assets/"
+      }
+    }),
+
     new CleanWebpackPlugin(buildPath),
-    // new FaviconsWebpackPlugin({
-    //   // Your source logo
-    //   logo: "/src/images/icons/favicon.png",
-    //   // The prefix for all image files (might be a folder or a name)
-    //   prefix: "icons-[hash]/",
-    //   // Generate a cache file with control hashes and
-    //   // don't rebuild the favicons until those hashes change
-    //   persistentCache: true,
-    //   // Inject the html into the html-webpack-plugin
-    //   inject: true,
-    //   background: "#fff",
-    //   title: "Sauce For Your Thoughts",
-    //   icons: {
-    //     android: true,
-    //     appleIcon: true,
-    //     appleStartup: true,
-    //     coast: false,
-    //     favicons: true,
-    //     firefox: true,
-    //     opengraph: false,
-    //     twitter: false,
-    //     yandex: false,
-    //     windows: false
-    //   }
-    // }),
+
     // new ExtractTextPlugin("styles.[contentHash].css", {
     //   allChunks: true
     // }),
