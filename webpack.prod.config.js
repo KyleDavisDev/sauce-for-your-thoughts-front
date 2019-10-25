@@ -99,10 +99,8 @@ module.exports = {
     new AppManifestWebpackPlugin({
       // Your source logo
       logo: "./images/icons/favicon.png",
-      // Prefix for file names
-      prefix: "/assets/icons/", // default '/'
       // Output path for icons (icons will be saved to output.path(webpack config) + this key)
-      output: "/icons-[hash:8]/", // default '/'. Can be absolute or relative
+      output: "/icons/", // default '/'. Can be absolute or relative
       statsFilename: "iconstats.json",
       persistentCache: false,
       config: {
