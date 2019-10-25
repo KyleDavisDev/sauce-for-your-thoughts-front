@@ -6,6 +6,7 @@ import Screens from "../screens/Screens"; // Routing
 import { configureStore } from "../redux/configureStore"; // redux store
 import { ThemeProvider, theme, injectGlobal } from "../theme/styled-components"; // theme
 import AvenirNextReg from "../theme/fonts/AvenirNext-Regular.ttf";
+import FuturaMedium from "../theme/fonts/Futura-Medium.ttf";
 
 // Configure/initialize redux store
 const store = configureStore();
@@ -14,7 +15,7 @@ const store = configureStore();
 export default injectGlobal`
   @font-face {
     font-family: FuturaMedium;
-    src: url("/theme/fonts/Futura-Medium.ttf");
+    src: url('${FuturaMedium}') format('truetype');
   }
   @font-face {
     font-family: AvenirNextReg;
