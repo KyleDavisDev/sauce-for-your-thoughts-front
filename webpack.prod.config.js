@@ -80,6 +80,14 @@ module.exports = {
           }
         }
       },
+      // load any svgs
+      {
+        test: /\.svg/,
+        use: {
+          loader: "svg-url-loader",
+          options: {}
+        }
+      },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
