@@ -83,7 +83,7 @@ export const configureStore = () => {
     flashMessage: { isVisible: false, type: null, text: null, slug: null }
   };
 
-  if (process.env.NODE_ENV === "production") {
+  if (process.env.NODE_ENV === "prod") {
     return createStore(rootReducer, initialState, applyMiddleware(thunk));
   } else {
     return createStore(
