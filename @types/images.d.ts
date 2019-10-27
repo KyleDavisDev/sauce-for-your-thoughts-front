@@ -3,3 +3,7 @@ declare module "*.png" {
   export = value;
 }
 declare module "*.jpg";
+declare module "*.svg" {
+  const value: any;
+  export = value;
+}
