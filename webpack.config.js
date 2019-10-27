@@ -68,7 +68,7 @@ module.exports = {
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
-        test: /\.(png|jpg|pdf)$/,
+        test: /\.(png|jpg|pdf|svg)$/,
         use: {
           loader: "file-loader",
           options: {
@@ -89,11 +89,15 @@ module.exports = {
       },
       // load any svgs
       {
-        test: /\.svg/,
-        use: {
-          loader: "svg-url-loader",
-          options: {}
-        }
+        test: /\.(svg)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,
