@@ -1,5 +1,7 @@
 import styled from "../../theme/styled-components";
 
+// import ChevronDown from "../../images/icons/chevron-down.svg";
+
 export const SelectContainer = styled.div`
   width: 100%;
   border: 1px solid #e1e1e1;
@@ -12,7 +14,7 @@ export const SelectContainer = styled.div`
     position: absolute;
     top: 55%;
     transform: translateY(-50%);
-    content: url("../../../../../../images/icons/chevron-down.svg");
+    // content: url();
     pointer-events: none;
     right: 15px;
   }

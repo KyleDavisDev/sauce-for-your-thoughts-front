@@ -3,6 +3,7 @@ import shortid from "shortid";
 
 import Label from "../Label/Label";
 import { SelectContainer, StyledSelect } from "./DropDownStyle";
+import ChevronDown from "../../images/icons/ChevronDown.svg";
 
 interface DropDownProps {
   id?: string;
@@ -55,6 +56,7 @@ class DropDown extends React.PureComponent<DropDownProps, DropDownState> {
               );
             })}
           </StyledSelect>
+          <img src={ChevronDown} />
         </SelectContainer>
       </div>
     );
