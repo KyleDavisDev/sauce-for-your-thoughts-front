@@ -8,9 +8,9 @@
     "url": "https://github.com/KyleDavisDev/sauce-for-your-thoughts-front-front.git"
   },
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --define process.env.API_ENV='\"dev\"'",
     "test": "jest --watchAll",
-    "prod": "webpack -p --config webpack.prod.config.js --define process.env.API_ENV='\"production\"'"
+    "prod": "webpack -p --config webpack.prod.config.js --define process.env.API_ENV='\"prod\"'"
   },
   "author": "Kyle Davis",
   "license": "ISC",
