@@ -75,11 +75,10 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
 
     this.state = {
       _id: 0,
-      name: "Name here",
-      ingredients: "abc, dvee,vasdfasdf,,asdfasdf,",
-      maker: "Maker here",
-      description:
-        "Here will be a long description, maybe a few thing's too.      asd      gg",
+      name: "",
+      ingredients: "",
+      maker: "",
+      description: "",
       photo: "",
       typesOfSauces: types,
       author: (this.props.user && this.props.user.name) || "",
