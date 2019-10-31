@@ -8,7 +8,7 @@ import {
   IUserUpdateAvatar
 } from "../../redux/users/types";
 import { IReview } from "../../redux/reviews/types";
-import Err, { IErrReturn } from "../Err/Err";
+import Err from "../Err/Err";
 
 export const host =
   process.env.API_ENV === "prod"
@@ -343,7 +343,11 @@ export const API = {
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw handleCallbackError(err);
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood
+          });
         });
     },
 
@@ -383,7 +387,11 @@ export const API = {
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw handleCallbackError(err);
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood
+          });
         });
     },
 
@@ -542,7 +550,11 @@ export const API = {
           throw Err({ msg: res.data.msg, status: res.status });
         })
         .catch((err: any) => {
-          throw handleCallbackError(err);
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status
+          });
         });
     }
   },
@@ -642,7 +654,11 @@ export const API = {
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw handleCallbackError(err);
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood
+          });
         });
     }
   },
@@ -702,7 +718,11 @@ export const API = {
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw handleCallbackError(err);
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood
+          });
         });
     },
     /** @description Approve of a single sauce
@@ -730,7 +750,11 @@ export const API = {
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw handleCallbackError(err);
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood
+          });
         });
     },
 
@@ -759,40 +783,12 @@ export const API = {
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw handleCallbackError(err);
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood
+          });
         });
     }
   }
 };
-
-/** @description Handle API callback errors
- *  @param {any} error error handler
- *  @returns {IErrReturn} standard return object
- */
-function handleCallbackError(error: any): IErrReturn {
-  if (error.response) {
-    // The request was made and the server responded with a status code
-    // that falls out of the range of 2xx
-    return Err({
-      msg: error.response.data.msg,
-      isGood: error.response.data.isGood,
-      status: error.response.status
-    });
-  } else if (error.request) {
-    // The request was made but no response was received
-    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-    // http.ClientRequest in node.js
-    return Err({
-      msg: "Could not connect to server. Please try again",
-      isGood: false,
-      status: 500
-    });
-  } else {
-    // Something happened in setting up the request that triggered an Error
-    return Err({
-      msg: "Issue while making request to server. Please try again.",
-      isGood: false,
-      status: 300
-    });
-  }
-}
