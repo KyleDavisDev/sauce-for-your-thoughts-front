@@ -792,8 +792,10 @@ function handleCallbackError(error: any): IErrReturn {
     // The request was made and the server responded with a status code
     // that falls out of the range of 2xx
     return Err({
-      msg: error.response.data.msg,
-      isGood: error.response.data.isGood,
+      msg:
+        error.response.data.msg ||
+        "Could not connect to server. Please try again",
+      isGood: error.response.data.isGood || false,
       status: error.response.status
     });
   } else if (error.request) {
