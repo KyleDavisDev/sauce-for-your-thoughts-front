@@ -236,6 +236,8 @@ class Register extends React.Component<RegisterProps, RegisterState> {
           type: "warning"
         }
       });
+
+      window.scrollTo(0, 0); // Move screen to top
     }
   };
 }
