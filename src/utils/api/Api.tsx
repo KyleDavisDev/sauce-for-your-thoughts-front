@@ -8,7 +8,7 @@ import {
   IUserUpdateAvatar
 } from "../../redux/users/types";
 import { IReview } from "../../redux/reviews/types";
-import Err from "../Err/Err";
+import Err, { IErrReturn } from "../Err/Err";
 
 export const host =
   process.env.API_ENV === "prod"
@@ -36,12 +36,14 @@ export const API = {
      *  @reject {String} error message
      */
     register: (credentials: IRegisterUser): AxiosPromise => {
-      return axios.post(`${host}/api/user/register`, credentials).then(res => {
-        if (res.data.isGood) {
-          return res;
-        }
-        throw new Error(res.data.msg);
-      });
+      return axios
+        .post(`${host}/api/user/register`, credentials)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
     },
 
     /** @description Add new user to DB
@@ -63,12 +65,14 @@ export const API = {
      *  @reject {String} error message
      */
     login: (credentials: ILoginUser): AxiosPromise => {
-      return axios.post(`${host}/api/user/login`, credentials).then(res => {
-        if (res.data.isGood) {
-          return res;
-        }
-        throw new Error(res.data.msg);
-      });
+      return axios
+        .post(`${host}/api/user/login`, credentials)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
     },
 
     /** @description Update a user's email
@@ -89,12 +93,14 @@ export const API = {
      *  @reject {String} error message
      */
     updateEmail: ({ data }: { data: IUserUpdateEmail }): AxiosPromise => {
-      return axios.post(`${host}/api/user/update/email`, data).then(res => {
-        if (res.data.isGood) {
-          return res;
-        }
-        throw new Error(res.data.msg);
-      });
+      return axios
+        .post(`${host}/api/user/update/email`, data)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
     },
 
     /** @description Call Server to update password
@@ -113,12 +119,14 @@ export const API = {
      *  @reject {String} error message
      */
     updatePassword: ({ data }: { data: IUserUpdatePassword }): AxiosPromise => {
-      return axios.post(`${host}/api/user/update/password`, data).then(res => {
-        if (res.data.isGood) {
-          return res;
-        }
-        throw new Error(res.data.msg);
-      });
+      return axios
+        .post(`${host}/api/user/update/password`, data)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
     },
 
     /** @description Call Server to update display name
@@ -143,7 +151,7 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/user/update/displayname`, data)
-        .then(res => {
+        .then((res: any) => {
           if (res.data.isGood) {
             return res;
           }
@@ -168,12 +176,14 @@ export const API = {
      *  @reject {String} error message
      */
     updateAvatar: ({ data }: { data: IUserUpdateAvatar }): AxiosPromise => {
-      return axios.post(`${host}/api/user/update/avatar`, data).then(res => {
-        if (res.data.isGood) {
-          return res;
-        }
-        throw new Error(res.data.msg);
-      });
+      return axios
+        .post(`${host}/api/user/update/avatar`, data)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
     },
 
     /** @description Confirm a user's email
@@ -195,7 +205,7 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/user/email/confirm`, data)
-        .then(res => {
+        .then((res: any) => {
           if (res.data.isGood) {
             return res;
           }
@@ -232,7 +242,7 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/user/email/check`, data)
-        .then(res => {
+        .then((res: any) => {
           return res;
         })
         .catch((err: any) => {
@@ -264,7 +274,7 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/user/email/resend`, data)
-        .then(res => {
+        .then((res: any) => {
           return res;
         })
         .catch((err: any) => {
@@ -300,7 +310,7 @@ export const API = {
             "content-type": `multipart/form-data`
           }
         })
-        .then(res => {
+        .then((res: any) => {
           if (res.data.isGood) {
             return res;
           }
@@ -329,7 +339,7 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/sauce/edit`, data)
-        .then(res => {
+        .then((res: any) => {
           if (res.data.isGood) {
             return res.data.sauce;
           }
@@ -343,11 +353,7 @@ export const API = {
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw Err({
-            msg: err.response.data.msg,
-            status: err.response.status,
-            isGood: err.response.data.isGood
-          });
+          throw handleCallbackError(err);
         });
     },
 
@@ -373,7 +379,7 @@ export const API = {
             "content-type": `multipart/form-data`
           }
         })
-        .then(res => {
+        .then((res: any) => {
           if (res.data.isGood) {
             return res;
           }
@@ -387,11 +393,7 @@ export const API = {
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw Err({
-            msg: err.response.data.msg,
-            status: err.response.status,
-            isGood: err.response.data.isGood
-          });
+          throw handleCallbackError(err);
         });
     },
 
@@ -409,12 +411,14 @@ export const API = {
      *  @reject {String} error message
      */
     getBySlug: ({ slug }: { slug: string }): AxiosPromise => {
-      return axios.get(`${host}/api/sauce/get/by/slug/?s=${slug}`).then(res => {
-        if (res.data.isGood) {
-          return res;
-        }
-        throw new Error(res.data.msg);
-      });
+      return axios
+        .get(`${host}/api/sauce/get/by/slug/?s=${slug}`)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
     },
 
     /** @description Check if user is eligible to edit a sauce
@@ -438,7 +442,7 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/sauce/canuseredit`, data)
-        .then(res => {
+        .then((res: any) => {
           if (res.data.isGood) {
             return res;
           }
@@ -476,12 +480,14 @@ export const API = {
     getByQuery: ({ query }: { query?: string }): AxiosPromise => {
       // Assign default query if falsy
       if (!query) query = "type=all&order=newest&page=1&lim=8";
-      return axios.get(`${host}/api/sauces/getByQuery/?${query}`).then(res => {
-        if (res.data.isGood) {
-          return res;
-        }
-        throw new Error(res.data.msg);
-      });
+      return axios
+        .get(`${host}/api/sauces/getByQuery/?${query}`)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
     },
 
     /** @description Grab newest sauces from DB
@@ -495,7 +501,7 @@ export const API = {
      *  @reject {String} error message
      */
     getByNewest: (): AxiosPromise => {
-      return axios.get(`${host}/api/sauces/get/by/newest/`).then(res => {
+      return axios.get(`${host}/api/sauces/get/by/newest/`).then((res: any) => {
         if (res.data.isGood) {
           return res;
         }
@@ -514,12 +520,14 @@ export const API = {
      *  @reject {String} error message
      */
     getByFeatured: (): AxiosPromise => {
-      return axios.get(`${host}/api/sauces/get/by/featured/`).then(res => {
-        if (res.data.isGood) {
-          return res;
-        }
-        throw new Error(res.data.msg);
-      });
+      return axios
+        .get(`${host}/api/sauces/get/by/featured/`)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
     },
 
     /** @description Check if user is eligible to submit a sauce or not (maybe user has not verified email yet)
@@ -541,7 +549,7 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/sauce/canusersubmit`, data)
-        .then(res => {
+        .then((res: any) => {
           if (res.data.isGood) {
             return res;
           }
@@ -550,11 +558,7 @@ export const API = {
           throw Err({ msg: res.data.msg, status: res.status });
         })
         .catch((err: any) => {
-          // Throw error in handle-able format
-          throw Err({
-            msg: err.response.data.msg,
-            status: err.response.status
-          });
+          throw handleCallbackError(err);
         });
     }
   },
@@ -572,7 +576,7 @@ export const API = {
      *  @reject {String} error message
      */
     add: (data: { user: { token: string }; review: IReview }): AxiosPromise =>
-      axios.post(`${host}/api/review/add`, data).then(res => {
+      axios.post(`${host}/api/review/add`, data).then((res: any) => {
         if (res.data.isGood) {
           return res;
         }
@@ -595,7 +599,7 @@ export const API = {
       user: { token: string };
       sauce: { slug: string };
     }): AxiosPromise =>
-      axios.post(`${host}/api/review/get`, data).then(res => {
+      axios.post(`${host}/api/review/get`, data).then((res: any) => {
         if (res.data.isGood) {
           return res.data.review;
         }
@@ -613,7 +617,7 @@ export const API = {
      *  @reject {String} error message
      */
     edit: (data: { user: { token: string }; review: IReview }): AxiosPromise =>
-      axios.post(`${host}/api/review/edit`, data).then(res => {
+      axios.post(`${host}/api/review/edit`, data).then((res: any) => {
         if (res.data.isGood) {
           return res;
         }
@@ -640,7 +644,7 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/review/canusersubmit`, data)
-        .then(res => {
+        .then((res: any) => {
           if (res.data.isGood) {
             return res;
           }
@@ -654,11 +658,7 @@ export const API = {
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw Err({
-            msg: err.response.data.msg,
-            status: err.response.status,
-            isGood: err.response.data.isGood
-          });
+          throw handleCallbackError(err);
         });
     }
   },
@@ -678,12 +678,14 @@ export const API = {
      *  @reject {String} error message
      */
     getAvatarURLs: (data: { user: { token: string } }): AxiosPromise => {
-      return axios.post(`${host}/api/images/getAvatars`, data).then(res => {
-        if (res.data.isGood) {
-          return res;
-        }
-        throw new Error(res.data.msg);
-      });
+      return axios
+        .post(`${host}/api/images/getAvatars`, data)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+          throw new Error(res.data.msg);
+        });
     }
   },
 
@@ -710,7 +712,7 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/admin/sauces/unapproved`, data)
-        .then(res => {
+        .then((res: any) => {
           if (res.data.isGood) {
             return res;
           }
@@ -718,11 +720,7 @@ export const API = {
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw Err({
-            msg: err.response.data.msg,
-            status: err.response.status,
-            isGood: err.response.data.isGood
-          });
+          throw handleCallbackError(err);
         });
     },
     /** @description Approve of a single sauce
@@ -745,16 +743,12 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/admin/sauces/aprove`, data)
-        .then(res => {
+        .then((res: any) => {
           return res;
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw Err({
-            msg: err.response.data.msg,
-            status: err.response.status,
-            isGood: err.response.data.isGood
-          });
+          throw handleCallbackError(err);
         });
     },
 
@@ -778,17 +772,45 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/admin/sauces/decline`, data)
-        .then(res => {
+        .then((res: any) => {
           return res;
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw Err({
-            msg: err.response.data.msg,
-            status: err.response.status,
-            isGood: err.response.data.isGood
-          });
+          throw handleCallbackError(err);
         });
     }
   }
 };
+
+/** @description Handle API callback errors
+ *  @param {any} error error handler
+ *  @returns {IErrReturn} standard return object
+ */
+function handleCallbackError(error: any): IErrReturn {
+  if (error.response) {
+    // The request was made and the server responded with a status code
+    // that falls out of the range of 2xx
+    return Err({
+      msg: error.response.data.msg,
+      isGood: error.response.data.isGood,
+      status: error.response.status
+    });
+  } else if (error.request) {
+    // The request was made but no response was received
+    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+    // http.ClientRequest in node.js
+    return Err({
+      msg: "Could not connect to server. Please try again",
+      isGood: false,
+      status: 500
+    });
+  } else {
+    // Something happened in setting up the request that triggered an Error
+    return Err({
+      msg: "Issue while making request to server. Please try again.",
+      isGood: false,
+      status: 300
+    });
+  }
+}
