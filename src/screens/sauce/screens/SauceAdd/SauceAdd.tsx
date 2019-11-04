@@ -69,7 +69,15 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
 
     if (this.props.types) {
       this.props.types.forEach(type => {
-        types[type] = { value: type, checked: false, key: shortid.generate() };
+        if (type === "All") {
+          // continue;
+        } else {
+          types[type] = {
+            value: type,
+            checked: false,
+            key: shortid.generate()
+          };
+        }
       });
     }
 
