@@ -59,7 +59,7 @@ class NewestSauces extends React.PureComponent<
                   </StyledCardHolder>
                 );
               })
-            : ""}
+            : "No sauces found..."}
         </StyledCardContainer>
       </StyledDiv>
     );

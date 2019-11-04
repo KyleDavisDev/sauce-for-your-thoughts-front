@@ -56,7 +56,7 @@ class FeaturedSauces extends React.PureComponent<FeaturedSaucesProps, {}> {
                   </StyledCardHolder>
                 );
               })
-            : ""}
+            : "No sauces found..."}
         </StyledCardContainer>
       </StyledDiv>
     );
