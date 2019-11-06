@@ -141,7 +141,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
                 items={saucesWithNewestReviews.map(x => {
                   return { link: `/sauce?s=${x.slug}`, text: x.name };
                 })}
-                title="Newly Added Reviews"
+                title="Recently Reviewed"
               />
             )}
           </StyledRightContainer>
