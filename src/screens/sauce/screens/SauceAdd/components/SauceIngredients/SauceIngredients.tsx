@@ -32,6 +32,7 @@ export default class SauceIngredients extends React.PureComponent<
             showLabel={true}
             value={this.props.ingredients}
             required={true}
+            maxLength={1000}
           />
         </StyledRightSide>
       </StyledRow>
