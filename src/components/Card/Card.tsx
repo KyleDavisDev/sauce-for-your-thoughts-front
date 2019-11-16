@@ -33,8 +33,8 @@ const Card: React.SFC<CardProps> = props => {
         <h4>{props.title}</h4>
         <StyledTextContainer>
           <p>
-            {props.description.length > 25
-              ? props.description.substring(0, 24) + "..."
+            {props.description.length > 60
+              ? props.description.substring(0, 59) + "..."
               : props.description}
           </p>
         </StyledTextContainer>
