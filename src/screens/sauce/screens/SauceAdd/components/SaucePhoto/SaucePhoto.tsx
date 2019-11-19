@@ -50,7 +50,7 @@ export default class SaucePhoto extends React.PureComponent<
             value={this.props.DropNCropValue}
             canvasWidth={"100%"}
             cropperOptions={this.props.cropperOptions}
-            maxFileSize={4145728}
+            maxFileSize={3000000}
           />
 
           <StyledImageButtonContainer>

@@ -33,6 +33,7 @@ export default class SauceDescription extends React.PureComponent<
             showLabel={true}
             value={this.props.description}
             required={true}
+            maxLength={1000}
           />
         </StyledRightSide>
       </StyledRow>

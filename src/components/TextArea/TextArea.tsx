@@ -15,6 +15,7 @@ export interface TextAreaProps {
   className?: string;
   disabled?: boolean;
   readonly?: boolean;
+  maxLength?: number;
   requirementText?: string;
   onChange(
     event:
@@ -67,6 +68,7 @@ export default class TextArea extends React.PureComponent<
           required={this.props.required}
           disabled={this.props.disabled}
           readOnly={this.props.readonly}
+          maxLength={this.props.maxLength}
           style={{
             marginBottom: this.props.requirementText && "0px"
           }}

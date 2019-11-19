@@ -67,11 +67,11 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
 
     this.state = {
       enabled: true,
-      overall: { rating: 3, txt: "" },
-      label: { rating: 3, txt: "" },
-      aroma: { rating: 3, txt: "" },
-      taste: { rating: 2, txt: "" },
-      heat: { rating: 2, txt: "" },
+      overall: { rating: 0, txt: "" },
+      label: { rating: 0, txt: "" },
+      aroma: { rating: 0, txt: "" },
+      taste: { rating: 0, txt: "" },
+      heat: { rating: 0, txt: "" },
       note: { rating: 0, txt: "" },
       flashMessage: {
         isVisible: false
