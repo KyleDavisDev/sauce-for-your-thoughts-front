@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import validator from "validator";
-import queryString, { OutputParams } from "query-string";
+import queryString from "query-string";
 
 import LogoSFYT from "../../../images/icons/LogoSFYT";
 import PageTitle from "../../../components/PageTitle/PageTitle";
@@ -14,7 +14,6 @@ import {
   FlashMessageProps,
   FlashMessage
 } from "../../../components/FlashMessage/FlashMessage";
-import Auth from "../../../utils/Auth/Auth";
 import {
   StyledDiv,
   StyledLogoContainer,
@@ -177,7 +176,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 
   private getReturnFromPath(path: string): string | null {
     // Get s from string
-    const values: OutputParams = queryString.parse(path);
+    const values = queryString.parse(path);
 
     // Make sure return is defined, not an array
     if (!values.return || Array.isArray(values.return)) {
@@ -196,7 +195,4 @@ const mapDispatch2Props = {
   login
 };
 
-export default connect(
-  mapState2Props,
-  mapDispatch2Props
-)(Login);
+export default connect(mapState2Props, mapDispatch2Props)(Login);
