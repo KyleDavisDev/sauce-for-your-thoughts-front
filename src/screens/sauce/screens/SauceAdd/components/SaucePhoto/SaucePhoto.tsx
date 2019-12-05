@@ -1,5 +1,5 @@
 import * as React from "react";
-import DropNCrop from "@synapsestudios/react-drop-n-crop";
+import { DropNCrop } from "@synapsestudios/react-drop-n-crop";
 
 import { Button } from "../../../../../../components/Button/Button";
 import {
