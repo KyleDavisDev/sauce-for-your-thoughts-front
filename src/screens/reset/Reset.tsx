@@ -1,7 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { AppState } from "../../redux/configureStore";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { TextInput } from "../../components/TextInput/TextInput";
 import { Link } from "../../components/Link/Link";
@@ -98,7 +97,4 @@ class Register extends React.Component<RegisterProps, RegisterState> {
 
 const mapDispatch2Props = {};
 
-export default connect(
-  null,
-  mapDispatch2Props
-)(Register);
+export default connect(null, mapDispatch2Props)(Register);
