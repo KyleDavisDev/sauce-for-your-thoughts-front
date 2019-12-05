@@ -20,7 +20,6 @@ import {
   FlashMessage,
   FlashMessageProps
 } from "../../../components/FlashMessage/FlashMessage";
-import Auth from "../../../utils/Auth/Auth";
 
 export interface RegisterProps {
   register: any;
@@ -250,7 +249,4 @@ const mapDispatch2Props = {
   register
 };
 
-export default connect(
-  mapState2Props,
-  mapDispatch2Props
-)(Register);
+export default connect(mapState2Props, mapDispatch2Props)(Register);
