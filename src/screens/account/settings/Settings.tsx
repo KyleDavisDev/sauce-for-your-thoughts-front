@@ -1,10 +1,8 @@
 import * as React from "react";
-import { connect } from "react-redux";
 
 import LogoSFYT from "../../../images/icons/LogoSFYT";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { Link } from "../../../components/Link/Link";
-import { AppState } from "../../../redux/configureStore";
 import {
   StyledDiv,
   StyledLogoContainer,
