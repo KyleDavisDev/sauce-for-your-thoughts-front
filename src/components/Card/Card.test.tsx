@@ -5,16 +5,14 @@ import Card from "./Card";
 
 describe("<Card>", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(
-      <Card title="" description="" anchorLink="" />
-    );
+    const wrapper = enzyme.shallow(<Card title="" description="" to="" />);
     expect(wrapper).toBeTruthy();
   });
 
   it("renders correct content", () => {
     let wrapper = enzyme.render(
       <MemoryRouter>
-        <Card title="Title1" description="Desc1" anchorLink="" />
+        <Card title="Title1" description="Desc1" to="" />
       </MemoryRouter>
     );
     expect(wrapper.find("h4").text()).toEqual("Title1");
@@ -22,7 +20,7 @@ describe("<Card>", () => {
 
     wrapper = enzyme.render(
       <MemoryRouter>
-        <Card title="Title2" description="Desc2" anchorLink="" />
+        <Card title="Title2" description="Desc2" to="" />
       </MemoryRouter>
     );
     expect(wrapper.find("h4").text()).toEqual("Title2");
