@@ -3,7 +3,6 @@
 // Definitions by: Kyle Davis <https://github.com/kyledavisdev>
 
 declare module "react-country-region-selector" {
-  import { Dictionary } from "lodash";
   import * as React from "react";
 
   export class CountryDropdown extends React.Component<CountryDropdownProps> {}
