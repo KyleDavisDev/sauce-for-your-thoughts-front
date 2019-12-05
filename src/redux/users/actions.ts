@@ -17,7 +17,6 @@ import {
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 import Auth from "../../utils/Auth/Auth";
-import Err from "../../utils/Err/Err";
 import { updatedDisplayName as saucesUpdatedDisplayName } from "../sauces/actions";
 import { updatedDisplayName as reviewsUpdatedDisplayName } from "../reviews/actions";
 
