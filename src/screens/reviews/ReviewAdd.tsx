@@ -2,7 +2,7 @@ import * as React from "react";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 import Rating from "react-rating";
-import queryString, { OutputParams } from "query-string";
+import queryString from "query-string";
 
 import { IReviewSection, IReview } from "../../redux/reviews/types";
 import { addReview } from "../../redux/reviews/actions";
@@ -431,7 +431,7 @@ class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
 
   private getPageFromPath(path: string): string | null {
     // Get s from string
-    const values: OutputParams = queryString.parse(path);
+    const values = queryString.parse(path);
 
     // Make sure s is defined, not an array
     if (!values.s || Array.isArray(values.s)) {
@@ -459,7 +459,4 @@ const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
     dispatch(getSauceBySlug({ slug }))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatch2Props
-)(ReviewAdd);
+export default connect(mapStateToProps, mapDispatch2Props)(ReviewAdd);
