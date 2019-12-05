@@ -1,4 +1,4 @@
-import queryString, { OutputParams } from "query-string";
+import queryString from "query-string";
 
 import { SaucesParams } from "../../redux/sauces/types";
 
@@ -18,7 +18,7 @@ class Utils {
    */
   public static getParamsFromPath({ path }: { path: string }): SaucesParams {
     // Get values from string
-    const values: OutputParams = queryString.parse(path);
+    const values = queryString.parse(path);
 
     let page: number;
     // Make sure page is not undefined or an array
