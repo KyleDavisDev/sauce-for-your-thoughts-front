@@ -2,7 +2,7 @@ import * as React from "react";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 import Rating from "react-rating";
-import queryString, { OutputParams } from "query-string";
+import queryString from "query-string";
 import moment from "moment";
 
 import { IReviewSection, IReview } from "../../redux/reviews/types";
@@ -95,9 +95,7 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
     if (!token || token.length === 0) {
       // Redirect user to login w/ appropriate return address
       this.props.history.push(
-        `/login?return=${this.props.location.pathname}${
-          this.props.location.search
-        }`
+        `/login?return=${this.props.location.pathname}${this.props.location.search}`
       );
 
       return;
@@ -140,9 +138,7 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
               isVisible: true,
               text:
                 "You are ineligible to edit the review. Please try logging out and logging back in.",
-              slug: `/login?return=${this.props.location.pathname}${
-                this.props.location.search
-              }`,
+              slug: `/login?return=${this.props.location.pathname}${this.props.location.search}`,
               slugText: "Login"
             }
           };
@@ -428,7 +424,7 @@ class ReviewEdit extends React.Component<ReviewEditProps, ReviewEditState> {
 
   private getPageFromPath(path: string): string | null {
     // Get s from string
-    const values: OutputParams = queryString.parse(path);
+    const values = queryString.parse(path);
 
     // Make sure s is defined, not an array
     if (!values.s || Array.isArray(values.s)) {
@@ -457,7 +453,4 @@ const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
   }) => dispatch(editReview({ data }))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatch2Props
-)(ReviewEdit);
+export default connect(mapStateToProps, mapDispatch2Props)(ReviewEdit);
