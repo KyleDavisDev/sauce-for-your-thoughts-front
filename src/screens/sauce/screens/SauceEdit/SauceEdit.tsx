@@ -2,7 +2,7 @@ import * as React from "react";
 import shortid from "shortid";
 import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
-import queryString, { OutputParams } from "query-string";
+import queryString from "query-string";
 
 import { SauceTitle } from "../SauceAdd/components/SauceTitle/SauceTitle";
 import SauceDescription from "../SauceAdd/components/SauceDescription/SauceDescription";
@@ -11,7 +11,6 @@ import SauceType from "../SauceAdd/components/SauceType/SauceType";
 import SauceSpice from "../SauceAdd/components/SauceSpice/SauceSpice";
 import SauceLocation from "../SauceAdd/components/SauceLocation/SauceLocation";
 import SaucePhoto from "../SauceAdd/components/SaucePhoto/SaucePhoto";
-import SauceReview from "../SauceAdd/components/SauceReview/SauceReview";
 import TopBar from "../../../../components/TopBar/TopBar";
 import Navigation from "../../../../components/Navigation/Navigation";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
@@ -120,7 +119,7 @@ class SauceEdit extends React.Component<SauceEditProps, SauceEditState> {
     const { user, history } = this.props;
 
     // Find our slug -- If we can't find one, we are immediately done
-    const values: OutputParams = queryString.parse(history.location.search);
+    const values = queryString.parse(history.location.search);
     // Make sure s is defined, not an array
     if (!values.s || Array.isArray(values.s)) {
       // Stop here since we will not have a slug
@@ -497,7 +496,4 @@ const mapDispatchToProps = {
   editSauce
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SauceEdit);
+export default connect(mapStateToProps, mapDispatchToProps)(SauceEdit);
