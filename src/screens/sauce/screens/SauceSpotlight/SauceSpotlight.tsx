@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import queryString, { OutputParams } from "query-string";
+import queryString from "query-string";
 
 import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
 import TopBar from "../../../../components/TopBar/TopBar";
@@ -178,7 +178,7 @@ class SauceSpotlight extends React.Component<SauceSpotlightProps, any> {
 
 const mapState2Props = (state: AppState, ownProps: SauceSpotlightProps) => {
   // Find our slug -- If we can't find one, we are immediately done
-  const values: OutputParams = queryString.parse(ownProps.location.search);
+  const values = queryString.parse(ownProps.location.search);
   // Make sure s is defined, not an array
   if (!values.s || Array.isArray(values.s)) {
     // Stop here since we will not have a slug
@@ -243,7 +243,4 @@ const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
     dispatch(getSauceBySlug({ slug }))
 });
 
-export default connect(
-  mapState2Props,
-  mapDispatch2Props
-)(SauceSpotlight);
+export default connect(mapState2Props, mapDispatch2Props)(SauceSpotlight);
