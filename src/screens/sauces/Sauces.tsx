@@ -1,5 +1,5 @@
 import * as React from "react";
-import queryString, { OutputParams } from "query-string";
+import queryString from "query-string";
 
 import { getSaucesByQuery } from "../../redux/sauces/actions";
 import FilterBar from "./components/FilterBar/FilterBar";
@@ -182,9 +182,7 @@ class Sauces extends React.Component<SaucesProps, SaucesState> {
     });
 
     // Construct query string
-    let query = `/sauces?limit=${limit}&order=${order}&page=${
-      params.page
-    }&type=${type}`;
+    let query = `/sauces?limit=${limit}&order=${order}&page=${params.page}&type=${type}`;
     if (srch) query += `&srch=${srch}`;
 
     // Go to new page
@@ -246,10 +244,7 @@ const mapDispatchToProps = (dispatch: MyThunkDispatch) => ({
     dispatch(getSaucesByQuery({ query }))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Sauces);
+export default connect(mapStateToProps, mapDispatchToProps)(Sauces);
 
 /** @description Parse the path location string into components we can comprehend
  *  @param {String} path string with parsable params
@@ -261,7 +256,7 @@ export default connect(
  */
 function getParamsFromPath({ path }: { path: string }): SaucesParams {
   // Get values from string
-  const values: OutputParams = queryString.parse(path);
+  const values = queryString.parse(path);
 
   let page: number;
   // Make sure page is not undefined or an array
