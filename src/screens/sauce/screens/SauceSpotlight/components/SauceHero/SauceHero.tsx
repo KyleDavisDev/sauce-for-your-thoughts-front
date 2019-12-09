@@ -29,7 +29,7 @@ class SauceHero extends React.PureComponent<SauceHeroProps, any> {
           {sauce && sauce.photo ? (
             <StyleImg src={`${sauce.photo}`} />
           ) : (
-            <StyleImg src="https://res.cloudinary.com/sfyt/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png" />
+            <StyleImg src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png" />
           )}
         </StyledImageContainer>
         <StyledSauceInfoContainer>

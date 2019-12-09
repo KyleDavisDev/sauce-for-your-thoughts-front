@@ -161,7 +161,7 @@ class ApproveSubmissions extends React.Component<
                     {sauce && sauce.photo ? (
                       <img src={`${sauce.photo}`} />
                     ) : (
-                      <img src="https://res.cloudinary.com/sfyt/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png" />
+                      <img src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png" />
                     )}
                   </StyledImageHolder>
                   <StyledSauceContent>
@@ -288,7 +288,4 @@ const mapState2Props = (state: AppState) => {
 
 const mapDispatch2Props = { logout };
 
-export default connect(
-  mapState2Props,
-  mapDispatch2Props
-)(ApproveSubmissions);
+export default connect(mapState2Props, mapDispatch2Props)(ApproveSubmissions);
