@@ -90,10 +90,10 @@ class UpdateAvatar extends React.Component<
       return url.path === this.props.user.avatarURL;
     });
 
-    if (!selectedAvatar) return;
+    // if (!selectedAvatar) return;
 
     // Grab the key
-    const selected = selectedAvatar.key;
+    const selected = selectedAvatar ? selectedAvatar.key : "N/A";
 
     // console.log(urls);
     this.setState({ ...this.state, urls, selected });
@@ -344,7 +344,4 @@ const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(
-  mapState2Props,
-  mapDispatch2Props
-)(UpdateAvatar);
+export default connect(mapState2Props, mapDispatch2Props)(UpdateAvatar);
