@@ -11,7 +11,7 @@ export interface IParam {
 
 // Use const enums for better autocompletion of action type names. These will
 // be compiled away leaving only the final value in your compiled code.
-export const enum FlashMessageActionTypes {
+export enum FlashMessageActionTypes {
   SUCCESS_FLASH = "@@flashMessage/SUCCESS_FLASH",
   ERROR_FLASH = "@@flashMessage/ERROR_FLASH",
   WARNING_FLASH = "@@flashMessage/WARNING_FLASH",
