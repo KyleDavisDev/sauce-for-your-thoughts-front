@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link as DOMLink } from "react-router-dom";
+import Link from "next/link";
 import styled from "../../theme/styled-components";
 
 interface LinkProps {
@@ -12,19 +12,19 @@ interface LinkProps {
   className?: string;
 }
 
-const Link: React.SFC<LinkProps> = props => {
+const Link2: React.SFC<LinkProps> = props => {
   return (
-    <DOMLink to={props.to} className={props.className}>
-      {props.children}
-    </DOMLink>
+    <Link href={props.to}>
+      <a className={props.className}> {props.children}</a>
+    </Link>
   );
 };
 
-Link.defaultProps = {
+Link2.defaultProps = {
   to: "#"
 };
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(Link2)`
   text-decoration: none;
   font-family: FuturaMedium;
   color: ${props => props.theme.secondaryThemeColor};
