@@ -6,8 +6,8 @@ import {
   createGlobalStyle
 } from "../../theme/styled-components";
 
-import AvenirNextReg from "/static/AvenirNext-Regular.ttf";
-import FuturaMedium from "/static/Futura-Medium.ttf";
+const AvenirNextReg = "/static/AvenirNext-Regular.ttf";
+const FuturaMedium = "/static/Futura-Medium.ttf";
 
 interface IPageProps {
   children?: any;
@@ -17,13 +17,13 @@ const GlobalStyle = createGlobalStyle`
 
  @font-face {
   font-family: FuturaMedium;
-  src: url('/static/AvenirNext-Regular.ttf') format('truetype');
+  src: url('${FuturaMedium}') format('truetype');
   font-weight: normal;
     font-style: normal;
 }
 @font-face {
   font-family: AvenirNextReg;
-  src: url('/static/AvenirNext-Regular.ttf') format('truetype');
+  src: url('${AvenirNextReg}') format('truetype');
   font-weight: normal;
     font-style: normal;
 }
