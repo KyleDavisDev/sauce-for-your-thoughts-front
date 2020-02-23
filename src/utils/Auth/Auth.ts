@@ -18,6 +18,9 @@ class Auth {
 
   // check if token exists and hasn't expired
   public static isUserAuthenticated(): boolean {
+    if (this.isServer) {
+      return false;
+    }
     // Grab key
     const sfytKey: string | null = localStorage.getItem("sfytKey");
 
@@ -51,6 +54,9 @@ class Auth {
 
   // check if user is an admin or not
   public static isAdmin(): boolean {
+    if (this.isServer) {
+      return false;
+    }
     // Grab key
     const sfytKey: string | null = localStorage.getItem("sfytKey");
 
@@ -166,6 +172,8 @@ class Auth {
     localStorage.setItem("sfytKey", JSON.stringify(key));
     return true;
   }
+
+  private static isServer = typeof window === "undefined";
 
   // update existing token
   // should ONLY be called from isUserAuthenticated so will
