@@ -34,14 +34,13 @@ export const StyledButton = styled(Button)`
   padding: 0 1.5em 0 1.5em;
   width: 100%;
   text-align: center;
-  background-color: ${props => props.theme.primaryDarkThemeColor}
+  background-color: ${props => props.theme.primaryDarkThemeColor};
   box-sizing: border-box;
 
   button {
     background-color: transparent;
     border: 0;
     width: 100%;
-
 
     &:hover,
     &:focus {
