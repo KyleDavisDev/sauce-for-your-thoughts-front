@@ -8,20 +8,17 @@ interface LinkProps {
     | Element
     | JSX.Element
     | Array<string | Element | JSX.Element>;
-  to: string;
+  to?: string;
+  href?: string;
   className?: string;
 }
 
 const Link2: React.SFC<LinkProps> = props => {
   return (
-    <Link href={props.to}>
+    <Link href={props.to || props.href || "#"}>
       <a className={props.className}> {props.children}</a>
     </Link>
   );
-};
-
-Link2.defaultProps = {
-  to: "#"
 };
 
 const StyledLink = styled(Link2)`
