@@ -4,7 +4,7 @@ import styled from "../src/theme/styled-components";
 import TopBar from "../src/components/TopBar/TopBar";
 import Navigation from "../src/components/Navigation/Navigation";
 // import Article from "../src/components/Article/Article";
-// import Footer from "../src/components/Footer/Footer";
+import Footer from "../src/components/Footer/Footer";
 // import LandingImage from "../src/screens/home/components/LandingImage/LandingImage";
 // import NewestSauces from "../src/screens/home/components/NewestSauces/NewestSauces";
 // import FeaturedSauces from "../src/screens/home/components/FeaturedSauces/FeaturedSauces";
@@ -42,7 +42,7 @@ class Home extends React.PureComponent<HomeProps, {}> {
           <FeaturedSauces /> */}
         {/* <FeaturedUsers /> */}
         {/* </StyledArticle> */}
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }
