@@ -5,17 +5,17 @@ import TopBar from "../src/components/TopBar/TopBar";
 import Navigation from "../src/components/Navigation/Navigation";
 // import Article from "../src/components/Article/Article";
 import Footer from "../src/components/Footer/Footer";
-// import LandingImage from "../src/screens/home/components/LandingImage/LandingImage";
+import LandingImage from "../src/screens/home/components/LandingImage/LandingImage";
 // import NewestSauces from "../src/screens/home/components/NewestSauces/NewestSauces";
 // import FeaturedSauces from "../src/screens/home/components/FeaturedSauces/FeaturedSauces";
 
-// const StyledLandingImage = styled(LandingImage)`
-//   margin-bottom: 1.5rem;
+const StyledLandingImage = styled(LandingImage)`
+  margin-bottom: 1.5rem;
 
-//   @media (min-width: ${props => props.theme.smToMd}) {
-//     margin-bottom: 3.5rem;
-//   }
-// `;
+  @media (min-width: ${props => props.theme.smToMd}) {
+    margin-bottom: 3.5rem;
+  }
+`;
 
 // const StyledArticle = styled(Article)`
 //   max-width: 1200px;
@@ -36,8 +36,8 @@ class Home extends React.PureComponent<HomeProps, {}> {
       <div>
         <TopBar />
         <Navigation />
-        {/* <StyledLandingImage history={this.props.history} />
-        <StyledArticle>
+        <StyledLandingImage history={this.props.history} />
+        {/* <StyledArticle>
           <NewestSauces />
           <FeaturedSauces /> */}
         {/* <FeaturedUsers /> */}
