@@ -3,12 +3,16 @@ import { connect } from "react-redux";
 
 import List from "../../../List/List";
 import { AppState } from "../../../../redux/configureStore";
-import styled from "styled-components";
+import styled from "../../../../theme/styled-components";
 
 const StyledList = styled(List)`
   h5,
   a {
     color: ${x => x.theme.white};
+  }
+
+  a:hover {
+    color: ${x => x.theme.secondaryThemeColor};
   }
 `;
 
