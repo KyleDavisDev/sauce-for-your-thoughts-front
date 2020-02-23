@@ -47,41 +47,48 @@ export interface AppState {
   flashMessage: IFlashState;
 }
 
-export const configureStore = () => {
+export const configureStore = (initState?: AppState) => {
   // was of type 'object'
-  const initialState: AppState = {
-    sauces: {
-      allSlugs: [],
-      bySlug: {},
-      total: 0,
-      query: {},
-      types: [
-        "All",
-        "Hot Sauce",
-        "BBQ Sauce",
-        "Gravy",
-        "Marinade",
-        "Salsa",
-        "Meat Sauce"
-      ],
-      orders: ["Newest", "Name", "Times Reviewed", "Avg Rating"],
-      saucesWithNewestReviews: [],
-      newest: [],
-      featured: []
-    },
-    users: {
-      self: {
-        token: Auth.isUserAuthenticated() ? Auth.getToken() : undefined,
-        displayName: Auth.isUserAuthenticated() ? Auth.getName() : undefined,
-        avatarURL: Auth.isUserAuthenticated() ? Auth.getAvatarURL() : undefined,
-        isAdmin: Auth.isAdmin()
-      },
-      byDisplayName: {},
-      allDisplayNames: []
-    },
-    reviews: { byReviewID: {}, allReviewIDs: [] },
-    flashMessage: { isVisible: false, type: null, text: null, slug: null }
-  };
+  const initialState: AppState =
+    !initState && initState !== null
+      ? {
+          sauces: {
+            allSlugs: [],
+            bySlug: {},
+            total: 0,
+            query: {},
+            types: [
+              "All",
+              "Hot Sauce",
+              "BBQ Sauce",
+              "Gravy",
+              "Marinade",
+              "Salsa",
+              "Meat Sauce"
+            ],
+            orders: ["Newest", "Name", "Times Reviewed", "Avg Rating"],
+            saucesWithNewestReviews: [],
+            newest: [],
+            featured: []
+          },
+          users: {
+            self: {
+              token: Auth.isUserAuthenticated() ? Auth.getToken() : undefined,
+              displayName: Auth.isUserAuthenticated()
+                ? Auth.getName()
+                : undefined,
+              avatarURL: Auth.isUserAuthenticated()
+                ? Auth.getAvatarURL()
+                : undefined,
+              isAdmin: Auth.isAdmin()
+            },
+            byDisplayName: {},
+            allDisplayNames: []
+          },
+          reviews: { byReviewID: {}, allReviewIDs: [] },
+          flashMessage: { isVisible: false, type: null, text: null, slug: null }
+        }
+      : initState;
 
   if (process.env.NODE_ENV === "prod") {
     return createStore(rootReducer, initialState, applyMiddleware(thunk));
