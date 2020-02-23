@@ -1,5 +1,5 @@
 import styled from "../../theme/styled-components";
-import ChevronDown from "../../images/icons/ChevronDown.png";
+const ChevronDown = "/static/ChevronDown.png";
 
 export const SelectContainer = styled.div`
   width: 100%;
