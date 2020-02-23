@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "../src/theme/styled-components";
 
 import TopBar from "../src/components/TopBar/TopBar";
-// import Navigation from "../src/components/Navigation/Navigation";
+import Navigation from "../src/components/Navigation/Navigation";
 // import Article from "../src/components/Article/Article";
 // import Footer from "../src/components/Footer/Footer";
 // import LandingImage from "../src/screens/home/components/LandingImage/LandingImage";
@@ -35,7 +35,7 @@ class Home extends React.PureComponent<HomeProps, {}> {
     return (
       <div>
         <TopBar />
-        {/* <Navigation /> */}
+        <Navigation />
         {/* <StyledLandingImage history={this.props.history} />
         <StyledArticle>
           <NewestSauces />
