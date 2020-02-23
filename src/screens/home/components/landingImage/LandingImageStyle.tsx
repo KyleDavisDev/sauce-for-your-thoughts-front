@@ -2,7 +2,8 @@ import styled from "../../../../theme/styled-components";
 import DropDown from "../../../../components/DropDown/DropDown";
 import { TextInput } from "../../../../components/TextInput/TextInput";
 import { Button } from "../../../../components/Button/Button";
-import SaucesImage from "../../../../images/photos/Sauces.jpg";
+
+const SaucesImage = "/static/Sauces.jpg";
 
 export const HeroContainer = styled.div`
   background: #000;
