@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import Bar from "../../images/icons/Bar";
@@ -19,8 +19,10 @@ class Navigation extends React.PureComponent<{}, NavigationState> {
   public render() {
     return (
       <Header>
-        <Link to="/">
-          <LogoSFYT />
+        <Link href="/">
+          <a>
+            <LogoSFYT />
+          </a>
         </Link>
         <StyledButton onClick={this.toggleMenu}>
           <Bar />
@@ -32,13 +34,13 @@ class Navigation extends React.PureComponent<{}, NavigationState> {
           }}
         >
           <li>
-            <StyledLink to="/">Home</StyledLink>
+            <StyledLink href="/">Home</StyledLink>
           </li>
           <li>
-            <StyledLink to="/sauces">Sauces</StyledLink>
+            <StyledLink href="/sauces">Sauces</StyledLink>
           </li>
           <li>
-            <StyledLink to="/sauce/add">Add Sauce</StyledLink>
+            <StyledLink href="/sauce/add">Add Sauce</StyledLink>
           </li>
           {/* <li>
             <span>icon here</span>
