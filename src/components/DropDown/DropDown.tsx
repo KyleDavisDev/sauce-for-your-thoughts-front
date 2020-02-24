@@ -26,10 +26,7 @@ class DropDown extends React.PureComponent<DropDownProps, DropDownState> {
     required: false
   };
 
-  public componentWillMount() {
-    // Either accept id from parent or generate unique id
-    this.setState({ id: !this.props.id ? shortid.generate() : this.props.id });
-  }
+  state = { id: !this.props.id ? shortid.generate() : this.props.id };
 
   public render() {
     return (

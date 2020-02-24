@@ -36,10 +36,7 @@ class TextInput extends React.PureComponent<TextInputProps, TextInputState> {
     disabled: false
   };
 
-  public componentWillMount() {
-    // Either accept id from parent or generate unique id
-    this.setState({ id: !this.props.id ? shortid.generate() : this.props.id });
-  }
+  state = { id: !this.props.id ? shortid.generate() : this.props.id };
 
   public render() {
     return (
