@@ -305,36 +305,36 @@ export const getSaucesByNewest = (): MyThunkResult<Promise<
  *  @fires sauces.addedSauces - add sauces to redux store
  *  @resolves {NULL}
  */
-export const getSaucesByFeatured = (): MyThunkResult<Promise<
-  null
->> => async dispatch => {
-  const res = await API.sauces.getByFeatured();
+export const getSaucesByFeatured = (): MyThunkResult<Promise<null>> => {
+  return async dispatch => {
+    const res = await API.sauces.getByFeatured();
 
-  // Normalize sauces
-  const { allSlugs, bySlug }: ISaucesState = Flatn.saucesArr({
-    sauces: res.data.saucesByFeatured
-  });
-
-  // optimize images by adjusting image url
-  if (bySlug) {
-    Object.keys(bySlug).forEach(key => {
-      // sanity check
-      const photoURL: string | undefined = bySlug[key].photo;
-      if (!photoURL) {
-        return;
-      }
-
-      const index = photoURL.indexOf("/upload/") + 8;
-      bySlug[key].photo =
-        photoURL.substr(0, index) +
-        "q_auto,w_434,h_651/" +
-        photoURL.substr(index);
+    // Normalize sauces
+    const { allSlugs, bySlug }: ISaucesState = Flatn.saucesArr({
+      sauces: res.data.saucesByFeatured
     });
-  }
 
-  // dispatch sauces
-  dispatch(addedSauces({ allSlugs, bySlug, featured: allSlugs }));
-  return null;
+    // optimize images by adjusting image url
+    if (bySlug) {
+      Object.keys(bySlug).forEach(key => {
+        // sanity check
+        const photoURL: string | undefined = bySlug[key].photo;
+        if (!photoURL) {
+          return;
+        }
+
+        const index = photoURL.indexOf("/upload/") + 8;
+        bySlug[key].photo =
+          photoURL.substr(0, index) +
+          "q_auto,w_434,h_651/" +
+          photoURL.substr(index);
+      });
+    }
+
+    // dispatch sauces
+    dispatch(addedSauces({ allSlugs, bySlug, featured: allSlugs }));
+    return null;
+  };
 };
 
 /** @description Update sauce in DB
