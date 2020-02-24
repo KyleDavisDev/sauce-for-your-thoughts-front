@@ -1,5 +1,5 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 import { ISauce } from "../../../../redux/sauces/types";
@@ -19,49 +19,49 @@ interface FeaturedSaucesProps {
   getSaucesByFeatured: () => Promise<null>;
 }
 
-class FeaturedSauces extends React.PureComponent<FeaturedSaucesProps, {}> {
-  constructor(props: FeaturedSaucesProps) {
-    super(props);
+const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
+  // public componentDidMount() {
+  //   window.scrollTo(0, 0); // Move screen to top
+  //   // If we don't have sauces, go look for them!
+  //   if (!this.props.sauces || !this.props.sauces.featured) {
+  //     // Call API
+  //     this.props.getSaucesByFeatured().catch(err => console.log(err));
+  //   }
+  // }
+
+  const { sauces } = useSelector((state: AppState) => state);
+  const featuredSuaces = sauces.featured;
+  if (!featuredSuaces || featuredSuaces.length === 0) {
+    const dispatch = useDispatch();
+    dispatch(getSaucesByFeatured);
+    return <p>Loading...</p>;
   }
 
-  public componentDidMount() {
-    window.scrollTo(0, 0); // Move screen to top
-    // If we don't have sauces, go look for them!
-    if (!this.props.sauces || !this.props.sauces.featured) {
-      // Call API
-      this.props.getSaucesByFeatured().catch(err => console.log(err));
-    }
-  }
-
-  public render() {
-    const { sauces } = this.props;
-
-    return (
-      <StyledDiv className={this.props.className}>
-        <SectionTitle
-          title="Featured Sauces"
-          description="Check out some of these unique sauces. Discover flavors you've never tasted before!"
-        />
-        <StyledCardContainer>
-          {sauces.featured && sauces.featured.length > 0
-            ? sauces.featured.map((sauce, ind) => {
-                return (
-                  <StyledCardHolder key={ind}>
-                    <StyledCard
-                      title={sauce.name}
-                      imageLink={`${sauce.photo}`}
-                      description={sauce.description}
-                      to={`/sauce?s=${sauce.slug}`}
-                    />
-                  </StyledCardHolder>
-                );
-              })
-            : "No sauces found..."}
-        </StyledCardContainer>
-      </StyledDiv>
-    );
-  }
-}
+  return (
+    <StyledDiv className={props.className}>
+      <SectionTitle
+        title="Featured Sauces"
+        description="Check out some of these unique sauces. Discover flavors you've never tasted before!"
+      />
+      <StyledCardContainer>
+        {sauces.featured && sauces.featured.length > 0
+          ? sauces.featured.map((sauce, ind) => {
+              return (
+                <StyledCardHolder key={ind}>
+                  <StyledCard
+                    title={sauce.name}
+                    imageLink={`${sauce.photo}`}
+                    description={sauce.description}
+                    to={`/sauce?s=${sauce.slug}`}
+                  />
+                </StyledCardHolder>
+              );
+            })
+          : "No sauces found..."}
+      </StyledCardContainer>
+    </StyledDiv>
+  );
+};
 
 function mapStateToProps(state: AppState, myProps: any): any {
   // Find the sauces we will render by first getting the array of slugs
@@ -97,8 +97,5 @@ function mapStateToProps(state: AppState, myProps: any): any {
 const mapDispatchToProps = (dispatch: MyThunkDispatch) => ({
   getSaucesByFeatured: () => dispatch(getSaucesByFeatured())
 });
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FeaturedSauces);
+export default FeaturedSauces;
+// export default connect(mapStateToProps, mapDispatchToProps)(FeaturedSauces);
