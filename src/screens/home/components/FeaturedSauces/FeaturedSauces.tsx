@@ -30,14 +30,14 @@ const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
   // assign dispatch
   const dispatch = useDispatch();
 
+  // call API on first render only and if no featured sauces already
+  useEffect(() => {
+    sauces.featured.length === 0 && dispatch(getSaucesByFeatured());
+  }, []);
+
   // find our suaces
   const featuredSauces =
     sauces.featured.length > 0 ? getFeaturedSauces(sauces) : null;
-
-  // call API on first render only
-  useEffect(() => {
-    dispatch(getSaucesByFeatured());
-  }, [featuredSauces]);
 
   return (
     <StyledDiv className={props.className}>
