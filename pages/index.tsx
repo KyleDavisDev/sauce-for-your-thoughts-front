@@ -3,11 +3,11 @@ import styled from "../src/theme/styled-components";
 
 import TopBar from "../src/components/TopBar/TopBar";
 import Navigation from "../src/components/Navigation/Navigation";
-// import Article from "../src/components/Article/Article";
+import Article from "../src/components/Article/Article";
 import Footer from "../src/components/Footer/Footer";
 import LandingImage from "../src/screens/home/components/LandingImage/LandingImage";
 // import NewestSauces from "../src/screens/home/components/NewestSauces/NewestSauces";
-// import FeaturedSauces from "../src/screens/home/components/FeaturedSauces/FeaturedSauces";
+import FeaturedSauces from "../src/screens/home/components/FeaturedSauces/FeaturedSauces";
 
 const StyledLandingImage = styled(LandingImage)`
   margin-bottom: 1.5rem;
@@ -17,14 +17,14 @@ const StyledLandingImage = styled(LandingImage)`
   }
 `;
 
-// const StyledArticle = styled(Article)`
-//   max-width: 1200px;
-//   margin: 0 auto;
+const StyledArticle = styled(Article)`
+  max-width: 1200px;
+  margin: 0 auto;
 
-//   > div {
-//     margin-bottom: 3.5rem;
-//   }
-// `;
+  > div {
+    margin-bottom: 3.5rem;
+  }
+`;
 
 export interface HomeProps {
   history: { push: (location: string) => any };
@@ -37,11 +37,11 @@ class Home extends React.PureComponent<HomeProps, {}> {
         <TopBar />
         <Navigation />
         <StyledLandingImage history={this.props.history} />
-        {/* <StyledArticle>
-          <NewestSauces />
-          <FeaturedSauces /> */}
-        {/* <FeaturedUsers /> */}
-        {/* </StyledArticle> */}
+        <StyledArticle>
+          {/* <NewestSauces /> */}
+          <FeaturedSauces />
+          {/* <FeaturedUsers /> */}
+        </StyledArticle>
         <Footer />
       </div>
     );
