@@ -3,6 +3,7 @@ import DropDown from "../../../../components/DropDown/DropDown";
 import { TextInput } from "../../../../components/TextInput/TextInput";
 import { Button } from "../../../../components/Button/Button";
 
+// assign image path
 const SaucesImage = "/static/Sauces.jpg";
 
 export const HeroContainer = styled.div`
