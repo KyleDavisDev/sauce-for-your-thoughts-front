@@ -1,5 +1,5 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import ChevronDown from "../../images/icons/ChevronDown";
 import LoginIcon from "../../images/icons/LoginIcon";
 import UserIcon from "../../images/icons/UserIcon";
@@ -14,22 +14,20 @@ import {
   StyledTrigger
 } from "./TopBarStyle";
 
-export interface TopBarProps {
-  isLoggedIn?: boolean;
-  displayName?: string;
-  avatarURL?: string;
-}
+const TopBar: React.SFC = () => {
+  const { self } = useSelector((state: AppState) => state.users);
+  const { displayName, avatarURL } = self;
+  const isLoggedIn = !!self.token;
 
-const TopBar: React.SFC<TopBarProps> = props => {
   return (
     <div>
-      {props.isLoggedIn ? (
+      {isLoggedIn ? (
         <StyledDiv>
           <StyledDropDown>
             <StyledTrigger>
               <ChevronDown />
-              {props.displayName}
-              <StyledAvatar src={props.avatarURL} />
+              {displayName}
+              <StyledAvatar src={avatarURL} />
             </StyledTrigger>
             <StyledBody>
               <Menu />
@@ -51,24 +49,5 @@ const TopBar: React.SFC<TopBarProps> = props => {
     </div>
   );
 };
-TopBar.defaultProps = {
-  isLoggedIn: false
-};
 
-const mapState2Props = (state: AppState) => {
-  const { self } = state.users;
-  if (!self) return {};
-
-  return {
-    isLoggedIn: !!state.users.self.token, // will be bool
-    displayName: state.users.self.displayName,
-    avatarURL: state.users.self.avatarURL
-  };
-};
-
-const mapDispatch2Props = {};
-
-export default connect(
-  mapState2Props,
-  mapDispatch2Props
-)(TopBar);
+export default TopBar;
