@@ -1,9 +1,13 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 import { ISauce } from "../../../../redux/sauces/types";
-import { MyThunkDispatch, AppState } from "../../../../redux/configureStore";
+import {
+  MyThunkDispatch,
+  AppState,
+  ISauceState
+} from "../../../../redux/configureStore";
 import { getSaucesByFeatured } from "../../../../redux/sauces/actions";
 
 import {
@@ -20,22 +24,20 @@ interface FeaturedSaucesProps {
 }
 
 const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
-  // public componentDidMount() {
-  //   window.scrollTo(0, 0); // Move screen to top
-  //   // If we don't have sauces, go look for them!
-  //   if (!this.props.sauces || !this.props.sauces.featured) {
-  //     // Call API
-  //     this.props.getSaucesByFeatured().catch(err => console.log(err));
-  //   }
-  // }
-
+  // get sauces from store
   const { sauces } = useSelector((state: AppState) => state);
-  const featuredSuaces = sauces.featured;
-  if (!featuredSuaces || featuredSuaces.length === 0) {
-    const dispatch = useDispatch();
-    dispatch(getSaucesByFeatured);
-    return <p>Loading...</p>;
-  }
+
+  // assign dispatch
+  const dispatch = useDispatch();
+
+  // call API on mount
+  useEffect(() => {
+    dispatch(getSaucesByFeatured());
+  }, []);
+
+  // find our suaces
+  const featuredSauces =
+    sauces.featured.length > 0 ? getFeaturedSauces(sauces) : null;
 
   return (
     <StyledDiv className={props.className}>
@@ -44,8 +46,8 @@ const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
         description="Check out some of these unique sauces. Discover flavors you've never tasted before!"
       />
       <StyledCardContainer>
-        {sauces.featured && sauces.featured.length > 0
-          ? sauces.featured.map((sauce, ind) => {
+        {featuredSauces && featuredSauces.length > 0
+          ? featuredSauces.map((sauce, ind) => {
               return (
                 <StyledCardHolder key={ind}>
                   <StyledCard
@@ -63,20 +65,20 @@ const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
   );
 };
 
-function mapStateToProps(state: AppState, myProps: any): any {
+function getFeaturedSauces(sauces: ISauceState): ISauce[] | null {
   // Find the sauces we will render by first getting the array of slugs
-  const sauceSlugs2Render: string[] | undefined = state.sauces.featured
-    ? state.sauces.featured
+  const sauceSlugs2Render: string[] | undefined = sauces.featured
+    ? sauces.featured
     : [];
 
   // Make sure we have something to work with
   if (!sauceSlugs2Render || sauceSlugs2Render.length === 0) {
-    return { sauces: {} };
+    return null;
   }
 
   // Make sure our store has content
-  const bySlug = state.sauces.bySlug ? state.sauces.bySlug : {};
-  if (!bySlug) return { sauces: {} };
+  const bySlug = sauces.bySlug ? sauces.bySlug : {};
+  if (!bySlug) return null;
 
   // Find actual sauces
   const featured = sauceSlugs2Render
@@ -86,11 +88,9 @@ function mapStateToProps(state: AppState, myProps: any): any {
     : [];
 
   // Make sure we found the sauces
-  if (featured.length === 0) return { sauces: {} };
+  if (featured.length === 0) return null;
 
-  return {
-    sauces: { featured }
-  };
+  return featured;
 }
 
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
