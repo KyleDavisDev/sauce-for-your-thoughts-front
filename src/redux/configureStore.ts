@@ -18,18 +18,20 @@ const rootReducer = combineReducers({
   users
 });
 
+export interface ISauceState {
+  allSlugs?: string[];
+  bySlug?: { [key: string]: ISauce };
+  total?: number;
+  query?: IQuery;
+  types: string[];
+  orders: string[];
+  saucesWithNewestReviews: [];
+  newest: [];
+  featured: [];
+}
+
 export interface AppState {
-  sauces: {
-    allSlugs?: string[];
-    bySlug?: { [key: string]: ISauce };
-    total?: number;
-    query?: IQuery;
-    types: string[];
-    orders: string[];
-    saucesWithNewestReviews: [];
-    newest: [];
-    featured: [];
-  };
+  sauces: ISauceState;
   users: {
     self: {
       token?: string;
