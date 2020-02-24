@@ -30,7 +30,7 @@ const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
   // assign dispatch
   const dispatch = useDispatch();
 
-  // call API on mount
+  // call API on first render only
   useEffect(() => {
     dispatch(getSaucesByFeatured());
   }, []);
