@@ -82,7 +82,7 @@ function useFeatedSauces(): [ISauce[] | null, boolean] {
     }
   }, []);
 
-  // run once and when sauces.featured changes
+  // run when sauces.featured changes
   useEffect(() => {
     async function getData() {
       try {
