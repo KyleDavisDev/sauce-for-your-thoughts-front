@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
-import { ISauce } from "../../../../redux/sauces/types";
-import { AppState } from "../../../../redux/configureStore";
-import { getSaucesByFeatured } from "../../../../redux/sauces/actions";
+import SectionTitle from "../SectionTitle/SectionTitle";
+import { ISauce } from "../../redux/sauces/types";
+import { AppState } from "../../redux/configureStore";
+import { getSaucesByFeatured } from "../../redux/sauces/actions";
 
 import {
   StyledDiv,
@@ -59,7 +59,7 @@ const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
   }
 };
 
-function useFeatedSauces(): [ISauce[] | null, boolean] {
+export function useFeatedSauces(): [ISauce[] | null, boolean] {
   // get sauces from redux store
   const { sauces } = useSelector((state: AppState) => state);
   // assign results
