@@ -1,7 +1,7 @@
-import styled from "../../../../theme/styled-components";
-import DropDown from "../../../../components/DropDown/DropDown";
-import { TextInput } from "../../../../components/TextInput/TextInput";
-import { Button } from "../../../../components/Button/Button";
+import styled from "../../theme/styled-components";
+import DropDown from "../DropDown/DropDown";
+import { TextInput } from "../TextInput/TextInput";
+import { Button } from "../Button/Button";
 
 // assign image path
 const SaucesImage = "/static/Sauces.jpg";

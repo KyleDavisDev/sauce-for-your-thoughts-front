@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { AppState } from "../../../../redux/configureStore";
+import { AppState } from "../../redux/configureStore";
 import {
   HeroContainer,
   HeroImage,
