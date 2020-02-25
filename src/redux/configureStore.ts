@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
   users
 });
 
-export interface ISauceState {
+export interface ISaucesState {
   allSlugs?: string[];
   bySlug?: { [key: string]: ISauce };
   total?: number;
@@ -31,7 +31,7 @@ export interface ISauceState {
 }
 
 export interface AppState {
-  sauces: ISauceState;
+  sauces: ISaucesState;
   users: {
     self: {
       token?: string;
