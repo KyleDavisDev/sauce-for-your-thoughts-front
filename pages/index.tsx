@@ -6,7 +6,7 @@ import Navigation from "../src/components/Navigation/Navigation";
 import Article from "../src/components/Article/Article";
 import Footer from "../src/components/Footer/Footer";
 import LandingImage from "../src/components/LandingImage/LandingImage";
-// import NewestSauces from "../src/screens/home/components/NewestSauces/NewestSauces";
+import NewestSauces from "../src/components/NewestSauces/NewestSauces";
 import FeaturedSauces from "../src/components/FeaturedSauces/FeaturedSauces";
 
 const StyledLandingImage = styled(LandingImage)`
@@ -38,7 +38,7 @@ class Home extends React.PureComponent<HomeProps, {}> {
         <Navigation />
         <StyledLandingImage history={this.props.history} />
         <StyledArticle>
-          {/* <NewestSauces /> */}
+          <NewestSauces />
           <FeaturedSauces />
           {/* <FeaturedUsers /> */}
         </StyledArticle>
