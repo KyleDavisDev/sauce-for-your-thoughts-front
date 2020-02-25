@@ -1,13 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, Dispatch } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 import { ISauce } from "../../../../redux/sauces/types";
-import {
-  MyThunkDispatch,
-  AppState,
-  ISauceState
-} from "../../../../redux/configureStore";
+import { AppState, ISaucesState } from "../../../../redux/configureStore";
 import { getSaucesByFeatured } from "../../../../redux/sauces/actions";
 
 import {
@@ -24,20 +20,8 @@ interface FeaturedSaucesProps {
 }
 
 const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
-  // get sauces from store
-  const { sauces } = useSelector((state: AppState) => state);
-
-  // assign dispatch
-  const dispatch = useDispatch();
-
-  // call API on first render only and if no featured sauces already
-  useEffect(() => {
-    sauces.featured.length === 0 && dispatch(getSaucesByFeatured());
-  }, []);
-
   // find our suaces
-  const featuredSauces =
-    sauces.featured.length > 0 ? getFeaturedSauces(sauces) : null;
+  const [featuredSauces, loading] = useFeatedSauces();
 
   return (
     <StyledDiv className={props.className}>
@@ -46,56 +30,102 @@ const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
         description="Check out some of these unique sauces. Discover flavors you've never tasted before!"
       />
       <StyledCardContainer>
-        {featuredSauces && featuredSauces.length > 0
-          ? featuredSauces.map((sauce, ind) => {
-              return (
-                <StyledCardHolder key={ind}>
-                  <StyledCard
-                    title={sauce.name}
-                    imageLink={`${sauce.photo}`}
-                    description={sauce.description}
-                    to={`/sauce?s=${sauce.slug}`}
-                  />
-                </StyledCardHolder>
-              );
-            })
-          : "No sauces found..."}
+        {loading ? (
+          <p>Loading...</p>
+        ) : featuredSauces && featuredSauces.length > 0 ? (
+          featuredSauces.map((sauce, ind) => {
+            return (
+              <StyledCardHolder key={ind}>
+                <StyledCard
+                  title={sauce.name}
+                  imageLink={`${sauce.photo}`}
+                  description={sauce.description}
+                  to={`/sauce?s=${sauce.slug}`}
+                />
+              </StyledCardHolder>
+            );
+          })
+        ) : (
+          "No sauces found..."
+        )}
       </StyledCardContainer>
     </StyledDiv>
   );
 };
 
-function getFeaturedSauces(sauces: ISauceState): ISauce[] | null {
-  // Find the sauces we will render by first getting the array of slugs
-  const sauceSlugs2Render: string[] | undefined = sauces.featured
-    ? sauces.featured
-    : [];
+function useFeatedSauces(): [ISauce[] | null, boolean] {
+  // get sauces from redux store
+  const { sauces } = useSelector((state: AppState) => state);
+  // assign results
+  const [results, setResults] = useState([]);
+  // assign loading
+  const [loading, setLoading] = useState(false);
+  console.log(loading);
+  // assign dispatch
+  const dispatch = useDispatch();
+  console.log(1);
 
-  // Make sure we have something to work with
-  if (!sauceSlugs2Render || sauceSlugs2Render.length === 0) {
-    return null;
+  // check if we need to dispatch redux action or not
+  if (sauces.featured.length === 0 && !loading) {
+    console.log(2);
+    // emmit redux action
+    dispatch(getSaucesByFeatured());
   }
 
-  // Make sure our store has content
-  const bySlug = sauces.bySlug ? sauces.bySlug : {};
-  if (!bySlug) return null;
+  useEffect(() => {
+    async function getData() {
+      try {
+        console.log(4);
+        // set loading
+        setLoading(true);
 
-  // Find actual sauces
-  const featured = sauceSlugs2Render
-    ? sauceSlugs2Render.map(slug => {
-        return bySlug[slug];
-      })
-    : [];
+        // Find the sauces we will render by first getting the array of slugs
+        const sauceSlugs2Render: string[] | undefined = sauces.featured
+          ? sauces.featured
+          : [];
+        console.log(5);
+        // Make sure we have something to work with
+        if (!sauceSlugs2Render || sauceSlugs2Render.length === 0) {
+          return null;
+        }
+        console.log(6);
+        // Make sure our store has content
+        const bySlug = sauces.bySlug ? sauces.bySlug : {};
+        if (!bySlug) return null;
 
-  // Make sure we found the sauces
-  if (featured.length === 0) return null;
+        // Find actual sauces
+        const featured = sauceSlugs2Render
+          ? sauceSlugs2Render.map(slug => {
+              return bySlug[slug];
+            })
+          : [];
 
-  return featured;
+        // Make sure we found the sauces
+        if (featured.length === 0) return null;
+        console.log(7);
+        setResults(featured);
+        return null;
+      } catch {
+      } finally {
+        console.log(8);
+        // finish loading
+        setLoading(true);
+      }
+      return null;
+    }
+
+    if (results.length === 0) {
+      console.log(3);
+      getData();
+    }
+  }, [sauces.featured]);
+
+  return [results, loading];
 }
 
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
-const mapDispatchToProps = (dispatch: MyThunkDispatch) => ({
-  getSaucesByFeatured: () => dispatch(getSaucesByFeatured())
-});
+// const mapDispatchToProps = (dispatch: MyThunkDispatch) => ({
+//   getSaucesByFeatured: () => dispatch(getSaucesByFeatured())
+// });
 export default FeaturedSauces;
 // export default connect(mapStateToProps, mapDispatchToProps)(FeaturedSauces);
