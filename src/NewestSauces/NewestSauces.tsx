@@ -1,10 +1,10 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
-import { MyThunkDispatch, AppState } from "../../../../redux/configureStore";
-import { ISauce } from "../../../../redux/sauces/types";
-import { getSaucesByNewest } from "../../../../redux/sauces/actions";
+import SectionTitle from "../components/SectionTitle/SectionTitle";
+import { MyThunkDispatch, AppState } from "../redux/configureStore";
+import { ISauce } from "../redux/sauces/types";
+import { getSaucesByNewest } from "../redux/sauces/actions";
 import {
   StyledDiv,
   StyledCard,
@@ -101,7 +101,4 @@ const mapDispatchToProps = (dispatch: MyThunkDispatch) => ({
   getSaucesByNewest: () => dispatch(getSaucesByNewest())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NewestSauces);
+export default connect(mapStateToProps, mapDispatchToProps)(NewestSauces);
