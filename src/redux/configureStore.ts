@@ -27,7 +27,7 @@ export interface ISaucesState {
   orders: string[];
   saucesWithNewestReviews: [];
   newest: [];
-  featured: [];
+  featured: string[];
 }
 
 export interface AppState {
