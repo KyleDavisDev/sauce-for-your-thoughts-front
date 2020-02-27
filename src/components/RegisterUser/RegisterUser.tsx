@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 import { register } from "../../redux/users/actions";
 import { IRegisterUser } from "../../redux/users/types";
@@ -7,7 +8,6 @@ import LogoSFYT from "../../images/icons/LogoSFYT";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { TextInput } from "../../components/TextInput/TextInput";
 import { Link } from "../../components/Link/Link";
-import { AppState } from "../../redux/configureStore";
 import {
   StyledDiv,
   StyledLogoContainer,
@@ -54,6 +54,9 @@ const RegisterUser: React.SFC<RegisterUserProps> = props => {
 
   // assign dispatch
   const dispatch = useDispatch();
+
+  // assign NextJS router
+  const router = useRouter();
 
   const onSubmit = async (event: React.FormEvent): Promise<any> => {
     event.preventDefault();
@@ -119,7 +122,7 @@ const RegisterUser: React.SFC<RegisterUserProps> = props => {
       await dispatch(register({ credentials }));
 
       // Redirect user to sauces page -- Maybe take them to user home page instead?
-      // this.props.history.push("/sauces");
+      router.push("/sauces");
     } catch (err) {
       // Create warning flash
       setFlashMessage({
