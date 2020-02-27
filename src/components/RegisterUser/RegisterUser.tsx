@@ -1,5 +1,5 @@
-import * as React from "react";
-import { connect } from "react-redux";
+import React, { useState } from "react";
+import { connect, useDispatch } from "react-redux";
 
 import { register } from "../../redux/users/actions";
 import { IRegisterUser } from "../../redux/users/types";
@@ -33,130 +33,36 @@ export interface RegisterUserState {
   displayName: string;
   flashMessage: FlashMessageProps;
 }
+var renderCounter = 0;
+const RegisterUser: React.SFC<RegisterUserProps> = props => {
+  renderCounter++;
+  // set state
+  const [email, setEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [flashMessage, setFlashMessage] = useState<{
+    isVisible: boolean;
+    text: string;
+    type?: string;
+  }>({
+    isVisible: false,
+    text: "",
+    type: undefined
+  });
 
-class RegisterUser extends React.Component<
-  RegisterUserProps,
-  RegisterUserState
-> {
-  constructor(props: RegisterUserProps) {
-    super(props);
+  // assign dispatch
+  const dispatch = useDispatch();
 
-    // Init state
-    this.state = {
-      email: "",
-      confirmEmail: "",
-      password: "",
-      confirmPassword: "",
-      displayName: "",
-      flashMessage: {
-        isVisible: false
-      }
-    };
-  }
-
-  public render() {
-    return (
-      <StyledDiv>
-        <StyledLogoContainer>
-          <Link to="/">
-            <LogoSFYT />
-          </Link>
-        </StyledLogoContainer>
-        <hr />
-        <StyledArticle>
-          <PageTitle>Register</PageTitle>
-          <StyledFormContainer>
-            {this.state.flashMessage.isVisible && (
-              <FlashMessage type={this.state.flashMessage.type} isVisible>
-                {this.state.flashMessage.text}
-              </FlashMessage>
-            )}
-            <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
-              <TextInput
-                type="email"
-                onChange={this.onTextChange}
-                showLabel={true}
-                label={"Email"}
-                name={"email"}
-                value={this.state.email}
-                required={true}
-              />
-              <TextInput
-                type="email"
-                onChange={this.onTextChange}
-                showLabel={true}
-                label={"Confirm Email"}
-                name={"confirmEmail"}
-                value={this.state.confirmEmail}
-                required={true}
-                requirementText={"Must match above."}
-              />
-              <TextInput
-                type="password"
-                onChange={this.onTextChange}
-                showLabel={true}
-                label={"Password"}
-                name={"password"}
-                value={this.state.password}
-                required={true}
-                requirementText={"Must be at least 9 characters long."}
-              />
-              <TextInput
-                type="password"
-                onChange={this.onTextChange}
-                showLabel={true}
-                label={"Confirm Password"}
-                name={"confirmPassword"}
-                value={this.state.confirmPassword}
-                required={true}
-                requirementText={"Must match above."}
-              />
-              <TextInput
-                type="text"
-                onChange={this.onTextChange}
-                showLabel={true}
-                label={"Display Name"}
-                name={"displayName"}
-                value={this.state.displayName}
-                required={true}
-                requirementText={"Must be at least 6 characters long."}
-              />
-              <StyledText>
-                By clicking 'Register', you agree to Sauce For Your Thoughts{" "}
-                <Link to="#">Terms and Conditions</Link>
-              </StyledText>
-              <StyledButton type="submit">Register</StyledButton>
-            </form>
-          </StyledFormContainer>
-        </StyledArticle>
-      </StyledDiv>
-    );
-  }
-
-  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    if (!event || !event.target) {
-      return;
-    }
-    // Grab the name and value
-    const { name, value }: { name: string; value: string } = event.target;
-
-    // Update local state
-    this.setState({
-      ...this.state,
-      [name]: value
-    });
-  };
-
-  private onSubmit = async (event: React.FormEvent): Promise<any> => {
+  const onSubmit = async (event: React.FormEvent): Promise<any> => {
     event.preventDefault();
 
-    if (this.state.email !== this.state.confirmEmail) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text: "Your emails do not match. Please fix this before continuing.",
-          type: "alert"
-        }
+    if (email !== confirmEmail) {
+      setFlashMessage({
+        isVisible: true,
+        text: "Your emails do not match. Please fix this before continuing.",
+        type: "alert"
       });
 
       window.scrollTo(0, 0); // Move screen to top
@@ -164,14 +70,12 @@ class RegisterUser extends React.Component<
       return;
     }
 
-    if (this.state.password !== this.state.confirmPassword) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text:
-            "Your passwords do not match. Please fix this before continuing.",
-          type: "alert"
-        }
+    if (password !== confirmPassword) {
+      console.log(password, confirmPassword);
+      setFlashMessage({
+        isVisible: true,
+        text: "Your passwords do not match. Please fix this before continuing.",
+        type: "alert"
       });
 
       window.scrollTo(0, 0); // Move screen to top
@@ -179,14 +83,13 @@ class RegisterUser extends React.Component<
       return;
     }
 
-    if (this.state.password.length < 8) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text:
-            "Your password is too weak! Please make your password over 8 characters long.",
-          type: "alert"
-        }
+    if (password.length < 8) {
+      console.log(password);
+      setFlashMessage({
+        isVisible: true,
+        text:
+          "Your password is too weak! Please make your password over 8 characters long.",
+        type: "alert"
       });
 
       window.scrollTo(0, 0); // Move screen to top
@@ -194,29 +97,18 @@ class RegisterUser extends React.Component<
       return;
     }
 
-    if (this.state.displayName.length < 6) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text:
-            "Your display name is not long enough. It must be at least 6 characters long.",
-          type: "alert"
-        }
+    if (displayName.length < 6) {
+      setFlashMessage({
+        isVisible: true,
+        text:
+          "Your display name is not long enough. It must be at least 6 characters long.",
+        type: "alert"
       });
 
       window.scrollTo(0, 0); // Move screen to top
 
       return;
     }
-
-    // Grab values from state
-    const {
-      email,
-      confirmEmail,
-      password,
-      confirmPassword,
-      displayName
-    } = this.state;
 
     // Create credentials obj
     const credentials: IRegisterUser = {
@@ -224,31 +116,106 @@ class RegisterUser extends React.Component<
     };
     try {
       // dispatch action which calls API to register user
-      await this.props.register({ credentials });
+      await dispatch(register({ credentials }));
 
       // Redirect user to sauces page -- Maybe take them to user home page instead?
-      this.props.history.push("/sauces");
+      // this.props.history.push("/sauces");
     } catch (err) {
       // Create warning flash
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text: err.response.data.msg,
-          type: "warning"
-        }
+      setFlashMessage({
+        isVisible: true,
+        text: err.response.data.msg,
+        type: "warning"
       });
-
       window.scrollTo(0, 0); // Move screen to top
+      return;
     }
+
+    // clear flash message if was shown
+    setFlashMessage({
+      isVisible: false,
+      text: "",
+      type: undefined
+    });
   };
-}
 
-const mapState2Props = (state: AppState) => {
-  return {};
+  return (
+    <StyledDiv>
+      <p>{renderCounter}</p>
+      <StyledLogoContainer>
+        <Link to="/">
+          <LogoSFYT />
+        </Link>
+      </StyledLogoContainer>
+      <hr />
+      <StyledArticle>
+        <PageTitle>Register</PageTitle>
+        <StyledFormContainer>
+          {flashMessage.isVisible && (
+            <FlashMessage type={flashMessage.type} isVisible>
+              {flashMessage.text}
+            </FlashMessage>
+          )}
+          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+            <TextInput
+              type="email"
+              onChange={e => setEmail(e.target.value)}
+              showLabel={true}
+              label={"Email"}
+              name={"email"}
+              value={email}
+              required={true}
+            />
+            <TextInput
+              type="email"
+              onChange={e => setConfirmEmail(e.target.value)}
+              showLabel={true}
+              label={"Confirm Email"}
+              name={"confirmEmail"}
+              value={confirmEmail}
+              required={true}
+              requirementText={"Must match above."}
+            />
+            <TextInput
+              type="password"
+              onChange={e => setPassword(e.target.value)}
+              showLabel={true}
+              label={"Password"}
+              name={"password"}
+              value={password}
+              required={true}
+              requirementText={"Must be at least 9 characters long."}
+            />
+            <TextInput
+              type="password"
+              onChange={e => setConfirmPassword(e.target.value)}
+              showLabel={true}
+              label={"Confirm Password"}
+              name={"confirmPassword"}
+              value={confirmPassword}
+              required={true}
+              requirementText={"Must match above."}
+            />
+            <TextInput
+              type="text"
+              onChange={e => setDisplayName(e.target.value)}
+              showLabel={true}
+              label={"Display Name"}
+              name={"displayName"}
+              value={displayName}
+              required={true}
+              requirementText={"Must be at least 6 characters long."}
+            />
+            <StyledText>
+              By clicking 'Register', you agree to Sauce For Your Thoughts{" "}
+              <Link to="#">Terms and Conditions</Link>
+            </StyledText>
+            <StyledButton type="submit">Register</StyledButton>
+          </form>
+        </StyledFormContainer>
+      </StyledArticle>
+    </StyledDiv>
+  );
 };
 
-const mapDispatch2Props = {
-  register
-};
-
-export default connect(mapState2Props, mapDispatch2Props)(RegisterUser);
+export default RegisterUser;
