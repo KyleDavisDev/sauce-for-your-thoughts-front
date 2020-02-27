@@ -13,7 +13,9 @@ import {
   StyledCardContainer
 } from "./FeaturedSaucesStyles";
 
-interface FeaturedSaucesProps {}
+interface FeaturedSaucesProps {
+  className?: string;
+}
 
 const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
   // find our suaces
