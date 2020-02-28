@@ -39,11 +39,7 @@ const RegisterUser: React.SFC<RegisterUserProps> = props => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
-  const [flashMessage, setFlashMessage] = useState<{
-    isVisible: boolean;
-    text: string;
-    type?: string;
-  }>({
+  const [flashMessage, setFlashMessage] = useState<FlashMessageProps>({
     isVisible: false,
     text: "",
     type: undefined
