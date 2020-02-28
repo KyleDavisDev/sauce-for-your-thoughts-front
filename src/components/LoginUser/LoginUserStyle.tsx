@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Article from "../../../components/Article/Article";
-import { Button } from "../../../components/Button/Button";
+import styled from "../../theme/styled-components";
+import Article from "../Article/Article";
+import { Button } from "../Button/Button";
 
 export const StyledDiv = styled.div`
   height: 100vh;

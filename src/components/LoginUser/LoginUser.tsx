@@ -3,17 +3,14 @@ import { connect } from "react-redux";
 import validator from "validator";
 import queryString from "query-string";
 
-import LogoSFYT from "../../../images/icons/LogoSFYT";
-import PageTitle from "../../../components/PageTitle/PageTitle";
-import { TextInput } from "../../../components/TextInput/TextInput";
-import { Link } from "../../../components/Link/Link";
-import { AppState } from "../../../redux/configureStore";
-import { ILoginUser } from "../../../redux/users/types";
-import { login } from "../../../redux/users/actions";
-import {
-  FlashMessageProps,
-  FlashMessage
-} from "../../../components/FlashMessage/FlashMessage";
+import LogoSFYT from "../../images/icons/LogoSFYT";
+import PageTitle from "../PageTitle/PageTitle";
+import { TextInput } from "../TextInput/TextInput";
+import { Link } from "../Link/Link";
+import { AppState } from "../../redux/configureStore";
+import { ILoginUser } from "../../redux/users/types";
+import { login } from "../../redux/users/actions";
+import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import {
   StyledDiv,
   StyledLogoContainer,
@@ -22,7 +19,7 @@ import {
   StyledButton,
   StyledText,
   StyledFooterDivs
-} from "./LoginStyle";
+} from "./LoginUserStyle";
 
 export interface LoginProps {
   login: ({ credentials }: { credentials: ILoginUser }) => any;
