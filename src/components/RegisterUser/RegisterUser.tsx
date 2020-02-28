@@ -21,9 +21,7 @@ import {
   FlashMessageProps
 } from "../../components/FlashMessage/FlashMessage";
 
-export interface RegisterUserProps {
-  register: any;
-}
+export interface RegisterUserProps {}
 
 export interface RegisterUserState {
   email: string;
@@ -33,9 +31,8 @@ export interface RegisterUserState {
   displayName: string;
   flashMessage: FlashMessageProps;
 }
-var renderCounter = 0;
+
 const RegisterUser: React.SFC<RegisterUserProps> = props => {
-  renderCounter++;
   // set state
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
@@ -144,7 +141,6 @@ const RegisterUser: React.SFC<RegisterUserProps> = props => {
 
   return (
     <StyledDiv>
-      <p>{renderCounter}</p>
       <StyledLogoContainer>
         <Link to="/">
           <LogoSFYT />
