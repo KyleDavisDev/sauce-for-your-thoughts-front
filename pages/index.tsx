@@ -26,11 +26,11 @@ const StyledArticle = styled(Article)`
   }
 `;
 
-export interface HomeProps {
+export interface IndexProps {
   history: { push: (location: string) => any };
 }
 
-class Home extends React.PureComponent<HomeProps, {}> {
+class Index extends React.PureComponent<IndexProps, {}> {
   public render() {
     return (
       <div>
@@ -48,4 +48,4 @@ class Home extends React.PureComponent<HomeProps, {}> {
   }
 }
 
-export default Home;
+export default Index;
