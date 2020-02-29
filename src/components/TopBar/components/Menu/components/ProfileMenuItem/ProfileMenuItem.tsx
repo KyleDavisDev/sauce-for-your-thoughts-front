@@ -22,13 +22,15 @@ class ProfileMenuItem extends React.PureComponent<ProfileMenuItemProps, any> {
         <StyledHead>
           <div>
             <StyledImage
-              src={
-                this.props.avatarURL ||
-                "https://images.catsolonline.com/cache/uzyl82mxhzrvloeffavq-500x500.jpg"
-              }
+              src={this.props.avatarURL}
               alt={this.props.displayName}
               height="50"
               width="50"
+              onError={e => {
+                const elem = e.target as HTMLImageElement;
+                elem.src =
+                  "https://res.cloudinary.com/foryourthoughts/image/upload/v1575867983/avatars/r0pnn1izbqm6wopt8lvq_lgq9q6.png";
+              }}
             />
           </div>
 
