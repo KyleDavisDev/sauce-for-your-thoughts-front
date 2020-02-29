@@ -7,7 +7,8 @@ import Auth from "../src/utils/Auth/Auth";
 import { getPersonFromStorage } from "../src/redux/users/actions";
 
 class MyApp extends App<any, any> {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     // Check if we need to update our store with localStorage info
     if (Auth.isUserAuthenticated()) {
       this.props.reduxStore.dispatch(getPersonFromStorage());
