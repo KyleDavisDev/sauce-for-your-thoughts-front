@@ -46,7 +46,7 @@ export const StyledFoot = styled.div`
     border: 0;
     &:hover,
     &:focus {
-      color: ${x => x.theme.primaryThemeColor}
+      color: ${x => x.theme.primaryThemeColor};
       background-color: ${x => x.theme.primaryLightThemeColor};
       border: 0;
     }
