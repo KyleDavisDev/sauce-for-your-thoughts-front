@@ -7,12 +7,12 @@ import { AppState } from "../../redux/configureStore";
 import Menu from "./components/Menu/Menu";
 import {
   StyledAvatar,
-  StyledBody,
   StyledDiv,
   StyledDropDown,
-  StyledLink,
-  StyledTrigger
+  StyledLink
 } from "./TopBarStyle";
+import Trigger from "./components/Trigger/Trigger";
+import Body from "./components/Body/Body";
 
 const TopBar: React.SFC = () => {
   const { self } = useSelector((state: AppState) => state.users);
@@ -24,14 +24,21 @@ const TopBar: React.SFC = () => {
       {isLoggedIn ? (
         <StyledDiv>
           <StyledDropDown>
-            <StyledTrigger>
+            <Trigger>
               <ChevronDown />
               {displayName}
-              <StyledAvatar src={avatarURL} />
-            </StyledTrigger>
-            <StyledBody>
+              <StyledAvatar
+                src={avatarURL}
+                onError={e => {
+                  const elem = e.target as HTMLImageElement;
+                  elem.src =
+                    "https://res.cloudinary.com/foryourthoughts/image/upload/v1575867983/avatars/r0pnn1izbqm6wopt8lvq_lgq9q6.png";
+                }}
+              />
+            </Trigger>
+            <Body>
               <Menu />
-            </StyledBody>
+            </Body>
           </StyledDropDown>
         </StyledDiv>
       ) : (
