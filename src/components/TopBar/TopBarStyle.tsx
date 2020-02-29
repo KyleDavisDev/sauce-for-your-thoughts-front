@@ -31,26 +31,6 @@ export const StyledDropDown = styled(Dropdown)`
   margin-right: 2em;
 `;
 
-export const StyledTrigger = styled(Trigger)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-family: FuturaMedium;
-  color: ${x => x.theme.grey};
-  fill: ${x => x.theme.grey};
-
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    color: ${x => x.theme.primaryThemeColor};
-    fill: ${x => x.theme.primaryThemeColor};
-  }
-`;
-
-export const StyledBody = styled(Body)`
-  right: 0;
-`;
-
 export const StyledAvatar = styled.img`
   max-width: 35px;
   margin-left: 5px;
