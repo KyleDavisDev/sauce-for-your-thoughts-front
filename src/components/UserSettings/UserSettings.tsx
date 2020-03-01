@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import PageTitle from "../PageTitle/PageTitle";
@@ -38,39 +39,66 @@ const UserSettings: React.SFC<UserSettingsProps> = props => {
   const [flashMessage, setFlashMessage] = useState<IFlashState>({
     isVisible: false
   });
+  const [loading, setLoading] = useState(false);
 
-  // Init state
-  // this.state = {
-  //   isEmailConfirmed: true,
-  //   flashMessage: {
-  //     isVisible: false
-  //   }
-  // };
+  // assign router
+  const router = useRouter();
 
-  // public async componentDidMount() {
-  //   // get token or redirect to login
-  //   const token = Auth.getToken();
-  //   if (!token) {
-  //     this.props.history.replace(
-  //       `/account/login?return=${this.props.location.pathname}`
-  //     );
-  //     return;
-  //   }
+  // Make sure user has a token
+  useEffect(() => {
+    // get token or redirect to login
+    const token = Auth.getToken();
+    if (!token) {
+      router.replace(`/account/login?return=${router.asPath}`);
+      return;
+    }
+    window.scrollTo(0, 0); // Move screen to top
+  }, []);
 
-  //   // Call API to see if email has been verified or not
-  //   const data = { user: { token } };
-  //   API.user
-  //     .isEmailConfirmed({ data })
-  //     .then(res => {
-  //       // Set state so we know if we should display the button or not
-  //       this.setState({ isEmailConfirmed: res.data.isGood });
-  //     })
-  //     .catch((err: IErrReturn) => {
-  //       // Set state so we know if we should display the button or not
-  //       this.setState({ isEmailConfirmed: err.response.data.isGood });
-  //     });
-  //   window.scrollTo(0, 0); // Move screen to top
-  // }
+  // Check if user has their email verified or not
+  useEffect(() => {
+    async function getEmailConfirmed() {
+      // get token
+      const token = Auth.getToken();
+      if (!token) return null;
+
+      // construct data object
+      const data = { user: { token } };
+
+      // hit our API
+      return await API.user
+        .isEmailConfirmed({ data })
+        .then(res => {
+          // Set state so we know if we should display the button or not
+          setEmailConfirmed(res.data.isGood);
+        })
+        .catch((err: IErrReturn) => {
+          // Set state so we know if we should display the button or not
+          setEmailConfirmed(err.response.data.isGood);
+        });
+    }
+
+    getEmailConfirmed();
+  }, []);
+
+  const onButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    // get token or redirect to login
+    const token = Auth.getToken();
+    if (!token) {
+      router.replace(`/account/login?return=${router.asPath}`);
+      return;
+    }
+
+    // Call API to see if email has been verified or not
+    const data = { user: { token } };
+    setLoading(true);
+    API.user.resendVerificationEmail({ data }).then(res => {
+      // Show flash message and update state
+      setEmailConfirmed(true);
+      setFlashMessage({ isVisible: true, text: res.data.msg, type: "success" });
+      setLoading(false);
+    });
+  };
 
   return (
     <StyledDiv>
@@ -125,14 +153,19 @@ const UserSettings: React.SFC<UserSettingsProps> = props => {
             </Link>
           </StyledGroup>
 
-          {/* {!isEmailConfirmed && (
+          {!isEmailConfirmed && (
             <StyledGroup>
               <h4>Request Email Confirmation</h4>
-              <StyledButton type="button" onClick={this.onButtonClick}>
-                Request Email Confirmation <ArrowRight />
+              <StyledButton
+                type="button"
+                onClick={e => onButtonClick(e)}
+                disabled={loading}
+              >
+                Request{loading ? "ing..." : ""} Email Confirmation{" "}
+                <ArrowRight />
               </StyledButton>
             </StyledGroup>
-          )} */}
+          )}
 
           <Link to="/">
             <StyledButton type="button" displayType="outline">
@@ -143,28 +176,15 @@ const UserSettings: React.SFC<UserSettingsProps> = props => {
       </StyledArticle>
     </StyledDiv>
   );
-
-  // private onButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   // get token or redirect to login
-  //   const token = Auth.getToken();
-  //   if (!token) {
-  //     this.props.history.replace(
-  //       `/account/login?return=${this.props.location.pathname}`
-  //     );
-  //     return;
-  //   }
-
-  //   // Call API to see if email has been verified or not
-  //   const data = { user: { token } };
-  //   API.user.resendVerificationEmail({ data }).then(res => {
-  //     // Show flash message and update state
-  //     this.setState({
-  //       ...this.state,
-  //       isEmailConfirmed: true,
-  //       flashMessage: { isVisible: true, text: res.data.msg, type: "success" }
-  //     });
-  //   });
-  // };
 };
+
+function useOnResendConfirmationEmail() {
+  // assign loading
+  const [loading, setLoading] = useState(false);
+  // assign results
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {});
+}
 
 export default UserSettings;
