@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-import LogoSFYT from "../../images/icons/LogoSFYT";
 import PageTitle from "../PageTitle/PageTitle";
+import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import { Link } from "../Link/Link";
 import {
   StyledDiv,
@@ -13,20 +13,15 @@ import {
   StyledGroup
 } from "./UserSettingsStyle";
 
+import LogoSFYT from "../../images/icons/LogoSFYT";
 import ArrowRight from "../../images/icons/ArrowRight";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 
 import Auth from "../../utils/Auth/Auth";
 import { API } from "../../utils/api/API";
 import { IErrReturn } from "../../utils/Err/Err";
-import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 
-export interface UserSettingsProps {
-  history: {
-    replace: (location: string) => null;
-  };
-  location: { pathname: string };
-}
+export interface UserSettingsProps {}
 
 export interface UserSettingsState {
   isEmailConfirmed: boolean;
@@ -36,7 +31,7 @@ export interface UserSettingsState {
 const UserSettings: React.SFC<UserSettingsProps> = props => {
   // init sate
   const [isEmailConfirmed, setEmailConfirmed] = useState(true);
-  const [flashMessage, setFlashMessage] = useState<IFlashState>({
+  const [flashMessage, setFlashMessage] = useState<FlashMessageProps>({
     isVisible: false
   });
   const [loading, setLoading] = useState(false);
