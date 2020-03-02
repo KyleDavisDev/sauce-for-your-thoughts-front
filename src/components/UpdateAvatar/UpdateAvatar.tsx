@@ -1,5 +1,6 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 import shortid from "shortid";
 
 import { AppState, MyThunkDispatch } from "../../redux/configureStore";
@@ -24,193 +25,134 @@ import {
 import Auth from "../../utils/Auth/Auth";
 import { API } from "../../utils/api/API";
 
-export interface UpdateAvatarProps {
-  history: { push: (location: string) => null };
-  user: { token: string; displayName: string; avatarURL: string };
-  updateAvatar: ({
-    data,
-    displayName
-  }: {
-    data: IUserUpdateAvatar;
-    displayName: string;
-  }) => Promise<null>;
-  logout: () => null;
-}
+export interface UpdateAvatarProps {}
 
-export interface UpdateAvatarState {
-  urls: Array<{ key: string; path: string }>;
-  password: string;
-  flashMessage: FlashMessageProps;
-  selected: string;
-}
+const UpdateAvatar: React.SFC<UpdateAvatarProps> = props => {
+  // assign state
+  const [urls, setUrls] = React.useState<{ key: string; path: string }[]>([]);
+  const selected = useSelector((store: AppState) => store.users.self.avatarURL);
+  const displayName = useSelector(
+    (store: AppState) => store.users.self.displayName
+  );
+  const [password, setPassword] = React.useState("");
+  const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
+    isVisible: false
+  });
+  const [updatedAvatar, setUpdatedAvatar] = React.useState("");
 
-class UpdateAvatar extends React.Component<
-  UpdateAvatarProps,
-  UpdateAvatarState
-> {
-  constructor(props: UpdateAvatarProps) {
-    super(props);
+  // assign router
+  const router = useRouter();
+  // assign dispatch
+  const dispatch = useDispatch();
 
-    // Init state
-    this.state = {
-      urls: [],
-      selected: "",
-      password: "",
-      flashMessage: {
-        isVisible: false
-      }
-    };
-  }
-
-  public async componentDidMount() {
+  React.useEffect(() => {
     // Get token or else redirect
     const token = Auth.getToken();
     if (!token) {
-      this.props.history.push("/account/login?return=/account/settings/email");
+      router.push("/account/login?return=/account/update/avatar");
       return;
     }
 
-    const strings: string[] = await API.image
-      .getAvatarURLs({ user: { token } })
-      .then(res => {
-        return res.data.urls;
-      })
-      .catch(err => console.log(err));
+    const getAvatarURLs = async () => {
+      const strings: string[] = await API.image
+        .getAvatarURLs({ user: { token } })
+        .then(res => {
+          return res.data.urls;
+        })
+        .catch(err => console.log(err));
 
-    // Construct urls as component expects
-    const urls = strings.map((str: string) => {
-      return { key: shortid.generate(), path: str };
-    });
+      // Update state with urls
+      setUrls(
+        strings.map((str: string) => {
+          return { key: shortid.generate(), path: str };
+        })
+      );
+    };
 
-    // Get the avatar that the user has selected
-    const selectedAvatar = urls.find(url => {
-      return url.path === this.props.user.avatarURL;
-    });
-
-    // if (!selectedAvatar) return;
-
-    // Grab the key
-    const selected = selectedAvatar ? selectedAvatar.key : "N/A";
-
-    // console.log(urls);
-    this.setState({ ...this.state, urls, selected });
-  }
-
-  public componentWillReceiveProps(props: UpdateAvatarProps) {
-    // Grab info from props -- make sure we have it
-    const { user } = props;
-    const { urls } = this.state;
-    if (!user || !urls) {
-      return;
+    if (urls.length === 0) {
+      getAvatarURLs();
     }
+  }, []);
 
-    const selectedAvatar = urls.find(url => {
-      return url.path === user.avatarURL;
-    });
+  return (
+    <StyledDiv>
+      <StyledLogoContainer>
+        <Link to="/">
+          <LogoSFYT />
+        </Link>
+      </StyledLogoContainer>
+      <hr />
+      <StyledArticle>
+        <PageTitle>Update Avatar</PageTitle>
+        <StyledFormContainer>
+          {flashMessage.isVisible && (
+            <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
+          )}
+          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+            {urls.map(url => {
+              return (
+                <StyledRadioButton
+                  label={avatarImage(url.path)}
+                  checked={url.path === selected}
+                  id={url.key}
+                  name={"Avatar"}
+                  key={url.key}
+                  value={url.path}
+                  onClick={e =>
+                    setUpdatedAvatar((e.target as HTMLInputElement).value)
+                  }
+                />
+              );
+            })}
+            <br />
+            <br />
+            <TextInput
+              type="password"
+              onChange={e => setPassword(e.target.value)}
+              disabled={false}
+              showLabel={true}
+              label={"Password"}
+              name={"password"}
+              value={password}
+              required={true}
+            />
+            <StyledButtonHolder>
+              <Link to="/account/settings">
+                <Button type="button" displayType="outline">
+                  <ArrowLeft /> Settings
+                </Button>
+              </Link>
+              <Button type="submit">Update!</Button>
+            </StyledButtonHolder>
+          </form>
 
-    if (!selectedAvatar) return;
+          {authorContribution()}
+        </StyledFormContainer>
+      </StyledArticle>
+    </StyledDiv>
+  );
 
-    const selected = selectedAvatar.key;
-
-    this.setState({ ...this.state, selected });
-  }
-
-  public render() {
-    const { urls } = this.state;
-
-    return (
-      <StyledDiv>
-        <StyledLogoContainer>
-          <Link to="/">
-            <LogoSFYT />
-          </Link>
-        </StyledLogoContainer>
-        <hr />
-        <StyledArticle>
-          <PageTitle>Update Avatar</PageTitle>
-          <StyledFormContainer>
-            {this.state.flashMessage.isVisible && (
-              <FlashMessage {...this.state.flashMessage}>
-                {this.state.flashMessage.text}
-              </FlashMessage>
-            )}
-            <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
-              {urls.map(url => {
-                return (
-                  <StyledRadioButton
-                    label={this.avatarImage(url.path)}
-                    checked={url.key === this.state.selected}
-                    id={url.key}
-                    name={"Avatar"}
-                    key={url.key}
-                    value={url.key}
-                    onClick={this.onRadioClick}
-                  />
-                );
-              })}
-              <br />
-              <br />
-              <TextInput
-                type="password"
-                onChange={this.onTextChange}
-                disabled={false}
-                showLabel={true}
-                label={"Password"}
-                name={"password"}
-                value={this.state.password}
-                required={true}
-              />
-              <StyledButtonHolder>
-                <Link to="/account/settings">
-                  <Button type="button" displayType="outline">
-                    <ArrowLeft /> Settings
-                  </Button>
-                </Link>
-                <Button type="submit">Update!</Button>
-              </StyledButtonHolder>
-            </form>
-
-            {this.authorContribution()}
-          </StyledFormContainer>
-        </StyledArticle>
-      </StyledDiv>
-    );
-  }
-
-  private onSubmit = async (event: React.FormEvent): Promise<any> => {
+  async function onSubmit(event: React.FormEvent): Promise<any> {
     // Prevent normal form submission
     event.preventDefault();
 
-    // Grab variables
-    const { selected, password } = this.state;
-
-    // Get the avatar with the slected key
-    const avatar = this.state.urls.find(val => val.key === selected);
-
-    if (!avatar) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text: "You must select an avatar in order to update.",
-          type: "warning"
-        }
+    if (!updatedAvatar) {
+      setFlashMessage({
+        isVisible: true,
+        text: "You must select an avatar in order to update.",
+        type: "warning"
       });
       window.scrollTo(0, 0); // Move screen to top
       return;
     }
 
-    // Grab the actual path
-    const avatarURL = avatar.path;
-
     // Confirm password is longer than 8 characters
     if (password.length < 8) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text:
-            "Your password is too short! Password length must be at least 8 characters.",
-          type: "warning"
-        }
+      setFlashMessage({
+        isVisible: true,
+        text:
+          "Your password is too short! Password length must be at least 8 characters.",
+        type: "warning"
       });
       window.scrollTo(0, 0); // Move screen to top
       return;
@@ -218,75 +160,59 @@ class UpdateAvatar extends React.Component<
 
     // Get token or else redirect
     const token = Auth.getToken();
-    if (!token) {
-      this.props.history.push("/account/login?return=/account/settings/avatar");
+    if (!token || !displayName) {
+      router.push("/account/login?return=/account/settings/avatar");
       return;
     }
 
     // Construct data
     const data: IUserUpdateAvatar = {
-      user: { token, password, avatarURL }
+      user: { token, password, avatarURL: updatedAvatar }
     };
+
     try {
-      await this.props.updateAvatar({
-        data,
-        displayName: this.props.user.displayName
-      });
+      dispatch(
+        updateAvatar({
+          data,
+          displayName
+        })
+      );
 
       // clear input and display flash
-      this.setState({
-        ...this.state,
-        password: "",
-        flashMessage: {
-          isVisible: true,
-          text: "Success! Display Name updated.",
-          type: "success",
-          slug: "/account/settings",
-          slugText: "Back to Settings"
-        }
+      setPassword("");
+      setFlashMessage({
+        isVisible: true,
+        text: "Success! Display Name updated.",
+        type: "success",
+        slug: "/account/settings",
+        slugText: "Back to Settings"
       });
       window.scrollTo(0, 0); // Move screen to top
     } catch (err) {
       // Account locked
       if (err.response.status === 403) {
-        this.props.logout();
-
-        this.props.history.push("/account/login");
+        router.push("/account/login");
         return;
       }
 
       // Password bad or acc locked so going to reset
-      this.setState({
-        ...this.state,
-        password: "",
-        flashMessage: {
-          isVisible: true,
-          text: err.response.data.msg,
-          type: "warning"
-        }
-      });
+      // this.setState({
+      //   ...this.state,
+      //   password: "",
+      //   flashMessage: {
+      //     isVisible: true,
+      //     text: err.response.data.msg,
+      //     type: "warning"
+      //   }
+      // });
     }
-  };
+  }
 
-  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    if (!event || !event.target) {
-      return;
-    }
-    // Grab the name and value
-    const { name, value }: { name: string; value: string } = event.target;
-
-    // Update local state
-    this.setState({
-      ...this.state,
-      [name]: value
-    });
-  };
-
-  private avatarImage(url: string): JSX.Element {
+  function avatarImage(url: string): JSX.Element {
     return <StyledAvatarImg src={url} />;
   }
 
-  private authorContribution(): JSX.Element {
+  function authorContribution(): JSX.Element {
     return (
       <div>
         Icons made by{" "}
@@ -310,20 +236,20 @@ class UpdateAvatar extends React.Component<
     );
   }
 
-  private onRadioClick = (event: React.MouseEvent<HTMLInputElement>) => {
-    if (!event || !event.target) {
-      return;
-    }
+  // const onRadioClick = (event: React.MouseEvent<HTMLInputElement>) => {
+  //   if (!event || !event.target) {
+  //     return;
+  //   }
 
-    const { id }: { id: string } = event.target as HTMLTextAreaElement;
+  //   const { id }: { id: string } = event.target as HTMLTextAreaElement;
 
-    this.setState({
-      ...this.state,
-      selected: id,
-      flashMessage: { isVisible: false }
-    });
-  };
-}
+  //   this.setState({
+  //     ...this.state,
+  //     selected: id,
+  //     flashMessage: { isVisible: false }
+  //   });
+  // };
+};
 
 const mapState2Props = (state: AppState) => {
   return { user: state.users.self };
@@ -341,4 +267,5 @@ const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(mapState2Props, mapDispatch2Props)(UpdateAvatar);
+// export default connect(mapState2Props, mapDispatch2Props)(UpdateAvatar);
+export default UpdateAvatar;
