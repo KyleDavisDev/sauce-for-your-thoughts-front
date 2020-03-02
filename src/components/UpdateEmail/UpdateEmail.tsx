@@ -1,15 +1,18 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import validator from "validator";
+import { useRouter } from "next/router";
 
 import { AppState, MyThunkDispatch } from "../../redux/configureStore";
 import { updateEmail, logout } from "../../redux/users/actions";
+import { IUserUpdateEmail } from "../../redux/users/types";
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 import PageTitle from "../PageTitle/PageTitle";
 import { TextInput } from "../TextInput/TextInput";
 import { Link } from "../Link/Link";
 import { Button } from "../Button/Button";
+import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import {
   StyledDiv,
   StyledLogoContainer,
@@ -17,16 +20,9 @@ import {
   StyledFormContainer,
   StyledButtonHolder
 } from "./UpdateEmailStyle";
-import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
-import { IUserUpdateEmail } from "../../redux/users/types";
 import Auth from "../../utils/Auth/Auth";
 
-export interface UpdateEmailProps {
-  history: { push: (location: string) => null };
-  user: { token: string; displayName: string; avatarURL: string };
-  updateEmail: ({ data }: { data: IUserUpdateEmail }) => Promise<null>;
-  logout: () => null;
-}
+export interface UpdateEmailProps {}
 
 export interface UpdateEmailState {
   email: string;
@@ -35,170 +31,117 @@ export interface UpdateEmailState {
   flashMessage: FlashMessageProps;
 }
 
-class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
-  constructor(props: UpdateEmailProps) {
-    super(props);
+const UpdateEmail: React.SFC<UpdateEmailProps> = props => {
+  // Init state
+  const [email, setEmail] = React.useState("");
+  const [confirmEmail, setConfirmEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [confirmPassword, setConfirmPassword] = React.useState("");
+  const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
+    isVisible: false
+  });
+  const { self } = useSelector((store: AppState) => store.users);
+  const displayName = self.displayName;
 
-    // Init state
-    this.state = {
-      email: "",
-      confirmEmail: "",
-      password: "",
-      flashMessage: {
-        isVisible: false
-      }
-    };
-  }
+  // assign router
+  const router = useRouter();
+  // assign dispatch
+  const dispatch = useDispatch();
 
-  public async componentDidMount() {
+  React.useEffect(() => {
     // Get token or else redirect
     const token = Auth.getToken();
     if (!token) {
-      this.props.history.push("/account/login?return=/account/settings/email");
+      router.push("/account/login?return=/account/settings/email");
       return;
     }
-  }
+  });
 
-  public render() {
-    return (
-      <StyledDiv>
-        <StyledLogoContainer>
-          <Link to="/">
-            <LogoSFYT />
-          </Link>
-        </StyledLogoContainer>
-        <hr />
-        <StyledArticle>
-          <PageTitle>Update Email</PageTitle>
-          <StyledFormContainer>
-            {this.state.flashMessage.isVisible && (
-              <FlashMessage {...this.state.flashMessage}>
-                {this.state.flashMessage.text}
-              </FlashMessage>
-            )}
-            <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
-              <TextInput
-                type="email"
-                onChange={this.onTextChange}
-                showLabel={true}
-                label={"New Email"}
-                name={"email"}
-                value={this.state.email}
-                required={true}
-              />
-              <TextInput
-                type="email"
-                onChange={this.onTextChange}
-                disabled={!this.toggleConfirmEmail()}
-                showLabel={true}
-                label={"Confirm New Email"}
-                name={"confirmEmail"}
-                value={this.state.confirmEmail}
-                required={true}
-                requirementText={"Must match above."}
-              />
-              <TextInput
-                type="password"
-                onChange={this.onPasswordChange}
-                disabled={!this.toggleConfirmPassword()}
-                showLabel={true}
-                label={"Password"}
-                name={"password"}
-                value={this.state.password}
-                required={true}
-              />
+  return (
+    <StyledDiv>
+      <StyledLogoContainer>
+        <Link to="/">
+          <LogoSFYT />
+        </Link>
+      </StyledLogoContainer>
+      <hr />
+      <StyledArticle>
+        <PageTitle>Update Email</PageTitle>
+        <StyledFormContainer>
+          {flashMessage.isVisible && (
+            <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
+          )}
+          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+            <TextInput
+              type="email"
+              onChange={e => setEmail(e.target.value)}
+              showLabel={true}
+              label={"New Email"}
+              name={"email"}
+              value={email}
+              required={true}
+            />
+            <TextInput
+              type="email"
+              onChange={e => setConfirmEmail(e.target.value)}
+              disabled={!toggleConfirmEmail()}
+              showLabel={true}
+              label={"Confirm New Email"}
+              name={"confirmEmail"}
+              value={confirmEmail}
+              required={true}
+              requirementText={"Must match above."}
+            />
+            <TextInput
+              type="password"
+              onChange={e => setPassword(e.target.value)}
+              disabled={!toggleConfirmPassword()}
+              showLabel={true}
+              label={"Password"}
+              name={"password"}
+              value={password}
+              required={true}
+            />
 
-              <StyledButtonHolder>
-                <Link to="/account/settings">
-                  <Button type="button" displayType="outline">
-                    <ArrowLeft /> Settings
-                  </Button>
-                </Link>
-                <Button type="submit" disabled={!this.toggleUpdateButton()}>
-                  Update!
+            <StyledButtonHolder>
+              <Link to="/account/settings">
+                <Button type="button" displayType="outline">
+                  <ArrowLeft /> Settings
                 </Button>
-              </StyledButtonHolder>
-            </form>
-          </StyledFormContainer>
-        </StyledArticle>
-      </StyledDiv>
-    );
+              </Link>
+              <Button type="submit" disabled={!isSubmitable()}>
+                Update!
+              </Button>
+            </StyledButtonHolder>
+          </form>
+        </StyledFormContainer>
+      </StyledArticle>
+    </StyledDiv>
+  );
+
+  function toggleConfirmEmail(): boolean {
+    // If textbox has valid email, enable confirm textbox.
+    return validator.isEmail(email);
   }
 
-  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    if (!event || !event.target) {
-      return;
-    }
-    // Grab the name and value
-    const { name, value }: { name: string; value: string } = event.target;
+  function toggleConfirmPassword(): boolean {
+    return toggleConfirmEmail() && email === confirmEmail;
+  }
 
-    // Update local state
-    this.setState({
-      ...this.state,
-      [name]: value,
-      password: this.toggleConfirmEmail() ? "" : this.state.password // Reset password if necessary
-    });
-  };
+  function isSubmitable(): boolean {
+    return toggleConfirmPassword() && password.length > 8;
+  }
 
-  private onPasswordChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
-    if (!event || !event.target) {
-      return;
-    }
-    // Grab the name and value
-    const { value }: { value: string } = event.target;
-
-    // Update local state
-    this.setState({
-      ...this.state,
-      password: value
-    });
-  };
-
-  private toggleConfirmEmail = (): boolean => {
-    // If textbox has valid email, enable confirm textbox.
-    return validator.isEmail(this.state.email);
-  };
-
-  private toggleConfirmPassword = (): boolean => {
-    return (
-      this.toggleConfirmEmail() && this.state.email === this.state.confirmEmail
-    );
-  };
-
-  private toggleUpdateButton = (): boolean => {
-    return this.toggleConfirmPassword() && this.state.password.length > 8;
-  };
-
-  private onSubmit = async (event: React.FormEvent): Promise<any> => {
+  async function onSubmit(event: React.FormEvent): Promise<any> {
     // Prevent normal form submission
     event.preventDefault();
 
-    // Grab variables
-    const { email, confirmEmail, password } = this.state;
-
-    // Confirm one last time that the values are the same.
-    if (email !== confirmEmail) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text: "Your emails do not match. Please fix this before continuing.",
-          type: "alert"
-        }
-      });
-      return;
-    }
-
-    // Confirm password is longer than 8 characters
-    if (password.length < 8) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text:
-            "Your password is too short! Password length must be at least 8 characters.",
-          type: "alert"
-        }
+    // Confirm one last time that everything is good
+    if (!isSubmitable()) {
+      setFlashMessage({
+        isVisible: true,
+        text: "Your emails do not match. Please fix this before continuing.",
+        type: "alert"
       });
       return;
     }
@@ -206,7 +149,7 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
     // Get token or else redirect
     const token = Auth.getToken();
     if (!token) {
-      this.props.history.push("/account/login?return=/account/settings/email");
+      router.push("/account/login?return=/account/settings/email");
       return;
     }
 
@@ -215,60 +158,38 @@ class UpdateEmail extends React.Component<UpdateEmailProps, UpdateEmailState> {
       user: { token, email, confirmEmail, password }
     };
     try {
-      await this.props.updateEmail({ data });
+      await dispatch(updateEmail({ data }));
 
-      // clear input and display flash
-      this.setState({
-        ...this.state,
-        email: "",
-        confirmEmail: "",
-        password: "",
-        flashMessage: {
-          isVisible: true,
-          text: "Success! Email updated.",
-          type: "success",
-          slug: "/account/settings",
-          slugText: "Back to Settings"
-        }
+      // clear state and display flash
+      setEmail("");
+      setConfirmEmail("");
+      setPassword("");
+      setFlashMessage({
+        isVisible: true,
+        text: "Success! Email updated.",
+        type: "success",
+        slug: "/account/settings",
+        slugText: "Back to Settings"
       });
     } catch (err) {
       // Account locked
       if (err.response.status === 403) {
-        this.props.logout();
-
-        this.props.history.push("/account/login");
+        router.push("/account/login");
         return;
       }
 
       // Password bad or acc locked so going to reset
-      this.setState({
-        ...this.state,
-        password: "",
-        flashMessage: {
-          isVisible: true,
-          text: err.response.data.msg,
-          type: "warning"
-        }
+      setEmail("");
+      setConfirmEmail("");
+      setPassword("");
+      setFlashMessage({
+        isVisible: true,
+        text: err.response.data.msg,
+        type: "warning"
       });
     }
-  };
-}
-
-const mapState2Props = (state: AppState) => {
-  return { user: state.users.self };
+  }
 };
 
-// For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
-const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  updateEmail: ({
-    data
-  }: {
-    data: IUserUpdateEmail;
-    token: string;
-    displayName: string;
-    avatarURL: string;
-  }) => dispatch(updateEmail({ data })),
-  logout: () => dispatch(logout())
-});
-
-export default connect(mapState2Props, mapDispatch2Props)(UpdateEmail);
+// export default connect(mapState2Props, mapDispatch2Props)(UpdateEmail);
+export default UpdateEmail;
