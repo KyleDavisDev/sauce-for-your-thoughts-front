@@ -49,23 +49,21 @@ class FlashMessage extends React.PureComponent<FlashMessageProps, any> {
   }
 
   public render() {
-    return (
+    return this.state.isVisible ? (
       <StyledContainer className={this.props.className}>
-        {this.state.isVisible && (
-          <StyledDiv>
-            <StyledContent>
-              {this.props.children || this.props.text}{" "}
-              {this.props.slug && this.props.slugText ? (
-                <Link to={this.props.slug}>{this.props.slugText}</Link>
-              ) : (
-                ""
-              )}{" "}
-            </StyledContent>
-            <Button onClick={this.onCloseClick}>X</Button>
-          </StyledDiv>
-        )}
+        <StyledDiv>
+          <StyledContent>
+            {this.props.children || this.props.text}{" "}
+            {this.props.slug && this.props.slugText ? (
+              <Link to={this.props.slug}>{this.props.slugText}</Link>
+            ) : (
+              ""
+            )}{" "}
+          </StyledContent>
+          <Button onClick={this.onCloseClick}>X</Button>
+        </StyledDiv>
       </StyledContainer>
-    );
+    ) : null;
   }
 
   private onCloseClick = () => {
