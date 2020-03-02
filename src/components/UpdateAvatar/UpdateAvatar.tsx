@@ -38,7 +38,7 @@ const UpdateAvatar: React.SFC<UpdateAvatarProps> = props => {
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
-  const [updatedAvatar, setUpdatedAvatar] = React.useState("");
+  const [updatedAvatar, setUpdatedAvatar] = React.useState(selected);
 
   // assign router
   const router = useRouter();
@@ -93,7 +93,7 @@ const UpdateAvatar: React.SFC<UpdateAvatarProps> = props => {
               return (
                 <StyledRadioButton
                   label={avatarImage(url.path)}
-                  checked={url.path === selected}
+                  checked={url.path === updatedAvatar}
                   id={url.key}
                   name={"Avatar"}
                   key={url.key}
