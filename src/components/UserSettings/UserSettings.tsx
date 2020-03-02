@@ -114,7 +114,7 @@ const UserSettings: React.SFC<UserSettingsProps> = props => {
 
           <StyledGroup>
             <h4>Update email</h4>
-            <Link to="/account/UserSettings/email">
+            <Link to="/account/update/email">
               <StyledButton type="button">
                 Update email <ArrowRight />
               </StyledButton>
