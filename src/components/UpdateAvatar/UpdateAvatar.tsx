@@ -2,13 +2,16 @@ import * as React from "react";
 import { connect } from "react-redux";
 import shortid from "shortid";
 
-import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
-import { updateAvatar, logout } from "../../../../redux/users/actions";
-import LogoSFYT from "../../../../images/icons/LogoSFYT";
-import ArrowLeft from "../../../../images/icons/ArrowLeft";
-import PageTitle from "../../../../components/PageTitle/PageTitle";
-import { Link } from "../../../../components/Link/Link";
-import { Button } from "../../../../components/Button/Button";
+import { AppState, MyThunkDispatch } from "../../redux/configureStore";
+import { updateAvatar, logout } from "../../redux/users/actions";
+import { IUserUpdateAvatar } from "../../redux/users/types";
+import LogoSFYT from "../../images/icons/LogoSFYT";
+import ArrowLeft from "../../images/icons/ArrowLeft";
+import PageTitle from "../PageTitle/PageTitle";
+import { Link } from "../Link/Link";
+import { Button } from "../Button/Button";
+import { TextInput } from "../TextInput/TextInput";
+import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import {
   StyledDiv,
   StyledLogoContainer,
@@ -18,14 +21,8 @@ import {
   StyledRadioButton,
   StyledAvatarImg
 } from "./UpdateAvatarStyle";
-import {
-  FlashMessage,
-  FlashMessageProps
-} from "../../../../components/FlashMessage/FlashMessage";
-import { IUserUpdateAvatar } from "../../../../redux/users/types";
-import Auth from "../../../../utils/Auth/Auth";
-import { API } from "../../../../utils/api/API";
-import { TextInput } from "../../../../components/TextInput/TextInput";
+import Auth from "../../utils/Auth/Auth";
+import { API } from "../../utils/api/API";
 
 export interface UpdateAvatarProps {
   history: { push: (location: string) => null };

@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Article from "../../../../components/Article/Article";
-import { RadioButton } from "../../../../components/RadioButton/RadioButton";
+import styled from "../../theme/styled-components";
+import Article from "../Article/Article";
+import { RadioButton } from "../RadioButton/RadioButton";
 
 export const StyledDiv = styled.div`
   height: 100vh;
