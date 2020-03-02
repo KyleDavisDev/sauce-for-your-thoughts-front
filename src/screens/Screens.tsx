@@ -92,7 +92,7 @@ const Settings = Loadable({
 
 // User settings - email update
 const UpdateEmail = Loadable({
-  loader: () => import("./account/settings/UpdateEmail/UpdateEmail"),
+  loader: () => import("../components/UpdateEmail/UpdateEmail"),
   loading: () => (
     <div>
       <Loading />
