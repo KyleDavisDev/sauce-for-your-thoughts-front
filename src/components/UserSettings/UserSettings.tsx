@@ -132,7 +132,7 @@ const UserSettings: React.SFC<UserSettingsProps> = props => {
 
           <StyledGroup>
             <h4>Update Avatar</h4>
-            <Link to="/account/UserSettings/avatar">
+            <Link to="/account/update/avatar">
               <StyledButton type="button">
                 Update Avatar <ArrowRight />
               </StyledButton>
