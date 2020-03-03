@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Article from "../../../../components/Article/Article";
+import styled from "../../theme/styled-components";
+import Article from "../Article/Article";
 
 export const StyledDiv = styled.div`
   height: 100vh;
