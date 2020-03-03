@@ -1,5 +1,6 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 import { AppState, MyThunkDispatch } from "../../redux/configureStore";
 import { updateDisplayName, logout } from "../../redux/users/actions";
@@ -20,195 +21,127 @@ import {
 } from "./UpdateDisplayNameStyle";
 import Auth from "../../utils/Auth/Auth";
 
-export interface UpdateDisplayNameProps {
-  history: { push: (location: string) => null };
-  user: { token: string; displayName: string };
-  updateDisplayName: ({
-    data,
-    oldDisplayName
-  }: {
-    data: IUserUpdateDisplayName;
-    oldDisplayName: string;
-  }) => Promise<null>;
-  logout: () => null;
-}
+export interface UpdateDisplayNameProps {}
 
-export interface UpdateDisplayNameState {
-  displayName: string;
-  confirmDisplayName: string;
-  password: string;
-  flashMessage: FlashMessageProps;
-}
+const UpdateDisplayName: React.SFC<UpdateDisplayNameProps> = () => {
+  // Init state
+  const [displayName, setDisplayName] = React.useState("");
+  const [confirmDisplayName, setConfirmDisplayName] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
+    isVisible: false
+  });
 
-class UpdateDisplayName extends React.Component<
-  UpdateDisplayNameProps,
-  UpdateDisplayNameState
-> {
-  constructor(props: UpdateDisplayNameProps) {
-    super(props);
+  // assign router
+  const router = useRouter();
 
-    // Init state
-    this.state = {
-      displayName: "",
-      confirmDisplayName: "",
-      password: "",
-      flashMessage: {
-        isVisible: false
-      }
-    };
-  }
-
-  public async componentDidMount() {
+  // run on mount
+  React.useEffect(() => {
     // Get token or else redirect
     const token = Auth.getToken();
     if (!token) {
-      this.props.history.push("/account/login?return=/account/settings/email");
+      router.push("/account/login?return=/account/settings/email");
       return;
     }
-  }
+  }, []);
 
-  public render() {
-    return (
-      <StyledDiv>
-        <StyledLogoContainer>
-          <Link to="/">
-            <LogoSFYT />
-          </Link>
-        </StyledLogoContainer>
-        <hr />
-        <StyledArticle>
-          <PageTitle>Update Display Name</PageTitle>
-          <StyledFormContainer>
-            {this.state.flashMessage.isVisible && (
-              <FlashMessage {...this.state.flashMessage}>
-                {this.state.flashMessage.text}
-              </FlashMessage>
-            )}
-            <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
-              <TextInput
-                type="text"
-                onChange={this.onTextChange}
-                showLabel={true}
-                label={"New Display Name"}
-                name={"displayName"}
-                value={this.state.displayName}
-                required={true}
-                requirementText={"Must be at least 6 characters long."}
-              />
-              <TextInput
-                type="text"
-                onChange={this.onTextChange}
-                disabled={!this.toggleConfirmDisplayName()}
-                showLabel={true}
-                label={"Confirm New Display Name"}
-                name={"confirmDisplayName"}
-                value={this.state.confirmDisplayName}
-                required={true}
-                requirementText={"Must match above."}
-              />
-              <TextInput
-                type="password"
-                onChange={this.onPasswordChange}
-                disabled={!this.toggleConfirmPassword()}
-                showLabel={true}
-                label={"Password"}
-                name={"password"}
-                value={this.state.password}
-                required={true}
-              />
+  return (
+    <StyledDiv>
+      <StyledLogoContainer>
+        <Link to="/">
+          <LogoSFYT />
+        </Link>
+      </StyledLogoContainer>
+      <hr />
+      <StyledArticle>
+        <PageTitle>Update Display Name</PageTitle>
+        <StyledFormContainer>
+          {flashMessage.isVisible && (
+            <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
+          )}
+          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+            <TextInput
+              type="text"
+              onChange={e => setDisplayName(e.target.value)}
+              showLabel={true}
+              label={"New Display Name"}
+              name={"displayName"}
+              value={displayName}
+              required={true}
+              requirementText={"Must be at least 6 characters long."}
+            />
+            <TextInput
+              type="text"
+              onChange={e => setConfirmDisplayName(e.target.value)}
+              disabled={!toggleConfirmDisplayName()}
+              showLabel={true}
+              label={"Confirm New Display Name"}
+              name={"confirmDisplayName"}
+              value={confirmDisplayName}
+              required={true}
+              requirementText={"Must match above."}
+            />
+            <TextInput
+              type="password"
+              onChange={e => setPassword(e.target.value)}
+              disabled={!toggleConfirmPassword()}
+              showLabel={true}
+              label={"Password"}
+              name={"password"}
+              value={password}
+              required={true}
+            />
 
-              <StyledButtonHolder>
-                <Link to="/account/settings">
-                  <Button type="button" displayType="outline">
-                    <ArrowLeft /> Settings
-                  </Button>
-                </Link>
-                <Button type="submit" disabled={!this.toggleUpdateButton()}>
-                  Update!
+            <StyledButtonHolder>
+              <Link to="/account/settings">
+                <Button type="button" displayType="outline">
+                  <ArrowLeft /> Settings
                 </Button>
-              </StyledButtonHolder>
-            </form>
-          </StyledFormContainer>
-        </StyledArticle>
-      </StyledDiv>
-    );
+              </Link>
+              <Button type="submit" disabled={!isSubmittable()}>
+                Update!
+              </Button>
+            </StyledButtonHolder>
+          </form>
+        </StyledFormContainer>
+      </StyledArticle>
+    </StyledDiv>
+  );
+
+  function toggleConfirmDisplayName(): boolean {
+    // If textbox has valid email, enable confirm textbox.
+    return displayName.length > 5;
   }
 
-  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    if (!event || !event.target) {
-      return;
-    }
-    // Grab the name and value
-    const { name, value }: { name: string; value: string } = event.target;
+  function toggleConfirmPassword(): boolean {
+    return toggleConfirmDisplayName() && displayName === confirmDisplayName;
+  }
 
-    // Update local state
-    this.setState({
-      ...this.state,
-      [name]: value,
-      password: this.toggleConfirmDisplayName() ? "" : this.state.password // Reset password if necessary
-    });
-  };
+  function isSubmittable(): boolean {
+    return toggleConfirmPassword() && password.length > 8;
+  }
 
-  private onPasswordChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
-    if (!event || !event.target) {
-      return;
-    }
-    // Grab the name and value
-    const { value }: { value: string } = event.target;
-
-    // Update local state
-    this.setState({
-      ...this.state,
-      password: value
-    });
-  };
-
-  private toggleConfirmDisplayName = (): boolean => {
-    // If textbox has valid email, enable confirm textbox.
-    return this.state.displayName.length > 5;
-  };
-
-  private toggleConfirmPassword = (): boolean => {
-    return (
-      this.toggleConfirmDisplayName() &&
-      this.state.displayName === this.state.confirmDisplayName
-    );
-  };
-
-  private toggleUpdateButton = (): boolean => {
-    return this.toggleConfirmPassword() && this.state.password.length > 8;
-  };
-
-  private onSubmit = async (event: React.FormEvent): Promise<any> => {
+  async function onSubmit(event: React.FormEvent): Promise<any> {
     // Prevent normal form submission
     event.preventDefault();
 
-    // Grab variables
-    const { displayName, confirmDisplayName, password } = this.state;
-
     // Confirm one last time that the values are the same.
     if (displayName !== confirmDisplayName) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text: "Your emails do not match. Please fix this before continuing.",
-          type: "alert"
-        }
+      setFlashMessage({
+        isVisible: true,
+        text: "Your emails do not match. Please fix this before continuing.",
+        type: "alert"
       });
       return;
     }
 
     // Confirm password is longer than 8 characters
     if (password.length < 8) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text:
-            "Your password is too short! Password length must be at least 8 characters.",
-          type: "alert"
-        }
+      setFlashMessage({
+        isVisible: true,
+        text:
+          "Your password is too short! Password length must be at least 8 characters.",
+        type: "alert"
       });
       return;
     }
@@ -216,7 +149,7 @@ class UpdateDisplayName extends React.Component<
     // Get token or else redirect
     const token = Auth.getToken();
     if (!token) {
-      this.props.history.push("/account/login?return=/account/settings/email");
+      router.push("/account/login?return=/account/settings/email");
       return;
     }
 
@@ -225,62 +158,40 @@ class UpdateDisplayName extends React.Component<
       user: { token, displayName, confirmDisplayName, password }
     };
     try {
-      await this.props.updateDisplayName({
-        data,
-        oldDisplayName: this.props.user.displayName
-      });
+      // await this.props.updateDisplayName({
+      //   data,
+      //   oldDisplayName: this.props.user.displayName
+      // });
 
       // clear input and display flash
-      this.setState({
-        ...this.state,
-        displayName: "",
-        confirmDisplayName: "",
-        password: "",
-        flashMessage: {
-          isVisible: true,
-          text: "Success! Display Name updated.",
-          type: "success",
-          slug: "/account/settings",
-          slugText: "Back to Settings"
-        }
+      setDisplayName("");
+      setConfirmDisplayName("");
+      setPassword("");
+      setFlashMessage({
+        isVisible: true,
+        text: "Success! Display Name updated.",
+        type: "success",
+        slug: "/account/settings",
+        slugText: "Back to Settings"
       });
     } catch (err) {
       // Account locked
       if (err.response.status === 403) {
-        this.props.logout();
+        router.push("/logout");
 
-        this.props.history.push("/account/login");
+        router.push("/account/login");
         return;
       }
 
       // Password bad or acc locked so going to reset
-      this.setState({
-        ...this.state,
-        password: "",
-        flashMessage: {
-          isVisible: true,
-          text: err.response.data.msg,
-          type: "warning"
-        }
+      setPassword("");
+      setFlashMessage({
+        isVisible: true,
+        text: err.response.data.msg,
+        type: "warning"
       });
     }
-  };
-}
-
-const mapState2Props = (state: AppState) => {
-  return { user: state.users.self };
+  }
 };
 
-// For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
-const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  updateDisplayName: ({
-    data,
-    oldDisplayName
-  }: {
-    data: IUserUpdateDisplayName;
-    oldDisplayName: string;
-  }) => dispatch(updateDisplayName({ data, oldDisplayName })),
-  logout: () => dispatch(logout())
-});
-
-export default connect(mapState2Props, mapDispatch2Props)(UpdateDisplayName);
+export default UpdateDisplayName;
