@@ -112,8 +112,7 @@ const UpdatePassword = Loadable({
 
 // User settings - display name update
 const UpdateDisplayName = Loadable({
-  loader: () =>
-    import("./account/settings/UpdateDisplayName/UpdateDisplayName"),
+  loader: () => import("../components/UpdateDisplayName/UpdateDisplayName"),
   loading: () => (
     <div>
       <Loading />
