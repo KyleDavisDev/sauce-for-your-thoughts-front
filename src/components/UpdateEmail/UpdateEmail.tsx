@@ -36,12 +36,9 @@ const UpdateEmail: React.SFC<UpdateEmailProps> = props => {
   const [email, setEmail] = React.useState("");
   const [confirmEmail, setConfirmEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [confirmPassword, setConfirmPassword] = React.useState("");
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
-  const { self } = useSelector((store: AppState) => store.users);
-  const displayName = self.displayName;
 
   // assign router
   const router = useRouter();
