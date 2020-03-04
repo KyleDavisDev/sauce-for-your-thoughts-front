@@ -1,7 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { AppState, MyThunkDispatch } from "../../redux/configureStore";
 import { updatePassword, logout } from "../../redux/users/actions";
 import { IUserUpdatePassword } from "../../redux/users/types";
 import LogoSFYT from "../../images/icons/LogoSFYT";
@@ -19,191 +18,130 @@ import {
   StyledButtonHolder
 } from "./UpdatePasswordStyle";
 import Auth from "../../utils/Auth/Auth";
+import { useRouter } from "next/router";
 
-export interface UpdatePasswordProps {
-  history: { push: (location: string) => null };
-  user: { token: string; displayName: string };
-  updatePassword: ({ data }: { data: IUserUpdatePassword }) => Promise<null>;
-  logout: () => null;
-}
+export interface UpdatePasswordProps {}
 
-export interface UpdatePasswordState {
-  password: string;
-  newPassword: string;
-  confirmNewPassword: string;
-  flashMessage: FlashMessageProps;
-}
+export interface UpdatePasswordState {}
 
-class UpdatePassword extends React.Component<
-  UpdatePasswordProps,
-  UpdatePasswordState
-> {
-  constructor(props: UpdatePasswordProps) {
-    super(props);
+const UpdatePassword: React.SFC<UpdatePasswordProps> = props => {
+  // Init state
+  const [password, setPassword] = React.useState("");
+  const [newPassword, setNewPassword] = React.useState("");
+  const [confirmNewPassword, setConfirmNewPassword] = React.useState("");
+  const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
+    isVisible: false
+  });
 
-    // Init state
-    this.state = {
-      password: "",
-      newPassword: "",
-      confirmNewPassword: "",
-      flashMessage: {
-        isVisible: false
-      }
-    };
-  }
+  // init router
+  const router = useRouter();
 
-  public async componentDidMount() {
+  React.useEffect(() => {
     // Get token or else redirect
     const token = Auth.getToken();
     if (!token) {
-      this.props.history.push("/account/login?return=/account/settings/email");
+      router.push("/account/login?return=/account/settings/email");
       return;
     }
-  }
+  }, []);
 
-  public render() {
-    return (
-      <StyledDiv>
-        <StyledLogoContainer>
-          <Link to="/">
-            <LogoSFYT />
-          </Link>
-        </StyledLogoContainer>
-        <hr />
-        <StyledArticle>
-          <PageTitle>Update Password</PageTitle>
-          <StyledFormContainer>
-            {this.state.flashMessage.isVisible && (
-              <FlashMessage {...this.state.flashMessage}>
-                {this.state.flashMessage.text}
-              </FlashMessage>
-            )}
-            <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
-              <TextInput
-                type="password"
-                onChange={this.onTextChange}
-                showLabel={true}
-                label={"New Password"}
-                name={"newPassword"}
-                value={this.state.newPassword}
-                required={true}
-                requirementText={"Must be at least 9 characters long."}
-              />
-              <TextInput
-                type="password"
-                onChange={this.onTextChange}
-                disabled={!this.toggleConfirmNewPassword()}
-                showLabel={true}
-                label={"Confirm New Password"}
-                name={"confirmNewPassword"}
-                value={this.state.confirmNewPassword}
-                required={true}
-                requirementText={"Must match above."}
-              />
-              <TextInput
-                type="password"
-                onChange={this.onPasswordChange}
-                disabled={!this.toggleConfirmPassword()}
-                showLabel={true}
-                label={"Old Password"}
-                name={"password"}
-                value={this.state.password}
-                required={true}
-              />
+  return (
+    <StyledDiv>
+      <StyledLogoContainer>
+        <Link to="/">
+          <LogoSFYT />
+        </Link>
+      </StyledLogoContainer>
+      <hr />
+      <StyledArticle>
+        <PageTitle>Update Password</PageTitle>
+        <StyledFormContainer>
+          {flashMessage.isVisible && (
+            <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
+          )}
+          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+            <TextInput
+              type="password"
+              onChange={e => setNewPassword(e.target.value)}
+              showLabel={true}
+              label={"New Password"}
+              name={"newPassword"}
+              value={newPassword}
+              required={true}
+              requirementText={"Must be at least 9 characters long."}
+            />
+            <TextInput
+              type="password"
+              onChange={e => setConfirmNewPassword(e.target.value)}
+              disabled={!toggleConfirmNewPassword()}
+              showLabel={true}
+              label={"Confirm New Password"}
+              name={"confirmNewPassword"}
+              value={confirmNewPassword}
+              required={true}
+              requirementText={"Must match above."}
+            />
+            <TextInput
+              type="password"
+              onChange={e => setPassword(e.target.value)}
+              disabled={!toggleConfirmPassword()}
+              showLabel={true}
+              label={"Old Password"}
+              name={"password"}
+              value={password}
+              required={true}
+            />
 
-              <StyledButtonHolder>
-                <Link to="/account/settings">
-                  <Button type="button" displayType="outline">
-                    <ArrowLeft /> Settings
-                  </Button>
-                </Link>
-                <Button type="submit" disabled={!this.toggleUpdateButton()}>
-                  Update!
+            <StyledButtonHolder>
+              <Link to="/account/settings">
+                <Button type="button" displayType="outline">
+                  <ArrowLeft /> Settings
                 </Button>
-              </StyledButtonHolder>
-            </form>
-          </StyledFormContainer>
-        </StyledArticle>
-      </StyledDiv>
-    );
+              </Link>
+              <Button type="submit" disabled={!toggleUpdateButton()}>
+                Update!
+              </Button>
+            </StyledButtonHolder>
+          </form>
+        </StyledFormContainer>
+      </StyledArticle>
+    </StyledDiv>
+  );
+
+  function toggleConfirmNewPassword(): boolean {
+    // If password is long enough, return true
+    return newPassword.length > 8;
   }
 
-  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    if (!event || !event.target) {
-      return;
-    }
-    // Grab the name and value
-    const { name, value }: { name: string; value: string } = event.target;
+  function toggleConfirmPassword(): boolean {
+    return toggleConfirmNewPassword() && newPassword === confirmNewPassword;
+  }
 
-    // Update local state
-    this.setState({
-      ...this.state,
-      [name]: value,
-      password: this.toggleConfirmPassword() ? "" : this.state.password // Reset password if necessary
-    });
-  };
+  function toggleUpdateButton(): boolean {
+    return toggleConfirmPassword() && password.length > 8;
+  }
 
-  private onPasswordChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
-    if (!event || !event.target) {
-      return;
-    }
-    // Grab the name and value
-    const { value }: { value: string } = event.target;
-
-    // Update local state
-    this.setState({
-      ...this.state,
-      password: value
-    });
-  };
-
-  private toggleConfirmNewPassword = (): boolean => {
-    // If textbox has valid email, enable confirm textbox.
-    return this.state.newPassword.length > 8;
-  };
-
-  private toggleConfirmPassword = (): boolean => {
-    return (
-      this.toggleConfirmNewPassword() &&
-      this.state.newPassword === this.state.confirmNewPassword
-    );
-  };
-
-  private toggleUpdateButton = (): boolean => {
-    return this.toggleConfirmPassword() && this.state.password.length > 8;
-  };
-
-  private onSubmit = async (event: React.FormEvent): Promise<any> => {
+  async function onSubmit(event: React.FormEvent): Promise<any> {
     // Prevent normal form submission
     event.preventDefault();
 
-    // Grab variables
-    const { newPassword, confirmNewPassword, password } = this.state;
-
     // Confirm one last time that the values are the same.
     if (newPassword !== confirmNewPassword) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text:
-            "Your passwords do not match. Please fix this before continuing.",
-          type: "alert"
-        }
+      setFlashMessage({
+        isVisible: true,
+        text: "Your passwords do not match. Please fix this before continuing.",
+        type: "alert"
       });
       return;
     }
 
     // Confirm password is longer than 8 characters
     if (password.length < 8) {
-      this.setState({
-        flashMessage: {
-          isVisible: true,
-          text:
-            "Your new password is too short! Password length must be at least 8 characters.",
-          type: "alert"
-        }
+      setFlashMessage({
+        isVisible: true,
+        text:
+          "Your new password is too short! Password length must be at least 8 characters.",
+        type: "alert"
       });
       return;
     }
@@ -211,63 +149,60 @@ class UpdatePassword extends React.Component<
     // Get token or else redirect
     const token = Auth.getToken();
     if (!token) {
-      this.props.history.push("/account/login?return=/account/settings/email");
+      router.push("/account/login?return=/account/settings/email");
       return;
     }
 
     // Construct data
-    const data: IUserUpdatePassword = {
-      user: { token, password, newPassword, confirmNewPassword }
-    };
+    const data: IUserUpdatePassword = {};
     try {
-      await this.props.updatePassword({ data });
-
-      // clear input and display flash
-      this.setState({
-        ...this.state,
-        password: "",
-        newPassword: "",
-        confirmNewPassword: "",
-        flashMessage: {
-          isVisible: true,
-          text: "Success! Password updated.",
-          type: "success",
-          slug: "/account/settings",
-          slugText: "Back to Settings"
-        }
-      });
+      //   await this.props.updatePassword({ data });
+      // // clear input and display flash
+      // this.setState({
+      //   ...
+      //   password: "",
+      //   newPassword: "",
+      //   confirmNewPassword: "",
+      //   flashMessage: {
+      //     isVisible: true,
+      //     text: "Success! Password updated.",
+      //     type: "success",
+      //     slug: "/account/settings",
+      //     slugText: "Back to Settings"
+      //   }
+      // });
     } catch (err) {
       // Account locked
       if (err.response.status === 403) {
-        this.props.logout();
+        // router.push("/logout")
 
-        this.props.history.push("/account/login");
+        router.push("/account/login");
         return;
       }
 
       // Password bad or acc locked so going to reset
-      this.setState({
-        ...this.state,
-        password: "",
-        flashMessage: {
-          isVisible: true,
-          text: err.response.data.msg,
-          type: "warning"
-        }
-      });
+      // this.setState({
+      //   password: "",
+      //   flashMessage: {
+      //     isVisible: true,
+      //     text: err.response.data.msg,
+      //     type: "warning"
+      //   }
+      // });
     }
-  };
-}
-
-const mapState2Props = (state: AppState) => {
-  return { user: state.users.self };
+  }
 };
 
-// For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
-const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  updatePassword: ({ data }: { data: IUserUpdatePassword }) =>
-    dispatch(updatePassword({ data })),
-  logout: () => dispatch(logout())
-});
+// const mapState2Props = (state: AppState) => {
+//   return { user: state.users.self };
+// };
 
-export default connect(mapState2Props, mapDispatch2Props)(UpdatePassword);
+// // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
+// const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
+//   updatePassword: ({ data }: { data: IUserUpdatePassword }) =>
+//     dispatch(updatePassword({ data })),
+//   logout: () => dispatch(logout())
+// });
+
+// export default connect(mapState2Props, mapDispatch2Props)(UpdatePassword);
+export default UpdatePassword;
