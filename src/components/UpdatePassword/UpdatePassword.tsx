@@ -1,14 +1,16 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
-import { updatePassword, logout } from "../../../../redux/users/actions";
-import LogoSFYT from "../../../../images/icons/LogoSFYT";
-import ArrowLeft from "../../../../images/icons/ArrowLeft";
-import PageTitle from "../../../../components/PageTitle/PageTitle";
-import { TextInput } from "../../../../components/TextInput/TextInput";
-import { Link } from "../../../../components/Link/Link";
-import { Button } from "../../../../components/Button/Button";
+import { AppState, MyThunkDispatch } from "../../redux/configureStore";
+import { updatePassword, logout } from "../../redux/users/actions";
+import { IUserUpdatePassword } from "../../redux/users/types";
+import LogoSFYT from "../../images/icons/LogoSFYT";
+import ArrowLeft from "../../images/icons/ArrowLeft";
+import PageTitle from "../PageTitle/PageTitle";
+import { TextInput } from "../TextInput/TextInput";
+import { Link } from "../Link/Link";
+import { Button } from "../Button/Button";
+import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import {
   StyledDiv,
   StyledLogoContainer,
@@ -16,12 +18,7 @@ import {
   StyledFormContainer,
   StyledButtonHolder
 } from "./UpdatePasswordStyle";
-import {
-  FlashMessage,
-  FlashMessageProps
-} from "../../../../components/FlashMessage/FlashMessage";
-import { IUserUpdatePassword } from "../../../../redux/users/types";
-import Auth from "../../../../utils/Auth/Auth";
+import Auth from "../../utils/Auth/Auth";
 
 export interface UpdatePasswordProps {
   history: { push: (location: string) => null };
@@ -273,7 +270,4 @@ const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(
-  mapState2Props,
-  mapDispatch2Props
-)(UpdatePassword);
+export default connect(mapState2Props, mapDispatch2Props)(UpdatePassword);
