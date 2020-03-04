@@ -141,7 +141,7 @@ const UserSettings: React.SFC<UserSettingsProps> = props => {
 
           <StyledGroup>
             <h4>Update Password</h4>
-            <Link to="/account/UserSettings/password">
+            <Link to="/account/update/password">
               <StyledButton type="button">
                 Update Password <ArrowRight />
               </StyledButton>
