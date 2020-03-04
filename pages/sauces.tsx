@@ -1,9 +1,11 @@
 import * as React from "react";
 
-interface ISaucesProps {}
+import Sauces from "../src/components/Sauces/Sauces";
 
-const Sauces: React.FunctionComponent<ISaucesProps> = props => {
-  return <p>hello</p>;
+interface ISaucesPageProps {}
+
+const SaucesPage: React.FunctionComponent<ISaucesPageProps> = props => {
+  return <Sauces />;
 };
 
-export default Sauces;
+export default SaucesPage;
