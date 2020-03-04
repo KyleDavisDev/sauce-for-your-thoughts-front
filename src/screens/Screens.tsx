@@ -42,7 +42,7 @@ const SauceEdit = Loadable({
 
 // All Sauces
 const Sauces = Loadable({
-  loader: () => import("./sauces/Sauces"),
+  loader: () => import("../components/sauces/Sauces"),
   loading: () => (
     <div>
       <Loading />
