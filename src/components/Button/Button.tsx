@@ -38,6 +38,7 @@ Button.defaultProps = {
 
 const StyledButton = styled(Button)`
   button {
+    font-size: 1rem;
     text-decoration: none;
     font-family: FuturaMedium;
     padding: 0.5em 1em;
