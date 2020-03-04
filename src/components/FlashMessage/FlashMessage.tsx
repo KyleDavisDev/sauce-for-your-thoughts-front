@@ -98,11 +98,12 @@ const StyledFlashMessage = styled(FlashMessage)`
     a {
       color: ${props =>
         props.type === "success"
-          ? "#3c763d"
+          ? "#2a522a"
           : props.type === "warning"
           ? "#8a6d3b"
           : "#a94442"};
       font-weight: 700;
+      text-decoration: underline;
       transition: all 0.2s ease;
 
       &:hover,
