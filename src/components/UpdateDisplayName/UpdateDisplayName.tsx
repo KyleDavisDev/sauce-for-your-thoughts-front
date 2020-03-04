@@ -1,9 +1,9 @@
 import * as React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 
-import { AppState, MyThunkDispatch } from "../../redux/configureStore";
-import { updateDisplayName, logout } from "../../redux/users/actions";
+import { AppState } from "../../redux/configureStore";
+import { updateDisplayName } from "../../redux/users/actions";
 import { IUserUpdateDisplayName } from "../../redux/users/types";
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import ArrowLeft from "../../images/icons/ArrowLeft";
@@ -26,6 +26,8 @@ export interface UpdateDisplayNameProps {}
 const UpdateDisplayName: React.SFC<UpdateDisplayNameProps> = () => {
   // Init state
   const [displayName, setDisplayName] = React.useState("");
+  const oldDisplayName =
+    useSelector((store: AppState) => store.users.self.displayName) || "";
   const [confirmDisplayName, setConfirmDisplayName] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
@@ -34,6 +36,8 @@ const UpdateDisplayName: React.SFC<UpdateDisplayNameProps> = () => {
 
   // assign router
   const router = useRouter();
+  // assign dispatch
+  const dispatch = useDispatch();
 
   // run on mount
   React.useEffect(() => {
@@ -158,10 +162,13 @@ const UpdateDisplayName: React.SFC<UpdateDisplayNameProps> = () => {
       user: { token, displayName, confirmDisplayName, password }
     };
     try {
-      // await this.props.updateDisplayName({
-      //   data,
-      //   oldDisplayName: this.props.user.displayName
-      // });
+      // dispatch redux action-emitter
+      dispatch(
+        updateDisplayName({
+          data,
+          oldDisplayName
+        })
+      );
 
       // clear input and display flash
       setDisplayName("");
