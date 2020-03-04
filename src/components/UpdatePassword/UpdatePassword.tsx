@@ -1,7 +1,7 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { updatePassword, logout } from "../../redux/users/actions";
+import { updatePassword } from "../../redux/users/actions";
 import { IUserUpdatePassword } from "../../redux/users/types";
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import ArrowLeft from "../../images/icons/ArrowLeft";
@@ -35,12 +35,14 @@ const UpdatePassword: React.SFC<UpdatePasswordProps> = props => {
 
   // init router
   const router = useRouter();
+  // init dispatch
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     // Get token or else redirect
     const token = Auth.getToken();
     if (!token) {
-      router.push("/account/login?return=/account/settings/email");
+      router.push("/account/login?return=/account/update/email");
       return;
     }
   }, []);
@@ -154,55 +156,47 @@ const UpdatePassword: React.SFC<UpdatePasswordProps> = props => {
     }
 
     // Construct data
-    const data: IUserUpdatePassword = {};
+    const data: IUserUpdatePassword = {
+      user: {
+        token,
+        password,
+        newPassword,
+        confirmNewPassword
+      }
+    };
     try {
-      //   await this.props.updatePassword({ data });
-      // // clear input and display flash
-      // this.setState({
-      //   ...
-      //   password: "",
-      //   newPassword: "",
-      //   confirmNewPassword: "",
-      //   flashMessage: {
-      //     isVisible: true,
-      //     text: "Success! Password updated.",
-      //     type: "success",
-      //     slug: "/account/settings",
-      //     slugText: "Back to Settings"
-      //   }
-      // });
+      // dispatch redux action
+      dispatch(updatePassword({ data }));
+
+      // clear input and display flash
+      setPassword("");
+      setNewPassword("");
+      setConfirmNewPassword("");
+      setFlashMessage({
+        isVisible: true,
+        text: "Success! Password updated.",
+        type: "success",
+        slug: "/account/settings",
+        slugText: "Back to Settings"
+      });
     } catch (err) {
       // Account locked
       if (err.response.status === 403) {
-        // router.push("/logout")
-
-        router.push("/account/login");
+        router.push("/logout");
         return;
       }
 
       // Password bad or acc locked so going to reset
-      // this.setState({
-      //   password: "",
-      //   flashMessage: {
-      //     isVisible: true,
-      //     text: err.response.data.msg,
-      //     type: "warning"
-      //   }
-      // });
+      setPassword("");
+      setNewPassword("");
+      setConfirmNewPassword("");
+      setFlashMessage({
+        isVisible: true,
+        text: err.response.data.msg,
+        type: "warning"
+      });
     }
   }
 };
 
-// const mapState2Props = (state: AppState) => {
-//   return { user: state.users.self };
-// };
-
-// // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
-// const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-//   updatePassword: ({ data }: { data: IUserUpdatePassword }) =>
-//     dispatch(updatePassword({ data })),
-//   logout: () => dispatch(logout())
-// });
-
-// export default connect(mapState2Props, mapDispatch2Props)(UpdatePassword);
 export default UpdatePassword;
