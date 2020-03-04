@@ -102,7 +102,7 @@ const UpdateEmail = Loadable({
 
 // User settings - password update
 const UpdatePassword = Loadable({
-  loader: () => import("./account/settings/UpdatePassword/UpdatePassword"),
+  loader: () => import("../components/UpdatePassword/UpdatePassword"),
   loading: () => (
     <div>
       <Loading />
