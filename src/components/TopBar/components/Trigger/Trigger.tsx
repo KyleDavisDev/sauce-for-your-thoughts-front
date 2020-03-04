@@ -7,6 +7,7 @@ const StyledButton = styled.button`
   flex-direction: row;
   align-items: center;
   font-family: FuturaMedium;
+  font-size: 1rem;
   color: ${x => x.theme.grey};
   fill: ${x => x.theme.grey};
   background: none;
