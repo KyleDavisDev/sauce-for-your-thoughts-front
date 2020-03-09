@@ -1,7 +1,7 @@
 import * as React from "react";
 import {
   StyledFormContainer,
-  StyledFrom,
+  StyledForm,
   StyledDropDown,
   StyledInput,
   StyledButton
@@ -87,7 +87,7 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
     return (
       <StyledFormContainer>
         {types && order ? (
-          <StyledFrom onSubmit={this.onSubmit}>
+          <StyledForm onSubmit={this.onSubmit}>
             <StyledDropDown
               showLabel={true}
               label={"Type"}
@@ -124,7 +124,7 @@ class FilterBar extends React.PureComponent<FilterBarProps, FilterBarState> {
             />
 
             <StyledButton type={"submit"}>Filter</StyledButton>
-          </StyledFrom>
+          </StyledForm>
         ) : (
           "Loading..."
         )}
@@ -211,7 +211,4 @@ function mapStateToProps(
 // For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
 const mapDispatchToProps = (dispatch: MyThunkDispatch) => ({});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FilterBar);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterBar);

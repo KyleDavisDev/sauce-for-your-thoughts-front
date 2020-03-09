@@ -12,7 +12,7 @@ export const StyledFormContainer = styled.div`
   margin-bottom: 1.5em !important;
 `;
 
-export const StyledFrom = styled.form`
+export const StyledForm = styled.form`
   width: 100%;
   flex-wrap: wrap;
   display: flex;
