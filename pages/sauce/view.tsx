@@ -1,11 +1,11 @@
 import * as React from "react";
 
-import Sauces from "../../src/components/Sauces/Sauces";
+import SauceSpotlight from "../../src/components/SauceSpotlight/SauceSpotlight";
 
 interface IViewPageProps {}
 
 const ViewPage: React.FunctionComponent<IViewPageProps> = props => {
-  return <Sauces />;
+  return <SauceSpotlight />;
 };
 
 export default ViewPage;
