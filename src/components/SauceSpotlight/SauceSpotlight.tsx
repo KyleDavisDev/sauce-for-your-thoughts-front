@@ -147,7 +147,7 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
                   {sauce.slug && showAppropriateReviewButton(sauce.slug)}
                   <List
                     items={sauce._related.map(x => {
-                      return { link: `/sauce?s=${x.slug}`, text: x.name };
+                      return { link: `/sauce/view?s=${x.slug}`, text: x.name };
                     })}
                     title="Related Sauces"
                   />
@@ -156,7 +156,7 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
               {saucesWithNewestReviews && saucesWithNewestReviews.length > 0 && (
                 <List
                   items={saucesWithNewestReviews.map(x => {
-                    return { link: `/sauce?s=${x.slug}`, text: x.name };
+                    return { link: `/sauce/view?s=${x.slug}`, text: x.name };
                   })}
                   title="Recently Reviewed"
                 />
