@@ -32,15 +32,7 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
   const useThunkDispatch = useDispatch<typeof reduxStore.dispatch>();
   // assign slug
   const router = useRouter();
-  // grab slug from query
-  const { s: slug } = router.query;
-  console.log(router.query);
-  // confirm we have a slug
-  if (!slug || Array.isArray(slug)) {
-    // router.push("/");
-    // return;
-    slug = "Abc";
-  }
+  const [slug, setSlug] = React.useState("");
 
   // look for page-specific info
   const { sauce, saucesWithNewestReviews, reviews } = useSelector(
@@ -64,7 +56,7 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
         revs.length > 0 &&
         byReviewID &&
         Object.keys(byReviewID).length > 0;
-      if (areReviewsGrabbable) {
+      if (!areReviewsGrabbable) {
         return { sauce, saucesWithNewestReviews, reviews: null };
       }
       // Push all reviews in reviews array
@@ -83,12 +75,22 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
   }, []);
 
   React.useEffect(() => {
+    // update slug
+    const { s } = router.query;
+    if (!s || Array.isArray(s)) {
+      router.push("/");
+      return;
+    }
+    const tmp = s;
+    setSlug(tmp);
+
     async function findTheSauce() {
       try {
-        await useThunkDispatch(getSauceBySlug({ slug }));
+        await useThunkDispatch(getSauceBySlug({ slug: tmp }));
       } catch (err) {}
     }
 
+    // if empty sauce, go looking!
     if (!sauce) {
       findTheSauce();
     }
@@ -108,148 +110,87 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
       <Navigation />
 
       <StyledArticle>
-        <StyledLeftContainer>
-          {/* FlashMessage */}
-          {sauce && (
-            <FlashMessage
-              isVisible={sauce.isAdminApproved ? false : true}
-              text={
-                "This sauce has not been approved by an admin yet and, as a result, will not appear listed with the other sauces."
-              }
-              type="warning"
-            ></FlashMessage>
-          )}
+        {sauce ? (
+          <>
+            <StyledLeftContainer>
+              {/* FlashMessage */}
+              {sauce && (
+                <FlashMessage
+                  isVisible={sauce.isAdminApproved ? false : true}
+                  text={
+                    "This sauce has not been approved by an admin yet and, as a result, will not appear listed with the other sauces."
+                  }
+                  type="warning"
+                ></FlashMessage>
+              )}
 
-          {/* Spotlight */}
-          <SauceHero sauce={sauce} />
+              {/* Spotlight */}
+              <SauceHero sauce={sauce} />
 
-          {/* Reviews */}
-          <StyledDescriptor title={`Reviews (${reviews ? reviews.length : 0})`}>
-            The opinions expressed are soley those of the author.
-          </StyledDescriptor>
+              {/* Reviews */}
+              <StyledDescriptor
+                title={`Reviews (${reviews ? reviews.length : 0})`}
+              >
+                The opinions expressed are soley those of the author.
+              </StyledDescriptor>
 
-          <SauceReviews
-            slug={sauce && sauce.slug ? sauce.slug : undefined}
-            reviews={reviews}
-            displayEditLink={displayEditLink}
-          />
-        </StyledLeftContainer>
+              <SauceReviews
+                slug={sauce && sauce.slug ? sauce.slug : undefined}
+                reviews={reviews}
+                displayEditLink={displayEditLink}
+              />
+            </StyledLeftContainer>
 
-        <StyledRightContainer>
-          {showAppropriateReviewButton()}
-          {sauce && sauce._related && sauce._related.length > 0 && (
-            <List
-              items={sauce._related.map(x => {
-                return { link: `/sauce?s=${x.slug}`, text: x.name };
-              })}
-              title="Related Sauces"
-            />
-          )}
-          {saucesWithNewestReviews && saucesWithNewestReviews.length > 0 && (
-            <List
-              items={saucesWithNewestReviews.map(x => {
-                return { link: `/sauce?s=${x.slug}`, text: x.name };
-              })}
-              title="Recently Reviewed"
-            />
-          )}
-        </StyledRightContainer>
+            <StyledRightContainer>
+              {sauce && sauce._related && sauce._related.length > 0 && (
+                <>
+                  {sauce.slug && showAppropriateReviewButton(sauce.slug)}
+                  <List
+                    items={sauce._related.map(x => {
+                      return { link: `/sauce?s=${x.slug}`, text: x.name };
+                    })}
+                    title="Related Sauces"
+                  />
+                </>
+              )}
+              {saucesWithNewestReviews && saucesWithNewestReviews.length > 0 && (
+                <List
+                  items={saucesWithNewestReviews.map(x => {
+                    return { link: `/sauce?s=${x.slug}`, text: x.name };
+                  })}
+                  title="Recently Reviewed"
+                />
+              )}
+            </StyledRightContainer>
+          </>
+        ) : (
+          "loading..."
+        )}
       </StyledArticle>
       <Footer />
     </div>
   );
 
   // Return appropriate "Edit" or "Add" review button. Or loading text.
-  function showAppropriateReviewButton(): JSX.Element {
-    const { sauce, displayEditLink } = this.props;
-    // Make sure we have sauce
-    if (sauce) {
-      // Determine which button to return
-      if (displayEditLink) {
-        return (
-          <Link to={`/review/edit?s=${sauce.slug}`}>
-            <Button displayType="solid">Edit Your Review</Button>
-          </Link>
-        );
-      }
+  function showAppropriateReviewButton(slug: string): JSX.Element {
+    // const { sauce, displayEditLink } = this.props;
+    // // Make sure we have sauce
+    // if (sauce) {
+    //   // Determine which button to return
+    //   if (displayEditLink) {
+    //     return (
+    //       <Link to={`/review/edit?s=${sauce.slug}`}>
+    //         <Button displayType="solid">Edit Your Review</Button>
+    //       </Link>
+    //     );
+    //   }
 
-      return (
-        <Link to={`/review/add?s=${sauce.slug}`}>
-          <Button displayType="solid">Add Review</Button>
-        </Link>
-      );
-    }
-
-    return <p>Loading ....</p>;
+    return (
+      <Link to={`/review/add?s=${slug}`}>
+        <Button displayType="solid">Add Review</Button>
+      </Link>
+    );
   }
 };
 
-// const mapState2Props = (state: AppState, ownProps: SauceSpotlightProps) => {
-//   // Find our slug -- If we can't find one, we are immediately done
-//   const values = queryString.parse(ownProps.location.search);
-//   // Make sure s is defined, not an array
-//   if (!values.s || Array.isArray(values.s)) {
-//     // Stop here since we will not have a slug
-//     ownProps.history.push("/");
-//     return;
-//   }
-//   // Assign slug
-//   const slug: string = values.s;
-
-//   // Check for undefined
-//   const bySlug = state.sauces.bySlug;
-//   if (!bySlug) return { slug };
-
-//   // Find the specific sauce for our page and make sure it's full
-//   const sauce = bySlug[slug];
-//   if (!sauce || !sauce._full) return { slug };
-
-//   // Grab recently reviewed sauces
-//   const { saucesWithNewestReviews } = state.sauces;
-
-//   // If we have reviews, get those too. Else return what we have
-//   const byReviewID = state.reviews.byReviewID || {};
-//   const revs = sauce.reviews || [];
-//   if (
-//     revs &&
-//     revs.length > 0 &&
-//     byReviewID &&
-//     Object.keys(byReviewID).length > 0
-//   ) {
-//     // Push all reviews in reviews array
-//     const reviews: IReview[] = revs.map(hashID => {
-//       // push specific review into array
-//       return byReviewID[hashID];
-//     });
-
-//     // initialize boolean for determing if we should display "Edit Review" button or "Submit Review" instead
-//     let displayEditLink: boolean = false;
-//     // Grab user from store
-//     const user = state.users.self.displayName;
-//     if (user !== undefined) {
-//       const len = reviews.length;
-
-//       for (let i = 0; i < len; i++) {
-//         if (reviews[i].author === user) {
-//           displayEditLink = true;
-//           break;
-//         }
-//       }
-//     }
-
-//     // Return w/ the found reviews
-//     return { sauce, slug, reviews, saucesWithNewestReviews, displayEditLink };
-//   }
-
-//   // return sauce and slug only
-//   return { sauce, slug, saucesWithNewestReviews };
-// };
-
-// For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
-// const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-//   getSauceBySlug: ({ slug }: { slug: string }) =>
-//     dispatch(getSauceBySlug({ slug }))
-// });
-
-// export default connect(mapState2Props, mapDispatch2Props)(SauceSpotlight);
 export default SauceSpotlight;
