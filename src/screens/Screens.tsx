@@ -162,7 +162,7 @@ const Reset = Loadable({
 
 // Single
 const SauceSpotlight = Loadable({
-  loader: () => import("./sauce/screens/SauceSpotlight/SauceSpotlight"),
+  loader: () => import("../components/SauceSpotlight/SauceSpotlight"),
   loading: () => (
     <div>
       <Loading />
