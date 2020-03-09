@@ -27,7 +27,7 @@ const StyledLink = styled(Link)`
 
 export interface SauceReviewsProps {
   slug?: string;
-  reviews?: IReview[];
+  reviews?: IReview[] | null;
   displayEditLink?: boolean;
 }
 
