@@ -139,7 +139,7 @@ const Sauces: React.SFC<SaucesProps> = props => {
                     title={sauce.name}
                     imageLink={`${sauce.photo}`}
                     description={sauce.description}
-                    to={`/sauce?s=${sauce.slug}`}
+                    to={`/sauce/view?s=${sauce.slug}`}
                   />
                 </StyledCardHolder>
               );

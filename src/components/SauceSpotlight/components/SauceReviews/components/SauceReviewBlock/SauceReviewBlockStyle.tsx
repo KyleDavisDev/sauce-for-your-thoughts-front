@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Star from "../../../../../../../../images/icons/Star";
-import { Button } from "../../../../../../../../components/Button/Button";
+import Star from "../../../../../../images/icons/Star";
+import { Button } from "../../../../../Button/Button";
 
 export const StyledContainer = styled.div`
   border: ${props => props.theme.border};

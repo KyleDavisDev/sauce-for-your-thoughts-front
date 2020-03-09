@@ -1,9 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { IReview } from "../../../../../../redux/reviews/types";
-import { Button } from "../../../../../../components/Button/Button";
-import { Link } from "../../../../../../components/Link/Link";
+import { IReview } from "../../../../redux/reviews/types";
+import { Button } from "../../../Button/Button";
+import { Link } from "../../../Link/Link";
 import SauceReviewBlock from "./components/SauceReviewBlock/SauceReviewBlock";
 
 const StyledContainer = styled.div`

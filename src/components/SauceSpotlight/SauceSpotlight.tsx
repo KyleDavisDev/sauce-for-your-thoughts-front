@@ -2,10 +2,10 @@ import * as React from "react";
 import { connect } from "react-redux";
 import queryString from "query-string";
 
-import { AppState, MyThunkDispatch } from "../../../../redux/configureStore";
-import TopBar from "../../../../components/TopBar/TopBar";
-import Navigation from "../../../../components/Navigation/Navigation";
-import Footer from "../../../../components/Footer/Footer";
+import { AppState, MyThunkDispatch } from "../../redux/configureStore";
+import TopBar from "../TopBar/TopBar";
+import Navigation from "../Navigation/Navigation";
+import Footer from "../Footer/Footer";
 import SauceHero from "./components/SauceHero/SauceHero";
 import SauceReviews from "./components/SauceReviews/SauceReviews";
 import {
@@ -14,13 +14,13 @@ import {
   StyledRightContainer,
   StyledDescriptor
 } from "./SauceSpotlightStyle";
-import { ISauce } from "../../../../redux/sauces/types";
-import { getSauceBySlug } from "../../../../redux/sauces/actions";
-import { IReview } from "../../../../redux/reviews/types";
-import { Link } from "../../../../components/Link/Link";
-import { Button } from "../../../../components/Button/Button";
-import List from "../../../../components/List/List";
-import { FlashMessage } from "../../../../components/FlashMessage/FlashMessage";
+import { ISauce } from "../../redux/sauces/types";
+import { getSauceBySlug } from "../../redux/sauces/actions";
+import { IReview } from "../../redux/reviews/types";
+import { Link } from "../Link/Link";
+import { Button } from "../Button/Button";
+import List from "../List/List";
+import { FlashMessage } from "../FlashMessage/FlashMessage";
 
 export interface SauceSpotlightProps {
   location: { search: string };

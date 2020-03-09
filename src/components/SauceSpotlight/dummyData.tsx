@@ -1,4 +1,4 @@
-import { IReview } from "../../../../redux/reviews/types";
+import { IReview } from "../../redux/reviews/types";
 
 export const dummyData: IReview[] = [
   {

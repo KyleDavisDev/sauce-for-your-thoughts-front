@@ -1,9 +1,9 @@
 import * as React from "react";
 import ReactRating from "react-rating";
 import { connect } from "react-redux";
-import { IUser } from "../../../../../../../../redux/users/types";
-import { AppState } from "../../../../../../../../redux/configureStore";
-import { IReview } from "../../../../../../../../redux/reviews/types";
+import { IUser } from "../../../../../../redux/users/types";
+import { AppState } from "../../../../../../redux/configureStore";
+import { IReview } from "../../../../../../redux/reviews/types";
 import {
   StyledAvatar,
   StyledButton,

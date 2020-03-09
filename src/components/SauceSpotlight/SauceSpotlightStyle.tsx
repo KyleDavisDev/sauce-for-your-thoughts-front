@@ -1,6 +1,6 @@
-import Article from "../../../../components/Article/Article";
-import styled from "../../../../theme/styled-components";
-import Descriptor from "../../../../components/Descriptor/Descriptor";
+import Article from "../Article/Article";
+import styled from "../../theme/styled-components";
+import Descriptor from "../Descriptor/Descriptor";
 
 export const StyledArticle = styled(Article)`
   max-width: 1200px;
