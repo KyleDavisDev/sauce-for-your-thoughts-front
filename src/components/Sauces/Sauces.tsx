@@ -15,38 +15,21 @@ import {
 } from "./SaucesStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "../../redux/configureStore";
-import { ISauce, SaucesParams } from "../../redux/sauces/types";
+import { reduxStore } from "../../redux/with-redux-store";
+import { SaucesParams } from "../../redux/sauces/types";
 import { useRouter, NextRouter } from "next/router";
 
-export interface SaucesProps {
-  location: { search: string };
-  sauces?: ISauce[];
-  getSaucesByQuery: ({ query }: { query?: string }) => Promise<null>;
-  count?: number;
-  page?: number;
-  order?: string;
-  history: { push: (location: string) => null };
-}
+export interface SaucesProps {}
 
-export interface SaucesState {
-  page: number;
-  limit: number;
-  order: string;
-  type: string;
-  minPage: number;
-  maxPage: number;
-  total: number;
-  srch?: string;
-}
+export interface SaucesState {}
 
-// Constants
+// defaults
 const DEFAULT_PAGE = 1;
 const DEFAULT_LIMIT_COUNT = 15;
 const DEFAULT_ORDER = "newest";
 const DEFAULT_TYPE = "all";
 const DEAFULT_MIN_PAGE = 1;
 const DEFAULT_MAX_PAGE = 10;
-const DEFAULT_TOTAL = 50;
 const MAX_SRCH_LENGTH = 20;
 
 const Sauces: React.SFC<SaucesProps> = props => {
@@ -56,50 +39,54 @@ const Sauces: React.SFC<SaucesProps> = props => {
   const [order, setOrder] = React.useState(DEFAULT_ORDER);
   const [type, setType] = React.useState(DEFAULT_TYPE);
   const [srch, setSrch] = React.useState(DEFAULT_TYPE);
-  const [count, setCount] = React.useState(0);
   const [queryString, setQueryString] = React.useState("");
-  const sauces = useSelector((store: AppState) => {
-    // check for query object
-    if (!store.sauces.query) {
-      return [];
-    }
-
-    // check for values
-    if (Object.keys(store.sauces.query).length === 0) {
-      return [];
-    }
-
-    // check for value of interest
-    if (!store.sauces.query[queryString]) {
-      return [];
-    }
-
-    // return value of interest
-    return store.sauces.query[queryString].sauces;
-  });
-  console.log(sauces);
   const [minPage, setMinPage] = React.useState(DEAFULT_MIN_PAGE);
   const [maxPage, setMaxPage] = React.useState(DEFAULT_MAX_PAGE);
-  const [total, setTotal] = React.useState(DEFAULT_TOTAL);
+  // const [total, setTotal] = React.useState(DEFAULT_TOTAL);
+
+  // grab sauces from redux store
+  const [sauces, total] = useSelector((store: AppState) => {
+    // Grab for convenience later
+    const { bySlug, query } = store.sauces;
+
+    // 1. Check for undefined query object, make sure query object has values,
+    // and undefined bySlug object is truthy
+    if (!query || Object.keys(query).length === 0 || !bySlug) {
+      return [[], 0];
+    }
+
+    // 2. Confirm we have slugs within our query object for the current queryString
+    if (!query[queryString]) {
+      return [[], 0];
+    }
+
+    // 3. Return the total sauce object for each sauce slug and how many sauces fit our query
+    const completeSauces = query[queryString].sauces.map(slug => {
+      return bySlug[slug];
+    });
+    const total = query[queryString].total;
+    return [completeSauces, total];
+  });
 
   // assign router
   const router = useRouter();
   // assign dispatch
-  const dispatch = useDispatch();
+  const useThunkDispatch = useDispatch<typeof reduxStore.dispatch>();
 
+  // Call everytime the path changes
   React.useEffect(() => {
-    // grab and validate params from URL
+    // 1. Grab and validate params from URL
     const tmp: SaucesParams = getParamsFromPath({
       router
     });
 
-    // construct query string
+    // 2. construct query string
     let query = `limit=${tmp.limit}&order=${tmp.order}&page=${tmp.page}&type=${tmp.type}`;
     if (tmp.srch) {
       query += `&srch=${tmp.srch}`;
     }
 
-    // update state
+    // 3. update state
     setPage(tmp.page);
     setLimit(tmp.limit);
     setOrder(tmp.order);
@@ -107,54 +94,29 @@ const Sauces: React.SFC<SaucesProps> = props => {
     setSrch(tmp.srch || "");
     setQueryString(query);
 
-    // Move screen to top
+    // 4. Move screen to top
     window.scrollTo(0, 0);
-  }, [router.pathname]);
+    window.focus();
+  }, [router.asPath]);
 
   // Call every time our queryString changes
   React.useEffect(() => {
-    // If we don't have sauces, go look for them!
-    if (sauces.length === 0) {
-      // Construct query string
+    // declare async function
+    async function getSauces() {
+      try {
+        await useThunkDispatch(getSaucesByQuery({ query: queryString }));
+      } catch (err) {}
+    }
 
-      // Call API
-      dispatch(getSaucesByQuery({ query: queryString }));
+    // Check if we already have sauces or not
+    if (sauces.length === 0) {
+      // Trigger redux action which will go look for sauces
+      getSauces();
     }
   }, [queryString]);
 
-  // public componentWillReceiveProps(props: SaucesProps) {
-  //   // Going to compare current page vs page in URL
-  //   const { page, limit, order, type, srch }: SaucesParams = getParamsFromPath({
-  //     path: props.location.search
-  //   });
-  //   const {
-  //     page: pageFromState,
-  //     limit: limitFromState,
-  //     order: orderFromState,
-  //     type: typeFromState,
-  //     srch: srchFromState
-  //   } = this.state;
-
-  //   // Update and call API if anything has changed
-  //   if (
-  //     page !== pageFromState ||
-  //     limit !== limitFromState ||
-  //     order !== orderFromState ||
-  //     type !== typeFromState ||
-  //     srch !== srchFromState
-  //   ) {
-  //     // Construct query string
-  //     let query = `limit=${limit}&order=${order}&page=${page}&type=${type}`;
-  //     if (srch) query += `&srch=${srch}`;
-  //     // Call API
-  //     this.props.getSaucesByQuery({ query }).catch(err => console.log(err));
-
-  //     this.setState({ ...this.state, page, limit, order, type, srch });
-  //   }
-
-  //   window.scrollTo(0, 0); // Move screen to top
-  // }
-
+  // assign count
+  const count = sauces.length;
   return (
     <div>
       <TopBar />
@@ -173,12 +135,12 @@ const Sauces: React.SFC<SaucesProps> = props => {
             sauces.map((sauce, ind) => {
               return (
                 <StyledCardHolder key={ind}>
-                  {/* <StyledCard
+                  <StyledCard
                     title={sauce.name}
                     imageLink={`${sauce.photo}`}
                     description={sauce.description}
                     to={`/sauce?s=${sauce.slug}`}
-                  /> */}
+                  />
                 </StyledCardHolder>
               );
             })
@@ -190,21 +152,16 @@ const Sauces: React.SFC<SaucesProps> = props => {
           )}
         </StyledCardContainer>
         {count > 0 && (
-          <Pagination total={count} page={page} limit={limit} range={3} />
+          <Pagination total={total} page={page} limit={limit} range={3} />
         )}
       </StyledArticle>
       <Footer />
     </div>
   );
 
-  function onSubmit() {
-    // Get any params from path
-    const params: SaucesParams = getParamsFromPath({
-      router
-    });
-
+  function onSubmit({ type, order, limit, srch }) {
     // Construct query string
-    let query = `/sauces?limit=${limit}&order=${order}&page=${params.page}&type=${type}`;
+    let query = `/sauces?limit=${limit}&order=${order}&page=${1}&type=${type}`;
     if (srch) query += `&srch=${srch}`;
 
     // Go to new page
@@ -212,61 +169,6 @@ const Sauces: React.SFC<SaucesProps> = props => {
   }
 };
 
-// function mapStateToProps(state: AppState, myProps: any): any {
-//   // Get path params
-//   const { limit, order, page, type, srch } = getParamsFromPath({
-//     path: myProps.location.search
-//   });
-
-//   // Construct key string
-//   let key = `limit=${limit}&order=${order}&page=${page}&type=${type}`;
-//   if (srch) key += `&srch=${srch}`;
-
-//   // Get query and sanity check
-//   const { query } = state.sauces;
-//   if (!query || Object.keys(query).length === 0) {
-//     return {};
-//   }
-
-//   // Make sure we have a query[key]
-//   if (!query[key]) {
-//     return {};
-//   }
-
-//   // Find the sauces we will render by first getting the array of slugs
-//   const sauceSlugs2Render: string[] = query ? query[key].sauces : [];
-
-//   // Make sure we have something to work with
-//   if (!sauceSlugs2Render || sauceSlugs2Render.length === 0) return {};
-
-//   // Make sure our store has content
-//   const bySlug = state.sauces.bySlug ? state.sauces.bySlug : {};
-//   if (!bySlug) return {};
-
-//   // Find actual sauces
-//   const sauces = sauceSlugs2Render
-//     ? sauceSlugs2Render.map(slug => {
-//         return bySlug[slug];
-//       })
-//     : [];
-
-//   // Make sure we found the sauces
-//   if (sauces.length === 0) return {};
-
-//   return {
-//     sauces,
-//     count: query[key].total,
-//     page: page || 1
-//   };
-// }
-
-// For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
-// const mapDispatchToProps = (dispatch: MyThunkDispatch) => ({
-//   getSaucesByQuery: ({ query }: { query: string }) =>
-//     dispatch(getSaucesByQuery({ query }))
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Sauces);
 export default Sauces;
 
 /** @description Parse the path location string into components we can comprehend
