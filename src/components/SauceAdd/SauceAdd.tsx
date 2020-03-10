@@ -1,6 +1,5 @@
 import * as React from "react";
 import shortid from "shortid";
-import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 
 import { SauceTitle } from "./components/SauceTitle/SauceTitle";
@@ -15,16 +14,16 @@ import TopBar from "../TopBar/TopBar";
 import Navigation from "../Navigation/Navigation";
 import PageTitle from "../PageTitle/PageTitle";
 import Footer from "../Footer/Footer";
+import { Overlay } from "../Overlay/Overlay";
+import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import { addSauce } from "../../redux/sauces/actions";
 import { ISauce } from "../../redux/sauces/types";
 import ArrowRight from "../../images/icons/ArrowRight";
 import { AppState } from "../../redux/configureStore";
 import Auth from "../../utils/Auth/Auth";
-import { Article, StyledFormContainer, StyledButton } from "./SauceAddStyle";
-import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import { API } from "../../utils/api/API";
 import { IErrReturn } from "../../utils/Err/Err";
-import { Overlay } from "../Overlay/Overlay";
+import { Article, StyledFormContainer, StyledButton } from "./SauceAddStyle";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
