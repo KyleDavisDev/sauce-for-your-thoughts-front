@@ -4,13 +4,13 @@ import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 import { connect } from "react-redux";
 import queryString from "query-string";
 
-import { SauceTitle } from "../SauceAdd/components/SauceTitle/SauceTitle";
-import SauceDescription from "../SauceAdd/components/SauceDescription/SauceDescription";
-import SauceIngredients from "../SauceAdd/components/SauceIngredients/SauceIngredients";
-import SauceType from "../SauceAdd/components/SauceType/SauceType";
-import SauceSpice from "../SauceAdd/components/SauceSpice/SauceSpice";
-import SauceLocation from "../SauceAdd/components/SauceLocation/SauceLocation";
-import SaucePhoto from "../SauceAdd/components/SaucePhoto/SaucePhoto";
+import { SauceTitle } from "../../../../components/SauceAdd/components/SauceTitle/SauceTitle";
+import SauceDescription from "../../../../components/SauceAdd/components/SauceDescription/SauceDescription";
+import SauceIngredients from "../../../../components/SauceAdd/components/SauceIngredients/SauceIngredients";
+import SauceType from "../../../../components/SauceAdd/components/SauceType/SauceType";
+import SauceSpice from "../../../../components/SauceAdd/components/SauceSpice/SauceSpice";
+import SauceLocation from "../../../../components/SauceAdd/components/SauceLocation/SauceLocation";
+import SaucePhoto from "../../../../components/SauceAdd/components/SaucePhoto/SaucePhoto";
 import TopBar from "../../../../components/TopBar/TopBar";
 import Navigation from "../../../../components/Navigation/Navigation";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
@@ -24,7 +24,7 @@ import {
   Article,
   StyledFormContainer,
   StyledButton
-} from "../SauceAdd/SauceAddStyle";
+} from "../../../../components/SauceAdd/SauceAddStyle";
 import {
   FlashMessageProps,
   FlashMessage
