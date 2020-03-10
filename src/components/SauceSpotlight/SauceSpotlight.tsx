@@ -1,11 +1,18 @@
 import * as React from "react";
-import { connect, useSelector, useDispatch } from "react-redux";
-import queryString from "query-string";
+import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
-import { AppState, MyThunkDispatch } from "../../redux/configureStore";
+import { AppState } from "../../redux/configureStore";
+import { reduxStore } from "../../redux/with-redux-store";
+import { IReview } from "../../redux/reviews/types";
+import { getSauceBySlug } from "../../redux/sauces/actions";
 import TopBar from "../TopBar/TopBar";
 import Navigation from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
+import { Link } from "../Link/Link";
+import { Button } from "../Button/Button";
+import List from "../List/List";
+import { FlashMessage } from "../FlashMessage/FlashMessage";
 import SauceHero from "./components/SauceHero/SauceHero";
 import SauceReviews from "./components/SauceReviews/SauceReviews";
 import {
@@ -14,16 +21,6 @@ import {
   StyledRightContainer,
   StyledDescriptor
 } from "./SauceSpotlightStyle";
-import { ISauce } from "../../redux/sauces/types";
-import { getSauceBySlug } from "../../redux/sauces/actions";
-import { IReview } from "../../redux/reviews/types";
-import { Link } from "../Link/Link";
-import { Button } from "../Button/Button";
-import List from "../List/List";
-import { FlashMessage } from "../FlashMessage/FlashMessage";
-import { useRouter } from "next/router";
-
-import { reduxStore } from "../../redux/with-redux-store";
 
 export interface SauceSpotlightProps {}
 
@@ -35,45 +32,61 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
   const [slug, setSlug] = React.useState("");
 
   // look for page-specific info
-  const { sauce, saucesWithNewestReviews, reviews } = useSelector(
-    (store: AppState) => {
-      // 1. Make sure we have sauces to lookup
-      const bySlug = store.sauces.bySlug;
-      if (!bySlug)
-        return { sauce: null, saucesWithNewestReviews: null, reviews: null };
+  const {
+    sauce,
+    saucesWithNewestReviews,
+    reviews,
+    doesUserHaveReviewToEdit = false
+  } = useSelector((store: AppState) => {
+    // 1. Make sure we have sauces to lookup
+    const bySlug = store.sauces.bySlug;
+    if (!bySlug)
+      return { sauce: null, saucesWithNewestReviews: null, reviews: null };
 
-      // 2. Grab our sauce and make sure it is full, if not assign null
-      const sauce = bySlug[slug] && bySlug[slug]._full ? bySlug[slug] : null;
+    // 2. Grab our sauce and make sure it is full, if not assign null
+    const sauce = bySlug[slug] && bySlug[slug]._full ? bySlug[slug] : null;
 
-      // 3. Grab sauces that have had a review added
-      const { saucesWithNewestReviews } = store.sauces;
+    // 3. Grab sauces that have had a review added
+    const { saucesWithNewestReviews } = store.sauces;
 
-      // 4. Grab the reviews for our sauce
-      const byReviewID = store.reviews.byReviewID || {};
-      const revs = sauce && sauce.reviews ? sauce.reviews : [];
-      const areReviewsGrabbable =
-        revs &&
-        revs.length > 0 &&
-        byReviewID &&
-        Object.keys(byReviewID).length > 0;
-      if (!areReviewsGrabbable) {
-        return { sauce, saucesWithNewestReviews, reviews: null };
-      }
-      // Push all reviews in reviews array
-      const reviews: IReview[] = revs.map(hashID => {
-        // push specific review into array
-        return byReviewID[hashID];
-      });
-
-      return { sauce, saucesWithNewestReviews, reviews };
+    // 4. Grab the reviews for our sauce
+    const byReviewID = store.reviews.byReviewID || {};
+    const revs = sauce && sauce.reviews ? sauce.reviews : [];
+    const areReviewsGrabbable =
+      revs &&
+      revs.length > 0 &&
+      byReviewID &&
+      Object.keys(byReviewID).length > 0;
+    if (!areReviewsGrabbable) {
+      return { sauce, saucesWithNewestReviews, reviews: null };
     }
-  );
+    // Push all reviews in reviews array
+    const reviews: IReview[] = revs.map(hashID => {
+      // push specific review into array
+      return byReviewID[hashID];
+    });
+
+    // 5. Check if user has a review to edit
+    const doesUserHaveReviewToEdit = store.users.self.displayName
+      ? reviews.find(rev => {
+          return rev.author === store.users.self.displayName;
+        })
+      : false;
+
+    return {
+      sauce,
+      saucesWithNewestReviews,
+      reviews,
+      doesUserHaveReviewToEdit
+    };
+  });
 
   // on mount
   React.useEffect(() => {
     window.scrollTo(0, 0); // Move screen to top
   }, []);
 
+  // everytime url changes
   React.useEffect(() => {
     // update slug
     const { s } = router.query;
@@ -94,15 +107,7 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
     if (!sauce) {
       findTheSauce();
     }
-  }, [router.asPath]);
-
-  // const {
-  //   sauce,
-  //   reviews,
-  //   saucesWithNewestReviews,
-  //   displayEditLink
-  // } = this.props;
-  const displayEditLink = false;
+  }, [router.asPath, sauce]);
 
   return (
     <div>
@@ -137,7 +142,7 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
               <SauceReviews
                 slug={sauce && sauce.slug ? sauce.slug : undefined}
                 reviews={reviews}
-                displayEditLink={displayEditLink}
+                displayEditLink={doesUserHaveReviewToEdit}
               />
             </StyledLeftContainer>
 
@@ -174,22 +179,23 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
   // Return appropriate "Edit" or "Add" review button. Or loading text.
   function showAppropriateReviewButton(slug: string): JSX.Element {
     // const { sauce, displayEditLink } = this.props;
-    // // Make sure we have sauce
-    // if (sauce) {
-    //   // Determine which button to return
-    //   if (displayEditLink) {
-    //     return (
-    //       <Link to={`/review/edit?s=${sauce.slug}`}>
-    //         <Button displayType="solid">Edit Your Review</Button>
-    //       </Link>
-    //     );
-    //   }
+    // Make sure we have sauce
+    if (sauce) {
+      // Determine which button to return
+      if (doesUserHaveReviewToEdit) {
+        return (
+          <Link to={`/review/edit?s=${sauce.slug}`}>
+            <Button displayType="solid">Edit Your Review</Button>
+          </Link>
+        );
+      }
 
-    return (
-      <Link to={`/review/add?s=${slug}`}>
-        <Button displayType="solid">Add Review</Button>
-      </Link>
-    );
+      return (
+        <Link to={`/review/add?s=${slug}`}>
+          <Button displayType="solid">Add Review</Button>
+        </Link>
+      );
+    }
   }
 };
 
