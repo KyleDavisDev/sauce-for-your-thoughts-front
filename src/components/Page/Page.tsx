@@ -14,34 +14,38 @@ interface IPageProps {
 }
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: FuturaMedium;
+    src: url('${FuturaMedium}') format('truetype');
+    font-weight: normal;
+      font-style: normal;
+  }
+  @font-face {
+    font-family: AvenirNextReg;
+    src: url('${AvenirNextReg}') format('truetype');
+    font-weight: normal;
+      font-style: normal;
+  }
 
- @font-face {
-  font-family: FuturaMedium;
-  src: url('${FuturaMedium}') format('truetype');
-  font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-  font-family: AvenirNextReg;
-  src: url('${AvenirNextReg}') format('truetype');
-  font-weight: normal;
-    font-style: normal;
-}
+  body {
+    margin: 0px;
+  }
 
-a {
-  font-family: AvenirNextReg !important;
-}
+  a {
+    font-family: AvenirNextReg !important;
+  }
 
-html {
-  background-color: #fbfbfb;
-  font-family: AvenirNextReg;
-  font-size: 16px;
-}
+  html {
+    background-color: #fbfbfb;
+    font-family: AvenirNextReg;
+    font-size: 16px;
+  }
 
-h1,h2,h3,h4,h5,h6 {
-  margin: 0px;
-  font-family: FuturaMedium;
-}`;
+  h1,h2,h3,h4,h5,h6 {
+    margin: 0px;
+    font-family: FuturaMedium;
+  }
+`;
 
 const Page: React.FunctionComponent<IPageProps> = props => {
   return (
