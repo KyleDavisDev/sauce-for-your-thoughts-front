@@ -20,7 +20,7 @@ const TopBar: React.SFC = () => {
   const isLoggedIn = !!self.token;
 
   return (
-    <div>
+    <header>
       {isLoggedIn ? (
         <StyledDiv>
           <StyledDropDown>
@@ -53,7 +53,7 @@ const TopBar: React.SFC = () => {
           </StyledLink>
         </StyledDiv>
       )}
-    </div>
+    </header>
   );
 };
 

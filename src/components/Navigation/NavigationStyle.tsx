@@ -2,7 +2,7 @@ import styled from "../../theme/styled-components";
 import { Button } from "../Button/Button";
 import { Link } from "../Link/Link";
 
-export const Header = styled.header`
+export const StyledNav = styled.nav`
   background-color: ${x => x.theme.primaryThemeColor};
   padding: 0 0 0 0;
   display: flex;

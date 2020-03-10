@@ -3,7 +3,12 @@ import Link from "next/link";
 
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import Bar from "../../images/icons/Bar";
-import { Header, StyledButton, StyledUl, StyledLink } from "./NavigationStyle";
+import {
+  StyledNav,
+  StyledButton,
+  StyledUl,
+  StyledLink
+} from "./NavigationStyle";
 
 export interface NavigationState {
   isOpen: boolean;
@@ -18,7 +23,7 @@ class Navigation extends React.PureComponent<{}, NavigationState> {
 
   public render() {
     return (
-      <Header>
+      <StyledNav>
         <Link href="/">
           <a>
             <LogoSFYT />
@@ -46,7 +51,7 @@ class Navigation extends React.PureComponent<{}, NavigationState> {
             <span>icon here</span>
           </li> */}
         </StyledUl>
-      </Header>
+      </StyledNav>
     );
   }
 

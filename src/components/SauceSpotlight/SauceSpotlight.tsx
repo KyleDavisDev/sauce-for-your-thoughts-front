@@ -110,7 +110,7 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
   }, [router.asPath, sauce]);
 
   return (
-    <div>
+    <>
       <TopBar />
       <Navigation />
 
@@ -173,7 +173,7 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
         )}
       </StyledArticle>
       <Footer />
-    </div>
+    </>
   );
 
   // Return appropriate "Edit" or "Add" review button. Or loading text.
