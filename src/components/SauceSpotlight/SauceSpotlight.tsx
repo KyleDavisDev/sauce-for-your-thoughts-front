@@ -178,24 +178,20 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
 
   // Return appropriate "Edit" or "Add" review button. Or loading text.
   function showAppropriateReviewButton(slug: string): JSX.Element {
-    // const { sauce, displayEditLink } = this.props;
-    // Make sure we have sauce
-    if (sauce) {
-      // Determine which button to return
-      if (doesUserHaveReviewToEdit) {
-        return (
-          <Link to={`/review/edit?s=${sauce.slug}`}>
-            <Button displayType="solid">Edit Your Review</Button>
-          </Link>
-        );
-      }
-
+    // Determine which button to return
+    if (doesUserHaveReviewToEdit) {
       return (
-        <Link to={`/review/add?s=${slug}`}>
-          <Button displayType="solid">Add Review</Button>
+        <Link to={`/review/edit?s=${slug}`}>
+          <Button displayType="solid">Edit Your Review</Button>
         </Link>
       );
     }
+
+    return (
+      <Link to={`/review/add?s=${slug}`}>
+        <Button displayType="solid">Add Review</Button>
+      </Link>
+    );
   }
 };
 
