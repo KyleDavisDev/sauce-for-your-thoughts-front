@@ -45,6 +45,19 @@ const GlobalStyle = createGlobalStyle`
     margin: 0px;
     font-family: FuturaMedium;
   }
+
+  #__next {
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    min-height: 100vh;
+
+    footer {
+      margin-top: auto;
+    }
+  }
+
+
 `;
 
 const Page: React.FunctionComponent<IPageProps> = props => {
