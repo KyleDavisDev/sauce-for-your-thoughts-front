@@ -5,6 +5,7 @@ import Page from "../src/components/Page/Page";
 import withReduxStore from "../src/redux/with-redux-store";
 import Auth from "../src/utils/Auth/Auth";
 import { getPersonFromStorage } from "../src/redux/users/actions";
+import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
 
 class MyApp extends App<any, any> {
   constructor(props) {
