@@ -33,7 +33,7 @@ export interface IndexProps {
 class Index extends React.PureComponent<IndexProps, {}> {
   public render() {
     return (
-      <div>
+      <>
         <TopBar />
         <Navigation />
         <StyledLandingImage history={this.props.history} />
@@ -43,7 +43,7 @@ class Index extends React.PureComponent<IndexProps, {}> {
           {/* <FeaturedUsers /> */}
         </StyledArticle>
         <Footer />
-      </div>
+      </>
     );
   }
 }
