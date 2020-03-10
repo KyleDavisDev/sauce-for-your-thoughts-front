@@ -6,8 +6,8 @@ import {
   StyledRightSide,
   StyledDiv2
 } from "../../SauceAddStyle";
-import Label from "../../../../../../components/Label/Label";
-import { CheckBox } from "../../../../../../components/CheckBox/CheckBox";
+import Label from "../../../Label/Label";
+import { CheckBox } from "../../../CheckBox/CheckBox";
 
 export interface ISauceTypeProps {
   typesOfSauces: {

@@ -9,7 +9,7 @@ import {
   StyledDropdownContainer,
   StyledTextInput
 } from "../../SauceAddStyle";
-import Label from "../../../../../../components/Label/Label";
+import Label from "../../../Label/Label";
 
 export interface ISauceLocationProps {
   onTextChange: (event: React.ChangeEvent<HTMLInputElement>) => void;

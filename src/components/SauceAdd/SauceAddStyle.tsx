@@ -1,8 +1,8 @@
-import Descriptor from "../../../../components/Descriptor/Descriptor";
-import { TextInput } from "../../../../components/TextInput/TextInput";
-import TextArea from "../../../../components/TextArea/TextArea";
-import styled from "../../../../theme/styled-components";
-import { Button } from "../../../../components/Button/Button";
+import Descriptor from "../Descriptor/Descriptor";
+import { TextInput } from "../TextInput/TextInput";
+import TextArea from "../TextArea/TextArea";
+import styled from "../../theme/styled-components";
+import { Button } from "../Button/Button";
 
 export const Article = styled.article`
   max-width: 900px;

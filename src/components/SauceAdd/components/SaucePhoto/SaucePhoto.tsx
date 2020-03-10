@@ -1,7 +1,7 @@
 import * as React from "react";
 import DropNCrop from "@synapsestudios/react-drop-n-crop";
 
-import { Button } from "../../../../../../components/Button/Button";
+import { Button } from "../../../Button/Button";
 import {
   StyledRow,
   StyledDescriptor,

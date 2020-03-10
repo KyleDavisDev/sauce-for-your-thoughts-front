@@ -1,8 +1,8 @@
 import * as React from "react";
 import shortid from "shortid";
 
-import Label from "../../../../../../components/Label/Label";
-import { RadioButton } from "../../../../../../components/RadioButton/RadioButton";
+import Label from "../../../Label/Label";
+import { RadioButton } from "../../../RadioButton/RadioButton";
 import {
   StyledRow,
   StyledDescriptor,

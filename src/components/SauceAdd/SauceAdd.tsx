@@ -11,23 +11,20 @@ import SauceSpice from "./components/SauceSpice/SauceSpice";
 import SauceLocation from "./components/SauceLocation/SauceLocation";
 import SaucePhoto from "./components/SaucePhoto/SaucePhoto";
 import SauceReview from "./components/SauceReview/SauceReview";
-import TopBar from "../../../../components/TopBar/TopBar";
-import Navigation from "../../../../components/Navigation/Navigation";
-import PageTitle from "../../../../components/PageTitle/PageTitle";
-import Footer from "../../../../components/Footer/Footer";
-import { addSauce } from "../../../../redux/sauces/actions";
-import { ISauce } from "../../../../redux/sauces/types";
-import ArrowRight from "../../../../images/icons/ArrowRight";
-import { AppState } from "../../../../redux/configureStore";
-import Auth from "../../../../utils/Auth/Auth";
+import TopBar from "../TopBar/TopBar";
+import Navigation from "../Navigation/Navigation";
+import PageTitle from "../PageTitle/PageTitle";
+import Footer from "../Footer/Footer";
+import { addSauce } from "../../redux/sauces/actions";
+import { ISauce } from "../../redux/sauces/types";
+import ArrowRight from "../../images/icons/ArrowRight";
+import { AppState } from "../../redux/configureStore";
+import Auth from "../../utils/Auth/Auth";
 import { Article, StyledFormContainer, StyledButton } from "./SauceAddStyle";
-import {
-  FlashMessageProps,
-  FlashMessage
-} from "../../../../components/FlashMessage/FlashMessage";
-import { API } from "../../../../utils/api/API";
-import { IErrReturn } from "../../../../utils/Err/Err";
-import { Overlay } from "../../../../components/Overlay/Overlay";
+import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
+import { API } from "../../utils/api/API";
+import { IErrReturn } from "../../utils/Err/Err";
+import { Overlay } from "../Overlay/Overlay";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
@@ -461,7 +458,4 @@ const mapDispatchToProps = {
   addSauce
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SauceAdd);
+export default connect(mapStateToProps, mapDispatchToProps)(SauceAdd);
