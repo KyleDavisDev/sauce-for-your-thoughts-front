@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 
 import SectionTitle from "../SectionTitle/SectionTitle";
-import { AppState } from "../../redux/configureStore";
-import { ISauce } from "../../redux/sauces/types";
-import { getSaucesByNewest } from "../../redux/sauces/actions";
+
+import { useNewestSauces } from "../../utils/hooks/useNewestSauces";
 import {
   StyledDiv,
   StyledCard,
@@ -18,7 +16,7 @@ export interface NewestSaucesProps {
 
 export interface NewestSaucesState {}
 
-const NewestSauces: React.SFC<NewestSaucesProps> = props => {
+const NewestSauces: React.FunctionComponent<NewestSaucesProps> = props => {
   // find our suaces
   const [newestSauces, loading] = useNewestSauces();
 
@@ -51,66 +49,5 @@ const NewestSauces: React.SFC<NewestSaucesProps> = props => {
     </StyledDiv>
   );
 };
-
-export function useNewestSauces(): any {
-  // get sauces from redux store
-  const { sauces } = useSelector((state: AppState) => state);
-  // assign results
-  const [results, setResults] = useState<ISauce[]>([]);
-  // assign loading
-  const [loading, setLoading] = useState(false);
-
-  // assign dispatch
-  const dispatch = useDispatch();
-
-  // run once
-  useEffect(() => {
-    // check if we need to dispatch redux action or not
-    if (sauces.newest.length === 0 && !loading) {
-      // emmit redux action to populate sauces.featured
-      dispatch(getSaucesByNewest());
-
-      // update loading
-      setLoading(true);
-    }
-  }, []);
-
-  // run when sauces.featured changes
-  useEffect(() => {
-    async function getData() {
-      try {
-        // Find the sauces we will render by first getting the array of slugs
-        const sauceSlugs2Render = sauces.featured;
-
-        // Make sure our store has content
-        const bySlug = sauces.bySlug ? sauces.bySlug : {};
-        if (!bySlug) return [null, loading];
-
-        // Find actual sauces
-        const featured = sauceSlugs2Render
-          ? sauceSlugs2Render.map(slug => {
-              return bySlug[slug];
-            })
-          : [];
-
-        // Make sure we found the sauces
-        if (featured.length === 0) return [null, loading];
-
-        setResults(featured);
-      } catch {
-      } finally {
-        // finish loading
-        setLoading(false);
-      }
-      return [null, loading];
-    }
-
-    if (results.length === 0 && sauces.featured.length > 0) {
-      getData();
-    }
-  }, [sauces.featured]);
-
-  return [results, loading];
-}
 
 export default NewestSauces;
