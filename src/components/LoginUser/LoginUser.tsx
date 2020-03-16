@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import validator from "validator";
-import queryString from "query-string";
 
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import PageTitle from "../PageTitle/PageTitle";
 import { TextInput } from "../TextInput/TextInput";
 import { Link } from "../Link/Link";
-import { AppState } from "../../redux/configureStore";
-import { ILoginUser } from "../../redux/users/types";
 import { login } from "../../redux/users/actions";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import {
@@ -21,6 +18,7 @@ import {
   StyledText,
   StyledFooterDivs
 } from "./LoginUserStyle";
+import { ILoginUser } from "../../redux/users/types";
 
 export interface LoginProps {}
 
@@ -70,8 +68,7 @@ const LoginUser: React.SFC<LoginProps> = () => {
     };
     try {
       // dispatch action which calls API to login user
-      const tmp = dispatch(login({ credentials }));
-      console.log(tmp);
+      dispatch(login({ credentials }));
 
       // Redirect user to where they were or to sauces page
       if (router.query.return && !Array.isArray(router.query.return)) {
