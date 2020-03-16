@@ -7,7 +7,7 @@ import {
   StyledButton
 } from "./FilterBarStyle";
 import { connect } from "react-redux";
-import { MyThunkDispatch, AppState } from "../../../../redux/configureStore";
+import { MyThunkDispatch, AppState } from "../../../redux/configureStore";
 
 export interface FilterBarProps {
   onSubmit: ({

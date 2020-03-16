@@ -1,11 +1,11 @@
 import * as React from "react";
 
-import FilterBar from "./components/FilterBar/FilterBar";
-import Footer from "../../components/Footer/Footer";
-import Navigation from "../../components/Navigation/Navigation";
-import PageTitle from "../../components/PageTitle/PageTitle";
-import Pagination from "./components/Pagination/Pagination";
-import TopBar from "../../components/TopBar/TopBar";
+import FilterBar from "./FilterBar/FilterBar";
+import Footer from "../Footer/Footer";
+import Navigation from "../Navigation/Navigation";
+import PageTitle from "../PageTitle/PageTitle";
+import Pagination from "./Pagination/Pagination";
+import TopBar from "../TopBar/TopBar";
 import {
   StyledArticle,
   StyledCardContainer,

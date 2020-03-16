@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import DropDown from "../../../../components/DropDown/DropDown";
-import { TextInput } from "../../../../components/TextInput/TextInput";
-import { Button } from "../../../../components/Button/Button";
+import DropDown from "../../DropDown/DropDown";
+import { TextInput } from "../../TextInput/TextInput";
+import { Button } from "../../Button/Button";
 
 export const StyledFormContainer = styled.div`
   border: ${props => props.theme.border};

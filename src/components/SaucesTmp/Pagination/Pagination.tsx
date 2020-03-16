@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Link } from "../../../Link/Link";
-import { Button } from "../../../Button/Button";
-import styled from "../../../../theme/styled-components";
+import { Link } from "../../Link/Link";
+import { Button } from "../../Button/Button";
+import styled from "../../../theme/styled-components";
 
 const StyledDiv = styled.div`
   display: flex;
