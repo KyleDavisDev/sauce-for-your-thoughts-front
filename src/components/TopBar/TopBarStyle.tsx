@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "../Link/Link";
-import { Dropdown, Trigger, Body } from "./components/Dropdown/Dropdown";
+import { Dropdown } from "./components/Dropdown/Dropdown";
 
 export const StyledDiv = styled.div`
   background-color: ${props => props.theme.white};
