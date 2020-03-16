@@ -12,7 +12,10 @@
     "semicolon": false,
     "max-line-length": false,
     "no-empty": false,
-    "curly": [true, "ignore-same-line"]
+    "curly": [true, "ignore-same-line"],
+    "variable-name": {
+      "options": ["allow-pascal-case", "allow-leading-underscore"]
+    }
   },
   "rulesDirectory": []
 }
