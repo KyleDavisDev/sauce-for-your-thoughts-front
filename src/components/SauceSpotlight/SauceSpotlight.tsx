@@ -40,44 +40,48 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
   } = useSelector((store: AppState) => {
     // 1. Make sure we have sauces to lookup
     const bySlug = store.sauces.bySlug;
-    if (!bySlug)
+    if (!bySlug) {
       return { sauce: null, saucesWithNewestReviews: null, reviews: null };
-
+    }
     // 2. Grab our sauce and make sure it is full, if not assign null
-    const sauce = bySlug[slug] && bySlug[slug]._full ? bySlug[slug] : null;
+    const _sauce = bySlug[slug] && bySlug[slug]._full ? bySlug[slug] : null;
 
     // 3. Grab sauces that have had a review added
-    const { saucesWithNewestReviews } = store.sauces;
+    const _saucesWithNewestReviews = store.sauces.saucesWithNewestReviews;
 
     // 4. Grab the reviews for our sauce
     const byReviewID = store.reviews.byReviewID || {};
-    const revs = sauce && sauce.reviews ? sauce.reviews : [];
+    const revs = _sauce && _sauce.reviews ? _sauce.reviews : [];
     const areReviewsGrabbable =
       revs &&
       revs.length > 0 &&
       byReviewID &&
       Object.keys(byReviewID).length > 0;
     if (!areReviewsGrabbable) {
-      return { sauce, saucesWithNewestReviews, reviews: null };
+      return {
+        sauce: _sauce,
+        saucesWithNewestReviews: _saucesWithNewestReviews,
+        reviews: null
+      };
     }
     // Push all reviews in reviews array
-    const reviews: IReview[] = revs.map(hashID => {
+    const _reviews: IReview[] = revs.map(hashID => {
       // push specific review into array
       return byReviewID[hashID];
     });
 
     // 5. Check if user has a review to edit
-    const doesUserHaveReviewToEdit = store.users.self.displayName
-      ? reviews.find(rev => {
+    const _doesUserHaveReviewToEdit = store.users.self.displayName
+      ? _reviews.some(rev => {
           return rev.author === store.users.self.displayName;
         })
       : false;
 
     return {
-      sauce,
-      saucesWithNewestReviews,
-      reviews,
-      doesUserHaveReviewToEdit
+      sauce: _sauce,
+      saucesWithNewestReviews: _saucesWithNewestReviews,
+      reviews: _reviews,
+      doesUserHaveReviewToEdit: _doesUserHaveReviewToEdit
     };
   });
 
@@ -177,18 +181,18 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
   );
 
   // Return appropriate "Edit" or "Add" review button. Or loading text.
-  function showAppropriateReviewButton(slug: string): JSX.Element {
+  function showAppropriateReviewButton(editSlug: string): JSX.Element {
     // Determine which button to return
     if (doesUserHaveReviewToEdit) {
       return (
-        <Link to={`/review/edit?s=${slug}`}>
+        <Link to={`/review/edit?s=${editSlug}`}>
           <Button displayType="solid">Edit Your Review</Button>
         </Link>
       );
     }
 
     return (
-      <Link to={`/review/add?s=${slug}`}>
+      <Link to={`/review/add?s=${editSlug}`}>
         <Button displayType="solid">Add Review</Button>
       </Link>
     );
