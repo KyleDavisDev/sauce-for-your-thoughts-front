@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { configureStore, AppState } from "./configureStore";
 
 const isServer = typeof window === "undefined";
@@ -23,10 +23,8 @@ export default App => {
     public static async getInitialProps(appContext) {
       // Get or Create the store with `undefined` as initialState
       // This allows you to set a custom default initialState
-      const reduxStore = getOrCreateStore();
-
       // Provide the store to getInitialProps of pages
-      appContext.ctx.reduxStore = reduxStore;
+      appContext.ctx.reduxStore = getOrCreateStore();
 
       let appProps = {};
       if (typeof App.getInitialProps === "function") {

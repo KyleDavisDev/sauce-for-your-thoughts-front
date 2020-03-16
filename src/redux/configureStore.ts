@@ -25,8 +25,8 @@ export interface ISaucesState {
   query?: IQuery;
   types: string[];
   orders: string[];
-  saucesWithNewestReviews: { name: string; slug: string }[];
-  newest: [];
+  saucesWithNewestReviews: Array<{ name: string; slug: string }>;
+  newest: string[];
   featured: string[];
 }
 
