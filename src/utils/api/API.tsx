@@ -11,7 +11,7 @@ import { IReview } from "../../redux/reviews/types";
 import Err, { IErrReturn } from "../Err/Err";
 
 export const host =
-  process.env.API_ENV !== "prod"
+  process.env.API_ENV === "prod"
     ? "https://sauceforyourthoughts.com"
     : "http://localhost:7777";
 
