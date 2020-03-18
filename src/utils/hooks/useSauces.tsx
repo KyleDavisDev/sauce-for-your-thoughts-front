@@ -78,7 +78,7 @@ export default function useSauces({
     }
 
     // Check if we already have sauces or not
-    if (sauces.length === 0) {
+    if (sauces.length === 0 && queryString) {
       // Trigger redux action which will go look for sauces
       getSauces();
     }
