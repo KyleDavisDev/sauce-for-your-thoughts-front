@@ -1,5 +1,5 @@
 import * as React from "react";
-import DropNCrop from "@synapsestudios/react-drop-n-crop";
+import { DropNCrop } from "@synapsestudios/react-drop-n-crop";
 
 import { Button } from "../../../Button/Button";
 import {
@@ -24,10 +24,7 @@ export interface ISaucePhotoProps {
   photo?: string;
 }
 
-export default class SaucePhoto extends React.PureComponent<
-  ISaucePhotoProps,
-  any
-> {
+export default class SaucePhoto extends React.Component<ISaucePhotoProps, any> {
   public render() {
     return (
       <StyledRow>
