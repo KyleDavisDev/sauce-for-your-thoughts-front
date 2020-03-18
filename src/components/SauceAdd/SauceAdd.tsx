@@ -1,14 +1,12 @@
 import * as React from "react";
 import shortid from "shortid";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { SauceTitle } from "./components/SauceTitle/SauceTitle";
 import SauceDescription from "./components/SauceDescription/SauceDescription";
 import SauceIngredients from "./components/SauceIngredients/SauceIngredients";
 import SauceType from "./components/SauceType/SauceType";
 import SauceSpice from "./components/SauceSpice/SauceSpice";
-import SauceLocation from "./components/SauceLocation/SauceLocation";
-import SaucePhoto from "./components/SaucePhoto/SaucePhoto";
 import SauceReview from "./components/SauceReview/SauceReview";
 import TopBar from "../TopBar/TopBar";
 import Navigation from "../Navigation/Navigation";
@@ -16,14 +14,13 @@ import PageTitle from "../PageTitle/PageTitle";
 import Footer from "../Footer/Footer";
 import { Overlay } from "../Overlay/Overlay";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
-import { addSauce } from "../../redux/sauces/actions";
 import { ISauce } from "../../redux/sauces/types";
 import ArrowRight from "../../images/icons/ArrowRight";
 import { AppState } from "../../redux/configureStore";
-import Auth from "../../utils/Auth/Auth";
 import { API } from "../../utils/api/API";
 import { IErrReturn } from "../../utils/Err/Err";
 import { Article, StyledFormContainer, StyledButton } from "./SauceAddStyle";
+import { useRouter } from "next/router";
 
 export interface SauceAddProps {
   addSauce?: ({ formData }: { formData: FormData }) => Promise<any>;
@@ -54,21 +51,37 @@ export interface SauceAddState extends ISauce {
   enabled: boolean;
 }
 
-class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
-  constructor(props: SauceAddProps) {
-    super(props);
+const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
+  // set state
+  const [name, setName] = React.useState("");
+  const [maker, setMaker] = React.useState("");
+  const [description, setDescription] = React.useState("");
+  const [ingredients, setIngredients] = React.useState("");
+  const [] = React.useState("");
+  const [shu, setShu] = React.useState("");
+  const [country, setCountry] = React.useState("United States");
+  const [state, setState] = React.useState();
+  const [city, setCity] = React.useState();
+  const [enabled, setEnabled] = React.useState(false);
 
-    // Turn array of strings into object with key as array val
-    const types: {
+  // get info from redux
+  const { author, typesOfSauces, token } = useSelector((store: AppState) => {
+    // 1. Find author
+    const _author = store.users.self.displayName;
+
+    // 2. Find token
+    const _token = store.users.self.token;
+
+    // 3. Find types of suaces
+    const _typesOfSauces: {
       [key: string]: { value: string; checked: boolean; key: string };
     } = {};
-
-    if (this.props.types) {
-      this.props.types.forEach(type => {
+    if (store.sauces.types) {
+      store.sauces.types.forEach(type => {
         if (type === "All") {
           // continue;
         } else {
-          types[type] = {
+          _typesOfSauces[type] = {
             value: type,
             checked: false,
             key: shortid.generate()
@@ -77,175 +90,142 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
       });
     }
 
-    this.state = {
-      _id: 0,
-      name: "",
-      ingredients: "",
-      maker: "",
-      description: "",
-      photo: "",
-      typesOfSauces: types,
-      author: (this.props.user && this.props.user.name) || "",
-      created: new Date(),
-      shu: "",
-      country: "United States",
-      state: "",
-      city: "",
-      enabled: true,
+    return { author: _author, token: _token, typesOfSauces: _typesOfSauces };
+  });
 
-      cropperOptions: { zoomOnWheel: false, aspectRatio: 2 / 3, movable: true },
-      DropNCropValue: {},
-      isImageLocked: false,
-      addReview: true,
-      flashMessage: {
-        isVisible: false
-      }
-    };
-  }
+  const [types, setTypes] = React.useState(typesOfSauces);
+  const [] = React.useState({});
+  const [] = React.useState(false);
+  const [addReview, setAddReview] = React.useState(true);
+  const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
+    isVisible: false
+  });
+  // created: new Date(),
 
-  public componentWillMount() {
-    const { user, history } = this.props;
+  // assign router
+  const router = useRouter();
 
-    // If no history, stop
-    if (!history) {
-      return (window.location.href = "/account/login?return=/sauce/add");
-    }
-    // If no user, stop
-    if (!user) return history.replace("/account/login?return=/sauce/add");
+  React.useEffect(() => {
     // If we don't have an author, stop
-    if (!user.name) history.replace("/account/login?return=/sauce/add");
+    if (!author) {
+      router.push("/account/login?return=/sauce/add");
+      return;
+    }
     // If no token, stop
-    if (!user.token) history.replace("/account/login?return=/sauce/add");
+    if (!token) {
+      router.push("/account/login?return=/sauce/add");
+      return;
+    }
 
     // Construct data obj
-    const data = { user: { token: user.token } };
+    const data = { user: { token } };
 
     // Find out if user is eligible to submit a review for this sauce or not
     API.sauces
       .canUserSubmit({ data })
-      .then(res => {
-        this.setState(prevState => {
-          return { ...prevState, enabled: true };
-        });
+      .then(() => {
+        setEnabled(true);
       })
       .catch((err: IErrReturn) => {
         // Disable form components and show flashmessage
-        this.setState(prevState => {
-          return {
-            ...prevState,
-            enabled: false,
-            flashMessage: {
-              isVisible: true,
-              text: err.response.data.msg
-            }
-          };
+        setEnabled(false);
+        setFlashMessage({
+          isVisible: true,
+          text: err.response.data.msg
         });
       });
-  }
+  }, []);
 
-  public render() {
-    return (
-      <div>
-        <TopBar />
-        <Navigation />
-        <Article>
-          <PageTitle>Add Sauce</PageTitle>
-          <StyledFormContainer>
-            <form onSubmit={this.onSubmit} style={{ maxWidth: "100%" }}>
-              {this.state.flashMessage.isVisible && (
-                <FlashMessage type={this.state.flashMessage.type} isVisible>
-                  {this.state.flashMessage.text}
-                </FlashMessage>
-              )}
-              <Overlay enabled={this.state.enabled}>
-                {/* Title */}
-                <SauceTitle
-                  onTextChange={this.onTextChange}
-                  name={this.state.name}
-                  maker={this.state.maker}
-                />
+  return (
+    <div>
+      <TopBar />
+      <Navigation />
+      <Article>
+        <PageTitle>Add Sauce</PageTitle>
+        <StyledFormContainer>
+          <form onSubmit={e => onSubmit()} style={{ maxWidth: "100%" }}>
+            {flashMessage.isVisible && (
+              <FlashMessage type={flashMessage.type} isVisible>
+                {flashMessage.text}
+              </FlashMessage>
+            )}
+            <Overlay enabled={enabled}>
+              {/* Title */}
+              <SauceTitle
+                onTextChange={e => {
+                  if (e.target.name === "name") {
+                    setName(e.target.value);
+                  } else {
+                    setMaker(e.target.value);
+                  }
+                }}
+                name={name}
+                maker={maker}
+              />
 
-                {/* Official Description */}
-                <SauceDescription
-                  onTextChange={this.onTextChange}
-                  description={this.state.description}
-                />
+              {/* Official Description */}
+              <SauceDescription
+                onTextChange={e => setDescription(e.target.value)}
+                description={description}
+              />
 
-                {/* Ingredients */}
-                <SauceIngredients
-                  onTextChange={this.onTextChange}
-                  ingredients={this.state.ingredients}
-                />
+              {/* Ingredients */}
+              <SauceIngredients
+                onTextChange={e => setIngredients(e.target.value)}
+                ingredients={ingredients}
+              />
 
-                {/* Type */}
-                <SauceType
-                  typesOfSauces={this.state.typesOfSauces}
-                  onCheckBoxClick={this.onCheckBoxClick}
-                />
+              {/* Type */}
+              <SauceType
+                typesOfSauces={types}
+                onCheckBoxClick={e => onCheckBoxClick(e)}
+              />
 
-                {/* Spice */}
-                <SauceSpice
-                  shu={this.state.shu}
-                  onTextChange={this.onTextChange}
-                />
+              {/* Spice */}
+              <SauceSpice
+                shu={shu}
+                onTextChange={e => setShu(e.target.value)}
+              />
 
-                {/* Location */}
-                <SauceLocation
-                  state={this.state.state}
-                  city={this.state.city}
-                  country={this.state.country}
-                  onTextChange={this.onTextChange}
-                  onCountryChange={this.onCountryChange}
-                  onStateChange={this.onStateChange}
-                />
+              {/* Location */}
+              {/* <SauceLocation
+                  state={state}
+                  city={city}
+                  country={country}
+                  onTextChange={e => (e.target.value)}
+                  onCountryChange={e => setCountry(e.target.value)}
+                  onStateChange={e => setState(e.target.value)}
+                /> */}
 
-                {/* Photo */}
-                <SaucePhoto
-                  DropNCropValue={this.state.DropNCropValue}
-                  cropperOptions={this.state.cropperOptions}
-                  isImageLocked={this.state.isImageLocked}
-                  onDropNCropChange={this.onDropNCropChange}
-                  onImageLock={this.onImageLock}
-                  onClearImageClick={this.onClearImageClick}
-                />
+              {/* Photo */}
+              {/* <SaucePhoto
+                  DropNCropValue={DropNCropValue}
+                  cropperOptions={cropperOptions}
+                  isImageLocked={isImageLocked}
+                  onDropNCropChange={onDropNCropChange}
+                  onImageLock={onImageLock}
+                  onClearImageClick={onClearImageClick}
+                /> */}
 
-                {/* Review */}
-                <SauceReview
-                  onRadioClick={this.onRadioClick}
-                  addReview={this.state.addReview}
-                />
+              {/* Review */}
+              <SauceReview
+                onRadioClick={e => console.log(e.target)}
+                addReview={addReview}
+              />
 
-                <StyledButton onClick={() => {}} type="submit">
-                  Submit
-                  <ArrowRight />
-                </StyledButton>
-              </Overlay>
-            </form>
-          </StyledFormContainer>
-        </Article>
-        <Footer />
-      </div>
-    );
-  }
+              <StyledButton onClick={() => {}} type="submit">
+                Submit
+                <ArrowRight />
+              </StyledButton>
+            </Overlay>
+          </form>
+        </StyledFormContainer>
+      </Article>
+      <Footer />
+    </div>
+  );
 
-  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    if (!event || !event.target) {
-      return;
-    }
-
-    // Grab the name and value
-    const { name, value }: { name: string; value: string } = event.target;
-
-    // Update local state
-    this.setState({
-      ...this.state,
-      [name.toLowerCase()]: value
-    });
-  };
-
-  private onCheckBoxClick = (
-    event: React.MouseEvent<HTMLInputElement>
-  ): void => {
+  function onCheckBoxClick(event: React.MouseEvent<HTMLInputElement>): void {
     // Cast EventTarget to be HTMLInput Element so we can be sure to have a .value property
     const checkbox: HTMLInputElement = event.target as HTMLInputElement;
 
@@ -253,208 +233,158 @@ class SauceAdd extends React.Component<SauceAddProps, SauceAddState> {
     const value: string = checkbox.value;
 
     // Get whether checked or not
-    const checked: boolean = this.state.typesOfSauces[value].checked;
+    const checked: boolean = types[value].checked;
 
-    // Update state
-    this.setState({
-      ...this.state,
-      typesOfSauces: {
-        ...this.state.typesOfSauces,
-        [value]: {
-          ...this.state.typesOfSauces[value],
-          value,
-          checked: !checked
-        }
+    setTypes({
+      ...types,
+      [value]: {
+        ...types[value],
+        value,
+        checked: !checked
       }
     });
-  };
+  }
 
-  private onRadioClick = (event: React.MouseEvent<HTMLInputElement>): void => {
-    // Cast EventTarget to be HTMLInput Element so we can be sure to have a .value property
-    const checkbox: HTMLInputElement = event.target as HTMLInputElement;
+  // function onCountryChange(val: string) {
+  //   this.setState({
+  //     ...this.state,
+  //     country: val
+  //   });
+  // };
 
-    // Grab value from the element
-    const value: boolean = checkbox.value === "Yes" ? true : false;
+  // function onStateChange(val: string) {
+  //   this.setState({
+  //     ...this.state,
+  //     state: val
+  //   });
+  // };
 
-    this.setState({ ...this.state, addReview: value });
-  };
+  // function onDropNCropChange(val: any) {
+  //   this.setState({ ...this.state, DropNCropValue: val });
+  // };
 
-  private onCountryChange = (val: string) => {
-    this.setState({
-      ...this.state,
-      country: val
-    });
-  };
+  function onSubmit(): void {
+    // event.preventDefault();
+    // // Get array of checked types
+    // const types: string[] = Object.keys(this.state.typesOfSauces).filter(
+    //   type => this.state.typesOfSauces[type].checked
+    // );
+    // const { user, history } = this.props;
+    // // If no history, stop
+    // if (!history) {
+    //   window.location.href = "/account/login";
+    //   return;
+    // }
+    // // If no user, stop
+    // if (!user) {
+    //   history.push("/account/login");
+    //   return;
+    // }
+    // // make sure token is still good/not expired
+    // if (!Auth.isUserAuthenticated()) history.push("/account/login");
+    // // Grab values
+    // const {
+    //   name,
+    //   maker,
+    //   description,
+    //   ingredients,
+    //   shu,
+    //   author,
+    //   country,
+    //   state,
+    //   city
+    // } = this.state;
+    // const token = user.token;
+    // if (!token) history.push("/account/login");
+    // // Construct FormData since we are passing image file
+    // const formData = new FormData();
+    // // Create expected suace object
+    // const sauce: ISauce = {
+    //   author,
+    //   created: new Date(),
+    //   name,
+    //   maker,
+    //   description,
+    //   ingredients,
+    //   shu,
+    //   country,
+    //   state,
+    //   city,
+    //   types
+    // };
+    // formData.append("sauce", JSON.stringify({ sauce }));
+    // // Append user
+    // formData.append("user", JSON.stringify({ user: { token } }));
+    // // Append image if available
+    // if (this.state.DropNCropValue.result) {
+    //   // const lastModified = this.state.DropNCropValue.files[0].lastModified;
+    //   const fileType = this.state.DropNCropValue.filetype;
+    //   const blob = this.dataURItoBlob(this.state.DropNCropValue.result);
+    //   const image = new File([blob], "image.png", {
+    //     type: fileType
+    //   });
+    //   // append
+    //   formData.append("image", image);
+    // }
+    // if (this.props.addSauce) {
+    //   this.props
+    //     .addSauce({ formData })
+    //     .then(res => {
+    //       // Go to sauce page if they do not want to add a review
+    //       if (this.state.addReview === false) {
+    //         history.push(`/sauce?s=${res}`);
+    //       } else {
+    //         // Go to review page for specific sauce
+    //         history.push(`/review/add?s=${res}`);
+    //       }
+    //     })
+    //     .catch(err => {
+    //       // TODO better error handling
+    //       // Move screen to top
+    //       window.scrollTo(0, 0);
+    //       // Create warning flash
+    //       this.setState({
+    //         ...this.state,
+    //         flashMessage: {
+    //           isVisible: true,
+    //           text: err.response.data.msg,
+    //           type: "warning"
+    //         }
+    //       });
+    //     });
+    // } else {
+    //   // error window?
+    // }
+  }
 
-  private onStateChange = (val: string) => {
-    this.setState({
-      ...this.state,
-      state: val
-    });
-  };
+  // function onImageLock(lock: boolean): void {
+  //   // Update state
+  //   this.setState({
+  //     ...this.state,
+  //     isImageLocked: lock
+  //   });
+  // };
 
-  private onDropNCropChange = (val: any) => {
-    this.setState({ ...this.state, DropNCropValue: val });
-  };
-
-  private onSubmit = (event: React.FormEvent): void => {
-    event.preventDefault();
-
-    // Get array of checked types
-    const types: string[] = Object.keys(this.state.typesOfSauces).filter(
-      type => this.state.typesOfSauces[type].checked
-    );
-
-    const { user, history } = this.props;
-    // If no history, stop
-    if (!history) {
-      window.location.href = "/account/login";
-      return;
-    }
-    // If no user, stop
-    if (!user) {
-      history.push("/account/login");
-      return;
-    }
-
-    // make sure token is still good/not expired
-    if (!Auth.isUserAuthenticated()) history.push("/account/login");
-
-    // Grab values
-    const {
-      name,
-      maker,
-      description,
-      ingredients,
-      shu,
-      author,
-      country,
-      state,
-      city
-    } = this.state;
-
-    const token = user.token;
-    if (!token) history.push("/account/login");
-
-    // Construct FormData since we are passing image file
-    const formData = new FormData();
-    // Create expected suace object
-    const sauce: ISauce = {
-      author,
-      created: new Date(),
-      name,
-      maker,
-      description,
-      ingredients,
-      shu,
-      country,
-      state,
-      city,
-      types
-    };
-
-    formData.append("sauce", JSON.stringify({ sauce }));
-
-    // Append user
-    formData.append("user", JSON.stringify({ user: { token } }));
-
-    // Append image if available
-    if (this.state.DropNCropValue.result) {
-      // const lastModified = this.state.DropNCropValue.files[0].lastModified;
-      const fileType = this.state.DropNCropValue.filetype;
-      const blob = this.dataURItoBlob(this.state.DropNCropValue.result);
-      const image = new File([blob], "image.png", {
-        type: fileType
-      });
-
-      // append
-      formData.append("image", image);
-    }
-
-    if (this.props.addSauce) {
-      this.props
-        .addSauce({ formData })
-        .then(res => {
-          // Go to sauce page if they do not want to add a review
-          if (this.state.addReview === false) {
-            history.push(`/sauce?s=${res}`);
-          } else {
-            // Go to review page for specific sauce
-            history.push(`/review/add?s=${res}`);
-          }
-        })
-        .catch(err => {
-          // TODO better error handling
-
-          // Move screen to top
-          window.scrollTo(0, 0);
-
-          // Create warning flash
-          this.setState({
-            ...this.state,
-            flashMessage: {
-              isVisible: true,
-              text: err.response.data.msg,
-              type: "warning"
-            }
-          });
-        });
-    } else {
-      // error window?
-    }
-  };
-
-  private dataURItoBlob = (dataURI: string) => {
-    // convert base64/URLEncoded data component to raw binary data held in a string
-    let byteString;
-    if (dataURI.split(",")[0].indexOf("base64") >= 0) {
-      byteString = atob(dataURI.split(",")[1]);
-    } else {
-      byteString = unescape(dataURI.split(",")[1]);
-    }
-
-    // separate out the mime component
-    const mimeString = dataURI
-      .split(",")[0]
-      .split(":")[1]
-      .split(";")[0];
-
-    // write the bytes of the string to a typed array
-    const ia = new Uint8Array(byteString.length);
-    for (let i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
-    }
-
-    return new Blob([ia], { type: mimeString });
-  };
-
-  private onImageLock = (lock: boolean): void => {
-    // Update state
-    this.setState({
-      ...this.state,
-      isImageLocked: lock
-    });
-  };
-
-  private onClearImageClick = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ): void => {
-    this.setState({ ...this.state, isImageLocked: false, DropNCropValue: {} });
-  };
-}
-
-function mapStateToProps(state: AppState): any {
-  return {
-    user: {
-      token: state.users.self.token || "",
-      name: state.users.self.displayName
-    },
-    types: state.sauces.types
-  };
-}
-
-const mapDispatchToProps = {
-  addSauce
+  // function onClearImageClick(
+  //   event: React.MouseEvent<HTMLButtonElement>
+  // ): void  {
+  //   this.setState({ ...this.state, isImageLocked: false, DropNCropValue: {} });
+  // };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SauceAdd);
+// function mapStateToProps(state: AppState): any {
+//   return {
+//     user: {
+//       token: state.users.self.token || "",
+//       name: state.users.self.displayName
+//     },
+//     types: state.sauces.types
+//   };
+// }
+
+// const mapDispatchToProps = {
+//   addSauce
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(SauceAdd);
+export default SauceAdd;
