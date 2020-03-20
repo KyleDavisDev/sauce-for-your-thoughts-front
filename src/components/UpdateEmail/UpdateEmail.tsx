@@ -75,7 +75,6 @@ const UpdateEmail: React.SFC<UpdateEmailProps> = props => {
               showLabel={true}
               label={"New Email"}
               name={"email"}
-              value={email}
               required={true}
             />
             <TextInput
@@ -85,7 +84,6 @@ const UpdateEmail: React.SFC<UpdateEmailProps> = props => {
               showLabel={true}
               label={"Confirm New Email"}
               name={"confirmEmail"}
-              value={confirmEmail}
               required={true}
               requirementText={"Must match above."}
             />
@@ -96,7 +94,6 @@ const UpdateEmail: React.SFC<UpdateEmailProps> = props => {
               showLabel={true}
               label={"Password"}
               name={"password"}
-              value={password}
               required={true}
             />
 
