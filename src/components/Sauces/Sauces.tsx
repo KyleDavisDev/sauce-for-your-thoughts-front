@@ -35,13 +35,7 @@ const Sauces: React.SFC<SaucesProps> = props => {
       <Navigation />
       <StyledArticle>
         <PageTitle>Sauces</PageTitle>
-        <FilterBar
-          onSubmit={onSubmit}
-          typeFromPath={type}
-          orderFromPath={order}
-          limitFromPath={limit}
-          srchFromPath={srch}
-        />
+        <FilterBar onSubmit={onSubmit} />
         {loading ? (
           <p>Loading...</p>
         ) : (
@@ -80,7 +74,7 @@ const Sauces: React.SFC<SaucesProps> = props => {
     let query = `/sauces?limit=${tmp.limit}&order=${tmp.order}&page=${1}&type=${
       tmp.type
     }`;
-    if (srch) query += `&srch=${tmp.srch}`;
+    if (tmp.srch) query += `&srch=${tmp.srch}`;
 
     // Go to new page
     router.push(query);
