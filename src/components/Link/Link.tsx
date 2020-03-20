@@ -13,7 +13,7 @@ interface LinkProps {
   className?: string;
 }
 
-const Link2: React.SFC<LinkProps> = props => {
+const LinkComponent: React.SFC<LinkProps> = props => {
   return (
     <Link href={props.to || props.href || "#"}>
       <a className={props.className}> {props.children}</a>
@@ -21,7 +21,7 @@ const Link2: React.SFC<LinkProps> = props => {
   );
 };
 
-const StyledLink = styled(Link2)`
+const StyledLink = styled(LinkComponent)`
   text-decoration: none;
   font-family: FuturaMedium;
   color: ${props => props.theme.secondaryThemeColor};
