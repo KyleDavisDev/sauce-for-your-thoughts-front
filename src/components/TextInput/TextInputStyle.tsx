@@ -4,6 +4,12 @@ export const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  p {
+    font-size: 0.85rem;
+    margin-top: 1px;
+    margin-bottom: 15px;
+  }
 `;
 
 export const StyledInput = styled.input`
