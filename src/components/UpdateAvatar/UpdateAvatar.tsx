@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import shortid from "shortid";
 
-import { AppState, MyThunkDispatch } from "../../redux/configureStore";
-import { updateAvatar, logout } from "../../redux/users/actions";
+import { AppState } from "../../redux/configureStore";
+import { updateAvatar } from "../../redux/users/actions";
 import { IUserUpdateAvatar } from "../../redux/users/types";
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import ArrowLeft from "../../images/icons/ArrowLeft";
@@ -24,27 +24,33 @@ import {
 } from "./UpdateAvatarStyle";
 import Auth from "../../utils/Auth/Auth";
 import { API } from "../../utils/api/API";
+import { reduxStore } from "../../redux/with-redux-store";
 
 export interface UpdateAvatarProps {}
 
 const UpdateAvatar: React.SFC<UpdateAvatarProps> = props => {
   // assign state
-  const [urls, setUrls] = React.useState<{ key: string; path: string }[]>([]);
-  const selected = useSelector((store: AppState) => store.users.self.avatarURL);
-  const displayName = useSelector(
-    (store: AppState) => store.users.self.displayName
+  const [urls, setUrls] = React.useState<Array<{ key: string; path: string }>>(
+    []
   );
+  const selected = useSelector((store: AppState) => store.users.self.avatarURL);
   const [password, setPassword] = React.useState("");
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
   const [updatedAvatar, setUpdatedAvatar] = React.useState(selected);
 
+  // get info from redux
+  const displayName = useSelector(
+    (store: AppState) => store.users.self.displayName
+  );
+
   // assign router
   const router = useRouter();
   // assign dispatch
-  const dispatch = useDispatch();
+  const useThunkDispatch = useDispatch<typeof reduxStore.dispatch>();
 
+  // run once
   React.useEffect(() => {
     // Get token or else redirect
     const token = Auth.getToken();
@@ -171,7 +177,7 @@ const UpdateAvatar: React.SFC<UpdateAvatarProps> = props => {
     };
 
     try {
-      dispatch(
+      await useThunkDispatch(
         updateAvatar({
           data,
           displayName
@@ -195,16 +201,16 @@ const UpdateAvatar: React.SFC<UpdateAvatarProps> = props => {
         return;
       }
 
-      // Password bad or acc locked so going to reset
-      // this.setState({
-      //   ...this.state,
-      //   password: "",
-      //   flashMessage: {
-      //     isVisible: true,
-      //     text: err.response.data.msg,
-      //     type: "warning"
-      //   }
-      // });
+      // password bad
+      if (err.response.status === 401) {
+        setPassword("");
+        setFlashMessage({
+          isVisible: true,
+          text: "Oops! Invalid password. Please try again",
+          type: "warning"
+        });
+        window.scrollTo(0, 0); // Move screen to top
+      }
     }
   }
 
@@ -235,37 +241,6 @@ const UpdateAvatar: React.SFC<UpdateAvatarProps> = props => {
       </div>
     );
   }
-
-  // const onRadioClick = (event: React.MouseEvent<HTMLInputElement>) => {
-  //   if (!event || !event.target) {
-  //     return;
-  //   }
-
-  //   const { id }: { id: string } = event.target as HTMLTextAreaElement;
-
-  //   this.setState({
-  //     ...this.state,
-  //     selected: id,
-  //     flashMessage: { isVisible: false }
-  //   });
-  // };
 };
 
-const mapState2Props = (state: AppState) => {
-  return { user: state.users.self };
-};
-
-// For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
-const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  updateAvatar: ({
-    data,
-    displayName
-  }: {
-    data: IUserUpdateAvatar;
-    displayName: string;
-  }) => dispatch(updateAvatar({ data, displayName })),
-  logout: () => dispatch(logout())
-});
-
-// export default connect(mapState2Props, mapDispatch2Props)(UpdateAvatar);
 export default UpdateAvatar;
