@@ -33,43 +33,30 @@ export interface FlashMessageProps {
   children?: string;
 }
 
-class FlashMessage extends React.PureComponent<FlashMessageProps, any> {
-  public static defaultProps = {
-    isVisible: true
-  };
+const FlashMessage: React.FunctionComponent<FlashMessageProps> = props => {
+  const [isVisible, setIsVisible] = React.useState(props.isVisible);
+  const { type, slug, slugText, text, children, className } = props;
 
-  constructor(props: FlashMessageProps) {
-    super(props);
+  return (
+    <>
+      {isVisible ? (
+        <StyledContainer className={className}>
+          <StyledDiv>
+            <StyledContent>
+              {children || text}{" "}
+              {slug && slugText ? <Link to={slug}>{slugText}</Link> : ""}{" "}
+            </StyledContent>
+            <Button onClick={onCloseClick}>X</Button>
+          </StyledDiv>
+        </StyledContainer>
+      ) : null}
+    </>
+  );
 
-    this.state = { isVisible: this.props.isVisible };
+  function onCloseClick() {
+    setIsVisible(false);
   }
-
-  public componentWillReceiveProps(props: FlashMessageProps) {
-    this.setState({ ...props });
-  }
-
-  public render() {
-    return this.state.isVisible ? (
-      <StyledContainer className={this.props.className}>
-        <StyledDiv>
-          <StyledContent>
-            {this.props.children || this.props.text}{" "}
-            {this.props.slug && this.props.slugText ? (
-              <Link to={this.props.slug}>{this.props.slugText}</Link>
-            ) : (
-              ""
-            )}{" "}
-          </StyledContent>
-          <Button onClick={this.onCloseClick}>X</Button>
-        </StyledDiv>
-      </StyledContainer>
-    ) : null;
-  }
-
-  private onCloseClick = () => {
-    this.setState({ isVisible: false });
-  };
-}
+};
 
 const StyledFlashMessage = styled(FlashMessage)`
   > div {
