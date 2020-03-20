@@ -17,11 +17,7 @@ interface TextInputProps {
   className?: string;
   disabled?: boolean;
   requirementText?: string;
-  onChange(
-    event:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
-  ): void;
+  onChange(event: React.ChangeEvent<HTMLInputElement>): void;
 }
 
 const TextInput: React.FunctionComponent<TextInputProps> = props => {
