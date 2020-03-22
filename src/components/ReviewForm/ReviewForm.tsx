@@ -2,11 +2,7 @@ import * as React from "react";
 import { useDispatch } from "react-redux";
 import Rating from "react-rating";
 
-import {
-  IReviewSection,
-  IReview,
-  IReviewToServer
-} from "../../redux/reviews/types";
+import { IReviewSection, IReviewToServer } from "../../redux/reviews/types";
 import { addReview } from "../../redux/reviews/actions";
 import { getSauceBySlug } from "../../redux/sauces/actions";
 import ArrowRight from "../../images/icons/ArrowRight";
@@ -30,7 +26,9 @@ import { useRouter } from "next/router";
 import { reduxStore } from "../../redux/with-redux-store";
 import { useCanUserAddReview } from "../../utils/hooks/useCanUserAddReview";
 
-export interface ReviewFormProps {}
+export interface ReviewFormProps {
+  onSubmit: (data: IReviewToServer) => Promise<null>;
+}
 
 const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
   // assign router
@@ -272,28 +270,30 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
       return null;
     }
 
-    // construct data object
-    const data: IReviewToServer = {
-      user: { token },
-      review: {
-        heat,
-        taste,
-        aroma,
-        overall,
-        label,
-        note,
-        _id: 0, // Server will overwrite this
-        author: "", // Server will overwrite this
-        sauce: slug,
-        created: 0 // Server will overwrite this
-      }
-    };
-
     try {
-      // add review
-      await useThunkDispatch(addReview(data));
+      // construct data object
+      const data: IReviewToServer = {
+        user: { token },
+        review: {
+          heat,
+          taste,
+          aroma,
+          overall,
+          label,
+          note,
+          _id: 0, // Server will overwrite this
+          author: "", // Server will overwrite this
+          sauce: slug,
+          created: 0 // Server will overwrite this
+        }
+      };
+
+      // pass data to parent
+      props.onSubmit(data);
+
       // get newest info on sauce
       await useThunkDispatch(getSauceBySlug({ slug }));
+
       // Take user to sauce page
       router.push(`/sauce/view?s=${slug}`);
     } catch (err) {
