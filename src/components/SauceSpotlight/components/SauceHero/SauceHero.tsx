@@ -15,64 +15,59 @@ export interface SauceHeroProps {
   sauce?: ISauce; // This is sauce's slug that will have to be looked up
 }
 
-class SauceHero extends React.PureComponent<SauceHeroProps, any> {
-  public constructor(props: SauceHeroProps) {
-    super(props);
+const SauceHero: React.FunctionComponent<SauceHeroProps> = props => {
+  // grab sauce from pops and sanity check
+  const { sauce } = props;
+  if (!sauce) {
+    return <p>loading...</p>;
   }
 
-  public render() {
-    const { sauce } = this.props;
+  // break down sauce
+  const {
+    name,
+    maker,
+    description,
+    ingredients,
+    types,
+    shu,
+    country,
+    photo
+  } = sauce;
 
-    return (
-      <StyledSauceContainer>
-        <StyledImageContainer>
-          {sauce && sauce.photo ? (
-            <StyleImg src={`${sauce.photo}`} />
-          ) : (
-            <StyleImg src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png" />
-          )}
-        </StyledImageContainer>
-        <StyledSauceInfoContainer>
-          <StyledH2>{(sauce && sauce.name) || "Loading..."}</StyledH2>
+  return (
+    <StyledSauceContainer>
+      <StyledImageContainer>
+        {photo ? (
+          <StyleImg src={`${photo}`} />
+        ) : (
+          <StyleImg src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png" />
+        )}
+      </StyledImageContainer>
+      <StyledSauceInfoContainer>
+        <StyledH2>{name}</StyledH2>
+        <p>
+          <i>Maker:</i> {maker}
+        </p>
+        <p>
+          <i>Description:</i> {description}
+        </p>
+        <p>
+          <i>Ingredients:</i> {ingredients}
+        </p>
+        <p>
+          <i>Type:</i> {types ? types.join(", ") : "N/A"}
+        </p>
+        {shu && (
           <p>
-            <i>Maker:</i> {(sauce && sauce.maker) || "Loading..."}
+            <i>SHU:</i> {shu} scoville
           </p>
-          <p>
-            <i>Description:</i> {(sauce && sauce.description) || "Loading..."}
-          </p>
-          <p>
-            <i>Ingredients:</i> {(sauce && sauce.ingredients) || "Loading..."}
-          </p>
-          <p>
-            <i>Type:</i> {this.RenderType()}
-          </p>
-          {sauce && sauce.shu && (
-            <p>
-              <i>SHU:</i> {sauce.shu} scoville
-            </p>
-          )}
-          <p>
-            <i>Made in:</i> {(sauce && sauce.country) || "Loading..."}
-          </p>
-        </StyledSauceInfoContainer>
-      </StyledSauceContainer>
-    );
-  }
-
-  // Renders the type of sauce
-  private RenderType = () => {
-    const { sauce } = this.props;
-
-    if (!sauce) return "Loading...";
-
-    if (sauce.types && sauce.types.length > 0) return sauce.types.join(", ");
-
-    return "N/A";
-  };
-}
-
-const mapState2Props = (state: AppState) => {
-  return {};
+        )}
+        <p>
+          <i>Made in:</i> {country || "Loading..."}
+        </p>
+      </StyledSauceInfoContainer>
+    </StyledSauceContainer>
+  );
 };
 
-export default connect(mapState2Props)(SauceHero);
+export default SauceHero;
