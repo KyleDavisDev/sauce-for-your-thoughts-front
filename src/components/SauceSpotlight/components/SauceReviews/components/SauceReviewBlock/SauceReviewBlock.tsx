@@ -88,7 +88,7 @@ class SauceReviewBlock extends React.Component<
                 </div>
               )}
               {/* Aroma */}
-              {review.aroma && (
+              {review.aroma && (review.aroma.rating > 0 || review.aroma.txt) && (
                 <div>
                   <StyledCategoryContainer>
                     <i>Aroma:</i>
@@ -107,7 +107,7 @@ class SauceReviewBlock extends React.Component<
               )}
 
               {/* Taste */}
-              {review.taste && (
+              {review.taste && (review.taste.rating > 0 || review.taste.txt) && (
                 <div>
                   <StyledCategoryContainer>
                     <i>Taste:</i>
@@ -126,7 +126,7 @@ class SauceReviewBlock extends React.Component<
               )}
 
               {/* Label */}
-              {review.label && (
+              {review.label && (review.label.rating > 0 || review.label.txt) && (
                 <div>
                   <StyledCategoryContainer>
                     <i>Label:</i>
@@ -145,7 +145,7 @@ class SauceReviewBlock extends React.Component<
               )}
 
               {/* Heat */}
-              {review.heat && (
+              {review.heat && (review.heat.rating > 0 || review.heat.txt) && (
                 <div>
                   <StyledCategoryContainer>
                     <i>Heat:</i>
