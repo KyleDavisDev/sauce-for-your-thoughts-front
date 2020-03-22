@@ -30,6 +30,9 @@ import { useCanUserAddReview } from "../../utils/hooks/useCanUserAddReview";
 export interface ReviewFormProps {}
 
 const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
+  // assign router
+  const router = useRouter();
+
   // assign state
   const initRating = { rating: 0, txt: "" };
   const [overall, setOverall] = React.useState<IReviewSection>(initRating);
@@ -41,15 +44,26 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
+  const [slug, setSlug] = React.useState(router.query.s);
 
-  // assign router
-  const router = useRouter();
+  React.useEffect(() => {
+    const _slug = router.query.s;
+
+    // sanity check
+    if (!_slug || Array.isArray(_slug)) {
+      router.push("/");
+      return;
+    }
+
+    // update state
+    setSlug(_slug);
+  });
 
   // assign dispatch
   const useThunkDispatch = useDispatch<typeof reduxStore.dispatch>();
 
   // Find out if user is eligible to submit a review to this sauce or not
-  const [canUserSubmit, error] = useCanUserAddReview();
+  const [canUserAddReview, error] = useCanUserAddReview();
   if (error.length > 0 && !flashMessage.isVisible) {
     setFlashMessage({ isVisible: true, text: error, type: "warning" });
   }
@@ -62,7 +76,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
           {flashMessage.isVisible && (
             <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
           )}
-          <Overlay enabled={canUserSubmit}>
+          <Overlay enabled={canUserAddReview}>
             {/* Taste */}
             <StyledRow>
               <StyledDescriptor title="Taste">
@@ -76,7 +90,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   fullSymbol={<StyledFullStar />}
                   onClick={e => setTaste({ ...taste, rating: e })}
                   initialRating={taste.rating}
-                  readonly={!canUserSubmit}
+                  readonly={!canUserAddReview}
                 />
                 <StyledTextArea
                   onChange={e => setTaste({ ...taste, txt: e.target.value })}
@@ -85,8 +99,8 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   id="taste"
                   showLabel={true}
                   value={taste.txt}
-                  disabled={!canUserSubmit}
-                  readonly={!canUserSubmit}
+                  disabled={!canUserAddReview}
+                  readonly={!canUserAddReview}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -105,7 +119,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   fullSymbol={<StyledFullStar />}
                   onClick={e => setAroma({ ...aroma, rating: e })}
                   initialRating={aroma.rating}
-                  readonly={!canUserSubmit}
+                  readonly={!canUserAddReview}
                 />
                 <StyledTextArea
                   onChange={e => setAroma({ ...aroma, txt: e.target.value })}
@@ -114,8 +128,8 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   id="aroma"
                   showLabel={true}
                   value={aroma ? aroma.txt : ""}
-                  disabled={!canUserSubmit}
-                  readonly={!canUserSubmit}
+                  disabled={!canUserAddReview}
+                  readonly={!canUserAddReview}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -134,7 +148,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   fullSymbol={<StyledFullStar />}
                   onClick={e => setLabel({ ...label, rating: e })}
                   initialRating={label.rating}
-                  readonly={!canUserSubmit}
+                  readonly={!canUserAddReview}
                 />
                 <StyledTextArea
                   onChange={e => setLabel({ ...label, txt: e.target.value })}
@@ -143,8 +157,8 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   id="label"
                   showLabel={true}
                   value={label ? label.txt : ""}
-                  disabled={!canUserSubmit}
-                  readonly={!canUserSubmit}
+                  disabled={!canUserAddReview}
+                  readonly={!canUserAddReview}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -162,7 +176,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   fullSymbol={<StyledFullStar />}
                   onClick={e => setHeat({ ...heat, rating: e })}
                   initialRating={heat.rating}
-                  readonly={!canUserSubmit}
+                  readonly={!canUserAddReview}
                 />
                 <StyledTextArea
                   onChange={e => setHeat({ ...heat, txt: e.target.value })}
@@ -171,8 +185,8 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   id="heat"
                   showLabel={true}
                   value={heat ? heat.txt : ""}
-                  disabled={!canUserSubmit}
-                  readonly={!canUserSubmit}
+                  disabled={!canUserAddReview}
+                  readonly={!canUserAddReview}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -190,7 +204,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   fullSymbol={<StyledFullStar />}
                   onClick={e => setOverall({ ...overall, rating: e })}
                   initialRating={overall.rating}
-                  readonly={!canUserSubmit}
+                  readonly={!canUserAddReview}
                 />
                 <StyledTextArea
                   onChange={e =>
@@ -202,8 +216,8 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   id="overall"
                   showLabel={true}
                   value={overall ? overall.txt : ""}
-                  disabled={!canUserSubmit}
-                  readonly={!canUserSubmit}
+                  disabled={!canUserAddReview}
+                  readonly={!canUserAddReview}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -222,8 +236,8 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   id="note"
                   showLabel={true}
                   value={note ? note.txt : ""}
-                  disabled={!canUserSubmit}
-                  readonly={!canUserSubmit}
+                  disabled={!canUserAddReview}
+                  readonly={!canUserAddReview}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -231,7 +245,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
             <StyledButton
               onClick={() => {}}
               type="submit"
-              disabled={!canUserSubmit}
+              disabled={!canUserAddReview}
             >
               Submit
               <ArrowRight />
@@ -245,22 +259,20 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
   async function onSubmit(event: React.FormEvent): Promise<null> {
     event.preventDefault();
     // if form disabled, don't do anything.
-    if (!canUserSubmit) {
-      return null;
-    }
-
-    // Get sauce from URL
-    const slug = router.query.s;
-
-    // Sauce slug is whack, redirect user
-    if (!slug || Array.isArray(slug)) {
-      router.push("/"); // Maybe display banner too?
+    if (!canUserAddReview) {
       return null;
     }
 
     // make sure token is still good/not expired
     if (!Auth.isUserAuthenticated()) {
       router.replace(`/account/login?return=${router.asPath}`);
+      return null;
+    }
+
+    // sanity check or get out
+    if (!slug || Array.isArray(slug)) {
+      router.push("/");
+      return null;
     }
 
     // Make sure we have token
@@ -269,7 +281,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
       router.replace(`/account/login?return=${router.asPath}`);
       return null;
     }
-
+    const _tmp = slug;
     // construct data object
     const data: {
       user: { token: string };
