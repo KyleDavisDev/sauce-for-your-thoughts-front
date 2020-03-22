@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "../../theme/styled-components";
 import { Link } from "../Link/Link";
 import { Dropdown } from "./components/Dropdown/Dropdown";
 
