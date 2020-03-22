@@ -17,6 +17,7 @@ export const StyledButton = styled(Button)`
   display: flex;
   align-items: stretch;
   font-size: 1.5em;
+  width: 22px;
 
   > button {
     background-color: inherit;
