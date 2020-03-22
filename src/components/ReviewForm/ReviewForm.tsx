@@ -8,7 +8,6 @@ import { getSauceBySlug } from "../../redux/sauces/actions";
 import ArrowRight from "../../images/icons/ArrowRight";
 import Auth from "../../utils/Auth/Auth";
 import Article from "../Article/Article";
-import { AppState, MyThunkDispatch } from "../../redux/configureStore";
 import Label from "../Label/Label";
 import PageTitle from "../PageTitle/PageTitle";
 import {
@@ -44,28 +43,15 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
-  const [slug, setSlug] = React.useState(router.query.s);
-
-  React.useEffect(() => {
-    const _slug = router.query.s;
-
-    // sanity check
-    if (!_slug || Array.isArray(_slug)) {
-      router.push("/");
-      return;
-    }
-
-    // update state
-    setSlug(_slug);
-  });
+  const slug = router.query.s;
 
   // assign dispatch
   const useThunkDispatch = useDispatch<typeof reduxStore.dispatch>();
 
   // Find out if user is eligible to submit a review to this sauce or not
   const [canUserAddReview, error] = useCanUserAddReview();
-  if (error.length > 0 && !flashMessage.isVisible) {
-    setFlashMessage({ isVisible: true, text: error, type: "warning" });
+  if (!error.isGood && !flashMessage.isVisible) {
+    setFlashMessage({ isVisible: true, text: error.msg, type: "warning" });
   }
 
   return (
@@ -310,22 +296,10 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
       // Take user to sauce page
       router.push(`/sauce/view?s=${slug}`);
     } catch (err) {
-      console.log("ERR: ", err);
+      setFlashMessage({ isVisible: true, text: error.msg, type: "warning" });
     }
     return null;
   }
 };
 
-// For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
-const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  addReview: ({
-    data
-  }: {
-    data: { user: { token: string }; review: IReview };
-  }) => dispatch(addReview({ data })),
-  getSauceBySlug: ({ slug }: { slug: string }) =>
-    dispatch(getSauceBySlug({ slug }))
-});
-
-// export default connect(mapStateToProps, mapDispatch2Props)(ReviewForm);
 export default ReviewForm;
