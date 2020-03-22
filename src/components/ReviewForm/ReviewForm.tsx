@@ -223,7 +223,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   name="note"
                   id="note"
                   showLabel={true}
-                  value={note ? note.txt : ""}
+                  value={note.txt}
                   disabled={!canUserAddReview}
                   readOnly={!canUserAddReview}
                 />
