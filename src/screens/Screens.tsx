@@ -52,7 +52,7 @@ const Sauces = Loadable({
 
 // Add Review
 const ReviewAdd = Loadable({
-  loader: () => import("./reviews/ReviewAdd"),
+  loader: () => import("../components/ReviewAdd/ReviewAdd"),
   loading: () => (
     <div>
       <Loading />
