@@ -6,7 +6,8 @@ import {
   IReview,
   IReviewsState,
   REVIEWS_CLEARED,
-  REVIEWS_UPDATED_DISPLAYNAME
+  REVIEWS_UPDATED_DISPLAYNAME,
+  IReviewToServer
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 import Flatn from "../../utils/Flatn/Flatn";
@@ -70,21 +71,14 @@ export const updatedReviews = ({
 };
 
 /** @description add a single review to the DB
- *  @param {Object} data - all encompasing object
- *    @param {Object} data.user - holds user information
- *      @param {String} data.user.token - unique user identifier
- *    @param {Object} data.sauce - hold sauce information
- *      @param {String} data.sauce.token - unique sauce string
- *    @param {IReview} data.review
+ *  @param {IReviewToServer} data - all encompasing object
  *  @fires reviews#addedReview - add review to store
  *  @returns {Promise}
  *    @returns {NULL}
  */
-export const addReview = ({
-  data
-}: {
-  data: { user: { token: string }; review: IReview };
-}): MyThunkResult<Promise<null>> => async dispatch => {
+export const addReview = (
+  data: IReviewToServer
+): MyThunkResult<Promise<null>> => async dispatch => {
   // Add review
   await API.review.add(data);
 

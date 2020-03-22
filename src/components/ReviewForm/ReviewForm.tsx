@@ -2,7 +2,11 @@ import * as React from "react";
 import { useDispatch } from "react-redux";
 import Rating from "react-rating";
 
-import { IReviewSection, IReview } from "../../redux/reviews/types";
+import {
+  IReviewSection,
+  IReview,
+  IReviewToServer
+} from "../../redux/reviews/types";
 import { addReview } from "../../redux/reviews/actions";
 import { getSauceBySlug } from "../../redux/sauces/actions";
 import ArrowRight from "../../images/icons/ArrowRight";
@@ -267,12 +271,9 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
       router.replace(`/account/login?return=${router.asPath}`);
       return null;
     }
-    const _tmp = slug;
+
     // construct data object
-    const data: {
-      user: { token: string };
-      review: IReview;
-    } = {
+    const data: IReviewToServer = {
       user: { token },
       review: {
         heat,
@@ -290,7 +291,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
 
     try {
       // add review
-      await useThunkDispatch(addReview({ data }));
+      await useThunkDispatch(addReview(data));
       // get newest info on sauce
       await useThunkDispatch(getSauceBySlug({ slug }));
       // Take user to sauce page

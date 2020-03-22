@@ -16,6 +16,8 @@ const ReviewAddPage: React.FunctionComponent<ReviewAddPageProps> = props => {
       <Footer />
     </>
   );
+
+  function onSubmit() {}
 };
 
 export default ReviewAddPage;

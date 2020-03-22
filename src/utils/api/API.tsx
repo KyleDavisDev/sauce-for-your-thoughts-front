@@ -7,7 +7,7 @@ import {
   IUserUpdateDisplayName,
   IUserUpdateAvatar
 } from "../../redux/users/types";
-import { IReview } from "../../redux/reviews/types";
+import { IReview, IReviewToServer } from "../../redux/reviews/types";
 import Err, { IErrReturn } from "../Err/Err";
 
 export const host =
@@ -605,8 +605,9 @@ export const API = {
         }
         throw new Error(res.data.msg);
       }),
+
     /** @description Add review to DB
-     *  @param {Object} data data object
+     *  @param {IReviewToServer} data data object
      *    @param {string} data.user.token user's unique token
      *    @param {IReview} data.review - review info
      *  @returns {AxiosPromise} AxiosPromise
@@ -616,7 +617,7 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    edit: (data: { user: { token: string }; review: IReview }): AxiosPromise =>
+    edit: (data: IReviewToServer): AxiosPromise =>
       axios.post(`${host}/api/review/edit`, data).then((res: any) => {
         if (res.data.isGood) {
           return res;
