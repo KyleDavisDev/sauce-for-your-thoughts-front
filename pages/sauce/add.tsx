@@ -2,10 +2,10 @@ import * as React from "react";
 
 import SauceAdd from "../../src/components/SauceAdd/SauceAdd";
 
-interface AddPageProps {}
+interface SauceAddPageProps {}
 
-const AddPage: React.FunctionComponent<AddPageProps> = props => {
+const SauceAddPage: React.FunctionComponent<SauceAddPageProps> = props => {
   return <SauceAdd />;
 };
 
-export default AddPage;
+export default SauceAddPage;

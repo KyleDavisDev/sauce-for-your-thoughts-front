@@ -2,10 +2,10 @@ import * as React from "react";
 
 import SauceSpotlight from "../../src/components/SauceSpotlight/SauceSpotlight";
 
-interface IViewPageProps {}
+interface ISauceViewPageProps {}
 
-const ViewPage: React.FunctionComponent<IViewPageProps> = props => {
+const SauceViewPage: React.FunctionComponent<ISauceViewPageProps> = props => {
   return <SauceSpotlight />;
 };
 
-export default ViewPage;
+export default SauceViewPage;
