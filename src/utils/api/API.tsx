@@ -565,9 +565,7 @@ export const API = {
 
   review: {
     /** @description Add review to DB
-     *  @param {Object} data data object
-     *    @param {string} data.user.token user's unique token
-     *    @param {IReview} data.review - review being added
+     *  @param {IReviewToServer} data data object
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -575,13 +573,14 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    add: (data: { user: { token: string }; review: IReview }): AxiosPromise =>
+    add: (data: IReviewToServer): AxiosPromise =>
       axios.post(`${host}/api/review/add`, data).then((res: any) => {
         if (res.data.isGood) {
           return res;
         }
         throw new Error(res.data.msg);
       }),
+
     /** @description Get review from server
      *  @param {Object} data data object
      *    @param {string} data.user.token user's unique token
@@ -624,6 +623,7 @@ export const API = {
         }
         throw new Error(res.data.msg);
       }),
+
     /** @description Check if user is eligible to submit a review or not (maybe suace is private or have already submitted one)
      *  @param {Object} data data object
      *    @param {string} data.user.token user's unique token
