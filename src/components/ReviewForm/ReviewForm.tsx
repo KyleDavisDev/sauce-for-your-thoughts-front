@@ -86,7 +86,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   showLabel={true}
                   value={taste.txt}
                   disabled={!canUserAddReview}
-                  readonly={!canUserAddReview}
+                  readOnly={!canUserAddReview}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -115,7 +115,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   showLabel={true}
                   value={aroma ? aroma.txt : ""}
                   disabled={!canUserAddReview}
-                  readonly={!canUserAddReview}
+                  readOnly={!canUserAddReview}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -144,7 +144,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   showLabel={true}
                   value={label ? label.txt : ""}
                   disabled={!canUserAddReview}
-                  readonly={!canUserAddReview}
+                  readOnly={!canUserAddReview}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -172,7 +172,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   showLabel={true}
                   value={heat ? heat.txt : ""}
                   disabled={!canUserAddReview}
-                  readonly={!canUserAddReview}
+                  readOnly={!canUserAddReview}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -203,7 +203,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   showLabel={true}
                   value={overall ? overall.txt : ""}
                   disabled={!canUserAddReview}
-                  readonly={!canUserAddReview}
+                  readOnly={!canUserAddReview}
                 />
               </StyledRightSide>
             </StyledRow>
@@ -223,7 +223,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
                   showLabel={true}
                   value={note ? note.txt : ""}
                   disabled={!canUserAddReview}
-                  readonly={!canUserAddReview}
+                  readOnly={!canUserAddReview}
                 />
               </StyledRightSide>
             </StyledRow>
