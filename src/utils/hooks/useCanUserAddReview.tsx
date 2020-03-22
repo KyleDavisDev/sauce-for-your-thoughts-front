@@ -1,29 +1,52 @@
 import React from "react";
 import { useRouter } from "next/router";
-import Auth from "../Auth/Auth";
 import { API } from "../api/API";
 import { IErrReturn } from "../Err/Err";
+import { useSelector } from "react-redux";
+import { AppState } from "../../redux/configureStore";
+import { IErrParams } from "../../utils/Err/Err";
 
-export function useCanUserAddReview(): [boolean, string] {
+export function useCanUserAddReview(): [boolean, IErrParams] {
   // assign values
   const [canUserAddReview, setCanUserAddReview] = React.useState(false);
-  const [error, setError] = React.useState("");
+  const [error, setError] = React.useState<IErrParams>({
+    isGood: true,
+    msg: "",
+    status: 0
+  });
+  const token = useSelector((store: AppState) => store.users.self.token);
 
   // assign router
   const router = useRouter();
 
   React.useEffect(() => {
-    // Make sure user can add review or not
-    const token = Auth.getToken();
+    // Make sure we have a user's token to use to lookup
     if (!token || token.length === 0) {
-      // Redirect user to login w/ appropriate return address
-      router.replace(`/account/login?return=${router.asPath}`);
+      setError({
+        isGood: false,
+        msg: "Oops! Looks like we were unable to determine who you are.",
+        status: 401 // unauthorized
+      });
+      setCanUserAddReview(false);
+      return;
+    }
 
+    // get sauce from URL and sanity check
+    const _slug = router.query.s;
+
+    if (!_slug || Array.isArray(_slug)) {
+      setError({
+        isGood: false,
+        msg:
+          "Oops! It looks like your url is invalid. Please verify how you got here.",
+        status: 403 // forbidden
+      });
+      setCanUserAddReview(false);
       return;
     }
 
     // Construct data obj
-    const data = { user: { token }, sauce: { slug } };
+    const data = { user: { token }, sauce: { slug: _slug } };
 
     // Find out if user is eligible to submit a review for this sauce or not
     API.review
@@ -33,19 +56,14 @@ export function useCanUserAddReview(): [boolean, string] {
       })
       .catch((err: IErrReturn) => {
         // 401 === unauthorized, 403 === forbidden
-        if (
-          err.response.data.status === 401 ||
-          err.response.data.status === 403
-        ) {
-          // Disable form components and show flashmessage
-          setCanUserAddReview(false);
-          setError(err.response.data.msg);
-        } else {
-          // Redirect user to edit page
-          router.replace(`/review/edit?s=${slug}`);
-        }
+        setCanUserAddReview(false);
+        setError({
+          isGood: err.response.data.isGood,
+          msg: err.response.data.msg,
+          status: err.response.data.status
+        });
       });
-  }, []);
+  }, [router.query]);
 
   return [canUserAddReview, error];
 }
