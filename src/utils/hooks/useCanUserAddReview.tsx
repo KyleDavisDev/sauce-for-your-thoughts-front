@@ -13,19 +13,6 @@ export function useCanUserAddReview(): [boolean, string] {
   const router = useRouter();
 
   React.useEffect(() => {
-    const slug = router.query.s;
-
-    // Sauce slug is whack, redirect user
-    if (!slug || Array.isArray(slug)) {
-      // Get user outta here
-      router.push("/sauces");
-
-      return;
-    }
-
-    // Make sure we are at top of page
-    window.scrollTo(0, 0);
-
     // Make sure user can add review or not
     const token = Auth.getToken();
     if (!token || token.length === 0) {
