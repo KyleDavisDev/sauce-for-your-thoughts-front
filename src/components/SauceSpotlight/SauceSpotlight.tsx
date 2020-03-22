@@ -85,13 +85,9 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
     };
   });
 
-  // on mount
-  React.useEffect(() => {
-    window.scrollTo(0, 0); // Move screen to top
-  }, []);
-
   // everytime url changes
   React.useEffect(() => {
+    window.scrollTo(0, 0); // Move screen to top
     // update slug
     const { s } = router.query;
     if (!s || Array.isArray(s)) {
