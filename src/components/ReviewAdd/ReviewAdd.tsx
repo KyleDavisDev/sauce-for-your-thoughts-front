@@ -1,21 +1,15 @@
 import * as React from "react";
-import "@synapsestudios/react-drop-n-crop/lib/react-drop-n-crop.min.css";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import Rating from "react-rating";
-import queryString from "query-string";
 
-import { IReviewSection, IReview } from "../../redux/reviews/types";
+import { IReviewSection, IReviewToServer } from "../../redux/reviews/types";
 import { addReview } from "../../redux/reviews/actions";
 import { getSauceBySlug } from "../../redux/sauces/actions";
 import ArrowRight from "../../images/icons/ArrowRight";
 import Auth from "../../utils/Auth/Auth";
 import Article from "../Article/Article";
-import Footer from "../Footer/Footer";
-import { AppState, MyThunkDispatch } from "../../redux/configureStore";
 import Label from "../Label/Label";
-import Navigation from "../Navigation/Navigation";
 import PageTitle from "../PageTitle/PageTitle";
-import TopBar from "../TopBar/TopBar";
 import {
   StyledFormContainer,
   StyledRow,
@@ -25,435 +19,286 @@ import {
   StyledEmptyStar,
   StyledFullStar,
   StyledTextArea
-} from "../../screens/reviews/ReviewStyle";
-import { API } from "../../utils/api/API";
+} from "./ReviewAddStyle";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import { Overlay } from "../Overlay/Overlay";
-import { IErrReturn } from "../../utils/Err/Err";
+import { useRouter } from "next/router";
+import { reduxStore } from "../../redux/with-redux-store";
+import { useCanUserAddReview } from "../../utils/hooks/useCanUserAddReview";
 
-export interface ReviewAddProps {
-  addReview: ({
-    data
-  }: {
-    data: { user: { token: string }; review: IReview };
-  }) => Promise<null>;
-  getSauceBySlug: ({ slug }: { slug: string }) => Promise<null>;
-  history: {
-    replace: (location: string, state?: string) => any;
-    push: (location: string, state?: string) => any;
-  };
-  user: { token?: string };
-  location: { pathname: string; search: string };
-}
+export interface ReviewAddProps {}
 
-export interface ReviewAddState {
-  enabled: boolean;
-  overall: IReviewSection;
-  label: IReviewSection;
-  aroma: IReviewSection;
-  taste: IReviewSection;
-  heat: IReviewSection;
-  note: IReviewSection;
-  flashMessage: FlashMessageProps;
-  [name: string]: any;
-}
+const ReviewAdd: React.FunctionComponent<ReviewAddProps> = props => {
+  // assign router
+  const router = useRouter();
 
-class ReviewAdd extends React.Component<ReviewAddProps, ReviewAddState> {
-  constructor(props: ReviewAddProps) {
-    super(props);
+  // assign state
+  const initRating = { rating: 0, txt: "" };
+  const [overall, setOverall] = React.useState<IReviewSection>(initRating);
+  const [label, setLabel] = React.useState<IReviewSection>(initRating);
+  const [aroma, setAroma] = React.useState<IReviewSection>(initRating);
+  const [taste, setTaste] = React.useState<IReviewSection>(initRating);
+  const [heat, setHeat] = React.useState<IReviewSection>(initRating);
+  const [note, setNote] = React.useState<IReviewSection>(initRating);
+  const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
+    isVisible: false
+  });
+  const slug = router.query.s;
 
-    this.state = {
-      enabled: true,
-      overall: { rating: 0, txt: "" },
-      label: { rating: 0, txt: "" },
-      aroma: { rating: 0, txt: "" },
-      taste: { rating: 0, txt: "" },
-      heat: { rating: 0, txt: "" },
-      note: { rating: 0, txt: "" },
-      flashMessage: {
-        isVisible: false
-      }
-    };
+  // assign dispatch
+  const useThunkDispatch = useDispatch<typeof reduxStore.dispatch>();
+
+  // Find out if user is eligible to submit a review to this sauce or not
+  const [canUserAddReview, error] = useCanUserAddReview();
+  if (!error.isGood && !flashMessage.isVisible) {
+    setFlashMessage({ isVisible: true, text: error.msg, type: "warning" });
   }
 
-  public componentDidMount() {
-    const slug: string | null = this.getPageFromPath(
-      this.props.location.search
-    );
+  return (
+    <Article>
+      <PageTitle>Add Review</PageTitle>
+      <StyledFormContainer>
+        <form onSubmit={onSubmit} style={{ maxWidth: "100%" }}>
+          {flashMessage.isVisible && (
+            <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
+          )}
+          <Overlay enabled={canUserAddReview}>
+            {/* Taste */}
+            <StyledRow>
+              <StyledDescriptor title="Taste">
+                Can you taste garlic? Are there hints of thyme? Describe what
+                you taste in the sauce.
+              </StyledDescriptor>
+              <StyledRightSide>
+                <Label>Taste Rating</Label>
+                <Rating
+                  emptySymbol={<StyledEmptyStar />}
+                  fullSymbol={<StyledFullStar />}
+                  onClick={e => setTaste({ ...taste, rating: e })}
+                  initialRating={taste.rating}
+                  readonly={!canUserAddReview}
+                />
+                <StyledTextArea
+                  onChange={e => setTaste({ ...taste, txt: e.target.value })}
+                  label="Description"
+                  name="taste"
+                  id="taste"
+                  showLabel={true}
+                  value={taste.txt}
+                  disabled={!canUserAddReview}
+                  readOnly={!canUserAddReview}
+                />
+              </StyledRightSide>
+            </StyledRow>
 
-    // Sauce slug is whack, redirect user
-    if (slug === null) {
-      // Get user outta here
-      this.props.history.replace("/sauces");
+            {/* Aroma */}
+            <StyledRow>
+              <StyledDescriptor title="Aroma">
+                What can you smell in the sauce? Try closing your eyes and
+                wafting the aroma towards your nose? What accents do you pick
+                up?
+              </StyledDescriptor>
+              <StyledRightSide>
+                <Label>Aroma Rating</Label>
+                <Rating
+                  emptySymbol={<StyledEmptyStar />}
+                  fullSymbol={<StyledFullStar />}
+                  onClick={e => setAroma({ ...aroma, rating: e })}
+                  initialRating={aroma.rating}
+                  readonly={!canUserAddReview}
+                />
+                <StyledTextArea
+                  onChange={e => setAroma({ ...aroma, txt: e.target.value })}
+                  label="Description"
+                  name="aroma"
+                  id="aroma"
+                  showLabel={true}
+                  value={aroma ? aroma.txt : ""}
+                  disabled={!canUserAddReview}
+                  readOnly={!canUserAddReview}
+                />
+              </StyledRightSide>
+            </StyledRow>
 
-      return;
-    }
+            {/* Label */}
+            <StyledRow>
+              <StyledDescriptor title="Label">
+                How do you feel about the design? Does it speak to you? Does it
+                remind you of anything? How effective does the design convey
+                what the sauce is/is not.
+              </StyledDescriptor>
+              <StyledRightSide>
+                <Label>Label Rating</Label>
+                <Rating
+                  emptySymbol={<StyledEmptyStar />}
+                  fullSymbol={<StyledFullStar />}
+                  onClick={e => setLabel({ ...label, rating: e })}
+                  initialRating={label.rating}
+                  readonly={!canUserAddReview}
+                />
+                <StyledTextArea
+                  onChange={e => setLabel({ ...label, txt: e.target.value })}
+                  label="Description"
+                  name="label"
+                  id="label"
+                  showLabel={true}
+                  value={label ? label.txt : ""}
+                  disabled={!canUserAddReview}
+                  readOnly={!canUserAddReview}
+                />
+              </StyledRightSide>
+            </StyledRow>
 
-    // Make sure we are at top of page
-    window.scrollTo(0, 0);
+            {/* Heat */}
+            <StyledRow>
+              <StyledDescriptor title="Heat">
+                How spicy is this sauce? Did you have to run for water? Was it
+                the perfect amount of heat?
+              </StyledDescriptor>
+              <StyledRightSide>
+                <Label>Heat Rating</Label>
+                <Rating
+                  emptySymbol={<StyledEmptyStar />}
+                  fullSymbol={<StyledFullStar />}
+                  onClick={e => setHeat({ ...heat, rating: e })}
+                  initialRating={heat.rating}
+                  readonly={!canUserAddReview}
+                />
+                <StyledTextArea
+                  onChange={e => setHeat({ ...heat, txt: e.target.value })}
+                  label="Description"
+                  name="heat"
+                  id="heat"
+                  showLabel={true}
+                  value={heat ? heat.txt : ""}
+                  disabled={!canUserAddReview}
+                  readOnly={!canUserAddReview}
+                />
+              </StyledRightSide>
+            </StyledRow>
 
-    // Make sure user can add review or not
-    const token = Auth.getToken();
-    if (!token || token.length === 0) {
-      // Redirect user to login w/ appropriate return address
-      this.props.history.replace(
-        `/account/login?return=${this.props.location.pathname}${this.props.location.search}`
-      );
+            {/* Overall */}
+            <StyledRow>
+              <StyledDescriptor title="Overall">
+                What are you overall impressions? What did the sauce get right?
+                What can it improve on?
+              </StyledDescriptor>
+              <StyledRightSide>
+                <Label>Overall Rating</Label>
+                <Rating
+                  emptySymbol={<StyledEmptyStar />}
+                  fullSymbol={<StyledFullStar />}
+                  onClick={e => setOverall({ ...overall, rating: e })}
+                  initialRating={overall.rating}
+                  readonly={!canUserAddReview}
+                />
+                <StyledTextArea
+                  onChange={e =>
+                    setOverall({ ...overall, txt: e.target.value })
+                  }
+                  required={true}
+                  label="Description"
+                  name="overall"
+                  id="overall"
+                  showLabel={true}
+                  value={overall ? overall.txt : ""}
+                  disabled={!canUserAddReview}
+                  readOnly={!canUserAddReview}
+                />
+              </StyledRightSide>
+            </StyledRow>
 
-      return;
-    }
+            {/* Note */}
+            <StyledRow>
+              <StyledDescriptor title="Note">
+                Have any fleeting thoughts that you would like to add? Include
+                it here!
+              </StyledDescriptor>
+              <StyledRightSide>
+                <StyledTextArea
+                  onChange={e => setNote({ ...note, txt: e.target.value })}
+                  label="Description"
+                  name="note"
+                  id="note"
+                  showLabel={true}
+                  value={note.txt}
+                  disabled={!canUserAddReview}
+                  readOnly={!canUserAddReview}
+                />
+              </StyledRightSide>
+            </StyledRow>
 
-    // Construct data obj
-    const data = { user: { token }, sauce: { slug } };
+            <StyledButton
+              onClick={() => {}}
+              type="submit"
+              disabled={!canUserAddReview}
+            >
+              Submit
+              <ArrowRight />
+            </StyledButton>
+          </Overlay>
+        </form>
+      </StyledFormContainer>
+    </Article>
+  );
 
-    // Find out if user is eligible to submit a review for this sauce or not
-    API.review
-      .canUserSubmit({ data })
-      .then(res => {
-        this.setState(prevState => {
-          return { ...prevState, enabled: true };
-        });
-      })
-      .catch((err: IErrReturn) => {
-        // 401 === unauthorized, 403 === forbidden
-        if (
-          err.response.data.status === 401 ||
-          err.response.data.status === 403
-        ) {
-          // Disable form components and show flashmessage
-          this.setState(prevState => {
-            return {
-              ...prevState,
-              enabled: false,
-              flashMessage: {
-                isVisible: true,
-                text: err.response.data.msg
-              }
-            };
-          });
-        } else {
-          // Redirect user to edit page
-          this.props.history.replace(
-            `/review/edit${this.props.location.search}`,
-            this.props.location.pathname
-          );
-        }
-      });
-  }
-
-  public render() {
-    return (
-      <div>
-        <TopBar />
-        <Navigation />
-        <Article>
-          <PageTitle>Add Review</PageTitle>
-          <StyledFormContainer>
-            <form onSubmit={this.onSubmit} style={{ maxWidth: "100%" }}>
-              {this.state.flashMessage.isVisible && (
-                <FlashMessage {...this.state.flashMessage}>
-                  {this.state.flashMessage.text}
-                </FlashMessage>
-              )}
-              <Overlay enabled={this.state.enabled}>
-                {/* Taste */}
-                <StyledRow>
-                  <StyledDescriptor title="Taste">
-                    Can you taste garlic? Are there hints of thyme? Describe
-                    what you taste in the sauce.
-                  </StyledDescriptor>
-                  <StyledRightSide>
-                    <Label>Taste Rating</Label>
-                    <Rating
-                      emptySymbol={<StyledEmptyStar />}
-                      fullSymbol={<StyledFullStar />}
-                      onClick={e => this.onStarClick(e, "taste")}
-                      initialRating={this.state.taste.rating}
-                      readonly={!this.state.enabled}
-                    />
-                    <StyledTextArea
-                      onChange={this.onTextChange}
-                      label="Description"
-                      name="taste"
-                      id="taste"
-                      showLabel={true}
-                      value={this.state.taste.txt}
-                      disabled={!this.state.enabled}
-                      readonly={!this.state.enabled}
-                    />
-                  </StyledRightSide>
-                </StyledRow>
-
-                {/* Aroma */}
-                <StyledRow>
-                  <StyledDescriptor title="Aroma">
-                    What can you smell in the sauce? Try closing your eyes and
-                    wafting the aroma towards your nose? What accents do you
-                    pick up?
-                  </StyledDescriptor>
-                  <StyledRightSide>
-                    <Label>Aroma Rating</Label>
-                    <Rating
-                      emptySymbol={<StyledEmptyStar />}
-                      fullSymbol={<StyledFullStar />}
-                      onClick={e => this.onStarClick(e, "aroma")}
-                      initialRating={this.state.aroma.rating}
-                      readonly={!this.state.enabled}
-                    />
-                    <StyledTextArea
-                      onChange={this.onTextChange}
-                      label="Description"
-                      name="aroma"
-                      id="aroma"
-                      showLabel={true}
-                      value={this.state.aroma ? this.state.aroma.txt : ""}
-                      disabled={!this.state.enabled}
-                      readonly={!this.state.enabled}
-                    />
-                  </StyledRightSide>
-                </StyledRow>
-
-                {/* Label */}
-                <StyledRow>
-                  <StyledDescriptor title="Label">
-                    How do you feel about the design? Does it speak to you? Does
-                    it remind you of anything? How effective does the design
-                    convey what the sauce is/is not.
-                  </StyledDescriptor>
-                  <StyledRightSide>
-                    <Label>Label Rating</Label>
-                    <Rating
-                      emptySymbol={<StyledEmptyStar />}
-                      fullSymbol={<StyledFullStar />}
-                      onClick={e => this.onStarClick(e, "label")}
-                      initialRating={this.state.label.rating}
-                      readonly={!this.state.enabled}
-                    />
-                    <StyledTextArea
-                      onChange={this.onTextChange}
-                      label="Description"
-                      name="label"
-                      id="label"
-                      showLabel={true}
-                      value={this.state.label ? this.state.label.txt : ""}
-                      disabled={!this.state.enabled}
-                      readonly={!this.state.enabled}
-                    />
-                  </StyledRightSide>
-                </StyledRow>
-
-                {/* Heat */}
-                <StyledRow>
-                  <StyledDescriptor title="Heat">
-                    How spicy is this sauce? Did you have to run for water? Was
-                    it the perfect amount of heat?
-                  </StyledDescriptor>
-                  <StyledRightSide>
-                    <Label>Heat Rating</Label>
-                    <Rating
-                      emptySymbol={<StyledEmptyStar />}
-                      fullSymbol={<StyledFullStar />}
-                      onClick={e => this.onStarClick(e, "heat")}
-                      initialRating={this.state.heat.rating}
-                      readonly={!this.state.enabled}
-                    />
-                    <StyledTextArea
-                      onChange={this.onTextChange}
-                      label="Description"
-                      name="heat"
-                      id="heat"
-                      showLabel={true}
-                      value={this.state.heat ? this.state.heat.txt : ""}
-                      disabled={!this.state.enabled}
-                      readonly={!this.state.enabled}
-                    />
-                  </StyledRightSide>
-                </StyledRow>
-
-                {/* Overall */}
-                <StyledRow>
-                  <StyledDescriptor title="Overall">
-                    What are you overall impressions? What did the sauce get
-                    right? What can it improve on?
-                  </StyledDescriptor>
-                  <StyledRightSide>
-                    <Label>Overall Rating</Label>
-                    <Rating
-                      emptySymbol={<StyledEmptyStar />}
-                      fullSymbol={<StyledFullStar />}
-                      onClick={e => this.onStarClick(e, "overall")}
-                      initialRating={this.state.overall.rating}
-                      readonly={!this.state.enabled}
-                    />
-                    <StyledTextArea
-                      onChange={this.onTextChange}
-                      required={true}
-                      label="Description"
-                      name="overall"
-                      id="overall"
-                      showLabel={true}
-                      value={this.state.overall ? this.state.overall.txt : ""}
-                      disabled={!this.state.enabled}
-                      readonly={!this.state.enabled}
-                    />
-                  </StyledRightSide>
-                </StyledRow>
-
-                {/* Note */}
-                <StyledRow>
-                  <StyledDescriptor title="Note">
-                    Have any fleeting thoughts that you would like to add?
-                    Include it here!
-                  </StyledDescriptor>
-                  <StyledRightSide>
-                    <StyledTextArea
-                      onChange={this.onTextChange}
-                      label="Description"
-                      name="note"
-                      id="note"
-                      showLabel={true}
-                      value={this.state.note ? this.state.note.txt : ""}
-                      disabled={!this.state.enabled}
-                      readonly={!this.state.enabled}
-                    />
-                  </StyledRightSide>
-                </StyledRow>
-
-                <StyledButton
-                  onClick={() => {}}
-                  type="submit"
-                  disabled={!this.state.enabled}
-                >
-                  Submit
-                  <ArrowRight />
-                </StyledButton>
-              </Overlay>
-            </form>
-          </StyledFormContainer>
-        </Article>
-        <Footer />
-      </div>
-    );
-  }
-
-  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    if (!event || !event.target) {
-      return;
-    }
-
-    // Grab the name and value
-    const { name, value }: { name: string; value: string } = event.target;
-
-    // Update local state
-    this.setState({
-      [name]: { ...this.state[name], txt: value }
-    });
-  };
-
-  private onStarClick = (value: number, id: string): void => {
-    // If user clicks on star that is already selected, we want to reset value to zero.
-    this.setState({
-      ...this.state,
-      [id]: {
-        ...this.state[id],
-        rating: value === this.state[id].rating ? 0 : value
-      }
-    });
-  };
-
-  private onSubmit = async (event: React.FormEvent): Promise<null> => {
+  async function onSubmit(event: React.FormEvent): Promise<null> {
     event.preventDefault();
-
     // if form disabled, don't do anything.
-    if (!this.state.enabled) {
-      return null;
-    }
-
-    const { user, history } = this.props;
-
-    // Get sauce from URL
-    const slug: string | null = this.getPageFromPath(
-      this.props.location.search
-    );
-
-    // Sauce slug is whack, redirect user
-    if (slug === null) {
-      history.replace("/"); // Maybe display banner too?
+    if (!canUserAddReview) {
       return null;
     }
 
     // make sure token is still good/not expired
     if (!Auth.isUserAuthenticated()) {
-      history.replace(
-        `/account/login?return=${this.props.location.pathname}${this.props.location.search}`
-      );
+      router.replace(`/account/login?return=${router.asPath}`);
+      return null;
+    }
+
+    // sanity check or get out
+    if (!slug || Array.isArray(slug)) {
+      router.push("/");
+      return null;
     }
 
     // Make sure we have token
-    const token = user.token;
+    const token = Auth.getToken();
     if (!token) {
-      history.replace(
-        `/account/login?return=${this.props.location.pathname}${this.props.location.search}`
-      );
+      router.replace(`/account/login?return=${router.asPath}`);
       return null;
     }
-
-    const data: {
-      user: { token: string };
-      review: IReview;
-    } = {
-      user: { token },
-      review: {
-        ...this.state,
-        _id: 0, // Server will overwrite this
-        author: "", // Server will overwrite this
-        sauce: slug,
-        created: 0 // Server will overwrite this
-      }
-    };
 
     try {
-      await this.props.addReview({ data });
+      // construct data object
+      const data: IReviewToServer = {
+        user: { token },
+        review: {
+          heat,
+          taste,
+          aroma,
+          overall,
+          label,
+          note,
+          _id: 0, // Server will overwrite this
+          author: "", // Server will overwrite this
+          sauce: slug,
+          created: 0 // Server will overwrite this
+        }
+      };
 
-      await this.props.getSauceBySlug({ slug });
+      // add review
+      await useThunkDispatch(addReview(data));
+
+      // get newest info on sauce
+      await useThunkDispatch(getSauceBySlug({ slug }));
 
       // Take user to sauce page
-      history.push(`/sauce?s=${slug}`);
+      router.push(`/sauce/view?s=${slug}`);
     } catch (err) {
-      console.log("ERR: ", err);
+      setFlashMessage({ isVisible: true, text: error.msg, type: "warning" });
     }
-
     return null;
-  };
-
-  private getPageFromPath(path: string): string | null {
-    // Get s from string
-    const values = queryString.parse(path);
-
-    // Make sure s is defined, not an array
-    if (!values.s || Array.isArray(values.s)) {
-      return null;
-    }
-
-    return values.s;
   }
-}
+};
 
-function mapStateToProps(state: AppState): any {
-  return {
-    user: { token: state.users.self.token }
-  };
-}
-
-// For TS w/ redux-thunk: https://github.com/reduxjs/redux-thunk/issues/213#issuecomment-428380685
-const mapDispatch2Props = (dispatch: MyThunkDispatch) => ({
-  addReview: ({
-    data
-  }: {
-    data: { user: { token: string }; review: IReview };
-  }) => dispatch(addReview({ data })),
-  getSauceBySlug: ({ slug }: { slug: string }) =>
-    dispatch(getSauceBySlug({ slug }))
-});
-
-export default connect(mapStateToProps, mapDispatch2Props)(ReviewAdd);
+export default ReviewAdd;
