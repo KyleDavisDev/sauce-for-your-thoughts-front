@@ -17,7 +17,6 @@ export const StyledButton = styled(Button)`
   display: flex;
   align-items: stretch;
   font-size: 1.5em;
-  width: 22px;
 
   > button {
     background-color: inherit;
@@ -25,6 +24,7 @@ export const StyledButton = styled(Button)`
     transition: none;
     padding: 0.25em;
     margin: 0;
+    width: 22px;
 
     &:hover {
       border-color: ${props => props.theme.secondaryThemeColor};
