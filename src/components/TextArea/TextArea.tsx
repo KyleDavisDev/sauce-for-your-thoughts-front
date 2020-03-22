@@ -14,7 +14,7 @@ export interface TextAreaProps {
   value?: string | number;
   className?: string;
   disabled?: boolean;
-  readonly?: boolean;
+  readOnly?: boolean;
   maxLength?: number;
   requirementText?: string;
   onChange(
@@ -24,69 +24,49 @@ export interface TextAreaProps {
   ): void;
 }
 
-interface TextAreaState {
-  id: string;
-}
+const TextArea: React.FunctionComponent<TextAreaProps> = props => {
+  const {
+    showLabel = false,
+    required = false,
+    disabled = false,
+    readOnly = false,
+    id = shortid.generate(),
+    className,
+    label,
+    placeholder,
+    onChange,
+    value,
+    maxLength,
+    requirementText,
+    name
+  } = props;
 
-export default class TextArea extends React.PureComponent<
-  TextAreaProps,
-  TextAreaState
-> {
-  public static defaultProps = {
-    showLabel: false,
-    required: false,
-    disabled: false,
-    readOnly: false
-  };
-
-  public componentWillMount() {
-    // Either accept id from parent or generate unique id
-    this.setState({ id: !this.props.id ? shortid.generate() : this.props.id });
-  }
-
-  public render() {
-    return (
-      <StyledDiv className={this.props.className}>
-        {this.props.showLabel && this.props.label && (
-          <Label htmlFor={this.state.id}>
-            {this.props.label}
-            {this.props.required ? (
-              <span style={{ color: "#B20000" }}>*</span>
-            ) : (
-              ""
-            )}
-          </Label>
-        )}
-        <StyledTextArea
-          id={this.state.id}
-          name={this.props.name}
-          cols={30}
-          rows={10}
-          placeholder={this.props.placeholder}
-          onChange={this.props.onChange}
-          value={this.props.value}
-          required={this.props.required}
-          disabled={this.props.disabled}
-          readOnly={this.props.readonly}
-          maxLength={this.props.maxLength}
-          style={{
-            marginBottom: this.props.requirementText && "0px"
-          }}
-        />
-        {this.props.requirementText ? (
-          <p
-            style={{
-              fontSize: ".85rem",
-              marginTop: "1px",
-              marginBottom: "15px"
-            }}
-          >
-            {this.props.requirementText}
-          </p>
-        ) : (
-          ""
-        )}
-      </StyledDiv>
-    );
-  }
-}
+  return (
+    <StyledDiv className={className}>
+      {showLabel && label && (
+        <Label htmlFor={id}>
+          {label}
+          {required ? <span style={{ color: "#B20000" }}>*</span> : ""}
+        </Label>
+      )}
+      <StyledTextArea
+        id={id}
+        name={name}
+        cols={30}
+        rows={10}
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+        required={required}
+        disabled={disabled}
+        readOnly={readOnly}
+        maxLength={maxLength}
+        style={{
+          marginBottom: requirementText && "0px"
+        }}
+      />
+      {requirementText ? <p>{requirementText}</p> : ""}
+    </StyledDiv>
+  );
+};
+export default TextArea;
