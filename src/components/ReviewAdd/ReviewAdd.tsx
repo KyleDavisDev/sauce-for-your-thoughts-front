@@ -9,13 +9,13 @@ import { addReview } from "../../redux/reviews/actions";
 import { getSauceBySlug } from "../../redux/sauces/actions";
 import ArrowRight from "../../images/icons/ArrowRight";
 import Auth from "../../utils/Auth/Auth";
-import Article from "../../components/Article/Article";
-import Footer from "../../components/Footer/Footer";
+import Article from "../Article/Article";
+import Footer from "../Footer/Footer";
 import { AppState, MyThunkDispatch } from "../../redux/configureStore";
-import Label from "../../components/Label/Label";
-import Navigation from "../../components/Navigation/Navigation";
-import PageTitle from "../../components/PageTitle/PageTitle";
-import TopBar from "../../components/TopBar/TopBar";
+import Label from "../Label/Label";
+import Navigation from "../Navigation/Navigation";
+import PageTitle from "../PageTitle/PageTitle";
+import TopBar from "../TopBar/TopBar";
 import {
   StyledFormContainer,
   StyledRow,
@@ -25,13 +25,10 @@ import {
   StyledEmptyStar,
   StyledFullStar,
   StyledTextArea
-} from "./ReviewStyle";
+} from "../../screens/reviews/ReviewStyle";
 import { API } from "../../utils/api/API";
-import {
-  FlashMessageProps,
-  FlashMessage
-} from "../../components/FlashMessage/FlashMessage";
-import { Overlay } from "../../components/Overlay/Overlay";
+import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
+import { Overlay } from "../Overlay/Overlay";
 import { IErrReturn } from "../../utils/Err/Err";
 
 export interface ReviewAddProps {
