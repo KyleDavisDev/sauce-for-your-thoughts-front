@@ -573,10 +573,11 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    add: (data: IReviewToServer): AxiosPromise =>
+    add: (data: IReviewToServer): Promise<IReview> =>
       axios.post(`${host}/api/review/add`, data).then((res: any) => {
         if (res.data.isGood) {
-          return res;
+          const review = res.data.review as IReview;
+          return review;
         }
         throw new Error(res.data.msg);
       }),
@@ -597,10 +598,11 @@ export const API = {
     get: (data: {
       user: { token: string };
       sauce: { slug: string };
-    }): AxiosPromise =>
+    }): Promise<IReview> =>
       axios.post(`${host}/api/review/get`, data).then((res: any) => {
         if (res.data.isGood) {
-          return res.data.review;
+          const review = res.data.review as IReview;
+          return review;
         }
         throw new Error(res.data.msg);
       }),
@@ -645,6 +647,45 @@ export const API = {
     }): AxiosPromise => {
       return axios
         .post(`${host}/api/review/canusersubmit`, data)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // Throw error in handle-able format
+          throw Err({
+            msg: res.data.msg,
+            status: res.status,
+            isGood: res.data.isGood
+          });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw handleCallbackError(err);
+        });
+    },
+
+    /** @description Check if user is eligible to edit a review or not (maybe suace is private or do not have a review to edit)
+     *  @param {Object} data data object
+     *    @param {string} data.user.token user's unique token
+     *    @param {string} data.sauce.slug unique sauce string
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {IErrReturn} error message
+     */
+    canUserEdit: ({
+      data
+    }: {
+      data: {
+        user: { token: string };
+        sauce: { slug: string };
+      };
+    }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/review/canuseredit`, data)
         .then((res: any) => {
           if (res.data.isGood) {
             return res;
