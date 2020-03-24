@@ -28,6 +28,8 @@ class Flatn {
         // dig little deeper
         author = author.displayName;
       }
+
+      // push to obj
       byReviewID[hashID] = { ...review, author };
 
       // If review doesn't have _addedToStore prop, we will add it
