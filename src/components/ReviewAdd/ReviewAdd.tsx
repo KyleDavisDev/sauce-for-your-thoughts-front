@@ -84,7 +84,6 @@ const ReviewAdd: React.FunctionComponent<ReviewAddProps> = props => {
                   name="taste"
                   id="taste"
                   showLabel={true}
-                  value={taste.txt}
                   disabled={!canUserAddReview}
                   readOnly={!canUserAddReview}
                 />
@@ -113,7 +112,6 @@ const ReviewAdd: React.FunctionComponent<ReviewAddProps> = props => {
                   name="aroma"
                   id="aroma"
                   showLabel={true}
-                  value={aroma ? aroma.txt : ""}
                   disabled={!canUserAddReview}
                   readOnly={!canUserAddReview}
                 />
@@ -142,7 +140,6 @@ const ReviewAdd: React.FunctionComponent<ReviewAddProps> = props => {
                   name="label"
                   id="label"
                   showLabel={true}
-                  value={label ? label.txt : ""}
                   disabled={!canUserAddReview}
                   readOnly={!canUserAddReview}
                 />
@@ -170,7 +167,6 @@ const ReviewAdd: React.FunctionComponent<ReviewAddProps> = props => {
                   name="heat"
                   id="heat"
                   showLabel={true}
-                  value={heat ? heat.txt : ""}
                   disabled={!canUserAddReview}
                   readOnly={!canUserAddReview}
                 />
@@ -201,7 +197,6 @@ const ReviewAdd: React.FunctionComponent<ReviewAddProps> = props => {
                   name="overall"
                   id="overall"
                   showLabel={true}
-                  value={overall ? overall.txt : ""}
                   disabled={!canUserAddReview}
                   readOnly={!canUserAddReview}
                 />
@@ -221,7 +216,6 @@ const ReviewAdd: React.FunctionComponent<ReviewAddProps> = props => {
                   name="note"
                   id="note"
                   showLabel={true}
-                  value={note.txt}
                   disabled={!canUserAddReview}
                   readOnly={!canUserAddReview}
                 />
@@ -295,7 +289,7 @@ const ReviewAdd: React.FunctionComponent<ReviewAddProps> = props => {
       // Take user to sauce page
       router.push(`/sauce/view?s=${slug}`);
     } catch (err) {
-      setFlashMessage({ isVisible: true, text: error.msg, type: "warning" });
+      setFlashMessage({ isVisible: true, text: err.msg, type: "warning" });
     }
     return null;
   }
