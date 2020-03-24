@@ -66,3 +66,9 @@ export interface IReviewToServer {
   user: { token: string };
   review: IReview;
 }
+
+// Interface for requesting a review to the server
+export interface IReviewRequestFromServer {
+  user: { token: string };
+  sauce: { slug: string };
+}
