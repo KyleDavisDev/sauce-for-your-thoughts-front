@@ -47,7 +47,7 @@ class Menu extends React.Component<MenuProps, any> {
           </li>
         )}
         <hr style={{ margin: 0 }} />
-        <Item onClick={this.logout}>Logout</Item>
+        <Item to="/account/logout">Logout</Item>
       </StyledUL>
     );
   }
@@ -67,7 +67,4 @@ const mapState2Props = (state: AppState) => {
 
 const mapDispatch2Props = { logout };
 
-export default connect(
-  mapState2Props,
-  mapDispatch2Props
-)(Menu);
+export default connect(mapState2Props, mapDispatch2Props)(Menu);
