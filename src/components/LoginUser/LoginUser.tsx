@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import validator from "validator";
 
@@ -19,6 +19,7 @@ import {
   StyledFooterDivs
 } from "./LoginUserStyle";
 import { ILoginUser } from "../../redux/users/types";
+import { AppState } from "../../redux/configureStore";
 
 export interface LoginProps {}
 
@@ -40,51 +41,18 @@ const LoginUser: React.SFC<LoginProps> = () => {
   // assign NextJS router
   const router = useRouter();
 
-  const onSubmit = async (event: React.FormEvent): Promise<any> => {
-    event.preventDefault();
+  const token = useSelector((store: AppState) => store.users.self.token);
 
-    // If not email don't even send network request
-    if (!validator.isEmail(email)) {
-      setFlashMessage({
-        isVisible: true,
-        text: "An email must be used.",
-        type: "alert"
-      });
-      return;
+  React.useEffect(() => {
+    if (!token) return;
+
+    // Redirect user to where they were or to sauces page
+    if (router.query.return && !Array.isArray(router.query.return)) {
+      router.push(`${router.query.return}`);
+    } else {
+      router.push("/sauces");
     }
-
-    // If password too short, don't send network request
-    if (password.length < 8) {
-      setFlashMessage({
-        isVisible: true,
-        text: "Password must be longer than 8 characters",
-        type: "alert"
-      });
-      return;
-    }
-
-    const credentials: ILoginUser = {
-      user: { email, password }
-    };
-    try {
-      // dispatch action which calls API to login user
-      dispatch(login({ credentials }));
-
-      // Redirect user to where they were or to sauces page
-      if (router.query.return && !Array.isArray(router.query.return)) {
-        router.push(router.query.return);
-      } else {
-        router.push("/sauces");
-      }
-    } catch (err) {
-      // Create warning flash
-      setFlashMessage({
-        isVisible: true,
-        text: err.response.data.msg,
-        type: "warning"
-      });
-    }
-  };
+  }, [token]);
 
   return (
     <StyledDiv>
@@ -137,6 +105,45 @@ const LoginUser: React.SFC<LoginProps> = () => {
       </StyledArticle>
     </StyledDiv>
   );
+
+  async function onSubmit(event: React.FormEvent): Promise<any> {
+    event.preventDefault();
+
+    // If not email don't even send network request
+    if (!validator.isEmail(email)) {
+      setFlashMessage({
+        isVisible: true,
+        text: "An email must be used.",
+        type: "alert"
+      });
+      return;
+    }
+
+    // If password too short, don't send network request
+    if (password.length < 8) {
+      setFlashMessage({
+        isVisible: true,
+        text: "Password must be longer than 8 characters",
+        type: "alert"
+      });
+      return;
+    }
+
+    const credentials: ILoginUser = {
+      user: { email, password }
+    };
+    try {
+      // dispatch action which calls API to login user
+      dispatch(login({ credentials }));
+    } catch (err) {
+      // Create warning flash
+      setFlashMessage({
+        isVisible: true,
+        text: err.response.data.msg,
+        type: "warning"
+      });
+    }
+  }
 };
 
 export default LoginUser;
