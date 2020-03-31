@@ -127,6 +127,12 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
         setEnabled(true);
       })
       .catch((err: IErrReturn) => {
+        // authorization failed for some reason, force a relogin
+        if (err.response.data.status === 401) {
+          router.push("/account/login?return=/sauce/add");
+          return;
+        }
+
         // Disable form components and show flashmessage
         setEnabled(false);
         setFlashMessage({
@@ -372,19 +378,4 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
   // };
 };
 
-// function mapStateToProps(state: AppState): any {
-//   return {
-//     user: {
-//       token: state.users.self.token || "",
-//       name: state.users.self.displayName
-//     },
-//     types: state.sauces.types
-//   };
-// }
-
-// const mapDispatchToProps = {
-//   addSauce
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(SauceAdd);
 export default SauceAdd;
