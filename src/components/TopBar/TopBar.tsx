@@ -15,13 +15,15 @@ import Trigger from "./components/Trigger/Trigger";
 import Body from "./components/Body/Body";
 
 const TopBar: React.SFC = () => {
-  const { self } = useSelector((state: AppState) => state.users);
+  const { self } = useSelector((state: AppState) => {
+    return state.users;
+  });
   const { displayName, avatarURL } = self;
   const isLoggedIn = !!self.token;
 
   return (
     <header>
-      {isLoggedIn ? (
+      {isLoggedIn && displayName && avatarURL ? (
         <StyledDiv>
           <StyledDropDown>
             <Trigger>
