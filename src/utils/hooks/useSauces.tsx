@@ -19,7 +19,7 @@ export default function useSauces({
   router: NextRouter;
 }): { sauces: ISauce[]; loading: boolean; total: number } {
   // assign state
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
   const [queryString, setQueryString] = React.useState("");
 
   // assign dispatch
@@ -68,13 +68,15 @@ export default function useSauces({
 
   // Call every time our queryString changes
   React.useEffect(() => {
-    setLoading(true);
     // declare async function
     async function getSauces() {
       try {
+        setLoading(true);
         await useThunkDispatch(getSaucesByQuery({ query: queryString }));
+      } catch (err) {
+      } finally {
         setLoading(false);
-      } catch (err) {}
+      }
     }
 
     // Check if we already have sauces or not
