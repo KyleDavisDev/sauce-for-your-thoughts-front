@@ -1,4 +1,6 @@
 import axios, { AxiosPromise } from "axios";
+import ProgressBar from "rsup-progress";
+import { theme } from "../../theme/styled-components";
 import {
   IRegisterUser,
   ILoginUser,
@@ -9,6 +11,48 @@ import {
 } from "../../redux/users/types";
 import { IReview, IReviewToServer } from "../../redux/reviews/types";
 import Err, { IErrReturn } from "../Err/Err";
+
+// let ProgressBar;
+let progressBar;
+
+if (typeof window !== "undefined") {
+  // tslint:disable-next-line:no-var-requires
+  // import ProgressBar from "rsup-progress";
+  progressBar = new ProgressBar({
+    height: 5,
+    color: theme.secondaryThemeColor
+  });
+}
+
+// Add a request interceptor
+axios.interceptors.request.use(
+  config => {
+    progressBar.start();
+    // Do something before request is sent
+    return config;
+  },
+  error => {
+    progressBar.end();
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
+
+// Add a response interceptor
+axios.interceptors.response.use(
+  response => {
+    progressBar.end();
+    // Any status code that lie within the range of 2xx cause this function to trigger
+    // Do something with response data
+    return response;
+  },
+  error => {
+    progressBar.end();
+    // Any status codes that falls outside the range of 2xx cause this function to trigger
+    // Do something with response error
+    return Promise.reject(error);
+  }
+);
 
 export const host =
   process.env.API_ENV === "prod"
