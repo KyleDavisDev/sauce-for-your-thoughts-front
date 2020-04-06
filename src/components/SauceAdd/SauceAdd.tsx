@@ -96,12 +96,7 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
   });
 
   const [types, setTypes] = React.useState(typesOfSauces);
-  const [dropNCropValue, setDropNCropValue] = React.useState({});
-  const cropperOptions = {
-    zoomOnWheel: false,
-    aspectRatio: 2 / 3,
-    movable: true
-  };
+  const [photo, setPhoto] = React.useState<string | ArrayBuffer | null>();
   const [isImageLocked, setIsImageLocked] = React.useState(false);
   const [addReview, setAddReview] = React.useState(true);
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
@@ -212,16 +207,16 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
 
               {/* Photo */}
               <SaucePhoto
-                // DropNCropValue={dropNCropValue}
-                cropperOptions={cropperOptions}
+                photo={photo}
                 isImageLocked={isImageLocked}
-                // onDropNCropChange={onDropNCropChange}
                 onImageLock={onImageLock}
                 onClearImageClick={onClearImageClick}
+                setPhoto={e => setPhoto(e)}
               />
 
               {/* Review */}
               <SauceReview
+                // tslint:disable-next-line:no-console
                 onRadioClick={e => console.log(e.target)}
                 addReview={addReview}
               />
@@ -271,10 +266,6 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
   //     state: val
   //   });
   // };
-
-  function onDropNCropChange(val: any) {
-    setDropNCropValue(val);
-  }
 
   function onSubmit(): void {
     // event.preventDefault();
@@ -377,7 +368,7 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
 
   function onClearImageClick(event: React.MouseEvent<HTMLButtonElement>): void {
     setIsImageLocked(false);
-    setDropNCropValue({});
+    setPhoto(undefined);
   }
 };
 
