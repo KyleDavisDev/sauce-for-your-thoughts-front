@@ -1,5 +1,5 @@
 import * as React from "react";
-import ReactCrop from "react-image-crop";
+import { useDropzone } from "react-dropzone";
 import { Button } from "../../../Button/Button";
 
 import {
@@ -8,31 +8,45 @@ import {
   StyledPhotoContainer,
   StyledImageButtonContainer
 } from "../../SauceAddStyle";
-import { StyledOutline } from "./SaucePhotoStyle";
+import { StyledOutline, StyledReactCrop } from "./SaucePhotoStyle";
 
 export interface ISaucePhotoProps {
   onImageLock: (lock: boolean) => void;
   onClearImageClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onImageRemove?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  setPhoto: (e: string | ArrayBuffer | null) => void;
 
-  cropperOptions: {
-    zoomOnWheel?: boolean;
-    aspectRatio?: number;
-    movable: boolean;
-  };
   isImageLocked: boolean;
-  photo?: string;
+  photo?: string | ArrayBuffer | null;
 }
 
 const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
   const [crop, setCrop] = React.useState<any>({
     unit: "%",
     width: 30,
-    aspect: 16 / 9
+    aspect: 2 / 3
   });
-  const [photo, setPhoto] = React.useState<any>();
+  const {
+    getRootProps,
+    getInputProps,
+    isDragActive,
+    isDragAccept,
+    isDragReject,
+    acceptedFiles
+  } = useDropzone({ accept: "image/*" });
   const [imgRef, setImgRef] = React.useState(null);
-  const [previewUrl, setPreviewUrl] = React.useState("");
+  const { isImageLocked, photo, setPhoto } = props;
+
+  React.useEffect(() => {
+    async function getFile() {
+      const _file = await toBase64(acceptedFiles[0]);
+      setPhoto(_file);
+    }
+
+    if (acceptedFiles.length > 0) {
+      getFile();
+    }
+  }, [acceptedFiles]);
 
   return (
     <StyledRow>
@@ -42,32 +56,35 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
         different one.
       </StyledDescriptor>
       <StyledPhotoContainer>
-        {props.photo && (
-          <div style={{ marginBottom: "15px" }}>
-            <h5> Current image:</h5>
-            <img src={props.photo} style={{ maxWidth: "200px" }} />
-            <Button onClick={onImageRemove}>Remove image</Button>
-          </div>
-        )}
         {photo ? (
           <>
-            <ReactCrop
+            <StyledReactCrop
               src={photo}
               crop={crop}
               ruleOfThirds
               onChange={newCrop => setCrop(newCrop)}
+              disabled={isImageLocked}
               onImageLoaded={onLoad}
-              onComplete={makeClientCrop}
             />
-            {previewUrl && <img alt="Crop preview" src={previewUrl} />}
           </>
         ) : (
-          uploadSection()
+          <div className="container">
+            <StyledOutline
+              {...getRootProps({ isDragActive, isDragAccept, isDragReject })}
+            >
+              <input {...getInputProps()} />
+              <div>Drag-n-drop a file or click to add an image</div>
+              <div>Accepted file types: .jpeg, .jpg, .png, .webp</div>
+              <div>
+                Max file size: <strong>3MB</strong>
+              </div>
+            </StyledOutline>
+          </div>
         )}
 
         <StyledImageButtonContainer>
           <Button onClick={onImageLock}>
-            {props.isImageLocked ? "Unlock Image" : "Lock Image"}
+            {isImageLocked ? "Unlock Image" : "Lock Image"}
           </Button>
 
           <Button onClick={props.onClearImageClick}>Clear Image</Button>
@@ -76,69 +93,29 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     </StyledRow>
   );
 
-  function uploadSection(): JSX.Element {
-    return (
-      <StyledOutline htmlFor="fileUpload">
-        <div>
-          <div>Drag-n-drop a file or click to add an image</div>
-          <div>Accepted file types: .jpeg, .jpg, .png</div>
-          <div>
-            Max file size: <strong>3MB</strong>
-          </div>
-        </div>
-        <input
-          type="file"
-          id="fileUpload"
-          accept="image/*"
-          onChange={onSelectFile}
-        />
-      </StyledOutline>
-    );
-  }
+  // function uploadSection(): JSX.Element {
+  //   return (
+  //     // <StyledOutline htmlFor="fileUpload">
+  //     //   <div>
+  //     //     <div>Drag-n-drop a file or click to add an image</div>
+  //     //     <div>Accepted file types: .jpeg, .jpg, .png</div>
+  //     //     <div>
+  //     //       Max file size: <strong>3MB</strong>
+  //     //     </div>
+  //     //   </div>
+  //     //   <input
+  //     //     type="file"
+  //     //     id="fileUpload"
+  //     //     accept="image/*"
+  //     //     onChange={onSelectFile}
+  //     //   />
+  //     // </StyledOutline>
+
+  //   );
+  // }
 
   function onLoad(img) {
     setImgRef(img);
-  }
-
-  async function makeClientCrop() {
-    if (imgRef && crop.width && crop.height) {
-      createCropPreview(imgRef, "newFile.jpeg");
-    }
-  }
-
-  async function createCropPreview(image, fileName) {
-    const canvas = document.createElement("canvas");
-    const scaleX = image.naturalWidth / image.width;
-    const scaleY = image.naturalHeight / image.height;
-    canvas.width = crop.width;
-    canvas.height = crop.height;
-    const ctx = canvas.getContext("2d");
-
-    if (!ctx) return;
-
-    ctx.drawImage(
-      image,
-      crop.x * scaleX,
-      crop.y * scaleY,
-      crop.width * scaleX,
-      crop.height * scaleY,
-      0,
-      0,
-      crop.width,
-      crop.height
-    );
-
-    return new Promise((resolve, reject) => {
-      canvas.toBlob(blob => {
-        if (!blob) {
-          reject(new Error("Canvas is empty"));
-          return;
-        }
-        // blob.name = fileName;
-        window.URL.revokeObjectURL(previewUrl);
-        setPreviewUrl(window.URL.createObjectURL(blob));
-      }, "image/jpeg");
-    });
   }
 
   function onSelectFile(e) {
@@ -149,21 +126,17 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     }
   }
 
-  function onImageLock(event: React.MouseEvent<HTMLButtonElement>): void {
-    // Find out if locked or not
-    const isLocked: boolean = props.isImageLocked;
-
-    if (isLocked) {
-    } else {
-    }
-
-    props.onImageLock(!isLocked);
+  function onImageLock(): void {
+    props.onImageLock(!isImageLocked);
   }
 
-  function onImageRemove(event: React.MouseEvent<HTMLButtonElement>): void {
-    if (props.onImageRemove) {
-      props.onImageRemove(event);
-    }
+  function toBase64(file): Promise<string | ArrayBuffer | null> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
   }
 };
 
