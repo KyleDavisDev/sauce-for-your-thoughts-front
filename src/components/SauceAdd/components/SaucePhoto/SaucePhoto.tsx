@@ -14,11 +14,11 @@ export interface ISaucePhotoProps {
   onImageLock: (lock: boolean) => void;
   onClearImageClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onImageRemove?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  setPhoto: (e: string | ArrayBuffer | null) => void;
+  setPhoto: (e: File) => void;
   setPhotoType: (e: string) => void;
 
   isImageLocked: boolean;
-  photo?: string | ArrayBuffer | null;
+  photo?: File;
 }
 
 const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
@@ -36,12 +36,13 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     acceptedFiles
   } = useDropzone({ accept: "image/*" });
   const [imgRef, setImgRef] = React.useState(null);
-  const { isImageLocked, photo, setPhoto, setPhotoType } = props;
+  const { isImageLocked, setPhoto, setPhotoType } = props;
+  const photo = props.photo ? URL.createObjectURL(props.photo) : undefined;
 
   React.useEffect(() => {
     async function getFile() {
-      const _file = await toBase64(acceptedFiles[0]);
-      setPhoto(_file);
+      // const _file = await toBase64(acceptedFiles[0]);
+      setPhoto(acceptedFiles[0]);
       setPhotoType(acceptedFiles[0].type);
     }
 
@@ -103,7 +104,7 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     props.onImageLock(!isImageLocked);
   }
 
-  function toBase64(file): Promise<string | ArrayBuffer | null> {
+  function toBase64(file: File): Promise<string | ArrayBuffer | null> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
