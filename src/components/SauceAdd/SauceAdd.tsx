@@ -36,7 +36,7 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
   const [ingredients, setIngredients] = React.useState("");
   const [shu, setShu] = React.useState("");
   const [enabled, setEnabled] = React.useState(false);
-  const [photo, setPhoto] = React.useState<string | ArrayBuffer | null>();
+  const [photo, setPhoto] = React.useState<File | undefined>();
   const [photoType, setPhotoType] = React.useState<string | undefined>();
   const [isImageLocked, setIsImageLocked] = React.useState(false);
   const [addReview, setAddReview] = React.useState<boolean>(true);
@@ -265,26 +265,24 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
     formData.append("user", JSON.stringify({ user: { token } }));
     // Append image if available
     if (photo) {
-      if (!(photo instanceof ArrayBuffer)) {
-        return;
-      }
-      const blob = new Blob([photo]);
-      const image = new File([blob], "image.png", {
-        type: photoType
-      });
       // append
-      formData.append("image", image);
+      formData.append("image", photo);
     }
 
     try {
       const res = await useThunkDispatch(addSauce({ formData }));
+
       if (addReview) {
         // Go to review page for specific sauce
         router.push(`/review/add?s=${res}`);
+        return; // end
+      } else {
+        // else, take them to sauce page
+        router.push(`/sauce/view?s=${res}`);
+        return; //end
       }
-      // else, take them to sauce page
-      router.push(`/sauce/view?s=${res}`);
     } catch (err) {
+      console.log(err);
       // Move screen to top
       window.scrollTo(0, 0);
       //display error
