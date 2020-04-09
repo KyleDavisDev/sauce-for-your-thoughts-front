@@ -15,6 +15,7 @@ export interface ISaucePhotoProps {
   onClearImageClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onImageRemove?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   setPhoto: (e: string | ArrayBuffer | null) => void;
+  setPhotoType: (e: string) => void;
 
   isImageLocked: boolean;
   photo?: string | ArrayBuffer | null;
@@ -35,12 +36,13 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     acceptedFiles
   } = useDropzone({ accept: "image/*" });
   const [imgRef, setImgRef] = React.useState(null);
-  const { isImageLocked, photo, setPhoto } = props;
+  const { isImageLocked, photo, setPhoto, setPhotoType } = props;
 
   React.useEffect(() => {
     async function getFile() {
       const _file = await toBase64(acceptedFiles[0]);
       setPhoto(_file);
+      setPhotoType(acceptedFiles[0].type);
     }
 
     if (acceptedFiles.length > 0) {
@@ -93,37 +95,8 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     </StyledRow>
   );
 
-  // function uploadSection(): JSX.Element {
-  //   return (
-  //     // <StyledOutline htmlFor="fileUpload">
-  //     //   <div>
-  //     //     <div>Drag-n-drop a file or click to add an image</div>
-  //     //     <div>Accepted file types: .jpeg, .jpg, .png</div>
-  //     //     <div>
-  //     //       Max file size: <strong>3MB</strong>
-  //     //     </div>
-  //     //   </div>
-  //     //   <input
-  //     //     type="file"
-  //     //     id="fileUpload"
-  //     //     accept="image/*"
-  //     //     onChange={onSelectFile}
-  //     //   />
-  //     // </StyledOutline>
-
-  //   );
-  // }
-
   function onLoad(img) {
     setImgRef(img);
-  }
-
-  function onSelectFile(e) {
-    if (e.target.files && e.target.files.length > 0) {
-      const reader = new FileReader();
-      reader.addEventListener("load", () => setPhoto(reader.result));
-      reader.readAsDataURL(e.target.files[0]);
-    }
   }
 
   function onImageLock(): void {
