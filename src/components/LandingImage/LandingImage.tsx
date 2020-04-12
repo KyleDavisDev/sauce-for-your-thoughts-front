@@ -1,5 +1,6 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 import { AppState } from "../../redux/configureStore";
 import {
@@ -15,114 +16,61 @@ import {
 
 export interface LandingImageProps {
   className?: string;
-  types: string[];
-  history: { push: (location: string) => any };
 }
 
-export interface LandingImageState {
-  search: {
-    value: string;
-  };
-  filter: {
-    types: string[];
-    selectedValue: string;
-  };
-}
+const LandingImage: React.FunctionComponent<LandingImageProps> = props => {
+  const [search, setSearch] = React.useState("");
+  const [selectedValue, setSelectedValue] = React.useState("all");
+  const types = useSelector((store: AppState) => {
+    return store.sauces.types;
+  });
 
-class LandingImage extends React.Component<
-  LandingImageProps,
-  LandingImageState
-> {
-  constructor(props: LandingImageProps) {
-    super(props);
+  // assign router
+  const router = useRouter();
 
-    this.state = {
-      search: { value: "" },
-      filter: { types: this.props.types, selectedValue: "all" }
-    };
-  }
+  return (
+    <HeroContainer className={props.className}>
+      <HeroImage />
+      <HeroBody>
+        <HeroTitle>Find your perfect sauce</HeroTitle>
+        <form onSubmit={onSubmit}>
+          <StyledDiv>
+            <StyledDropDown
+              options={types}
+              selectedValue={selectedValue}
+              onSelect={e => setSelectedValue(e.target.value)}
+            />
+            <StyledInput
+              type="text"
+              id="Hero__Search"
+              name="Hero__Search"
+              onChange={e => setSearch(e.target.value)}
+              placeholder="Search..."
+            />
 
-  public render() {
-    return (
-      <HeroContainer className={this.props.className}>
-        <HeroImage />
-        <HeroBody>
-          <HeroTitle>Find your perfect sauce</HeroTitle>
-          <form onSubmit={this.onSubmit}>
-            <StyledDiv>
-              <StyledDropDown
-                options={this.state.filter.types}
-                selectedValue={this.state.filter.selectedValue}
-                onSelect={this.onSelect}
-              />
-              <StyledInput
-                type="text"
-                id="Hero__Search"
-                name="Hero__Search"
-                onChange={this.onTextChange}
-                value={this.state.search.value}
-                placeholder="Search..."
-              />
+            <StyledButton type="submit">Search</StyledButton>
+          </StyledDiv>
+        </form>
+      </HeroBody>
+    </HeroContainer>
+  );
 
-              <StyledButton type="submit">Search</StyledButton>
-            </StyledDiv>
-          </form>
-        </HeroBody>
-      </HeroContainer>
-    );
-  }
-
-  private onSubmit = async (event: React.FormEvent): Promise<null> => {
+  async function onSubmit(event: React.FormEvent): Promise<null> {
     event.preventDefault();
 
-    let query = `/sauces?srch=${this.state.search.value}`;
-    if (this.state.filter.selectedValue.toLowerCase() !== "all") {
-      query += `&type=${this.state.filter.selectedValue}`;
+    let query = "/sauces?";
+    if (search.length > 0) {
+      query += `srch=${search}`;
+    }
+
+    if (selectedValue.toLowerCase() !== "all") {
+      query += `&type=${selectedValue}`;
     }
 
     // take person to sauces page w/ prefilled search query
-    this.props.history.push(query);
+    router.push(query);
     return null;
-  };
-
-  private onSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
-    if (!event || !event.target || !event.target.value) {
-      return;
-    }
-
-    // Grab the value
-    const selectedValue: string = event.target.value;
-
-    // Update local state
-    this.setState({
-      ...this.state,
-      filter: {
-        ...this.state.filter,
-        selectedValue
-      }
-    });
-  };
-
-  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    if (!event || !event.target || !event.target.value) {
-      return;
-    }
-
-    // Grab the value
-    const value: string = event.target.value;
-
-    // Update local state
-    this.setState({
-      ...this.state,
-      search: {
-        value
-      }
-    });
-  };
-}
-
-const mapState2Props = (state: AppState) => {
-  return { types: state.sauces.types };
+  }
 };
 
-export default connect(mapState2Props)(LandingImage);
+export default LandingImage;
