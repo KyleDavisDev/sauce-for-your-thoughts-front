@@ -77,7 +77,6 @@ const LoginUser: React.SFC<LoginProps> = () => {
               showLabel={true}
               label={"Email"}
               name={"email"}
-              value={email}
               required={true}
             />
             <TextInput
@@ -86,7 +85,6 @@ const LoginUser: React.SFC<LoginProps> = () => {
               showLabel={true}
               label={"Password"}
               name={"password"}
-              value={password}
               required={true}
             />
             <StyledFooterDivs>
