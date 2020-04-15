@@ -16,12 +16,19 @@ interface DropDownProps {
   onSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const DropDown: React.FunctionComponent<DropDownProps> = props => {
+const DropDown: React.FC<DropDownProps> = props => {
   // get info from props and assign defaults if needed
-  const id = props.id ? shortid.generate() : props.id;
-  const showLabel = props.showLabel || false;
-  const required = props.required || false;
-  const { className, options, name, label, onSelect, selectedValue } = props;
+  const {
+    className,
+    options,
+    name,
+    label,
+    onSelect,
+    selectedValue,
+    id = shortid.generate(),
+    showLabel = false,
+    required = false
+  } = props;
 
   return (
     <div className={className}>
