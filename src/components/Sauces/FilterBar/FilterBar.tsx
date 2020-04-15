@@ -52,7 +52,6 @@ const FilterBar: React.FunctionComponent<FilterBarProps> = props => {
   const [type, setType] = React.useState(types.selected);
   const [order, setOrder] = React.useState(orders.selected);
   const [limit, setLimit] = React.useState(limits.selected.toString());
-
   const [srch, setSrch] = React.useState(params.srch || "");
 
   return (
@@ -90,6 +89,7 @@ const FilterBar: React.FunctionComponent<FilterBarProps> = props => {
           label={"Name like..."}
           onChange={e => setSrch(e.target.value)}
           name={"srch"}
+          value={srch}
         />
 
         <StyledButton type={"submit"}>Filter</StyledButton>
