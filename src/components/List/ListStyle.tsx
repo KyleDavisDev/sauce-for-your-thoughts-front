@@ -33,11 +33,3 @@ export const StyledUl = styled.ul`
   }
 `;
 StyledUl.displayName = "StyledUl";
-
-export const StyledLink = styled(Link)`
-  color: ${props => props.theme.primaryThemeColor};
-  &:hover,
-  &:focus {
-    color: ${props => props.theme.secondaryThemeColor};
-  }
-`;
