@@ -25,7 +25,7 @@ interface ArticleProps {
   className?: string;
 }
 
-const Article: React.SFC<ArticleProps> = props => {
+const Article: React.FunctionComponent<ArticleProps> = props => {
   return (
     <StyledArticle className={props.className}>{props.children}</StyledArticle>
   );
