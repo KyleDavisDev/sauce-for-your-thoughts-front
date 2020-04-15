@@ -36,7 +36,7 @@ class Index extends React.PureComponent<IndexProps, {}> {
       <>
         <TopBar />
         <Navigation />
-        <StyledLandingImage history={this.props.history} />
+        <StyledLandingImage />
         <StyledArticle>
           <NewestSauces />
           <FeaturedSauces />
