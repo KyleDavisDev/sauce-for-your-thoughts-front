@@ -14,7 +14,7 @@ interface FeaturedSaucesProps {
   className?: string;
 }
 
-const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
+const FeaturedSauces: React.FC<FeaturedSaucesProps> = props => {
   // find our suaces
   const [featuredSauces, loading] = useFeaturedSauces();
 
@@ -48,7 +48,7 @@ const FeaturedSauces: React.SFC<FeaturedSaucesProps> = props => {
       });
     }
 
-    return <p> "No sauces found..." </p>;
+    return <p>No sauces found...</p>;
   }
 };
 
