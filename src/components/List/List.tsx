@@ -1,7 +1,8 @@
 import * as React from "react";
 import * as shortid from "shortid";
+import { Link } from "../Link/Link";
 
-import { StyledDiv, StyledH5, StyledLink, StyledUl } from "./ListStyle";
+import { StyledDiv, StyledH5, StyledUl } from "./ListStyle";
 
 interface ListProps {
   className?: string;
@@ -20,7 +21,7 @@ const List: React.FunctionComponent<ListProps> = props => {
         {props.items.map(item => {
           return (
             <li key={shortid.generate()}>
-              <StyledLink to={item.link || "#"}>{item.text}</StyledLink>
+              <Link to={item.link || "#"}>{item.text}</Link>
             </li>
           );
         })}
