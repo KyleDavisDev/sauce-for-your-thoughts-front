@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import validator from "validator";
 
+import { login } from "../../redux/users/actions";
+import { ILoginUser } from "../../redux/users/types";
+import { AppState } from "../../redux/configureStore";
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import PageTitle from "../PageTitle/PageTitle";
 import { TextInput } from "../TextInput/TextInput";
 import { Link } from "../Link/Link";
-import { login } from "../../redux/users/actions";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import {
   StyledDiv,
@@ -18,14 +20,10 @@ import {
   StyledText,
   StyledFooterDivs
 } from "./LoginUserStyle";
-import { ILoginUser } from "../../redux/users/types";
-import { AppState } from "../../redux/configureStore";
 
 export interface LoginProps {}
 
-export interface LoginState {}
-
-const LoginUser: React.SFC<LoginProps> = () => {
+const LoginUser: React.FC<LoginProps> = () => {
   // assign state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
