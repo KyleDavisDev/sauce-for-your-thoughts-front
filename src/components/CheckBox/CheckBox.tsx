@@ -12,7 +12,7 @@ interface CheckBoxProps {
   className?: string;
 }
 
-const CheckBox: React.SFC<CheckBoxProps> = props => {
+const CheckBox: React.FC<CheckBoxProps> = props => {
   return (
     <div className={props.className} key={props.key}>
       <Label htmlFor={props.id}>

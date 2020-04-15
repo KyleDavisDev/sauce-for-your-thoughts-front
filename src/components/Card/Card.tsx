@@ -18,7 +18,7 @@ interface CardProps {
   anchorText?: string;
 }
 
-const Card: React.SFC<CardProps> = props => {
+const Card: React.FC<CardProps> = props => {
   // get info from props
   const {
     showLink = true,

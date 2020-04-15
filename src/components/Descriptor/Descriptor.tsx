@@ -16,7 +16,7 @@ interface DescriptorProps {
   title: string;
 }
 
-const Descriptor: React.SFC<DescriptorProps> = props => {
+const Descriptor: React.FC<DescriptorProps> = props => {
   return (
     <div className={props.className}>
       <StyledH2>{props.title}</StyledH2>
