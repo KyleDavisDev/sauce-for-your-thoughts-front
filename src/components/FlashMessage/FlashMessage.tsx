@@ -33,9 +33,9 @@ export interface FlashMessageProps {
   children?: string;
 }
 
-const FlashMessage: React.FunctionComponent<FlashMessageProps> = props => {
+const FlashMessage: React.FC<FlashMessageProps> = props => {
   const [isVisible, setIsVisible] = React.useState(props.isVisible);
-  const { type, slug, slugText, text, children, className } = props;
+  const { slug, slugText, text, children, className } = props;
 
   return (
     <>
@@ -46,16 +46,12 @@ const FlashMessage: React.FunctionComponent<FlashMessageProps> = props => {
               {children || text}{" "}
               {slug && slugText ? <Link to={slug}>{slugText}</Link> : ""}{" "}
             </StyledContent>
-            <Button onClick={onCloseClick}>X</Button>
+            <Button onClick={e => setIsVisible(false)}>X</Button>
           </StyledDiv>
         </StyledContainer>
       ) : null}
     </>
   );
-
-  function onCloseClick() {
-    setIsVisible(false);
-  }
 };
 
 const StyledFlashMessage = styled(FlashMessage)`
