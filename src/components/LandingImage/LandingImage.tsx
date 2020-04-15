@@ -18,7 +18,7 @@ export interface LandingImageProps {
   className?: string;
 }
 
-const LandingImage: React.FunctionComponent<LandingImageProps> = props => {
+const LandingImage: React.FC<LandingImageProps> = props => {
   const [search, setSearch] = React.useState("");
   const [selectedValue, setSelectedValue] = React.useState("all");
   const types = useSelector((store: AppState) => {
@@ -42,12 +42,9 @@ const LandingImage: React.FunctionComponent<LandingImageProps> = props => {
             />
             <StyledInput
               type="text"
-              id="Hero__Search"
-              name="Hero__Search"
               onChange={e => setSearch(e.target.value)}
               placeholder="Search..."
             />
-
             <StyledButton type="submit">Search</StyledButton>
           </StyledDiv>
         </form>
