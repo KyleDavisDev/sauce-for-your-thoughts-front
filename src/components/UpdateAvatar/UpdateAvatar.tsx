@@ -28,7 +28,7 @@ import { reduxStore } from "../../redux/with-redux-store";
 
 export interface UpdateAvatarProps {}
 
-const UpdateAvatar: React.SFC<UpdateAvatarProps> = props => {
+const UpdateAvatar: React.FC<UpdateAvatarProps> = props => {
   // assign state
   const [urls, setUrls] = React.useState<Array<{ key: string; path: string }>>(
     []

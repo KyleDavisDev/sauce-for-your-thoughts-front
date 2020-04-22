@@ -14,7 +14,7 @@ import {
 import Trigger from "./components/Trigger/Trigger";
 import Body from "./components/Body/Body";
 
-const TopBar: React.SFC = () => {
+const TopBar: React.FC = () => {
   const { self } = useSelector((state: AppState) => {
     return state.users;
   });

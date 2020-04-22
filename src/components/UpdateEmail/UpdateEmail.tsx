@@ -31,7 +31,7 @@ export interface UpdateEmailState {
   flashMessage: FlashMessageProps;
 }
 
-const UpdateEmail: React.SFC<UpdateEmailProps> = props => {
+const UpdateEmail: React.FC<UpdateEmailProps> = props => {
   // Init state
   const [email, setEmail] = React.useState("");
   const [confirmEmail, setConfirmEmail] = React.useState("");

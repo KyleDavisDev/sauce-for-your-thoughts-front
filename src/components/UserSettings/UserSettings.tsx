@@ -28,7 +28,7 @@ export interface UserSettingsState {
   flashMessage: FlashMessageProps;
 }
 
-const UserSettings: React.SFC<UserSettingsProps> = props => {
+const UserSettings: React.FC<UserSettingsProps> = props => {
   // init sate
   const [isEmailConfirmed, setEmailConfirmed] = useState(true);
   const [flashMessage, setFlashMessage] = useState<FlashMessageProps>({
