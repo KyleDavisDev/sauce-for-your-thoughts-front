@@ -9,9 +9,12 @@ import {
   StyledUl,
   StyledLink
 } from "./NavigationStyle";
+import { useSelector } from "react-redux";
+import { AppState } from "../../redux/configureStore";
 
-const Navigation: React.FunctionComponent<{}> = props => {
+const Navigation: React.FunctionComponent<{}> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const isLoggedIn = useSelector((store: AppState) => !!store.users.self.token);
 
   return (
     <StyledNav>
@@ -36,7 +39,13 @@ const Navigation: React.FunctionComponent<{}> = props => {
           <StyledLink href="/sauces">Sauces</StyledLink>
         </li>
         <li>
-          <StyledLink href="/sauce/add">Add Sauce</StyledLink>
+          <StyledLink
+            href={
+              isLoggedIn ? "/sauce/add" : "/account/login?return=/sauce/add"
+            }
+          >
+            Add Sauce
+          </StyledLink>
         </li>
         {/* <li>
             <span>icon here</span>
