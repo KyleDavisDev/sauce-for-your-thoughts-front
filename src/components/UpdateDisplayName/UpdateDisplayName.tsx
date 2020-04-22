@@ -23,7 +23,7 @@ import Auth from "../../utils/Auth/Auth";
 
 export interface UpdateDisplayNameProps {}
 
-const UpdateDisplayName: React.SFC<UpdateDisplayNameProps> = () => {
+const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
   // Init state
   const [displayName, setDisplayName] = React.useState("");
   const oldDisplayName =
@@ -70,7 +70,6 @@ const UpdateDisplayName: React.SFC<UpdateDisplayNameProps> = () => {
               showLabel={true}
               label={"New Display Name"}
               name={"displayName"}
-              value={displayName}
               required={true}
               requirementText={"Must be at least 6 characters long."}
             />
@@ -81,7 +80,6 @@ const UpdateDisplayName: React.SFC<UpdateDisplayNameProps> = () => {
               showLabel={true}
               label={"Confirm New Display Name"}
               name={"confirmDisplayName"}
-              value={confirmDisplayName}
               required={true}
               requirementText={"Must match above."}
             />
@@ -92,7 +90,6 @@ const UpdateDisplayName: React.SFC<UpdateDisplayNameProps> = () => {
               showLabel={true}
               label={"Password"}
               name={"password"}
-              value={password}
               required={true}
             />
 

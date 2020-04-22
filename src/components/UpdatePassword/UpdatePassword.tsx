@@ -24,7 +24,7 @@ export interface UpdatePasswordProps {}
 
 export interface UpdatePasswordState {}
 
-const UpdatePassword: React.SFC<UpdatePasswordProps> = props => {
+const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
   // Init state
   const [password, setPassword] = React.useState("");
   const [newPassword, setNewPassword] = React.useState("");
@@ -68,7 +68,6 @@ const UpdatePassword: React.SFC<UpdatePasswordProps> = props => {
               showLabel={true}
               label={"New Password"}
               name={"newPassword"}
-              value={newPassword}
               required={true}
               requirementText={"Must be at least 9 characters long."}
             />
@@ -79,7 +78,6 @@ const UpdatePassword: React.SFC<UpdatePasswordProps> = props => {
               showLabel={true}
               label={"Confirm New Password"}
               name={"confirmNewPassword"}
-              value={confirmNewPassword}
               required={true}
               requirementText={"Must match above."}
             />
@@ -90,7 +88,6 @@ const UpdatePassword: React.SFC<UpdatePasswordProps> = props => {
               showLabel={true}
               label={"Old Password"}
               name={"password"}
-              value={password}
               required={true}
             />
 
