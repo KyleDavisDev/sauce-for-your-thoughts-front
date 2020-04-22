@@ -14,7 +14,7 @@ interface PageTitleProps {
   className?: string;
 }
 
-const PageTitle: React.SFC<PageTitleProps> = props => {
+const PageTitle: React.FC<PageTitleProps> = props => {
   return <StyledH1 className={props.className}>{props.children}</StyledH1>;
 };
 
