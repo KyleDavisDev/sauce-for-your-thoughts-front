@@ -32,7 +32,7 @@ export interface RegisterUserState {
   flashMessage: FlashMessageProps;
 }
 
-const RegisterUser: React.SFC<RegisterUserProps> = props => {
+const RegisterUser: React.FC<RegisterUserProps> = props => {
   // set state
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
@@ -51,7 +51,79 @@ const RegisterUser: React.SFC<RegisterUserProps> = props => {
   // assign NextJS router
   const router = useRouter();
 
-  const onSubmit = async (event: React.FormEvent): Promise<any> => {
+  return (
+    <StyledDiv>
+      <StyledLogoContainer>
+        <Link to="/">
+          <LogoSFYT />
+        </Link>
+      </StyledLogoContainer>
+      <hr />
+      <StyledArticle>
+        <PageTitle>Register</PageTitle>
+        <StyledFormContainer>
+          {flashMessage.isVisible && (
+            <FlashMessage type={flashMessage.type} isVisible>
+              {flashMessage.text}
+            </FlashMessage>
+          )}
+          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+            <TextInput
+              type="email"
+              onChange={e => setEmail(e.target.value)}
+              showLabel={true}
+              label={"Email"}
+              name={"email"}
+              required={true}
+            />
+            <TextInput
+              type="email"
+              onChange={e => setConfirmEmail(e.target.value)}
+              showLabel={true}
+              label={"Confirm Email"}
+              name={"confirmEmail"}
+              required={true}
+              requirementText={"Must match above."}
+            />
+            <TextInput
+              type="password"
+              onChange={e => setPassword(e.target.value)}
+              showLabel={true}
+              label={"Password"}
+              name={"password"}
+              required={true}
+              requirementText={"Must be at least 9 characters long."}
+            />
+            <TextInput
+              type="password"
+              onChange={e => setConfirmPassword(e.target.value)}
+              showLabel={true}
+              label={"Confirm Password"}
+              name={"confirmPassword"}
+              required={true}
+              requirementText={"Must match above."}
+            />
+            <TextInput
+              type="text"
+              onChange={e => setDisplayName(e.target.value)}
+              showLabel={true}
+              label={"Display Name"}
+              name={"displayName"}
+              required={true}
+              requirementText={"Must be at least 6 characters long."}
+            />
+            <StyledText>
+              By clicking 'Register', you agree to Sauce For Your Thoughts{" "}
+              <Link to="#">Terms and Conditions</Link>
+            </StyledText>
+            <StyledButton type="submit">Register</StyledButton>
+          </form>
+        </StyledFormContainer>
+      </StyledArticle>
+    </StyledDiv>
+  );
+
+  async function onSubmit(event: React.FormEvent): Promise<any> {
     event.preventDefault();
 
     if (email !== confirmEmail) {
@@ -133,84 +205,7 @@ const RegisterUser: React.SFC<RegisterUserProps> = props => {
       text: "",
       type: undefined
     });
-  };
-
-  return (
-    <StyledDiv>
-      <StyledLogoContainer>
-        <Link to="/">
-          <LogoSFYT />
-        </Link>
-      </StyledLogoContainer>
-      <hr />
-      <StyledArticle>
-        <PageTitle>Register</PageTitle>
-        <StyledFormContainer>
-          {flashMessage.isVisible && (
-            <FlashMessage type={flashMessage.type} isVisible>
-              {flashMessage.text}
-            </FlashMessage>
-          )}
-          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
-            <TextInput
-              type="email"
-              onChange={e => setEmail(e.target.value)}
-              showLabel={true}
-              label={"Email"}
-              name={"email"}
-              value={email}
-              required={true}
-            />
-            <TextInput
-              type="email"
-              onChange={e => setConfirmEmail(e.target.value)}
-              showLabel={true}
-              label={"Confirm Email"}
-              name={"confirmEmail"}
-              value={confirmEmail}
-              required={true}
-              requirementText={"Must match above."}
-            />
-            <TextInput
-              type="password"
-              onChange={e => setPassword(e.target.value)}
-              showLabel={true}
-              label={"Password"}
-              name={"password"}
-              value={password}
-              required={true}
-              requirementText={"Must be at least 9 characters long."}
-            />
-            <TextInput
-              type="password"
-              onChange={e => setConfirmPassword(e.target.value)}
-              showLabel={true}
-              label={"Confirm Password"}
-              name={"confirmPassword"}
-              value={confirmPassword}
-              required={true}
-              requirementText={"Must match above."}
-            />
-            <TextInput
-              type="text"
-              onChange={e => setDisplayName(e.target.value)}
-              showLabel={true}
-              label={"Display Name"}
-              name={"displayName"}
-              value={displayName}
-              required={true}
-              requirementText={"Must be at least 6 characters long."}
-            />
-            <StyledText>
-              By clicking 'Register', you agree to Sauce For Your Thoughts{" "}
-              <Link to="#">Terms and Conditions</Link>
-            </StyledText>
-            <StyledButton type="submit">Register</StyledButton>
-          </form>
-        </StyledFormContainer>
-      </StyledArticle>
-    </StyledDiv>
-  );
+  }
 };
 
 export default RegisterUser;
