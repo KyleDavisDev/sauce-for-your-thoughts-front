@@ -110,11 +110,14 @@ export const API = {
      */
     login: (credentials: ILoginUser): AxiosPromise => {
       return axios
-        .post(`${host}/api/user/login`, credentials)
+        .post(`${host}/api/user/login`, credentials, {
+          withCredentials: true
+        })
         .then((res: any) => {
           if (res.data.isGood) {
             return res;
           }
+          console.log(res);
           throw new Error(res.data.msg);
         });
     },
