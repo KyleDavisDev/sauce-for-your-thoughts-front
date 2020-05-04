@@ -28,6 +28,7 @@ if (typeof window !== "undefined") {
 axios.interceptors.request.use(
   config => {
     progressBar.start();
+
     // Do something before request is sent
     return config;
   },
@@ -47,12 +48,42 @@ axios.interceptors.response.use(
     return response;
   },
   error => {
-    progressBar.end();
     // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
+
+    // grab original request from error
+    const originalRequest = error.config;
+
+    // if error code indicates that we need to refresh our token, do it.
+    if (error.response.status === 410 && !originalRequest._retry) {
+      return axios.post(`${host}/api/auth/refresh_token`).then(res => {
+        if (res.status === 200) {
+          // 1) put token to LocalStorage
+          // localStorageService.setToken(res.data);
+
+          // 2) Change Authorization header
+          axios.defaults.headers.common["Authorization"] = "Bearer test";
+
+          // 3) Set to retry request
+          originalRequest._retry = true;
+
+          // 4) return originalRequest object with Axios.
+          return axios(originalRequest);
+        }
+
+        // return/resolve original error
+        return Promise.reject(error);
+      });
+    }
+
+    // set status bar to end
+    progressBar.end();
+
+    // return/resolve original error
     return Promise.reject(error);
   }
 );
+
+axios.defaults.withCredentials = true;
 
 export const host =
   process.env.API_ENV === "prod"
