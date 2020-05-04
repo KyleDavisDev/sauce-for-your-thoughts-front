@@ -102,7 +102,7 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
       })
       .catch((err: IErrReturn) => {
         // authorization failed for some reason, force a relogin
-        if (err.response.data.status === 401) {
+        if (err.response.data.status === 400) {
           router.push("/account/login?return=/sauce/add");
           return;
         }
@@ -282,7 +282,6 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
         return; //end
       }
     } catch (err) {
-      console.log(err);
       // Move screen to top
       window.scrollTo(0, 0);
       //display error
