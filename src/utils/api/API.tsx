@@ -54,25 +54,8 @@ axios.interceptors.response.use(
     const originalRequest = error.config;
 
     // if error code indicates that we need to refresh our token, do it.
-    if (error.response.status === 410 && !originalRequest._retry) {
-      return axios.post(`${host}/api/auth/refresh_token`).then(res => {
-        if (res.status === 200) {
-          // 1) put token to LocalStorage
-          // localStorageService.setToken(res.data);
-
-          // 2) Change Authorization header
-          axios.defaults.headers.common["Authorization"] = "Bearer test";
-
-          // 3) Set to retry request
-          originalRequest._retry = true;
-
-          // 4) return originalRequest object with Axios.
-          return axios(originalRequest);
-        }
-
-        // return/resolve original error
-        return Promise.reject(error);
-      });
+    if (error?.response?.status === 410 && !originalRequest._retry) {
+      return API.user.refreshAPIToken(originalRequest, error);
     }
 
     // set status bar to end
@@ -363,6 +346,61 @@ export const API = {
             isGood: err.response.data.isGood || false
           });
         });
+    },
+
+    /** @description Refresh a user's API token
+     *  @param {Any?} originalRequest axios original request
+     *  @param {Any?} error - axios error
+     *  @returns {AxiosPromise} AxiosPromise
+     */
+    refreshAPIToken: (originalRequest?: any, error?: any): AxiosPromise => {
+      return axios.post(`${host}/api/auth/refresh_token`).then(res => {
+        if (res.status === 200) {
+          // 1) put token to LocalStorage
+          // localStorageService.setToken(res.data);
+
+          // 2) Change Authorization header
+          axios.defaults.headers.common["Authorization"] = "Bearer test";
+
+          // 3) If there is an originalRequest, set to retry request
+          if (originalRequest) {
+            originalRequest._retry = true;
+
+            // 3.5) return originalRequest object with Axios.
+            return axios(originalRequest);
+          }
+
+          return Promise.resolve(res);
+        }
+
+        // return/resolve original error
+        return Promise.reject(error);
+      });
+    },
+
+    /** @description Get info about user. Uses cookies for authentication
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {Object} res.data.user - user data
+     *
+     *  {String} res.data.user.displayName - user's display name
+     *
+     *  {String} res.data.user.avatarURL - URL to user's avatar
+     *
+     *  {Boolean} res.data.user.isAdmin - whether user is an admin or not
+     *
+     *  @reject {String} error message
+     */
+    getInfo: (): AxiosPromise => {
+      return axios.post(`${host}/api/user/getInfo`).then(res => {
+        if (res.data.isGood) {
+          return res.data.user;
+        }
+        throw new Error(res.data.msg);
+      });
     }
   },
   sauce: {
