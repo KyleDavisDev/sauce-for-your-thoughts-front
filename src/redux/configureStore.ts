@@ -50,7 +50,6 @@ export interface AppState {
 }
 
 export const configureStore = (initState?: AppState) => {
-  // was of type 'object'
   const initialState: AppState =
     !initState && initState !== null
       ? {
@@ -82,7 +81,7 @@ export const configureStore = (initState?: AppState) => {
               avatarURL: Auth.isUserAuthenticated()
                 ? Auth.getAvatarURL()
                 : undefined,
-              isAdmin: Auth.isAdmin()
+              isAdmin: Auth.isUserAuthenticated() ? Auth.isAdmin() : undefined
             },
             byDisplayName: {},
             allDisplayNames: []
