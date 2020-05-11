@@ -349,34 +349,3 @@ export const updateAvatar = ({
 
   return null;
 };
-
-/** @description Look into localStorage for user info
- *  @fires users#userLoggedIn - populate redux store with user.self into
- *  @return {Null} Null
- */
-export const getPersonFromStorage = () => dispatch => {
-  const token = Auth.getToken();
-  const displayName = Auth.getName();
-  const avatarURL = Auth.getAvatarURL();
-  const isAdmin = Auth.isAdmin();
-
-  if (!token || !displayName || !avatarURL) return;
-
-  // Update user avatar
-  // dispatch(updatedAvatarURL({ displayName, avatarURL: data.user.avatarURL }));
-
-  // // Update displayName in local storage
-  // Auth.updateAvatar(data.user.avatarURL);
-
-  // Dispatch user login
-  dispatch(
-    userLoggedIn({
-      token,
-      displayName,
-      avatarURL,
-      isAdmin
-    })
-  );
-
-  return null;
-};
