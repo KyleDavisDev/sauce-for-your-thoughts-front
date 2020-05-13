@@ -58,15 +58,7 @@ export const configureStore = (initState?: AppState) => {
             bySlug: {},
             total: 0,
             query: {},
-            types: [
-              "All",
-              "Hot Sauce",
-              "BBQ Sauce",
-              "Gravy",
-              "Marinade",
-              "Salsa",
-              "Meat Sauce"
-            ],
+            types: [],
             orders: ["Newest", "Name", "Times Reviewed", "Avg Rating"],
             saucesWithNewestReviews: [],
             newest: [],
@@ -74,14 +66,10 @@ export const configureStore = (initState?: AppState) => {
           },
           users: {
             self: {
-              token: Auth.isUserAuthenticated() ? Auth.getToken() : undefined,
-              displayName: Auth.isUserAuthenticated()
-                ? Auth.getName()
-                : undefined,
-              avatarURL: Auth.isUserAuthenticated()
-                ? Auth.getAvatarURL()
-                : undefined,
-              isAdmin: Auth.isUserAuthenticated() ? Auth.isAdmin() : undefined
+              token: undefined,
+              displayName: undefined,
+              avatarURL: undefined,
+              isAdmin: undefined
             },
             byDisplayName: {},
             allDisplayNames: []
