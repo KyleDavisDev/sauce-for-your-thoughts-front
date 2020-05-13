@@ -100,7 +100,7 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
@@ -132,7 +132,7 @@ export const API = {
             return res;
           }
           console.log(res);
-          throw new Error(res.data.msg);
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
@@ -160,7 +160,7 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
@@ -186,7 +186,7 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
@@ -216,7 +216,7 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
@@ -243,7 +243,7 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
@@ -399,10 +399,11 @@ export const API = {
         if (res.data.isGood) {
           return res.data.user;
         }
-        throw new Error(res.data.msg);
+        throw Err({ msg: res.data.msg, status: res.status });
       });
     }
   },
+
   sauce: {
     /** @description Add sauce to DB
      *  @param {FormData} formData object w/ all required suace and user information
@@ -430,7 +431,7 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
@@ -533,7 +534,7 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
@@ -579,6 +580,7 @@ export const API = {
         });
     }
   },
+
   sauces: {
     /** @description Grab sauces from DB
      *  @param {String?} query string with parsable params
@@ -602,7 +604,7 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
@@ -621,7 +623,7 @@ export const API = {
         if (res.data.isGood) {
           return res;
         }
-        throw new Error(res.data.msg);
+        throw Err({ msg: res.data.msg, status: res.status });
       });
     },
 
@@ -642,7 +644,7 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
@@ -695,7 +697,7 @@ export const API = {
           const review = res.data.review as IReview;
           return review;
         }
-        throw new Error(res.data.msg);
+        throw Err({ msg: res.data.msg, status: res.status });
       }),
 
     /** @description Get review from server
@@ -720,7 +722,7 @@ export const API = {
           const review = res.data.review as IReview;
           return review;
         }
-        throw new Error(res.data.msg);
+        throw Err({ msg: res.data.msg, status: res.status });
       }),
 
     /** @description Add review to DB
@@ -739,7 +741,7 @@ export const API = {
         if (res.data.isGood) {
           return res;
         }
-        throw new Error(res.data.msg);
+        throw Err({ msg: res.data.msg, status: res.status });
       }),
 
     /** @description Check if user is eligible to submit a review or not (maybe suace is private or have already submitted one)
@@ -842,7 +844,25 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+          throw Err({ msg: res.data.msg, status: res.status });
+        });
+    }
+  },
+
+  types: {
+    getTypes: (): Promise<string[] | IErrReturn> => {
+      return axios
+        .get(`${host}/api/types/getTypes`)
+        .then(res => {
+          if (res.data.isGood) {
+            return res.data.types;
+          }
+
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw handleCallbackError(err);
         });
     }
   },
@@ -874,7 +894,7 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+          throw Err({ msg: res.data.msg, status: res.status });
         })
         .catch((err: any) => {
           // Throw error in handle-able format
