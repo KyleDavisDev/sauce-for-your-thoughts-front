@@ -42,6 +42,7 @@ export interface ISaucesReturnAction extends IAddSaucesAction {
   type: string;
   oldDisplayName?: string;
   displayName?: string;
+  types?: string[];
 }
 
 // Used for redux state
@@ -53,6 +54,7 @@ export interface ISaucesState {
   saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
   newest?: string[];
   featured?: string[];
+  types?: string[];
 }
 
 export interface IQuery {
@@ -76,6 +78,7 @@ export const SAUCES_REMOVED = "SAUCES_REMOVED";
 export const SAUCES_UPDATE_DISPLAYNAME = "SAUCES_UPDATE_DISPLAYNAME";
 export const SAUCE_FOUND = "SAUCE_FOUND";
 export const SAUCE_UPDATE = "SAUCE_UPDATE";
+export const TYPES_ADDED = "TYPES_ADDED";
 
 // Collection of possible sauces Action Types
 export type SaucesActionTypes = IAddSaucesAction;
