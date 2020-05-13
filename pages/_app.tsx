@@ -5,6 +5,7 @@ import Page from "../src/components/Page/Page";
 import withReduxStore from "../src/redux/with-redux-store";
 import Auth from "../src/utils/Auth/Auth";
 import { userLoggedIn } from "../src/redux/users/actions";
+import { typesAdded } from "../src/redux/sauces/actions";
 import "react-image-crop/dist/ReactCrop.css";
 import { API } from "../src/utils/api/API";
 
@@ -26,6 +27,16 @@ class MyApp extends App<any, any> {
       this.props.reduxStore.dispatch(
         userLoggedIn({ token: res.data.token, ...getInfo })
       );
+    }
+
+    // 3) Grab types of sauces
+    const types = await API.types.getTypes();
+    if (types instanceof Array && types.length > 0) {
+      // 3.1) Add "All" option to first
+      types.unshift("All");
+
+      // 3.2) Dispatch types add event to populate redux store
+      this.props.reduxStore.dispatch(typesAdded(types));
     }
   }
 
