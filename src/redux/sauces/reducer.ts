@@ -6,7 +6,8 @@ import {
   SAUCES_REMOVED,
   SAUCES_UPDATE_DISPLAYNAME,
   SAUCE_FOUND,
-  ISaucesReturnAction
+  ISaucesReturnAction,
+  TYPES_ADDED
 } from "./types";
 
 const initialState: ISaucesState = {
@@ -92,6 +93,7 @@ const sauceReducer: Reducer<ISaucesState> = (
         allSlugs: [...state.allSlugs, ...action.allSlugs]
       };
     }
+
     case SAUCES_REMOVED: {
       // Make sure we have sauces to remove
       const actionAllSlugs = action.allSlugs;
@@ -155,10 +157,20 @@ const sauceReducer: Reducer<ISaucesState> = (
       // Return
       return { ...state, bySlug };
     }
+
     // TODO: add sauce to .byIds and add id to .allIds
     case SAUCE_FOUND: {
       return state; // Will come back to this
     }
+
+    case TYPES_ADDED: {
+      // 1) grab types from action
+      const types = action.types;
+      if (!types) return state;
+
+      return { ...state, types };
+    }
+
     default:
       return state;
   }
