@@ -9,7 +9,8 @@ import {
   IAddSaucesAction,
   SAUCES_UPDATE,
   SAUCES_CLEARED,
-  SAUCES_UPDATE_DISPLAYNAME
+  SAUCES_UPDATE_DISPLAYNAME,
+  TYPES_ADDED
 } from "./types";
 import { IReviewsState, IReviewAPI } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
@@ -98,6 +99,15 @@ export const updatedSauces = ({
  */
 export const saucesCleared = (): ISaucesReturnAction => ({
   type: SAUCES_CLEARED
+});
+
+/** @description Add types of sauces to store
+ *  @param {String[]} types - array of types
+ *  @return {ISaucesAction} sauce and action type
+ */
+export const typesAdded = (types: string[]): ISaucesReturnAction => ({
+  types,
+  type: TYPES_ADDED
 });
 
 /** @description grab single sauce related to slug
@@ -269,9 +279,9 @@ export const getSaucesByQuery = ({
  *  @fires sauces.addedSauces - add sauces to redux store
  *  @resolves {NULL}
  */
-export const getSaucesByNewest = (): MyThunkResult<Promise<
-  null
->> => async dispatch => {
+export const getSaucesByNewest = (): MyThunkResult<
+  Promise<null>
+> => async dispatch => {
   const res = await API.sauces.getByNewest();
 
   // Normalize sauces
