@@ -195,8 +195,6 @@ export const getSauceBySlug = ({
 
 /** @description Add sauce to DB
  *  @param {FormData} formdata - Form Data that has been JSONified
- *    @param {Object} formdata.user - author of the sauce
- *      @param {String} formdata.user.token - unique string
  *    @param {ISauce} formdata.sauce - sauce object
  *  @returns {Promise}
  *    @returns {String} slug - unique sauce slug
