@@ -188,6 +188,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
 
       // Redirect user to sauces page -- Maybe take them to user home page instead?
       router.push("/sauces");
+      return;
     } catch (err) {
       // Create warning flash
       setFlashMessage({
