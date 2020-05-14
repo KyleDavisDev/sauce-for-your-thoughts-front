@@ -9,7 +9,6 @@ import { addSauce } from "../../redux/sauces/actions";
 import { AppState } from "../../redux/configureStore";
 import { API } from "../../utils/api/API";
 import { IErrReturn } from "../../utils/Err/Err";
-import Auth from "../../utils/Auth/Auth";
 import ArrowRight from "../../images/icons/ArrowRight";
 import TopBar from "../TopBar/TopBar";
 import Navigation from "../Navigation/Navigation";
@@ -242,7 +241,7 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
     );
 
     // If no user or no token from redux or token expired, stop
-    if (!author || !Auth.isUserAuthenticated() || !token) {
+    if (!author || !token) {
       router.push("/account/login");
       return;
     }
@@ -261,8 +260,7 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
       types: _types
     };
     formData.append("sauce", JSON.stringify({ sauce }));
-    // Append user
-    formData.append("user", JSON.stringify({ user: { token } }));
+
     // Append image if available
     if (photo) {
       // append
