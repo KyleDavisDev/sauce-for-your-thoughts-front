@@ -46,7 +46,7 @@ export function useCanUserEditReview(): [boolean, IErrParams] {
     }
 
     // Construct data obj
-    const data = { user: { token }, sauce: { slug: _slug } };
+    const data = { sauce: { slug: _slug } };
 
     // Find out if user is eligible to submit a review for this sauce or not
     API.review
