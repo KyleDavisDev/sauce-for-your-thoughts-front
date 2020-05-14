@@ -63,7 +63,6 @@ export interface IReviewRef {
 
 // Interface for sending a review to the server
 export interface IReviewToServer {
-  user: { token: string };
   review: IReview;
 }
 
