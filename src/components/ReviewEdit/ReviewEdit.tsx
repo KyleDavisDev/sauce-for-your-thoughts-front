@@ -9,9 +9,7 @@ import {
   IReviewRequestFromServer
 } from "../../redux/reviews/types";
 import { editReview, getReview } from "../../redux/reviews/actions";
-import { getSauceBySlug } from "../../redux/sauces/actions";
 import ArrowRight from "../../images/icons/ArrowRight";
-import Auth from "../../utils/Auth/Auth";
 import Article from "../Article/Article";
 import Label from "../Label/Label";
 import PageTitle from "../PageTitle/PageTitle";
@@ -82,8 +80,9 @@ const ReviewEdit: React.FunctionComponent<ReviewEditProps> = props => {
     // 4. Use the ID to grab the total review
     const _review = _byReviewID[_reviewID];
 
-    return [_review, store.users.self.token];
+    return [_review, _token];
   });
+
   // Update local state when we found the review
   React.useEffect(() => {
     if (!review) return;
@@ -345,7 +344,6 @@ const ReviewEdit: React.FunctionComponent<ReviewEditProps> = props => {
     try {
       // construct data object
       const data: IReviewToServer = {
-        user: { token },
         review: {
           heat,
           taste,
