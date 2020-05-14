@@ -140,16 +140,9 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
       return;
     }
 
-    // Get token or else redirect
-    const token = Auth.getToken();
-    if (!token) {
-      router.push("/account/login?return=/account/settings/email");
-      return;
-    }
-
     // Construct data
     const data: IUserUpdateEmail = {
-      user: { token, email, confirmEmail, password }
+      user: { email, confirmEmail, password }
     };
     try {
       await dispatch(updateEmail({ data }));
