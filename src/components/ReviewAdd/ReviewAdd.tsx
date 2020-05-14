@@ -243,29 +243,15 @@ const ReviewAdd: React.FunctionComponent<ReviewAddProps> = props => {
       return null;
     }
 
-    // make sure token is still good/not expired
-    if (!Auth.isUserAuthenticated()) {
-      router.replace(`/account/login?return=${router.asPath}`);
-      return null;
-    }
-
     // sanity check or get out
     if (!slug || Array.isArray(slug)) {
       router.push("/");
       return null;
     }
 
-    // Make sure we have token
-    const token = Auth.getToken();
-    if (!token) {
-      router.replace(`/account/login?return=${router.asPath}`);
-      return null;
-    }
-
     try {
       // construct data object
       const data: IReviewToServer = {
-        user: { token },
         review: {
           heat,
           taste,
