@@ -140,14 +140,6 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
         ? res.data.user.displayName || "Me"
         : name;
 
-    // Set user to be remembered
-    Auth.authenticateUser({
-      token,
-      displayName,
-      avatarURL,
-      isAdmin
-    });
-
     // Dispatch user login
     dispatch(userLoggedIn({ token, displayName, avatarURL, isAdmin }));
 
@@ -218,7 +210,6 @@ export const logout = () => (dispatch: any) => {
 
 /** @description Update a user's email
  *  @param {IUserUpdateEmail} data - container for user information
- *  @param {string} data.user.token - user token
  *  @param {string} data.user.email - new email address
  *  @param {string} data.user.confirmEmail - confirmed email adress
  *  @param {string} data.user.password - user password
