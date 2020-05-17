@@ -196,13 +196,12 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
   });
 };
 
-/** @description logs the user out by resetting redux store
+/** @description logs the user out by calliing API to null the cookies
  *  @fires auth#userLoggedOut - resets information in redux users.self
  *  @returns {NULL}
  */
-export const logout = () => (dispatch: any) => {
-  // remove token from storage
-  Auth.deauthenticateUser();
+export const logout = () => async (dispatch: any) => {
+  await API.user.logout();
 
   // remove users.self info
   dispatch(userLoggedOut());
