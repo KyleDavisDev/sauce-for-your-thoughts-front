@@ -139,6 +139,27 @@ export const API = {
         });
     },
 
+    /** @description Call API to send null cookies
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {String} res.data.msg - message accociated with isGood
+     *
+     *  @reject {String} error message
+     */
+    logout: (): AxiosPromise => {
+      return axios.post(`${host}/api/user/logout`).then((res: any) => {
+        if (res.data.isGood) {
+          return res;
+        }
+
+        // If not good, throw an error
+        throw Err({ msg: res.data.msg, status: res.status });
+      });
+    },
+
     /** @description Update a user's email
      *  @param {IUserUpdateEmail} data - container for user information
      *  @param {string} data.user.email - new email address
