@@ -577,7 +577,6 @@ export const API = {
 
     /** @description Check if user is eligible to edit a sauce
      *  @param {Object} data data object
-     *    @param {string} data.user.token user's unique token
      *    @param {string} data.sauce.slug unique sauce slug
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
@@ -590,7 +589,6 @@ export const API = {
       data
     }: {
       data: {
-        user: { token: string };
         sauce: { slug: string };
       };
     }): AxiosPromise => {
@@ -692,8 +690,6 @@ export const API = {
     },
 
     /** @description Check if user is eligible to submit a sauce or not (maybe user has not verified email yet)
-     *  @param {Object} data data object
-     *    @param {string} data.user.token user's unique token
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -701,15 +697,9 @@ export const API = {
      *
      *  @reject {IErrReturn} error object
      */
-    canUserSubmit: ({
-      data
-    }: {
-      data: {
-        user: { token: string };
-      };
-    }): AxiosPromise => {
+    canUserSubmit: (): AxiosPromise => {
       return axios
-        .post(`${host}/api/sauce/canusersubmit`, data)
+        .post(`${host}/api/sauce/canusersubmit`)
         .then((res: any) => {
           if (res.data.isGood) {
             return res;
