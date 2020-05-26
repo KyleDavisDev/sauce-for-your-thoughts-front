@@ -94,7 +94,7 @@ const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
   });
 
   return (
-    <div>
+    <>
       <TopBar />
       <Navigation />
       <Article>
@@ -164,55 +164,53 @@ const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
           })}
       </Article>
       <Footer />
-    </div>
+    </>
   );
 
   async function onApproveClick(sauceID: number) {
-    const token = Auth.getToken();
     if (!token || token.length === 0) {
       // Redirect user to login w/ appropriate return address
       router.replace(`/account/login?return=${router.asPath}`);
       return;
     }
-    const data = { user: { token }, sauce: { sauceID } };
+    const data = { sauce: { sauceID } };
     const res = await API.admin.approveSauce({ data });
     if (res.data.isGood) {
       if (sauces && sauces.length > 0) {
         // update hidden on element
-        // const sauces = sauces.map(sauce => {
-        //   if (sauce.sauceID === sauceID) {
-        //     sauce.hidden = true;
-        //   }
+        const _sauces = sauces.map(sauce => {
+          if (sauce.sauceID === sauceID) {
+            sauce.hidden = true;
+          }
 
-        //   return sauce;
-        // });
+          return sauce;
+        });
         // remove item from state
-        setSauces(sauces);
+        setSauces(_sauces);
       }
     }
   }
 
   async function onDeclineClick(sauceID: number) {
-    const token = Auth.getToken();
     if (!token || token.length === 0) {
       // Redirect user to login w/ appropriate return address
       router.replace(`/account/login?return=${router.asPath}`);
       return;
     }
-    const data = { user: { token }, sauce: { sauceID } };
+    const data = { sauce: { sauceID } };
     const res = await API.admin.declineSauce({ data });
     if (res.data.isGood) {
       if (sauces && sauces.length > 0) {
         // update hidden on element
-        // const sauces = sauces.map(sauce => {
-        //   if (sauce.sauceID === sauceID) {
-        //     sauce.hidden = true;
-        //   }
+        const _sauces = sauces.map(sauce => {
+          if (sauce.sauceID === sauceID) {
+            sauce.hidden = true;
+          }
 
-        //   return sauce;
-        // });
+          return sauce;
+        });
         // remove item from state
-        setSauces(sauces);
+        setSauces(_sauces);
       }
     }
   }
