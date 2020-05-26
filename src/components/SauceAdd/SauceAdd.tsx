@@ -90,12 +90,9 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
       return;
     }
 
-    // Construct data obj
-    const data = { user: { token } };
-
     // Find out if user is eligible to submit a review for this sauce or not
     API.sauces
-      .canUserSubmit({ data })
+      .canUserSubmit()
       .then(() => {
         setEnabled(true);
       })
