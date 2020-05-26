@@ -12,9 +12,10 @@ export const StyledSauceContainer = styled.div`
   padding: 1em;
   box-shadow: 0 2px 5px #333;
 
-  transition: max-height 1s ease, padding 1s ease, all 1s ease;
+  transition: all 1s ease-in-out;
 
   &.hidden {
+    border-top: 0px;
     max-height: 0px;
     overflow: hidden;
     padding: 0px;
