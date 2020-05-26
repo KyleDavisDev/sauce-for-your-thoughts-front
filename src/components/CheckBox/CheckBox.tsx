@@ -17,7 +17,7 @@ const CheckBox: React.FC<CheckBoxProps> = props => {
     <div className={props.className} key={props.key}>
       <Label htmlFor={props.id}>
         <input
-          defaultChecked={props.checked}
+          checked={props.checked}
           type="checkbox"
           value={props.value}
           id={props.id}
