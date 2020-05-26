@@ -916,8 +916,6 @@ export const API = {
 
   admin: {
     /** @description Get all unapproved sauces
-     *  @param {Object} data data object
-     *    @param {String} data.user.token - user JWT
      *  @resolves {Object} res.data - relevant info to request
      *
      *  {Boolean} res.data.isGood - whether request was good or not
@@ -928,15 +926,9 @@ export const API = {
      *
      *  @reject {IErrReturn} handleable error object
      */
-    getUnapproved: ({
-      data
-    }: {
-      data: {
-        user: { token: string };
-      };
-    }): AxiosPromise => {
+    getUnapproved: (): AxiosPromise => {
       return axios
-        .post(`${host}/api/admin/sauces/unapproved`, data)
+        .post(`${host}/api/admin/sauces/unapproved`)
         .then((res: any) => {
           if (res.data.isGood) {
             return res;
