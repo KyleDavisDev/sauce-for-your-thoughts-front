@@ -945,7 +945,6 @@ export const API = {
 
     /** @description Approve of a single sauce
      *  @param {Object} data data object
-     *    @param {String} data.user.token - user JWT
      *    @param {Number} data.sauce.sauceID - sauce id
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -957,7 +956,6 @@ export const API = {
       data
     }: {
       data: {
-        user: { token: string };
         sauce: { sauceID: number };
       };
     }): AxiosPromise => {
@@ -974,7 +972,6 @@ export const API = {
 
     /** @description Decline a single sauce
      *  @param {Object} data data object
-     *    @param {String} data.user.token - user JWT
      *    @param {Number} data.sauce.sauceID - sauce id
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -986,7 +983,6 @@ export const API = {
       data
     }: {
       data: {
-        user: { token: string };
         sauce: { sauceID: number };
       };
     }): AxiosPromise => {
