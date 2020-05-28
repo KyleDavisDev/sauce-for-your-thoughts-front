@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "../../theme/styled-components";
 
 export const StyledDiv = styled.div`
   display: flex;
@@ -23,5 +23,6 @@ export const StyledTextArea = styled.textarea`
   min-width: 100%;
   min-height: 35px;
   max-height: 220px;
+  font-family: System;
 `;
 StyledTextArea.displayName = "StyledTextArea";

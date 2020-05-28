@@ -20,5 +20,6 @@ export const StyledInput = styled.input`
   border: ${props => props.theme.inputBorder};
   margin-top: 5px;
   margin-bottom: 15px;
+  font-family: System;
 `;
 StyledInput.displayName = "StyledInput";
