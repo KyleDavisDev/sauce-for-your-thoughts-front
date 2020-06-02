@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { ISauce } from "../../redux/sauces/types";
 import { reduxStore } from "../../redux/with-redux-store";
-import { addSauce } from "../../redux/sauces/actions";
+import { editSauce } from "../../redux/sauces/actions";
 import { AppState } from "../../redux/configureStore";
 import { API } from "../../utils/api/API";
 import { IErrReturn } from "../../utils/Err/Err";
@@ -43,7 +43,6 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
   const [photo, setPhoto] = React.useState<File | undefined>();
   const [photoType, setPhotoType] = React.useState<string | undefined>();
   const [isImageLocked, setIsImageLocked] = React.useState(false);
-  const [addReview, setAddReview] = React.useState<boolean>(true);
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
@@ -52,7 +51,7 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
 
   // get info from redux
   const slug = router.query.s;
-  const { author, typesOfSauces, token, sauce } = useSelector(
+  const { author, typesOfSauces, token, sauce, isAdmin } = useSelector(
     (store: AppState) => {
       // 1. Find author
       const _author = store.users.self.displayName;
@@ -84,11 +83,15 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
           ? store.sauces.bySlug[slug]
           : undefined;
 
+      // 5. Find if person is admin or not
+      const _isAdmin = store.users.self.isAdmin;
+
       return {
         author: _author,
         token: _token,
         typesOfSauces: _typesOfSauces,
-        sauce: _sauce
+        sauce: _sauce,
+        isAdmin: _isAdmin
       };
     }
   );
@@ -301,9 +304,9 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
       type => types[type].checked
     );
 
-    // If no user or no token from redux or token expired, stop
-    if (!author || !token) {
-      router.push("/account/login");
+    // Quick sanity check
+    if (!author || !token || typeof slug !== "string") {
+      router.push(`/account/login?return=${router.asPath}`);
       return;
     }
 
@@ -312,12 +315,13 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
     // Create expected suace object
     const sauce: ISauce = {
       author,
-      created: new Date(),
+      created: 0,
       name,
       maker,
       description,
       ingredients,
       shu,
+      slug,
       types: _types
     };
     formData.append("sauce", JSON.stringify({ sauce }));
@@ -329,16 +333,24 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
     }
 
     try {
-      const res = await useThunkDispatch(addSauce({ formData }));
+      const res = await useThunkDispatch(editSauce({ formData }));
 
-      if (addReview) {
-        // Go to review page for specific sauce
-        router.push(`/review/add?s=${res}`);
-        return; // end
+      window.scrollTo(0, 0); // Move screen to top
+
+      if (res.data.isGood) {
+        setFlashMessage({
+          isVisible: true,
+          text: "Updated sauce!",
+          slugText: isAdmin ? "Back to approved list" : undefined,
+          slug: isAdmin ? "/admin/approvesaucesubmissions" : undefined,
+          type: "success"
+        });
       } else {
-        // else, take them to sauce page
-        router.push(`/sauce/view?s=${res}`);
-        return; //end
+        setFlashMessage({
+          isVisible: true,
+          text: res.data.msg,
+          type: "alert"
+        });
       }
     } catch (err) {
       // Move screen to top
