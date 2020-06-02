@@ -211,7 +211,6 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
 
 /** @description Edit a sauce
  *  @param {FormData} formdata - Form Data that has been JSONified
- *    @param {String} formdata.user.token - unique user token
  *    @param {ISauce} formdata.sauce - sauce object
  *  @returns {Promise}
  *    @returns {Object} response object
