@@ -1,13 +1,13 @@
 export interface ISauce {
   _id?: number;
-  _addedToStore?: number; // Unix time added to redux store
+  _addedToStore?: number; // Unix time (in seconds) added to redux store
   _full?: boolean; // Whether we have full sauce or partial
   _related?: [{ name: string; slug: string }]; // List of related sauces
   isAdminApproved?: boolean;
   name: string;
   ingredients: string;
   author: string;
-  created: Date;
+  created: number; // Unix time (in seconds)
   types?: string[];
   maker: string;
   description: string;
