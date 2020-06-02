@@ -511,7 +511,6 @@ export const API = {
 
     /** @description Update a specific sauce
      *  @param {FormData} formData object w/ all required suace and user information
-     *    @param {String} formData.user.token user's unique token
      *    @param {ISauce} formData.sauce - sauce being added
      *    @param {File} formData.image - image associated w/ sauce
      *  @returns {AxiosPromise} AxiosPromise
