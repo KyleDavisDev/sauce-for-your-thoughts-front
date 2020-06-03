@@ -36,7 +36,6 @@
     "next": "^9.3.0",
     "normalizr": "^3.4.1",
     "prettier": "^2.0.4",
-    "query-string": "^6.9.0",
     "react": "^16.13.0",
     "react-country-region-selector": "^1.4.5",
     "react-dom": "^16.13.0",
