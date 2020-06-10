@@ -22,11 +22,18 @@ export interface ISaucePhotoProps {
 }
 
 const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
+  // Initialize internal state
   const [crop, setCrop] = React.useState<any>({
     unit: "%",
     width: 30,
     aspect: 2 / 3
   });
+  const [completedCrop, setCompletedCrop] = React.useState<any>(null);
+  const [upImg, setUpImg] = React.useState<any>();
+  const imgRef = React.useRef(null);
+  const previewCanvasRef = React.useRef(null);
+
+  // Initialize params for Dropzone
   const {
     getRootProps,
     getInputProps,
@@ -35,21 +42,64 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     isDragReject,
     acceptedFiles
   } = useDropzone({ accept: "image/*" });
-  const [imgRef, setImgRef] = React.useState(null);
+  // console.log(props);
+  // get params from props
   const { isImageLocked, setPhoto, setPhotoType } = props;
   const photo = props.photo ? URL.createObjectURL(props.photo) : undefined;
+  // console.log(photo);
 
+  // When file(s) are uploaded, update state
   React.useEffect(() => {
     async function getFile() {
-      // const _file = await toBase64(acceptedFiles[0]);
-      setPhoto(acceptedFiles[0]);
-      setPhotoType(acceptedFiles[0].type);
+      const reader = new FileReader();
+      reader.addEventListener("load", () => setUpImg(reader.result));
+      reader.readAsDataURL(acceptedFiles[0]);
     }
 
     if (acceptedFiles.length > 0) {
       getFile();
     }
   }, [acceptedFiles]);
+
+  // When the crop area has changed, update canvas
+  React.useEffect(() => {
+    if (!completedCrop || !previewCanvasRef.current || !imgRef.current) {
+      return;
+    }
+
+    const image: any = imgRef.current;
+    const canvas: any = previewCanvasRef.current;
+    const crop: any = completedCrop;
+    const dpr = window.devicePixelRatio || 1;
+
+    // Quick sanity check
+    if (!image || !canvas) {
+      return;
+    }
+
+    const scaleX = image.naturalWidth / image.width;
+    const scaleY = image.naturalHeight / image.height;
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = crop.width * dpr;
+    canvas.height = crop.height * dpr;
+
+    ctx.drawImage(
+      image,
+      crop.x * scaleX,
+      crop.y * scaleY,
+      crop.width * scaleX,
+      crop.height * scaleY,
+      0,
+      0,
+      crop.width * dpr,
+      crop.height * dpr
+    );
+  }, [completedCrop]);
+
+  const onLoad = React.useCallback(img => {
+    imgRef.current = img;
+  }, []);
 
   return (
     <StyledRow>
@@ -59,16 +109,26 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
         different one.
       </StyledDescriptor>
       <StyledPhotoContainer>
-        {photo ? (
+        {upImg ? (
           <>
             <StyledReactCrop
-              src={photo}
+              src={upImg}
               crop={crop}
               ruleOfThirds
-              onChange={newCrop => setCrop(newCrop)}
+              onChange={(c: any) => setCrop(c)}
               disabled={isImageLocked}
               onImageLoaded={onLoad}
+              onComplete={c => setCompletedCrop(c)}
             />
+            <div>
+              <canvas
+                ref={previewCanvasRef}
+                style={{
+                  width: completedCrop?.width ?? 0,
+                  height: completedCrop?.height ?? 0
+                }}
+              />
+            </div>
           </>
         ) : (
           <div className="container">
@@ -96,21 +156,8 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     </StyledRow>
   );
 
-  function onLoad(img) {
-    setImgRef(img);
-  }
-
   function onImageLock(): void {
     props.onImageLock(!isImageLocked);
-  }
-
-  function toBase64(file: File): Promise<string | ArrayBuffer | null> {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = error => reject(error);
-    });
   }
 };
 
