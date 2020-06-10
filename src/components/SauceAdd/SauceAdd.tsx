@@ -248,7 +248,7 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
     // Create expected suace object
     const sauce: ISauce = {
       author,
-      created: new Date(),
+      created: 0,
       name,
       maker,
       description,
