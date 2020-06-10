@@ -49,6 +49,8 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
   const [canUserEdit, setCanUserEdit] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
+  console.log(photo);
+
   // get info from redux
   const slug = router.query.s;
   const { author, typesOfSauces, token, sauce, isAdmin } = useSelector(
@@ -201,9 +203,7 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
         <StyledFormContainer>
           <form onSubmit={e => onSubmit(e)} style={{ maxWidth: "100%" }}>
             {flashMessage.isVisible && (
-              <FlashMessage type={flashMessage.type} isVisible>
-                {flashMessage.text}
-              </FlashMessage>
+              <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
             )}
             <Overlay enabled={enabled}>
               {/* Title */}
@@ -264,7 +264,7 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
               />
 
               <StyledButton onClick={() => {}} type="submit">
-                Submit
+                Update
                 <ArrowRight />
               </StyledButton>
             </Overlay>
@@ -333,11 +333,14 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
     }
 
     try {
+      // Update sauce
       const res = await useThunkDispatch(editSauce({ formData }));
 
-      window.scrollTo(0, 0); // Move screen to top
+      // Move screen to top
+      window.scrollTo(0, 0);
 
-      if (res.data.isGood) {
+      // Decide which flash message to show
+      if (res?.data?.isGood) {
         setFlashMessage({
           isVisible: true,
           text: "Updated sauce!",
