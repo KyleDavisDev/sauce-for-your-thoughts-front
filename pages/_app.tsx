@@ -15,27 +15,34 @@ class MyApp extends App<any, any> {
   }
 
   public async componentDidMount() {
-    // 1) Update API token
-    const res = await API.user.refreshAPIToken();
+    // 1) Check if we have refresh token
+    const hasRefreshToken = this.getCookie("has-refresh-token");
+    if (hasRefreshToken === "1") {
+      // 1.1) Update API token
+      const res = await API.user.refreshAPIToken().catch(err => err);
 
-    // 2) If no problems, get user info
-    if (res.data.isGood) {
-      // 2.1) Get info about user
-      const getInfo: any = await API.user.getInfo();
+      // 1.2) If no problems, get user info
+      if (res?.data?.isGood) {
+        // 1.2.1) Get info about user
+        const getInfo: any = await API.user.getInfo();
 
-      // 2.2) Dispatch the login action to populate redux store
-      this.props.reduxStore.dispatch(
-        userLoggedIn({ token: res.data.token, ...getInfo })
-      );
+        // 1.2.2) Dispatch the login action to populate redux store
+        this.props.reduxStore.dispatch(
+          userLoggedIn({ token: res.data.token, ...getInfo })
+        );
+      } else {
+        // 1.3) Logout
+        await API.user.logout();
+      }
     }
 
-    // 3) Grab types of sauces
+    // 2) Grab types of sauces
     const types = await API.types.getTypes();
     if (types instanceof Array && types.length > 0) {
-      // 3.1) Add "All" option to first
+      // 2.1) Add "All" option to first
       types.unshift("All");
 
-      // 3.2) Dispatch types add event to populate redux store
+      // 2.2) Dispatch types add event to populate redux store
       this.props.reduxStore.dispatch(typesAdded(types));
     }
   }
@@ -49,6 +56,23 @@ class MyApp extends App<any, any> {
         </Page>
       </Provider>
     );
+  }
+
+  // Grab a cookie by name
+  public getCookie(cookieName: string): string | null {
+    var name = cookieName + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(";");
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return null;
   }
 }
 
