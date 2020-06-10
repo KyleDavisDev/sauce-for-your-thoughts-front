@@ -385,28 +385,28 @@ export const API = {
      *  @returns {AxiosPromise} AxiosPromise
      */
     refreshAPIToken: (originalRequest?: any, error?: any): AxiosPromise => {
-      return axios.post(`${host}/api/auth/refresh_token`).then(res => {
-        if (res.status === 200) {
-          // 1) put token to LocalStorage
-          // localStorageService.setToken(res.data);
+      return axios
+        .post(`${host}/api/auth/refresh_token`)
+        .then(res => {
+          if (res.status === 200) {
+            // If there is an originalRequest, set to retry request
+            if (originalRequest) {
+              originalRequest._retry = true;
 
-          // 2) Change Authorization header
-          axios.defaults.headers.common["Authorization"] = "Bearer test";
+              // return originalRequest object with Axios.
+              return axios(originalRequest);
+            }
 
-          // 3) If there is an originalRequest, set to retry request
-          if (originalRequest) {
-            originalRequest._retry = true;
-
-            // 3.5) return originalRequest object with Axios.
-            return axios(originalRequest);
+            return Promise.resolve(res);
           }
 
-          return Promise.resolve(res);
-        }
-
-        // return/resolve original error
-        return Promise.reject(error);
-      });
+          // return/resolve original error
+          return Promise.reject(error);
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw handleCallbackError(err);
+        });
     },
 
     /** @description Get info about user. Uses cookies for authentication
