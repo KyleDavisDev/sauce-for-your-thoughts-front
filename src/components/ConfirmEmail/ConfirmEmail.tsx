@@ -8,7 +8,7 @@ import {
   StyledLogoContainer,
   StyledArticle,
   StyledFormContainer
-} from "../../screens/account/confirm/Email/ConfirmEmailStyle";
+} from "./ConfirmEmailStyle";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import { API } from "../../utils/api/API";
 import { IErrReturn } from "../../utils/Err/Err";
