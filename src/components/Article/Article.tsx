@@ -4,6 +4,7 @@ import styled from "../../theme/styled-components";
 
 const StyledArticle = styled.article`
   max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   font-family: AvenirNextReg;
   padding: 0 15px;
