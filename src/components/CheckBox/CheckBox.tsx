@@ -22,6 +22,7 @@ const CheckBox: React.FC<CheckBoxProps> = props => {
           value={props.value}
           id={props.id}
           onClick={props.onClick}
+          onChange={() => {}}
         />
         {props.label}
       </Label>
