@@ -34,26 +34,22 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
   const useThunkDispatch = useDispatch<typeof reduxStore.dispatch>();
 
   // set state
-  const [name, setName] = React.useState("");
-  const [maker, setMaker] = React.useState("");
-  const [description, setDescription] = React.useState("");
-  const [ingredients, setIngredients] = React.useState("");
-  const [shu, setShu] = React.useState("");
-  const [enabled, setEnabled] = React.useState(false);
+  const [sauceItem, setSauceItem] = React.useState<ISauce>();
   const [photo, setPhoto] = React.useState<File | undefined>();
   const [photoType, setPhotoType] = React.useState<string | undefined>();
-  const [isImageLocked, setIsImageLocked] = React.useState(false);
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
-  const [canUserEdit, setCanUserEdit] = React.useState(false);
-  const [loading, setLoading] = React.useState(false);
 
-  console.log(photo);
+  // set meta
+  const [canUserEdit, setCanUserEdit] = React.useState(false);
+  const [enabled, setEnabled] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [isImageLocked, setIsImageLocked] = React.useState(false);
 
   // get info from redux
   const slug = router.query.s;
-  const { author, typesOfSauces, token, sauce, isAdmin } = useSelector(
+  const { author, typesOfSauces, token, isAdmin } = useSelector(
     (store: AppState) => {
       // 1. Find author
       const _author = store.users.self.displayName;
@@ -79,20 +75,14 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
         });
       }
 
-      // 4. Find sauce itself
-      const _sauce =
-        typeof slug === "string" && store.sauces.bySlug
-          ? store.sauces.bySlug[slug]
-          : undefined;
-
-      // 5. Find if person is admin or not
+      // 4. Find if person is admin or not
       const _isAdmin = store.users.self.isAdmin;
 
       return {
         author: _author,
         token: _token,
         typesOfSauces: _typesOfSauces,
-        sauce: _sauce,
+
         isAdmin: _isAdmin
       };
     }
@@ -146,7 +136,27 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
 
   // if user is eligible to submit and we do not already have the sauce, go get it
   React.useEffect(() => {
-    async function getSauceInfo() {
+    // function to turn URL string into a file
+    const createFile = async (url: string) => {
+      // 1) Fetch the photo and turn to blob
+      const response = await fetch(url);
+      const _data = await response.blob();
+
+      // 2) Get the name of the photo and image type by splitting apart the url
+      const _name = url.split("/")[url.split("/").length - 1];
+      const _metaData = {
+        type: "image/" + _name.split(".")[_name.split(".").length - 1]
+      };
+
+      // 3) Turn blob into file w/ appropriate name
+      const file = new File([_data], _name, _metaData);
+
+      // 4) Return file
+      return file;
+    };
+
+    // function to go out and get info about a specific sauce
+    const getSauceInfo = async () => {
       // quick sanity check
       if (typeof slug !== "string") {
         return;
@@ -157,11 +167,7 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
       const res = await API.sauce.getBySlug({ slug });
 
       // update local state
-      setName(res.data.sauce.name);
-      setMaker(res.data.sauce.maker);
-      setDescription(res.data.sauce.description);
-      setIngredients(res.data.sauce.ingredients);
-      setShu(res.data.sauce.shu);
+      setSauceItem({ ...res.data.sauce });
       let _typesOfSauces = types;
       if (res.data.sauce.types) {
         res.data.sauce.types.forEach(type => {
@@ -171,10 +177,17 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
       setTypes(_typesOfSauces);
       setEnabled(true);
       setLoading(false);
-    }
+      if (res.data.sauce.photo) {
+        const file = await createFile(res.data.sauce.photo);
+        setPhoto(file);
+      }
+    };
 
     try {
-      if (canUserEdit && !loading && !sauce && !name) {
+      // Only call API if person is eligible,
+      // we are not already loading something,
+      // and a sauce has not already been found
+      if (canUserEdit && !loading && !sauceItem) {
         getSauceInfo();
       }
     } catch (err) {
@@ -186,13 +199,13 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
 
       // Disable form components and show flashmessage
       setEnabled(false);
+      setLoading(false);
       setFlashMessage({
         isVisible: true,
         text: err.response.data.msg
       });
-      setLoading(false);
     }
-  }, [sauce, canUserEdit, loading]);
+  }, [sauceItem, canUserEdit, loading]);
 
   return (
     <>
@@ -206,67 +219,90 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
               <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
             )}
             <Overlay enabled={enabled}>
-              {/* Title */}
-              <SauceTitle
-                onTextChange={e => {
-                  if (e.target.name === "name") {
-                    setName(e.target.value);
-                  } else {
-                    setMaker(e.target.value);
-                  }
-                }}
-                name={name}
-                maker={maker}
-              />
+              {sauceItem ? (
+                <>
+                  {/* Title */}
+                  <SauceTitle
+                    onTextChange={e => {
+                      if (e.target.name === "name") {
+                        const _tmp = e.target.value as string;
+                        setSauceItem({ ...sauceItem, name: _tmp });
+                      } else {
+                        const _tmp = e.target.value as string;
+                        setSauceItem({ ...sauceItem, maker: _tmp });
+                      }
+                    }}
+                    name={sauceItem.name}
+                    maker={sauceItem.maker}
+                  />
 
-              {/* Official Description */}
-              <SauceDescription
-                onTextChange={e => setDescription(e.target.value)}
-                description={description}
-              />
+                  {/* Official Description */}
+                  <SauceDescription
+                    onTextChange={e =>
+                      setSauceItem({
+                        ...sauceItem,
+                        description: e.target.value
+                      })
+                    }
+                    description={sauceItem.description}
+                  />
 
-              {/* Ingredients */}
-              <SauceIngredients
-                onTextChange={e => setIngredients(e.target.value)}
-                ingredients={ingredients}
-              />
+                  {/* Ingredients */}
+                  <SauceIngredients
+                    onTextChange={e =>
+                      setSauceItem({
+                        ...sauceItem,
+                        ingredients: e.target.value
+                      })
+                    }
+                    ingredients={sauceItem.ingredients}
+                  />
 
-              {/* Type */}
-              <SauceType
-                typesOfSauces={types}
-                onCheckBoxClick={e => onCheckBoxClick(e)}
-              />
+                  {/* Type */}
+                  <SauceType
+                    typesOfSauces={types}
+                    onCheckBoxClick={e => onCheckBoxClick(e)}
+                  />
 
-              {/* Spice */}
-              <SauceSpice
-                shu={shu}
-                onTextChange={e => setShu(e.target.value)}
-              />
+                  {/* Spice */}
+                  <SauceSpice
+                    shu={sauceItem.shu}
+                    onTextChange={e =>
+                      setSauceItem({
+                        ...sauceItem,
+                        shu: e.target.value
+                      })
+                    }
+                  />
 
-              {/* Location */}
-              {/* <SauceLocation
-                  state={state}
-                  city={city}
-                  country={country}
-                  onTextChange={e => (e.target.value)}
-                  onCountryChange={e => setCountry(e.target.value)}
-                  onStateChange={e => setState(e.target.value)}
-                /> */}
+                  {/* Location */}
+                  {/* <SauceLocation
+                    state={state}
+                    city={city}
+                    country={country}
+                    onTextChange={e => (e.target.value)}
+                    onCountryChange={e => setCountry(e.target.value)}
+                    onStateChange={e => setState(e.target.value)}
+                  /> */}
 
-              {/* Photo */}
-              <SaucePhoto
-                photo={photo}
-                setPhotoType={e => setPhotoType(e)}
-                isImageLocked={isImageLocked}
-                onImageLock={onImageLock}
-                onClearImageClick={onClearImageClick}
-                setPhoto={e => setPhoto(e)}
-              />
+                  {/* Photo */}
+                  <SaucePhoto
+                    photo={photo}
+                    setPhotoType={e => setPhotoType(e)}
+                    isImageLocked={isImageLocked}
+                    onImageLock={onImageLock}
+                    onClearImageClick={onClearImageClick}
+                    setPhoto={e => setPhoto(e)}
+                  />
 
-              <StyledButton onClick={() => {}} type="submit">
-                Update
-                <ArrowRight />
-              </StyledButton>
+                  <StyledButton onClick={() => {}} type="submit">
+                    Update
+                    <ArrowRight />
+                  </StyledButton>
+                </>
+              ) : (
+                <p>Could not find sauce....</p>
+              )}
             </Overlay>
           </form>
         </StyledFormContainer>
@@ -305,7 +341,7 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
     );
 
     // Quick sanity check
-    if (!author || !token || typeof slug !== "string") {
+    if (!author || !token || !sauceItem || typeof slug !== "string") {
       router.push(`/account/login?return=${router.asPath}`);
       return;
     }
@@ -314,13 +350,9 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
     const formData = new FormData();
     // Create expected suace object
     const sauce: ISauce = {
+      ...sauceItem,
       author,
       created: 0,
-      name,
-      maker,
-      description,
-      ingredients,
-      shu,
       slug,
       types: _types
     };
