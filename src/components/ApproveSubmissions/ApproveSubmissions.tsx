@@ -45,6 +45,7 @@ interface SaucesFromAPI {
 const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
   // init state
   const [sauces, setSauces] = React.useState<SaucesFromAPI[]>([]);
+  const [hasQueried, setHasQueried] = React.useState<boolean>(false);
   const [loading, setLoading] = React.useState(false);
 
   // bind router
@@ -70,10 +71,11 @@ const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
       // update state
       setSauces(sauces);
       setLoading(false);
+      setHasQueried(true);
     }
 
     try {
-      if (!loading && sauces?.length === 0) {
+      if (!loading && sauces.length === 0 && !hasQueried) {
         getUnapproved();
       }
     } catch (err) {
@@ -99,7 +101,7 @@ const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
       <Navigation />
       <Article>
         <PageTitle>Approve Sauces</PageTitle>
-        {sauces &&
+        {sauces.length > 0 ? (
           sauces.map(sauce => {
             return (
               <StyledSauceContainer
@@ -161,7 +163,12 @@ const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
                 </StyledButtonContainer>
               </StyledSauceContainer>
             );
-          })}
+          })
+        ) : (
+          <StyledSauceContainer style={{ width: "100%" }}>
+            <p>No unapproved sauces!</p>
+          </StyledSauceContainer>
+        )}
       </Article>
       <Footer />
     </>
