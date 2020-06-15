@@ -25,10 +25,11 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
   // Initialize internal state
   const [crop, setCrop] = React.useState<any>({
     unit: "%",
-    width: 30,
+    width: 100,
     aspect: 2 / 3
   });
   const [completedCrop, setCompletedCrop] = React.useState<any>(null);
+
   const [upImg, setUpImg] = React.useState<any>();
   const imgRef = React.useRef(null);
   const previewCanvasRef = React.useRef(null);
@@ -42,11 +43,9 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     isDragReject,
     acceptedFiles
   } = useDropzone({ accept: "image/*" });
-  // console.log(props);
+
   // get params from props
-  const { isImageLocked, setPhoto, setPhotoType } = props;
-  const photo = props.photo ? URL.createObjectURL(props.photo) : undefined;
-  // console.log(photo);
+  const { isImageLocked, setPhoto, setPhotoType, photo } = props;
 
   // When file(s) are uploaded, update state
   React.useEffect(() => {
@@ -56,10 +55,23 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
       reader.readAsDataURL(acceptedFiles[0]);
     }
 
+    // if file uploaded, we go here
     if (acceptedFiles.length > 0) {
       getFile();
     }
-  }, [acceptedFiles]);
+
+    // if file provided from parent, go here
+    if (photo && photo !== null && acceptedFiles.length === 0 && !upImg) {
+      acceptedFiles[0] = photo;
+      getFile();
+
+      setCrop({
+        unit: "%",
+        width: 100,
+        height: 100
+      });
+    }
+  }, [acceptedFiles, photo]);
 
   // When the crop area has changed, update canvas
   React.useEffect(() => {
@@ -95,6 +107,16 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
       crop.width * dpr,
       crop.height * dpr
     );
+
+    canvas.toBlob(
+      blob => {
+        // var _file = blobToFile(blob, "image.jpg");
+        var _file = new File([blob], "name", { type: "image/png" });
+        setPhoto(_file);
+      },
+      "image/png",
+      1
+    );
   }, [completedCrop]);
 
   const onLoad = React.useCallback(img => {
@@ -125,7 +147,8 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
                 ref={previewCanvasRef}
                 style={{
                   width: completedCrop?.width ?? 0,
-                  height: completedCrop?.height ?? 0
+                  height: completedCrop?.height ?? 0,
+                  display: "none"
                 }}
               />
             </div>
@@ -158,6 +181,16 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
 
   function onImageLock(): void {
     props.onImageLock(!isImageLocked);
+  }
+
+  function blobToFile(theBlob: Blob, fileName: string): File {
+    var b: any = theBlob;
+    //A Blob() is almost a File() - it's just missing the two properties below which we will add
+    b.lastModifiedDate = new Date();
+    b.name = fileName;
+
+    //Cast to a File() type
+    return theBlob as File;
   }
 };
 
