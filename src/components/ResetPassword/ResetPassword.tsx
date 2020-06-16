@@ -1,5 +1,5 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import { useRouter } from "next/router";
 
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { TextInput } from "../../components/TextInput/TextInput";
@@ -23,69 +23,46 @@ export interface ResetPasswordState {
   email: string;
 }
 
-class ResetPassword extends React.Component<
-  ResetPasswordProps,
-  ResetPasswordState
-> {
-  constructor(props: ResetPasswordProps) {
-    super(props);
+const ResetPassword: React.SFC<ResetPasswordProps> = () => {
+  // Set state
+  const [email, setEmail] = React.useState("");
 
-    // Init state
-    this.state = {
-      email: ""
-    };
-  }
+  // Set router
+  const router = useRouter();
 
-  public render() {
-    return (
-      <StyledDiv>
-        <StyledLogoContainer>
-          <Link to="/">
-            <LogoSFYT />
-          </Link>
-        </StyledLogoContainer>
-        <hr />
-        <StyledArticle>
-          <PageTitle>Password Reset</PageTitle>
-          <StyledFormContainer>
-            <StyledText>
-              Enter your <b>email address</b> that you used to register. We'll
-              send you an email with your username and a link to reset your
-              password.
-            </StyledText>
-            <form onSubmit={this.onSubmit} style={{ width: "100%" }}>
-              <TextInput
-                type="text"
-                onChange={this.onTextChange}
-                showLabel={true}
-                label={"Email"}
-                name={"email"}
-                value={this.state.email}
-                required={true}
-              />
-              <StyledButton type="submit">Send</StyledButton>
-            </form>
-          </StyledFormContainer>
-        </StyledArticle>
-      </StyledDiv>
-    );
-  }
+  return (
+    <StyledDiv>
+      <StyledLogoContainer>
+        <Link to="/">
+          <LogoSFYT />
+        </Link>
+      </StyledLogoContainer>
+      <hr />
+      <StyledArticle>
+        <PageTitle>Password Reset</PageTitle>
+        <StyledFormContainer>
+          <StyledText>
+            Enter your <b>email address</b> that you used to register. We'll
+            send you an email with your username and a link to reset your
+            password.
+          </StyledText>
+          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+            <TextInput
+              type="text"
+              onChange={e => setEmail(e.target.value)}
+              showLabel={true}
+              label={"Email"}
+              name={"email"}
+              required={true}
+            />
+            <StyledButton type="submit">Send</StyledButton>
+          </form>
+        </StyledFormContainer>
+      </StyledArticle>
+    </StyledDiv>
+  );
 
-  private onTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    if (!event || !event.target) {
-      return;
-    }
-    // Grab the name and value
-    const { name, value }: { name: string; value: string } = event.target;
-
-    // Update local state
-    this.setState({
-      ...this.state,
-      [name]: value
-    });
-  };
-
-  private onSubmit = async (event: React.FormEvent): Promise<any> => {
+  let onSubmit = async (event: React.FormEvent): Promise<any> => {
     event.preventDefault();
 
     try {
@@ -93,11 +70,9 @@ class ResetPassword extends React.Component<
       // await this.props.register({ credentials });
 
       // Redirect user to sauces page -- Maybe take them to user home page instead?
-      this.props.history.push("/sauces");
+      router.push("/");
     } catch (err) {}
   };
-}
+};
 
-const mapDispatch2Props = {};
-
-export default connect(null, mapDispatch2Props)(ResetPassword);
+export default ResetPassword;
