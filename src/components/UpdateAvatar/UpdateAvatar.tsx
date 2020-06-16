@@ -220,7 +220,7 @@ const UpdateAvatar: React.FC<UpdateAvatarProps> = props => {
 
   function authorContribution(): JSX.Element {
     return (
-      <div>
+      <div style={{ fontSize: "12px", marginTop: "8px" }}>
         Icons made by{" "}
         <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
           Freepik
