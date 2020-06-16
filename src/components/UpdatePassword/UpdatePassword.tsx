@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 
 import { updatePassword } from "../../redux/users/actions";
 import { IUserUpdatePassword } from "../../redux/users/types";
-import LogoSFYT from "../../images/icons/LogoSFYT";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 import PageTitle from "../PageTitle/PageTitle";
 import { TextInput } from "../TextInput/TextInput";
@@ -11,14 +10,13 @@ import { Link } from "../Link/Link";
 import { Button } from "../Button/Button";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import {
-  StyledDiv,
-  StyledLogoContainer,
   StyledArticle,
   StyledFormContainer,
   StyledButtonHolder
 } from "./UpdatePasswordStyle";
 import Auth from "../../utils/Auth/Auth";
 import { useRouter } from "next/router";
+import HeaderSimple from "../HeaderSimple/HeaderSimple";
 
 export interface UpdatePasswordProps {}
 
@@ -48,13 +46,8 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
   }, []);
 
   return (
-    <StyledDiv>
-      <StyledLogoContainer>
-        <Link to="/">
-          <LogoSFYT />
-        </Link>
-      </StyledLogoContainer>
-      <hr />
+    <>
+      <HeaderSimple />
       <StyledArticle>
         <PageTitle>Update Password</PageTitle>
         <StyledFormContainer>
@@ -104,7 +97,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
           </form>
         </StyledFormContainer>
       </StyledArticle>
-    </StyledDiv>
+    </>
   );
 
   function toggleConfirmNewPassword(): boolean {

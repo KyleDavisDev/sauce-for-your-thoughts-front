@@ -96,7 +96,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
   };
 
   return (
-    <StyledDiv>
+    <>
       <HeaderSimple />
       <StyledArticle>
         <PageTitle>Manage your account</PageTitle>
@@ -118,7 +118,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
 
           <StyledGroup>
             <h4>Update Display Name</h4>
-            <Link to="/account/update/displayname">
+            <Link to="/account/update/displayName">
               <StyledButton type="button">
                 Update Display Name <ArrowRight />
               </StyledButton>
@@ -164,7 +164,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
           </Link>
         </StyledContainer>
       </StyledArticle>
-    </StyledDiv>
+    </>
   );
 };
 

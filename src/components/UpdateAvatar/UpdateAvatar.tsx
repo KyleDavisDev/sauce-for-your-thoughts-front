@@ -6,7 +6,6 @@ import shortid from "shortid";
 import { AppState } from "../../redux/configureStore";
 import { updateAvatar } from "../../redux/users/actions";
 import { IUserUpdateAvatar } from "../../redux/users/types";
-import LogoSFYT from "../../images/icons/LogoSFYT";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 import PageTitle from "../PageTitle/PageTitle";
 import { Link } from "../Link/Link";
@@ -14,8 +13,6 @@ import { Button } from "../Button/Button";
 import { TextInput } from "../TextInput/TextInput";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import {
-  StyledDiv,
-  StyledLogoContainer,
   StyledArticle,
   StyledFormContainer,
   StyledButtonHolder,
@@ -25,6 +22,7 @@ import {
 import Auth from "../../utils/Auth/Auth";
 import { API } from "../../utils/api/API";
 import { reduxStore } from "../../redux/with-redux-store";
+import HeaderSimple from "../HeaderSimple/HeaderSimple";
 
 export interface UpdateAvatarProps {}
 
@@ -81,13 +79,8 @@ const UpdateAvatar: React.FC<UpdateAvatarProps> = props => {
   }, []);
 
   return (
-    <StyledDiv>
-      <StyledLogoContainer>
-        <Link to="/">
-          <LogoSFYT />
-        </Link>
-      </StyledLogoContainer>
-      <hr />
+    <>
+      <HeaderSimple />
       <StyledArticle>
         <PageTitle>Update Avatar</PageTitle>
         <StyledFormContainer>
@@ -135,7 +128,7 @@ const UpdateAvatar: React.FC<UpdateAvatarProps> = props => {
           {authorContribution()}
         </StyledFormContainer>
       </StyledArticle>
-    </StyledDiv>
+    </>
   );
 
   async function onSubmit(event: React.FormEvent): Promise<any> {

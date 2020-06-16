@@ -3,10 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import validator from "validator";
 import { useRouter } from "next/router";
 
-import { AppState, MyThunkDispatch } from "../../redux/configureStore";
 import { updateEmail, logout } from "../../redux/users/actions";
 import { IUserUpdateEmail } from "../../redux/users/types";
-import LogoSFYT from "../../images/icons/LogoSFYT";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 import PageTitle from "../PageTitle/PageTitle";
 import { TextInput } from "../TextInput/TextInput";
@@ -14,13 +12,12 @@ import { Link } from "../Link/Link";
 import { Button } from "../Button/Button";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import {
-  StyledDiv,
-  StyledLogoContainer,
   StyledArticle,
   StyledFormContainer,
   StyledButtonHolder
 } from "./UpdateEmailStyle";
 import Auth from "../../utils/Auth/Auth";
+import HeaderSimple from "../HeaderSimple/HeaderSimple";
 
 export interface UpdateEmailProps {}
 
@@ -55,13 +52,8 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
   });
 
   return (
-    <StyledDiv>
-      <StyledLogoContainer>
-        <Link to="/">
-          <LogoSFYT />
-        </Link>
-      </StyledLogoContainer>
-      <hr />
+    <>
+      <HeaderSimple />
       <StyledArticle>
         <PageTitle>Update Email</PageTitle>
         <StyledFormContainer>
@@ -110,7 +102,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
           </form>
         </StyledFormContainer>
       </StyledArticle>
-    </StyledDiv>
+    </>
   );
 
   function toggleConfirmEmail(): boolean {

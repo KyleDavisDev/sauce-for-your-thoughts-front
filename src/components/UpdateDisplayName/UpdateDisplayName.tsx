@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import { AppState } from "../../redux/configureStore";
 import { updateDisplayName } from "../../redux/users/actions";
 import { IUserUpdateDisplayName } from "../../redux/users/types";
-import LogoSFYT from "../../images/icons/LogoSFYT";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 import PageTitle from "../PageTitle/PageTitle";
 import { TextInput } from "../TextInput/TextInput";
@@ -13,13 +12,12 @@ import { Link } from "../Link/Link";
 import { Button } from "../Button/Button";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import {
-  StyledDiv,
-  StyledLogoContainer,
   StyledArticle,
   StyledFormContainer,
   StyledButtonHolder
 } from "./UpdateDisplayNameStyle";
 import Auth from "../../utils/Auth/Auth";
+import HeaderSimple from "../HeaderSimple/HeaderSimple";
 
 export interface UpdateDisplayNameProps {}
 
@@ -50,13 +48,8 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
   }, []);
 
   return (
-    <StyledDiv>
-      <StyledLogoContainer>
-        <Link to="/">
-          <LogoSFYT />
-        </Link>
-      </StyledLogoContainer>
-      <hr />
+    <>
+      <HeaderSimple />
       <StyledArticle>
         <PageTitle>Update Display Name</PageTitle>
         <StyledFormContainer>
@@ -106,7 +99,7 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
           </form>
         </StyledFormContainer>
       </StyledArticle>
-    </StyledDiv>
+    </>
   );
 
   function toggleConfirmDisplayName(): boolean {
