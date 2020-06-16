@@ -21,7 +21,7 @@ const StyledArticle = styled(Article)`
   padding: 0 15px;
 
   > div {
-    margin-bottom: 1.5rem;
+    margin-bottom: 3.5rem;
   }
   @media (min-width: ${props => props.theme.smToMd}) {
     padding: 0;
