@@ -8,14 +8,14 @@ interface IHeaderSimpleProps {}
 
 const HeaderSimple: React.FunctionComponent<IHeaderSimpleProps> = props => {
   return (
-    <>
+    <header>
       <StyledLogoContainer>
         <Link to="/">
           <LogoSFYT />
         </Link>
       </StyledLogoContainer>
       <hr />
-    </>
+    </header>
   );
 };
 
