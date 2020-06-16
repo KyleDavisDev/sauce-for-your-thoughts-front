@@ -17,15 +17,6 @@ const StyledLandingImage = styled(LandingImage)`
   }
 `;
 
-const StyledArticle = styled(Article)`
-  max-width: 1200px;
-  margin: 0 auto;
-
-  > div {
-    margin-bottom: 3.5rem;
-  }
-`;
-
 export interface IndexProps {
   history: { push: (location: string) => any };
 }
@@ -37,11 +28,11 @@ class Index extends React.PureComponent<IndexProps, {}> {
         <TopBar />
         <Navigation />
         <StyledLandingImage />
-        <StyledArticle>
+        <Article size="lg">
           <NewestSauces />
           <FeaturedSauces />
           {/* <FeaturedUsers /> */}
-        </StyledArticle>
+        </Article>
         <Footer />
       </>
     );

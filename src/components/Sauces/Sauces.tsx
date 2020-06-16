@@ -7,7 +7,6 @@ import PageTitle from "../PageTitle/PageTitle";
 import Pagination from "./Pagination/Pagination";
 import TopBar from "../TopBar/TopBar";
 import {
-  StyledArticle,
   StyledCardContainer,
   StyledCardHolder,
   StyledCard
@@ -15,6 +14,7 @@ import {
 import { useRouter } from "next/router";
 import useSauces from "../../utils/hooks/useSauces";
 import useParamsFromPath from "../../utils/hooks/useParamsFromPath";
+import { Article } from "../Article/Article";
 
 export interface SaucesProps {}
 
@@ -33,7 +33,7 @@ const Sauces: React.SFC<SaucesProps> = props => {
     <div>
       <TopBar />
       <Navigation />
-      <StyledArticle>
+      <Article size="lg">
         <PageTitle>Sauces</PageTitle>
         <FilterBar onSubmit={onSubmit} />
         {loading ? (
@@ -64,7 +64,7 @@ const Sauces: React.SFC<SaucesProps> = props => {
         {count > 0 && (
           <Pagination total={total} page={page} limit={limit} range={3} />
         )}
-      </StyledArticle>
+      </Article>
       <Footer />
     </div>
   );

@@ -9,14 +9,11 @@ import { TextInput } from "../TextInput/TextInput";
 import { Link } from "../Link/Link";
 import { Button } from "../Button/Button";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
-import {
-  StyledArticle,
-  StyledFormContainer,
-  StyledButtonHolder
-} from "./UpdatePasswordStyle";
+import { StyledFormContainer, StyledButtonHolder } from "./UpdatePasswordStyle";
 import Auth from "../../utils/Auth/Auth";
 import { useRouter } from "next/router";
 import HeaderSimple from "../HeaderSimple/HeaderSimple";
+import { Article } from "../Article/Article";
 
 export interface UpdatePasswordProps {}
 
@@ -48,7 +45,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
   return (
     <>
       <HeaderSimple />
-      <StyledArticle>
+      <Article size="sm">
         <PageTitle>Update Password</PageTitle>
         <StyledFormContainer>
           {flashMessage.isVisible && (
@@ -96,7 +93,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
             </StyledButtonHolder>
           </form>
         </StyledFormContainer>
-      </StyledArticle>
+      </Article>
     </>
   );
 

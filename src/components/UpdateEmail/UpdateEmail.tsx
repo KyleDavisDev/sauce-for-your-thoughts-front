@@ -11,11 +11,7 @@ import { TextInput } from "../TextInput/TextInput";
 import { Link } from "../Link/Link";
 import { Button } from "../Button/Button";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
-import {
-  StyledArticle,
-  StyledFormContainer,
-  StyledButtonHolder
-} from "./UpdateEmailStyle";
+import { StyledFormContainer, StyledButtonHolder } from "./UpdateEmailStyle";
 import Auth from "../../utils/Auth/Auth";
 import HeaderSimple from "../HeaderSimple/HeaderSimple";
 
@@ -54,7 +50,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
   return (
     <>
       <HeaderSimple />
-      <StyledArticle>
+      <Article size="sm">
         <PageTitle>Update Email</PageTitle>
         <StyledFormContainer>
           {flashMessage.isVisible && (
@@ -101,7 +97,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
             </StyledButtonHolder>
           </form>
         </StyledFormContainer>
-      </StyledArticle>
+      </Article>
     </>
   );
 

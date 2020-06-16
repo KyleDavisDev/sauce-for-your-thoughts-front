@@ -12,7 +12,6 @@ import { Link } from "../Link/Link";
 import { Button } from "../Button/Button";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import {
-  StyledArticle,
   StyledFormContainer,
   StyledButtonHolder
 } from "./UpdateDisplayNameStyle";
@@ -50,7 +49,7 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
   return (
     <>
       <HeaderSimple />
-      <StyledArticle>
+      <Article size="sm">
         <PageTitle>Update Display Name</PageTitle>
         <StyledFormContainer>
           {flashMessage.isVisible && (
@@ -98,7 +97,7 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
             </StyledButtonHolder>
           </form>
         </StyledFormContainer>
-      </StyledArticle>
+      </Article>
     </>
   );
 

@@ -6,13 +6,13 @@ import { Link } from "../Link/Link";
 import {
   StyledDiv,
   StyledLogoContainer,
-  StyledArticle,
   StyledFormContainer
 } from "./ConfirmEmailStyle";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import { API } from "../../utils/api/API";
 import { IErrReturn } from "../../utils/Err/Err";
 import { useRouter } from "next/router";
+import { Article } from "../Article/Article";
 
 export interface ConfirmEmailProps {
   jwt?: string | string[];
@@ -89,7 +89,7 @@ const ConfirmEmail: React.FC<ConfirmEmailProps> = props => {
         </Link>
       </StyledLogoContainer>
       <hr />
-      <StyledArticle>
+      <Article size="sm">
         <PageTitle>Confirm Email</PageTitle>
         <StyledFormContainer>
           {flashMessage.isVisible && (
@@ -97,7 +97,7 @@ const ConfirmEmail: React.FC<ConfirmEmailProps> = props => {
           )}
           {loading && "Loading..."}
         </StyledFormContainer>
-      </StyledArticle>
+      </Article>
     </StyledDiv>
   );
 };

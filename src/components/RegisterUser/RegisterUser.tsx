@@ -9,8 +9,6 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import { TextInput } from "../../components/TextInput/TextInput";
 import { Link } from "../../components/Link/Link";
 import {
-  StyledDiv,
-  StyledArticle,
   StyledFormContainer,
   StyledText,
   StyledButton
@@ -20,6 +18,7 @@ import {
   FlashMessageProps
 } from "../../components/FlashMessage/FlashMessage";
 import HeaderSimple from "../HeaderSimple/HeaderSimple";
+import { Article } from "../Article/Article";
 
 export interface RegisterUserProps {}
 
@@ -52,9 +51,9 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
   const router = useRouter();
 
   return (
-    <StyledDiv>
+    <>
       <HeaderSimple />
-      <StyledArticle>
+      <Article size="sm">
         <PageTitle>Register</PageTitle>
         <StyledFormContainer>
           {flashMessage.isVisible && (
@@ -114,8 +113,8 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
             <StyledButton type="submit">Register</StyledButton>
           </form>
         </StyledFormContainer>
-      </StyledArticle>
-    </StyledDiv>
+      </Article>
+    </>
   );
 
   async function onSubmit(event: React.FormEvent): Promise<any> {

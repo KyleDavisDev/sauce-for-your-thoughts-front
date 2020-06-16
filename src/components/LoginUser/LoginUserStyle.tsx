@@ -1,10 +1,6 @@
 import styled from "../../theme/styled-components";
-import { Article } from "../Article/Article";
 import { Button } from "../Button/Button";
 
-export const StyledArticle = styled(Article)`
-  max-width: 600px;
-`;
 export const StyledFormContainer = styled.div`
   border: ${props => props.theme.border};
   padding: 1.5rem;

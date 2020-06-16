@@ -5,8 +5,6 @@ import PageTitle from "../PageTitle/PageTitle";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import { Link } from "../Link/Link";
 import {
-  StyledDiv,
-  StyledArticle,
   StyledContainer,
   StyledButton,
   StyledGroup
@@ -20,6 +18,7 @@ import Auth from "../../utils/Auth/Auth";
 import { API } from "../../utils/api/API";
 import { IErrReturn } from "../../utils/Err/Err";
 import HeaderSimple from "../HeaderSimple/HeaderSimple";
+import { Article } from "../Article/Article";
 
 export interface UserSettingsProps {}
 
@@ -98,7 +97,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
   return (
     <>
       <HeaderSimple />
-      <StyledArticle>
+      <Article size="sm">
         <PageTitle>Manage your account</PageTitle>
         <StyledContainer>
           {flashMessage.isVisible && (
@@ -163,7 +162,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
             </StyledButton>
           </Link>
         </StyledContainer>
-      </StyledArticle>
+      </Article>
     </>
   );
 };

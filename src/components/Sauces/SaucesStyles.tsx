@@ -2,10 +2,6 @@ import styled from "../../theme/styled-components";
 import { Article } from "../Article/Article";
 import Card from "../Card/Card";
 
-export const StyledArticle = styled(Article)`
-  max-width: 1200px;
-`;
-
 export const StyledCardContainer = styled.div`
   display: flex;
   flex-direction: row;

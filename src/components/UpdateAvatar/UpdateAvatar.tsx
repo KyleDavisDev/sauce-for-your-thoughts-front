@@ -13,7 +13,6 @@ import { Button } from "../Button/Button";
 import { TextInput } from "../TextInput/TextInput";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import {
-  StyledArticle,
   StyledFormContainer,
   StyledButtonHolder,
   StyledRadioButton,
@@ -23,6 +22,7 @@ import Auth from "../../utils/Auth/Auth";
 import { API } from "../../utils/api/API";
 import { reduxStore } from "../../redux/with-redux-store";
 import HeaderSimple from "../HeaderSimple/HeaderSimple";
+import { Article } from "../Article/Article";
 
 export interface UpdateAvatarProps {}
 
@@ -81,7 +81,7 @@ const UpdateAvatar: React.FC<UpdateAvatarProps> = props => {
   return (
     <>
       <HeaderSimple />
-      <StyledArticle>
+      <Article size="sm">
         <PageTitle>Update Avatar</PageTitle>
         <StyledFormContainer>
           {flashMessage.isVisible && (
@@ -127,7 +127,7 @@ const UpdateAvatar: React.FC<UpdateAvatarProps> = props => {
 
           {authorContribution()}
         </StyledFormContainer>
-      </StyledArticle>
+      </Article>
     </>
   );
 

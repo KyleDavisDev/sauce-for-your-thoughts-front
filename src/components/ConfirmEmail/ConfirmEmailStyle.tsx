@@ -1,5 +1,4 @@
 import styled from "../../theme/styled-components";
-import { Article } from "../Article/Article";
 
 export const StyledDiv = styled.div`
   height: 100vh;
@@ -11,9 +10,6 @@ export const StyledLogoContainer = styled.div`
   padding: 1em;
 `;
 
-export const StyledArticle = styled(Article)`
-  max-width: 600px;
-`;
 export const StyledFormContainer = styled.div`
   display: flex;
   flex-direction: row;

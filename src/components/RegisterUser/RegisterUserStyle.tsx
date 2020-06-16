@@ -1,14 +1,5 @@
 import styled from "../../theme/styled-components";
-import { Article } from "../../components/Article/Article";
 import { Button } from "../../components/Button/Button";
-
-export const StyledDiv = styled.div`
-  height: 100vh;
-`;
-
-export const StyledArticle = styled(Article)`
-  max-width: 600px;
-`;
 
 export const StyledFormContainer = styled.div`
   border: ${props => props.theme.border};

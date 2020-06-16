@@ -11,13 +11,13 @@ import { TextInput } from "../TextInput/TextInput";
 import { Link } from "../Link/Link";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import {
-  StyledArticle,
   StyledFormContainer,
   StyledButton,
   StyledText,
   StyledFooterDivs
 } from "./LoginUserStyle";
 import HeaderSimple from "../HeaderSimple/HeaderSimple";
+import { Article } from "../Article/Article";
 
 export interface LoginProps {}
 
@@ -53,7 +53,7 @@ const LoginUser: React.FC<LoginProps> = () => {
   return (
     <>
       <HeaderSimple />
-      <StyledArticle>
+      <Article size="sm">
         <PageTitle>Login</PageTitle>
         <StyledFormContainer>
           {flashMessage.isVisible && (
@@ -91,7 +91,7 @@ const LoginUser: React.FC<LoginProps> = () => {
             </StyledText>
           </form>
         </StyledFormContainer>
-      </StyledArticle>
+      </Article>
     </>
   );
 
