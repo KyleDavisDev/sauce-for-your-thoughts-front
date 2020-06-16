@@ -1,5 +1,5 @@
 import styled from "../../theme/styled-components";
-import Article from "../../components/Article/Article";
+import { Article } from "../../components/Article/Article";
 import { Button } from "../../components/Button/Button";
 
 export const StyledDiv = styled.div`

@@ -7,7 +7,7 @@ import { addReview } from "../../redux/reviews/actions";
 import { getSauceBySlug } from "../../redux/sauces/actions";
 import ArrowRight from "../../images/icons/ArrowRight";
 import Auth from "../../utils/Auth/Auth";
-import Article from "../Article/Article";
+import { Article } from "../Article/Article";
 import Label from "../Label/Label";
 import PageTitle from "../PageTitle/PageTitle";
 import {

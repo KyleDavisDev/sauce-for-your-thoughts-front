@@ -7,7 +7,7 @@ import { logout } from "../../redux/users/actions";
 import Auth from "../../utils/Auth/Auth";
 import { API } from "../../utils/api/API";
 import Utils from "../../utils/Utils/Utils";
-import Article from "../Article/Article";
+import { Article } from "../Article/Article";
 import Navigation from "../Navigation/Navigation";
 import TopBar from "../TopBar/TopBar";
 import PageTitle from "../PageTitle/PageTitle";

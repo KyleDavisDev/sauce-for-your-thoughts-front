@@ -10,7 +10,7 @@ import {
 } from "../../redux/reviews/types";
 import { editReview, getReview } from "../../redux/reviews/actions";
 import ArrowRight from "../../images/icons/ArrowRight";
-import Article from "../Article/Article";
+import { Article } from "../Article/Article";
 import Label from "../Label/Label";
 import PageTitle from "../PageTitle/PageTitle";
 import {

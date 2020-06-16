@@ -1,5 +1,5 @@
 import styled from "../../theme/styled-components";
-import Article from "../Article/Article";
+import { Article } from "../Article/Article";
 import Card from "../Card/Card";
 
 export const StyledArticle = styled(Article)`

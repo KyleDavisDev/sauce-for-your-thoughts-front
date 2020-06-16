@@ -3,7 +3,7 @@ import styled from "../src/theme/styled-components";
 
 import TopBar from "../src/components/TopBar/TopBar";
 import Navigation from "../src/components/Navigation/Navigation";
-import Article from "../src/components/Article/Article";
+import { Article } from "../src/components/Article/Article";
 import Footer from "../src/components/Footer/Footer";
 import LandingImage from "../src/components/LandingImage/LandingImage";
 import NewestSauces from "../src/components/NewestSauces/NewestSauces";

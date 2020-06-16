@@ -1,4 +1,4 @@
-import Article from "../Article/Article";
+import { Article } from "../Article/Article";
 import styled from "../../theme/styled-components";
 import Descriptor from "../Descriptor/Descriptor";
 
