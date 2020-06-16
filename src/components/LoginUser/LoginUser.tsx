@@ -6,20 +6,18 @@ import validator from "validator";
 import { login } from "../../redux/users/actions";
 import { ILoginUser } from "../../redux/users/types";
 import { AppState } from "../../redux/configureStore";
-import LogoSFYT from "../../images/icons/LogoSFYT";
 import PageTitle from "../PageTitle/PageTitle";
 import { TextInput } from "../TextInput/TextInput";
 import { Link } from "../Link/Link";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import {
-  StyledDiv,
-  StyledLogoContainer,
   StyledArticle,
   StyledFormContainer,
   StyledButton,
   StyledText,
   StyledFooterDivs
 } from "./LoginUserStyle";
+import HeaderSimple from "../HeaderSimple/HeaderSimple";
 
 export interface LoginProps {}
 
@@ -53,13 +51,8 @@ const LoginUser: React.FC<LoginProps> = () => {
   }, [token]);
 
   return (
-    <StyledDiv>
-      <StyledLogoContainer>
-        <Link to="/">
-          <LogoSFYT />
-        </Link>
-      </StyledLogoContainer>
-      <hr />
+    <>
+      <HeaderSimple />
       <StyledArticle>
         <PageTitle>Login</PageTitle>
         <StyledFormContainer>
@@ -99,7 +92,7 @@ const LoginUser: React.FC<LoginProps> = () => {
           </form>
         </StyledFormContainer>
       </StyledArticle>
-    </StyledDiv>
+    </>
   );
 
   async function onSubmit(event: React.FormEvent): Promise<any> {
