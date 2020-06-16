@@ -4,13 +4,12 @@ import { useRouter } from "next/router";
 
 import { register } from "../../redux/users/actions";
 import { IRegisterUser } from "../../redux/users/types";
-import LogoSFYT from "../../images/icons/LogoSFYT";
+
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { TextInput } from "../../components/TextInput/TextInput";
 import { Link } from "../../components/Link/Link";
 import {
   StyledDiv,
-  StyledLogoContainer,
   StyledArticle,
   StyledFormContainer,
   StyledText,
@@ -20,6 +19,7 @@ import {
   FlashMessage,
   FlashMessageProps
 } from "../../components/FlashMessage/FlashMessage";
+import HeaderSimple from "../HeaderSimple/HeaderSimple";
 
 export interface RegisterUserProps {}
 
@@ -53,12 +53,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
 
   return (
     <StyledDiv>
-      <StyledLogoContainer>
-        <Link to="/">
-          <LogoSFYT />
-        </Link>
-      </StyledLogoContainer>
-      <hr />
+      <HeaderSimple />
       <StyledArticle>
         <PageTitle>Register</PageTitle>
         <StyledFormContainer>
@@ -139,7 +134,6 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
     }
 
     if (password !== confirmPassword) {
-      console.log(password, confirmPassword);
       setFlashMessage({
         isVisible: true,
         text: "Your passwords do not match. Please fix this before continuing.",
@@ -152,7 +146,6 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
     }
 
     if (password.length < 8) {
-      console.log(password);
       setFlashMessage({
         isVisible: true,
         text:

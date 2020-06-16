@@ -6,7 +6,6 @@ import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import { Link } from "../Link/Link";
 import {
   StyledDiv,
-  StyledLogoContainer,
   StyledArticle,
   StyledContainer,
   StyledButton,
@@ -20,6 +19,7 @@ import ArrowLeft from "../../images/icons/ArrowLeft";
 import Auth from "../../utils/Auth/Auth";
 import { API } from "../../utils/api/API";
 import { IErrReturn } from "../../utils/Err/Err";
+import HeaderSimple from "../HeaderSimple/HeaderSimple";
 
 export interface UserSettingsProps {}
 
@@ -97,12 +97,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
 
   return (
     <StyledDiv>
-      <StyledLogoContainer>
-        <Link to="/">
-          <LogoSFYT />
-        </Link>
-      </StyledLogoContainer>
-      <hr />
+      <HeaderSimple />
       <StyledArticle>
         <PageTitle>Manage your account</PageTitle>
         <StyledContainer>
