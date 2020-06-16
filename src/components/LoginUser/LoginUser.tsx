@@ -82,7 +82,7 @@ const LoginUser: React.FC<LoginProps> = () => {
               <StyledButton type="submit">Login</StyledButton>
             </StyledFooterDivs>
             <StyledText>
-              <Link to="/reset">Forgot your username or password?</Link>
+              <Link to="/account/reset/password">Forgot your password?</Link>
             </StyledText>
 
             <StyledText>
