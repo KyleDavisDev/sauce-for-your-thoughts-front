@@ -1,27 +1,19 @@
 import * as React from "react";
 import { useRouter } from "next/router";
 
-import PageTitle from "../../components/PageTitle/PageTitle";
-import { TextInput } from "../../components/TextInput/TextInput";
-import { Link } from "../../components/Link/Link";
+import PageTitle from "../PageTitle/PageTitle";
+import { TextInput } from "../TextInput/TextInput";
+import { Link } from "../Link/Link";
+import { Article } from "../Article/Article";
+import HeaderSimple from "../HeaderSimple/HeaderSimple";
 import {
-  StyledDiv,
-  StyledLogoContainer,
-  StyledArticle,
   StyledFormContainer,
   StyledText,
   StyledButton
 } from "./ResetPasswordStyle";
 import LogoSFYT from "../../images/icons/LogoSFYT";
 
-export interface ResetPasswordProps {
-  register: any;
-  history: { push: (location: string) => null };
-}
-
-export interface ResetPasswordState {
-  email: string;
-}
+export interface ResetPasswordProps {}
 
 const ResetPassword: React.SFC<ResetPasswordProps> = () => {
   // Set state
@@ -31,20 +23,14 @@ const ResetPassword: React.SFC<ResetPasswordProps> = () => {
   const router = useRouter();
 
   return (
-    <StyledDiv>
-      <StyledLogoContainer>
-        <Link to="/">
-          <LogoSFYT />
-        </Link>
-      </StyledLogoContainer>
-      <hr />
-      <StyledArticle>
+    <>
+      <HeaderSimple />
+      <Article size="sm">
         <PageTitle>Password Reset</PageTitle>
         <StyledFormContainer>
           <StyledText>
-            Enter your <b>email address</b> that you used to register. We'll
-            send you an email with your username and a link to reset your
-            password.
+            Enter your <b>email address</b>. We will send you an email with your
+            username and a link to reset your password.
           </StyledText>
           <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
             <TextInput
@@ -58,8 +44,8 @@ const ResetPassword: React.SFC<ResetPasswordProps> = () => {
             <StyledButton type="submit">Send</StyledButton>
           </form>
         </StyledFormContainer>
-      </StyledArticle>
-    </StyledDiv>
+      </Article>
+    </>
   );
 
   let onSubmit = async (event: React.FormEvent): Promise<any> => {
