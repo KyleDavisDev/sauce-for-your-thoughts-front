@@ -1,5 +1,4 @@
 import * as React from "react";
-import styled from "../src/theme/styled-components";
 
 import TopBar from "../src/components/TopBar/TopBar";
 import Navigation from "../src/components/Navigation/Navigation";
@@ -8,14 +7,6 @@ import Footer from "../src/components/Footer/Footer";
 import LandingImage from "../src/components/LandingImage/LandingImage";
 import NewestSauces from "../src/components/NewestSauces/NewestSauces";
 import FeaturedSauces from "../src/components/FeaturedSauces/FeaturedSauces";
-
-const StyledLandingImage = styled(LandingImage)`
-  margin-bottom: 1.5rem;
-
-  @media (min-width: ${props => props.theme.smToMd}) {
-    margin-bottom: 3.5rem;
-  }
-`;
 
 export interface IndexProps {
   history: { push: (location: string) => any };
@@ -27,7 +18,7 @@ class Index extends React.PureComponent<IndexProps, {}> {
       <>
         <TopBar />
         <Navigation />
-        <StyledLandingImage />
+        <LandingImage />
         <Article size="lg">
           <NewestSauces />
           <FeaturedSauces />

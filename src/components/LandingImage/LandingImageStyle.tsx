@@ -9,7 +9,11 @@ const SaucesImage = "/static/Sauces.jpg";
 export const HeroContainer = styled.div`
   background: #000;
   position: relative;
-  margin-bottom: 1em;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: ${props => props.theme.smToMd}) {
+    margin-bottom: 3.5rem;
+  }
 `;
 
 export const HeroImage = styled.div`
@@ -52,6 +56,10 @@ export const StyledDropDown = styled(DropDown)`
 
   > div {
     width: auto;
+
+    &:after {
+      top: 3px;
+    }
   }
 
   select {
