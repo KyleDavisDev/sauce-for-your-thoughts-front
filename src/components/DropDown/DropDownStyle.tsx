@@ -11,12 +11,11 @@ export const SelectContainer = styled.div`
 
   &:after {
     position: absolute;
-    top: 55%;
-    transform: translateY(-50%);
+    transform: scale(0.5);
     content: url("${ChevronDown}");
-    zoom: 50%;
     pointer-events: none;
-    right: 15px;
+    right: 0px;
+    top: -7px;
   }
 `;
 
