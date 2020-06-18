@@ -1,11 +1,8 @@
 import * as React from "react";
 
 import FilterBar from "./FilterBar/FilterBar";
-import Footer from "../Footer/Footer";
-import Navigation from "../Navigation/Navigation";
 import PageTitle from "../PageTitle/PageTitle";
 import Pagination from "./Pagination/Pagination";
-import TopBar from "../TopBar/TopBar";
 import {
   StyledCardContainer,
   StyledCardHolder,
@@ -14,7 +11,6 @@ import {
 import { useRouter } from "next/router";
 import useSauces from "../../utils/hooks/useSauces";
 import useParamsFromPath from "../../utils/hooks/useParamsFromPath";
-import { Article } from "../Article/Article";
 
 export interface SaucesProps {}
 
@@ -30,43 +26,38 @@ const Sauces: React.SFC<SaucesProps> = props => {
   // assign count
   const count = sauces.length;
   return (
-    <div>
-      <TopBar />
-      <Navigation />
-      <Article size="lg">
-        <PageTitle>Sauces</PageTitle>
-        <FilterBar onSubmit={onSubmit} />
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          <StyledCardContainer>
-            {sauces.length > 0 ? (
-              sauces.map((sauce, ind) => {
-                return (
-                  <StyledCardHolder key={ind}>
-                    <StyledCard
-                      title={sauce.name}
-                      imageLink={`${sauce.photo}`}
-                      description={sauce.description}
-                      to={`/sauce/view?s=${sauce.slug}`}
-                    />
-                  </StyledCardHolder>
-                );
-              })
-            ) : (
-              <p>
-                Could not find any sauces! Try adjusting the items in the filter
-                bar to find your perfect sauce.
-              </p>
-            )}
-          </StyledCardContainer>
-        )}
-        {count > 0 && (
-          <Pagination total={total} page={page} limit={limit} range={3} />
-        )}
-      </Article>
-      <Footer />
-    </div>
+    <>
+      <PageTitle>Sauces</PageTitle>
+      <FilterBar onSubmit={onSubmit} />
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <StyledCardContainer>
+          {sauces.length > 0 ? (
+            sauces.map((sauce, ind) => {
+              return (
+                <StyledCardHolder key={ind}>
+                  <StyledCard
+                    title={sauce.name}
+                    imageLink={`${sauce.photo}`}
+                    description={sauce.description}
+                    to={`/sauce/view?s=${sauce.slug}`}
+                  />
+                </StyledCardHolder>
+              );
+            })
+          ) : (
+            <p>
+              Could not find any sauces! Try adjusting the items in the filter
+              bar to find your perfect sauce.
+            </p>
+          )}
+        </StyledCardContainer>
+      )}
+      {count > 0 && (
+        <Pagination total={total} page={page} limit={limit} range={3} />
+      )}
+    </>
   );
 
   function onSubmit(tmp: { limit: any; order: any; type: any; srch: any }) {
