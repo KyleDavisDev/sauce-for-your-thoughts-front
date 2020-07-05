@@ -22,12 +22,21 @@ export interface UpdateDisplayNameProps {}
 const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
   // Init state
   const [displayName, setDisplayName] = React.useState("");
-  const oldDisplayName =
-    useSelector((store: AppState) => store.users.self.displayName) || "";
   const [confirmDisplayName, setConfirmDisplayName] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
+  });
+
+  // grab info from redux
+  const [oldDisplayName, token] = useSelector((store: AppState) => {
+    // 1) Find display name
+    const _displayName = store.users.self.displayName;
+
+    // 2) Find token
+    const _token = store.users.self.token;
+
+    return [_displayName, _token];
   });
 
   // assign router
@@ -37,10 +46,9 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
 
   // run on mount
   React.useEffect(() => {
-    // Get token or else redirect
-    const token = Auth.getToken();
+    // Quick sanity check for token
     if (!token) {
-      router.push("/account/login?return=/account/settings/email");
+      router.push("/account/login?return=/account/update/displayName");
       return;
     }
   }, []);
@@ -56,6 +64,7 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
           <TextInput
             type="text"
             onChange={e => setDisplayName(e.target.value)}
+            value={displayName}
             showLabel={true}
             label={"New Display Name"}
             name={"displayName"}
@@ -65,6 +74,7 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
           <TextInput
             type="text"
             onChange={e => setConfirmDisplayName(e.target.value)}
+            value={confirmDisplayName}
             disabled={!toggleConfirmDisplayName()}
             showLabel={true}
             label={"Confirm New Display Name"}
@@ -75,6 +85,7 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
           <TextInput
             type="password"
             onChange={e => setPassword(e.target.value)}
+            value={password}
             disabled={!toggleConfirmPassword()}
             showLabel={true}
             label={"Password"}
@@ -135,16 +146,15 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
       return;
     }
 
-    // Get token or else redirect
-    const token = Auth.getToken();
-    if (!token) {
-      router.push("/account/login?return=/account/settings/email");
+    // Quick sanity check
+    if (!token || !oldDisplayName) {
+      router.push("/account/login?return=/account/update/displayName");
       return;
     }
 
     // Construct data
     const data: IUserUpdateDisplayName = {
-      user: { token, displayName, confirmDisplayName, password }
+      user: { displayName, confirmDisplayName, password }
     };
     try {
       // dispatch redux action-emitter
@@ -167,15 +177,9 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
         slugText: "Back to Settings"
       });
     } catch (err) {
-      // Account locked
-      if (err.response.status === 403) {
-        router.push("/logout");
-
-        router.push("/account/login");
-        return;
-      }
-
       // Password bad or acc locked so going to reset
+      setDisplayName("");
+      setConfirmDisplayName("");
       setPassword("");
       setFlashMessage({
         isVisible: true,
