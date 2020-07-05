@@ -80,7 +80,6 @@ export interface IUserUpdatePassword {
 // Update user displayname
 export interface IUserUpdateDisplayName {
   user: {
-    token: string;
     password: string;
     displayName: string;
     confirmDisplayName: string;
