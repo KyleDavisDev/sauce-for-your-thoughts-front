@@ -1,7 +1,6 @@
 import { Action, applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk, { ThunkAction, ThunkDispatch } from "redux-thunk";
-import Auth from "../utils/Auth/Auth";
 import flashMessage from "./flashMessage/reducer";
 import { IFlashState } from "./flashMessage/types";
 import reviews from "./reviews/reducer";
@@ -58,7 +57,16 @@ export const configureStore = (initState?: AppState) => {
             bySlug: {},
             total: 0,
             query: {},
-            types: [],
+            types: [
+              "Hot Sauce",
+              "Marinade",
+              "BBQ Sauce",
+              "Salsa",
+              "Gravy",
+              "Meat Sauce",
+              "Wing Sauce",
+              "Curry"
+            ],
             orders: ["Newest", "Name", "Times Reviewed", "Avg Rating"],
             saucesWithNewestReviews: [],
             newest: [],
