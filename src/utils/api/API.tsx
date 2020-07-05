@@ -106,7 +106,7 @@ export const API = {
         });
     },
 
-    /** @description Add new user to DB
+    /** @description Log user into account
      *  @param {ILoginUser} credentials - user credentials
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
@@ -136,6 +136,14 @@ export const API = {
 
           // If not good, throw an error
           throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood || false
+          });
         });
     },
 
