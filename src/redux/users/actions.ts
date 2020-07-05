@@ -252,7 +252,6 @@ export const updatePassword = ({
 
 /** @description Call API to update user's display name
  *  @param {IUserUpdateDisplayName} data - container for user information
- *  @param {string} data.user.token - user token
  *  @param {string} data.user.password - original password
  *  @param {string} data.user.displayName - new user display name
  *  @param {string} data.user.confirmDisplayName - confirm new display name
