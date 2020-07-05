@@ -11,13 +11,26 @@ interface LinkProps {
   to?: string;
   href?: string;
   className?: string;
+  target?: "_blank";
 }
 
 const LinkComponent: React.FC<LinkProps> = props => {
   return (
-    <Link href={props.to || props.href || "#"}>
-      <a className={props.className}> {props.children}</a>
-    </Link>
+    <>
+      {props.target === "_blank" ? (
+        <a
+          href={props.to || props.href || "#"}
+          target="_blank"
+          className={props.className}
+        >
+          {props.children}
+        </a>
+      ) : (
+        <Link href={props.to || props.href || "#"}>
+          <a className={props.className}> {props.children}</a>
+        </Link>
+      )}
+    </>
   );
 };
 
