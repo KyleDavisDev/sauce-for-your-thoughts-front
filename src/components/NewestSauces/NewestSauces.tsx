@@ -32,7 +32,7 @@ const NewestSauces: React.FunctionComponent<NewestSaucesProps> = props => {
         ) : newestSauces && newestSauces.length > 0 ? (
           newestSauces.map((sauce, ind) => {
             return (
-              <StyledCardHolder key={ind}>
+              <StyledCardHolder key={sauce.slug || ind}>
                 <StyledCard
                   title={sauce.name}
                   imageLink={`${sauce.photo}`}
