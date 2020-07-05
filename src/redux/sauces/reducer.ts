@@ -7,7 +7,8 @@ import {
   SAUCES_UPDATE_DISPLAYNAME,
   SAUCE_FOUND,
   ISaucesReturnAction,
-  TYPES_ADDED
+  TYPES_ADDED,
+  ISauce
 } from "./types";
 
 const initialState: ISaucesState = {
@@ -129,17 +130,20 @@ const sauceReducer: Reducer<ISaucesState> = (
       // If the same, return immediately
       if (displayName === oldDisplayName) return state;
       // init
-      let bySlug = {};
+      let bySlug: { [key: string]: ISauce } = {};
 
       // make sure we have .bySlug
       if (state.bySlug && Object.keys(state.bySlug).length > 0) {
         // Go through items and update name
-        bySlug = Object.keys(state.bySlug).map(slug => {
+        Object.keys(state.bySlug).forEach(slug => {
           // make sure we have a sauce -- Here bc TS gets upset otherwise
           if (!state.bySlug) return;
 
           // If the sauce doesn't have an author, can return now
-          if (!state.bySlug[slug].author) return { ...state.bySlug[slug] };
+          if (!state.bySlug[slug].author) {
+            bySlug[slug] = { ...state.bySlug[slug] };
+            return; // go to next item
+          }
 
           // Find old display name
           if (state.bySlug[slug].author === oldDisplayName) {
@@ -147,7 +151,8 @@ const sauceReducer: Reducer<ISaucesState> = (
             state.bySlug[slug].author = displayName;
           }
 
-          return { ...state.bySlug[slug] };
+          // add updated object to array
+          bySlug[slug] = { ...state.bySlug[slug] };
         });
       } else {
         // Nothing to update since displayNAme is only in bySlug
