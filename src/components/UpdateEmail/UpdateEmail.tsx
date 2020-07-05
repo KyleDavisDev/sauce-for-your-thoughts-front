@@ -13,16 +13,8 @@ import { Button } from "../Button/Button";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import { StyledFormContainer, StyledButtonHolder } from "./UpdateEmailStyle";
 import Auth from "../../utils/Auth/Auth";
-import HeaderSimple from "../HeaderSimple/HeaderSimple";
 
 export interface UpdateEmailProps {}
-
-export interface UpdateEmailState {
-  email: string;
-  confirmEmail: string;
-  password: string;
-  flashMessage: FlashMessageProps;
-}
 
 const UpdateEmail: React.FC<UpdateEmailProps> = props => {
   // Init state
@@ -49,55 +41,52 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
 
   return (
     <>
-      <HeaderSimple />
-      <Article size="sm">
-        <PageTitle>Update Email</PageTitle>
-        <StyledFormContainer>
-          {flashMessage.isVisible && (
-            <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
-          )}
-          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
-            <TextInput
-              type="email"
-              onChange={e => setEmail(e.target.value)}
-              showLabel={true}
-              label={"New Email"}
-              name={"email"}
-              required={true}
-            />
-            <TextInput
-              type="email"
-              onChange={e => setConfirmEmail(e.target.value)}
-              disabled={!toggleConfirmEmail()}
-              showLabel={true}
-              label={"Confirm New Email"}
-              name={"confirmEmail"}
-              required={true}
-              requirementText={"Must match above."}
-            />
-            <TextInput
-              type="password"
-              onChange={e => setPassword(e.target.value)}
-              disabled={!toggleConfirmPassword()}
-              showLabel={true}
-              label={"Password"}
-              name={"password"}
-              required={true}
-            />
+      <PageTitle>Update Email</PageTitle>
+      <StyledFormContainer>
+        {flashMessage.isVisible && (
+          <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
+        )}
+        <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+          <TextInput
+            type="email"
+            onChange={e => setEmail(e.target.value)}
+            showLabel={true}
+            label={"New Email"}
+            name={"email"}
+            required={true}
+          />
+          <TextInput
+            type="email"
+            onChange={e => setConfirmEmail(e.target.value)}
+            disabled={!toggleConfirmEmail()}
+            showLabel={true}
+            label={"Confirm New Email"}
+            name={"confirmEmail"}
+            required={true}
+            requirementText={"Must match above."}
+          />
+          <TextInput
+            type="password"
+            onChange={e => setPassword(e.target.value)}
+            disabled={!toggleConfirmPassword()}
+            showLabel={true}
+            label={"Password"}
+            name={"password"}
+            required={true}
+          />
 
-            <StyledButtonHolder>
-              <Link to="/account/settings">
-                <Button type="button" displayType="outline">
-                  <ArrowLeft /> Settings
-                </Button>
-              </Link>
-              <Button type="submit" disabled={!isSubmitable()}>
-                Update!
+          <StyledButtonHolder>
+            <Link to="/account/settings">
+              <Button type="button" displayType="outline">
+                <ArrowLeft /> Settings
               </Button>
-            </StyledButtonHolder>
-          </form>
-        </StyledFormContainer>
-      </Article>
+            </Link>
+            <Button type="submit" disabled={!isSubmitable()}>
+              Update!
+            </Button>
+          </StyledButtonHolder>
+        </form>
+      </StyledFormContainer>
     </>
   );
 
