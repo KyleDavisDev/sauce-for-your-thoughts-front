@@ -19,6 +19,8 @@ import { API } from "../../utils/api/API";
 import { IErrReturn } from "../../utils/Err/Err";
 import HeaderSimple from "../HeaderSimple/HeaderSimple";
 import { Article } from "../Article/Article";
+import { useSelector } from "react-redux";
+import { AppState } from "../../redux/configureStore";
 
 export interface UserSettingsProps {}
 
@@ -38,60 +40,81 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
   // assign router
   const router = useRouter();
 
+  // Grab token from redux
+  const token = useSelector((store: AppState) => store.users.self.token);
+
   // Make sure user has a token
   useEffect(() => {
-    // get token or redirect to login
-    const token = Auth.getToken();
+    // Quick sanity check
     if (!token) {
       router.replace(`/account/login?return=${router.asPath}`);
       return;
     }
     window.scrollTo(0, 0); // Move screen to top
-  }, []);
 
-  // Check if user has their email verified or not
-  useEffect(() => {
-    async function getEmailConfirmed() {
+    const getEmailConfirmed = async function () {
       // get token
-      const token = Auth.getToken();
       if (!token) return null;
 
       // construct data object
       const data = { user: { token } };
 
-      // hit our API
-      return await API.user
-        .isEmailConfirmed({ data })
-        .then(res => {
-          // Set state so we know if we should display the button or not
-          setEmailConfirmed(res.data.isGood);
-        })
-        .catch((err: IErrReturn) => {
-          // Set state so we know if we should display the button or not
-          setEmailConfirmed(err.response.data.isGood);
+      try {
+        // hit our API
+        const res = await API.user.isEmailConfirmed({ data });
+        // Set state so we know if we should display the button or not
+        setEmailConfirmed(res.data.isGood);
+      } catch (err) {
+        // Set state so we know if we should display the button or not
+        setEmailConfirmed(err.response.data.isGood);
+        // show flash message
+        setFlashMessage({
+          type: "warning",
+          isVisible: true,
+          text: err.response.data.msg
         });
-    }
+      }
+    };
 
+    // Check if user has their email verified or not
     getEmailConfirmed();
   }, []);
 
   const onButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // get token or redirect to login
-    const token = Auth.getToken();
+    // Quick sanity check
     if (!token) {
       router.replace(`/account/login?return=${router.asPath}`);
       return;
     }
 
-    // Call API to see if email has been verified or not
-    const data = { user: { token } };
-    setLoading(true);
-    API.user.resendVerificationEmail({ data }).then(res => {
-      // Show flash message and update state
-      setEmailConfirmed(true);
-      setFlashMessage({ isVisible: true, text: res.data.msg, type: "success" });
-      setLoading(false);
-    });
+    // Function that calls API to see if email has been verified or not
+    const resendVerificationEmail = async function () {
+      setLoading(true);
+      try {
+        const res = await API.user.resendVerificationEmail();
+        // Show flash message and update state
+        setEmailConfirmed(true);
+        setFlashMessage({
+          isVisible: true,
+          text: res.data.msg,
+          type: "success"
+        });
+        setLoading(false);
+      } catch (err) {
+        // Show flash message and update state
+        setEmailConfirmed(false);
+        // show flash message
+        setFlashMessage({
+          type: "warning",
+          isVisible: true,
+          text: err.response.data.msg
+        });
+        setLoading(false);
+      }
+    };
+
+    // Call function
+    resendVerificationEmail();
   };
 
   return (
