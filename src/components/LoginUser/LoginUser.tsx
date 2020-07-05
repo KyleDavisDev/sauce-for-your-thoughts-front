@@ -16,8 +16,6 @@ import {
   StyledText,
   StyledFooterDivs
 } from "./LoginUserStyle";
-import HeaderSimple from "../HeaderSimple/HeaderSimple";
-import { Article } from "../Article/Article";
 
 export interface LoginProps {}
 
@@ -52,46 +50,45 @@ const LoginUser: React.FC<LoginProps> = () => {
 
   return (
     <>
-      <HeaderSimple />
-      <Article size="sm">
-        <PageTitle>Login</PageTitle>
-        <StyledFormContainer>
-          {flashMessage.isVisible && (
-            <FlashMessage type={flashMessage.type} isVisible>
-              {flashMessage.text}
-            </FlashMessage>
-          )}
-          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
-            <TextInput
-              type="email"
-              onChange={e => setEmail(e.target.value)}
-              showLabel={true}
-              label={"Email"}
-              name={"email"}
-              required={true}
-            />
-            <TextInput
-              type="password"
-              onChange={e => setPassword(e.target.value)}
-              showLabel={true}
-              label={"Password"}
-              name={"password"}
-              required={true}
-            />
-            <StyledFooterDivs>
-              <StyledButton type="submit">Login</StyledButton>
-            </StyledFooterDivs>
-            <StyledText>
-              <Link to="/account/reset/password">Forgot your password?</Link>
-            </StyledText>
+      <PageTitle>Login</PageTitle>
+      <StyledFormContainer>
+        {flashMessage.isVisible && (
+          <FlashMessage type={flashMessage.type} isVisible>
+            {flashMessage.text}
+          </FlashMessage>
+        )}
+        <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+          <TextInput
+            type="email"
+            onChange={e => setEmail(e.target.value)}
+            value={email}
+            showLabel={true}
+            label={"Email"}
+            name={"email"}
+            required={true}
+          />
+          <TextInput
+            type="password"
+            onChange={e => setPassword(e.target.value)}
+            value={password}
+            showLabel={true}
+            label={"Password"}
+            name={"password"}
+            required={true}
+          />
+          <StyledFooterDivs>
+            <StyledButton type="submit">Login</StyledButton>
+          </StyledFooterDivs>
+          <StyledText>
+            <Link to="/account/reset/password">Forgot your password?</Link>
+          </StyledText>
 
-            <StyledText>
-              Don't have an account yet?{" "}
-              <Link to="/account/register">Sign up!</Link>
-            </StyledText>
-          </form>
-        </StyledFormContainer>
-      </Article>
+          <StyledText>
+            Don't have an account yet?{" "}
+            <Link to="/account/register">Sign up!</Link>
+          </StyledText>
+        </form>
+      </StyledFormContainer>
     </>
   );
 
@@ -123,7 +120,7 @@ const LoginUser: React.FC<LoginProps> = () => {
     };
     try {
       // dispatch action which calls API to login user
-      dispatch(login({ credentials }));
+      await dispatch(login({ credentials }));
     } catch (err) {
       // Create warning flash
       setFlashMessage({
@@ -131,6 +128,10 @@ const LoginUser: React.FC<LoginProps> = () => {
         text: err.response.data.msg,
         type: "warning"
       });
+
+      // reset form
+      setEmail("");
+      setPassword("");
     }
   }
 };
