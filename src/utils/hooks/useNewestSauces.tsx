@@ -4,7 +4,7 @@ import { getSaucesByNewest } from "../../redux/sauces/actions";
 import { AppState } from "../../redux/configureStore";
 import { ISauce } from "../../redux/sauces/types";
 
-export function useNewestSauces(): any {
+export function useNewestSauces(): [ISauce[], boolean] {
   // get sauces from redux store
   const { sauces } = useSelector((state: AppState) => state);
   // assign results
