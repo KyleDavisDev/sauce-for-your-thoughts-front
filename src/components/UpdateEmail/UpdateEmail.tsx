@@ -50,6 +50,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
           <TextInput
             type="email"
             onChange={e => setEmail(e.target.value)}
+            value={email}
             showLabel={true}
             label={"New Email"}
             name={"email"}
@@ -58,6 +59,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
           <TextInput
             type="email"
             onChange={e => setConfirmEmail(e.target.value)}
+            value={confirmEmail}
             disabled={!toggleConfirmEmail()}
             showLabel={true}
             label={"Confirm New Email"}
@@ -68,6 +70,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
           <TextInput
             type="password"
             onChange={e => setPassword(e.target.value)}
+            value={password}
             disabled={!toggleConfirmPassword()}
             showLabel={true}
             label={"Password"}
@@ -136,12 +139,6 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
         slugText: "Back to Settings"
       });
     } catch (err) {
-      // Account locked
-      if (err.response.status === 403) {
-        router.push("/account/login");
-        return;
-      }
-
       // Password bad or acc locked so going to reset
       setEmail("");
       setConfirmEmail("");
