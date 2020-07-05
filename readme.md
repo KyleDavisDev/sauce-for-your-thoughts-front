@@ -38,7 +38,7 @@ To run in production, run `npm run prod`. This will push the code through (webpa
       - [x] Logout
       - [x] Update display name
       - [x] Update email
-      - [] Update avatar
+      - [x] Update avatar
       - [] Update password
       - [x] Resend verification email
       - [x] Confirm email
