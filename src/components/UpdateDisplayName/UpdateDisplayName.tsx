@@ -16,7 +16,6 @@ import {
   StyledButtonHolder
 } from "./UpdateDisplayNameStyle";
 import Auth from "../../utils/Auth/Auth";
-import HeaderSimple from "../HeaderSimple/HeaderSimple";
 
 export interface UpdateDisplayNameProps {}
 
@@ -48,56 +47,53 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
 
   return (
     <>
-      <HeaderSimple />
-      <Article size="sm">
-        <PageTitle>Update Display Name</PageTitle>
-        <StyledFormContainer>
-          {flashMessage.isVisible && (
-            <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
-          )}
-          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
-            <TextInput
-              type="text"
-              onChange={e => setDisplayName(e.target.value)}
-              showLabel={true}
-              label={"New Display Name"}
-              name={"displayName"}
-              required={true}
-              requirementText={"Must be at least 6 characters long."}
-            />
-            <TextInput
-              type="text"
-              onChange={e => setConfirmDisplayName(e.target.value)}
-              disabled={!toggleConfirmDisplayName()}
-              showLabel={true}
-              label={"Confirm New Display Name"}
-              name={"confirmDisplayName"}
-              required={true}
-              requirementText={"Must match above."}
-            />
-            <TextInput
-              type="password"
-              onChange={e => setPassword(e.target.value)}
-              disabled={!toggleConfirmPassword()}
-              showLabel={true}
-              label={"Password"}
-              name={"password"}
-              required={true}
-            />
+      <PageTitle>Update Display Name</PageTitle>
+      <StyledFormContainer>
+        {flashMessage.isVisible && (
+          <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
+        )}
+        <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+          <TextInput
+            type="text"
+            onChange={e => setDisplayName(e.target.value)}
+            showLabel={true}
+            label={"New Display Name"}
+            name={"displayName"}
+            required={true}
+            requirementText={"Must be at least 6 characters long."}
+          />
+          <TextInput
+            type="text"
+            onChange={e => setConfirmDisplayName(e.target.value)}
+            disabled={!toggleConfirmDisplayName()}
+            showLabel={true}
+            label={"Confirm New Display Name"}
+            name={"confirmDisplayName"}
+            required={true}
+            requirementText={"Must match above."}
+          />
+          <TextInput
+            type="password"
+            onChange={e => setPassword(e.target.value)}
+            disabled={!toggleConfirmPassword()}
+            showLabel={true}
+            label={"Password"}
+            name={"password"}
+            required={true}
+          />
 
-            <StyledButtonHolder>
-              <Link to="/account/settings">
-                <Button type="button" displayType="outline">
-                  <ArrowLeft /> Settings
-                </Button>
-              </Link>
-              <Button type="submit" disabled={!isSubmittable()}>
-                Update!
+          <StyledButtonHolder>
+            <Link to="/account/settings">
+              <Button type="button" displayType="outline">
+                <ArrowLeft /> Settings
               </Button>
-            </StyledButtonHolder>
-          </form>
-        </StyledFormContainer>
-      </Article>
+            </Link>
+            <Button type="submit" disabled={!isSubmittable()}>
+              Update!
+            </Button>
+          </StyledButtonHolder>
+        </form>
+      </StyledFormContainer>
     </>
   );
 
