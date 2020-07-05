@@ -4,7 +4,8 @@ import {
   IReviewsAction,
   REVIEWS_ADDED,
   REVIEWS_UPDATED,
-  REVIEWS_UPDATED_DISPLAYNAME
+  REVIEWS_UPDATED_DISPLAYNAME,
+  IReview
 } from "./types";
 
 const initialState: IReviewsState = {
@@ -55,27 +56,29 @@ const reviewReducer: Reducer<IReviewsState> = (
       // If the same, return immediately
       if (displayName === oldDisplayName) return state;
       // init
-      let byReviewID = {};
+      let byReviewID: { [key: string]: IReview } = {};
 
       // make sure we have .bySlug
       if (state.byReviewID && Object.keys(state.byReviewID).length > 0) {
         // Go through items and update name
-        byReviewID = Object.keys(state.byReviewID).map(slug => {
+        Object.keys(state.byReviewID).map(reviewID => {
           // make sure we have a review -- Here bc TS gets upset otherwise
           if (!state.byReviewID) return;
 
           // If the review doesn't have an author, can return now
-          if (!state.byReviewID[slug].author) {
-            return { ...state.byReviewID[slug] };
+          if (!state.byReviewID[reviewID].author) {
+            byReviewID[reviewID] = { ...state.byReviewID[reviewID] };
+            return;
           }
 
           // Find old display name
-          if (state.byReviewID[slug].author === oldDisplayName) {
+          if (state.byReviewID[reviewID].author === oldDisplayName) {
             // update display name
-            state.byReviewID[slug].author = displayName;
+            state.byReviewID[reviewID].author = displayName;
           }
 
-          return { ...state.byReviewID[slug] };
+          // update item
+          byReviewID[reviewID] = { ...state.byReviewID[reviewID] };
         });
       } else {
         // Nothing to update since displayNAme is only in bySlug
