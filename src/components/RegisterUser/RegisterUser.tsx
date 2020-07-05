@@ -17,8 +17,6 @@ import {
   FlashMessage,
   FlashMessageProps
 } from "../../components/FlashMessage/FlashMessage";
-import HeaderSimple from "../HeaderSimple/HeaderSimple";
-import { Article } from "../Article/Article";
 
 export interface RegisterUserProps {}
 
@@ -52,68 +50,67 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
 
   return (
     <>
-      <HeaderSimple />
-      <Article size="sm">
-        <PageTitle>Register</PageTitle>
-        <StyledFormContainer>
-          {flashMessage.isVisible && (
-            <FlashMessage type={flashMessage.type} isVisible>
-              {flashMessage.text}
-            </FlashMessage>
-          )}
-          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
-            <TextInput
-              type="email"
-              onChange={e => setEmail(e.target.value)}
-              showLabel={true}
-              label={"Email"}
-              name={"email"}
-              required={true}
-            />
-            <TextInput
-              type="email"
-              onChange={e => setConfirmEmail(e.target.value)}
-              showLabel={true}
-              label={"Confirm Email"}
-              name={"confirmEmail"}
-              required={true}
-              requirementText={"Must match above."}
-            />
-            <TextInput
-              type="password"
-              onChange={e => setPassword(e.target.value)}
-              showLabel={true}
-              label={"Password"}
-              name={"password"}
-              required={true}
-              requirementText={"Must be at least 9 characters long."}
-            />
-            <TextInput
-              type="password"
-              onChange={e => setConfirmPassword(e.target.value)}
-              showLabel={true}
-              label={"Confirm Password"}
-              name={"confirmPassword"}
-              required={true}
-              requirementText={"Must match above."}
-            />
-            <TextInput
-              type="text"
-              onChange={e => setDisplayName(e.target.value)}
-              showLabel={true}
-              label={"Display Name"}
-              name={"displayName"}
-              required={true}
-              requirementText={"Must be at least 6 characters long."}
-            />
-            <StyledText>
-              By clicking 'Register', you agree to Sauce For Your Thoughts{" "}
-              <Link to="#">Terms and Conditions</Link>
-            </StyledText>
-            <StyledButton type="submit">Register</StyledButton>
-          </form>
-        </StyledFormContainer>
-      </Article>
+      <PageTitle>Register</PageTitle>
+      <StyledFormContainer>
+        {flashMessage.isVisible && (
+          <FlashMessage type={flashMessage.type} isVisible>
+            {flashMessage.text}
+          </FlashMessage>
+        )}
+        <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+          <TextInput
+            type="email"
+            onChange={e => setEmail(e.target.value)}
+            showLabel={true}
+            label={"Email"}
+            name={"email"}
+            required={true}
+          />
+          <TextInput
+            type="email"
+            onChange={e => setConfirmEmail(e.target.value)}
+            showLabel={true}
+            label={"Confirm Email"}
+            name={"confirmEmail"}
+            required={true}
+            requirementText={"Must match above."}
+          />
+          <TextInput
+            type="password"
+            onChange={e => setPassword(e.target.value)}
+            showLabel={true}
+            label={"Password"}
+            name={"password"}
+            required={true}
+            requirementText={"Must be at least 9 characters long."}
+          />
+          <TextInput
+            type="password"
+            onChange={e => setConfirmPassword(e.target.value)}
+            showLabel={true}
+            label={"Confirm Password"}
+            name={"confirmPassword"}
+            required={true}
+            requirementText={"Must match above."}
+          />
+          <TextInput
+            type="text"
+            onChange={e => setDisplayName(e.target.value)}
+            showLabel={true}
+            label={"Display Name"}
+            name={"displayName"}
+            required={true}
+            requirementText={"Must be at least 6 characters long."}
+          />
+          <StyledText>
+            By clicking 'Register', you agree to Sauce For Your Thoughts{" "}
+            <Link to="/tac" target="_blank">
+              Terms and Conditions
+            </Link>
+          </StyledText>
+          <StyledButton type="submit">Register</StyledButton>
+        </form>
+      </StyledFormContainer>
     </>
   );
 
