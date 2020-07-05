@@ -35,16 +35,6 @@ class MyApp extends App<any, any> {
         await API.user.logout();
       }
     }
-
-    // 2) Grab types of sauces
-    const types = await API.types.getTypes();
-    if (types instanceof Array && types.length > 0) {
-      // 2.1) Add "All" option to first
-      types.unshift("All");
-
-      // 2.2) Dispatch types add event to populate redux store
-      this.props.reduxStore.dispatch(typesAdded(types));
-    }
   }
 
   public render() {
