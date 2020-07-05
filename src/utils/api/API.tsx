@@ -356,8 +356,6 @@ export const API = {
     },
 
     /** @description Request for the verification email to be sent again
-     *  @param {Object} data data object
-     *    @param {String} data.user.token - user JWT
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -365,17 +363,16 @@ export const API = {
      *
      *  @reject {IErrReturn} error object
      */
-    resendVerificationEmail: ({
-      data
-    }: {
-      data: {
-        user: { token: string };
-      };
-    }): AxiosPromise => {
+    resendVerificationEmail: (): AxiosPromise => {
       return axios
-        .post(`${host}/api/user/email/resend`, data)
+        .post(`${host}/api/user/email/resend`)
         .then((res: any) => {
-          return res;
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
         })
         .catch((err: any) => {
           // Throw error in handle-able format
