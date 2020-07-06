@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { updatePassword } from "../../redux/users/actions";
 import { IUserUpdatePassword } from "../../redux/users/types";
@@ -14,6 +14,7 @@ import Auth from "../../utils/Auth/Auth";
 import { useRouter } from "next/router";
 import HeaderSimple from "../HeaderSimple/HeaderSimple";
 import { Article } from "../Article/Article";
+import { AppState } from "../../redux/configureStore";
 
 export interface UpdatePasswordProps {}
 
@@ -28,16 +29,18 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
     isVisible: false
   });
 
+  // grab token from redux
+  const token = useSelector((store: AppState) => store.users.self.token);
+
   // init router
   const router = useRouter();
   // init dispatch
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    // Get token or else redirect
-    const token = Auth.getToken();
+    // Quick sanity check on token
     if (!token) {
-      router.push("/account/login?return=/account/update/email");
+      router.push("/account/login?return=/account/update/password");
       return;
     }
   }, []);
@@ -55,6 +58,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
             <TextInput
               type="password"
               onChange={e => setNewPassword(e.target.value)}
+              value={newPassword}
               showLabel={true}
               label={"New Password"}
               name={"newPassword"}
@@ -64,6 +68,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
             <TextInput
               type="password"
               onChange={e => setConfirmNewPassword(e.target.value)}
+              value={confirmNewPassword}
               disabled={!toggleConfirmNewPassword()}
               showLabel={true}
               label={"Confirm New Password"}
@@ -74,6 +79,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
             <TextInput
               type="password"
               onChange={e => setPassword(e.target.value)}
+              value={password}
               disabled={!toggleConfirmPassword()}
               showLabel={true}
               label={"Old Password"}
@@ -135,17 +141,15 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
       return;
     }
 
-    // Get token or else redirect
-    const token = Auth.getToken();
+    // Quick sanity check on password
     if (!token) {
-      router.push("/account/login?return=/account/settings/email");
+      router.push("/account/login?return=/account/settings/password");
       return;
     }
 
     // Construct data
     const data: IUserUpdatePassword = {
       user: {
-        token,
         password,
         newPassword,
         confirmNewPassword
@@ -167,12 +171,6 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
         slugText: "Back to Settings"
       });
     } catch (err) {
-      // Account locked
-      if (err.response.status === 403) {
-        router.push("/logout");
-        return;
-      }
-
       // Password bad or acc locked so going to reset
       setPassword("");
       setNewPassword("");
