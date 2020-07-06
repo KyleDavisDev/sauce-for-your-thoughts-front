@@ -199,7 +199,6 @@ export const API = {
 
     /** @description Call Server to update password
      *  @param {IUserUpdatePassword} data - container for user information
-     *  @param {string} data.user.token - user token
      *  @param {string} data.user.password - original password
      *  @param {string} data.user.newPassword - new user password
      *  @param {string} data.user.confirmNewPassword - confirm new user password
@@ -222,6 +221,14 @@ export const API = {
 
           // If not good, throw an error
           throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood || false
+          });
         });
     },
 
