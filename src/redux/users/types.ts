@@ -70,7 +70,6 @@ export interface IUserUpdateEmail {
 // Update user password
 export interface IUserUpdatePassword {
   user: {
-    token: string;
     password: string;
     newPassword: string;
     confirmNewPassword: string;
