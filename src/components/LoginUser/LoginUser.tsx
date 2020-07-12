@@ -33,8 +33,6 @@ const LoginUser: React.FC<LoginProps> = () => {
   const dispatch = useDispatch();
   // assign NextJS router
   const router = useRouter();
-  // assign ref
-  const emailRef = React.useRef(null);
 
   // Grab token from redux
   const token = useSelector((store: AppState) => store.users.self.token);
@@ -68,7 +66,6 @@ const LoginUser: React.FC<LoginProps> = () => {
             label={"Email"}
             name={"email"}
             required={true}
-            ref={emailRef}
           />
           <TextInput
             type="password"
@@ -97,7 +94,6 @@ const LoginUser: React.FC<LoginProps> = () => {
 
   async function onSubmit(event: React.FormEvent): Promise<any> {
     event.preventDefault();
-    console.log(emailRef);
 
     // If not email don't even send network request
     if (!validator.isEmail(email)) {
@@ -136,10 +132,6 @@ const LoginUser: React.FC<LoginProps> = () => {
       // reset form
       setEmail("");
       setPassword("");
-
-      // Focus email
-      console.log(emailRef);
-      // emailRef.current.focus();
     }
   }
 };
