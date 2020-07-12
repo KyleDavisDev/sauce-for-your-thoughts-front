@@ -44,15 +44,16 @@ To run in production, run `npm run prod`. This will push the code through (webpa
       - [x] Confirm email
       - [ ] Reset password
   - [ ] Sauce
-    - [ ] Add Sauce
-    - [ ] View Specific Sauce
-    - [ ] View Sauce Grid
-    - [ ] Filter Sauces
-    - [ ] Edit Sauce (Admin only)
+    - [ ] Add sauce
+    - [ ] View specific sauce
+    - [ ] View sauce grid
+    - [ ] Filter sauces
+    - [ ] Pagination
+    - [ ] Edit sauce (Admin only)
   - [ ] Review
-    - [ ] Add Review
-    - [ ] Edit Review
-    - [ ] View Reviews on Single Sauce
+    - [ ] Add review
+    - [ ] Edit review
+    - [ ] View reviews on single sauce
     
 - [ ] Add user pages.
 - [ ] Write more tests.
