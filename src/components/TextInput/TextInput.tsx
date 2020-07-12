@@ -17,7 +17,7 @@ interface TextInputProps {
   className?: string;
   disabled?: boolean;
   requirementText?: string;
-  ref?: any;
+
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -34,11 +34,9 @@ const TextInput: React.FunctionComponent<TextInputProps> = props => {
     placeholder,
     requirementText,
     onChange,
-    ref,
     value,
     name
   } = props;
-  console.log(ref);
 
   return (
     <StyledDiv className={className}>
@@ -60,7 +58,6 @@ const TextInput: React.FunctionComponent<TextInputProps> = props => {
         aria-required={required}
         disabled={disabled}
         aria-disabled={disabled}
-        ref={ref}
       />
 
       {requirementText && <p>{requirementText}</p>}
