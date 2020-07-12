@@ -42,8 +42,19 @@ To run in production, run `npm run prod`. This will push the code through (webpa
       - [x] Update password
       - [x] Resend verification email
       - [x] Confirm email
+      - [ ] Reset password
+  - [ ] Sauce
+    - [ ] Add Sauce
+    - [ ] View Specific Sauce
+    - [ ] View Sauce Grid
+    - [ ] Filter Sauces
+    - [ ] Edit Sauce (Admin only)
+  - [ ] Review
+    - [ ] Add Review
+    - [ ] Edit Review
+    - [ ] View Reviews on Single Sauce
+    
 - [ ] Add user pages.
-- [ ] Update how 'Forgot my password' works.
 - [ ] Write more tests.
 - [ ] Make sure site is fully ADA compliant.
 - [ ] Add links out to social media.
