@@ -24,27 +24,24 @@ const ResetPassword: React.SFC<ResetPasswordProps> = () => {
 
   return (
     <>
-      <HeaderSimple />
-      <Article size="sm">
-        <PageTitle>Password Reset</PageTitle>
-        <StyledFormContainer>
-          <StyledText>
-            Enter your <b>email address</b>. We will send you an email with your
-            username and a link to reset your password.
-          </StyledText>
-          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
-            <TextInput
-              type="text"
-              onChange={e => setEmail(e.target.value)}
-              showLabel={true}
-              label={"Email"}
-              name={"email"}
-              required={true}
-            />
-            <StyledButton type="submit">Send</StyledButton>
-          </form>
-        </StyledFormContainer>
-      </Article>
+      <PageTitle>Password Reset</PageTitle>
+      <StyledFormContainer>
+        <StyledText>
+          Enter your <b>email address</b>. We will send you an email with your
+          username and a link to reset your password.
+        </StyledText>
+        <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+          <TextInput
+            type="text"
+            onChange={e => setEmail(e.target.value)}
+            showLabel={true}
+            label={"Email"}
+            name={"email"}
+            required={true}
+          />
+          <StyledButton type="submit">Send</StyledButton>
+        </form>
+      </StyledFormContainer>
     </>
   );
 
