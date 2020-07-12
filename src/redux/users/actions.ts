@@ -244,7 +244,10 @@ export const updatePassword = ({
   data: IUserUpdatePassword;
 }): MyThunkResult<Promise<null>> => async dispatch => {
   // Call API
-  await API.user.updatePassword({ data });
+  await API.user.updatePassword({ data }).catch(err => {
+    // Relay the error
+    throw err;
+  });
 
   return null;
 };
