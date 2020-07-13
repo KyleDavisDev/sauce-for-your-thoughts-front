@@ -45,17 +45,17 @@ const ResetPassword: React.SFC<ResetPasswordProps> = () => {
     </>
   );
 
-  let onSubmit = async (event: React.FormEvent): Promise<any> => {
+  async function onSubmit(event: React.FormEvent): Promise<any> {
     event.preventDefault();
 
     try {
+      console.log(email);
       // dispatch action which calls API to register user
       // await this.props.register({ credentials });
 
       // Redirect user to sauces page -- Maybe take them to user home page instead?
-      router.push("/");
     } catch (err) {}
-  };
+  }
 };
 
 export default ResetPassword;
