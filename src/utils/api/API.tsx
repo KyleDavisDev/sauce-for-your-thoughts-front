@@ -398,6 +398,35 @@ export const API = {
         });
     },
 
+    /** @description Make a request to the server for a password reset email
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {IErrReturn} error object
+     */
+    passwordReset: (): AxiosPromise => {
+      return axios
+        .post(`${host}/api/user/password/reset`)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood || false
+          });
+        });
+    },
+
     /** @description Refresh a user's API token
      *  @param {Any?} originalRequest axios original request
      *  @param {Any?} error - axios error
