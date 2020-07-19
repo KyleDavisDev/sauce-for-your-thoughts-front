@@ -399,6 +399,7 @@ export const API = {
     },
 
     /** @description Make a request to the server for a password reset email
+     *  @param {String} email - email to lookup and send reset link so
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -406,9 +407,9 @@ export const API = {
      *
      *  @reject {IErrReturn} error object
      */
-    passwordReset: (): AxiosPromise => {
+    passwordReset: (email: string): AxiosPromise => {
       return axios
-        .post(`${host}/api/user/password/reset`)
+        .post(`${host}/api/user/password/reset`, { email })
         .then((res: any) => {
           if (res.data.isGood) {
             return res;
