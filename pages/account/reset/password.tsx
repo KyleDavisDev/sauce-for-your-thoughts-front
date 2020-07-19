@@ -1,5 +1,5 @@
 import * as React from "react";
-import ResetPassword from "../../../src/components/RequestPasswordReset/RequestPasswordReset";
+import RequestPasswordReset from "../../../src/components/RequestPasswordReset/RequestPasswordReset";
 import HeaderSimple from "../../../src/components/HeaderSimple/HeaderSimple";
 import { Article } from "../../../src/components/Article/Article";
 
@@ -10,7 +10,7 @@ const ResetPasswordPage: React.SFC<ResetPasswordPageProps> = () => {
     <>
       <HeaderSimple />
       <Article size="sm">
-        <ResetPassword />
+        <RequestPasswordReset />
       </Article>
     </>
   );
