@@ -1,11 +1,11 @@
 import * as React from "react";
-import ResetPassword from "../../../src/components/ResetPassword/ResetPassword";
+import ResetPassword from "../../../src/components/RequestPasswordReset/RequestPasswordReset";
 import HeaderSimple from "../../../src/components/HeaderSimple/HeaderSimple";
 import { Article } from "../../../src/components/Article/Article";
 
-export interface RegisterProps {}
+export interface ResetPasswordPageProps {}
 
-const Register: React.SFC<RegisterProps> = () => {
+const ResetPasswordPage: React.SFC<ResetPasswordPageProps> = () => {
   return (
     <>
       <HeaderSimple />
@@ -16,4 +16,4 @@ const Register: React.SFC<RegisterProps> = () => {
   );
 };
 
-export default Register;
+export default ResetPasswordPage;
