@@ -1,18 +1,13 @@
 import * as React from "react";
-import { useRouter } from "next/router";
 
 import { API } from "../../utils/api/API";
 import PageTitle from "../PageTitle/PageTitle";
 import { TextInput } from "../TextInput/TextInput";
-import { Link } from "../Link/Link";
-import { Article } from "../Article/Article";
-import HeaderSimple from "../HeaderSimple/HeaderSimple";
 import {
   StyledFormContainer,
   StyledText,
   StyledButton
 } from "./RequestPasswordResetStyle";
-import LogoSFYT from "../../images/icons/LogoSFYT";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 
 export interface RequestPasswordResetProps {}
@@ -23,9 +18,6 @@ const RequestPasswordReset: React.SFC<RequestPasswordResetProps> = () => {
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
-
-  // Set router
-  const router = useRouter();
 
   return (
     <>
