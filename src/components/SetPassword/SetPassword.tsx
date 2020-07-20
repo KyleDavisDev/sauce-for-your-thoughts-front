@@ -14,32 +14,41 @@ export interface SetPasswordProps {}
 
 const SetPassword: React.SFC<SetPasswordProps> = () => {
   // Set state
-  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [confirmPassword, setConfirmPassword] = React.useState("");
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
 
   return (
     <>
-      <PageTitle>Password Reset</PageTitle>
+      <PageTitle>Reset Password</PageTitle>
       <StyledFormContainer>
         {flashMessage.isVisible && (
           <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
         )}
-        <StyledText>
-          Enter your <b>email address</b>. We will send you an email with a link
-          to reset your password.
-        </StyledText>
+        <StyledText>Enter your updated password.</StyledText>
         <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
           <TextInput
             type="text"
-            onChange={e => setEmail(e.target.value)}
+            onChange={e => setPassword(e.target.value)}
             showLabel={true}
-            label={"Email"}
-            name={"email"}
+            label={"Password"}
+            name={"password"}
             required={true}
           />
-          <StyledButton type="submit">Send</StyledButton>
+          <TextInput
+            type="text"
+            onChange={e => setConfirmPassword(e.target.value)}
+            showLabel={true}
+            disabled={password.length < 8}
+            label={"Confirm Password"}
+            name={"confirmPassword"}
+            required={true}
+          />
+          <StyledButton type="submit" disabled={password === confirmPassword}>
+            Update
+          </StyledButton>
         </form>
       </StyledFormContainer>
     </>
