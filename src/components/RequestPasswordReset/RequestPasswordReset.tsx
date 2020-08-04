@@ -37,6 +37,7 @@ const RequestPasswordReset: React.SFC<RequestPasswordResetProps> = () => {
             showLabel={true}
             label={"Email"}
             name={"email"}
+            value={email}
             required={true}
           />
           <StyledButton type="submit">Send</StyledButton>
@@ -58,20 +59,17 @@ const RequestPasswordReset: React.SFC<RequestPasswordResetProps> = () => {
         text: res.data.msg,
         type: "success"
       });
-
-      // 3. Remove text from input
-      setEmail("");
     } catch (err) {
-      // 1. show flash message
+      // Show flash message
       setFlashMessage({
         isVisible: true,
         text: err.data.msg,
         type: "success"
       });
-
-      // 2. remove text from input
-      setEmail("");
     }
+
+    // reset textbox
+    setEmail("");
 
     window.scrollTo(0, 0); // Move screen to top
   }
