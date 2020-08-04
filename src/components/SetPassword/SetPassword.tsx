@@ -9,7 +9,7 @@ import {
   StyledButton
 } from "./SetPasswordStyle";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
-import { IUserUpdatePassword } from "../../redux/users/types";
+import { IUserResetPassword } from "../../redux/users/types";
 
 export interface SetPasswordProps {
   jwt: string;
@@ -76,8 +76,8 @@ const SetPassword: React.SFC<SetPasswordProps> = (props: SetPasswordProps) => {
 
     try {
       // 1. Call API to reset password
-      const data: IUserUpdatePassword = { jwt, password, confirmPassword };
-      const res = await API.user.updatePassword(data);
+      const data: IUserResetPassword = { jwt, password, confirmPassword };
+      const res = await API.user.resetPassword(data);
 
       // 2. Show flash message
       setFlashMessage({
@@ -85,8 +85,10 @@ const SetPassword: React.SFC<SetPasswordProps> = (props: SetPasswordProps) => {
         text: res.data.msg,
         type: "success",
         slug: "/",
-        slugText: "Home"
+        slugText: "Go home"
       });
+
+      // 3. is person logged in at this point??
     } catch (err) {
       // Show flash message
       setFlashMessage({
