@@ -7,13 +7,21 @@ import { useRouter } from "next/router";
 export interface SetPasswordPageProps {}
 
 const SetPasswordPage: React.SFC<SetPasswordPageProps> = () => {
+  // assign router
   const router = useRouter();
-  console.log(router.query);
+
+  // grab jwt from router and verify
+  const { jwt } = router.query;
+  if (!jwt || Array.isArray(jwt)) {
+    router.push("/");
+    return;
+  }
+
   return (
     <>
       <HeaderSimple />
       <Article size="sm">
-        <SetPassword />
+        <SetPassword jwt={jwt} />
       </Article>
     </>
   );
