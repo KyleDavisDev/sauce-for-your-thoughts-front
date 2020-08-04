@@ -90,6 +90,13 @@ export interface IUserUpdateAvatar {
   user: { token: string; password: string; avatarURL: string };
 }
 
+// Reset Password type
+export interface IUserResetPassword {
+  jwt: string;
+  password: string;
+  confirmPassword: string;
+}
+
 // Action strings
 export const USER_LOGGED_IN = "USER_LOGGED_IN";
 export const USER_LOGGED_OUT = "USER_LOGGED_OUT";
