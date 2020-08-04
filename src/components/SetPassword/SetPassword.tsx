@@ -9,16 +9,22 @@ import {
   StyledButton
 } from "./SetPasswordStyle";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
+import { IUserUpdatePassword } from "../../redux/users/types";
 
-export interface SetPasswordProps {}
+export interface SetPasswordProps {
+  jwt: string;
+}
 
-const SetPassword: React.SFC<SetPasswordProps> = () => {
+const SetPassword: React.SFC<SetPasswordProps> = (props: SetPasswordProps) => {
   // Set state
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
+
+  // get jwt form props
+  const { jwt } = props;
 
   return (
     <>
@@ -30,23 +36,26 @@ const SetPassword: React.SFC<SetPasswordProps> = () => {
         <StyledText>Enter your updated password.</StyledText>
         <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
           <TextInput
-            type="text"
+            type="password"
             onChange={e => setPassword(e.target.value)}
             showLabel={true}
             label={"Password"}
             name={"password"}
             required={true}
+            value={password}
           />
           <TextInput
-            type="text"
+            type="password"
             onChange={e => setConfirmPassword(e.target.value)}
             showLabel={true}
             disabled={password.length < 8}
             label={"Confirm Password"}
             name={"confirmPassword"}
             required={true}
+            value={confirmPassword}
           />
-          <StyledButton type="submit" disabled={password === confirmPassword}>
+
+          <StyledButton type="submit" disabled={!isSubmitButtonEnabled()}>
             Update
           </StyledButton>
         </form>
@@ -54,33 +63,42 @@ const SetPassword: React.SFC<SetPasswordProps> = () => {
     </>
   );
 
+  function isSubmitButtonEnabled(): boolean {
+    if (password !== confirmPassword) return false;
+    if (password.length < 8) return false;
+    if (confirmPassword.length < 8) return false;
+
+    return true;
+  }
+
   async function onSubmit(event: React.FormEvent): Promise<any> {
     event.preventDefault();
 
     try {
       // 1. Call API to reset password
-      const res = await API.user.passwordReset(email.trim().toLowerCase());
+      const data: IUserUpdatePassword = { jwt, password, confirmPassword };
+      const res = await API.user.updatePassword(data);
 
       // 2. Show flash message
       setFlashMessage({
         isVisible: true,
         text: res.data.msg,
-        type: "success"
+        type: "success",
+        slug: "/",
+        slugText: "Home"
       });
-
-      // 3. Remove text from input
-      setEmail("");
     } catch (err) {
-      // 1. show flash message
+      // Show flash message
       setFlashMessage({
         isVisible: true,
-        text: err.data.msg,
-        type: "success"
+        text: err.response.data.msg,
+        type: "alert"
       });
-
-      // 2. remove text from input
-      setEmail("");
     }
+
+    // Remove text from inputs
+    setPassword("");
+    setConfirmPassword("");
 
     window.scrollTo(0, 0); // Move screen to top
   }
