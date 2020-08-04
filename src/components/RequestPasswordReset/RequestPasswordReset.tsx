@@ -51,7 +51,9 @@ const RequestPasswordReset: React.SFC<RequestPasswordResetProps> = () => {
 
     try {
       // 1. Call API to reset password
-      const res = await API.user.passwordReset(email.trim().toLowerCase());
+      const res = await API.user.requestPasswordReset(
+        email.trim().toLowerCase()
+      );
 
       // 2. Show flash message
       setFlashMessage({
