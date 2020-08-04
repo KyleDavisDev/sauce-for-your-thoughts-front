@@ -7,7 +7,8 @@ import {
   IUserUpdateEmail,
   IUserUpdatePassword,
   IUserUpdateDisplayName,
-  IUserUpdateAvatar
+  IUserUpdateAvatar,
+  IUserResetPassword
 } from "../../redux/users/types";
 import { IReview, IReviewToServer } from "../../redux/reviews/types";
 import Err, { IErrReturn } from "../Err/Err";
@@ -199,7 +200,7 @@ export const API = {
 
     /** @description Call Server to update password
      *  @param {IUserUpdatePassword} data - container for user information
-     *  @param {string} data.user.password - original password
+     *  @param {string} data.user.jwt - user's jwt (from url)
      *  @param {string} data.user.newPassword - new user password
      *  @param {string} data.user.confirmNewPassword - confirm new user password
      *  @returns {AxiosPromise} AxiosPromise
@@ -211,7 +212,7 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    updatePassword: ({ data }: { data: IUserUpdatePassword }): AxiosPromise => {
+    updatePassword: (data: IUserUpdatePassword): AxiosPromise => {
       return axios
         .post(`${host}/api/user/update/password`, data)
         .then((res: any) => {
@@ -407,9 +408,44 @@ export const API = {
      *
      *  @reject {IErrReturn} error object
      */
-    passwordReset: (email: string): AxiosPromise => {
+    requestPasswordReset: (email: string): AxiosPromise => {
       return axios
-        .post(`${host}/api/user/password/reset`, { email })
+        .post(`${host}/api/user/password/requestreset`, { email })
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood || false
+          });
+        });
+    },
+
+    /** @description Call Server to reset password
+     *  @param {IUserResetPassword} data - container for user information
+     *  @param {string} jwt - user's jwt (from url)
+     *  @param {string} newPassword - new user password
+     *  @param {string} confirmPassword - confirm new user password
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {String} res.data.msg - message accociated with isGood
+     *
+     *  @reject {String} error message
+     */
+    resetPassword: (data: IUserResetPassword): AxiosPromise => {
+      return axios
+        .post(`${host}/api/user/update/password`, data)
         .then((res: any) => {
           if (res.data.isGood) {
             return res;
