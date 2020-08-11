@@ -19,6 +19,7 @@ const SetPassword: React.SFC<SetPasswordProps> = (props: SetPasswordProps) => {
   // Set state
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
+  const [enableForm, setEnableForm] = React.useState(true);
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
@@ -33,32 +34,36 @@ const SetPassword: React.SFC<SetPasswordProps> = (props: SetPasswordProps) => {
         {flashMessage.isVisible && (
           <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
         )}
-        <StyledText>Enter your updated password.</StyledText>
-        <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
-          <TextInput
-            type="password"
-            onChange={e => setPassword(e.target.value)}
-            showLabel={true}
-            label={"Password"}
-            name={"password"}
-            required={true}
-            value={password}
-          />
-          <TextInput
-            type="password"
-            onChange={e => setConfirmPassword(e.target.value)}
-            showLabel={true}
-            disabled={password.length < 8}
-            label={"Confirm Password"}
-            name={"confirmPassword"}
-            required={true}
-            value={confirmPassword}
-          />
+        {enableForm && (
+          <>
+            <StyledText>Enter your updated password.</StyledText>
+            <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+              <TextInput
+                type="password"
+                onChange={e => setPassword(e.target.value)}
+                showLabel={true}
+                label={"Password"}
+                name={"password"}
+                required={true}
+                value={password}
+              />
+              <TextInput
+                type="password"
+                onChange={e => setConfirmPassword(e.target.value)}
+                showLabel={true}
+                disabled={password.length < 8}
+                label={"Confirm Password"}
+                name={"confirmPassword"}
+                required={true}
+                value={confirmPassword}
+              />
 
-          <StyledButton type="submit" disabled={!isSubmitButtonEnabled()}>
-            Update
-          </StyledButton>
-        </form>
+              <StyledButton type="submit" disabled={!isSubmitButtonEnabled()}>
+                Update
+              </StyledButton>
+            </form>
+          </>
+        )}
       </StyledFormContainer>
     </>
   );
@@ -73,6 +78,7 @@ const SetPassword: React.SFC<SetPasswordProps> = (props: SetPasswordProps) => {
 
   async function onSubmit(event: React.FormEvent): Promise<any> {
     event.preventDefault();
+    if (!enableForm) return;
 
     try {
       // 1. Call API to reset password
@@ -84,17 +90,20 @@ const SetPassword: React.SFC<SetPasswordProps> = (props: SetPasswordProps) => {
         isVisible: true,
         text: res.data.msg,
         type: "success",
-        slug: "/",
-        slugText: "Go home"
+        slug: "/account/login",
+        slugText: "Go to Login"
       });
 
-      // 3. is person logged in at this point??
+      // 3. Disable form
+      setEnableForm(false);
     } catch (err) {
       // Show flash message
       setFlashMessage({
         isVisible: true,
         text: err.response.data.msg,
-        type: "alert"
+        type: "alert",
+        slug: "/",
+        slugText: "Go Home"
       });
     }
 
