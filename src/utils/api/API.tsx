@@ -410,7 +410,7 @@ export const API = {
      */
     requestPasswordReset: (email: string): AxiosPromise => {
       return axios
-        .post(`${host}/api/user/password/requestreset`, { email })
+        .post(`${host}/api/user/requestreset/password`, { email })
         .then((res: any) => {
           if (res.data.isGood) {
             return res;
@@ -445,7 +445,7 @@ export const API = {
      */
     resetPassword: (data: IUserResetPassword): AxiosPromise => {
       return axios
-        .post(`${host}/api/user/update/password`, data)
+        .post(`${host}/api/user/reset/password`, data)
         .then((res: any) => {
           if (res.data.isGood) {
             return res;
