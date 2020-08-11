@@ -42,7 +42,7 @@ To run in production, run `npm run prod`. This will push the code through (webpa
       - [x] Update password
       - [x] Resend verification email
       - [x] Confirm email
-      - [ ] Reset password
+      - [x] Reset password
   - [ ] Sauce
     - [ ] Add sauce
     - [ ] View specific sauce
