@@ -59,7 +59,9 @@ const RequestPasswordReset: React.SFC<RequestPasswordResetProps> = () => {
       setFlashMessage({
         isVisible: true,
         text: res.data.msg,
-        type: "success"
+        type: "success",
+        slug: "/",
+        slugText: "Go Home"
       });
     } catch (err) {
       // Show flash message
