@@ -1,4 +1,4 @@
-import axios, { AxiosPromise } from "axios";
+import axios, { AxiosPromise, AxiosResponse } from "axios";
 import ProgressBar from "rsup-progress";
 import { theme } from "../../theme/styled-components";
 import {
@@ -12,6 +12,7 @@ import {
 } from "../../redux/users/types";
 import { IReview, IReviewToServer } from "../../redux/reviews/types";
 import Err, { IErrReturn } from "../Err/Err";
+import { UserInfo } from "./types";
 
 // let ProgressBar;
 let progressBar;
@@ -41,31 +42,60 @@ axios.interceptors.request.use(
 );
 
 // Add a response interceptor
-axios.interceptors.response.use(
-  response => {
-    progressBar.end();
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
-    return response;
-  },
-  error => {
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
+function createAxiosResponseInterceptor() {
+  const interceptor = axios.interceptors.response.use(
+    response => {
+      progressBar.end();
+      // Any status code that lie within the range of 2xx cause this function to trigger
+      // Do something with response data
+      return response;
+    },
+    error => {
+      // Any status codes that falls outside the range of 2xx causes this function to trigger
 
-    // grab original request from error
-    const originalRequest = error.config;
+      if (error.response.status !== 410) {
+        // set status bar to end
+        progressBar.end();
 
-    // if error code indicates that we need to refresh our token, do it.
-    if (error?.response?.status === 410 && !originalRequest._retry) {
-      return API.user.refreshAPIToken(originalRequest, error);
+        // return/resolve original error
+        return Promise.reject(error);
+      }
+
+      /*
+       * When response code is 410, try to refresh the token.
+       * Eject the interceptor so it doesn't loop in case
+       * token refresh causes the 410 response
+       */
+      axios.interceptors.response.eject(interceptor);
+
+      // refresh token
+      return axios
+        .post(`${host}/api/auth/refresh_token`)
+        .then(res => {
+          console.log(res);
+          if (res.status === 200) {
+            // return originalRequest object with Axios.
+            return axios(error.response.config);
+          }
+
+          // return/resolve original error
+          return Promise.reject(error);
+        })
+        .catch((err: any) => {
+          // return/resolve original error
+          return Promise.reject(err);
+        })
+        .finally(() => {
+          //rebind interceptor
+          createAxiosResponseInterceptor();
+
+          // set status bar to end
+          progressBar.end();
+        });
     }
-
-    // set status bar to end
-    progressBar.end();
-
-    // return/resolve original error
-    return Promise.reject(error);
-  }
-);
+  );
+}
+createAxiosResponseInterceptor();
 
 axios.defaults.withCredentials = true;
 
@@ -456,11 +486,7 @@ export const API = {
         })
         .catch((err: any) => {
           // Throw error in handle-able format
-          throw Err({
-            msg: err.response.data.msg,
-            status: err.response.status,
-            isGood: err.response.data.isGood || false
-          });
+          throw handleCallbackError(err);
         });
     },
 
@@ -469,24 +495,11 @@ export const API = {
      *  @param {Any?} error - axios error
      *  @returns {AxiosPromise} AxiosPromise
      */
-    refreshAPIToken: (originalRequest?: any, error?: any): AxiosPromise => {
+    refreshAPIToken: (): AxiosPromise => {
       return axios
         .post(`${host}/api/auth/refresh_token`)
         .then(res => {
-          if (res.status === 200) {
-            // If there is an originalRequest, set to retry request
-            if (originalRequest) {
-              originalRequest._retry = true;
-
-              // return originalRequest object with Axios.
-              return axios(originalRequest);
-            }
-
-            return Promise.resolve(res);
-          }
-
-          // return/resolve original error
-          return Promise.reject(error);
+          return res;
         })
         .catch((err: any) => {
           // Throw error in handle-able format
@@ -496,29 +509,27 @@ export const API = {
 
     /** @description Get info about user. Uses cookies for authentication
      *  @returns {AxiosPromise} AxiosPromise
-     *  @resolves {Object} res.data - relevant info to request
+     *  @resolves  {UserInfo} res.data.user - user data
      *
-     *  {Boolean} res.data.isGood - whether request was good or not
-     *
-     *  {Object} res.data.user - user data
-     *
-     *  {String} res.data.user.displayName - user's display name
-     *
-     *  {String} res.data.user.avatarURL - URL to user's avatar
-     *
-     *  {Boolean} res.data.user.isAdmin - whether user is an admin or not
-     *
-     *  @reject {String} error message
+     *  @reject {IErrReturn} error object
      */
-    getInfo: (): AxiosPromise => {
-      return axios.post(`${host}/api/user/getInfo`).then(res => {
-        if (res.data.isGood) {
-          return res.data.user;
+    getInfo: async (): Promise<UserInfo | void> => {
+      try {
+        const res: AxiosResponse = await axios.post(`${host}/api/user/getInfo`);
+        if (!res) return;
+
+        // If good,
+        if (res.data?.isGood) {
+          return res.data.user as UserInfo;
         }
 
         // If not good, throw an error
         throw Err({ msg: res.data.msg, status: res.status });
-      });
+      } catch (err) {
+        // console.log(err);
+        // Throw error in handle-able format
+        throw handleCallbackError(err);
+      }
     }
   },
 
