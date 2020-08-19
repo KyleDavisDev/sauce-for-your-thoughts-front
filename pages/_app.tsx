@@ -1,13 +1,13 @@
 import App from "next/app";
 import React from "react";
 import { Provider } from "react-redux";
+import "react-image-crop/dist/ReactCrop.css";
+
 import Page from "../src/components/Page/Page";
 import withReduxStore from "../src/redux/with-redux-store";
-import Auth from "../src/utils/Auth/Auth";
 import { userLoggedIn } from "../src/redux/users/actions";
-import { typesAdded } from "../src/redux/sauces/actions";
-import "react-image-crop/dist/ReactCrop.css";
 import { API } from "../src/utils/api/API";
+import { UserInfo } from "../src/utils/api/types";
 
 class MyApp extends App<any, any> {
   constructor(props) {
@@ -17,22 +17,30 @@ class MyApp extends App<any, any> {
   public async componentDidMount() {
     // 1) Check if we have refresh token
     const hasRefreshToken = this.getCookie("has-refresh-token");
+
     if (hasRefreshToken === "1") {
-      // 1.1) Update API token
-      const res = await API.user.refreshAPIToken().catch(err => err);
+      try {
+        // 1.1) Update API token
+        const res: any = await API.user.refreshAPIToken();
 
-      // 1.2) If no problems, get user info
-      if (res?.data?.isGood) {
-        // 1.2.1) Get info about user
-        const getInfo: any = await API.user.getInfo();
+        // 1.2) If no problems, get user info
+        if (res?.data?.isGood) {
+          // 1.2.1) Get info about user
+          const getInfo: UserInfo | void = await API.user.getInfo();
+          if (!getInfo) {
+            return;
+          }
 
-        // 1.2.2) Dispatch the login action to populate redux store
-        this.props.reduxStore.dispatch(
-          userLoggedIn({ token: res.data.token, ...getInfo })
-        );
-      } else {
-        // 1.3) Logout
-        await API.user.logout();
+          // 1.2.2) Dispatch the login action to populate redux store
+          this.props.reduxStore.dispatch(
+            userLoggedIn({ token: res.data.token, ...getInfo })
+          );
+        } else {
+          // 1.3) Logout
+          await API.user.logout();
+        }
+      } catch (err) {
+        return;
       }
     }
   }
@@ -48,7 +56,7 @@ class MyApp extends App<any, any> {
     );
   }
 
-  // Grab a cookie by name
+  // Grab a cookie' value by cookie name
   public getCookie(cookieName: string): string | null {
     var name = cookieName + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
