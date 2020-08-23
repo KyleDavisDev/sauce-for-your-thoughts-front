@@ -32,7 +32,7 @@ To run in production, run `npm run prod`. This will push the code through (webpa
 - [x] Impliment 'fractal' code architecture.
 - [x] Investigate into NextJS
 - [ ] Impliment NextJS
-  - [ ] User
+  - [x] User
       - [x] Create account
       - [x] Login
       - [x] Logout
