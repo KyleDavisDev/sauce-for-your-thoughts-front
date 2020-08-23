@@ -98,7 +98,7 @@ const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
   return (
     <>
       <PageTitle>Approve Sauces</PageTitle>
-      {sauces.length > 0 ? (
+      {sauces.filter(sauce => !sauce.hidden).length > 0 ? (
         sauces.map(sauce => {
           return (
             <StyledSauceContainer
