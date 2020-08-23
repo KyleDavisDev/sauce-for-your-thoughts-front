@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "next",
     "test": "jest --watchAll",
+    "build": "next build",
     "prod": "next start --define process.env.API_ENV='\"prod\"'"
   },
   "author": "Kyle Davis",
