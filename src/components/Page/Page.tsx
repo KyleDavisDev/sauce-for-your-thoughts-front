@@ -5,6 +5,7 @@ import {
   theme,
   createGlobalStyle
 } from "../../theme/styled-components";
+import Meta from "../Meta/Meta";
 
 const AvenirNextReg = "/static/AvenirNext-Regular.ttf";
 const FuturaMedium = "/static/Futura-Medium.ttf";
@@ -72,6 +73,7 @@ const Page: React.FunctionComponent<IPageProps> = props => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <Meta />
       {props.children}
     </ThemeProvider>
   );
