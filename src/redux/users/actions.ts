@@ -238,13 +238,11 @@ export const updateEmail = ({
  *
  *  @reject {IErrReturn} error object
  */
-export const updatePassword = ({
-  data
-}: {
-  data: IUserUpdatePassword;
-}): MyThunkResult<Promise<null>> => async dispatch => {
+export const updatePassword = (
+  data: IUserUpdatePassword
+): MyThunkResult<Promise<null>> => async dispatch => {
   // Call API
-  await API.user.updatePassword({ data }).catch(err => {
+  await API.user.updatePassword(data).catch(err => {
     // Relay the error
     throw err;
   });

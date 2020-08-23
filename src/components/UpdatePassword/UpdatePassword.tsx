@@ -157,7 +157,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
     };
     try {
       // dispatch redux action
-      await dispatch(updatePassword({ data }));
+      await dispatch(updatePassword(data));
 
       // clear input and display flash
       setPassword("");
