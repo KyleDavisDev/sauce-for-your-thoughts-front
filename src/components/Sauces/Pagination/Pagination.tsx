@@ -16,8 +16,8 @@ const StyledDiv = styled.div`
 `;
 
 const StyledSpan = styled.span`
-  color: ${props => props.theme.primaryThemeColor};
-  font-size: 1.1em;
+  color: ${props => props.theme.black};
+
   font-weight: 700;
 `;
 
