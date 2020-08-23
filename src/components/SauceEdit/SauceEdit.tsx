@@ -10,10 +10,7 @@ import { AppState } from "../../redux/configureStore";
 import { API } from "../../utils/api/API";
 import { IErrReturn } from "../../utils/Err/Err";
 import ArrowRight from "../../images/icons/ArrowRight";
-import TopBar from "../TopBar/TopBar";
-import Navigation from "../Navigation/Navigation";
 import PageTitle from "../PageTitle/PageTitle";
-import Footer from "../Footer/Footer";
 import { Overlay } from "../Overlay/Overlay";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import { SauceTitle } from "../SauceAdd/components/SauceTitle/SauceTitle";
@@ -21,9 +18,8 @@ import SauceDescription from "../SauceAdd/components/SauceDescription/SauceDescr
 import SauceIngredients from "../SauceAdd/components/SauceIngredients/SauceIngredients";
 import SauceType from "../SauceAdd/components/SauceType/SauceType";
 import SauceSpice from "../SauceAdd/components/SauceSpice/SauceSpice";
-import SauceReview from "../SauceAdd/components/SauceReview/SauceReview";
 import SaucePhoto from "../SauceAdd/components/SaucePhoto/SaucePhoto";
-import { Article, StyledFormContainer, StyledButton } from "./SauceEditStyle";
+import { StyledFormContainer, StyledButton } from "./SauceEditStyle";
 
 export interface SauceEditProps {}
 
@@ -209,74 +205,71 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
 
   return (
     <>
-      <TopBar />
-      <Navigation />
-      <Article>
-        <PageTitle>Edit Sauce</PageTitle>
-        <StyledFormContainer>
-          <form onSubmit={e => onSubmit(e)} style={{ maxWidth: "100%" }}>
-            {flashMessage.isVisible && (
-              <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
-            )}
-            <Overlay enabled={enabled}>
-              {sauceItem ? (
-                <>
-                  {/* Title */}
-                  <SauceTitle
-                    onTextChange={e => {
-                      if (e.target.name === "name") {
-                        const _tmp = e.target.value as string;
-                        setSauceItem({ ...sauceItem, name: _tmp });
-                      } else {
-                        const _tmp = e.target.value as string;
-                        setSauceItem({ ...sauceItem, maker: _tmp });
-                      }
-                    }}
-                    name={sauceItem.name}
-                    maker={sauceItem.maker}
-                  />
-
-                  {/* Official Description */}
-                  <SauceDescription
-                    onTextChange={e =>
-                      setSauceItem({
-                        ...sauceItem,
-                        description: e.target.value
-                      })
+      <PageTitle>Edit Sauce</PageTitle>
+      <StyledFormContainer>
+        <form onSubmit={e => onSubmit(e)} style={{ maxWidth: "100%" }}>
+          {flashMessage.isVisible && (
+            <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
+          )}
+          <Overlay enabled={enabled}>
+            {sauceItem ? (
+              <>
+                {/* Title */}
+                <SauceTitle
+                  onTextChange={e => {
+                    if (e.target.name === "name") {
+                      const _tmp = e.target.value as string;
+                      setSauceItem({ ...sauceItem, name: _tmp });
+                    } else {
+                      const _tmp = e.target.value as string;
+                      setSauceItem({ ...sauceItem, maker: _tmp });
                     }
-                    description={sauceItem.description}
-                  />
+                  }}
+                  name={sauceItem.name}
+                  maker={sauceItem.maker}
+                />
 
-                  {/* Ingredients */}
-                  <SauceIngredients
-                    onTextChange={e =>
-                      setSauceItem({
-                        ...sauceItem,
-                        ingredients: e.target.value
-                      })
-                    }
-                    ingredients={sauceItem.ingredients}
-                  />
+                {/* Official Description */}
+                <SauceDescription
+                  onTextChange={e =>
+                    setSauceItem({
+                      ...sauceItem,
+                      description: e.target.value
+                    })
+                  }
+                  description={sauceItem.description}
+                />
 
-                  {/* Type */}
-                  <SauceType
-                    typesOfSauces={types}
-                    onCheckBoxClick={e => onCheckBoxClick(e)}
-                  />
+                {/* Ingredients */}
+                <SauceIngredients
+                  onTextChange={e =>
+                    setSauceItem({
+                      ...sauceItem,
+                      ingredients: e.target.value
+                    })
+                  }
+                  ingredients={sauceItem.ingredients}
+                />
 
-                  {/* Spice */}
-                  <SauceSpice
-                    shu={sauceItem.shu}
-                    onTextChange={e =>
-                      setSauceItem({
-                        ...sauceItem,
-                        shu: e.target.value
-                      })
-                    }
-                  />
+                {/* Type */}
+                <SauceType
+                  typesOfSauces={types}
+                  onCheckBoxClick={e => onCheckBoxClick(e)}
+                />
 
-                  {/* Location */}
-                  {/* <SauceLocation
+                {/* Spice */}
+                <SauceSpice
+                  shu={sauceItem.shu}
+                  onTextChange={e =>
+                    setSauceItem({
+                      ...sauceItem,
+                      shu: e.target.value
+                    })
+                  }
+                />
+
+                {/* Location */}
+                {/* <SauceLocation
                     state={state}
                     city={city}
                     country={country}
@@ -285,29 +278,27 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
                     onStateChange={e => setState(e.target.value)}
                   /> */}
 
-                  {/* Photo */}
-                  <SaucePhoto
-                    photo={photo}
-                    setPhotoType={e => setPhotoType(e)}
-                    isImageLocked={isImageLocked}
-                    onImageLock={onImageLock}
-                    onClearImageClick={onClearImageClick}
-                    setPhoto={e => setPhoto(e)}
-                  />
+                {/* Photo */}
+                <SaucePhoto
+                  photo={photo}
+                  setPhotoType={e => setPhotoType(e)}
+                  isImageLocked={isImageLocked}
+                  onImageLock={onImageLock}
+                  onClearImageClick={onClearImageClick}
+                  setPhoto={e => setPhoto(e)}
+                />
 
-                  <StyledButton onClick={() => {}} type="submit">
-                    Update
-                    <ArrowRight />
-                  </StyledButton>
-                </>
-              ) : (
-                <p>Could not find sauce....</p>
-              )}
-            </Overlay>
-          </form>
-        </StyledFormContainer>
-      </Article>
-      <Footer />
+                <StyledButton onClick={() => {}} type="submit">
+                  Update
+                  <ArrowRight />
+                </StyledButton>
+              </>
+            ) : (
+              <p>Could not find sauce....</p>
+            )}
+          </Overlay>
+        </form>
+      </StyledFormContainer>
     </>
   );
 
