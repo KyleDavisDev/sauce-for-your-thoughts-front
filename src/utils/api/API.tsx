@@ -72,7 +72,6 @@ function createAxiosResponseInterceptor() {
       return axios
         .post(`${host}/api/auth/refresh_token`)
         .then(res => {
-          console.log(res);
           if (res.status === 200) {
             // return originalRequest object with Axios.
             return axios(error.response.config);
