@@ -114,57 +114,51 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
 
   return (
     <>
-      <TopBar />
-      <Navigation />
-      <Article>
-        <PageTitle>Add Sauce</PageTitle>
-        <StyledFormContainer>
-          <form onSubmit={e => onSubmit(e)} style={{ maxWidth: "100%" }}>
-            {flashMessage.isVisible && (
-              <FlashMessage type={flashMessage.type} isVisible>
-                {flashMessage.text}
-              </FlashMessage>
-            )}
-            <Overlay enabled={enabled}>
-              {/* Title */}
-              <SauceTitle
-                onTextChange={e => {
-                  if (e.target.name === "name") {
-                    setName(e.target.value);
-                  } else {
-                    setMaker(e.target.value);
-                  }
-                }}
-                name={name}
-                maker={maker}
-              />
+      <PageTitle>Add Sauce</PageTitle>
+      <StyledFormContainer>
+        <form onSubmit={e => onSubmit(e)} style={{ maxWidth: "100%" }}>
+          {flashMessage.isVisible && (
+            <FlashMessage type={flashMessage.type} isVisible>
+              {flashMessage.text}
+            </FlashMessage>
+          )}
+          <Overlay enabled={enabled}>
+            {/* Title */}
+            <SauceTitle
+              onTextChange={e => {
+                if (e.target.name === "name") {
+                  setName(e.target.value);
+                } else {
+                  setMaker(e.target.value);
+                }
+              }}
+              name={name}
+              maker={maker}
+            />
 
-              {/* Official Description */}
-              <SauceDescription
-                onTextChange={e => setDescription(e.target.value)}
-                description={description}
-              />
+            {/* Official Description */}
+            <SauceDescription
+              onTextChange={e => setDescription(e.target.value)}
+              description={description}
+            />
 
-              {/* Ingredients */}
-              <SauceIngredients
-                onTextChange={e => setIngredients(e.target.value)}
-                ingredients={ingredients}
-              />
+            {/* Ingredients */}
+            <SauceIngredients
+              onTextChange={e => setIngredients(e.target.value)}
+              ingredients={ingredients}
+            />
 
-              {/* Type */}
-              <SauceType
-                typesOfSauces={types}
-                onCheckBoxClick={e => onCheckBoxClick(e)}
-              />
+            {/* Type */}
+            <SauceType
+              typesOfSauces={types}
+              onCheckBoxClick={e => onCheckBoxClick(e)}
+            />
 
-              {/* Spice */}
-              <SauceSpice
-                shu={shu}
-                onTextChange={e => setShu(e.target.value)}
-              />
+            {/* Spice */}
+            <SauceSpice shu={shu} onTextChange={e => setShu(e.target.value)} />
 
-              {/* Location */}
-              {/* <SauceLocation
+            {/* Location */}
+            {/* <SauceLocation
                   state={state}
                   city={city}
                   country={country}
@@ -173,38 +167,36 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
                   onStateChange={e => setState(e.target.value)}
                 /> */}
 
-              {/* Photo */}
-              <SaucePhoto
-                photo={photo}
-                setPhotoType={e => setPhotoType(e)}
-                isImageLocked={isImageLocked}
-                onImageLock={onImageLock}
-                onClearImageClick={onClearImageClick}
-                setPhoto={e => setPhoto(e)}
-              />
+            {/* Photo */}
+            <SaucePhoto
+              photo={photo}
+              setPhotoType={e => setPhotoType(e)}
+              isImageLocked={isImageLocked}
+              onImageLock={onImageLock}
+              onClearImageClick={onClearImageClick}
+              setPhoto={e => setPhoto(e)}
+            />
 
-              {/* Review */}
-              <SauceReview
-                onRadioClick={e => {
-                  // cast event as htmlinput so we can grab value
-                  const _target = e.target as HTMLInputElement;
-                  // look at the value of the element and update option accordingly
-                  _target.value === "Yes"
-                    ? setAddReview(true)
-                    : setAddReview(false);
-                }}
-                addReview={addReview}
-              />
+            {/* Review */}
+            <SauceReview
+              onRadioClick={e => {
+                // cast event as htmlinput so we can grab value
+                const _target = e.target as HTMLInputElement;
+                // look at the value of the element and update option accordingly
+                _target.value === "Yes"
+                  ? setAddReview(true)
+                  : setAddReview(false);
+              }}
+              addReview={addReview}
+            />
 
-              <StyledButton onClick={() => {}} type="submit">
-                Submit
-                <ArrowRight />
-              </StyledButton>
-            </Overlay>
-          </form>
-        </StyledFormContainer>
-      </Article>
-      <Footer />
+            <StyledButton onClick={() => {}} type="submit">
+              Submit
+              <ArrowRight />
+            </StyledButton>
+          </Overlay>
+        </form>
+      </StyledFormContainer>
     </>
   );
 
