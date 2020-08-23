@@ -58,6 +58,7 @@ export const configureStore = (initState?: AppState) => {
             total: 0,
             query: {},
             types: [
+              "All",
               "Hot Sauce",
               "Marinade",
               "BBQ Sauce",
