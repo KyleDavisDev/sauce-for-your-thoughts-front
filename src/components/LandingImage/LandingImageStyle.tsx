@@ -4,7 +4,7 @@ import { TextInput } from "../TextInput/TextInput";
 import { Button } from "../Button/Button";
 
 // assign image path
-const SaucesImage = "/static/Sauces.jpg";
+const SaucesImage = "/static/LandingPageImage.jpg";
 
 export const HeroContainer = styled.div`
   background: #000;
