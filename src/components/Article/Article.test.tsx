@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as enzyme from "enzyme";
 
-import Article from "./Article";
+import { Article } from "./Article";
 
 describe("<Article>", () => {
   it("renders", () => {

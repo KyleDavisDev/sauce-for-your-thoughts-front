@@ -4,7 +4,7 @@ export interface IErrReturn {
 }
 
 // Params interface
-interface IErrParams {
+export interface IErrParams {
   msg: string;
   status: number;
   isGood?: boolean;

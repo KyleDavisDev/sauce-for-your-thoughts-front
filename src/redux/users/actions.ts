@@ -140,14 +140,6 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
         ? res.data.user.displayName || "Me"
         : name;
 
-    // Set user to be remembered
-    Auth.authenticateUser({
-      token,
-      displayName,
-      avatarURL,
-      isAdmin
-    });
-
     // Dispatch user login
     dispatch(userLoggedIn({ token, displayName, avatarURL, isAdmin }));
 
@@ -204,13 +196,12 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
   });
 };
 
-/** @description logs the user out by resetting redux store
+/** @description logs the user out by calliing API to null the cookies
  *  @fires auth#userLoggedOut - resets information in redux users.self
  *  @returns {NULL}
  */
-export const logout = () => (dispatch: any) => {
-  // remove token from storage
-  Auth.deauthenticateUser();
+export const logout = () => async (dispatch: any) => {
+  await API.user.logout();
 
   // remove users.self info
   dispatch(userLoggedOut());
@@ -218,7 +209,6 @@ export const logout = () => (dispatch: any) => {
 
 /** @description Update a user's email
  *  @param {IUserUpdateEmail} data - container for user information
- *  @param {string} data.user.token - user token
  *  @param {string} data.user.email - new email address
  *  @param {string} data.user.confirmEmail - confirmed email adress
  *  @param {string} data.user.password - user password
@@ -240,7 +230,6 @@ export const updateEmail = ({
 
 /** @description Call API to update user's password
  *  @param {IUserUpdateEmail} data - container for user information
- *  @param {string} data.user.token - user token
  *  @param {string} data.user.password - original password
  *  @param {string} data.user.newPassword - new user password
  *  @param {string} data.user.confirmNewPassword - confirm new user password
@@ -255,14 +244,16 @@ export const updatePassword = ({
   data: IUserUpdatePassword;
 }): MyThunkResult<Promise<null>> => async dispatch => {
   // Call API
-  await API.user.updatePassword({ data });
+  await API.user.updatePassword({ data }).catch(err => {
+    // Relay the error
+    throw err;
+  });
 
   return null;
 };
 
 /** @description Call API to update user's display name
  *  @param {IUserUpdateDisplayName} data - container for user information
- *  @param {string} data.user.token - user token
  *  @param {string} data.user.password - original password
  *  @param {string} data.user.displayName - new user display name
  *  @param {string} data.user.confirmDisplayName - confirm new display name

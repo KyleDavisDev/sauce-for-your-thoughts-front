@@ -1,5 +1,5 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import ChevronDown from "../../images/icons/ChevronDown";
 import LoginIcon from "../../images/icons/LoginIcon";
 import UserIcon from "../../images/icons/UserIcon";
@@ -7,33 +7,40 @@ import { AppState } from "../../redux/configureStore";
 import Menu from "./components/Menu/Menu";
 import {
   StyledAvatar,
-  StyledBody,
   StyledDiv,
   StyledDropDown,
-  StyledLink,
-  StyledTrigger
+  StyledLink
 } from "./TopBarStyle";
+import Trigger from "./components/Trigger/Trigger";
+import Body from "./components/Body/Body";
 
-export interface TopBarProps {
-  isLoggedIn?: boolean;
-  displayName?: string;
-  avatarURL?: string;
-}
+const TopBar: React.FC = () => {
+  const { self } = useSelector((state: AppState) => {
+    return state.users;
+  });
+  const { displayName, avatarURL } = self;
+  const isLoggedIn = !!self.token;
 
-const TopBar: React.SFC<TopBarProps> = props => {
   return (
-    <div>
-      {props.isLoggedIn ? (
+    <header>
+      {isLoggedIn && displayName && avatarURL ? (
         <StyledDiv>
           <StyledDropDown>
-            <StyledTrigger>
+            <Trigger>
               <ChevronDown />
-              {props.displayName}
-              <StyledAvatar src={props.avatarURL} />
-            </StyledTrigger>
-            <StyledBody>
+              {displayName}
+              <StyledAvatar
+                src={avatarURL}
+                onError={e => {
+                  const elem = e.target as HTMLImageElement;
+                  elem.src =
+                    "https://res.cloudinary.com/foryourthoughts/image/upload/v1575867983/avatars/r0pnn1izbqm6wopt8lvq_lgq9q6.png";
+                }}
+              />
+            </Trigger>
+            <Body>
               <Menu />
-            </StyledBody>
+            </Body>
           </StyledDropDown>
         </StyledDiv>
       ) : (
@@ -48,27 +55,8 @@ const TopBar: React.SFC<TopBarProps> = props => {
           </StyledLink>
         </StyledDiv>
       )}
-    </div>
+    </header>
   );
 };
-TopBar.defaultProps = {
-  isLoggedIn: false
-};
 
-const mapState2Props = (state: AppState) => {
-  const { self } = state.users;
-  if (!self) return {};
-
-  return {
-    isLoggedIn: !!state.users.self.token, // will be bool
-    displayName: state.users.self.displayName,
-    avatarURL: state.users.self.avatarURL
-  };
-};
-
-const mapDispatch2Props = {};
-
-export default connect(
-  mapState2Props,
-  mapDispatch2Props
-)(TopBar);
+export default TopBar;

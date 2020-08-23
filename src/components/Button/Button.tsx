@@ -15,29 +15,33 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button: React.SFC<ButtonProps> = props => {
+const Button: React.FunctionComponent<ButtonProps> = props => {
+  const {
+    className,
+    style,
+    onClick,
+    type = "button",
+    disabled = false,
+    children
+  } = props;
+
   return (
-    <div className={props.className} style={props.style}>
+    <div className={className} style={style}>
       <button
-        onClick={props.onClick}
-        type={props.type}
-        disabled={props.disabled}
-        aria-disabled={props.disabled}
+        onClick={onClick}
+        type={type}
+        disabled={disabled}
+        aria-disabled={disabled}
       >
-        {props.children}
+        {children}
       </button>
     </div>
   );
 };
 
-Button.defaultProps = {
-  displayType: "outline",
-  type: "button",
-  disabled: false
-};
-
 const StyledButton = styled(Button)`
   button {
+    font-size: 1rem;
     text-decoration: none;
     font-family: FuturaMedium;
     padding: 0.5em 1em;

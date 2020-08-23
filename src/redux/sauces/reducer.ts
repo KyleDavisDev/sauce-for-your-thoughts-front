@@ -6,7 +6,9 @@ import {
   SAUCES_REMOVED,
   SAUCES_UPDATE_DISPLAYNAME,
   SAUCE_FOUND,
-  ISaucesReturnAction
+  ISaucesReturnAction,
+  TYPES_ADDED,
+  ISauce
 } from "./types";
 
 const initialState: ISaucesState = {
@@ -92,6 +94,7 @@ const sauceReducer: Reducer<ISaucesState> = (
         allSlugs: [...state.allSlugs, ...action.allSlugs]
       };
     }
+
     case SAUCES_REMOVED: {
       // Make sure we have sauces to remove
       const actionAllSlugs = action.allSlugs;
@@ -127,17 +130,20 @@ const sauceReducer: Reducer<ISaucesState> = (
       // If the same, return immediately
       if (displayName === oldDisplayName) return state;
       // init
-      let bySlug = {};
+      let bySlug: { [key: string]: ISauce } = {};
 
       // make sure we have .bySlug
       if (state.bySlug && Object.keys(state.bySlug).length > 0) {
         // Go through items and update name
-        bySlug = Object.keys(state.bySlug).map(slug => {
+        Object.keys(state.bySlug).forEach(slug => {
           // make sure we have a sauce -- Here bc TS gets upset otherwise
           if (!state.bySlug) return;
 
           // If the sauce doesn't have an author, can return now
-          if (!state.bySlug[slug].author) return { ...state.bySlug[slug] };
+          if (!state.bySlug[slug].author) {
+            bySlug[slug] = { ...state.bySlug[slug] };
+            return; // go to next item
+          }
 
           // Find old display name
           if (state.bySlug[slug].author === oldDisplayName) {
@@ -145,7 +151,8 @@ const sauceReducer: Reducer<ISaucesState> = (
             state.bySlug[slug].author = displayName;
           }
 
-          return { ...state.bySlug[slug] };
+          // add updated object to array
+          bySlug[slug] = { ...state.bySlug[slug] };
         });
       } else {
         // Nothing to update since displayNAme is only in bySlug
@@ -155,10 +162,20 @@ const sauceReducer: Reducer<ISaucesState> = (
       // Return
       return { ...state, bySlug };
     }
+
     // TODO: add sauce to .byIds and add id to .allIds
     case SAUCE_FOUND: {
       return state; // Will come back to this
     }
+
+    case TYPES_ADDED: {
+      // 1) grab types from action
+      const types = action.types;
+      if (!types) return state;
+
+      return { ...state, types };
+    }
+
     default:
       return state;
   }

@@ -13,7 +13,7 @@ interface RadioButtonProps {
   key?: string;
 }
 
-const RadioButton: React.SFC<RadioButtonProps> = props => {
+const RadioButton: React.FC<RadioButtonProps> = props => {
   return (
     <div className={props.className} key={props.key}>
       <Label htmlFor={props.id}>

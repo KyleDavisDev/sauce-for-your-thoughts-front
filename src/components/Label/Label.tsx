@@ -17,14 +17,12 @@ const StyledLabel = styled.label`
   font-family: FuturaMedium;
 `;
 
-const Label: React.SFC<LabelProps> = props => {
+const Label: React.FC<LabelProps> = props => {
+  const { htmlFor, className, key, children } = props;
+
   return (
-    <StyledLabel
-      htmlFor={props.htmlFor}
-      className={props.className}
-      key={props.key}
-    >
-      {props.children}
+    <StyledLabel htmlFor={htmlFor} className={className} key={key}>
+      {children}
     </StyledLabel>
   );
 };

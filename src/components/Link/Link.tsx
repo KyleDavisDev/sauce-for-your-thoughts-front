@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link as DOMLink } from "react-router-dom";
+import Link from "next/link";
 import styled from "../../theme/styled-components";
 
 interface LinkProps {
@@ -8,30 +8,40 @@ interface LinkProps {
     | Element
     | JSX.Element
     | Array<string | Element | JSX.Element>;
-  to: string;
+  to?: string;
+  href?: string;
   className?: string;
+  target?: "_blank";
 }
 
-const Link: React.SFC<LinkProps> = props => {
+const LinkComponent: React.FC<LinkProps> = props => {
   return (
-    <DOMLink to={props.to} className={props.className}>
-      {props.children}
-    </DOMLink>
+    <>
+      {props.target === "_blank" ? (
+        <a
+          href={props.to || props.href || "#"}
+          target="_blank"
+          className={props.className}
+        >
+          {props.children}
+        </a>
+      ) : (
+        <Link href={props.to || props.href || "#"}>
+          <a className={props.className}> {props.children}</a>
+        </Link>
+      )}
+    </>
   );
 };
 
-Link.defaultProps = {
-  to: "#"
-};
-
-const StyledLink = styled(Link)`
+const StyledLink = styled(LinkComponent)`
   text-decoration: none;
   font-family: FuturaMedium;
-  color: ${props => props.theme.secondaryThemeColor};
+  color: ${props => props.theme.primaryThemeColor};
 
   &:hover,
   &:focus {
-    color: ${props => props.theme.primaryThemeColor};
+    color: ${props => props.theme.secondaryThemeColor};
   }
 `;
 

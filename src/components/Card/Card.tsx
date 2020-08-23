@@ -1,6 +1,12 @@
 import * as React from "react";
 import { Button } from "../Button/Button";
-import { Div, Image, Body, StyledTextContainer, StyledLink } from "./CardStyle";
+import {
+  StyledDiv,
+  Image,
+  StyledBody,
+  StyledTextContainer,
+  StyledLink
+} from "./CardStyle";
 
 interface CardProps {
   title: string;
@@ -12,14 +18,25 @@ interface CardProps {
   anchorText?: string;
 }
 
-const Card: React.SFC<CardProps> = props => {
+const Card: React.FC<CardProps> = props => {
+  // get info from props
+  const {
+    showLink = true,
+    title,
+    description,
+    to,
+    imageLink,
+    className,
+    anchorText
+  } = props;
+
   return (
-    <Div className={props.className}>
-      {props.showLink ? (
-        <StyledLink to={props.to}>
+    <StyledDiv className={className}>
+      {showLink ? (
+        <StyledLink to={to}>
           <Image
-            src={props.imageLink}
-            alt={props.description}
+            src={imageLink}
+            alt={description}
             onError={e => {
               const elem = e.target as HTMLImageElement;
               elem.src =
@@ -28,29 +45,25 @@ const Card: React.SFC<CardProps> = props => {
           />
         </StyledLink>
       ) : (
-        <Image src={props.imageLink} alt={props.description} />
+        <Image src={imageLink} alt={description} />
       )}
-      <Body>
-        <h4>{props.title}</h4>
+      <StyledBody>
+        <h4>{title}</h4>
         <StyledTextContainer>
           <p>
-            {props.description.length > 60
-              ? props.description.substring(0, 59) + "..."
-              : props.description}
+            {description.length > 60
+              ? description.substring(0, 59) + "..."
+              : description}
           </p>
         </StyledTextContainer>
-      </Body>
-      {props.showLink && (
-        <StyledLink to={props.to}>
-          <Button displayType="outline">{props.anchorText || "View"}</Button>
+      </StyledBody>
+      {showLink && (
+        <StyledLink to={to}>
+          <Button displayType="outline">{anchorText || "View"}</Button>
         </StyledLink>
       )}
-    </Div>
+    </StyledDiv>
   );
-};
-
-Card.defaultProps = {
-  showLink: true
 };
 
 export default Card;

@@ -7,7 +7,7 @@ import { StyledFooter, StyledDiv } from "./FooterStyle";
 
 interface FooterProps {}
 
-const Footer: React.SFC<FooterProps> = props => {
+const Footer: React.FC<FooterProps> = props => {
   return (
     <StyledFooter>
       <StyledDiv>

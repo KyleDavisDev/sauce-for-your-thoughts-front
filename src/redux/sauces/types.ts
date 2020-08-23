@@ -1,13 +1,13 @@
 export interface ISauce {
   _id?: number;
-  _addedToStore?: number; // Unix time added to redux store
+  _addedToStore?: number; // Unix time (in seconds) added to redux store
   _full?: boolean; // Whether we have full sauce or partial
   _related?: [{ name: string; slug: string }]; // List of related sauces
   isAdminApproved?: boolean;
   name: string;
   ingredients: string;
   author: string;
-  created: Date;
+  created: number; // Unix time (in seconds)
   types?: string[];
   maker: string;
   description: string;
@@ -42,6 +42,7 @@ export interface ISaucesReturnAction extends IAddSaucesAction {
   type: string;
   oldDisplayName?: string;
   displayName?: string;
+  types?: string[];
 }
 
 // Used for redux state
@@ -53,6 +54,7 @@ export interface ISaucesState {
   saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
   newest?: string[];
   featured?: string[];
+  types?: string[];
 }
 
 export interface IQuery {
@@ -76,6 +78,7 @@ export const SAUCES_REMOVED = "SAUCES_REMOVED";
 export const SAUCES_UPDATE_DISPLAYNAME = "SAUCES_UPDATE_DISPLAYNAME";
 export const SAUCE_FOUND = "SAUCE_FOUND";
 export const SAUCE_UPDATE = "SAUCE_UPDATE";
+export const TYPES_ADDED = "TYPES_ADDED";
 
 // Collection of possible sauces Action Types
 export type SaucesActionTypes = IAddSaucesAction;

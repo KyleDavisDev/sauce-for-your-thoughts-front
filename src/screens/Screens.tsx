@@ -22,7 +22,7 @@ const Home = Loadable({
 
 // Add Sauce
 const SauceAdd = Loadable({
-  loader: () => import("./sauce/screens/SauceAdd/SauceAdd"),
+  loader: () => import("../components/SauceAdd/SauceAdd"),
   loading: () => (
     <div>
       <Loading />
@@ -42,7 +42,7 @@ const SauceEdit = Loadable({
 
 // All Sauces
 const Sauces = Loadable({
-  loader: () => import("./sauces/Sauces"),
+  loader: () => import("../components/Sauces/Sauces"),
   loading: () => (
     <div>
       <Loading />
@@ -52,7 +52,7 @@ const Sauces = Loadable({
 
 // Add Review
 const ReviewAdd = Loadable({
-  loader: () => import("./reviews/ReviewAdd"),
+  loader: () => import("../components/ReviewAdd/ReviewAdd"),
   loading: () => (
     <div>
       <Loading />
@@ -92,7 +92,7 @@ const Settings = Loadable({
 
 // User settings - email update
 const UpdateEmail = Loadable({
-  loader: () => import("./account/settings/UpdateEmail/UpdateEmail"),
+  loader: () => import("../components/UpdateEmail/UpdateEmail"),
   loading: () => (
     <div>
       <Loading />
@@ -102,7 +102,7 @@ const UpdateEmail = Loadable({
 
 // User settings - password update
 const UpdatePassword = Loadable({
-  loader: () => import("./account/settings/UpdatePassword/UpdatePassword"),
+  loader: () => import("../components/UpdatePassword/UpdatePassword"),
   loading: () => (
     <div>
       <Loading />
@@ -112,8 +112,7 @@ const UpdatePassword = Loadable({
 
 // User settings - display name update
 const UpdateDisplayName = Loadable({
-  loader: () =>
-    import("./account/settings/UpdateDisplayName/UpdateDisplayName"),
+  loader: () => import("../components/UpdateDisplayName/UpdateDisplayName"),
   loading: () => (
     <div>
       <Loading />
@@ -163,7 +162,7 @@ const Reset = Loadable({
 
 // Single
 const SauceSpotlight = Loadable({
-  loader: () => import("./sauce/screens/SauceSpotlight/SauceSpotlight"),
+  loader: () => import("../components/SauceSpotlight/SauceSpotlight"),
   loading: () => (
     <div>
       <Loading />

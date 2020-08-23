@@ -61,7 +61,6 @@ export interface ILoginUser {
 // Update user email
 export interface IUserUpdateEmail {
   user: {
-    token: string;
     email: string;
     confirmEmail: string;
     password: string;
@@ -71,7 +70,6 @@ export interface IUserUpdateEmail {
 // Update user password
 export interface IUserUpdatePassword {
   user: {
-    token: string;
     password: string;
     newPassword: string;
     confirmNewPassword: string;
@@ -81,7 +79,6 @@ export interface IUserUpdatePassword {
 // Update user displayname
 export interface IUserUpdateDisplayName {
   user: {
-    token: string;
     password: string;
     displayName: string;
     confirmDisplayName: string;
@@ -91,6 +88,13 @@ export interface IUserUpdateDisplayName {
 // Update user avatar
 export interface IUserUpdateAvatar {
   user: { token: string; password: string; avatarURL: string };
+}
+
+// Reset Password type
+export interface IUserResetPassword {
+  jwt: string;
+  password: string;
+  confirmPassword: string;
 }
 
 // Action strings

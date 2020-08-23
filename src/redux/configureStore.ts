@@ -1,7 +1,6 @@
 import { Action, applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk, { ThunkAction, ThunkDispatch } from "redux-thunk";
-import Auth from "../utils/Auth/Auth";
 import flashMessage from "./flashMessage/reducer";
 import { IFlashState } from "./flashMessage/types";
 import reviews from "./reviews/reducer";
@@ -18,18 +17,20 @@ const rootReducer = combineReducers({
   users
 });
 
+export interface ISaucesState {
+  allSlugs?: string[];
+  bySlug?: { [key: string]: ISauce };
+  total?: number;
+  query?: IQuery;
+  types: string[];
+  orders: string[];
+  saucesWithNewestReviews: Array<{ name: string; slug: string }>;
+  newest: string[];
+  featured: string[];
+}
+
 export interface AppState {
-  sauces: {
-    allSlugs?: string[];
-    bySlug?: { [key: string]: ISauce };
-    total?: number;
-    query?: IQuery;
-    types: string[];
-    orders: string[];
-    saucesWithNewestReviews: [];
-    newest: [];
-    featured: [];
-  };
+  sauces: ISaucesState;
   users: {
     self: {
       token?: string;
@@ -47,41 +48,45 @@ export interface AppState {
   flashMessage: IFlashState;
 }
 
-export const configureStore = () => {
-  // was of type 'object'
-  const initialState: AppState = {
-    sauces: {
-      allSlugs: [],
-      bySlug: {},
-      total: 0,
-      query: {},
-      types: [
-        "All",
-        "Hot Sauce",
-        "BBQ Sauce",
-        "Gravy",
-        "Marinade",
-        "Salsa",
-        "Meat Sauce"
-      ],
-      orders: ["Newest", "Name", "Times Reviewed", "Avg Rating"],
-      saucesWithNewestReviews: [],
-      newest: [],
-      featured: []
-    },
-    users: {
-      self: {
-        token: Auth.isUserAuthenticated() ? Auth.getToken() : undefined,
-        displayName: Auth.isUserAuthenticated() ? Auth.getName() : undefined,
-        avatarURL: Auth.isUserAuthenticated() ? Auth.getAvatarURL() : undefined,
-        isAdmin: Auth.isAdmin()
-      },
-      byDisplayName: {},
-      allDisplayNames: []
-    },
-    reviews: { byReviewID: {}, allReviewIDs: [] },
-    flashMessage: { isVisible: false, type: null, text: null, slug: null }
-  };
+export const configureStore = (initState?: AppState) => {
+  const initialState: AppState =
+    !initState && initState !== null
+      ? {
+          sauces: {
+            allSlugs: [],
+            bySlug: {},
+            total: 0,
+            query: {},
+            types: [
+              "All",
+              "Hot Sauce",
+              "Marinade",
+              "BBQ Sauce",
+              "Salsa",
+              "Gravy",
+              "Meat Sauce",
+              "Wing Sauce",
+              "Curry"
+            ],
+            orders: ["Newest", "Name", "Times Reviewed", "Avg Rating"],
+            saucesWithNewestReviews: [],
+            newest: [],
+            featured: []
+          },
+          users: {
+            self: {
+              token: undefined,
+              displayName: undefined,
+              avatarURL: undefined,
+              isAdmin: undefined
+            },
+            byDisplayName: {},
+            allDisplayNames: []
+          },
+          reviews: { byReviewID: {}, allReviewIDs: [] },
+          flashMessage: { isVisible: false, type: null, text: null, slug: null }
+        }
+      : initState;
 
   if (process.env.NODE_ENV === "prod") {
     return createStore(rootReducer, initialState, applyMiddleware(thunk));

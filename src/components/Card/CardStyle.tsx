@@ -1,7 +1,7 @@
 import styled from "../../theme/styled-components";
 import { Link } from "../Link/Link";
 
-export const Div = styled.div`
+export const StyledDiv = styled.div`
   max-width: 200px;
   margin: 0 0em;
   border: ${props => props.theme.border};
@@ -20,7 +20,7 @@ export const Image = styled.img`
   width: 100%;
 `;
 
-export const Body = styled.div`
+export const StyledBody = styled.div`
   padding: 1em;
   font-family: AvenirNextReg;
 

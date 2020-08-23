@@ -16,49 +16,46 @@ interface DropDownProps {
   onSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-interface DropDownState {
-  id: string;
-}
+const DropDown: React.FC<DropDownProps> = props => {
+  // get info from props and assign defaults if needed
+  const {
+    className,
+    options,
+    name,
+    label,
+    onSelect,
+    selectedValue,
+    id = shortid.generate(),
+    showLabel = false,
+    required = false
+  } = props;
 
-class DropDown extends React.PureComponent<DropDownProps, DropDownState> {
-  public static defaultProps = {
-    showLabel: false,
-    required: false
-  };
-
-  public componentWillMount() {
-    // Either accept id from parent or generate unique id
-    this.setState({ id: !this.props.id ? shortid.generate() : this.props.id });
-  }
-
-  public render() {
-    return (
-      <div className={this.props.className}>
-        {this.props.showLabel && this.props.label && (
-          <Label htmlFor={this.state.id}>
-            {this.props.label}
-            {this.props.required ? "*" : ""}
-          </Label>
-        )}
-        <SelectContainer>
-          <StyledSelect
-            id={this.state.id}
-            onChange={this.props.onSelect}
-            value={this.props.selectedValue}
-            name={this.props.name}
-          >
-            {this.props.options.map(opt => {
-              return (
-                <option key={shortid.generate()} value={opt.toLowerCase()}>
-                  {opt}
-                </option>
-              );
-            })}
-          </StyledSelect>
-        </SelectContainer>
-      </div>
-    );
-  }
-}
+  return (
+    <div className={className}>
+      {showLabel && label && (
+        <Label htmlFor={id}>
+          {label}
+          {required ? "*" : ""}
+        </Label>
+      )}
+      <SelectContainer>
+        <StyledSelect
+          id={id}
+          onChange={onSelect}
+          value={selectedValue}
+          name={name}
+        >
+          {options.map(opt => {
+            return (
+              <option key={shortid.generate()} value={opt.toLowerCase()}>
+                {opt}
+              </option>
+            );
+          })}
+        </StyledSelect>
+      </SelectContainer>
+    </div>
+  );
+};
 
 export default DropDown;

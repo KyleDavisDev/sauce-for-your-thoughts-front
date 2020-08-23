@@ -4,6 +4,7 @@ import styled from "../../../../theme/styled-components";
 const StyledDiv = styled.div`
   position: absolute;
   z-index: 1000;
+  right: 0;
 `;
 
 interface BodyProps {

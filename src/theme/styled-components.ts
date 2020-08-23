@@ -3,7 +3,7 @@ import * as styledComponents from "styled-components";
 const {
   default: styled,
   css,
-  injectGlobal,
+  createGlobalStyle,
   keyframes,
   ThemeProvider
 } = styledComponents as styledComponents.ThemedStyledComponentsModule<
@@ -62,7 +62,7 @@ export interface ThemeInterface {
   black: string;
 }
 
-const enum colors {
+enum colors {
   purple = "#3B4DA8",
   white = "#fff",
   grey = "#676767",
@@ -75,7 +75,7 @@ const enum colors {
   black = "#333333"
 }
 
-const enum scale {
+enum scale {
   defaultFontSize = "16px",
   maxPageWidth = "75rem",
   footerMaxWidth = "300px",
@@ -143,5 +143,5 @@ export const theme = {
   black: colors.black
 };
 
-export { css, injectGlobal, keyframes, ThemeProvider };
+export { css, createGlobalStyle, keyframes, ThemeProvider };
 export default styled;

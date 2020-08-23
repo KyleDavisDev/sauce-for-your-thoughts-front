@@ -1,14 +1,102 @@
-import axios, { AxiosPromise } from "axios";
+import axios, { AxiosPromise, AxiosResponse } from "axios";
+import ProgressBar from "rsup-progress";
+import { theme } from "../../theme/styled-components";
 import {
   IRegisterUser,
   ILoginUser,
   IUserUpdateEmail,
   IUserUpdatePassword,
   IUserUpdateDisplayName,
-  IUserUpdateAvatar
+  IUserUpdateAvatar,
+  IUserResetPassword
 } from "../../redux/users/types";
-import { IReview } from "../../redux/reviews/types";
+import { IReview, IReviewToServer } from "../../redux/reviews/types";
 import Err, { IErrReturn } from "../Err/Err";
+import { UserInfo } from "./types";
+
+// let ProgressBar;
+let progressBar;
+
+if (typeof window !== "undefined") {
+  // tslint:disable-next-line:no-var-requires
+  // import ProgressBar from "rsup-progress";
+  progressBar = new ProgressBar({
+    height: 5,
+    color: theme.secondaryThemeColor
+  });
+}
+
+// Add a request interceptor
+axios.interceptors.request.use(
+  config => {
+    progressBar.start();
+
+    // Do something before request is sent
+    return config;
+  },
+  error => {
+    progressBar.end();
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
+
+// Add a response interceptor
+function createAxiosResponseInterceptor() {
+  const interceptor = axios.interceptors.response.use(
+    response => {
+      progressBar.end();
+      // Any status code that lie within the range of 2xx cause this function to trigger
+      // Do something with response data
+      return response;
+    },
+    error => {
+      // Any status codes that falls outside the range of 2xx causes this function to trigger
+
+      if (error.response.status !== 410) {
+        // set status bar to end
+        progressBar.end();
+
+        // return/resolve original error
+        return Promise.reject(error);
+      }
+
+      /*
+       * When response code is 410, try to refresh the token.
+       * Eject the interceptor so it doesn't loop in case
+       * token refresh causes the 410 response
+       */
+      axios.interceptors.response.eject(interceptor);
+
+      // refresh token
+      return axios
+        .post(`${host}/api/auth/refresh_token`)
+        .then(res => {
+          if (res.status === 200) {
+            // return originalRequest object with Axios.
+            return axios(error.response.config);
+          }
+
+          // return/resolve original error
+          return Promise.reject(error);
+        })
+        .catch((err: any) => {
+          // return/resolve original error
+          return Promise.reject(err);
+        })
+        .finally(() => {
+          //rebind interceptor
+          createAxiosResponseInterceptor();
+
+          // set status bar to end
+          progressBar.end();
+        });
+    }
+  );
+}
+createAxiosResponseInterceptor();
+
+axios.defaults.withCredentials = true;
 
 export const host =
   process.env.API_ENV === "prod"
@@ -42,11 +130,13 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
-    /** @description Add new user to DB
+    /** @description Log user into account
      *  @param {ILoginUser} credentials - user credentials
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
@@ -66,18 +156,50 @@ export const API = {
      */
     login: (credentials: ILoginUser): AxiosPromise => {
       return axios
-        .post(`${host}/api/user/login`, credentials)
+        .post(`${host}/api/user/login`, credentials, {
+          withCredentials: true
+        })
         .then((res: any) => {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood || false
+          });
         });
+    },
+
+    /** @description Call API to send null cookies
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {String} res.data.msg - message accociated with isGood
+     *
+     *  @reject {String} error message
+     */
+    logout: (): AxiosPromise => {
+      return axios.post(`${host}/api/user/logout`).then((res: any) => {
+        if (res.data.isGood) {
+          return res;
+        }
+
+        // If not good, throw an error
+        throw Err({ msg: res.data.msg, status: res.status });
+      });
     },
 
     /** @description Update a user's email
      *  @param {IUserUpdateEmail} data - container for user information
-     *  @param {string} data.user.token - user token
      *  @param {string} data.user.email - new email address
      *  @param {string} data.user.confirmEmail - confirmed email adress
      *  @param {string} data.user.password - user password
@@ -99,14 +221,15 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
     /** @description Call Server to update password
      *  @param {IUserUpdatePassword} data - container for user information
-     *  @param {string} data.user.token - user token
-     *  @param {string} data.user.password - original password
+     *  @param {string} data.user.jwt - user's jwt (from url)
      *  @param {string} data.user.newPassword - new user password
      *  @param {string} data.user.confirmNewPassword - confirm new user password
      *  @returns {AxiosPromise} AxiosPromise
@@ -118,20 +241,29 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    updatePassword: ({ data }: { data: IUserUpdatePassword }): AxiosPromise => {
+    updatePassword: (data: IUserUpdatePassword): AxiosPromise => {
       return axios
         .post(`${host}/api/user/update/password`, data)
         .then((res: any) => {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood || false
+          });
         });
     },
 
     /** @description Call Server to update display name
      *  @param {IUserUpdateDisplayName} data - container for user information
-     *  @param {string} data.user.token - user token
      *  @param {string} data.user.password - original password
      *  @param {string} data.user.displayName - new user display name
      *  @param {string} data.user.confirmDisplayName - confirm new display name
@@ -155,7 +287,17 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood || false
+          });
         });
     },
 
@@ -182,13 +324,15 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
     /** @description Confirm a user's email
      *  @param {Object} data email
-     *    @param {String} data.email - email to validate
+     *    @param {String} data.jwt - jwt to verify
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -200,7 +344,7 @@ export const API = {
       data
     }: {
       data: {
-        email: string;
+        jwt: string;
       };
     }): AxiosPromise => {
       return axios
@@ -256,8 +400,6 @@ export const API = {
     },
 
     /** @description Request for the verification email to be sent again
-     *  @param {Object} data data object
-     *    @param {String} data.user.token - user JWT
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -265,17 +407,16 @@ export const API = {
      *
      *  @reject {IErrReturn} error object
      */
-    resendVerificationEmail: ({
-      data
-    }: {
-      data: {
-        user: { token: string };
-      };
-    }): AxiosPromise => {
+    resendVerificationEmail: (): AxiosPromise => {
       return axios
-        .post(`${host}/api/user/email/resend`, data)
+        .post(`${host}/api/user/email/resend`)
         .then((res: any) => {
-          return res;
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
         })
         .catch((err: any) => {
           // Throw error in handle-able format
@@ -285,8 +426,112 @@ export const API = {
             isGood: err.response.data.isGood || false
           });
         });
+    },
+
+    /** @description Make a request to the server for a password reset email
+     *  @param {String} email - email to lookup and send reset link so
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {IErrReturn} error object
+     */
+    requestPasswordReset: (email: string): AxiosPromise => {
+      return axios
+        .post(`${host}/api/user/requestreset/password`, { email })
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw Err({
+            msg: err.response.data.msg,
+            status: err.response.status,
+            isGood: err.response.data.isGood || false
+          });
+        });
+    },
+
+    /** @description Call Server to reset password
+     *  @param {IUserResetPassword} data - container for user information
+     *  @param {string} jwt - user's jwt (from url)
+     *  @param {string} newPassword - new user password
+     *  @param {string} confirmPassword - confirm new user password
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {String} res.data.msg - message accociated with isGood
+     *
+     *  @reject {String} error message
+     */
+    resetPassword: (data: IUserResetPassword): AxiosPromise => {
+      return axios
+        .post(`${host}/api/user/reset/password`, data)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw handleCallbackError(err);
+        });
+    },
+
+    /** @description Refresh a user's API token
+     *  @param {Any?} originalRequest axios original request
+     *  @param {Any?} error - axios error
+     *  @returns {AxiosPromise} AxiosPromise
+     */
+    refreshAPIToken: (): AxiosPromise => {
+      return axios
+        .post(`${host}/api/auth/refresh_token`)
+        .then(res => {
+          return res;
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw handleCallbackError(err);
+        });
+    },
+
+    /** @description Get info about user. Uses cookies for authentication
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves  {UserInfo} res.data.user - user data
+     *
+     *  @reject {IErrReturn} error object
+     */
+    getInfo: async (): Promise<UserInfo | void> => {
+      try {
+        const res: AxiosResponse = await axios.post(`${host}/api/user/getInfo`);
+        if (!res) return;
+
+        // If good,
+        if (res.data?.isGood) {
+          return res.data.user as UserInfo;
+        }
+
+        // If not good, throw an error
+        throw Err({ msg: res.data.msg, status: res.status });
+      } catch (err) {
+        // console.log(err);
+        // Throw error in handle-able format
+        throw handleCallbackError(err);
+      }
     }
   },
+
   sauce: {
     /** @description Add sauce to DB
      *  @param {FormData} formData object w/ all required suace and user information
@@ -314,7 +559,9 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
@@ -359,7 +606,6 @@ export const API = {
 
     /** @description Update a specific sauce
      *  @param {FormData} formData object w/ all required suace and user information
-     *    @param {String} formData.user.token user's unique token
      *    @param {ISauce} formData.sauce - sauce being added
      *    @param {File} formData.image - image associated w/ sauce
      *  @returns {AxiosPromise} AxiosPromise
@@ -417,13 +663,14 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
     /** @description Check if user is eligible to edit a sauce
      *  @param {Object} data data object
-     *    @param {string} data.user.token user's unique token
      *    @param {string} data.sauce.slug unique sauce slug
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
@@ -436,7 +683,6 @@ export const API = {
       data
     }: {
       data: {
-        user: { token: string };
         sauce: { slug: string };
       };
     }): AxiosPromise => {
@@ -463,6 +709,7 @@ export const API = {
         });
     }
   },
+
   sauces: {
     /** @description Grab sauces from DB
      *  @param {String?} query string with parsable params
@@ -486,7 +733,9 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
@@ -505,7 +754,9 @@ export const API = {
         if (res.data.isGood) {
           return res;
         }
-        throw new Error(res.data.msg);
+
+        // If not good, throw an error
+        throw Err({ msg: res.data.msg, status: res.status });
       });
     },
 
@@ -526,13 +777,13 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
         });
     },
 
     /** @description Check if user is eligible to submit a sauce or not (maybe user has not verified email yet)
-     *  @param {Object} data data object
-     *    @param {string} data.user.token user's unique token
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -540,15 +791,9 @@ export const API = {
      *
      *  @reject {IErrReturn} error object
      */
-    canUserSubmit: ({
-      data
-    }: {
-      data: {
-        user: { token: string };
-      };
-    }): AxiosPromise => {
+    canUserSubmit: (): AxiosPromise => {
       return axios
-        .post(`${host}/api/sauce/canusersubmit`, data)
+        .post(`${host}/api/sauce/canusersubmit`)
         .then((res: any) => {
           if (res.data.isGood) {
             return res;
@@ -565,9 +810,7 @@ export const API = {
 
   review: {
     /** @description Add review to DB
-     *  @param {Object} data data object
-     *    @param {string} data.user.token user's unique token
-     *    @param {IReview} data.review - review being added
+     *  @param {IReviewToServer} data data object
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -575,16 +818,19 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    add: (data: { user: { token: string }; review: IReview }): AxiosPromise =>
+    add: (data: IReviewToServer): Promise<IReview> =>
       axios.post(`${host}/api/review/add`, data).then((res: any) => {
         if (res.data.isGood) {
-          return res;
+          const review = res.data.review as IReview;
+          return review;
         }
-        throw new Error(res.data.msg);
+
+        // If not good, throw an error
+        throw Err({ msg: res.data.msg, status: res.status });
       }),
+
     /** @description Get review from server
      *  @param {Object} data data object
-     *    @param {string} data.user.token user's unique token
      *    @param {string} data.sauce.slug - unique sauce slug
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
@@ -595,18 +841,19 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    get: (data: {
-      user: { token: string };
-      sauce: { slug: string };
-    }): AxiosPromise =>
+    get: (data: { sauce: { slug: string } }): Promise<IReview> =>
       axios.post(`${host}/api/review/get`, data).then((res: any) => {
         if (res.data.isGood) {
-          return res.data.review;
+          const review = res.data.review as IReview;
+          return review;
         }
-        throw new Error(res.data.msg);
+
+        // If not good, throw an error
+        throw Err({ msg: res.data.msg, status: res.status });
       }),
+
     /** @description Add review to DB
-     *  @param {Object} data data object
+     *  @param {IReviewToServer} data data object
      *    @param {string} data.user.token user's unique token
      *    @param {IReview} data.review - review info
      *  @returns {AxiosPromise} AxiosPromise
@@ -616,13 +863,16 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    edit: (data: { user: { token: string }; review: IReview }): AxiosPromise =>
+    edit: (data: IReviewToServer): AxiosPromise =>
       axios.post(`${host}/api/review/edit`, data).then((res: any) => {
         if (res.data.isGood) {
           return res;
         }
-        throw new Error(res.data.msg);
+
+        // If not good, throw an error
+        throw Err({ msg: res.data.msg, status: res.status });
       }),
+
     /** @description Check if user is eligible to submit a review or not (maybe suace is private or have already submitted one)
      *  @param {Object} data data object
      *    @param {string} data.user.token user's unique token
@@ -660,6 +910,39 @@ export const API = {
           // Throw error in handle-able format
           throw handleCallbackError(err);
         });
+    },
+
+    /** @description Check if user is eligible to edit a review or not (maybe suace is private or do not have a review to edit)
+     *  @param {Object} data data object
+     *    @param {string} data.sauce.slug unique sauce string
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  @reject {IErrReturn} error message
+     */
+    canUserEdit: ({
+      data
+    }: {
+      data: {
+        sauce: { slug: string };
+      };
+    }): AxiosPromise => {
+      return axios
+        .post(`${host}/api/review/canuseredit`, data)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // Throw error in handle-able format
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw handleCallbackError(err);
+        });
     }
   },
 
@@ -684,15 +967,39 @@ export const API = {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
+        });
+    }
+  },
+
+  types: {
+    /** @description Get all types of sauces
+     *  @returns {Promise} promise
+     *  @resolves {String[]} array of types of sauces
+     *  @reject {IErrReturn} handleable error object
+     */
+    getTypes: (): Promise<string[] | IErrReturn> => {
+      return axios
+        .get(`${host}/api/types/getTypes`)
+        .then(res => {
+          if (res.data.isGood) {
+            return res.data.types;
+          }
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
+        })
+        .catch((err: any) => {
+          // Throw error in handle-able format
+          throw handleCallbackError(err);
         });
     }
   },
 
   admin: {
     /** @description Get all unapproved sauces
-     *  @param {Object} data data object
-     *    @param {String} data.user.token - user JWT
      *  @resolves {Object} res.data - relevant info to request
      *
      *  {Boolean} res.data.isGood - whether request was good or not
@@ -703,29 +1010,25 @@ export const API = {
      *
      *  @reject {IErrReturn} handleable error object
      */
-    getUnapproved: ({
-      data
-    }: {
-      data: {
-        user: { token: string };
-      };
-    }): AxiosPromise => {
+    getUnapproved: (): AxiosPromise => {
       return axios
-        .post(`${host}/api/admin/sauces/unapproved`, data)
+        .post(`${host}/api/admin/sauces/unapproved`)
         .then((res: any) => {
           if (res.data.isGood) {
             return res;
           }
-          throw new Error(res.data.msg);
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
         })
         .catch((err: any) => {
           // Throw error in handle-able format
           throw handleCallbackError(err);
         });
     },
+
     /** @description Approve of a single sauce
      *  @param {Object} data data object
-     *    @param {String} data.user.token - user JWT
      *    @param {Number} data.sauce.sauceID - sauce id
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -737,7 +1040,6 @@ export const API = {
       data
     }: {
       data: {
-        user: { token: string };
         sauce: { sauceID: number };
       };
     }): AxiosPromise => {
@@ -754,7 +1056,6 @@ export const API = {
 
     /** @description Decline a single sauce
      *  @param {Object} data data object
-     *    @param {String} data.user.token - user JWT
      *    @param {Number} data.sauce.sauceID - sauce id
      *  @resolves {Object} res.data - relevant info to request
      *
@@ -766,7 +1067,6 @@ export const API = {
       data
     }: {
       data: {
-        user: { token: string };
         sauce: { sauceID: number };
       };
     }): AxiosPromise => {

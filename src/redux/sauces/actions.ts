@@ -9,7 +9,8 @@ import {
   IAddSaucesAction,
   SAUCES_UPDATE,
   SAUCES_CLEARED,
-  SAUCES_UPDATE_DISPLAYNAME
+  SAUCES_UPDATE_DISPLAYNAME,
+  TYPES_ADDED
 } from "./types";
 import { IReviewsState, IReviewAPI } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
@@ -100,6 +101,15 @@ export const saucesCleared = (): ISaucesReturnAction => ({
   type: SAUCES_CLEARED
 });
 
+/** @description Add types of sauces to store
+ *  @param {String[]} types - array of types
+ *  @return {ISaucesAction} sauce and action type
+ */
+export const typesAdded = (types: string[]): ISaucesReturnAction => ({
+  types,
+  type: TYPES_ADDED
+});
+
 /** @description grab single sauce related to slug
  *  @param {Object} data - object containing slug we are interested in
  *    @param {Object} data.sauce  - sauce container
@@ -185,8 +195,6 @@ export const getSauceBySlug = ({
 
 /** @description Add sauce to DB
  *  @param {FormData} formdata - Form Data that has been JSONified
- *    @param {Object} formdata.user - author of the sauce
- *      @param {String} formdata.user.token - unique string
  *    @param {ISauce} formdata.sauce - sauce object
  *  @returns {Promise}
  *    @returns {String} slug - unique sauce slug
@@ -203,7 +211,6 @@ export const addSauce = ({ formData }: { formData: FormData }) => async (
 
 /** @description Edit a sauce
  *  @param {FormData} formdata - Form Data that has been JSONified
- *    @param {String} formdata.user.token - unique user token
  *    @param {ISauce} formdata.sauce - sauce object
  *  @returns {Promise}
  *    @returns {Object} response object
@@ -254,12 +261,12 @@ export const getSaucesByQuery = ({
   }
 
   // format query as expected
-  const tmpQuery: IQuery = {};
-  tmpQuery[query] = { sauces: allSlugs || [], total: totalForQuery };
+  const _query: IQuery = {};
+  _query[query] = { sauces: allSlugs || [], total: totalForQuery };
 
   // dispatch sauce
   dispatch(
-    addedSauces({ allSlugs, bySlug, query: tmpQuery, total: res.data.total })
+    addedSauces({ allSlugs, bySlug, query: _query, total: res.data.total })
   );
   return null;
 };
@@ -269,9 +276,9 @@ export const getSaucesByQuery = ({
  *  @fires sauces.addedSauces - add sauces to redux store
  *  @resolves {NULL}
  */
-export const getSaucesByNewest = (): MyThunkResult<Promise<
-  null
->> => async dispatch => {
+export const getSaucesByNewest = (): MyThunkResult<
+  Promise<null>
+> => async dispatch => {
   const res = await API.sauces.getByNewest();
 
   // Normalize sauces
@@ -305,36 +312,36 @@ export const getSaucesByNewest = (): MyThunkResult<Promise<
  *  @fires sauces.addedSauces - add sauces to redux store
  *  @resolves {NULL}
  */
-export const getSaucesByFeatured = (): MyThunkResult<Promise<
-  null
->> => async dispatch => {
-  const res = await API.sauces.getByFeatured();
+export const getSaucesByFeatured = (): MyThunkResult<Promise<null>> => {
+  return async dispatch => {
+    const res = await API.sauces.getByFeatured();
 
-  // Normalize sauces
-  const { allSlugs, bySlug }: ISaucesState = Flatn.saucesArr({
-    sauces: res.data.saucesByFeatured
-  });
-
-  // optimize images by adjusting image url
-  if (bySlug) {
-    Object.keys(bySlug).forEach(key => {
-      // sanity check
-      const photoURL: string | undefined = bySlug[key].photo;
-      if (!photoURL) {
-        return;
-      }
-
-      const index = photoURL.indexOf("/upload/") + 8;
-      bySlug[key].photo =
-        photoURL.substr(0, index) +
-        "q_auto,w_434,h_651/" +
-        photoURL.substr(index);
+    // Normalize sauces
+    const { allSlugs, bySlug }: ISaucesState = Flatn.saucesArr({
+      sauces: res.data.saucesByFeatured
     });
-  }
 
-  // dispatch sauces
-  dispatch(addedSauces({ allSlugs, bySlug, featured: allSlugs }));
-  return null;
+    // optimize images by adjusting image url
+    if (bySlug) {
+      Object.keys(bySlug).forEach(key => {
+        // sanity check
+        const photoURL: string | undefined = bySlug[key].photo;
+        if (!photoURL) {
+          return;
+        }
+
+        const index = photoURL.indexOf("/upload/") + 8;
+        bySlug[key].photo =
+          photoURL.substr(0, index) +
+          "q_auto,w_434,h_651/" +
+          photoURL.substr(index);
+      });
+    }
+
+    // dispatch sauces
+    dispatch(addedSauces({ allSlugs, bySlug, featured: allSlugs }));
+    return null;
+  };
 };
 
 /** @description Update sauce in DB

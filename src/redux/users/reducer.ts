@@ -42,7 +42,7 @@ const userReducer: Reducer<IUserState> = (
       // remove all user.self stuff
       return {
         ...state,
-        self: undefined
+        self: {}
       };
     }
     case USER_ADDED: {

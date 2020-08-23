@@ -12,16 +12,17 @@ interface CheckBoxProps {
   className?: string;
 }
 
-const CheckBox: React.SFC<CheckBoxProps> = props => {
+const CheckBox: React.FC<CheckBoxProps> = props => {
   return (
     <div className={props.className} key={props.key}>
       <Label htmlFor={props.id}>
         <input
-          defaultChecked={props.checked}
+          checked={props.checked}
           type="checkbox"
           value={props.value}
           id={props.id}
           onClick={props.onClick}
+          onChange={() => {}}
         />
         {props.label}
       </Label>

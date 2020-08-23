@@ -33,45 +33,26 @@ export interface FlashMessageProps {
   children?: string;
 }
 
-class FlashMessage extends React.PureComponent<FlashMessageProps, any> {
-  public static defaultProps = {
-    isVisible: true
-  };
+const FlashMessage: React.FC<FlashMessageProps> = props => {
+  const [isVisible, setIsVisible] = React.useState(props.isVisible);
+  const { slug, slugText, text, children, className } = props;
 
-  constructor(props: FlashMessageProps) {
-    super(props);
-
-    this.state = { isVisible: this.props.isVisible };
-  }
-
-  public componentWillReceiveProps(props: FlashMessageProps) {
-    this.setState({ ...props });
-  }
-
-  public render() {
-    return (
-      <StyledContainer className={this.props.className}>
-        {this.state.isVisible && (
+  return (
+    <>
+      {isVisible ? (
+        <StyledContainer className={className}>
           <StyledDiv>
             <StyledContent>
-              {this.props.children || this.props.text}{" "}
-              {this.props.slug && this.props.slugText ? (
-                <Link to={this.props.slug}>{this.props.slugText}</Link>
-              ) : (
-                ""
-              )}{" "}
+              {children || text}{" "}
+              {slug && slugText ? <Link to={slug}>{slugText}</Link> : ""}{" "}
             </StyledContent>
-            <Button onClick={this.onCloseClick}>X</Button>
+            <Button onClick={e => setIsVisible(false)}>X</Button>
           </StyledDiv>
-        )}
-      </StyledContainer>
-    );
-  }
-
-  private onCloseClick = () => {
-    this.setState({ isVisible: false });
-  };
-}
+        </StyledContainer>
+      ) : null}
+    </>
+  );
+};
 
 const StyledFlashMessage = styled(FlashMessage)`
   > div {
@@ -100,11 +81,12 @@ const StyledFlashMessage = styled(FlashMessage)`
     a {
       color: ${props =>
         props.type === "success"
-          ? "#3c763d"
+          ? "#2a522a"
           : props.type === "warning"
           ? "#8a6d3b"
           : "#a94442"};
       font-weight: 700;
+      text-decoration: underline;
       transition: all 0.2s ease;
 
       &:hover,

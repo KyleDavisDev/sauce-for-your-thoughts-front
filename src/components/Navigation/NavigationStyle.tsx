@@ -2,7 +2,7 @@ import styled from "../../theme/styled-components";
 import { Button } from "../Button/Button";
 import { Link } from "../Link/Link";
 
-export const Header = styled.header`
+export const StyledNav = styled.nav`
   background-color: ${x => x.theme.primaryThemeColor};
   padding: 0 0 0 0;
   display: flex;
@@ -34,14 +34,13 @@ export const StyledButton = styled(Button)`
   padding: 0 1.5em 0 1.5em;
   width: 100%;
   text-align: center;
-  background-color: ${props => props.theme.primaryDarkThemeColor}
+  background-color: ${props => props.theme.primaryDarkThemeColor};
   box-sizing: border-box;
 
   button {
     background-color: transparent;
     border: 0;
     width: 100%;
-
 
     &:hover,
     &:focus {

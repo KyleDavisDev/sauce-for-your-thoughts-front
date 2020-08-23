@@ -7,19 +7,16 @@ export interface IOverlayProps {
   enabled?: boolean;
 }
 
-class Overlay extends React.PureComponent<IOverlayProps, any> {
-  public static defaultProps = {
-    enabled: true
-  };
-  public render() {
-    return (
-      <div className={this.props.className}>
-        <div id="overlay" />
-        {this.props.children}
-      </div>
-    );
-  }
-}
+const Overlay: React.FunctionComponent<IOverlayProps> = props => {
+  const { className, children } = props;
+
+  return (
+    <div className={className}>
+      <div id="overlay" />
+      {children}
+    </div>
+  );
+};
 
 const StyledOverlay = styled(Overlay)`
   position: relative;

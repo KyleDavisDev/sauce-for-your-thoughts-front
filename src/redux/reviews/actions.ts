@@ -6,10 +6,13 @@ import {
   IReview,
   IReviewsState,
   REVIEWS_CLEARED,
-  REVIEWS_UPDATED_DISPLAYNAME
+  REVIEWS_UPDATED_DISPLAYNAME,
+  IReviewToServer,
+  IReviewRequestFromServer
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 import Flatn from "../../utils/Flatn/Flatn";
+import { AxiosResponse } from "axios";
 
 /** @description add review(s) to store
  *  @param {object} reviews - container object
@@ -70,43 +73,38 @@ export const updatedReviews = ({
 };
 
 /** @description add a single review to the DB
- *  @param {Object} data - all encompasing object
- *    @param {Object} data.user - holds user information
- *      @param {String} data.user.token - unique user identifier
- *    @param {Object} data.sauce - hold sauce information
- *      @param {String} data.sauce.token - unique sauce string
- *    @param {IReview} data.review
+ *  @param {IReviewToServer} data - all encompasing object
  *  @fires reviews#addedReview - add review to store
  *  @returns {Promise}
  *    @returns {NULL}
  */
-export const addReview = ({
-  data
-}: {
-  data: { user: { token: string }; review: IReview };
-}): MyThunkResult<Promise<null>> => async dispatch => {
+export const addReview = (
+  data: IReviewToServer
+): MyThunkResult<Promise<null>> => async dispatch => {
   // Add review
-  await API.review.add(data);
+  const review = await API.review.add(data);
+
+  // Normalize reviews
+  const { byReviewID, allReviewIDs } = Flatn.reviews({
+    reviews: [review]
+  });
+  // Create obj to redux
+  const normalizedReviews: IReviewsState = { byReviewID, allReviewIDs };
+  // Push reviews to redux
+  dispatch(addedReviews({ reviews: normalizedReviews }));
 
   return null;
 };
 
 /** @description Edit a single review
- *  @param {Object} data - all encompasing object
- *    @param {Object} data.user - holds user information
- *      @param {String} data.user.token - unique user identifier
- *    @param {Object} data.sauce - hold sauce information
- *      @param {String} data.sauce.token - unique sauce string
- *    @param {IReview} data.review
- *  @fires reviews#addedReview - add review to store
+ *  @param {IReviewToServer} data - all encompasing object
+ *  @fires reviews#updatedReviews - update a specific review
  *  @returns {Promise}
  *    @returns {NULL}
  */
-export const editReview = ({
-  data
-}: {
-  data: { user: { token: string }; review: IReview };
-}): MyThunkResult<Promise<null>> => async dispatch => {
+export const editReview = (
+  data: IReviewToServer
+): MyThunkResult<Promise<null>> => async dispatch => {
   // Add review
   await API.review.edit(data);
 
@@ -116,6 +114,31 @@ export const editReview = ({
   });
   // Update specific review in store
   dispatch(updatedReviews({ byReviewID }));
+
+  return null;
+};
+
+/** @description Get review from server
+ *  @param {IReviewRequestFromServer} data data object
+ *  @fires reviews#addedReviews - add review to store
+ *  @returns {Promise} Promise
+ *    @resolves {NULL} null
+ *  @reject {Error} error message
+ */
+export const getReview = (
+  data: IReviewRequestFromServer
+): MyThunkResult<Promise<null>> => async dispatch => {
+  // Find review
+  const review = await API.review.get(data);
+
+  // Normalize reviews
+  const { byReviewID, allReviewIDs } = Flatn.reviews({
+    reviews: [review]
+  });
+  // Create obj to redux
+  const normalizedReviews: IReviewsState = { byReviewID, allReviewIDs };
+  // Push reviews to redux
+  dispatch(addedReviews({ reviews: normalizedReviews }));
 
   return null;
 };

@@ -51,7 +51,7 @@ interface SectionTitleProps {
   description: string;
 }
 
-const SectionTitle: React.SFC<SectionTitleProps> = props => {
+const SectionTitle: React.FC<SectionTitleProps> = props => {
   return (
     <StyledDiv>
       <StyledH2>{props.title}</StyledH2>

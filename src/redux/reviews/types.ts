@@ -60,3 +60,14 @@ export interface IReviewsState {
 export interface IReviewRef {
   _id: number;
 }
+
+// Interface for sending a review to the server
+export interface IReviewToServer {
+  review: IReview;
+}
+
+// Interface for requesting a review to the server
+export interface IReviewRequestFromServer {
+  user: { token: string };
+  sauce: { slug: string };
+}

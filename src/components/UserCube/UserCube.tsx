@@ -26,7 +26,7 @@ interface UserCubeProps {
   className?: string;
 }
 
-const UserCube: React.SFC<UserCubeProps> = props => {
+const UserCube: React.FC<UserCubeProps> = props => {
   return (
     <StyledDiv className={props.className}>
       <img src={props.src} alt="fill me out later" />
