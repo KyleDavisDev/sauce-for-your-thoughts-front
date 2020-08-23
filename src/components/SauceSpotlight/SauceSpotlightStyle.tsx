@@ -1,24 +1,5 @@
-import { Article } from "../Article/Article";
 import styled from "../../theme/styled-components";
 import Descriptor from "../Descriptor/Descriptor";
-
-export const StyledArticle = styled(Article)`
-  max-width: 1200px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  flex-wrap: wrap;
-
-  margin-top: 1em;
-
-  @media (min-width: ${props => props.theme.smToMd}) {
-    margin-top: 2em;
-  }
-
-  > div {
-    padding: 1em;
-  }
-`;
 
 export const StyledLeftContainer = styled.div`
   width: 100%;
