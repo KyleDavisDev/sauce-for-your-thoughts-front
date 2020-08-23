@@ -52,8 +52,8 @@ To run in production, run `npm run prod`. This will push the code through (webpa
     - [x] Edit sauce (Admin only)
   - [ ] Review
     - [x] Add review
-    - [ ] Edit review
-    - [ ] View reviews on single sauce
+    - [x] Edit review
+    - [x] View reviews on single sauce
     
 - [ ] Add user pages.
 - [ ] Write more tests.
