@@ -6,10 +6,15 @@ interface ArticleProps {
   children: any;
   className?: string;
   size?: "sm" | "md" | "lg";
+  style?: React.CSSProperties;
 }
 
 const Article: React.FunctionComponent<ArticleProps> = props => {
-  return <article className={props.className}>{props.children}</article>;
+  return (
+    <article className={props.className} style={props.style}>
+      {props.children}
+    </article>
+  );
 };
 
 const StyledArticle = styled(Article)`
