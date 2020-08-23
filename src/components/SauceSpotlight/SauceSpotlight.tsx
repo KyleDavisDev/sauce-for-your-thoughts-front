@@ -16,7 +16,6 @@ import { FlashMessage } from "../FlashMessage/FlashMessage";
 import SauceHero from "./components/SauceHero/SauceHero";
 import SauceReviews from "./components/SauceReviews/SauceReviews";
 import {
-  StyledArticle,
   StyledLeftContainer,
   StyledRightContainer,
   StyledDescriptor
@@ -111,68 +110,62 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
 
   return (
     <>
-      <TopBar />
-      <Navigation />
+      {sauce ? (
+        <>
+          <StyledLeftContainer>
+            {/* FlashMessage */}
+            {sauce && (
+              <FlashMessage
+                isVisible={sauce.isAdminApproved ? false : true}
+                text={
+                  "This sauce has not been approved by an admin yet and, as a result, will not appear listed with the other sauces."
+                }
+                type="warning"
+              ></FlashMessage>
+            )}
 
-      <StyledArticle>
-        {sauce ? (
-          <>
-            <StyledLeftContainer>
-              {/* FlashMessage */}
-              {sauce && (
-                <FlashMessage
-                  isVisible={sauce.isAdminApproved ? false : true}
-                  text={
-                    "This sauce has not been approved by an admin yet and, as a result, will not appear listed with the other sauces."
-                  }
-                  type="warning"
-                ></FlashMessage>
-              )}
+            {/* Spotlight */}
+            <SauceHero sauce={sauce} />
 
-              {/* Spotlight */}
-              <SauceHero sauce={sauce} />
+            {/* Reviews */}
+            <StyledDescriptor
+              title={`Reviews (${reviews ? reviews.length : 0})`}
+            >
+              The opinions expressed are soley those of the author.
+            </StyledDescriptor>
 
-              {/* Reviews */}
-              <StyledDescriptor
-                title={`Reviews (${reviews ? reviews.length : 0})`}
-              >
-                The opinions expressed are soley those of the author.
-              </StyledDescriptor>
+            <SauceReviews
+              slug={sauce && sauce.slug ? sauce.slug : undefined}
+              reviews={reviews}
+              displayEditLink={doesUserHaveReviewToEdit}
+            />
+          </StyledLeftContainer>
 
-              <SauceReviews
-                slug={sauce && sauce.slug ? sauce.slug : undefined}
-                reviews={reviews}
-                displayEditLink={doesUserHaveReviewToEdit}
-              />
-            </StyledLeftContainer>
-
-            <StyledRightContainer>
-              {sauce && sauce._related && sauce._related.length > 0 && (
-                <>
-                  {sauce.slug && showAppropriateReviewButton(sauce.slug)}
-                  <List
-                    items={sauce._related.map(x => {
-                      return { link: `/sauce/view?s=${x.slug}`, text: x.name };
-                    })}
-                    title="Related Sauces"
-                  />
-                </>
-              )}
-              {saucesWithNewestReviews && saucesWithNewestReviews.length > 0 && (
+          <StyledRightContainer>
+            {sauce && sauce._related && sauce._related.length > 0 && (
+              <>
+                {sauce.slug && showAppropriateReviewButton(sauce.slug)}
                 <List
-                  items={saucesWithNewestReviews.map(x => {
+                  items={sauce._related.map(x => {
                     return { link: `/sauce/view?s=${x.slug}`, text: x.name };
                   })}
-                  title="Recently Reviewed"
+                  title="Related Sauces"
                 />
-              )}
-            </StyledRightContainer>
-          </>
-        ) : (
-          "loading..."
-        )}
-      </StyledArticle>
-      <Footer />
+              </>
+            )}
+            {saucesWithNewestReviews && saucesWithNewestReviews.length > 0 && (
+              <List
+                items={saucesWithNewestReviews.map(x => {
+                  return { link: `/sauce/view?s=${x.slug}`, text: x.name };
+                })}
+                title="Recently Reviewed"
+              />
+            )}
+          </StyledRightContainer>
+        </>
+      ) : (
+        "loading..."
+      )}
     </>
   );
 
