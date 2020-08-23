@@ -31,7 +31,7 @@ To run in production, run `npm run prod`. This will push the code through (webpa
 - [x] Add 'Display Name' for users on signup and as something they are able to update.
 - [x] Impliment 'fractal' code architecture.
 - [x] Investigate into NextJS
-- [ ] Impliment NextJS
+- [x] Impliment NextJS
   - [x] User
       - [x] Create account
       - [x] Login
@@ -50,7 +50,7 @@ To run in production, run `npm run prod`. This will push the code through (webpa
     - [x] Filter sauces
     - [x] Pagination
     - [x] Edit sauce (Admin only)
-  - [ ] Review
+  - [x] Review
     - [x] Add review
     - [x] Edit review
     - [x] View reviews on single sauce
