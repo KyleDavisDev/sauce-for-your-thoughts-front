@@ -97,80 +97,75 @@ const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
 
   return (
     <>
-      <TopBar />
-      <Navigation />
-      <Article>
-        <PageTitle>Approve Sauces</PageTitle>
-        {sauces.length > 0 ? (
-          sauces.map(sauce => {
-            return (
-              <StyledSauceContainer
-                key={sauce.sauceID}
-                className={sauce.hidden ? "hidden" : ""}
-              >
-                <StyledImageHolder>
-                  {sauce && sauce.photo ? (
-                    <img src={`${sauce.photo}`} />
-                  ) : (
-                    <img src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y_bktfsa.png" />
-                  )}
-                </StyledImageHolder>
-                <StyledSauceContent>
-                  <p>
-                    <i>Name: </i>
-                    {sauce.name}
-                  </p>
-                  <p>
-                    <i>Maker: </i>
-                    {sauce.maker}
-                  </p>
-                  <p>
-                    <i>Description: </i>
-                    {sauce.description}
-                  </p>
-                  <p>
-                    <i>Types: </i>
-                    {sauce.types}
-                  </p>
-                  <p>
-                    <i>Ingredients: </i>
-                    {sauce.ingredients}
-                  </p>
-                  <p>
-                    <i>SHU: </i>
-                    {sauce.SHU}
-                  </p>
-                  <p>
-                    <i>Location: </i>
-                    {sauce.country + ", " + sauce.state + ", " + sauce.city}
-                  </p>
-                  <p>
-                    <i>Submitted By: </i>
-                    {sauce.displayName}
-                  </p>
-                </StyledSauceContent>
-                <StyledButtonContainer>
-                  <Link to={`/sauce/edit?s=${sauce.slug}`}>
-                    <Button>Edit</Button>
-                  </Link>
+      <PageTitle>Approve Sauces</PageTitle>
+      {sauces.length > 0 ? (
+        sauces.map(sauce => {
+          return (
+            <StyledSauceContainer
+              key={sauce.sauceID}
+              className={sauce.hidden ? "hidden" : ""}
+            >
+              <StyledImageHolder>
+                {sauce && sauce.photo ? (
+                  <img src={`${sauce.photo}`} />
+                ) : (
+                  <img src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y_bktfsa.png" />
+                )}
+              </StyledImageHolder>
+              <StyledSauceContent>
+                <p>
+                  <i>Name: </i>
+                  {sauce.name}
+                </p>
+                <p>
+                  <i>Maker: </i>
+                  {sauce.maker}
+                </p>
+                <p>
+                  <i>Description: </i>
+                  {sauce.description}
+                </p>
+                <p>
+                  <i>Types: </i>
+                  {sauce.types}
+                </p>
+                <p>
+                  <i>Ingredients: </i>
+                  {sauce.ingredients}
+                </p>
+                <p>
+                  <i>SHU: </i>
+                  {sauce.SHU}
+                </p>
+                <p>
+                  <i>Location: </i>
+                  {sauce.country + ", " + sauce.state + ", " + sauce.city}
+                </p>
+                <p>
+                  <i>Submitted By: </i>
+                  {sauce.displayName}
+                </p>
+              </StyledSauceContent>
+              <StyledButtonContainer>
+                <Link to={`/sauce/edit?s=${sauce.slug}`}>
+                  <Button>Edit</Button>
+                </Link>
 
-                  <Button onClick={e => onDeclineClick(sauce.sauceID)}>
-                    Decline
-                  </Button>
-                  <Button onClick={e => onApproveClick(sauce.sauceID)}>
-                    Approve
-                  </Button>
-                </StyledButtonContainer>
-              </StyledSauceContainer>
-            );
-          })
-        ) : (
-          <StyledSauceContainer style={{ width: "100%" }}>
-            <p>No unapproved sauces!</p>
-          </StyledSauceContainer>
-        )}
-      </Article>
-      <Footer />
+                <Button onClick={e => onDeclineClick(sauce.sauceID)}>
+                  Decline
+                </Button>
+                <Button onClick={e => onApproveClick(sauce.sauceID)}>
+                  Approve
+                </Button>
+              </StyledButtonContainer>
+            </StyledSauceContainer>
+          );
+        })
+      ) : (
+        <StyledSauceContainer style={{ width: "100%" }}>
+          <p>No unapproved sauces!</p>
+        </StyledSauceContainer>
+      )}
     </>
   );
 
