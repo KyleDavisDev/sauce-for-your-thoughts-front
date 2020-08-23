@@ -48,7 +48,7 @@ To run in production, run `npm run prod`. This will push the code through (webpa
     - [x] View specific sauce
     - [x] View sauce grid
     - [x] Filter sauces
-    - [ ] Pagination
+    - [x] Pagination
     - [ ] Edit sauce (Admin only)
   - [ ] Review
     - [ ] Add review
