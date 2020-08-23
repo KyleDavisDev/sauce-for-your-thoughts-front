@@ -10,10 +10,7 @@ import { AppState } from "../../redux/configureStore";
 import { API } from "../../utils/api/API";
 import { IErrReturn } from "../../utils/Err/Err";
 import ArrowRight from "../../images/icons/ArrowRight";
-import TopBar from "../TopBar/TopBar";
-import Navigation from "../Navigation/Navigation";
 import PageTitle from "../PageTitle/PageTitle";
-import Footer from "../Footer/Footer";
 import { Overlay } from "../Overlay/Overlay";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import { SauceTitle } from "./components/SauceTitle/SauceTitle";
@@ -23,7 +20,7 @@ import SauceType from "./components/SauceType/SauceType";
 import SauceSpice from "./components/SauceSpice/SauceSpice";
 import SauceReview from "./components/SauceReview/SauceReview";
 import SaucePhoto from "./components/SaucePhoto/SaucePhoto";
-import { Article, StyledFormContainer, StyledButton } from "./SauceAddStyle";
+import { StyledFormContainer, StyledButton } from "./SauceAddStyle";
 
 export interface SauceAddProps {}
 
