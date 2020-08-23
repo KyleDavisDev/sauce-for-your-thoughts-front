@@ -154,16 +154,6 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
             {/* Spice */}
             <SauceSpice shu={shu} onTextChange={e => setShu(e.target.value)} />
 
-            {/* Location */}
-            {/* <SauceLocation
-                  state={state}
-                  city={city}
-                  country={country}
-                  onTextChange={e => (e.target.value)}
-                  onCountryChange={e => setCountry(e.target.value)}
-                  onStateChange={e => setState(e.target.value)}
-                /> */}
-
             {/* Photo */}
             <SaucePhoto
               photo={photo}
