@@ -43,13 +43,13 @@ To run in production, run `npm run prod`. This will push the code through (webpa
       - [x] Resend verification email
       - [x] Confirm email
       - [x] Reset password
-  - [ ] Sauce
+  - [x] Sauce
     - [x] Add sauce
     - [x] View specific sauce
     - [x] View sauce grid
     - [x] Filter sauces
     - [x] Pagination
-    - [ ] Edit sauce (Admin only)
+    - [x] Edit sauce (Admin only)
   - [ ] Review
     - [ ] Add review
     - [ ] Edit review
