@@ -368,7 +368,7 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
           isVisible: true,
           text: "Updated sauce!",
           slugText: isAdmin ? "Back to approved list" : undefined,
-          slug: isAdmin ? "/admin/approvesaucesubmissions" : undefined,
+          slug: isAdmin ? "/admin/sauces/approve" : undefined,
           type: "success"
         });
       } else {
