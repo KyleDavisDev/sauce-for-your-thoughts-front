@@ -273,7 +273,6 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
     try {
       // construct data object
       const data: IReviewToServer = {
-        user: { token },
         review: {
           heat,
           taste,

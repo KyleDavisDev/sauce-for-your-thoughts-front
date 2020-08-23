@@ -74,6 +74,8 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
           text: err.response.data.msg
         });
       }
+
+      return null;
     };
 
     // Check if user has their email verified or not
