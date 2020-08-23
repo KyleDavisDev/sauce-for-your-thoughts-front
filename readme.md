@@ -51,7 +51,7 @@ To run in production, run `npm run prod`. This will push the code through (webpa
     - [x] Pagination
     - [x] Edit sauce (Admin only)
   - [ ] Review
-    - [ ] Add review
+    - [x] Add review
     - [ ] Edit review
     - [ ] View reviews on single sauce
     
