@@ -7,3 +7,4 @@ public/avatars
 src/theme/fonts
 .next
 static/*.ttf
+.env.local
