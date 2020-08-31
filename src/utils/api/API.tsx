@@ -525,7 +525,6 @@ export const API = {
         // If not good, throw an error
         throw Err({ msg: res.data.msg, status: res.status });
       } catch (err) {
-        // console.log(err);
         // Throw error in handle-able format
         throw handleCallbackError(err);
       }
@@ -749,15 +748,18 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    getByNewest: (): AxiosPromise => {
-      return axios.get(`${host}/api/sauces/get/by/newest/`).then((res: any) => {
+    getByNewest: async (): Promise<any> => {
+      try {
+        const res = await axios.get(`${host}/api/sauces/get/by/newest/`);
         if (res.data.isGood) {
           return res;
         }
-
         // If not good, throw an error
         throw Err({ msg: res.data.msg, status: res.status });
-      });
+      } catch (err) {
+        // Throw error in handle-able format
+        throw handleCallbackError(err);
+      }
     },
 
     /** @description Grab featured sauces from DB
