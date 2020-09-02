@@ -14,7 +14,7 @@ This application was built on [NodeJS](https://nodejs.org/en/) version `v12.13.0
 
 To run in development, type `npm run dev` in console to start (NextJS)[https://nextjs.org/]. This will compile your code and allow for hot reloading.
 
-To run in production, run `npm run prod`. This will push the code through (webpack)[https://github.com/webpack/webpack] and the associated plugins. The result will be put into a 'dist' folder.
+To run in production, you will first need to build the optimized nextjs files with `npm run build` and then you can run `npm run prod`. This will push the code through (webpack)[https://github.com/webpack/webpack] and use appropriate plugins.
 
 # Roadmap
 
