@@ -99,7 +99,7 @@ createAxiosResponseInterceptor();
 axios.defaults.withCredentials = true;
 
 export const host =
-  process.env.API_ENV === "prod"
+  process.env.NEXT_PUBLIC_API_ENV === "prod"
     ? "https://sauceforyourthoughts.com"
     : "http://localhost:7777";
 
