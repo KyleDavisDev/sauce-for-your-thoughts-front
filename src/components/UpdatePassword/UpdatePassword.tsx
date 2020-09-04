@@ -10,7 +10,6 @@ import { Link } from "../Link/Link";
 import { Button } from "../Button/Button";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import { StyledFormContainer, StyledButtonHolder } from "./UpdatePasswordStyle";
-import Auth from "../../utils/Auth/Auth";
 import { useRouter } from "next/router";
 import HeaderSimple from "../HeaderSimple/HeaderSimple";
 import { Article } from "../Article/Article";
