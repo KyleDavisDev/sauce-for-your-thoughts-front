@@ -11,7 +11,7 @@ interface LinkProps {
   to?: string;
   href?: string;
   className?: string;
-  target?: "_blank";
+  target?: "_blank" | "_self";
 }
 
 const LinkComponent: React.FC<LinkProps> = props => {
@@ -27,7 +27,9 @@ const LinkComponent: React.FC<LinkProps> = props => {
         </a>
       ) : (
         <Link href={props.to || props.href || "#"}>
-          <a className={props.className}> {props.children}</a>
+          <a className={props.className} target="_self">
+            {props.children}
+          </a>
         </Link>
       )}
     </>
