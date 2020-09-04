@@ -3,15 +3,9 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 
 import { AppState } from "../../redux/configureStore";
-import { logout } from "../../redux/users/actions";
-import Auth from "../../utils/Auth/Auth";
 import { API } from "../../utils/api/API";
 import Utils from "../../utils/Utils/Utils";
-import { Article } from "../Article/Article";
-import Navigation from "../Navigation/Navigation";
-import TopBar from "../TopBar/TopBar";
 import PageTitle from "../PageTitle/PageTitle";
-import Footer from "../Footer/Footer";
 import { Button } from "../Button/Button";
 import { Link } from "../Link/Link";
 
