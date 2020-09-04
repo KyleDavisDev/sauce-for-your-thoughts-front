@@ -10,13 +10,10 @@ import {
   StyledGroup
 } from "./UserSettingsStyle";
 
-import LogoSFYT from "../../images/icons/LogoSFYT";
 import ArrowRight from "../../images/icons/ArrowRight";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 
-import Auth from "../../utils/Auth/Auth";
 import { API } from "../../utils/api/API";
-import { IErrReturn } from "../../utils/Err/Err";
 import HeaderSimple from "../HeaderSimple/HeaderSimple";
 import { Article } from "../Article/Article";
 import { useSelector } from "react-redux";
