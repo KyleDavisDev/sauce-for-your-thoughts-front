@@ -15,7 +15,6 @@ import {
   StyledFormContainer,
   StyledButtonHolder
 } from "./UpdateDisplayNameStyle";
-import Auth from "../../utils/Auth/Auth";
 
 export interface UpdateDisplayNameProps {}
 
