@@ -1,12 +1,10 @@
 import * as React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Rating from "react-rating";
 
 import { IReviewSection, IReviewToServer } from "../../redux/reviews/types";
-import { addReview } from "../../redux/reviews/actions";
 import { getSauceBySlug } from "../../redux/sauces/actions";
 import ArrowRight from "../../images/icons/ArrowRight";
-import Auth from "../../utils/Auth/Auth";
 import { Article } from "../Article/Article";
 import Label from "../Label/Label";
 import PageTitle from "../PageTitle/PageTitle";
@@ -25,6 +23,7 @@ import { Overlay } from "../Overlay/Overlay";
 import { useRouter } from "next/router";
 import { reduxStore } from "../../redux/with-redux-store";
 import { useCanUserAddReview } from "../../utils/hooks/useCanUserAddReview";
+import { AppState } from "../../redux/configureStore";
 
 export interface ReviewFormProps {
   onSubmit: (data: IReviewToServer) => Promise<null>;
@@ -35,6 +34,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
   const router = useRouter();
 
   // assign state
+  const token = useSelector((store: AppState) => store.users.self.token);
   const initRating = { rating: 0, txt: "" };
   const [overall, setOverall] = React.useState<IReviewSection>(initRating);
   const [label, setLabel] = React.useState<IReviewSection>(initRating);
@@ -251,12 +251,6 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
       return null;
     }
 
-    // make sure token is still good/not expired
-    if (!Auth.isUserAuthenticated()) {
-      router.replace(`/account/login?return=${router.asPath}`);
-      return null;
-    }
-
     // sanity check or get out
     if (!slug || Array.isArray(slug)) {
       router.push("/");
@@ -264,7 +258,6 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
     }
 
     // Make sure we have token
-    const token = Auth.getToken();
     if (!token) {
       router.replace(`/account/login?return=${router.asPath}`);
       return null;
