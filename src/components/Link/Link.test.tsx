@@ -3,6 +3,9 @@ import * as enzyme from "enzyme";
 import { MemoryRouter } from "react-router-dom";
 
 import { Link } from "./Link";
+import { fakeLinks } from "../../utils/testUtils/testUtils";
+
+const mockLinks = fakeLinks();
 
 describe("<Link>", () => {
   it("renders", () => {
@@ -11,18 +14,15 @@ describe("<Link>", () => {
   });
 
   it("renders correct text", () => {
-    let wrapper = enzyme.render(
-      <MemoryRouter>
-        <Link to="#">Text here</Link>
-      </MemoryRouter>
-    );
-    expect(wrapper.find("a").text()).toEqual("Text here");
-
-    wrapper = enzyme.render(
-      <MemoryRouter>
-        <Link to="#">Other text</Link>
-      </MemoryRouter>
-    );
-    expect(wrapper.find("a").text()).toEqual("Other text");
+    mockLinks.forEach(mockLink => {
+      let wrapper = enzyme.render(
+        <MemoryRouter>
+          <Link to={mockLink.to} target={mockLink.target}>
+            {mockLink.text}
+          </Link>
+        </MemoryRouter>
+      );
+      expect(wrapper.text()).toEqual(mockLink.text);
+    });
   });
 });
