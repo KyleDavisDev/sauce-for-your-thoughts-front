@@ -12,7 +12,7 @@ import { Link } from "../Link/Link";
 import { Button } from "../Button/Button";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import { StyledFormContainer, StyledButtonHolder } from "./UpdateEmailStyle";
-import Auth from "../../utils/Auth/Auth";
+import { AppState } from "../../redux/configureStore";
 
 export interface UpdateEmailProps {}
 
@@ -24,6 +24,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
+  const token = useSelector((store: AppState) => store.users.self.token);
 
   // assign router
   const router = useRouter();
@@ -31,8 +32,6 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    // Get token or else redirect
-    const token = Auth.getToken();
     if (!token) {
       router.push("/account/login?return=/account/settings/email");
       return;
