@@ -18,7 +18,6 @@ import {
   StyledRadioButton,
   StyledAvatarImg
 } from "./UpdateAvatarStyle";
-import Auth from "../../utils/Auth/Auth";
 import { API } from "../../utils/api/API";
 import { reduxStore } from "../../redux/with-redux-store";
 import HeaderSimple from "../HeaderSimple/HeaderSimple";
@@ -27,21 +26,19 @@ import { Article } from "../Article/Article";
 export interface UpdateAvatarProps {}
 
 const UpdateAvatar: React.FC<UpdateAvatarProps> = props => {
+  // get info from redux
+  const { displayName, token, avatarURL: selected } = useSelector(
+    (store: AppState) => store.users.self
+  );
   // assign state
   const [urls, setUrls] = React.useState<Array<{ key: string; path: string }>>(
     []
   );
-  const selected = useSelector((store: AppState) => store.users.self.avatarURL);
   const [password, setPassword] = React.useState("");
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
   const [updatedAvatar, setUpdatedAvatar] = React.useState(selected);
-
-  // get info from redux
-  const displayName = useSelector(
-    (store: AppState) => store.users.self.displayName
-  );
 
   // assign router
   const router = useRouter();
@@ -50,8 +47,6 @@ const UpdateAvatar: React.FC<UpdateAvatarProps> = props => {
 
   // run once
   React.useEffect(() => {
-    // Get token or else redirect
-    const token = Auth.getToken();
     if (!token) {
       router.push("/account/login?return=/account/update/avatar");
       return;
@@ -157,8 +152,6 @@ const UpdateAvatar: React.FC<UpdateAvatarProps> = props => {
       return;
     }
 
-    // Get token or else redirect
-    const token = Auth.getToken();
     if (!token || !displayName) {
       router.push("/account/login?return=/account/settings/avatar");
       return;
