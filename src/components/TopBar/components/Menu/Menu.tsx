@@ -1,14 +1,13 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-import styled from "styled-components";
+import styled from "../../../../theme/styled-components";
 import { AppState } from "../../../../redux/configureStore";
 import ProfileMenuItem from "./components/ProfileMenuItem/ProfileMenuItem";
 import AccountMenuItem from "./components/AccountMenuItem/AccountMenuItem";
 import HelpMenuItem from "./components/HelpMenuItem/HelpMenuItem";
 import AdminMenuItem from "./components/AdminMenuItem/AdminMenuItem";
 import Item from "./components/Item/Item";
-import { logout } from "../../../../redux/users/actions";
 
 const StyledUL = styled.ul`
   max-height: calc(100vh - 52px - 16px);
@@ -22,40 +21,31 @@ const StyledUL = styled.ul`
   line-height: initial;
 `;
 
-export interface MenuProps {
-  logout: () => void;
-  isAdmin: boolean;
-}
+export interface MenuProps {}
 
-class Menu extends React.Component<MenuProps, any> {
-  public render() {
-    return (
-      <StyledUL>
-        <li>
-          <ProfileMenuItem />
-        </li>
-        <li>
-          <AccountMenuItem />
-        </li>
-        <li>
-          <HelpMenuItem />
-        </li>
-        {this.props.isAdmin && (
-          <li>
-            <AdminMenuItem />
-          </li>
-        )}
-        <hr style={{ margin: 0 }} />
-        <Item to="/account/logout">Logout</Item>
-      </StyledUL>
-    );
-  }
-}
+const Menu: React.SFC<MenuProps> = props => {
+  const isAdmin = useSelector((store: AppState) => store.users.self.isAdmin);
 
-const mapState2Props = (state: AppState) => {
-  return { isAdmin: state.users.self.isAdmin || false };
+  return (
+    <StyledUL>
+      <li>
+        <ProfileMenuItem />
+      </li>
+      <li>
+        <AccountMenuItem />
+      </li>
+      <li>
+        <HelpMenuItem />
+      </li>
+      {isAdmin && (
+        <li>
+          <AdminMenuItem />
+        </li>
+      )}
+      <hr style={{ margin: 0 }} />
+      <Item to="/account/logout">Logout</Item>
+    </StyledUL>
+  );
 };
 
-const mapDispatch2Props = { logout };
-
-export default connect(mapState2Props, mapDispatch2Props)(Menu);
+export default Menu;
