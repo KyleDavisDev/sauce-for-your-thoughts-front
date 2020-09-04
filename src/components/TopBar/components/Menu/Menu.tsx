@@ -8,7 +8,6 @@ import AccountMenuItem from "./components/AccountMenuItem/AccountMenuItem";
 import HelpMenuItem from "./components/HelpMenuItem/HelpMenuItem";
 import AdminMenuItem from "./components/AdminMenuItem/AdminMenuItem";
 import Item from "./components/Item/Item";
-import Auth from "../../../../utils/Auth/Auth";
 import { logout } from "../../../../redux/users/actions";
 
 const StyledUL = styled.ul`
@@ -51,14 +50,6 @@ class Menu extends React.Component<MenuProps, any> {
       </StyledUL>
     );
   }
-
-  private logout = (event: any) => {
-    // logout w/ redux
-    this.props.logout();
-
-    // Remove key from localStorage if exists
-    Auth.deauthenticateUser();
-  };
 }
 
 const mapState2Props = (state: AppState) => {
