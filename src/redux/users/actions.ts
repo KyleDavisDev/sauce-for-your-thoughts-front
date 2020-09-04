@@ -16,7 +16,6 @@ import {
   USER_UPDATE_AVATARURL
 } from "./types";
 import { MyThunkResult } from "../configureStore";
-import Auth from "../../utils/Auth/Auth";
 import { updatedDisplayName as saucesUpdatedDisplayName } from "../sauces/actions";
 import { updatedDisplayName as reviewsUpdatedDisplayName } from "../reviews/actions";
 
@@ -181,14 +180,6 @@ export const login = ({ credentials }: { credentials: ILoginUser }) => (
       throw new Error("Unable to verify your login. Please try again.");
     }
 
-    // Set user to be remembered
-    Auth.authenticateUser({
-      token,
-      displayName,
-      avatarURL,
-      isAdmin
-    });
-
     // Dispatch user login
     dispatch(userLoggedIn({ token, displayName, avatarURL, isAdmin }));
 
@@ -295,9 +286,6 @@ export const updateDisplayName = ({
     })
   );
 
-  // Update displayName in local storage
-  Auth.updateDisplayName(data.user.displayName);
-
   return null;
 };
 
@@ -324,17 +312,6 @@ export const updateAvatar = ({
 
   // Update user avatar
   dispatch(updatedAvatarURL({ displayName, avatarURL: data.user.avatarURL }));
-
-  // Update displayName in local storage
-  Auth.updateAvatar(data.user.avatarURL);
-
-  // // Dispatch user login
-  // dispatch(
-  //   userLoggedIn({
-  //     token,
-  //     displayName
-  //   })
-  // );
 
   return null;
 };
