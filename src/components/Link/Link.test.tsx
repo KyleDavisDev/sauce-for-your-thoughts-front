@@ -1,3 +1,4 @@
+import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
 import { MemoryRouter } from "react-router-dom";
@@ -11,6 +12,12 @@ describe("<Link>", () => {
   it("renders", () => {
     const wrapper = enzyme.shallow(<Link to="#">""</Link>);
     expect(wrapper).toBeTruthy();
+  });
+
+  it("matches snapshot", () => {
+    const wrapper = enzyme.shallow(<Link to="#">""</Link>);
+
+    expect(wrapper).toMatchSnapshot();
   });
 
   it("renders correct text", () => {
@@ -29,7 +36,7 @@ describe("<Link>", () => {
 
   it("renders correct link", () => {
     mockLinks.forEach(mockLink => {
-      const wrapper = enzyme.render(
+      const wrapper = enzyme.mount(
         <Link to={mockLink.to} target={mockLink.target}>
           {mockLink.text}
         </Link>
