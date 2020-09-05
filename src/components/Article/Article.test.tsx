@@ -13,6 +13,16 @@ describe("<Article>", () => {
     expect(wrapper).toBeTruthy();
   });
 
+  it("matches snapshot", () => {
+    const wrapper = enzyme.shallow(
+      <Article>
+        <span>hello!</span>
+      </Article>
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it("renders children", () => {
     let wrapper = enzyme.shallow(
       <Article>
