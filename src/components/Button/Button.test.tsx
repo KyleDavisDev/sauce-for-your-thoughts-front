@@ -11,6 +11,14 @@ describe("<Button>", () => {
     expect(wrapper).toBeTruthy();
   });
 
+  it("matches snapshot", () => {
+    const wrapper = enzyme.shallow(
+      <Button onClick={() => {}}>Click me!</Button>
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it("renders correct text", () => {
     let wrapper = enzyme.render(<Button onClick={() => {}}>Text here</Button>);
     expect(wrapper.find("button").text()).toEqual("Text here");
