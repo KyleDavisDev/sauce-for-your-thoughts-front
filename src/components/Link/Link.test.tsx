@@ -42,7 +42,7 @@ describe("<Link>", () => {
         </Link>
       );
 
-      expect(wrapper.find(`a[href="${mockLink.to}"]`)).toBeTruthy();
+      expect(wrapper.find("a").prop("href")).toContain(mockLink.to);
     });
   });
 });
