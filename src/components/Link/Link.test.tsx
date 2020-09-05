@@ -15,14 +15,27 @@ describe("<Link>", () => {
 
   it("renders correct text", () => {
     mockLinks.forEach(mockLink => {
-      let wrapper = enzyme.render(
+      const wrapper = enzyme.render(
         <MemoryRouter>
           <Link to={mockLink.to} target={mockLink.target}>
             {mockLink.text}
           </Link>
         </MemoryRouter>
       );
+
       expect(wrapper.text()).toEqual(mockLink.text);
+    });
+  });
+
+  it("renders correct link", () => {
+    mockLinks.forEach(mockLink => {
+      const wrapper = enzyme.render(
+        <Link to={mockLink.to} target={mockLink.target}>
+          {mockLink.text}
+        </Link>
+      );
+
+      expect(wrapper.find(`a[href="${mockLink.to}"]`)).toBeTruthy();
     });
   });
 });
