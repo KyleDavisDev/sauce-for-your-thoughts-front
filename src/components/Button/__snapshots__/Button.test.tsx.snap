@@ -2,9 +2,42 @@
 
 exports[`<Button> matches snapshot 1`] = `
 <Button
-  className="sc-AxjAm iiZAfZ"
+  className="sc-AxjAm gKYImC fugiat error molestiae laborum est possimus assumenda"
+  disabled={true}
+  displayType="outline"
   onClick={[Function]}
+  type="reset"
 >
-  Click me!
+  <div>
+    sequi facilis corporis sed veritatis quidem praesentium
+  </div>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 2`] = `
+<Button
+  className="sc-AxjAm iiZAfZ iure nisi ut maiores recusandae fuga reprehenderit"
+  disabled={false}
+  displayType="solid"
+  onClick={[Function]}
+  type="submit"
+>
+  <div>
+    iure facilis ut explicabo iure vitae occaecati
+  </div>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 3`] = `
+<Button
+  className="sc-AxjAm iiZAfZ amet modi reprehenderit omnis adipisci eius laborum"
+  disabled={false}
+  displayType="solid"
+  onClick={[Function]}
+  type="button"
+>
+  <div>
+    omnis consequatur enim quia autem et modi
+  </div>
 </Button>
 `;
