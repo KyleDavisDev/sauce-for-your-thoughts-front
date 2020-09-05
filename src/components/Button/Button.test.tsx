@@ -1,9 +1,12 @@
+import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
 
 import { Button } from "./Button";
 import { fakeButtons } from "../../utils/testUtils/testUtils";
+import { MockButton } from "../../utils/testUtils/types";
 
+// generate series of mock buttons
 const mockButtons = fakeButtons();
 
 describe("<Button>", () => {
@@ -22,11 +25,22 @@ describe("<Button>", () => {
     });
   });
 
-  it("renders correct text", () => {
-    let wrapper = enzyme.render(<Button onClick={() => {}}>Text here</Button>);
-    expect(wrapper.find("button").text()).toEqual("Text here");
+  it("renders correct text for non-array children", () => {
+    mockButtons.forEach((mockButton: MockButton) => {
+      const wrapper = enzyme.mount(
+        <Button {...mockButton}>{mockButton.children}</Button>
+      );
 
-    wrapper = enzyme.render(<Button onClick={() => {}}>Other text</Button>);
-    expect(wrapper.find("button").text()).toEqual("Other text");
+      if (Array.isArray(mockButton.children)) {
+        return;
+      }
+
+      if (typeof mockButton.children === "string") {
+        expect(wrapper.text()).toEqual(mockButton.children);
+        return;
+      }
+
+      expect(wrapper.text()).toEqual(mockButton.children.props.children);
+    });
   });
 });
