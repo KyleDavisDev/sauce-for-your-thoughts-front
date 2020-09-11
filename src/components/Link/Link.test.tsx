@@ -25,22 +25,20 @@ describe("<Link>", () => {
     });
   });
 
-  // it("renders correct text", () => {
-  //   mockLinks.forEach((mockLink: MockLink) => {
-  //     const wrapper = enzyme.render(
-  //       <MemoryRouter>
-  //         <Link {...mockLink}>{mockLink.text}</Link>
-  //       </MemoryRouter>
-  //     );
+  it("renders correct children", () => {
+    mockLinks.forEach((mockLink: MockLink) => {
+      const wrapper = enzyme.mount(
+        <Link {...mockLink}>{mockLink.children}</Link>
+      );
 
-  //     expect(wrapper.text()).toEqual(mockLink.text);
-  //   });
-  // });
+      expect(wrapper.find("a").props().children).toEqual(mockLink.children);
+    });
+  });
 
   // it("renders correct link", () => {
   //   mockLinks.forEach(mockLink => {
   //     const wrapper = enzyme.mount(
-  //       <Link to={mockLink.to} target={mockLink.target}>
+  //       <Link href={mockLink.to} target={mockLink.target}>
   //         {mockLink.text}
   //       </Link>
   //     );
