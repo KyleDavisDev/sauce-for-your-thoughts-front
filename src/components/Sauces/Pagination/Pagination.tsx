@@ -41,14 +41,14 @@ const Pagination: React.SFC<PaginationProps> = props => {
         <StyledDiv>
           {/* First Button */}
           {page !== 1 && (
-            <Link to={`/sauces?page=${1}&limit=${limit}`}>
+            <Link href={`/sauces?page=${1}&limit=${limit}`}>
               <Button displayType="outline">First</Button>
             </Link>
           )}
 
           {/* Previous Button */}
           {page !== 1 && (
-            <Link to={`/sauces?page=${page - 1}&limit=${limit}`}>
+            <Link href={`/sauces?page=${page - 1}&limit=${limit}`}>
               <Button displayType="outline">Prev</Button>
             </Link>
           )}
@@ -57,7 +57,7 @@ const Pagination: React.SFC<PaginationProps> = props => {
           {new Array(page - lowerBound).fill(undefined).map((x, ind) => {
             return (
               <Link
-                to={`/sauces?page=${lowerBound + ind}&limit=${limit}`}
+                href={`/sauces?page=${lowerBound + ind}&limit=${limit}`}
                 key={ind}
               >
                 {(lowerBound + ind).toString()}
@@ -72,7 +72,7 @@ const Pagination: React.SFC<PaginationProps> = props => {
           {new Array(upperBound - page).fill(undefined).map((x, ind) => {
             return (
               <Link
-                to={`/sauces?page=${page + ind + 1}&limit=${limit}`}
+                href={`/sauces?page=${page + ind + 1}&limit=${limit}`}
                 key={ind}
               >
                 {(page + ind + 1).toString()}
@@ -82,14 +82,14 @@ const Pagination: React.SFC<PaginationProps> = props => {
 
           {/* Next Button */}
           {page !== totalPages && (
-            <Link to={`/sauces?page=${page + 1}&limit=${limit}`}>
+            <Link href={`/sauces?page=${page + 1}&limit=${limit}`}>
               <Button displayType="outline">Next</Button>
             </Link>
           )}
 
           {/* Last Button */}
           {page !== totalPages && (
-            <Link to={`/sauces?page=${totalPages}&limit=${limit}`}>
+            <Link href={`/sauces?page=${totalPages}&limit=${limit}`}>
               <Button displayType="outline">Last</Button>
             </Link>
           )}

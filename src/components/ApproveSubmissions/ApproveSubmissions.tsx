@@ -141,7 +141,7 @@ const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
                 </p>
               </StyledSauceContent>
               <StyledButtonContainer>
-                <Link to={`/sauce/edit?s=${sauce.slug}`}>
+                <Link href={`/sauce/edit?s=${sauce.slug}`}>
                   <Button>Edit</Button>
                 </Link>
 

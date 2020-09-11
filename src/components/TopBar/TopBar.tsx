@@ -45,11 +45,11 @@ const TopBar: React.FC = () => {
         </StyledDiv>
       ) : (
         <StyledDiv>
-          <StyledLink to="/account/register">
+          <StyledLink href="/account/register">
             <UserIcon />
             Register
           </StyledLink>
-          <StyledLink to="/account/login">
+          <StyledLink href="/account/login">
             <LoginIcon />
             Log in
           </StyledLink>

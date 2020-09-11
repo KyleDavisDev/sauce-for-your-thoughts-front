@@ -21,7 +21,7 @@ const List: React.FunctionComponent<ListProps> = props => {
         {props.items.map(item => {
           return (
             <li key={shortid.generate()}>
-              <Link to={item.link || "#"}>{item.text}</Link>
+              <Link href={item.link || "#"}>{item.text}</Link>
             </li>
           );
         })}

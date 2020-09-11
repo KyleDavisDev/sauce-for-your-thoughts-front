@@ -93,7 +93,7 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
           />
 
           <StyledButtonHolder>
-            <Link to="/account/settings">
+            <Link href="/account/settings">
               <Button type="button" displayType="outline">
                 <ArrowLeft /> Settings
               </Button>

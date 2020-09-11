@@ -130,7 +130,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
 
           <StyledGroup>
             <h4>Update email</h4>
-            <Link to="/account/update/email">
+            <Link href="/account/update/email">
               <StyledButton type="button">
                 Update email <ArrowRight />
               </StyledButton>
@@ -139,7 +139,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
 
           <StyledGroup>
             <h4>Update Display Name</h4>
-            <Link to="/account/update/displayName">
+            <Link href="/account/update/displayName">
               <StyledButton type="button">
                 Update Display Name <ArrowRight />
               </StyledButton>
@@ -148,7 +148,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
 
           <StyledGroup>
             <h4>Update Avatar</h4>
-            <Link to="/account/update/avatar">
+            <Link href="/account/update/avatar">
               <StyledButton type="button">
                 Update Avatar <ArrowRight />
               </StyledButton>
@@ -157,7 +157,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
 
           <StyledGroup>
             <h4>Update Password</h4>
-            <Link to="/account/update/password">
+            <Link href="/account/update/password">
               <StyledButton type="button">
                 Update Password <ArrowRight />
               </StyledButton>
@@ -178,7 +178,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
             </StyledGroup>
           )}
 
-          <Link to="/">
+          <Link href="/">
             <StyledButton type="button" displayType="outline">
               <ArrowLeft /> Return Home
             </StyledButton>

@@ -84,7 +84,7 @@ const ConfirmEmail: React.FC<ConfirmEmailProps> = props => {
   return (
     <StyledDiv>
       <StyledLogoContainer>
-        <Link to="/">
+        <Link href="/">
           <LogoSFYT />
         </Link>
       </StyledLogoContainer>

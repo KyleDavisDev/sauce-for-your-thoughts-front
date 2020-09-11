@@ -44,7 +44,7 @@ const FlashMessage: React.FC<FlashMessageProps> = props => {
           <StyledDiv>
             <StyledContent>
               {children || text}{" "}
-              {slug && slugText ? <Link to={slug}>{slugText}</Link> : ""}{" "}
+              {slug && slugText ? <Link href={slug}>{slugText}</Link> : ""}{" "}
             </StyledContent>
             <Button onClick={e => setIsVisible(false)}>X</Button>
           </StyledDiv>

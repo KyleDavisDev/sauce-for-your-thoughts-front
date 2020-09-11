@@ -28,7 +28,7 @@ interface ItemProps {
 const Item: React.SFC<ItemProps> = props => {
   return (
     <StyledDiv onClick={props.onClick}>
-      <Link to={props.to || "#"}>{props.children}</Link>
+      <Link href={props.to || "#"}>{props.children}</Link>
     </StyledDiv>
   );
 };

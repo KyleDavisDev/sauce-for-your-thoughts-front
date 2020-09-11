@@ -10,7 +10,7 @@ const HeaderSimple: React.FunctionComponent<IHeaderSimpleProps> = props => {
   return (
     <header>
       <StyledLogoContainer>
-        <Link to="/">
+        <Link href="/">
           <LogoSFYT />
         </Link>
       </StyledLogoContainer>

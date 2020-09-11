@@ -6,9 +6,6 @@ import { AppState } from "../../redux/configureStore";
 import { reduxStore } from "../../redux/with-redux-store";
 import { IReview } from "../../redux/reviews/types";
 import { getSauceBySlug } from "../../redux/sauces/actions";
-import TopBar from "../TopBar/TopBar";
-import Navigation from "../Navigation/Navigation";
-import Footer from "../Footer/Footer";
 import { Link } from "../Link/Link";
 import { Button } from "../Button/Button";
 import List from "../List/List";
@@ -174,14 +171,14 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
     // Determine which button to return
     if (doesUserHaveReviewToEdit) {
       return (
-        <Link to={`/review/edit?s=${editSlug}`}>
+        <Link href={`/review/edit?s=${editSlug}`}>
           <Button displayType="solid">Edit Your Review</Button>
         </Link>
       );
     }
 
     return (
-      <Link to={`/review/add?s=${editSlug}`}>
+      <Link href={`/review/add?s=${editSlug}`}>
         <Button displayType="solid">Add Review</Button>
       </Link>
     );

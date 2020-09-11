@@ -53,11 +53,11 @@ class SauceReviews extends React.PureComponent<SauceReviewsProps, any> {
           </StyledContainer>
         )}
         {displayEditLink ? (
-          <StyledLink to={`/review/edit?s=${slug}`}>
+          <StyledLink href={`/review/edit?s=${slug}`}>
             <Button>Edit Your Review</Button>
           </StyledLink>
         ) : (
-          <StyledLink to={`/review/add?s=${slug}`}>
+          <StyledLink href={`/review/add?s=${slug}`}>
             <Button>Add Review</Button>
           </StyledLink>
         )}

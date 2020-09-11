@@ -104,7 +104,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
           />
           <StyledText>
             By clicking 'Register', you agree to Sauce For Your Thoughts{" "}
-            <Link to="/tac" target="_blank">
+            <Link href="/tac" target="_blank">
               Terms and Conditions
             </Link>
           </StyledText>

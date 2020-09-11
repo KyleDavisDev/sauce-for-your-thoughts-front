@@ -80,12 +80,12 @@ const LoginUser: React.FC<LoginProps> = () => {
             <StyledButton type="submit">Login</StyledButton>
           </StyledFooterDivs>
           <StyledText>
-            <Link to="/account/reset/password">Forgot your password?</Link>
+            <Link href="/account/reset/password">Forgot your password?</Link>
           </StyledText>
 
           <StyledText>
             Don't have an account yet?{" "}
-            <Link to="/account/register">Sign up!</Link>
+            <Link href="/account/register">Sign up!</Link>
           </StyledText>
         </form>
       </StyledFormContainer>

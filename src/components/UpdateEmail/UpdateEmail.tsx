@@ -78,7 +78,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
           />
 
           <StyledButtonHolder>
-            <Link to="/account/settings">
+            <Link href="/account/settings">
               <Button type="button" displayType="outline">
                 <ArrowLeft /> Settings
               </Button>
