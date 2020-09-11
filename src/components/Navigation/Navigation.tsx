@@ -1,5 +1,5 @@
 import * as React from "react";
-import Link from "next/link";
+import { Link } from "../Link/Link";
 
 import LogoSFYT from "../../images/icons/LogoSFYT";
 import Bar from "../../images/icons/Bar";
@@ -19,9 +19,7 @@ const Navigation: React.FunctionComponent<{}> = () => {
   return (
     <StyledNav>
       <Link href="/">
-        <a>
-          <LogoSFYT />
-        </a>
+        <LogoSFYT />
       </Link>
       <StyledButton onClick={e => setIsOpen(!isOpen)}>
         <Bar />
