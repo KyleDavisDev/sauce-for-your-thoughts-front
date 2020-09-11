@@ -9,6 +9,11 @@ describe("<Card>", () => {
     expect(wrapper).toBeTruthy();
   });
 
+  it("matches snapshot", () => {
+    const wrapper = enzyme.shallow(<Card title="" description="" to="" />);
+    expect(wrapper).toBeTruthy();
+  });
+
   it("renders correct content", () => {
     let wrapper = enzyme.render(
       <MemoryRouter>
