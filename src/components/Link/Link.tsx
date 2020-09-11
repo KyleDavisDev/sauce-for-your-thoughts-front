@@ -2,14 +2,9 @@ import * as React from "react";
 import Link from "next/link";
 import styled from "../../theme/styled-components";
 
-interface LinkProps {
-  children:
-    | string
-    | Element
-    | JSX.Element
-    | Array<string | Element | JSX.Element>;
-  to?: string;
-  href?: string;
+export interface LinkProps {
+  children: string | JSX.Element | Array<string | JSX.Element>;
+  href: string;
   className?: string;
   target?: "_blank" | "_self";
 }
@@ -18,15 +13,11 @@ const LinkComponent: React.FC<LinkProps> = props => {
   return (
     <>
       {props.target === "_blank" ? (
-        <a
-          href={props.to || props.href || "#"}
-          target="_blank"
-          className={props.className}
-        >
+        <a href={props.href} target="_blank" className={props.className}>
           {props.children}
         </a>
       ) : (
-        <Link href={props.to || props.href || "#"}>
+        <Link href={props.href}>
           <a className={props.className} target="_self">
             {props.children}
           </a>
