@@ -8,7 +8,7 @@ import {
   StyledLink
 } from "./CardStyle";
 
-interface CardProps {
+export interface CardProps {
   title: string;
   description: string;
   to: string;
@@ -33,7 +33,7 @@ const Card: React.FC<CardProps> = props => {
   return (
     <StyledDiv className={className}>
       {showLink ? (
-        <StyledLink to={to}>
+        <StyledLink href={to}>
           <Image
             src={imageLink}
             alt={description}
@@ -58,7 +58,7 @@ const Card: React.FC<CardProps> = props => {
         </StyledTextContainer>
       </StyledBody>
       {showLink && (
-        <StyledLink to={to}>
+        <StyledLink href={to}>
           <Button displayType="outline">{anchorText || "View"}</Button>
         </StyledLink>
       )}
