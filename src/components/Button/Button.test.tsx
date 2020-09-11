@@ -43,4 +43,18 @@ describe("<Button>", () => {
       expect(wrapper.text()).toEqual(mockButton.children.props.children);
     });
   });
+
+  it("calls onCall when clicked", () => {
+    mockButtons.forEach(mockButton => {
+      const wrapper = enzyme.shallow(
+        <Button {...mockButton}>{mockButton.children}</Button>
+      );
+
+      // simulate click
+      wrapper.simulate("click");
+
+      // check was clicked
+      expect(mockButton.onClick).toBeCalledTimes(1);
+    });
+  });
 });
