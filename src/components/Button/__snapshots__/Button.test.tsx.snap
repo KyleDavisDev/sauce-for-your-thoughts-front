@@ -5,7 +5,7 @@ exports[`<Button> matches snapshot 1`] = `
   className="sc-AxjAm iiZAfZ ipsa tempora aut sint aperiam occaecati illum"
   disabled={false}
   displayType="solid"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   type="submit"
 >
   Iure facilis ut explicabo iure. Occaecati officia iure nisi. Maiores recusandae fuga reprehenderit soluta non omnis consequatur enim quia. Et modi tenetur amet modi reprehenderit. Adipisci eius laborum eius aut illo dolorum. Aliquam id sit.
@@ -17,7 +17,7 @@ exports[`<Button> matches snapshot 2`] = `
   className="sc-AxjAm bKCvEV ducimus autem sit aspernatur aspernatur quam eligendi"
   disabled={false}
   displayType="outline"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   type="reset"
 >
   <span>
@@ -31,7 +31,7 @@ exports[`<Button> matches snapshot 3`] = `
   className="sc-AxjAm isKaRq vero repellat eveniet assumenda quis quae iusto"
   disabled={true}
   displayType="solid"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   type="reset"
 >
   Necessitatibus maiores ullam quae corporis qui aut nobis. Consequatur harum qui enim et doloremque voluptate in sunt. Nulla aut sunt est rerum at sint. Fugiat quis et voluptas.
@@ -43,7 +43,7 @@ exports[`<Button> matches snapshot 4`] = `
   className="sc-AxjAm gKYImC saepe assumenda deserunt consequatur itaque et in"
   disabled={true}
   displayType="outline"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   type="button"
 >
   <div>
@@ -57,7 +57,7 @@ exports[`<Button> matches snapshot 5`] = `
   className="sc-AxjAm gKYImC quos rerum nobis nam dolor quas repellendus"
   disabled={true}
   displayType="outline"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   type="submit"
 >
   <span>
@@ -71,7 +71,7 @@ exports[`<Button> matches snapshot 6`] = `
   className="sc-AxjAm gKYImC assumenda ut neque saepe est labore sed"
   disabled={true}
   displayType="outline"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   type="submit"
 >
   <div>
@@ -85,7 +85,7 @@ exports[`<Button> matches snapshot 7`] = `
   className="sc-AxjAm gKYImC aut distinctio molestias autem expedita omnis sit"
   disabled={true}
   displayType="outline"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   type="button"
 >
   Nostrum aliquid ea. Architecto accusantium vel enim sint voluptatem porro. Est sed qui repellat assumenda.
@@ -97,7 +97,7 @@ exports[`<Button> matches snapshot 8`] = `
   className="sc-AxjAm bKCvEV rem qui hic dolore quibusdam quasi quisquam"
   disabled={false}
   displayType="outline"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   type="button"
 >
   Excepturi saepe autem quis molestiae et dicta odit. Quisquam qui harum a aut esse unde ea voluptatem. Occaecati eveniet aut eligendi iusto sed. Voluptates odio rem saepe iure quia culpa suscipit totam. Necessitatibus quis ratione eveniet ea totam aut aut.

@@ -27,7 +27,7 @@ const fakeButton = (): MockButton => ({
   displayType: casual.random_element(["outline", "solid"]),
   className: casual.string,
   type: casual.random_element(["button", "submit", "reset"]),
-  onClick: () => {},
+  onClick: jest.fn(),
   style: undefined,
   disabled: casual.boolean
 });
