@@ -35,15 +35,13 @@ describe("<Link>", () => {
     });
   });
 
-  // it("renders correct link", () => {
-  //   mockLinks.forEach(mockLink => {
-  //     const wrapper = enzyme.mount(
-  //       <Link href={mockLink.to} target={mockLink.target}>
-  //         {mockLink.text}
-  //       </Link>
-  //     );
+  it("renders correct link", () => {
+    mockLinks.forEach((mockLink: MockLink) => {
+      const wrapper = enzyme.mount(
+        <Link {...mockLink}>{mockLink.children}</Link>
+      );
 
-  //     expect(wrapper.find("a").prop("href")).toContain(mockLink.to);
-  //   });
-  // });
+      expect(wrapper.find("a").props().href).toEqual(mockLink.href);
+    });
+  });
 });
