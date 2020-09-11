@@ -2,9 +2,90 @@
 
 exports[`<Link> matches snapshot 1`] = `
 <LinkComponent
-  className="sc-AxjAm kGmApj"
-  to="#"
+  className="sc-AxjAm kGmApj aut illo dolorum ab aliquam id sit"
+  href="http://Daisha.name/"
 >
-  ""
+  <div>
+    magnam fugiat error molestiae laborum est possimus
+  </div>
+</LinkComponent>
+`;
+
+exports[`<Link> matches snapshot 2`] = `
+<LinkComponent
+  className="sc-AxjAm kGmApj"
+  href="http://www.Alicia.ca/"
+  target="_blank"
+>
+  <span>
+    cupiditate illum saepe ut assumenda sint quia
+  </span>
+</LinkComponent>
+`;
+
+exports[`<Link> matches snapshot 3`] = `
+<LinkComponent
+  className="sc-AxjAm kGmApj"
+  href="http://www.Pfeffer.biz/"
+>
+  <span>
+    ducimus autem sit aspernatur aspernatur quam eligendi
+  </span>
+</LinkComponent>
+`;
+
+exports[`<Link> matches snapshot 4`] = `
+<LinkComponent
+  className="sc-AxjAm kGmApj"
+  href="http://www.Quitzon.name/"
+>
+  <span>
+    sint dolores fugiat quis et voluptas culpa
+  </span>
+</LinkComponent>
+`;
+
+exports[`<Link> matches snapshot 5`] = `
+<LinkComponent
+  className="sc-AxjAm kGmApj labore qui aut inventore aut eveniet beatae"
+  href="http://www.Pacocha.com/"
+  target="_blank"
+>
+  rem similique et maxime quia dolores quisquam
+</LinkComponent>
+`;
+
+exports[`<Link> matches snapshot 6`] = `
+<LinkComponent
+  className="sc-AxjAm kGmApj"
+  href="http://www.Jerad.tv/"
+>
+  <span>
+    sint fugiat maiores autem est esse quos
+  </span>
+</LinkComponent>
+`;
+
+exports[`<Link> matches snapshot 7`] = `
+<LinkComponent
+  className="sc-AxjAm kGmApj ut dignissimos aspernatur voluptate voluptatem est eius"
+  href="http://Kirlin.name/"
+  target="_blank"
+>
+  <span>
+    cupiditate autem consequatur consequatur accusantium molestiae non
+  </span>
+</LinkComponent>
+`;
+
+exports[`<Link> matches snapshot 8`] = `
+<LinkComponent
+  className="sc-AxjAm kGmApj"
+  href="http://www.Gennaro.ca/"
+  target="_self"
+>
+  <span>
+    quia assumenda ut neque saepe est labore
+  </span>
 </LinkComponent>
 `;
