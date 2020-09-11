@@ -44,4 +44,16 @@ describe("<Link>", () => {
       expect(wrapper.find("a").props().href).toEqual(mockLink.href);
     });
   });
+
+  it("accepts additional classname", () => {
+    mockLinks.forEach((mockLink: MockLink) => {
+      if (!mockLink.className) return;
+
+      const wrapper = enzyme.mount(
+        <Link {...mockLink}>{mockLink.children}</Link>
+      );
+
+      expect(wrapper.find("a").props().className).toContain(mockLink.className);
+    });
+  });
 });
