@@ -1,7 +1,7 @@
 import * as React from "react";
 import casual from "casual";
 import { ReactWrapper } from "enzyme";
-import { MockLink, MockButton } from "./types";
+import { MockLink, MockButton, MockCard } from "./types";
 
 const ITERATION_SIZE = 8;
 const REACT_REGEX = /react(\d+)?./i;
@@ -10,9 +10,16 @@ const REACT_REGEX = /react(\d+)?./i;
 casual.seed(777);
 
 const fakeLink = (): MockLink => ({
-  text: casual.text,
-  to: casual.url,
-  target: casual.boolean ? "_blank" : "_self"
+  children: casual.random_element([
+    casual.string,
+    fakeJSXElement(),
+    [casual.string, fakeJSXElement()]
+  ]),
+  href: casual.url,
+  className: casual.boolean ? casual.string : undefined,
+  target: casual.boolean
+    ? casual.random_element(["_blank", "_self"])
+    : undefined
 });
 
 const fakeJSXElement = (): JSX.Element => {
@@ -32,7 +39,18 @@ const fakeButton = (): MockButton => ({
   disabled: casual.boolean
 });
 
-const fakeLinks = () => [fakeLink(), fakeLink(), fakeLink()];
+const fakeCard = (): MockCard => ({
+  title: casual.string,
+  description: casual.string,
+  to: casual.url,
+  showLink: casual.boolean,
+  imageLink: casual.url,
+  className: casual.string,
+  anchorText: casual.string
+});
+
+const fakeLinks = (): MockLink[] =>
+  new Array(ITERATION_SIZE).fill(null).map(fakeLink);
 const fakeButtons = (): MockButton[] =>
   new Array(ITERATION_SIZE).fill(null).map(fakeButton);
 
