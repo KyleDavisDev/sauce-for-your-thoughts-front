@@ -3,13 +3,13 @@ import Link from "next/link";
 import styled from "../../theme/styled-components";
 
 export interface LinkProps {
-  children: string | JSX.Element | Array<string | JSX.Element>;
+  children: string | JSX.Element | (string | JSX.Element)[];
   href: string;
   className?: string;
   target?: "_blank" | "_self";
 }
 
-const LinkComponent: React.FC<LinkProps> = props => {
+const LinkComponent: React.FunctionComponent<LinkProps> = props => {
   return (
     <>
       {props.target === "_blank" ? (
