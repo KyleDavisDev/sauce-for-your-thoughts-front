@@ -56,4 +56,16 @@ describe("<Link>", () => {
       expect(wrapper.find("a").props().className).toContain(mockLink.className);
     });
   });
+
+  it("render outward link if asked otherwise default", () => {
+    mockLinks.forEach((mockLink: MockLink) => {
+      const wrapper = enzyme.mount(
+        <Link {...mockLink}>{mockLink.children}</Link>
+      );
+
+      expect(wrapper.find("a").props().target).toContain(
+        mockLink.target || "_self"
+      );
+    });
+  });
 });
