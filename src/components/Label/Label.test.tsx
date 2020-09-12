@@ -25,4 +25,11 @@ describe("<Label />", () => {
 
     expect(wrapper.props().children).toEqual("abc");
   });
+
+  it("renders correct htmlFor tag", () => {
+    const htmlFor = "abc";
+    const wrapper = enzyme.shallow(<Label htmlFor={htmlFor}>abc</Label>);
+
+    expect(wrapper.props().htmlFor).toEqual(htmlFor);
+  });
 });
