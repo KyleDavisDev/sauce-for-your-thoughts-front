@@ -1,7 +1,7 @@
 import * as React from "react";
 import casual from "casual";
 import { ReactWrapper } from "enzyme";
-import { MockLink, MockButton, MockCard } from "./types";
+import { MockLink, MockButton, MockCard, MockLabel } from "./types";
 
 const ITERATION_SIZE = 8;
 const REACT_REGEX = /react(\d+)?./i;
@@ -49,10 +49,23 @@ const fakeCard = (): MockCard => ({
   anchorText: casual.string
 });
 
+const fakeLabel = (): MockLabel => ({
+  children: casual.random_element([
+    casual.string,
+    fakeJSXElement(),
+    [casual.string, fakeJSXElement()]
+  ]),
+  className: casual.string,
+  htmlFor: casual.string,
+  key: casual.string
+});
+
 const fakeLinks = (): MockLink[] =>
   new Array(ITERATION_SIZE).fill(null).map(fakeLink);
 const fakeButtons = (): MockButton[] =>
   new Array(ITERATION_SIZE).fill(null).map(fakeButton);
+const fakeLabels = (): MockLabel[] =>
+  new Array(ITERATION_SIZE).fill(null).map(fakeLabel);
 
 function simulateInputChange(
   wrapper: ReactWrapper,
@@ -97,6 +110,7 @@ const isDOMTypeElement = (typeElement): boolean => {
 export {
   fakeLinks,
   fakeButtons,
+  fakeLabels,
   simulateInputChange,
   isDOMTypeElement,
   isComponent
