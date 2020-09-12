@@ -1,7 +1,6 @@
 import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
-import { MemoryRouter } from "react-router-dom";
 
 import { Link } from "./Link";
 import { fakeLinks } from "../../utils/testUtils/testUtils";
