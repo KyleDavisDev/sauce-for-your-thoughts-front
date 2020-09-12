@@ -14,6 +14,12 @@ describe("<Label />", () => {
     expect(wrapper).toBeTruthy();
   });
 
+  it("matches snapshot", () => {
+    const wrapper = enzyme.shallow(<Label>""</Label>);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it("renders correct children", () => {
     const wrapper = enzyme.shallow(<Label>abc</Label>);
 
