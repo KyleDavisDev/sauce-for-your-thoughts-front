@@ -32,4 +32,13 @@ describe("<Label />", () => {
 
     expect(wrapper.props().htmlFor).toEqual(htmlFor);
   });
+
+  it("adds extra class to element", () => {
+    const extraClassName = "abasd  sadfffas 11sadf";
+    const wrapper = enzyme.shallow(
+      <Label className={extraClassName}>abc</Label>
+    );
+
+    expect(wrapper.props().className).toContain(extraClassName);
+  });
 });
