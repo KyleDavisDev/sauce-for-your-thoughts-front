@@ -2,7 +2,7 @@ import * as React from "react";
 
 import styled from "../../theme/styled-components";
 
-interface LabelProps {
+export interface LabelProps {
   children: string | JSX.Element | Array<string | JSX.Element>;
   className?: string;
   htmlFor?: string;
