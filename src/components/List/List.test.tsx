@@ -51,10 +51,11 @@ describe("<List />", () => {
     });
   });
 
-  // it("renders correct list item link", () => {
-  //   wrapper.find("li").map((ind, node) => {
-  //     // li -> a
-  //     expect(node.children[0].attribs.href).toEqual(items[ind].link || "#");
-  //   });
-  // });
+  it("concatinates className onto parent", () => {
+    mockLists.forEach((mockList: MockList) => {
+      const wrapper = enzyme.shallow(<List {...mockList}></List>);
+
+      expect(wrapper.find("div").prop("className")).toEqual(mockList.className);
+    });
+  });
 });
