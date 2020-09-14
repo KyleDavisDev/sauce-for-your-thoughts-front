@@ -25,9 +25,13 @@ describe("<Label />", () => {
   });
 
   it("renders correct children", () => {
-    const wrapper = enzyme.shallow(<Label>abc</Label>);
+    mockLabels.forEach((mockLabel: MockLabel) => {
+      const wrapper = enzyme.shallow(
+        <Label {...mockLabel}>{mockLabel.children}</Label>
+      );
 
-    expect(wrapper.props().children).toEqual("abc");
+      expect(wrapper.props().children).toEqual(mockLabel.children);
+    });
   });
 
   it("renders correct htmlFor tag", () => {
