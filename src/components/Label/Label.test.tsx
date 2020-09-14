@@ -2,10 +2,10 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 
 import Label from "./Label";
-// import { fakeLabels } from "../../utils/testUtils/testUtils";
-// import { MockLabel } from "../../utils/testUtils/types";
+import { fakeLabels } from "../../utils/testUtils/testUtils";
+import { MockLabel } from "../../utils/testUtils/types";
 
-// const mockLabels = fakeLabels();
+const mockLabels = fakeLabels();
 
 describe("<Label />", () => {
   it("renders", () => {
@@ -15,9 +15,15 @@ describe("<Label />", () => {
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.shallow(<Label>""</Label>);
+    mockLabels.forEach((mockLabel: MockLabel) => {
+      const wrapper = enzyme.shallow(
+        <Label {...mockLabel} key={mockLabel.id}>
+          {mockLabel.children}
+        </Label>
+      );
 
-    expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   it("renders correct children", () => {
