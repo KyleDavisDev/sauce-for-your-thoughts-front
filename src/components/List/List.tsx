@@ -1,7 +1,6 @@
 import * as React from "react";
-import * as shortid from "shortid";
-import { Link } from "../Link/Link";
 
+import { Link } from "../Link/Link";
 import { StyledDiv, StyledH5, StyledUl } from "./ListStyle";
 
 export interface ListProps {
@@ -10,6 +9,7 @@ export interface ListProps {
   items: Array<{
     link?: string;
     text: string;
+    id: string;
   }>;
 }
 
@@ -20,7 +20,7 @@ const List: React.FunctionComponent<ListProps> = props => {
       <StyledUl>
         {props.items.map(item => {
           return (
-            <li key={shortid.generate()}>
+            <li key={item.id}>
               <Link href={item.link || "#"}>{item.text}</Link>
             </li>
           );
