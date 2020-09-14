@@ -24,8 +24,8 @@ const fakeLink = (): MockLink => ({
 
 const fakeJSXElement = (): JSX.Element => {
   return casual.random_element([
-    React.createElement("div", null, casual.string),
-    React.createElement("span", null, casual.string)
+    React.createElement("div", { key: casual.uuid }, casual.string),
+    React.createElement("span", { key: casual.uuid }, casual.string)
   ]);
 };
 
@@ -50,14 +50,14 @@ const fakeCard = (): MockCard => ({
 });
 
 const fakeLabel = (): MockLabel => ({
+  id: casual.uuid,
   children: casual.random_element([
     casual.string,
     fakeJSXElement(),
     [casual.string, fakeJSXElement()]
   ]),
   className: casual.string,
-  htmlFor: casual.string,
-  key: casual.string
+  htmlFor: casual.uuid
 });
 
 const fakeLinks = (): MockLink[] =>
