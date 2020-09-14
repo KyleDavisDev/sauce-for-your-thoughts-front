@@ -16,6 +16,14 @@ describe("<List />", () => {
     });
   });
 
+  it("matches snapshot", () => {
+    mockLists.forEach((mockList: MockList) => {
+      const wrapper = enzyme.shallow(<List {...mockList}></List>);
+
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
   // it("renders correct title", () => {
   //   expect(wrapper.find("h5").text()).toEqual(title[0]);
 
