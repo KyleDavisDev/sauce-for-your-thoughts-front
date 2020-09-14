@@ -24,17 +24,13 @@ describe("<List />", () => {
     });
   });
 
-  // it("renders correct title", () => {
-  //   expect(wrapper.find("h5").text()).toEqual(title[0]);
+  it("renders correct title", () => {
+    mockLists.forEach((mockList: MockList) => {
+      const wrapper = enzyme.shallow(<List {...mockList}></List>);
 
-  //   // Update title
-  //   wrapper = enzyme.render(
-  //     <MemoryRouter>
-  //       <List title={title[1]} items={items} />
-  //     </MemoryRouter>
-  //   );
-  //   expect(wrapper.find("h5").text()).toEqual(title[1]);
-  // });
+      expect(wrapper.find("h5").text()).toEqual(mockList.title);
+    });
+  });
 
   // it("renders correct number of list items", () => {
   //   expect(wrapper.find("li").length).toEqual(items.length);
