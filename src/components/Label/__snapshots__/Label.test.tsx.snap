@@ -2,90 +2,102 @@
 
 exports[`<Label /> matches snapshot 1`] = `
 <styled.label
-  className="sint officiis qui dignissimos dolore qui voluptatem"
-  htmlFor="ab8c879c-a27b-4158-af4a-46bc68196e8d"
+  className="nulla aut sunt est rerum at sint"
+  htmlFor="3d4e59ed-eec4-406f-9f73-2a072edb7370"
 >
-  reprehenderit soluta non omnis consequatur enim quia
+  <div
+    key="2d9e9bcc-f46a-4516-8896-4ffea6ae8c41"
+  >
+    autem et modi tenetur amet modi reprehenderit
+  </div>
 </styled.label>
 `;
 
 exports[`<Label /> matches snapshot 2`] = `
 <styled.label
-  className="assumenda et incidunt aut distinctio molestias autem"
-  htmlFor="b821132a-e032-4630-b26c-48a8ec56811d"
+  className="voluptatem est eius dolorem amet quia quia"
+  htmlFor="0eb19c9d-f4c7-45c8-8ec3-9a2d7cbe5515"
 >
-  assumenda animi non quis quis nobis repudiandae
-  <span
-    key="3ec38a2d-6cbe-4551-9743-6ce204569106"
+  <div
+    key="db27b158-9f4a-456b-b681-86e8d13d38d9"
   >
-    enim sint voluptatem porro ut est sed
-  </span>
+    quos eum voluptate sit saepe assumenda deserunt
+  </div>
 </styled.label>
 `;
 
 exports[`<Label /> matches snapshot 3`] = `
 <styled.label
-  className="omnis rem officiis et placeat ipsum assumenda"
-  htmlFor="8cbc8c96-2871-434f-a131-91379b535aac"
+  className="molestiae quas omnis qui illo excepturi esse"
+  htmlFor="abcd03b1-37fd-43a9-b071-bf8f05fde2b6"
 >
-  impedit omnis quo aut quia cumque architecto
   <div
-    key="37fd3a9e-171a-4f8f-85fd-f2b658877621"
+    key="14569106-585b-44a3-bfc8-21a85a821132"
   >
-    delectus molestias ut distinctio molestias placeat exercitationem
+    et ut voluptatem quia dolor eum velit
   </div>
 </styled.label>
 `;
 
 exports[`<Label /> matches snapshot 4`] = `
 <styled.label
-  className="quia nostrum molestiae quae non doloremque voluptas"
-  htmlFor="d773cff1-2b27-4d1f-8577-15cf76fdd156"
+  className="ea necessitatibus sed ea ab doloremque est"
+  htmlFor="5880acd5-70bf-4183-af87-118b580816d1"
 >
-  <div
-    key="428ee790-fc9d-4ed2-a035-e0a7ae53c8fe"
+  voluptatum id porro ea numquam consequatur et
+  <span
+    key="b1528ee7-80ec-49de-b290-25f0a7ae53c8"
   >
-    dolores voluptas placeat vitae ut facere recusandae
-  </div>
+    sapiente molestiae dolores voluptas placeat vitae ut
+  </span>
 </styled.label>
 `;
 
 exports[`<Label /> matches snapshot 5`] = `
 <styled.label
-  className="ratione saepe id officia pariatur et tenetur"
-  htmlFor="4301a864-e45b-4811-b5aa-1be83c82f655"
+  className="nihil porro suscipit sit eos maxime at"
+  htmlFor="eef9af76-3f20-4c2b-b7eb-701ae5069766"
 >
-  et provident repellat et qui veniam quasi
+  <span
+    key="1b95891f-884c-4e2c-84c1-45c133c18bab"
+  >
+    itaque qui dolorem voluptatem laboriosam iusto et
+  </span>
 </styled.label>
 `;
 
 exports[`<Label /> matches snapshot 6`] = `
 <styled.label
-  className="velit voluptatem pariatur blanditiis voluptatem laboriosam sed"
-  htmlFor="aef0e4ea-3f79-4915-92ac-af4845078909"
+  className="eius quod a nisi et est ab"
+  htmlFor="401d4989-5f93-498f-97b2-3148391af1cf"
 >
-  et consectetur animi non reiciendis iure laudantium
+  <div
+    key="b572ac0f-b809-4cde-a7d4-77cee5c50a83"
+  >
+    et optio laborum officia iure eius veritatis
+  </div>
 </styled.label>
 `;
 
 exports[`<Label /> matches snapshot 7`] = `
 <styled.label
-  className="ab ut unde ut beatae similique totam"
-  htmlFor="2dc77c69-0f59-402e-b9b1-3a5cf867b5f6"
+  className="aliquid iure eos expedita assumenda eligendi aut"
+  htmlFor="58450789-1989-4db8-a776-5bbc9a7d810b"
 >
-  tempore facilis rerum unde minima veritatis iste
+  quas consequuntur dolores nihil eligendi sunt aliquid
 </styled.label>
 `;
 
 exports[`<Label /> matches snapshot 8`] = `
 <styled.label
-  className="quaerat eos aut itaque ut quis incidunt"
-  htmlFor="9c5d6a89-1c81-4a28-a8c0-c662fecdd173"
+  className="cum qui aut natus aperiam est est"
+  htmlFor="4c303851-873d-4c77-b691-e5902ed9b12a"
 >
-  <div
-    key="194186c0-8734-4d48-aa9b-e8cbf9c3d018"
+  ipsum et explicabo vel quaerat fuga enim
+  <span
+    key="0c57ad21-616b-41e7-8168-f8dfd2abfc8d"
   >
-    quo earum et nam rem adipisci ut
-  </div>
+    dolores incidunt est nostrum quae et consequatur
+  </span>
 </styled.label>
 `;
