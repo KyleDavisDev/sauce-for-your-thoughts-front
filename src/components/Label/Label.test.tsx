@@ -17,9 +17,7 @@ describe("<Label />", () => {
   it("matches snapshot", () => {
     mockLabels.forEach((mockLabel: MockLabel) => {
       const wrapper = enzyme.shallow(
-        <Label {...mockLabel} key={mockLabel.id}>
-          {mockLabel.children}
-        </Label>
+        <Label {...mockLabel}>{mockLabel.children}</Label>
       );
 
       expect(wrapper).toMatchSnapshot();
