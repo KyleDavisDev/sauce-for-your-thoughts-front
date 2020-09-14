@@ -4,7 +4,7 @@ import { Link } from "../Link/Link";
 export const StyledDiv = styled.div`
   padding: 10px;
 `;
-StyledDiv.displayName = "StyledDiv";
+StyledDiv.displayName = "div";
 
 export const StyledH5 = styled.h5`
   margin: 0 0 0.5em 0;
@@ -13,7 +13,7 @@ export const StyledH5 = styled.h5`
   text-transform: uppercase;
   font-size: ${props => props.theme.scaleH5};
 `;
-StyledH5.displayName = "StyledH5";
+StyledH5.displayName = "h5";
 
 export const StyledUl = styled.ul`
   margin: 0px;
@@ -32,4 +32,4 @@ export const StyledUl = styled.ul`
     }
   }
 `;
-StyledUl.displayName = "StyledUl";
+StyledUl.displayName = "ul";
