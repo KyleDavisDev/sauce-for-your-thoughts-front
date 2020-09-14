@@ -20,7 +20,7 @@ const List: React.FunctionComponent<ListProps> = props => {
       <StyledUl>
         {props.items.map(item => {
           return (
-            <li key={item.id}>
+            <li key={item.id} id={item.id}>
               <Link href={item.link || "#"}>{item.text}</Link>
             </li>
           );
