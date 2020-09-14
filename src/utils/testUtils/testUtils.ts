@@ -60,6 +60,7 @@ const fakeLabel = (): MockLabel => ({
 });
 
 const fakeList = (): MockList => ({
+  className: casual.random_element([undefined, casual.string]),
   title: casual.string,
   items: new Array(casual.integer(0, 25))
     .fill(null)
