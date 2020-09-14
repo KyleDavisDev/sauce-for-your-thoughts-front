@@ -50,7 +50,6 @@ const fakeCard = (): MockCard => ({
 });
 
 const fakeLabel = (): MockLabel => ({
-  id: casual.uuid,
   children: casual.random_element([
     casual.string,
     fakeJSXElement(),
