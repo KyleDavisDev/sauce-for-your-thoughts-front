@@ -40,12 +40,16 @@ describe("<List />", () => {
     });
   });
 
-  // it("renders correct list item texts", () => {
-  //   wrapper.find("li").map((ind, node) => {
-  //     // li -> a -> text -> data (same as text())
-  //     expect(node.children[0].children[0].data).toEqual(items[ind].text);
-  //   });
-  // });
+  it("renders correct id on list items", () => {
+    mockLists.forEach((mockList: MockList) => {
+      const wrapper = enzyme.shallow(<List {...mockList}></List>);
+
+      // Loop through each li and verify id was mapped correctly
+      wrapper.find("li").forEach((listItem, ind) => {
+        expect(listItem.props().id).toEqual(mockList.items[ind].id);
+      });
+    });
+  });
 
   // it("renders correct list item link", () => {
   //   wrapper.find("li").map((ind, node) => {
