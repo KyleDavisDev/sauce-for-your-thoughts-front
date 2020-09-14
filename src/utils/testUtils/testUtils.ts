@@ -1,7 +1,7 @@
 import * as React from "react";
 import casual from "casual";
 import { ReactWrapper } from "enzyme";
-import { MockLink, MockButton, MockCard, MockLabel } from "./types";
+import { MockLink, MockButton, MockCard, MockLabel, MockList } from "./types";
 
 const ITERATION_SIZE = 8;
 const REACT_REGEX = /react(\d+)?./i;
@@ -59,12 +59,21 @@ const fakeLabel = (): MockLabel => ({
   htmlFor: casual.uuid
 });
 
+const fakeList = (): MockList => ({
+  title: casual.string,
+  items: new Array(casual.integer(0, 25))
+    .fill(null)
+    .map(() => ({ link: casual.url, text: casual.text }))
+});
+
 const fakeLinks = (): MockLink[] =>
   new Array(ITERATION_SIZE).fill(null).map(fakeLink);
 const fakeButtons = (): MockButton[] =>
   new Array(ITERATION_SIZE).fill(null).map(fakeButton);
 const fakeLabels = (): MockLabel[] =>
   new Array(ITERATION_SIZE).fill(null).map(fakeLabel);
+const fakeLists = (): MockList[] =>
+  new Array(ITERATION_SIZE).fill(null).map(fakeList);
 
 function simulateInputChange(
   wrapper: ReactWrapper,
@@ -110,6 +119,7 @@ export {
   fakeLinks,
   fakeButtons,
   fakeLabels,
+  fakeLists,
   simulateInputChange,
   isDOMTypeElement,
   isComponent
