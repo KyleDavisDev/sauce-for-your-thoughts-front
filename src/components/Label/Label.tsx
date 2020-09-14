@@ -6,7 +6,6 @@ export interface LabelProps {
   children: string | JSX.Element | Array<string | JSX.Element>;
   className?: string;
   htmlFor?: string;
-  key?: string;
 }
 
 const StyledLabel = styled.label`
@@ -18,10 +17,10 @@ const StyledLabel = styled.label`
 `;
 
 const Label: React.FC<LabelProps> = props => {
-  const { htmlFor, className, key, children } = props;
+  const { htmlFor, className, children } = props;
 
   return (
-    <StyledLabel htmlFor={htmlFor} className={className} key={key}>
+    <StyledLabel htmlFor={htmlFor} className={className}>
       {children}
     </StyledLabel>
   );
