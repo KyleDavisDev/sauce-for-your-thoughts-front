@@ -1,7 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Label /> matches snapshot 1`] = `
-<styled.label>
-  ""
+<styled.label
+  className="sint officiis qui dignissimos dolore qui voluptatem"
+  htmlFor="ab8c879c-a27b-4158-af4a-46bc68196e8d"
+>
+  reprehenderit soluta non omnis consequatur enim quia
+</styled.label>
+`;
+
+exports[`<Label /> matches snapshot 2`] = `
+<styled.label
+  className="assumenda et incidunt aut distinctio molestias autem"
+  htmlFor="b821132a-e032-4630-b26c-48a8ec56811d"
+>
+  assumenda animi non quis quis nobis repudiandae
+  <span
+    key="3ec38a2d-6cbe-4551-9743-6ce204569106"
+  >
+    enim sint voluptatem porro ut est sed
+  </span>
+</styled.label>
+`;
+
+exports[`<Label /> matches snapshot 3`] = `
+<styled.label
+  className="omnis rem officiis et placeat ipsum assumenda"
+  htmlFor="8cbc8c96-2871-434f-a131-91379b535aac"
+>
+  impedit omnis quo aut quia cumque architecto
+  <div
+    key="37fd3a9e-171a-4f8f-85fd-f2b658877621"
+  >
+    delectus molestias ut distinctio molestias placeat exercitationem
+  </div>
+</styled.label>
+`;
+
+exports[`<Label /> matches snapshot 4`] = `
+<styled.label
+  className="quia nostrum molestiae quae non doloremque voluptas"
+  htmlFor="d773cff1-2b27-4d1f-8577-15cf76fdd156"
+>
+  <div
+    key="428ee790-fc9d-4ed2-a035-e0a7ae53c8fe"
+  >
+    dolores voluptas placeat vitae ut facere recusandae
+  </div>
+</styled.label>
+`;
+
+exports[`<Label /> matches snapshot 5`] = `
+<styled.label
+  className="ratione saepe id officia pariatur et tenetur"
+  htmlFor="4301a864-e45b-4811-b5aa-1be83c82f655"
+>
+  et provident repellat et qui veniam quasi
+</styled.label>
+`;
+
+exports[`<Label /> matches snapshot 6`] = `
+<styled.label
+  className="velit voluptatem pariatur blanditiis voluptatem laboriosam sed"
+  htmlFor="aef0e4ea-3f79-4915-92ac-af4845078909"
+>
+  et consectetur animi non reiciendis iure laudantium
+</styled.label>
+`;
+
+exports[`<Label /> matches snapshot 7`] = `
+<styled.label
+  className="ab ut unde ut beatae similique totam"
+  htmlFor="2dc77c69-0f59-402e-b9b1-3a5cf867b5f6"
+>
+  tempore facilis rerum unde minima veritatis iste
+</styled.label>
+`;
+
+exports[`<Label /> matches snapshot 8`] = `
+<styled.label
+  className="quaerat eos aut itaque ut quis incidunt"
+  htmlFor="9c5d6a89-1c81-4a28-a8c0-c662fecdd173"
+>
+  <div
+    key="194186c0-8734-4d48-aa9b-e8cbf9c3d018"
+  >
+    quo earum et nam rem adipisci ut
+  </div>
 </styled.label>
 `;
