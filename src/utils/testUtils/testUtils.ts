@@ -63,7 +63,7 @@ const fakeList = (): MockList => ({
   title: casual.string,
   items: new Array(casual.integer(0, 25))
     .fill(null)
-    .map(() => ({ link: casual.url, text: casual.text }))
+    .map(() => ({ link: casual.url, text: casual.text, id: casual.uuid }))
 });
 
 const fakeLinks = (): MockLink[] =>
