@@ -35,10 +35,13 @@ describe("<Label />", () => {
   });
 
   it("renders correct htmlFor tag", () => {
-    const htmlFor = "abc";
-    const wrapper = enzyme.shallow(<Label htmlFor={htmlFor}>abc</Label>);
+    mockLabels.forEach((mockLabel: MockLabel) => {
+      const wrapper = enzyme.shallow(
+        <Label {...mockLabel}>{mockLabel.children}</Label>
+      );
 
-    expect(wrapper.props().htmlFor).toEqual(htmlFor);
+      expect(wrapper.props().htmlFor).toEqual(mockLabel.htmlFor);
+    });
   });
 
   it("adds extra class to element", () => {
