@@ -45,11 +45,12 @@ describe("<Label />", () => {
   });
 
   it("adds extra class to element", () => {
-    const extraClassName = "abasd  sadfffas 11sadf";
-    const wrapper = enzyme.shallow(
-      <Label className={extraClassName}>abc</Label>
-    );
+    mockLabels.forEach((mockLabel: MockLabel) => {
+      const wrapper = enzyme.shallow(
+        <Label {...mockLabel}>{mockLabel.children}</Label>
+      );
 
-    expect(wrapper.props().className).toContain(extraClassName);
+      expect(wrapper.props().className).toContain(mockLabel.className);
+    });
   });
 });
