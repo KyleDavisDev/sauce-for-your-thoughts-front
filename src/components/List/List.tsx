@@ -4,7 +4,7 @@ import { Link } from "../Link/Link";
 
 import { StyledDiv, StyledH5, StyledUl } from "./ListStyle";
 
-interface ListProps {
+export interface ListProps {
   className?: string;
   title: string;
   items: Array<{
