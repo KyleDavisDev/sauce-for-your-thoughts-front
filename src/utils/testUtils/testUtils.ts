@@ -3,7 +3,7 @@ import casual from "casual";
 import { ReactWrapper } from "enzyme";
 import { MockLink, MockButton, MockCard, MockLabel, MockList } from "./types";
 
-const ITERATION_SIZE = 8;
+export const ITERATION_SIZE = 8;
 const REACT_REGEX = /react(\d+)?./i;
 
 // seed it so we get consistent results
@@ -22,7 +22,7 @@ const fakeLink = (): MockLink => ({
     : undefined
 });
 
-const fakeJSXElement = (): JSX.Element => {
+export const fakeJSXElement = (): JSX.Element => {
   return casual.random_element([
     React.createElement("div", { key: casual.uuid }, casual.string),
     React.createElement("span", { key: casual.uuid }, casual.string)
@@ -117,6 +117,7 @@ const isDOMTypeElement = (typeElement): boolean => {
 };
 
 export {
+  casual,
   fakeLinks,
   fakeButtons,
   fakeLabels,
