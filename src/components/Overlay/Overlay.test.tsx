@@ -38,12 +38,13 @@ describe("<Overlay />", () => {
   });
 
   it("adds classes to parent", () => {
-    const tmpClassName = "asdfasdfads asdjfv kk211 ps--a ";
-    const wrapper = enzyme.shallow(
-      <Overlay className={tmpClassName}>123</Overlay>
-    );
+    mockOverlays.forEach((mockOverlay: IOverlayProps) => {
+      const wrapper = enzyme.shallow(
+        <Overlay {...mockOverlay}>{mockOverlay.children}</Overlay>
+      );
 
-    expect(wrapper.props().className).toContain(tmpClassName);
+      expect(wrapper.props().className).toContain(mockOverlay.className);
+    });
   });
 
   it("contains expected children", () => {
