@@ -24,4 +24,16 @@ describe("<Overlay />", () => {
 
     expect(wrapper.props().className).toContain(tmpClassName);
   });
+
+  it("contains expected children", () => {
+    const tmpChildren = (
+      <>
+        <div>howdy</div>
+        <span>hi</span>
+      </>
+    );
+    const wrapper = enzyme.shallow(<Overlay>{tmpChildren}</Overlay>);
+
+    expect(wrapper.props().children).toEqual(tmpChildren);
+  });
 });
