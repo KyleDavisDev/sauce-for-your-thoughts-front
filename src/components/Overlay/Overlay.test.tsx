@@ -48,14 +48,12 @@ describe("<Overlay />", () => {
   });
 
   it("contains expected children", () => {
-    const tmpChildren = (
-      <>
-        <div>howdy</div>
-        <span>hi</span>
-      </>
-    );
-    const wrapper = enzyme.shallow(<Overlay>{tmpChildren}</Overlay>);
+    mockOverlays.forEach((mockOverlay: IOverlayProps) => {
+      const wrapper = enzyme.shallow(
+        <Overlay {...mockOverlay}>{mockOverlay.children}</Overlay>
+      );
 
-    expect(wrapper.props().children).toEqual(tmpChildren);
+      expect(wrapper.props().children).toEqual(mockOverlay.children);
+    });
   });
 });
