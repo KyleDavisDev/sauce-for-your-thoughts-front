@@ -2,7 +2,7 @@ import * as React from "react";
 
 import styled from "../../theme/styled-components";
 
-interface ArticleProps {
+export interface ArticleProps {
   children: any;
   className?: string;
   size?: "sm" | "md" | "lg";
