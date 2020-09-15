@@ -12,7 +12,7 @@ const Overlay: React.FunctionComponent<IOverlayProps> = props => {
 
   return (
     <div className={className}>
-      <div id="overlay" />
+      <div />
       {children}
     </div>
   );
