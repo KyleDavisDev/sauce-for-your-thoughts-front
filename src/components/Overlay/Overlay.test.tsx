@@ -15,4 +15,13 @@ describe("<Overlay />", () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it("adds classes to parent", () => {
+    const tmpClassName = "asdfasdfads asdjfv kk211 ps--a ";
+    const wrapper = enzyme.shallow(
+      <Overlay className={tmpClassName}>123</Overlay>
+    );
+
+    expect(wrapper.props().className).toContain(tmpClassName);
+  });
 });
