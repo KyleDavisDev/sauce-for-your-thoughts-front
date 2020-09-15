@@ -18,12 +18,12 @@ const mockArticles = new Array(ITERATION_SIZE).fill(null).map(mockArticle);
 
 describe("<Article>", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(
-      <Article>
-        <span>hello!</span>
-      </Article>
-    );
-    expect(wrapper).toBeTruthy();
+    mockArticles.forEach(mockArticle => {
+      const wrapper = enzyme.shallow(
+        <Article {...mockArticle}>{mockArticle.children}</Article>
+      );
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
