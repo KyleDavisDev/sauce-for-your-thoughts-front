@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Overlay /> matches snapshot 1`] = `
+<Overlay
+  className="sc-AxjAm lftuZY"
+>
+  123
+</Overlay>
+`;
