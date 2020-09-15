@@ -9,7 +9,7 @@ import {
   ITERATION_SIZE
 } from "../../utils/testUtils/testUtils";
 
-const fakeLink = (): LinkProps => ({
+const mockLink = (): LinkProps => ({
   children: casual.random_element([
     casual.string,
     fakeJSXElement(),
@@ -22,7 +22,7 @@ const fakeLink = (): LinkProps => ({
     : undefined
 });
 
-const mockLinks = new Array(ITERATION_SIZE).fill(null).map(fakeLink);
+const mockLinks = new Array(ITERATION_SIZE).fill(null).map(mockLink);
 
 describe("<Link>", () => {
   it("renders", () => {
@@ -31,7 +31,7 @@ describe("<Link>", () => {
   });
 
   it("matches snapshot", () => {
-    mockLinks.forEach((mockLink: MockLink) => {
+    mockLinks.forEach((mockLink: LinkProps) => {
       const wrapper = enzyme.shallow(
         <Link {...mockLink}>{mockLink.children}</Link>
       );
@@ -41,7 +41,7 @@ describe("<Link>", () => {
   });
 
   it("renders correct children", () => {
-    mockLinks.forEach((mockLink: MockLink) => {
+    mockLinks.forEach((mockLink: LinkProps) => {
       const wrapper = enzyme.mount(
         <Link {...mockLink}>{mockLink.children}</Link>
       );
@@ -51,7 +51,7 @@ describe("<Link>", () => {
   });
 
   it("renders correct link", () => {
-    mockLinks.forEach((mockLink: MockLink) => {
+    mockLinks.forEach((mockLink: LinkProps) => {
       const wrapper = enzyme.mount(
         <Link {...mockLink}>{mockLink.children}</Link>
       );
@@ -61,7 +61,7 @@ describe("<Link>", () => {
   });
 
   it("accepts additional classname", () => {
-    mockLinks.forEach((mockLink: MockLink) => {
+    mockLinks.forEach((mockLink: LinkProps) => {
       if (!mockLink.className) return;
 
       const wrapper = enzyme.mount(
@@ -73,7 +73,7 @@ describe("<Link>", () => {
   });
 
   it("render outward link if asked otherwise default", () => {
-    mockLinks.forEach((mockLink: MockLink) => {
+    mockLinks.forEach((mockLink: LinkProps) => {
       const wrapper = enzyme.mount(
         <Link {...mockLink}>{mockLink.children}</Link>
       );
