@@ -2,12 +2,25 @@ import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
 
-import { Button } from "./Button";
-import { fakeButtons } from "../../utils/testUtils/testUtils";
-import { MockButton } from "../../utils/testUtils/types";
+import { Button, ButtonProps } from "./Button";
+import {
+  casual,
+  fakeJSXElement,
+  ITERATION_SIZE
+} from "../../utils/testUtils/testUtils";
+
+const mockButton = (): ButtonProps => ({
+  children: casual.random_element([fakeJSXElement(), casual.text]),
+  displayType: casual.random_element(["outline", "solid"]),
+  className: casual.string,
+  type: casual.random_element(["button", "submit", "reset"]),
+  onClick: jest.fn(),
+  style: undefined,
+  disabled: casual.boolean
+});
 
 // generate series of mock buttons
-const mockButtons = fakeButtons();
+const mockButtons = new Array(ITERATION_SIZE).fill(null).map(mockButton);
 
 describe("<Button>", () => {
   it("renders", () => {
@@ -16,7 +29,7 @@ describe("<Button>", () => {
   });
 
   it("matches snapshot", () => {
-    mockButtons.forEach(mockButton => {
+    mockButtons.forEach((mockButton: ButtonProps) => {
       const wrapper = enzyme.shallow(
         <Button {...mockButton}>{mockButton.children}</Button>
       );
@@ -26,7 +39,7 @@ describe("<Button>", () => {
   });
 
   it("renders correct text for non-array children", () => {
-    mockButtons.forEach((mockButton: MockButton) => {
+    mockButtons.forEach((mockButton: ButtonProps) => {
       const wrapper = enzyme.mount(
         <Button {...mockButton}>{mockButton.children}</Button>
       );

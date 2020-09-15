@@ -16,16 +16,6 @@ export const fakeJSXElement = (): JSX.Element => {
   ]);
 };
 
-const fakeButton = (): MockButton => ({
-  children: casual.random_element([fakeJSXElement(), casual.text]),
-  displayType: casual.random_element(["outline", "solid"]),
-  className: casual.string,
-  type: casual.random_element(["button", "submit", "reset"]),
-  onClick: jest.fn(),
-  style: undefined,
-  disabled: casual.boolean
-});
-
 const fakeCard = (): MockCard => ({
   title: casual.string,
   description: casual.string,
@@ -54,8 +44,6 @@ const fakeList = (): MockList => ({
     .map(() => ({ link: casual.url, text: casual.text, id: casual.uuid }))
 });
 
-const fakeButtons = (): MockButton[] =>
-  new Array(ITERATION_SIZE).fill(null).map(fakeButton);
 const fakeLabels = (): MockLabel[] =>
   new Array(ITERATION_SIZE).fill(null).map(fakeLabel);
 const fakeLists = (): MockList[] =>
@@ -103,7 +91,6 @@ const isDOMTypeElement = (typeElement): boolean => {
 
 export {
   casual,
-  fakeButtons,
   fakeLabels,
   fakeLists,
   simulateInputChange,
