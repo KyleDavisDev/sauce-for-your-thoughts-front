@@ -1,7 +1,7 @@
 import * as React from "react";
 import casual from "casual";
 import { ReactWrapper } from "enzyme";
-import { MockButton, MockCard, MockLabel, MockList } from "./types";
+import { MockCard } from "./types";
 
 export const ITERATION_SIZE = 8;
 const REACT_REGEX = /react(\d+)?./i;
@@ -25,17 +25,6 @@ const fakeCard = (): MockCard => ({
   className: casual.string,
   anchorText: casual.string
 });
-
-const fakeList = (): MockList => ({
-  className: casual.random_element([undefined, casual.string]),
-  title: casual.string,
-  items: new Array(casual.integer(0, 25))
-    .fill(null)
-    .map(() => ({ link: casual.url, text: casual.text, id: casual.uuid }))
-});
-
-const fakeLists = (): MockList[] =>
-  new Array(ITERATION_SIZE).fill(null).map(fakeList);
 
 function simulateInputChange(
   wrapper: ReactWrapper,
@@ -77,10 +66,4 @@ const isDOMTypeElement = (typeElement): boolean => {
   return isElement(typeElement) && typeof typeElement.type === "string";
 };
 
-export {
-  casual,
-  fakeLists,
-  simulateInputChange,
-  isDOMTypeElement,
-  isComponent
-};
+export { casual, simulateInputChange, isDOMTypeElement, isComponent };
