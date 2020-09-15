@@ -1,7 +1,20 @@
 import * as React from "react";
 import * as enzyme from "enzyme";
 
-import { Article } from "./Article";
+import { Article, ArticleProps } from "./Article";
+import {
+  casual,
+  fakeJSXElement,
+  ITERATION_SIZE
+} from "../../utils/testUtils/testUtils";
+
+const mockArticle = (): ArticleProps => ({
+  children: fakeJSXElement(),
+  className: casual.random_element([undefined, casual.string]),
+  size: casual.random_element(["sm", "md", "lg", undefined])
+});
+
+const mockArticles = new Array(ITERATION_SIZE).fill(null).map(mockArticle);
 
 describe("<Article>", () => {
   it("renders", () => {
