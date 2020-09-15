@@ -26,16 +26,6 @@ const fakeCard = (): MockCard => ({
   anchorText: casual.string
 });
 
-const fakeLabel = (): MockLabel => ({
-  children: casual.random_element([
-    casual.string,
-    fakeJSXElement(),
-    [casual.string, fakeJSXElement()]
-  ]),
-  className: casual.string,
-  htmlFor: casual.uuid
-});
-
 const fakeList = (): MockList => ({
   className: casual.random_element([undefined, casual.string]),
   title: casual.string,
@@ -44,8 +34,6 @@ const fakeList = (): MockList => ({
     .map(() => ({ link: casual.url, text: casual.text, id: casual.uuid }))
 });
 
-const fakeLabels = (): MockLabel[] =>
-  new Array(ITERATION_SIZE).fill(null).map(fakeLabel);
 const fakeLists = (): MockList[] =>
   new Array(ITERATION_SIZE).fill(null).map(fakeList);
 
@@ -91,7 +79,6 @@ const isDOMTypeElement = (typeElement): boolean => {
 
 export {
   casual,
-  fakeLabels,
   fakeLists,
   simulateInputChange,
   isDOMTypeElement,

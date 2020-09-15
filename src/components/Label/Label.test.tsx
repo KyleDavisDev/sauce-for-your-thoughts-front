@@ -1,11 +1,24 @@
 import * as React from "react";
 import * as enzyme from "enzyme";
 
-import Label from "./Label";
-import { fakeLabels } from "../../utils/testUtils/testUtils";
-import { MockLabel } from "../../utils/testUtils/types";
+import Label, { LabelProps } from "./Label";
+import {
+  casual,
+  fakeJSXElement,
+  ITERATION_SIZE
+} from "../../utils/testUtils/testUtils";
 
-const mockLabels = fakeLabels();
+const mockLabel = (): LabelProps => ({
+  children: casual.random_element([
+    casual.string,
+    fakeJSXElement(),
+    [casual.string, fakeJSXElement()]
+  ]),
+  className: casual.string,
+  htmlFor: casual.uuid
+});
+
+const mockLabels = new Array(ITERATION_SIZE).fill(null).map(mockLabel);
 
 describe("<Label />", () => {
   it("renders", () => {
@@ -15,7 +28,7 @@ describe("<Label />", () => {
   });
 
   it("matches snapshot", () => {
-    mockLabels.forEach((mockLabel: MockLabel) => {
+    mockLabels.forEach((mockLabel: LabelProps) => {
       const wrapper = enzyme.shallow(
         <Label {...mockLabel}>{mockLabel.children}</Label>
       );
@@ -25,7 +38,7 @@ describe("<Label />", () => {
   });
 
   it("renders correct children", () => {
-    mockLabels.forEach((mockLabel: MockLabel) => {
+    mockLabels.forEach((mockLabel: LabelProps) => {
       const wrapper = enzyme.shallow(
         <Label {...mockLabel}>{mockLabel.children}</Label>
       );
@@ -35,7 +48,7 @@ describe("<Label />", () => {
   });
 
   it("renders correct htmlFor tag", () => {
-    mockLabels.forEach((mockLabel: MockLabel) => {
+    mockLabels.forEach((mockLabel: LabelProps) => {
       const wrapper = enzyme.shallow(
         <Label {...mockLabel}>{mockLabel.children}</Label>
       );
@@ -45,7 +58,7 @@ describe("<Label />", () => {
   });
 
   it("adds extra class to element", () => {
-    mockLabels.forEach((mockLabel: MockLabel) => {
+    mockLabels.forEach((mockLabel: LabelProps) => {
       const wrapper = enzyme.shallow(
         <Label {...mockLabel}>{mockLabel.children}</Label>
       );
