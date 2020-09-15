@@ -18,9 +18,13 @@ const mockOverlays = new Array(ITERATION_SIZE).fill(null).map(mockOverlay);
 
 describe("<Overlay />", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(<Overlay>123</Overlay>);
+    mockOverlays.forEach((mockOverlay: IOverlayProps) => {
+      const wrapper = enzyme.shallow(
+        <Overlay {...mockOverlay}>{mockOverlay.children}</Overlay>
+      );
 
-    expect(wrapper).toBeTruthy();
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
