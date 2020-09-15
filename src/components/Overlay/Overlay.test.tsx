@@ -1,7 +1,20 @@
 import * as React from "react";
 import * as enzyme from "enzyme";
 
-import { Overlay } from "./Overlay";
+import { IOverlayProps, Overlay } from "./Overlay";
+import {
+  fakeJSXElement,
+  casual,
+  ITERATION_SIZE
+} from "../../utils/testUtils/testUtils";
+
+export const mockOverlay = (): IOverlayProps => ({
+  children: fakeJSXElement(),
+  className: casual.string,
+  enabled: casual.random_element([undefined, casual.boolean])
+});
+
+const mockOverlays = new Array(ITERATION_SIZE).fill(null).map(mockOverlay);
 
 describe("<Overlay />", () => {
   it("renders", () => {
