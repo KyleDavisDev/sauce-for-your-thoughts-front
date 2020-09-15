@@ -28,9 +28,13 @@ describe("<Overlay />", () => {
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.shallow(<Overlay>123</Overlay>);
+    mockOverlays.forEach((mockOverlay: IOverlayProps) => {
+      const wrapper = enzyme.shallow(
+        <Overlay {...mockOverlay}>{mockOverlay.children}</Overlay>
+      );
 
-    expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   it("adds classes to parent", () => {
