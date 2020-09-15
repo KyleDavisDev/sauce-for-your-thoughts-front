@@ -2,11 +2,27 @@ import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
 
-import { Link } from "./Link";
-import { fakeLinks } from "../../utils/testUtils/testUtils";
-import { MockLink } from "../../utils/testUtils/types";
+import { Link, LinkProps } from "./Link";
+import {
+  casual,
+  fakeJSXElement,
+  ITERATION_SIZE
+} from "../../utils/testUtils/testUtils";
 
-const mockLinks = fakeLinks();
+const fakeLink = (): LinkProps => ({
+  children: casual.random_element([
+    casual.string,
+    fakeJSXElement(),
+    [casual.string, fakeJSXElement()]
+  ]),
+  href: casual.url,
+  className: casual.boolean ? casual.string : undefined,
+  target: casual.boolean
+    ? casual.random_element(["_blank", "_self"])
+    : undefined
+});
+
+const mockLinks = new Array(ITERATION_SIZE).fill(null).map(fakeLink);
 
 describe("<Link>", () => {
   it("renders", () => {

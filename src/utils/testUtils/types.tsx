@@ -1,10 +1,7 @@
-import { LinkProps } from "../../components/Link/Link";
 import { ButtonProps } from "../../components/Button/Button";
 import { CardProps } from "../../components/Card/Card";
 import { LabelProps } from "../../components/Label/Label";
 import { ListProps } from "../../components/List/List";
-
-export interface MockLink extends LinkProps {}
 
 export interface MockButton extends ButtonProps {}
 

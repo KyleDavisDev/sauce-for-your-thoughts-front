@@ -1,26 +1,13 @@
 import * as React from "react";
 import casual from "casual";
 import { ReactWrapper } from "enzyme";
-import { MockLink, MockButton, MockCard, MockLabel, MockList } from "./types";
+import { MockButton, MockCard, MockLabel, MockList } from "./types";
 
 export const ITERATION_SIZE = 8;
 const REACT_REGEX = /react(\d+)?./i;
 
 // seed it so we get consistent results
 casual.seed(777);
-
-const fakeLink = (): MockLink => ({
-  children: casual.random_element([
-    casual.string,
-    fakeJSXElement(),
-    [casual.string, fakeJSXElement()]
-  ]),
-  href: casual.url,
-  className: casual.boolean ? casual.string : undefined,
-  target: casual.boolean
-    ? casual.random_element(["_blank", "_self"])
-    : undefined
-});
 
 export const fakeJSXElement = (): JSX.Element => {
   return casual.random_element([
@@ -67,8 +54,6 @@ const fakeList = (): MockList => ({
     .map(() => ({ link: casual.url, text: casual.text, id: casual.uuid }))
 });
 
-const fakeLinks = (): MockLink[] =>
-  new Array(ITERATION_SIZE).fill(null).map(fakeLink);
 const fakeButtons = (): MockButton[] =>
   new Array(ITERATION_SIZE).fill(null).map(fakeButton);
 const fakeLabels = (): MockLabel[] =>
@@ -118,7 +103,6 @@ const isDOMTypeElement = (typeElement): boolean => {
 
 export {
   casual,
-  fakeLinks,
   fakeButtons,
   fakeLabels,
   fakeLists,
