@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeaderSimple /> matches snapshot 1`] = `
+<header>
+  <styled.div>
+    <Styled(LinkComponent)
+      href="/"
+    >
+      <LogoSFYT />
+    </Styled(LinkComponent)>
+  </styled.div>
+  <hr />
+</header>
+`;
