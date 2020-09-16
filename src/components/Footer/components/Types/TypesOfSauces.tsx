@@ -16,7 +16,7 @@ const StyledList = styled(List)`
   }
 `;
 
-const Types: React.FC = () => {
+const TypesOfSauces: React.FC = () => {
   const items = useSelector((store: AppState) => store.sauces.types).map(
     type => {
       return {
@@ -30,4 +30,4 @@ const Types: React.FC = () => {
   return <StyledList title="Type of Sauce" items={items} />;
 };
 
-export default Types;
+export default TypesOfSauces;
