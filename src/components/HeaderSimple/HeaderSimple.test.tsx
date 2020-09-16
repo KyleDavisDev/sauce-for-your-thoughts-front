@@ -1,0 +1,12 @@
+import * as React from "react";
+import * as enzyme from "enzyme";
+
+import HeaderSimple from "./HeaderSimple";
+
+describe("<HeaderSimple />", () => {
+  it("renders", () => {
+    const wrapper = enzyme.shallow(<HeaderSimple />);
+
+    expect(wrapper).toBeTruthy();
+  });
+});
