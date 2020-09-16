@@ -21,7 +21,8 @@ const Types: React.FC = () => {
     type => {
       return {
         link: `/sauces?limit=15&order=newest&page=1&type=${type}`,
-        text: type
+        text: type,
+        id: type
       };
     }
   );
