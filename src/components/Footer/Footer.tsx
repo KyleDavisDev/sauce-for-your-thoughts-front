@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Navigation from "./components/Navigation/Navigation";
-import Types from "./components/Types/Types";
+import TypesOfSauces from "./components/Types/TypesOfSauces";
 import About from "./components/About/About";
 import { StyledFooter, StyledDiv } from "./FooterStyle";
 
@@ -12,7 +12,7 @@ const Footer: React.FC<FooterProps> = props => {
     <StyledFooter>
       <StyledDiv>
         <Navigation />
-        <Types />
+        <TypesOfSauces />
         <About />
       </StyledDiv>
     </StyledFooter>
