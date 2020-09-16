@@ -15,4 +15,10 @@ describe("<HeaderSimple />", () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it("renders header tag", () => {
+    const wrapper = enzyme.shallow(<HeaderSimple />);
+
+    expect(wrapper.find("header")).toBeTruthy();
+  });
 });
