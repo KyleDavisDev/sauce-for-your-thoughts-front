@@ -11,7 +11,7 @@ const StyledH5 = styled.h5`
   font-size: ${props => props.theme.scaleH5};
   font-family: FuturaMedium;
 `;
-StyledH5.displayName = "StyledH5";
+StyledH5.displayName = "h5";
 
 const StyledP = styled.p`
   margin: 0.5em 0;
@@ -20,7 +20,7 @@ const StyledP = styled.p`
   font-size: ${props => props.theme.scaleP};
   font-family: AvenirNextReg;
 `;
-StyledP.displayName = "StyledP";
+StyledP.displayName = "p";
 
 interface AboutProps {
   className?: string;
