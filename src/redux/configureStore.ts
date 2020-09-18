@@ -2,13 +2,12 @@ import { Action, applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk, { ThunkAction, ThunkDispatch } from "redux-thunk";
 import flashMessage from "./flashMessage/reducer";
-import { IFlashState } from "./flashMessage/types";
 import reviews from "./reviews/reducer";
 import { IReview } from "./reviews/types";
 import sauces from "./sauces/reducer";
-import { IQuery, ISauce } from "./sauces/types";
 import users from "./users/reducer";
 import { IUser } from "./users/types";
+import { ISaucesState } from "./sauces/types";
 
 const rootReducer = combineReducers({
   flashMessage,
@@ -16,18 +15,6 @@ const rootReducer = combineReducers({
   reviews,
   users
 });
-
-export interface ISaucesState {
-  allSlugs?: string[];
-  bySlug?: { [key: string]: ISauce };
-  total?: number;
-  query?: IQuery;
-  types: string[];
-  orders: string[];
-  saucesWithNewestReviews: Array<{ name: string; slug: string }>;
-  newest: string[];
-  featured: string[];
-}
 
 export interface AppState {
   sauces: ISaucesState;
@@ -45,7 +32,6 @@ export interface AppState {
     byReviewID?: { [key: string]: IReview };
     allReviewIDs?: string[];
   };
-  flashMessage: IFlashState;
 }
 
 export const configureStore = (initState?: AppState) => {
@@ -83,8 +69,7 @@ export const configureStore = (initState?: AppState) => {
             byDisplayName: {},
             allDisplayNames: []
           },
-          reviews: { byReviewID: {}, allReviewIDs: [] },
-          flashMessage: { isVisible: false, type: null, text: null, slug: null }
+          reviews: { byReviewID: {}, allReviewIDs: [] }
         }
       : initState;
 
