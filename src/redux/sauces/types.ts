@@ -55,6 +55,7 @@ export interface ISaucesState {
   newest?: string[];
   featured?: string[];
   types?: string[];
+  orders?: string[];
 }
 
 export interface IQuery {
