@@ -99,7 +99,7 @@ export const mockStore = () => {
     reviews: {
       byReviewID: undefined, //  { [key: string]: IReview };
       allReviewIDs: undefined //  string[];
-    }2
+    }
   };
 
   return storeConfig(store);
