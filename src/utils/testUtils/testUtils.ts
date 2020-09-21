@@ -81,7 +81,7 @@ export const fakeFlashMessage = (): FlashMessageProps => ({
   children: casual.random_element([undefined, casual.string])
 });
 
-export const mockStore = () => {
+export const fakeStore = () => {
   const storeConfig = configureStore([]);
 
   const store: AppState = {
