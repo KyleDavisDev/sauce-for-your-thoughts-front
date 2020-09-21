@@ -4,19 +4,21 @@ import { Provider, useSelector } from "react-redux";
 
 import TypesOfSauces from "./TypesOfSauces";
 import {
-  mockStore,
+  fakeStore,
   ITERATION_SIZE
 } from "../../../../utils/testUtils/testUtils";
 
-const mockStores = new Array(ITERATION_SIZE).fill(null).map(mockStore);
+const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
 describe("<Types />", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(
-      <Provider store={mockStores[0]}>
-        <TypesOfSauces />
-      </Provider>
-    );
-    expect(wrapper).toBeTruthy();
+    mockStores.forEach(mockStore => {
+      const wrapper = enzyme.shallow(
+        <Provider store={mockStore}>
+          <TypesOfSauces />
+        </Provider>
+      );
+      expect(wrapper).toBeTruthy();
+    });
   });
 });
