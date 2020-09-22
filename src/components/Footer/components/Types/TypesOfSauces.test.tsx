@@ -1,3 +1,4 @@
+import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
 import { Provider, useSelector } from "react-redux";
@@ -7,6 +8,8 @@ import {
   fakeStore,
   ITERATION_SIZE
 } from "../../../../utils/testUtils/testUtils";
+import { AppState } from "../../../../redux/configureStore";
+import { ListProps } from "../../../List/List";
 
 const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
@@ -19,6 +22,24 @@ describe("<Types />", () => {
         </Provider>
       );
       expect(wrapper).toBeTruthy();
+    });
+  });
+
+  it("passes items to List", () => {
+    mockStores.forEach(mockStore => {
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <TypesOfSauces />
+        </Provider>
+      );
+
+      // grab prop items
+      const items: ListProps[] | undefined = wrapper
+        .find("List")
+        .first()
+        .prop("items");
+
+      expect(items?.length).toBeGreaterThan(0);
     });
   });
 });
