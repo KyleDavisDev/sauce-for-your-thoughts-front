@@ -1,0 +1,2521 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Types /> matches snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <TypesOfSauces>
+    <List
+      items={
+        Array [
+          Object {
+            "id": "f5322a02-e560-4593-99ad-0f3856f68ac4",
+            "link": "/sauces?limit=15&order=newest&page=1&type=rerum",
+            "text": "rerum",
+          },
+          Object {
+            "id": "7b17a08b-fa3d-4f05-9b65-49d2c91906a3",
+            "link": "/sauces?limit=15&order=newest&page=1&type=nobis",
+            "text": "nobis",
+          },
+          Object {
+            "id": "9c733f25-7027-4e7c-a3be-afab564b5c37",
+            "link": "/sauces?limit=15&order=newest&page=1&type=sit",
+            "text": "sit",
+          },
+          Object {
+            "id": "2dbc8fba-44d7-4e9d-8b81-3f5e8ddd4747",
+            "link": "/sauces?limit=15&order=newest&page=1&type=nihil",
+            "text": "nihil",
+          },
+          Object {
+            "id": "7cd27d91-9180-4ced-a2fa-61d4fe495be1",
+            "link": "/sauces?limit=15&order=newest&page=1&type=sint",
+            "text": "sint",
+          },
+          Object {
+            "id": "0daf71f4-a99a-4a24-8216-1857fc80dfb0",
+            "link": "/sauces?limit=15&order=newest&page=1&type=occaecati",
+            "text": "occaecati",
+          },
+          Object {
+            "id": "a54e8bf0-6e14-470f-896d-a4b3d7fd511a",
+            "link": "/sauces?limit=15&order=newest&page=1&type=dolore",
+            "text": "dolore",
+          },
+        ]
+      }
+      title="Type of Sauce"
+    >
+      <List
+        className="sc-AxhUy eKirhA"
+        items={
+          Array [
+            Object {
+              "id": "f5322a02-e560-4593-99ad-0f3856f68ac4",
+              "link": "/sauces?limit=15&order=newest&page=1&type=rerum",
+              "text": "rerum",
+            },
+            Object {
+              "id": "7b17a08b-fa3d-4f05-9b65-49d2c91906a3",
+              "link": "/sauces?limit=15&order=newest&page=1&type=nobis",
+              "text": "nobis",
+            },
+            Object {
+              "id": "9c733f25-7027-4e7c-a3be-afab564b5c37",
+              "link": "/sauces?limit=15&order=newest&page=1&type=sit",
+              "text": "sit",
+            },
+            Object {
+              "id": "2dbc8fba-44d7-4e9d-8b81-3f5e8ddd4747",
+              "link": "/sauces?limit=15&order=newest&page=1&type=nihil",
+              "text": "nihil",
+            },
+            Object {
+              "id": "7cd27d91-9180-4ced-a2fa-61d4fe495be1",
+              "link": "/sauces?limit=15&order=newest&page=1&type=sint",
+              "text": "sint",
+            },
+            Object {
+              "id": "0daf71f4-a99a-4a24-8216-1857fc80dfb0",
+              "link": "/sauces?limit=15&order=newest&page=1&type=occaecati",
+              "text": "occaecati",
+            },
+            Object {
+              "id": "a54e8bf0-6e14-470f-896d-a4b3d7fd511a",
+              "link": "/sauces?limit=15&order=newest&page=1&type=dolore",
+              "text": "dolore",
+            },
+          ]
+        }
+        title="Type of Sauce"
+      >
+        <div
+          className="sc-AxhUy eKirhA"
+        >
+          <div
+            className="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+          >
+            <h5>
+              <h5
+                className="sc-AxiKw bKvGHD"
+              >
+                Type of Sauce
+              </h5>
+            </h5>
+            <ul>
+              <ul
+                className="sc-AxhCb kjumFH"
+              >
+                <li
+                  id="f5322a02-e560-4593-99ad-0f3856f68ac4"
+                  key="f5322a02-e560-4593-99ad-0f3856f68ac4"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=rerum"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=rerum"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=rerum"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=rerum"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          rerum
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="7b17a08b-fa3d-4f05-9b65-49d2c91906a3"
+                  key="7b17a08b-fa3d-4f05-9b65-49d2c91906a3"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=nobis"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=nobis"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=nobis"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=nobis"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          nobis
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="9c733f25-7027-4e7c-a3be-afab564b5c37"
+                  key="9c733f25-7027-4e7c-a3be-afab564b5c37"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=sit"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=sit"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=sit"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=sit"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          sit
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="2dbc8fba-44d7-4e9d-8b81-3f5e8ddd4747"
+                  key="2dbc8fba-44d7-4e9d-8b81-3f5e8ddd4747"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=nihil"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=nihil"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=nihil"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=nihil"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          nihil
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="7cd27d91-9180-4ced-a2fa-61d4fe495be1"
+                  key="7cd27d91-9180-4ced-a2fa-61d4fe495be1"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=sint"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=sint"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=sint"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=sint"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          sint
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="0daf71f4-a99a-4a24-8216-1857fc80dfb0"
+                  key="0daf71f4-a99a-4a24-8216-1857fc80dfb0"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=occaecati"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=occaecati"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=occaecati"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=occaecati"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          occaecati
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="a54e8bf0-6e14-470f-896d-a4b3d7fd511a"
+                  key="a54e8bf0-6e14-470f-896d-a4b3d7fd511a"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=dolore"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=dolore"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=dolore"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=dolore"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          dolore
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </List>
+    </List>
+  </TypesOfSauces>
+</Provider>
+`;
+
+exports[`<Types /> matches snapshot 2`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <TypesOfSauces>
+    <List
+      items={
+        Array [
+          Object {
+            "id": "8f01ffb1-d0c7-41a5-8544-bb5caf10baf7",
+            "link": "/sauces?limit=15&order=newest&page=1&type=vel",
+            "text": "vel",
+          },
+          Object {
+            "id": "57e4983c-6359-4933-93c5-88c2ea7935da",
+            "link": "/sauces?limit=15&order=newest&page=1&type=inventore",
+            "text": "inventore",
+          },
+          Object {
+            "id": "29de1f47-b230-4aef-acdb-a7349b5529c7",
+            "link": "/sauces?limit=15&order=newest&page=1&type=iusto",
+            "text": "iusto",
+          },
+          Object {
+            "id": "5a0ca2b9-a5ed-4d57-a5ca-14a3a053c505",
+            "link": "/sauces?limit=15&order=newest&page=1&type=aut",
+            "text": "aut",
+          },
+          Object {
+            "id": "d9794767-3513-48a3-9110-a3ef1710e408",
+            "link": "/sauces?limit=15&order=newest&page=1&type=voluptatum",
+            "text": "voluptatum",
+          },
+          Object {
+            "id": "cd7bf6ad-f413-40f6-b9b0-b57d833583fe",
+            "link": "/sauces?limit=15&order=newest&page=1&type=inventore",
+            "text": "inventore",
+          },
+          Object {
+            "id": "9fad8f1a-d1e6-426e-9e97-67adb687f571",
+            "link": "/sauces?limit=15&order=newest&page=1&type=voluptates",
+            "text": "voluptates",
+          },
+        ]
+      }
+      title="Type of Sauce"
+    >
+      <List
+        className="sc-AxhUy eKirhA"
+        items={
+          Array [
+            Object {
+              "id": "8f01ffb1-d0c7-41a5-8544-bb5caf10baf7",
+              "link": "/sauces?limit=15&order=newest&page=1&type=vel",
+              "text": "vel",
+            },
+            Object {
+              "id": "57e4983c-6359-4933-93c5-88c2ea7935da",
+              "link": "/sauces?limit=15&order=newest&page=1&type=inventore",
+              "text": "inventore",
+            },
+            Object {
+              "id": "29de1f47-b230-4aef-acdb-a7349b5529c7",
+              "link": "/sauces?limit=15&order=newest&page=1&type=iusto",
+              "text": "iusto",
+            },
+            Object {
+              "id": "5a0ca2b9-a5ed-4d57-a5ca-14a3a053c505",
+              "link": "/sauces?limit=15&order=newest&page=1&type=aut",
+              "text": "aut",
+            },
+            Object {
+              "id": "d9794767-3513-48a3-9110-a3ef1710e408",
+              "link": "/sauces?limit=15&order=newest&page=1&type=voluptatum",
+              "text": "voluptatum",
+            },
+            Object {
+              "id": "cd7bf6ad-f413-40f6-b9b0-b57d833583fe",
+              "link": "/sauces?limit=15&order=newest&page=1&type=inventore",
+              "text": "inventore",
+            },
+            Object {
+              "id": "9fad8f1a-d1e6-426e-9e97-67adb687f571",
+              "link": "/sauces?limit=15&order=newest&page=1&type=voluptates",
+              "text": "voluptates",
+            },
+          ]
+        }
+        title="Type of Sauce"
+      >
+        <div
+          className="sc-AxhUy eKirhA"
+        >
+          <div
+            className="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+          >
+            <h5>
+              <h5
+                className="sc-AxiKw bKvGHD"
+              >
+                Type of Sauce
+              </h5>
+            </h5>
+            <ul>
+              <ul
+                className="sc-AxhCb kjumFH"
+              >
+                <li
+                  id="8f01ffb1-d0c7-41a5-8544-bb5caf10baf7"
+                  key="8f01ffb1-d0c7-41a5-8544-bb5caf10baf7"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=vel"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=vel"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=vel"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=vel"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          vel
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="57e4983c-6359-4933-93c5-88c2ea7935da"
+                  key="57e4983c-6359-4933-93c5-88c2ea7935da"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=inventore"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=inventore"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=inventore"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=inventore"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          inventore
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="29de1f47-b230-4aef-acdb-a7349b5529c7"
+                  key="29de1f47-b230-4aef-acdb-a7349b5529c7"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=iusto"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=iusto"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=iusto"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=iusto"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          iusto
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="5a0ca2b9-a5ed-4d57-a5ca-14a3a053c505"
+                  key="5a0ca2b9-a5ed-4d57-a5ca-14a3a053c505"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=aut"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=aut"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=aut"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=aut"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          aut
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="d9794767-3513-48a3-9110-a3ef1710e408"
+                  key="d9794767-3513-48a3-9110-a3ef1710e408"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          voluptatum
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="cd7bf6ad-f413-40f6-b9b0-b57d833583fe"
+                  key="cd7bf6ad-f413-40f6-b9b0-b57d833583fe"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=inventore"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=inventore"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=inventore"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=inventore"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          inventore
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="9fad8f1a-d1e6-426e-9e97-67adb687f571"
+                  key="9fad8f1a-d1e6-426e-9e97-67adb687f571"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=voluptates"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=voluptates"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=voluptates"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=voluptates"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          voluptates
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </List>
+    </List>
+  </TypesOfSauces>
+</Provider>
+`;
+
+exports[`<Types /> matches snapshot 3`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <TypesOfSauces>
+    <List
+      items={
+        Array [
+          Object {
+            "id": "792e8edd-cbba-449f-b8b3-bccd8b3d8db6",
+            "link": "/sauces?limit=15&order=newest&page=1&type=non",
+            "text": "non",
+          },
+          Object {
+            "id": "a41384d0-2751-4801-acf0-716049402888",
+            "link": "/sauces?limit=15&order=newest&page=1&type=fuga",
+            "text": "fuga",
+          },
+          Object {
+            "id": "177035e4-0c2b-4a19-aac4-516252a7b976",
+            "link": "/sauces?limit=15&order=newest&page=1&type=occaecati",
+            "text": "occaecati",
+          },
+          Object {
+            "id": "a7b802c1-5178-4a00-918e-446c33c77105",
+            "link": "/sauces?limit=15&order=newest&page=1&type=eius",
+            "text": "eius",
+          },
+          Object {
+            "id": "2dc17ec2-3658-45d2-9726-ea173d265a16",
+            "link": "/sauces?limit=15&order=newest&page=1&type=quo",
+            "text": "quo",
+          },
+          Object {
+            "id": "17015a16-c60b-4aca-b172-d010aab2c6a3",
+            "link": "/sauces?limit=15&order=newest&page=1&type=praesentium",
+            "text": "praesentium",
+          },
+          Object {
+            "id": "cbc9138f-80c7-437d-86e7-ba0e95b3d8b7",
+            "link": "/sauces?limit=15&order=newest&page=1&type=qui",
+            "text": "qui",
+          },
+        ]
+      }
+      title="Type of Sauce"
+    >
+      <List
+        className="sc-AxhUy eKirhA"
+        items={
+          Array [
+            Object {
+              "id": "792e8edd-cbba-449f-b8b3-bccd8b3d8db6",
+              "link": "/sauces?limit=15&order=newest&page=1&type=non",
+              "text": "non",
+            },
+            Object {
+              "id": "a41384d0-2751-4801-acf0-716049402888",
+              "link": "/sauces?limit=15&order=newest&page=1&type=fuga",
+              "text": "fuga",
+            },
+            Object {
+              "id": "177035e4-0c2b-4a19-aac4-516252a7b976",
+              "link": "/sauces?limit=15&order=newest&page=1&type=occaecati",
+              "text": "occaecati",
+            },
+            Object {
+              "id": "a7b802c1-5178-4a00-918e-446c33c77105",
+              "link": "/sauces?limit=15&order=newest&page=1&type=eius",
+              "text": "eius",
+            },
+            Object {
+              "id": "2dc17ec2-3658-45d2-9726-ea173d265a16",
+              "link": "/sauces?limit=15&order=newest&page=1&type=quo",
+              "text": "quo",
+            },
+            Object {
+              "id": "17015a16-c60b-4aca-b172-d010aab2c6a3",
+              "link": "/sauces?limit=15&order=newest&page=1&type=praesentium",
+              "text": "praesentium",
+            },
+            Object {
+              "id": "cbc9138f-80c7-437d-86e7-ba0e95b3d8b7",
+              "link": "/sauces?limit=15&order=newest&page=1&type=qui",
+              "text": "qui",
+            },
+          ]
+        }
+        title="Type of Sauce"
+      >
+        <div
+          className="sc-AxhUy eKirhA"
+        >
+          <div
+            className="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+          >
+            <h5>
+              <h5
+                className="sc-AxiKw bKvGHD"
+              >
+                Type of Sauce
+              </h5>
+            </h5>
+            <ul>
+              <ul
+                className="sc-AxhCb kjumFH"
+              >
+                <li
+                  id="792e8edd-cbba-449f-b8b3-bccd8b3d8db6"
+                  key="792e8edd-cbba-449f-b8b3-bccd8b3d8db6"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=non"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=non"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=non"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=non"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          non
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="a41384d0-2751-4801-acf0-716049402888"
+                  key="a41384d0-2751-4801-acf0-716049402888"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=fuga"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=fuga"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=fuga"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=fuga"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          fuga
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="177035e4-0c2b-4a19-aac4-516252a7b976"
+                  key="177035e4-0c2b-4a19-aac4-516252a7b976"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=occaecati"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=occaecati"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=occaecati"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=occaecati"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          occaecati
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="a7b802c1-5178-4a00-918e-446c33c77105"
+                  key="a7b802c1-5178-4a00-918e-446c33c77105"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=eius"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=eius"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=eius"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=eius"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          eius
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="2dc17ec2-3658-45d2-9726-ea173d265a16"
+                  key="2dc17ec2-3658-45d2-9726-ea173d265a16"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=quo"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=quo"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=quo"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=quo"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          quo
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="17015a16-c60b-4aca-b172-d010aab2c6a3"
+                  key="17015a16-c60b-4aca-b172-d010aab2c6a3"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=praesentium"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=praesentium"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=praesentium"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=praesentium"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          praesentium
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="cbc9138f-80c7-437d-86e7-ba0e95b3d8b7"
+                  key="cbc9138f-80c7-437d-86e7-ba0e95b3d8b7"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=qui"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=qui"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=qui"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=qui"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          qui
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </List>
+    </List>
+  </TypesOfSauces>
+</Provider>
+`;
+
+exports[`<Types /> matches snapshot 4`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <TypesOfSauces>
+    <List
+      items={
+        Array [
+          Object {
+            "id": "c2e8207a-bb47-4a03-bbd6-6e90470611f2",
+            "link": "/sauces?limit=15&order=newest&page=1&type=impedit",
+            "text": "impedit",
+          },
+          Object {
+            "id": "f0f70e70-eae9-4e88-ab7c-69cf4619cb21",
+            "link": "/sauces?limit=15&order=newest&page=1&type=dolorem",
+            "text": "dolorem",
+          },
+          Object {
+            "id": "0a59fb42-81a0-4168-bd40-02b557a67abc",
+            "link": "/sauces?limit=15&order=newest&page=1&type=natus",
+            "text": "natus",
+          },
+          Object {
+            "id": "2cb616c2-7933-429e-a744-f7b220b1ca4b",
+            "link": "/sauces?limit=15&order=newest&page=1&type=dolor",
+            "text": "dolor",
+          },
+          Object {
+            "id": "fac07f5e-f3a9-442a-bb9f-78805b497d1b",
+            "link": "/sauces?limit=15&order=newest&page=1&type=voluptatum",
+            "text": "voluptatum",
+          },
+          Object {
+            "id": "ee63a306-cced-437d-ada3-e619079e4a47",
+            "link": "/sauces?limit=15&order=newest&page=1&type=eum",
+            "text": "eum",
+          },
+          Object {
+            "id": "f6d25388-f51a-40b0-8b52-544b3b567cb3",
+            "link": "/sauces?limit=15&order=newest&page=1&type=dolorem",
+            "text": "dolorem",
+          },
+        ]
+      }
+      title="Type of Sauce"
+    >
+      <List
+        className="sc-AxhUy eKirhA"
+        items={
+          Array [
+            Object {
+              "id": "c2e8207a-bb47-4a03-bbd6-6e90470611f2",
+              "link": "/sauces?limit=15&order=newest&page=1&type=impedit",
+              "text": "impedit",
+            },
+            Object {
+              "id": "f0f70e70-eae9-4e88-ab7c-69cf4619cb21",
+              "link": "/sauces?limit=15&order=newest&page=1&type=dolorem",
+              "text": "dolorem",
+            },
+            Object {
+              "id": "0a59fb42-81a0-4168-bd40-02b557a67abc",
+              "link": "/sauces?limit=15&order=newest&page=1&type=natus",
+              "text": "natus",
+            },
+            Object {
+              "id": "2cb616c2-7933-429e-a744-f7b220b1ca4b",
+              "link": "/sauces?limit=15&order=newest&page=1&type=dolor",
+              "text": "dolor",
+            },
+            Object {
+              "id": "fac07f5e-f3a9-442a-bb9f-78805b497d1b",
+              "link": "/sauces?limit=15&order=newest&page=1&type=voluptatum",
+              "text": "voluptatum",
+            },
+            Object {
+              "id": "ee63a306-cced-437d-ada3-e619079e4a47",
+              "link": "/sauces?limit=15&order=newest&page=1&type=eum",
+              "text": "eum",
+            },
+            Object {
+              "id": "f6d25388-f51a-40b0-8b52-544b3b567cb3",
+              "link": "/sauces?limit=15&order=newest&page=1&type=dolorem",
+              "text": "dolorem",
+            },
+          ]
+        }
+        title="Type of Sauce"
+      >
+        <div
+          className="sc-AxhUy eKirhA"
+        >
+          <div
+            className="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+          >
+            <h5>
+              <h5
+                className="sc-AxiKw bKvGHD"
+              >
+                Type of Sauce
+              </h5>
+            </h5>
+            <ul>
+              <ul
+                className="sc-AxhCb kjumFH"
+              >
+                <li
+                  id="c2e8207a-bb47-4a03-bbd6-6e90470611f2"
+                  key="c2e8207a-bb47-4a03-bbd6-6e90470611f2"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=impedit"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=impedit"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=impedit"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=impedit"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          impedit
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="f0f70e70-eae9-4e88-ab7c-69cf4619cb21"
+                  key="f0f70e70-eae9-4e88-ab7c-69cf4619cb21"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=dolorem"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=dolorem"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=dolorem"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=dolorem"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          dolorem
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="0a59fb42-81a0-4168-bd40-02b557a67abc"
+                  key="0a59fb42-81a0-4168-bd40-02b557a67abc"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=natus"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=natus"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=natus"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=natus"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          natus
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="2cb616c2-7933-429e-a744-f7b220b1ca4b"
+                  key="2cb616c2-7933-429e-a744-f7b220b1ca4b"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=dolor"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=dolor"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=dolor"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=dolor"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          dolor
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="fac07f5e-f3a9-442a-bb9f-78805b497d1b"
+                  key="fac07f5e-f3a9-442a-bb9f-78805b497d1b"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          voluptatum
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="ee63a306-cced-437d-ada3-e619079e4a47"
+                  key="ee63a306-cced-437d-ada3-e619079e4a47"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=eum"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=eum"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=eum"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=eum"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          eum
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="f6d25388-f51a-40b0-8b52-544b3b567cb3"
+                  key="f6d25388-f51a-40b0-8b52-544b3b567cb3"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=dolorem"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=dolorem"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=dolorem"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=dolorem"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          dolorem
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </List>
+    </List>
+  </TypesOfSauces>
+</Provider>
+`;
+
+exports[`<Types /> matches snapshot 5`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <TypesOfSauces>
+    <List
+      items={
+        Array [
+          Object {
+            "id": "9b318e69-794d-4b69-9811-1673d93746f9",
+            "link": "/sauces?limit=15&order=newest&page=1&type=aut",
+            "text": "aut",
+          },
+          Object {
+            "id": "91b1ba5d-7f77-4c02-a798-41bdd5b4fee1",
+            "link": "/sauces?limit=15&order=newest&page=1&type=itaque",
+            "text": "itaque",
+          },
+          Object {
+            "id": "9d5f8e44-c351-44ef-8458-fc01eb3f0d34",
+            "link": "/sauces?limit=15&order=newest&page=1&type=mollitia",
+            "text": "mollitia",
+          },
+          Object {
+            "id": "ac068d3e-a96e-4685-b983-4ff008fadec7",
+            "link": "/sauces?limit=15&order=newest&page=1&type=temporibus",
+            "text": "temporibus",
+          },
+          Object {
+            "id": "16adfe82-67cd-4ffc-b834-168ce46e047d",
+            "link": "/sauces?limit=15&order=newest&page=1&type=tempora",
+            "text": "tempora",
+          },
+          Object {
+            "id": "dae27f43-7ea2-4364-8620-b20e3f0b9630",
+            "link": "/sauces?limit=15&order=newest&page=1&type=necessitatibus",
+            "text": "necessitatibus",
+          },
+          Object {
+            "id": "449692f4-8ffa-48d8-9d7a-06e929f603ed",
+            "link": "/sauces?limit=15&order=newest&page=1&type=consequatur",
+            "text": "consequatur",
+          },
+        ]
+      }
+      title="Type of Sauce"
+    >
+      <List
+        className="sc-AxhUy eKirhA"
+        items={
+          Array [
+            Object {
+              "id": "9b318e69-794d-4b69-9811-1673d93746f9",
+              "link": "/sauces?limit=15&order=newest&page=1&type=aut",
+              "text": "aut",
+            },
+            Object {
+              "id": "91b1ba5d-7f77-4c02-a798-41bdd5b4fee1",
+              "link": "/sauces?limit=15&order=newest&page=1&type=itaque",
+              "text": "itaque",
+            },
+            Object {
+              "id": "9d5f8e44-c351-44ef-8458-fc01eb3f0d34",
+              "link": "/sauces?limit=15&order=newest&page=1&type=mollitia",
+              "text": "mollitia",
+            },
+            Object {
+              "id": "ac068d3e-a96e-4685-b983-4ff008fadec7",
+              "link": "/sauces?limit=15&order=newest&page=1&type=temporibus",
+              "text": "temporibus",
+            },
+            Object {
+              "id": "16adfe82-67cd-4ffc-b834-168ce46e047d",
+              "link": "/sauces?limit=15&order=newest&page=1&type=tempora",
+              "text": "tempora",
+            },
+            Object {
+              "id": "dae27f43-7ea2-4364-8620-b20e3f0b9630",
+              "link": "/sauces?limit=15&order=newest&page=1&type=necessitatibus",
+              "text": "necessitatibus",
+            },
+            Object {
+              "id": "449692f4-8ffa-48d8-9d7a-06e929f603ed",
+              "link": "/sauces?limit=15&order=newest&page=1&type=consequatur",
+              "text": "consequatur",
+            },
+          ]
+        }
+        title="Type of Sauce"
+      >
+        <div
+          className="sc-AxhUy eKirhA"
+        >
+          <div
+            className="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+          >
+            <h5>
+              <h5
+                className="sc-AxiKw bKvGHD"
+              >
+                Type of Sauce
+              </h5>
+            </h5>
+            <ul>
+              <ul
+                className="sc-AxhCb kjumFH"
+              >
+                <li
+                  id="9b318e69-794d-4b69-9811-1673d93746f9"
+                  key="9b318e69-794d-4b69-9811-1673d93746f9"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=aut"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=aut"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=aut"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=aut"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          aut
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="91b1ba5d-7f77-4c02-a798-41bdd5b4fee1"
+                  key="91b1ba5d-7f77-4c02-a798-41bdd5b4fee1"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=itaque"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=itaque"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=itaque"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=itaque"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          itaque
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="9d5f8e44-c351-44ef-8458-fc01eb3f0d34"
+                  key="9d5f8e44-c351-44ef-8458-fc01eb3f0d34"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=mollitia"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=mollitia"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=mollitia"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=mollitia"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          mollitia
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="ac068d3e-a96e-4685-b983-4ff008fadec7"
+                  key="ac068d3e-a96e-4685-b983-4ff008fadec7"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=temporibus"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=temporibus"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=temporibus"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=temporibus"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          temporibus
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="16adfe82-67cd-4ffc-b834-168ce46e047d"
+                  key="16adfe82-67cd-4ffc-b834-168ce46e047d"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=tempora"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=tempora"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=tempora"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=tempora"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          tempora
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="dae27f43-7ea2-4364-8620-b20e3f0b9630"
+                  key="dae27f43-7ea2-4364-8620-b20e3f0b9630"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=necessitatibus"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=necessitatibus"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=necessitatibus"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=necessitatibus"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          necessitatibus
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="449692f4-8ffa-48d8-9d7a-06e929f603ed"
+                  key="449692f4-8ffa-48d8-9d7a-06e929f603ed"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=consequatur"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=consequatur"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=consequatur"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=consequatur"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          consequatur
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </List>
+    </List>
+  </TypesOfSauces>
+</Provider>
+`;
+
+exports[`<Types /> matches snapshot 6`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <TypesOfSauces>
+    <List
+      items={
+        Array [
+          Object {
+            "id": "62021d77-13e7-4b8c-8c7b-85d82aa8b1d3",
+            "link": "/sauces?limit=15&order=newest&page=1&type=asperiores",
+            "text": "asperiores",
+          },
+          Object {
+            "id": "64ea25bc-5dbe-40fd-9b86-157b9f538ea8",
+            "link": "/sauces?limit=15&order=newest&page=1&type=omnis",
+            "text": "omnis",
+          },
+          Object {
+            "id": "63c1f166-1072-4988-9c67-31bb5acc125f",
+            "link": "/sauces?limit=15&order=newest&page=1&type=porro",
+            "text": "porro",
+          },
+          Object {
+            "id": "452ea0bc-b2a1-4813-bd33-41ca37a3900c",
+            "link": "/sauces?limit=15&order=newest&page=1&type=non",
+            "text": "non",
+          },
+          Object {
+            "id": "a9b43d39-606c-4cca-a640-cbda4f7f5b7b",
+            "link": "/sauces?limit=15&order=newest&page=1&type=id",
+            "text": "id",
+          },
+          Object {
+            "id": "454fe8d2-731c-4501-ad7a-6764326718d2",
+            "link": "/sauces?limit=15&order=newest&page=1&type=et",
+            "text": "et",
+          },
+          Object {
+            "id": "315ee9cb-0843-4960-8e23-682e1a778831",
+            "link": "/sauces?limit=15&order=newest&page=1&type=voluptatum",
+            "text": "voluptatum",
+          },
+        ]
+      }
+      title="Type of Sauce"
+    >
+      <List
+        className="sc-AxhUy eKirhA"
+        items={
+          Array [
+            Object {
+              "id": "62021d77-13e7-4b8c-8c7b-85d82aa8b1d3",
+              "link": "/sauces?limit=15&order=newest&page=1&type=asperiores",
+              "text": "asperiores",
+            },
+            Object {
+              "id": "64ea25bc-5dbe-40fd-9b86-157b9f538ea8",
+              "link": "/sauces?limit=15&order=newest&page=1&type=omnis",
+              "text": "omnis",
+            },
+            Object {
+              "id": "63c1f166-1072-4988-9c67-31bb5acc125f",
+              "link": "/sauces?limit=15&order=newest&page=1&type=porro",
+              "text": "porro",
+            },
+            Object {
+              "id": "452ea0bc-b2a1-4813-bd33-41ca37a3900c",
+              "link": "/sauces?limit=15&order=newest&page=1&type=non",
+              "text": "non",
+            },
+            Object {
+              "id": "a9b43d39-606c-4cca-a640-cbda4f7f5b7b",
+              "link": "/sauces?limit=15&order=newest&page=1&type=id",
+              "text": "id",
+            },
+            Object {
+              "id": "454fe8d2-731c-4501-ad7a-6764326718d2",
+              "link": "/sauces?limit=15&order=newest&page=1&type=et",
+              "text": "et",
+            },
+            Object {
+              "id": "315ee9cb-0843-4960-8e23-682e1a778831",
+              "link": "/sauces?limit=15&order=newest&page=1&type=voluptatum",
+              "text": "voluptatum",
+            },
+          ]
+        }
+        title="Type of Sauce"
+      >
+        <div
+          className="sc-AxhUy eKirhA"
+        >
+          <div
+            className="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+          >
+            <h5>
+              <h5
+                className="sc-AxiKw bKvGHD"
+              >
+                Type of Sauce
+              </h5>
+            </h5>
+            <ul>
+              <ul
+                className="sc-AxhCb kjumFH"
+              >
+                <li
+                  id="62021d77-13e7-4b8c-8c7b-85d82aa8b1d3"
+                  key="62021d77-13e7-4b8c-8c7b-85d82aa8b1d3"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=asperiores"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=asperiores"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=asperiores"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=asperiores"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          asperiores
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="64ea25bc-5dbe-40fd-9b86-157b9f538ea8"
+                  key="64ea25bc-5dbe-40fd-9b86-157b9f538ea8"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=omnis"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=omnis"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=omnis"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=omnis"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          omnis
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="63c1f166-1072-4988-9c67-31bb5acc125f"
+                  key="63c1f166-1072-4988-9c67-31bb5acc125f"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=porro"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=porro"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=porro"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=porro"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          porro
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="452ea0bc-b2a1-4813-bd33-41ca37a3900c"
+                  key="452ea0bc-b2a1-4813-bd33-41ca37a3900c"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=non"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=non"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=non"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=non"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          non
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="a9b43d39-606c-4cca-a640-cbda4f7f5b7b"
+                  key="a9b43d39-606c-4cca-a640-cbda4f7f5b7b"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=id"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=id"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=id"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=id"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          id
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="454fe8d2-731c-4501-ad7a-6764326718d2"
+                  key="454fe8d2-731c-4501-ad7a-6764326718d2"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=et"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=et"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=et"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=et"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          et
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="315ee9cb-0843-4960-8e23-682e1a778831"
+                  key="315ee9cb-0843-4960-8e23-682e1a778831"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          voluptatum
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </List>
+    </List>
+  </TypesOfSauces>
+</Provider>
+`;
+
+exports[`<Types /> matches snapshot 7`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <TypesOfSauces>
+    <List
+      items={
+        Array [
+          Object {
+            "id": "229a6a4c-a66a-4337-9310-1ec381dafcd1",
+            "link": "/sauces?limit=15&order=newest&page=1&type=reiciendis",
+            "text": "reiciendis",
+          },
+          Object {
+            "id": "8e1e216f-bd05-4a58-b5d0-772eaeef21eb",
+            "link": "/sauces?limit=15&order=newest&page=1&type=dolores",
+            "text": "dolores",
+          },
+          Object {
+            "id": "033e36c7-8088-491f-813e-9aabd5c479c0",
+            "link": "/sauces?limit=15&order=newest&page=1&type=pariatur",
+            "text": "pariatur",
+          },
+          Object {
+            "id": "adcc33c9-d1c5-4b46-99ab-82c107db88e6",
+            "link": "/sauces?limit=15&order=newest&page=1&type=corrupti",
+            "text": "corrupti",
+          },
+          Object {
+            "id": "f6094684-2e3c-4612-8642-54864b2e4a17",
+            "link": "/sauces?limit=15&order=newest&page=1&type=nam",
+            "text": "nam",
+          },
+          Object {
+            "id": "2c9538b0-c1d6-4fc6-b5dd-6cb69459cf5c",
+            "link": "/sauces?limit=15&order=newest&page=1&type=molestias",
+            "text": "molestias",
+          },
+          Object {
+            "id": "5e8cd0d3-a28b-450b-ae18-a9e52743d209",
+            "link": "/sauces?limit=15&order=newest&page=1&type=aliquid",
+            "text": "aliquid",
+          },
+        ]
+      }
+      title="Type of Sauce"
+    >
+      <List
+        className="sc-AxhUy eKirhA"
+        items={
+          Array [
+            Object {
+              "id": "229a6a4c-a66a-4337-9310-1ec381dafcd1",
+              "link": "/sauces?limit=15&order=newest&page=1&type=reiciendis",
+              "text": "reiciendis",
+            },
+            Object {
+              "id": "8e1e216f-bd05-4a58-b5d0-772eaeef21eb",
+              "link": "/sauces?limit=15&order=newest&page=1&type=dolores",
+              "text": "dolores",
+            },
+            Object {
+              "id": "033e36c7-8088-491f-813e-9aabd5c479c0",
+              "link": "/sauces?limit=15&order=newest&page=1&type=pariatur",
+              "text": "pariatur",
+            },
+            Object {
+              "id": "adcc33c9-d1c5-4b46-99ab-82c107db88e6",
+              "link": "/sauces?limit=15&order=newest&page=1&type=corrupti",
+              "text": "corrupti",
+            },
+            Object {
+              "id": "f6094684-2e3c-4612-8642-54864b2e4a17",
+              "link": "/sauces?limit=15&order=newest&page=1&type=nam",
+              "text": "nam",
+            },
+            Object {
+              "id": "2c9538b0-c1d6-4fc6-b5dd-6cb69459cf5c",
+              "link": "/sauces?limit=15&order=newest&page=1&type=molestias",
+              "text": "molestias",
+            },
+            Object {
+              "id": "5e8cd0d3-a28b-450b-ae18-a9e52743d209",
+              "link": "/sauces?limit=15&order=newest&page=1&type=aliquid",
+              "text": "aliquid",
+            },
+          ]
+        }
+        title="Type of Sauce"
+      >
+        <div
+          className="sc-AxhUy eKirhA"
+        >
+          <div
+            className="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+          >
+            <h5>
+              <h5
+                className="sc-AxiKw bKvGHD"
+              >
+                Type of Sauce
+              </h5>
+            </h5>
+            <ul>
+              <ul
+                className="sc-AxhCb kjumFH"
+              >
+                <li
+                  id="229a6a4c-a66a-4337-9310-1ec381dafcd1"
+                  key="229a6a4c-a66a-4337-9310-1ec381dafcd1"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=reiciendis"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=reiciendis"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=reiciendis"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=reiciendis"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          reiciendis
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="8e1e216f-bd05-4a58-b5d0-772eaeef21eb"
+                  key="8e1e216f-bd05-4a58-b5d0-772eaeef21eb"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=dolores"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=dolores"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=dolores"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=dolores"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          dolores
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="033e36c7-8088-491f-813e-9aabd5c479c0"
+                  key="033e36c7-8088-491f-813e-9aabd5c479c0"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=pariatur"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=pariatur"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=pariatur"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=pariatur"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          pariatur
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="adcc33c9-d1c5-4b46-99ab-82c107db88e6"
+                  key="adcc33c9-d1c5-4b46-99ab-82c107db88e6"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=corrupti"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=corrupti"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=corrupti"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=corrupti"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          corrupti
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="f6094684-2e3c-4612-8642-54864b2e4a17"
+                  key="f6094684-2e3c-4612-8642-54864b2e4a17"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=nam"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=nam"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=nam"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=nam"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          nam
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="2c9538b0-c1d6-4fc6-b5dd-6cb69459cf5c"
+                  key="2c9538b0-c1d6-4fc6-b5dd-6cb69459cf5c"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=molestias"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=molestias"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=molestias"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=molestias"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          molestias
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="5e8cd0d3-a28b-450b-ae18-a9e52743d209"
+                  key="5e8cd0d3-a28b-450b-ae18-a9e52743d209"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=aliquid"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=aliquid"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=aliquid"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=aliquid"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          aliquid
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </List>
+    </List>
+  </TypesOfSauces>
+</Provider>
+`;
+
+exports[`<Types /> matches snapshot 8`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <TypesOfSauces>
+    <List
+      items={
+        Array [
+          Object {
+            "id": "cf7721f3-577e-4e4f-9986-8e67b218317e",
+            "link": "/sauces?limit=15&order=newest&page=1&type=expedita",
+            "text": "expedita",
+          },
+          Object {
+            "id": "afb4aae5-ca8e-4804-8df4-c1005c87f0d1",
+            "link": "/sauces?limit=15&order=newest&page=1&type=dolores",
+            "text": "dolores",
+          },
+          Object {
+            "id": "0264d89e-6b8b-4ee0-bb06-d67041edd1c7",
+            "link": "/sauces?limit=15&order=newest&page=1&type=eos",
+            "text": "eos",
+          },
+          Object {
+            "id": "3dd60085-11be-429e-a946-7c91eacf4e03",
+            "link": "/sauces?limit=15&order=newest&page=1&type=et",
+            "text": "et",
+          },
+          Object {
+            "id": "dfc422f9-5da1-40c2-8a2a-6d96474a0df4",
+            "link": "/sauces?limit=15&order=newest&page=1&type=similique",
+            "text": "similique",
+          },
+          Object {
+            "id": "41a0a5ad-404b-4ac8-ba9c-e0ec112b8f0c",
+            "link": "/sauces?limit=15&order=newest&page=1&type=pariatur",
+            "text": "pariatur",
+          },
+          Object {
+            "id": "4dfa28c6-8b77-496f-bbe9-c9915782c109",
+            "link": "/sauces?limit=15&order=newest&page=1&type=et",
+            "text": "et",
+          },
+        ]
+      }
+      title="Type of Sauce"
+    >
+      <List
+        className="sc-AxhUy eKirhA"
+        items={
+          Array [
+            Object {
+              "id": "cf7721f3-577e-4e4f-9986-8e67b218317e",
+              "link": "/sauces?limit=15&order=newest&page=1&type=expedita",
+              "text": "expedita",
+            },
+            Object {
+              "id": "afb4aae5-ca8e-4804-8df4-c1005c87f0d1",
+              "link": "/sauces?limit=15&order=newest&page=1&type=dolores",
+              "text": "dolores",
+            },
+            Object {
+              "id": "0264d89e-6b8b-4ee0-bb06-d67041edd1c7",
+              "link": "/sauces?limit=15&order=newest&page=1&type=eos",
+              "text": "eos",
+            },
+            Object {
+              "id": "3dd60085-11be-429e-a946-7c91eacf4e03",
+              "link": "/sauces?limit=15&order=newest&page=1&type=et",
+              "text": "et",
+            },
+            Object {
+              "id": "dfc422f9-5da1-40c2-8a2a-6d96474a0df4",
+              "link": "/sauces?limit=15&order=newest&page=1&type=similique",
+              "text": "similique",
+            },
+            Object {
+              "id": "41a0a5ad-404b-4ac8-ba9c-e0ec112b8f0c",
+              "link": "/sauces?limit=15&order=newest&page=1&type=pariatur",
+              "text": "pariatur",
+            },
+            Object {
+              "id": "4dfa28c6-8b77-496f-bbe9-c9915782c109",
+              "link": "/sauces?limit=15&order=newest&page=1&type=et",
+              "text": "et",
+            },
+          ]
+        }
+        title="Type of Sauce"
+      >
+        <div
+          className="sc-AxhUy eKirhA"
+        >
+          <div
+            className="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+          >
+            <h5>
+              <h5
+                className="sc-AxiKw bKvGHD"
+              >
+                Type of Sauce
+              </h5>
+            </h5>
+            <ul>
+              <ul
+                className="sc-AxhCb kjumFH"
+              >
+                <li
+                  id="cf7721f3-577e-4e4f-9986-8e67b218317e"
+                  key="cf7721f3-577e-4e4f-9986-8e67b218317e"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=expedita"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=expedita"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=expedita"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=expedita"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          expedita
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="afb4aae5-ca8e-4804-8df4-c1005c87f0d1"
+                  key="afb4aae5-ca8e-4804-8df4-c1005c87f0d1"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=dolores"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=dolores"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=dolores"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=dolores"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          dolores
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="0264d89e-6b8b-4ee0-bb06-d67041edd1c7"
+                  key="0264d89e-6b8b-4ee0-bb06-d67041edd1c7"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=eos"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=eos"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=eos"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=eos"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          eos
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="3dd60085-11be-429e-a946-7c91eacf4e03"
+                  key="3dd60085-11be-429e-a946-7c91eacf4e03"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=et"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=et"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=et"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=et"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          et
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="dfc422f9-5da1-40c2-8a2a-6d96474a0df4"
+                  key="dfc422f9-5da1-40c2-8a2a-6d96474a0df4"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=similique"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=similique"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=similique"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=similique"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          similique
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="41a0a5ad-404b-4ac8-ba9c-e0ec112b8f0c"
+                  key="41a0a5ad-404b-4ac8-ba9c-e0ec112b8f0c"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=pariatur"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=pariatur"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=pariatur"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=pariatur"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          pariatur
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+                <li
+                  id="4dfa28c6-8b77-496f-bbe9-c9915782c109"
+                  key="4dfa28c6-8b77-496f-bbe9-c9915782c109"
+                >
+                  <Styled(LinkComponent)
+                    href="/sauces?limit=15&order=newest&page=1&type=et"
+                  >
+                    <LinkComponent
+                      className="sc-AxjAm kGmApj"
+                      href="/sauces?limit=15&order=newest&page=1&type=et"
+                    >
+                      <Link
+                        href="/sauces?limit=15&order=newest&page=1&type=et"
+                      >
+                        <a
+                          className="sc-AxjAm kGmApj"
+                          href="/sauces?limit=15&order=newest&page=1&type=et"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          et
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Styled(LinkComponent)>
+                </li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </List>
+    </List>
+  </TypesOfSauces>
+</Provider>
+`;

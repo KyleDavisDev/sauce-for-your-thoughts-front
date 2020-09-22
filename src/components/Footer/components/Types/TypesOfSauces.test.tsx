@@ -1,7 +1,7 @@
 import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
-import { Provider, useSelector } from "react-redux";
+import { Provider } from "react-redux";
 
 import TypesOfSauces from "./TypesOfSauces";
 import {
@@ -22,6 +22,17 @@ describe("<Types />", () => {
         </Provider>
       );
       expect(wrapper).toBeTruthy();
+    });
+  });
+
+  it("matches snapshot", () => {
+    mockStores.forEach(mockStore => {
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <TypesOfSauces />
+        </Provider>
+      );
+      expect(wrapper).toMatchSnapshot();
     });
   });
 
