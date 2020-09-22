@@ -53,4 +53,26 @@ describe("<Types />", () => {
       expect(items?.length).toBeGreaterThan(0);
     });
   });
+
+  it("passes correct number of items to List", () => {
+    mockStores.forEach(mockStore => {
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <TypesOfSauces />
+        </Provider>
+      );
+
+      // grab prop items
+      const items: ListProps[] | undefined = wrapper
+        .find("List")
+        .first()
+        .prop("items");
+
+      // grab types from redux
+      const reduxState = mockStore.getState() as AppState;
+      const reduxTypes = reduxState.sauces.types;
+
+      expect(items?.length).toEqual(reduxTypes.length);
+    });
+  });
 });
