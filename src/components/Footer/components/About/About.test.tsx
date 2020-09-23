@@ -2,23 +2,29 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 
 import About from "./About";
-import { casual } from "../../../../utils/testUtils/testUtils";
+import { casual, ITERATION_SIZE } from "../../../../utils/testUtils/testUtils";
 
 describe("<About />", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(<About />);
-    expect(wrapper).toBeTruthy();
+    new Array(ITERATION_SIZE).fill(null).forEach(() => {
+      const wrapper = enzyme.shallow(<About />);
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.shallow(<About />);
-    expect(wrapper).toMatchSnapshot();
+    new Array(ITERATION_SIZE).fill(null).forEach(() => {
+      const wrapper = enzyme.shallow(<About />);
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   it("concats classname on parent div", () => {
-    const extraClasses = casual.string;
-    const wrapper = enzyme.shallow(<About className={extraClasses} />);
+    new Array(ITERATION_SIZE).fill(null).forEach(() => {
+      const extraClasses = casual.string;
+      const wrapper = enzyme.shallow(<About className={extraClasses} />);
 
-    expect(wrapper.find("div").props().className).toContain(extraClasses);
+      expect(wrapper.find("div").props().className).toContain(extraClasses);
+    });
   });
 });
