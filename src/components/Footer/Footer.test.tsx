@@ -9,4 +9,10 @@ describe("<Footer />", () => {
 
     expect(wrapper).toBeTruthy();
   });
+
+  it("matches snapshot", () => {
+    const wrapper = enzyme.shallow(<Footer />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
