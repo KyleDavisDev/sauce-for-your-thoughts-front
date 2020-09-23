@@ -9,3 +9,73 @@ exports[`<Footer /> matches snapshot 1`] = `
   </styled.div>
 </styled.footer>
 `;
+
+exports[`<Footer /> matches snapshot 2`] = `
+<styled.footer>
+  <styled.div>
+    <Navigation />
+    <TypesOfSauces />
+    <About />
+  </styled.div>
+</styled.footer>
+`;
+
+exports[`<Footer /> matches snapshot 3`] = `
+<styled.footer>
+  <styled.div>
+    <Navigation />
+    <TypesOfSauces />
+    <About />
+  </styled.div>
+</styled.footer>
+`;
+
+exports[`<Footer /> matches snapshot 4`] = `
+<styled.footer>
+  <styled.div>
+    <Navigation />
+    <TypesOfSauces />
+    <About />
+  </styled.div>
+</styled.footer>
+`;
+
+exports[`<Footer /> matches snapshot 5`] = `
+<styled.footer>
+  <styled.div>
+    <Navigation />
+    <TypesOfSauces />
+    <About />
+  </styled.div>
+</styled.footer>
+`;
+
+exports[`<Footer /> matches snapshot 6`] = `
+<styled.footer>
+  <styled.div>
+    <Navigation />
+    <TypesOfSauces />
+    <About />
+  </styled.div>
+</styled.footer>
+`;
+
+exports[`<Footer /> matches snapshot 7`] = `
+<styled.footer>
+  <styled.div>
+    <Navigation />
+    <TypesOfSauces />
+    <About />
+  </styled.div>
+</styled.footer>
+`;
+
+exports[`<Footer /> matches snapshot 8`] = `
+<styled.footer>
+  <styled.div>
+    <Navigation />
+    <TypesOfSauces />
+    <About />
+  </styled.div>
+</styled.footer>
+`;
