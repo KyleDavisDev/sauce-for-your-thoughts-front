@@ -3,14 +3,16 @@ import * as React from "react";
 import { Link } from "../Link/Link";
 import { StyledDiv, StyledH5, StyledUl } from "./ListStyle";
 
+export interface ListItem {
+  link?: string;
+  text: string;
+  id: string;
+}
+
 export interface ListProps {
   className?: string;
   title: string;
-  items: Array<{
-    link?: string;
-    text: string;
-    id: string;
-  }>;
+  items: ListItem[];
 }
 
 const List: React.FunctionComponent<ListProps> = props => {
