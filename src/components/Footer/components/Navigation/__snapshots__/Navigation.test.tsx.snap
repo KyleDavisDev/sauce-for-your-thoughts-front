@@ -1,0 +1,569 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navigation /> matches snapshot 1`] = `
+<div
+  class="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+>
+  <h5
+    class="sc-AxiKw bKvGHD"
+  >
+    Navigation
+  </h5>
+  <ul
+    class="sc-AxhCb kjumFH"
+  >
+    <li
+      id="df8226b9-4e5f-42be-b25c-8a594d7daa38"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/"
+        target="_self"
+      >
+        Home
+      </a>
+    </li>
+    <li
+      id="64f23ba2-43dd-4453-8307-828d280a395f"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauces"
+        target="_self"
+      >
+        All Sauces
+      </a>
+    </li>
+    <li
+      id="78f098db-19b2-457f-b448-3fd54e550e9a"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauce/add"
+        target="_self"
+      >
+        Add Sauce
+      </a>
+    </li>
+    <li
+      id="0d8854d9-e3b2-4dfa-a747-4b0eef999a9d"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/register"
+        target="_self"
+      >
+        Register
+      </a>
+    </li>
+    <li
+      id="d23726ad-bd1b-4901-a524-50ad00334d70"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/login"
+        target="_self"
+      >
+        Log In
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<Navigation /> matches snapshot 2`] = `
+<div
+  class="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+>
+  <h5
+    class="sc-AxiKw bKvGHD"
+  >
+    Navigation
+  </h5>
+  <ul
+    class="sc-AxhCb kjumFH"
+  >
+    <li
+      id="43bef0e4-fa2f-4799-8562-bcbf48450789"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/"
+        target="_self"
+      >
+        Home
+      </a>
+    </li>
+    <li
+      id="1989db89-6764-4bbc-aa7d-910b38560f76"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauces"
+        target="_self"
+      >
+        All Sauces
+      </a>
+    </li>
+    <li
+      id="42aae840-95f8-445a-abd6-005457b228f9"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauce/add"
+        target="_self"
+      >
+        Add Sauce
+      </a>
+    </li>
+    <li
+      id="83e610bb-4a91-4869-a743-098c5dc97e03"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/register"
+        target="_self"
+      >
+        Register
+      </a>
+    </li>
+    <li
+      id="55cf64a0-9c3e-49d2-a1d4-b43630a0e4ed"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/login"
+        target="_self"
+      >
+        Log In
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<Navigation /> matches snapshot 3`] = `
+<div
+  class="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+>
+  <h5
+    class="sc-AxiKw bKvGHD"
+  >
+    Navigation
+  </h5>
+  <ul
+    class="sc-AxhCb kjumFH"
+  >
+    <li
+      id="98335c6c-2a88-4c2c-b765-885099f671c5"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/"
+        target="_self"
+      >
+        Home
+      </a>
+    </li>
+    <li
+      id="6ad21716-a1e7-4116-ae8d-ed2abfc8d23c"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauces"
+        target="_self"
+      >
+        All Sauces
+      </a>
+    </li>
+    <li
+      id="506ccfa6-e80a-4a5c-8038-41973dc77c69"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauce/add"
+        target="_self"
+      >
+        Add Sauce
+      </a>
+    </li>
+    <li
+      id="0f5902ed-8b12-4a5c-b867-a5f6b9c878b0"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/register"
+        target="_self"
+      >
+        Register
+      </a>
+    </li>
+    <li
+      id="20f75c79-aff6-492b-b4fa-6a35efba5b40"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/login"
+        target="_self"
+      >
+        Log In
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<Navigation /> matches snapshot 4`] = `
+<div
+  class="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+>
+  <h5
+    class="sc-AxiKw bKvGHD"
+  >
+    Navigation
+  </h5>
+  <ul
+    class="sc-AxhCb kjumFH"
+  >
+    <li
+      id="84186c09-634d-448b-a9bf-9cbf9c3d018d"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/"
+        target="_self"
+      >
+        Home
+      </a>
+    </li>
+    <li
+      id="eea73f5f-eeb1-41d7-8645-e58a657ae12f"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauces"
+        target="_self"
+      >
+        All Sauces
+      </a>
+    </li>
+    <li
+      id="7d4a3689-979c-4c5b-a020-febd8c3310cb"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauce/add"
+        target="_self"
+      >
+        Add Sauce
+      </a>
+    </li>
+    <li
+      id="a8b9dc10-5405-4a1f-a528-8a49dda94600"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/register"
+        target="_self"
+      >
+        Register
+      </a>
+    </li>
+    <li
+      id="635336cc-e882-400f-bc5b-d9df94510d4e"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/login"
+        target="_self"
+      >
+        Log In
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<Navigation /> matches snapshot 5`] = `
+<div
+  class="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+>
+  <h5
+    class="sc-AxiKw bKvGHD"
+  >
+    Navigation
+  </h5>
+  <ul
+    class="sc-AxhCb kjumFH"
+  >
+    <li
+      id="f95e3a4d-ffe4-438c-9d6a-990c81a28b8c"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/"
+        target="_self"
+      >
+        Home
+      </a>
+    </li>
+    <li
+      id="1d662fec-cd17-43a0-8b27-44a87d2e61a4"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauces"
+        target="_self"
+      >
+        All Sauces
+      </a>
+    </li>
+    <li
+      id="24a1b9e3-0e92-4332-8a38-772e06974990"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauce/add"
+        target="_self"
+      >
+        Add Sauce
+      </a>
+    </li>
+    <li
+      id="0e57bdd7-fc46-44b3-8412-e7eeb03d0963"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/register"
+        target="_self"
+      >
+        Register
+      </a>
+    </li>
+    <li
+      id="11448b6e-9614-493c-845a-06a3b0b23f47"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/login"
+        target="_self"
+      >
+        Log In
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<Navigation /> matches snapshot 6`] = `
+<div
+  class="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+>
+  <h5
+    class="sc-AxiKw bKvGHD"
+  >
+    Navigation
+  </h5>
+  <ul
+    class="sc-AxhCb kjumFH"
+  >
+    <li
+      id="35b46c89-96cb-4e42-ab59-9b512dfa0d25"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/"
+        target="_self"
+      >
+        Home
+      </a>
+    </li>
+    <li
+      id="081d7506-d6ad-4374-8859-3b695b167a4e"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauces"
+        target="_self"
+      >
+        All Sauces
+      </a>
+    </li>
+    <li
+      id="ef791749-1772-4ae4-b445-4ab24eaafa3b"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauce/add"
+        target="_self"
+      >
+        Add Sauce
+      </a>
+    </li>
+    <li
+      id="69693a5c-3eab-4600-ace8-474432163c1a"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/register"
+        target="_self"
+      >
+        Register
+      </a>
+    </li>
+    <li
+      id="6491c5a0-b285-40fa-9a95-d81c7aa34d8d"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/login"
+        target="_self"
+      >
+        Log In
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<Navigation /> matches snapshot 7`] = `
+<div
+  class="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+>
+  <h5
+    class="sc-AxiKw bKvGHD"
+  >
+    Navigation
+  </h5>
+  <ul
+    class="sc-AxhCb kjumFH"
+  >
+    <li
+      id="a8b19cb6-44f1-4a09-b137-541e22df9e86"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/"
+        target="_self"
+      >
+        Home
+      </a>
+    </li>
+    <li
+      id="c77b409d-b94f-4948-807f-95e695c7af30"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauces"
+        target="_self"
+      >
+        All Sauces
+      </a>
+    </li>
+    <li
+      id="7244ee04-172f-415f-ad4c-a39956956ad7"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauce/add"
+        target="_self"
+      >
+        Add Sauce
+      </a>
+    </li>
+    <li
+      id="55eed1cd-38cb-4174-988a-64d017581680"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/register"
+        target="_self"
+      >
+        Register
+      </a>
+    </li>
+    <li
+      id="1144113b-6f66-49f5-a510-2b537f41967a"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/login"
+        target="_self"
+      >
+        Log In
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<Navigation /> matches snapshot 8`] = `
+<div
+  class="sc-AxirZ jpgewr sc-AxhUy eKirhA"
+>
+  <h5
+    class="sc-AxiKw bKvGHD"
+  >
+    Navigation
+  </h5>
+  <ul
+    class="sc-AxhCb kjumFH"
+  >
+    <li
+      id="3a080737-013c-4453-849a-8b3b5639689e"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/"
+        target="_self"
+      >
+        Home
+      </a>
+    </li>
+    <li
+      id="2e771faa-b5e4-4999-928f-0430536bd4a1"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauces"
+        target="_self"
+      >
+        All Sauces
+      </a>
+    </li>
+    <li
+      id="1a151b41-7cec-4065-8e56-3aedafc5bbc1"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/sauce/add"
+        target="_self"
+      >
+        Add Sauce
+      </a>
+    </li>
+    <li
+      id="31ca117b-22a1-4e59-be5a-13fdd60d3178"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/register"
+        target="_self"
+      >
+        Register
+      </a>
+    </li>
+    <li
+      id="94844b68-e8de-4fa9-9b7d-551cf68bcf2a"
+    >
+      <a
+        class="sc-AxjAm kGmApj"
+        href="/account/login"
+        target="_self"
+      >
+        Log In
+      </a>
+    </li>
+  </ul>
+</div>
+`;
