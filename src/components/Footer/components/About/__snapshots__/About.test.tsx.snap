@@ -14,3 +14,108 @@ exports[`<About /> matches snapshot 1`] = `
   </p>
 </div>
 `;
+
+exports[`<About /> matches snapshot 2`] = `
+<div>
+  <h5>
+    About
+  </h5>
+  <p>
+    Ever wonder what a sauce tastes like 
+    <em>
+      before
+    </em>
+     buying it? Sauce For Your Thoughts can help! Add, or review, sauces and help out your fellow saucies! Never be blind-sides by a sauce again!
+  </p>
+</div>
+`;
+
+exports[`<About /> matches snapshot 3`] = `
+<div>
+  <h5>
+    About
+  </h5>
+  <p>
+    Ever wonder what a sauce tastes like 
+    <em>
+      before
+    </em>
+     buying it? Sauce For Your Thoughts can help! Add, or review, sauces and help out your fellow saucies! Never be blind-sides by a sauce again!
+  </p>
+</div>
+`;
+
+exports[`<About /> matches snapshot 4`] = `
+<div>
+  <h5>
+    About
+  </h5>
+  <p>
+    Ever wonder what a sauce tastes like 
+    <em>
+      before
+    </em>
+     buying it? Sauce For Your Thoughts can help! Add, or review, sauces and help out your fellow saucies! Never be blind-sides by a sauce again!
+  </p>
+</div>
+`;
+
+exports[`<About /> matches snapshot 5`] = `
+<div>
+  <h5>
+    About
+  </h5>
+  <p>
+    Ever wonder what a sauce tastes like 
+    <em>
+      before
+    </em>
+     buying it? Sauce For Your Thoughts can help! Add, or review, sauces and help out your fellow saucies! Never be blind-sides by a sauce again!
+  </p>
+</div>
+`;
+
+exports[`<About /> matches snapshot 6`] = `
+<div>
+  <h5>
+    About
+  </h5>
+  <p>
+    Ever wonder what a sauce tastes like 
+    <em>
+      before
+    </em>
+     buying it? Sauce For Your Thoughts can help! Add, or review, sauces and help out your fellow saucies! Never be blind-sides by a sauce again!
+  </p>
+</div>
+`;
+
+exports[`<About /> matches snapshot 7`] = `
+<div>
+  <h5>
+    About
+  </h5>
+  <p>
+    Ever wonder what a sauce tastes like 
+    <em>
+      before
+    </em>
+     buying it? Sauce For Your Thoughts can help! Add, or review, sauces and help out your fellow saucies! Never be blind-sides by a sauce again!
+  </p>
+</div>
+`;
+
+exports[`<About /> matches snapshot 8`] = `
+<div>
+  <h5>
+    About
+  </h5>
+  <p>
+    Ever wonder what a sauce tastes like 
+    <em>
+      before
+    </em>
+     buying it? Sauce For Your Thoughts can help! Add, or review, sauces and help out your fellow saucies! Never be blind-sides by a sauce again!
+  </p>
+</div>
+`;
