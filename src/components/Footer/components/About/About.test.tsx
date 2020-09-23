@@ -21,14 +21,4 @@ describe("<About />", () => {
 
     expect(wrapper.find("div").props().className).toContain(extraClasses);
   });
-
-  it("renders single h5 tag", () => {
-    const wrapper = enzyme.shallow(<About />);
-    expect(wrapper.find("h5").length).toEqual(1);
-  });
-
-  it("renders single p tag", () => {
-    const wrapper = enzyme.shallow(<About />);
-    expect(wrapper.find("p").length).toEqual(1);
-  });
 });
