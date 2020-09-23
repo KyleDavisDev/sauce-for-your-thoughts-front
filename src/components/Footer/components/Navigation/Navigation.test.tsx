@@ -11,4 +11,11 @@ describe("<Navigation />", () => {
       expect(wrapper).toBeTruthy();
     });
   });
+
+  it("matches snapshot", () => {
+    new Array(ITERATION_SIZE).fill(null).forEach(() => {
+      const wrapper = enzyme.render(<Navigation />);
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });
