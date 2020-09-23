@@ -1,7 +1,8 @@
 import * as React from "react";
 
-import List from "../../../List/List";
+import List, { ListItem } from "../../../List/List";
 import styled from "../../../../theme/styled-components";
+import { casual } from "../../../../utils/testUtils/testUtils";
 
 const StyledList = styled(List)`
   h5,
@@ -13,19 +14,18 @@ const StyledList = styled(List)`
     color: ${x => x.theme.secondaryThemeColor};
   }
 `;
+StyledList.displayName = "List";
 
-class Navigation extends React.PureComponent {
-  private items = [
-    { link: "/", text: "Home" },
-    { link: "/sauces", text: "All Sauces" },
-    { link: "/sauce/add", text: "Add Sauce" },
-    { link: "/account/register", text: "Register" },
-    { link: "/account/login", text: "Log In" }
+const Navigation: React.FunctionComponent = () => {
+  const items: ListItem[] = [
+    { link: "/", text: "Home", id: casual.uuid },
+    { link: "/sauces", text: "All Sauces", id: casual.uuid },
+    { link: "/sauce/add", text: "Add Sauce", id: casual.uuid },
+    { link: "/account/register", text: "Register", id: casual.uuid },
+    { link: "/account/login", text: "Log In", id: casual.uuid }
   ];
 
-  public render() {
-    return <StyledList title="Navigation" items={this.items} />;
-  }
-}
+  return <StyledList title="Navigation" items={items} />;
+};
 
 export default Navigation;
