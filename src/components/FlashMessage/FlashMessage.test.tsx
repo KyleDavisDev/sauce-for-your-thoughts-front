@@ -1,3 +1,4 @@
+import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
 
@@ -35,9 +36,13 @@ describe("<FlashMessage />", () => {
     });
   });
 
-  // it("matches snapshot", () => {
-  //   const wrapper = enzyme.shallow(<FlashMessage {...mockFlashMessage()} />);
+  it("returns no children if not visible", () => {
+    mockFlashMessages.forEach(fakeProps => {
+      const wrapper = enzyme.mount(<FlashMessage {...fakeProps} />);
 
-  //   expect(wrapper).toMatchSnapshot();
-  // });
+      if (fakeProps.isVisible) return;
+
+      expect(wrapper.find("FlashMessage").last().children()).toEqual({});
+    });
+  });
 });
