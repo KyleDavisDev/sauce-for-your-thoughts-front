@@ -75,13 +75,17 @@ describe("<DropDown>", () => {
     });
   });
 
-  // it("calls onSelect when component used", () => {
-  //   const select = wrapper.find("StyledSelect");
+  it("calls onSelect when component used", () => {
+    mockDropDowns.forEach(mockDropDown => {
+      const wrapper = enzyme.shallow(<DropDown {...mockDropDown} />);
 
-  //   select.simulate("change");
-  //   expect(mockOnSelect).toHaveBeenCalledTimes(1);
+      const select = wrapper.find("StyledSelect");
 
-  //   select.simulate("change");
-  //   expect(mockOnSelect).toHaveBeenCalledTimes(2);
-  // });
+      select.simulate("change");
+      expect(mockDropDown.onSelect).toHaveBeenCalledTimes(1);
+
+      select.simulate("change");
+      expect(mockDropDown.onSelect).toHaveBeenCalledTimes(2);
+    });
+  });
 });
