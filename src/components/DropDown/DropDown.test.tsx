@@ -44,6 +44,13 @@ describe("<DropDown>", () => {
     });
   });
 
+  it("matches snapshot", () => {
+    mockDropDowns.forEach(mockDropDown => {
+      const wrapper = enzyme.shallow(<DropDown {...mockDropDown} />);
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
   it("renders correct number of options", () => {
     mockDropDowns.forEach(mockDropDown => {
       const wrapper = enzyme.shallow(<DropDown {...mockDropDown} />);

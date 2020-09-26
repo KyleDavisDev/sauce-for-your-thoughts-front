@@ -1,0 +1,451 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropDown> matches snapshot 1`] = `
+<div
+  className={[Function]}
+>
+  <styled.div>
+    <StyledSelect
+      id="59238a8e-8b9b-4b80-a049-06e325807ccd"
+      name="e2368339-2e09-4049-8fd0-2e808d9d8109"
+      onChange={[MockFunction]}
+      value="corporis"
+    >
+      <option
+        key="82870ac5-6a27-4635-933e-6763072fed0d"
+        value="sequi"
+      >
+        sequi
+      </option>
+      <option
+        key="fabd662b-eca6-4854-bda8-9403f33c3ea7"
+        value="facilis"
+      >
+        facilis
+      </option>
+      <option
+        key="3b229258-d4c7-4d87-bcad-fb7d23cfeb3a"
+        value="corporis"
+      >
+        corporis
+      </option>
+      <option
+        key="01df60c9-c1f9-4621-bbad-3e3bf8cc95ca"
+        value="sed"
+      >
+        sed
+      </option>
+      <option
+        key="e2a3bf5e-1813-4ceb-a2de-df180ca66d0c"
+        value="veritatis"
+      >
+        veritatis
+      </option>
+      <option
+        key="56cbcfe7-8686-4682-82aa-9004049bc1f1"
+        value="quidem"
+      >
+        quidem
+      </option>
+      <option
+        key="0d41cb84-301a-4118-95f7-838547c203fb"
+        value="praesentium"
+      >
+        praesentium
+      </option>
+    </StyledSelect>
+  </styled.div>
+</div>
+`;
+
+exports[`<DropDown> matches snapshot 2`] = `
+<div
+  className={[Function]}
+>
+  <styled.div>
+    <StyledSelect
+      id="c6ba3d35-b4b0-44c2-ad20-a0b3ad90f073"
+      name="016bcd26-7da8-405a-a010-f05cef4042ca"
+      onChange={[MockFunction]}
+    >
+      <option
+        key="5d4e59ad-aef8-4edd-a19a-a7b7e6dd76bb"
+        value="laudantium"
+      >
+        laudantium
+      </option>
+      <option
+        key="085d69e7-f7b8-483b-80f3-1b0d68d60981"
+        value="molestias"
+      >
+        molestias
+      </option>
+      <option
+        key="324e3902-ead7-4a04-a5af-b5e61862feba"
+        value="assumenda"
+      >
+        assumenda
+      </option>
+      <option
+        key="485d4729-a353-412d-a05d-6b3616fc0bb2"
+        value="quasi"
+      >
+        quasi
+      </option>
+      <option
+        key="6e815506-7af4-4cfb-86b5-3042efad708e"
+        value="adipisci"
+      >
+        adipisci
+      </option>
+      <option
+        key="b2585449-49c9-44bd-9773-3788bfb80c65"
+        value="mollitia"
+      >
+        mollitia
+      </option>
+      <option
+        key="5ca3f11f-2ff4-47d2-8b9f-88275c9d525a"
+        value="iste"
+      >
+        iste
+      </option>
+    </StyledSelect>
+  </styled.div>
+</div>
+`;
+
+exports[`<DropDown> matches snapshot 3`] = `
+<div>
+  <styled.div>
+    <StyledSelect
+      id="a3729ace-aeb8-4cc9-a93c-8ca1c4a381e5"
+      name="8cb27b15-98f4-4a56-ac68-096e8d13d38d"
+      onChange={[MockFunction]}
+    >
+      <option
+        key="b68ce5e0-8953-44ae-8d1f-7ff058ae256c"
+        value="est"
+      >
+        est
+      </option>
+      <option
+        key="9d22a152-c732-4f7a-9b7c-37e9a6855014"
+        value="rerum"
+      >
+        rerum
+      </option>
+      <option
+        key="d3ae4e95-0363-4920-9eed-4071302391af"
+        value="at"
+      >
+        at
+      </option>
+      <option
+        key="122819f9-1dd6-485a-b482-983e2dbddde0"
+        value="sint"
+      >
+        sint
+      </option>
+      <option
+        key="9df9294f-15c3-4aee-a489-e78ddeca8225"
+        value="dolores"
+      >
+        dolores
+      </option>
+      <option
+        key="27bf0b3c-5e3a-40f2-93c3-8abaaac4b19a"
+        value="fugiat"
+      >
+        fugiat
+      </option>
+      <option
+        key="b9993646-3db6-4d32-b54d-832d64159e2e"
+        value="quis"
+      >
+        quis
+      </option>
+    </StyledSelect>
+  </styled.div>
+</div>
+`;
+
+exports[`<DropDown> matches snapshot 4`] = `
+<div
+  className={[Function]}
+>
+  <styled.div>
+    <StyledSelect
+      id="f1357d81-dafa-41cf-9cc8-cf5a67b9b1bb"
+      name="df94aabc-26e8-4a29-8807-6faa28c92792"
+      onChange={[MockFunction]}
+    >
+      <option
+        key="2d1e5dc0-1648-4f98-954e-12438d24e649"
+        value="rerum"
+      >
+        rerum
+      </option>
+      <option
+        key="d15f0078-869c-4a75-af86-53aa2e85bcf0"
+        value="libero"
+      >
+        libero
+      </option>
+      <option
+        key="bdf21847-8be2-467c-bdb4-de63510376c8"
+        value="odit"
+      >
+        odit
+      </option>
+      <option
+        key="8e6de90e-dc59-40b5-ad6a-bc3a6744f4d8"
+        value="aut"
+      >
+        aut
+      </option>
+      <option
+        key="a158db09-2828-42c4-b900-63218430371a"
+        value="labore"
+      >
+        labore
+      </option>
+      <option
+        key="dae8c04d-7d4d-442c-864e-f921c8ed7c41"
+        value="qui"
+      >
+        qui
+      </option>
+      <option
+        key="c543b437-54f1-4bec-8594-599023401e5e"
+        value="aut"
+      >
+        aut
+      </option>
+    </StyledSelect>
+  </styled.div>
+</div>
+`;
+
+exports[`<DropDown> matches snapshot 5`] = `
+<div>
+  <styled.div>
+    <StyledSelect
+      id="d9854ae4-78f9-4abf-a796-e71629322521"
+      onChange={[MockFunction]}
+    >
+      <option
+        key="9d84c210-5b4e-40d5-8be4-86509c53342b"
+        value="et"
+      >
+        et
+      </option>
+      <option
+        key="717c9a83-923b-46a5-9121-84e24ac478a9"
+        value="ipsa"
+      >
+        ipsa
+      </option>
+      <option
+        key="c0dbd511-3711-44d0-a615-294effecbe33"
+        value="consequuntur"
+      >
+        consequuntur
+      </option>
+      <option
+        key="b446014d-5307-45ae-b503-52a7d140ba3b"
+        value="quidem"
+      >
+        quidem
+      </option>
+      <option
+        key="cb90ae3f-2997-4a38-88e8-41a7dd1c408e"
+        value="dolorem"
+      >
+        dolorem
+      </option>
+      <option
+        key="d10c675a-9bbf-4c07-866a-e54deb3741ce"
+        value="quia"
+      >
+        quia
+      </option>
+      <option
+        key="2422eba5-5ce0-4c84-82b0-363ab1bff648"
+        value="consequatur"
+      >
+        consequatur
+      </option>
+    </StyledSelect>
+  </styled.div>
+</div>
+`;
+
+exports[`<DropDown> matches snapshot 6`] = `
+<div
+  className={[Function]}
+>
+  <styled.div>
+    <StyledSelect
+      id="f0171383-4134-4448-8c14-b186ac95a1db"
+      name="7811db6a-ec68-4507-ae1b-71de77e61957"
+      onChange={[MockFunction]}
+    >
+      <option
+        key="36e87776-6a69-45a0-9e8e-c86230e2d4ea"
+        value="sint"
+      >
+        sint
+      </option>
+      <option
+        key="da4a8886-9591-419a-a7ea-170047f08e37"
+        value="voluptatem"
+      >
+        voluptatem
+      </option>
+      <option
+        key="f78b5840-ef29-4b06-ad1f-bde0a1dde7e8"
+        value="porro"
+      >
+        porro
+      </option>
+      <option
+        key="8ff6bdee-8c88-4b96-b9f3-6c04feac54c2"
+        value="ut"
+      >
+        ut
+      </option>
+      <option
+        key="ac4e3191-3c09-4383-9877-dd5bc892fe91"
+        value="est"
+      >
+        est
+      </option>
+      <option
+        key="161eb6e8-f886-4001-8206-9315400921f9"
+        value="sed"
+      >
+        sed
+      </option>
+      <option
+        key="08cdcad4-1d13-4b20-b4cf-2ab2647684fd"
+        value="qui"
+      >
+        qui
+      </option>
+    </StyledSelect>
+  </styled.div>
+</div>
+`;
+
+exports[`<DropDown> matches snapshot 7`] = `
+<div>
+  <styled.div>
+    <StyledSelect
+      id="c7f2b5db-e9de-4e20-be38-e81697b8b580"
+      name="bff4d5db-f062-4ec7-97c0-822d664e88b0"
+      onChange={[MockFunction]}
+    >
+      <option
+        key="6178e030-aa53-4809-b176-560a89bed9c3"
+        value="dolore"
+      >
+        dolore
+      </option>
+      <option
+        key="918b237e-8894-4828-b87c-ced28842c671"
+        value="quibusdam"
+      >
+        quibusdam
+      </option>
+      <option
+        key="ba0f1683-a472-4f1c-8bc6-ac44f85e2f4e"
+        value="quasi"
+      >
+        quasi
+      </option>
+      <option
+        key="ce79efb8-df4b-47c6-9694-3507d384ee7d"
+        value="quisquam"
+      >
+        quisquam
+      </option>
+      <option
+        key="1ad053c9-ce9e-4c38-8c1c-8120733b9299"
+        value="ut"
+      >
+        ut
+      </option>
+      <option
+        key="eeeaf138-3655-4855-84af-d8299bf28726"
+        value="libero"
+      >
+        libero
+      </option>
+      <option
+        key="c47302cf-d3af-4497-811c-50da33bf9b99"
+        value="explicabo"
+      >
+        explicabo
+      </option>
+    </StyledSelect>
+  </styled.div>
+</div>
+`;
+
+exports[`<DropDown> matches snapshot 8`] = `
+<div
+  className={[Function]}
+>
+  <styled.div>
+    <StyledSelect
+      id="9f05fde2-a658-4877-921f-98a8c48bc813"
+      onChange={[MockFunction]}
+      value="quos"
+    >
+      <option
+        key="e13c3d2d-f1f4-4cc3-8127-b48215c480e2"
+        value="quia"
+      >
+        quia
+      </option>
+      <option
+        key="9d517fa2-ca1e-4d86-aa4e-8af77daca54c"
+        value="nam"
+      >
+        nam
+      </option>
+      <option
+        key="0dc584f8-bfef-4006-8ce7-8d676be1917e"
+        value="laborum"
+      >
+        laborum
+      </option>
+      <option
+        key="2b4f0b78-f491-49c7-8842-b3d2b3fe8464"
+        value="molestiae"
+      >
+        molestiae
+      </option>
+      <option
+        key="a8fee4c7-aa63-4580-8b1b-d62e2ed3af20"
+        value="aut"
+      >
+        aut
+      </option>
+      <option
+        key="2ab6c09c-ecbc-41a6-8739-7a1049c07a51"
+        value="quos"
+      >
+        quos
+      </option>
+      <option
+        key="9a970d7f-7e90-43a9-8367-cf3276d4c048"
+        value="quasi"
+      >
+        quasi
+      </option>
+    </StyledSelect>
+  </styled.div>
+</div>
+`;
