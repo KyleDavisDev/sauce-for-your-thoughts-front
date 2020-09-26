@@ -20,4 +20,10 @@ describe("<FlashMessage />", () => {
 
     expect(wrapper).toBeTruthy();
   });
+
+  it("matches snapshot", () => {
+    const wrapper = enzyme.shallow(<FlashMessage {...mockFlashMessage()} />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
