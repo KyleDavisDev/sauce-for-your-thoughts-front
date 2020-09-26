@@ -22,6 +22,13 @@ describe("<Descriptor>", () => {
     });
   });
 
+  it("matches snapshot", () => {
+    mockDescriptors.forEach(mockDescriptor => {
+      const wrapper = enzyme.shallow(<Descriptor {...mockDescriptor} />);
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
   // it("Renders correct title", () => {
   //   expect(wrapper.find("Title").children().text()).toEqual(title);
 
