@@ -37,5 +37,6 @@ const StyledLink = styled(LinkComponent)`
     color: ${props => props.theme.secondaryThemeColor};
   }
 `;
+StyledLink.displayName = "Link";
 
 export { StyledLink as Link };

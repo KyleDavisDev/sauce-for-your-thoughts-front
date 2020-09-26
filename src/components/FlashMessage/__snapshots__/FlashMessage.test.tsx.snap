@@ -27,11 +27,11 @@ exports[`<FlashMessage /> matches snapshot 3`] = `
     <styled.div>
       debitis rem similique temporibus aliquam sed sapiente
        
-      <Styled(LinkComponent)
+      <Link
         href="http://Klocko.info/"
       >
         Mrs. Keanu Weissnat
-      </Styled(LinkComponent)>
+      </Link>
        
     </styled.div>
     <Styled(Button)
