@@ -10,7 +10,7 @@ const StyledP = styled.p`
   font-family: AvenirNextReg;
 `;
 
-interface DescriptorProps {
+export interface DescriptorProps {
   className?: string;
   children: string;
   title: string;
