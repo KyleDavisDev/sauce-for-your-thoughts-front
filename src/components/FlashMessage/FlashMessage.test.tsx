@@ -3,7 +3,7 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 
 import { casual, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
-import { FlashMessage, FlashMessageProps } from "./FlashMessage";
+import FlashMessage, { FlashMessageProps } from "./FlashMessage";
 
 const mockFlashMessage = (): FlashMessageProps => ({
   className: casual.random_element([undefined, casual.string]),
@@ -30,7 +30,7 @@ describe("<FlashMessage />", () => {
 
   it("matches snapshot", () => {
     mockFlashMessages.forEach(fakeProps => {
-      const wrapper = enzyme.render(<FlashMessage {...fakeProps} />);
+      const wrapper = enzyme.shallow(<FlashMessage {...fakeProps} />);
 
       expect(wrapper).toMatchSnapshot();
     });
