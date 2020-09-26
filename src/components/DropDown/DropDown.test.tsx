@@ -101,7 +101,7 @@ describe("<DropDown>", () => {
     });
   });
 
-  it("renders label when showLabel passed", () => {
+  it("renders label element when showLabel is true", () => {
     mockDropDowns.forEach(mockDropDown => {
       const wrapper = enzyme.shallow(<DropDown {...mockDropDown} />);
 
