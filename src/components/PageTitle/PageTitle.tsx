@@ -7,9 +7,9 @@ const StyledH1 = styled.h1`
   font-family: FuturaMedium;
   margin: 2rem 0 1rem;
 `;
-StyledH1.displayName = "StyledH1";
+StyledH1.displayName = "h1";
 
-interface PageTitleProps {
+export interface PageTitleProps {
   children?: string;
   className?: string;
 }
