@@ -37,20 +37,20 @@ const FlashMessage: React.FC<FlashMessageProps> = props => {
   const [isVisible, setIsVisible] = React.useState(props.isVisible);
   const { slug, slugText, text, children, className } = props;
 
+  if (!isVisible) {
+    return null;
+  }
+
   return (
-    <>
-      {isVisible ? (
-        <StyledContainer className={className}>
-          <StyledDiv>
-            <StyledContent>
-              {children || text}{" "}
-              {slug && slugText ? <Link href={slug}>{slugText}</Link> : ""}{" "}
-            </StyledContent>
-            <Button onClick={e => setIsVisible(false)}>X</Button>
-          </StyledDiv>
-        </StyledContainer>
-      ) : null}
-    </>
+    <StyledContainer className={className}>
+      <StyledDiv>
+        <StyledContent>
+          {children || text}{" "}
+          {slug && slugText ? <Link href={slug}>{slugText}</Link> : ""}{" "}
+        </StyledContent>
+        <Button onClick={e => setIsVisible(false)}>X</Button>
+      </StyledDiv>
+    </StyledContainer>
   );
 };
 
@@ -110,5 +110,6 @@ const StyledFlashMessage = styled(FlashMessage)`
     }
   }
 `;
+StyledFlashMessage.displayName = "FlashMessage";
 
 export { StyledFlashMessage as FlashMessage };
