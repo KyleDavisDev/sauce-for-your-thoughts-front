@@ -67,4 +67,14 @@ describe("<FlashMessage />", () => {
       expect(wrapper.find("Link")).toBeTruthy();
     });
   });
+
+  it("does not render link if either slug or slugText are null", () => {
+    mockFlashMessages.forEach(fakeProps => {
+      const wrapper = enzyme.shallow(<FlashMessage {...fakeProps} />);
+
+      if (fakeProps.slug && fakeProps.slugText) return;
+
+      expect(wrapper.find("Link")).toEqual({});
+    });
+  });
 });
