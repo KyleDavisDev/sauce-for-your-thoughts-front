@@ -1,10 +1,10 @@
 import * as React from "react";
-import shortid from "shortid";
 
 import Label from "../Label/Label";
+import { casual } from "../../utils/testUtils/testUtils";
 import { SelectContainer, StyledSelect } from "./DropDownStyle";
 
-interface DropDownProps {
+export interface DropDownProps {
   id?: string;
   options: string[];
   selectedValue?: string;
@@ -25,7 +25,7 @@ const DropDown: React.FC<DropDownProps> = props => {
     label,
     onSelect,
     selectedValue,
-    id = shortid.generate(),
+    id = casual.uuid,
     showLabel = false,
     required = false
   } = props;
@@ -47,7 +47,7 @@ const DropDown: React.FC<DropDownProps> = props => {
         >
           {options.map(opt => {
             return (
-              <option key={shortid.generate()} value={opt.toLowerCase()}>
+              <option key={casual.uuid} value={opt.toLowerCase()}>
                 {opt}
               </option>
             );
