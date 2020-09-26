@@ -100,4 +100,14 @@ describe("<DropDown>", () => {
       );
     });
   });
+
+  it("renders label when showLabel passed", () => {
+    mockDropDowns.forEach(mockDropDown => {
+      const wrapper = enzyme.shallow(<DropDown {...mockDropDown} />);
+
+      if (!mockDropDown.showLabel) return;
+
+      expect(wrapper.find("Label")).toBeTruthy();
+    });
+  });
 });
