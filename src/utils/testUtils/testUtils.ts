@@ -71,16 +71,6 @@ export const fakeSaucesState = (): ISaucesState => {
   };
 };
 
-export const fakeFlashMessage = (): FlashMessageProps => ({
-  className: casual.random_element([undefined, casual.string]),
-  type: casual.random_element([undefined, "success", "warning", "alert"]),
-  isVisible: casual.boolean,
-  slug: casual.random_element([undefined, casual.url]),
-  slugText: casual.random_element([undefined, casual.name]),
-  text: casual.random_element([undefined, casual.string]),
-  children: casual.random_element([undefined, casual.string])
-});
-
 export const fakeStore = () => {
   const storeConfig = configureStore([]);
 
