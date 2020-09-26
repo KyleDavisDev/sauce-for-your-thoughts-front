@@ -44,4 +44,16 @@ describe("<Descriptor>", () => {
       expect(wrapper.find("p").text()).toEqual(mockDescriptor.children);
     });
   });
+
+  it("adds className to parent", () => {
+    mockDescriptors.forEach(mockDescriptor => {
+      if (!mockDescriptor.className) return;
+
+      const wrapper = enzyme.shallow(<Descriptor {...mockDescriptor} />);
+
+      expect(wrapper.find("div").prop("className")).toContain(
+        mockDescriptor.className
+      );
+    });
+  });
 });
