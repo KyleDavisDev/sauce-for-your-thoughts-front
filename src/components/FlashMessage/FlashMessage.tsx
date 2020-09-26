@@ -113,3 +113,4 @@ const StyledFlashMessage = styled(FlashMessage)`
 StyledFlashMessage.displayName = "FlashMessage";
 
 export { StyledFlashMessage as FlashMessage };
+export default FlashMessage;
