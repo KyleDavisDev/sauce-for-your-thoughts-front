@@ -1,121 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FlashMessage /> matches snapshot 1`] = `null`;
+exports[`<FlashMessage /> matches snapshot 1`] = `""`;
 
 exports[`<FlashMessage /> matches snapshot 2`] = `
-<div
-  class="sc-AxiKw dVsUNs sc-AxgMl dtZHw"
->
-  <div
-    class="sc-AxhCb kxoRFz"
-  >
-    <div
-      class="sc-AxhUy fkzcrQ"
+<styled.div>
+  <styled.div>
+    <styled.div>
+      animi vel provident dicta perferendis dolorum cupiditate
+       
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
     >
-      animi vel provident dicta perferendis dolorum cupiditate  
-    </div>
-    <div
-      class="sc-AxirZ bLfzlK"
-    >
-      <button
-        aria-disabled="false"
-        type="button"
-      >
-        X
-      </button>
-    </div>
-  </div>
-</div>
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
 `;
 
 exports[`<FlashMessage /> matches snapshot 3`] = `
-<div
-  class="sc-AxiKw dVsUNs sc-AxgMl dtZHw saepe ut assumenda sint quia sed exercitationem"
+<styled.div
+  className="saepe ut assumenda sint quia sed exercitationem"
 >
-  <div
-    class="sc-AxhCb kxoRFz"
-  >
-    <div
-      class="sc-AxhUy fkzcrQ"
-    >
-      debitis rem similique temporibus aliquam sed sapiente 
-      <a
-        class="sc-AxjAm kGmApj"
+  <styled.div>
+    <styled.div>
+      debitis rem similique temporibus aliquam sed sapiente
+       
+      <Styled(LinkComponent)
         href="http://Klocko.info/"
-        target="_self"
       >
         Mrs. Keanu Weissnat
-      </a>
+      </Styled(LinkComponent)>
        
-    </div>
-    <div
-      class="sc-AxirZ bLfzlK"
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
     >
-      <button
-        aria-disabled="false"
-        type="button"
-      >
-        X
-      </button>
-    </div>
-  </div>
-</div>
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
 `;
 
-exports[`<FlashMessage /> matches snapshot 4`] = `null`;
+exports[`<FlashMessage /> matches snapshot 4`] = `""`;
 
-exports[`<FlashMessage /> matches snapshot 5`] = `null`;
+exports[`<FlashMessage /> matches snapshot 5`] = `""`;
 
 exports[`<FlashMessage /> matches snapshot 6`] = `
-<div
-  class="sc-AxiKw dVsUNs sc-AxgMl bEsIaq eveniet assumenda quis quae iusto sapiente nostrum"
+<styled.div
+  className="eveniet assumenda quis quae iusto sapiente nostrum"
 >
-  <div
-    class="sc-AxhCb kxoRFz"
-  >
-    <div
-      class="sc-AxhUy fkzcrQ"
+  <styled.div>
+    <styled.div>
+      et maxime quia dolores quisquam aut consequatur
+       
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
     >
-      et maxime quia dolores quisquam aut consequatur  
-    </div>
-    <div
-      class="sc-AxirZ bLfzlK"
-    >
-      <button
-        aria-disabled="false"
-        type="button"
-      >
-        X
-      </button>
-    </div>
-  </div>
-</div>
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
 `;
 
-exports[`<FlashMessage /> matches snapshot 7`] = `null`;
+exports[`<FlashMessage /> matches snapshot 7`] = `""`;
 
 exports[`<FlashMessage /> matches snapshot 8`] = `
-<div
-  class="sc-AxiKw dVsUNs sc-AxgMl zlkAV"
->
-  <div
-    class="sc-AxhCb kxoRFz"
-  >
-    <div
-      class="sc-AxhUy fkzcrQ"
+<styled.div>
+  <styled.div>
+    <styled.div>
+      autem ut ullam et possimus sint fugiat
+       
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
     >
-      autem ut ullam et possimus sint fugiat  
-    </div>
-    <div
-      class="sc-AxirZ bLfzlK"
-    >
-      <button
-        aria-disabled="false"
-        type="button"
-      >
-        X
-      </button>
-    </div>
-  </div>
-</div>
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
 `;
