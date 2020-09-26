@@ -62,7 +62,8 @@ describe("<FlashMessage />", () => {
     mockFlashMessages.forEach(fakeProps => {
       const wrapper = enzyme.shallow(<FlashMessage {...fakeProps} />);
 
-      if (!fakeProps.slug || !fakeProps.slugText) return;
+      if (!fakeProps.isVisible || !fakeProps.slug || !fakeProps.slugText)
+        return;
 
       expect(wrapper.find("Link")).toBeTruthy();
     });
@@ -72,9 +73,20 @@ describe("<FlashMessage />", () => {
     mockFlashMessages.forEach(fakeProps => {
       const wrapper = enzyme.shallow(<FlashMessage {...fakeProps} />);
 
-      if (fakeProps.slug && fakeProps.slugText) return;
+      if (!fakeProps.isVisible && fakeProps.slug && fakeProps.slugText) return;
 
       expect(wrapper.find("Link")).toEqual({});
+    });
+  });
+
+  it("renders text if provided and children is falsey and is visible", () => {
+    mockFlashMessages.forEach(fakeProps => {
+      const wrapper = enzyme.shallow(<FlashMessage {...fakeProps} />);
+
+      if (fakeProps.isVisible && !fakeProps.children && fakeProps.text) {
+        // console.log(wrapper.text());
+        expect(wrapper.text()).toContain(fakeProps.text);
+      }
     });
   });
 });
