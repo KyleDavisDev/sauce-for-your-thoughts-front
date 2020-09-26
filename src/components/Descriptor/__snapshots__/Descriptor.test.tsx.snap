@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Descriptor> matches snapshot 1`] = `
+<div>
+  <h2>
+    aut enim iure facilis ut explicabo iure
+  </h2>
+  <p>
+    fugiat error molestiae laborum est possimus assumenda
+  </p>
+</div>
+`;
+
+exports[`<Descriptor> matches snapshot 2`] = `
+<div
+  className="vitae occaecati officia iure nisi ut maiores"
+>
+  <h2>
+    quia autem et modi tenetur amet modi
+  </h2>
+  <p>
+    fuga reprehenderit soluta non omnis consequatur enim
+  </p>
+</div>
+`;
+
+exports[`<Descriptor> matches snapshot 3`] = `
+<div>
+  <h2>
+    ipsa tempora aut sint aperiam occaecati illum
+  </h2>
+  <p>
+    dolorum ab aliquam id sit delectus vel
+  </p>
+</div>
+`;
+
+exports[`<Descriptor> matches snapshot 4`] = `
+<div
+  className="animi vel provident dicta perferendis dolorum cupiditate"
+>
+  <h2>
+    omnis laborum exercitationem est sapiente laudantium molestias
+  </h2>
+  <p>
+    saepe ut assumenda sint quia sed exercitationem
+  </p>
+</div>
+`;
+
+exports[`<Descriptor> matches snapshot 5`] = `
+<div
+  className="assumenda quasi adipisci mollitia iste itaque omnis"
+>
+  <h2>
+    corporis commodi eaque nisi cum ducimus nemo
+  </h2>
+  <p>
+    rem similique temporibus aliquam sed sapiente soluta
+  </p>
+</div>
+`;
+
+exports[`<Descriptor> matches snapshot 6`] = `
+<div>
+  <h2>
+    autem sit aspernatur aspernatur quam eligendi est
+  </h2>
+  <p>
+    ipsam laboriosam non itaque voluptas ea ducimus
+  </p>
+</div>
+`;
+
+exports[`<Descriptor> matches snapshot 7`] = `
+<div>
+  <h2>
+    sit suscipit omnis necessitatibus maiores ullam quae
+  </h2>
+  <p>
+    ex expedita est doloremque explicabo eaque necessitatibus
+  </p>
+</div>
+`;
+
+exports[`<Descriptor> matches snapshot 8`] = `
+<div
+  className="corporis qui aut nobis quo consequatur harum"
+>
+  <h2>
+    nulla aut sunt est rerum at sint
+  </h2>
+  <p>
+    enim et doloremque voluptate in sunt occaecati
+  </p>
+</div>
+`;
