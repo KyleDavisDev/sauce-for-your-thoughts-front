@@ -29,15 +29,13 @@ describe("<Descriptor>", () => {
     });
   });
 
-  // it("Renders correct title", () => {
-  //   expect(wrapper.find("Title").children().text()).toEqual(title);
+  it("renders expected title", () => {
+    mockDescriptors.forEach(mockDescriptor => {
+      const wrapper = enzyme.shallow(<Descriptor {...mockDescriptor} />);
 
-  //   // Test an updated title
-  //   wrapper.setProps({ title: "Another title here!!" });
-  //   expect(wrapper.find("Title").children().text()).toEqual(
-  //     "Another title here!!"
-  //   );
-  // });
+      expect(wrapper.find("h2").text()).toEqual(mockDescriptor.title);
+    });
+  });
 
   // it("Renders correct description", () => {
   //   expect(wrapper.render().find("p").text()).toEqual(children);
