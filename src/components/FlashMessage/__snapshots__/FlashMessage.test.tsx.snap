@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FlashMessage /> matches snapshot 1`] = `
+<FlashMessage
+  className="sc-AxgMl dtZHw"
+  isVisible={true}
+  slugText="Mr. Lelah Davis"
+  text="vel ipsa tempora aut sint aperiam occaecati"
+  type="warning"
+>
+  animi vel provident dicta perferendis dolorum cupiditate
+</FlashMessage>
+`;
