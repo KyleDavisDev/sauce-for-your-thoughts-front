@@ -26,7 +26,7 @@ const fakeDropDown = (): DropDownProps => {
     options,
     selectedValue,
     name: casual.random_element([undefined, casual.uuid]),
-    className: casual.random_element([undefined, casual.words]),
+    className: casual.random_element([undefined, casual.string]),
     showLabel: casual.random_element([undefined, casual.boolean]),
     label: casual.random_element([undefined, casual.string]),
     required: casual.random_element([undefined, casual.boolean]),
@@ -61,13 +61,19 @@ describe("<DropDown>", () => {
     });
   });
 
-  // it("selects assigned prop", () => {
-  //   wrapper.setProps({ selectedValue: "one" });
-  //   expect(wrapper.render().find("select [selected]").text()).toEqual("one");
+  it("selects assigned prop", () => {
+    mockDropDowns.forEach(mockDropDown => {
+      const wrapper = enzyme.shallow(<DropDown {...mockDropDown} />);
 
-  //   wrapper.setProps({ selectedValue: "seven" });
-  //   expect(wrapper.render().find("select [selected]").val()).toEqual("seven");
-  // });
+      // get random value and update props
+      const randomVal = getRandomValFromArr(mockDropDown.options);
+      wrapper.setProps({ selectedValue: randomVal });
+
+      expect(wrapper.render().find("select [selected]").text()).toEqual(
+        randomVal
+      );
+    });
+  });
 
   // it("calls onSelect when component used", () => {
   //   const select = wrapper.find("StyledSelect");
