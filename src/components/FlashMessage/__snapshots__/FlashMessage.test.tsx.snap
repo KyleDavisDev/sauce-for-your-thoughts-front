@@ -1,13 +1,121 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FlashMessage /> matches snapshot 1`] = `
-<FlashMessage
-  className="sc-AxgMl dtZHw"
-  isVisible={true}
-  slugText="Mr. Lelah Davis"
-  text="vel ipsa tempora aut sint aperiam occaecati"
-  type="warning"
+exports[`<FlashMessage /> matches snapshot 1`] = `null`;
+
+exports[`<FlashMessage /> matches snapshot 2`] = `
+<div
+  class="sc-AxiKw dVsUNs sc-AxgMl dtZHw"
 >
-  animi vel provident dicta perferendis dolorum cupiditate
-</FlashMessage>
+  <div
+    class="sc-AxhCb kxoRFz"
+  >
+    <div
+      class="sc-AxhUy fkzcrQ"
+    >
+      animi vel provident dicta perferendis dolorum cupiditate  
+    </div>
+    <div
+      class="sc-AxirZ bLfzlK"
+    >
+      <button
+        aria-disabled="false"
+        type="button"
+      >
+        X
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 3`] = `
+<div
+  class="sc-AxiKw dVsUNs sc-AxgMl dtZHw saepe ut assumenda sint quia sed exercitationem"
+>
+  <div
+    class="sc-AxhCb kxoRFz"
+  >
+    <div
+      class="sc-AxhUy fkzcrQ"
+    >
+      debitis rem similique temporibus aliquam sed sapiente 
+      <a
+        class="sc-AxjAm kGmApj"
+        href="http://Klocko.info/"
+        target="_self"
+      >
+        Mrs. Keanu Weissnat
+      </a>
+       
+    </div>
+    <div
+      class="sc-AxirZ bLfzlK"
+    >
+      <button
+        aria-disabled="false"
+        type="button"
+      >
+        X
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 4`] = `null`;
+
+exports[`<FlashMessage /> matches snapshot 5`] = `null`;
+
+exports[`<FlashMessage /> matches snapshot 6`] = `
+<div
+  class="sc-AxiKw dVsUNs sc-AxgMl bEsIaq eveniet assumenda quis quae iusto sapiente nostrum"
+>
+  <div
+    class="sc-AxhCb kxoRFz"
+  >
+    <div
+      class="sc-AxhUy fkzcrQ"
+    >
+      et maxime quia dolores quisquam aut consequatur  
+    </div>
+    <div
+      class="sc-AxirZ bLfzlK"
+    >
+      <button
+        aria-disabled="false"
+        type="button"
+      >
+        X
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 7`] = `null`;
+
+exports[`<FlashMessage /> matches snapshot 8`] = `
+<div
+  class="sc-AxiKw dVsUNs sc-AxgMl zlkAV"
+>
+  <div
+    class="sc-AxhCb kxoRFz"
+  >
+    <div
+      class="sc-AxhUy fkzcrQ"
+    >
+      autem ut ullam et possimus sint fugiat  
+    </div>
+    <div
+      class="sc-AxirZ bLfzlK"
+    >
+      <button
+        aria-disabled="false"
+        type="button"
+      >
+        X
+      </button>
+    </div>
+  </div>
+</div>
 `;
