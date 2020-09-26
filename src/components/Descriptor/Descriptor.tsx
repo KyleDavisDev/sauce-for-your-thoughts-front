@@ -4,11 +4,12 @@ import styled from "styled-components";
 const StyledH2 = styled.h2`
   font-family: FuturaMedium;
 `;
-StyledH2.displayName = "Title";
+StyledH2.displayName = "h2";
 
 const StyledP = styled.p`
   font-family: AvenirNextReg;
 `;
+StyledP.displayName = "p";
 
 export interface DescriptorProps {
   className?: string;
