@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as enzyme from "enzyme";
 
-import { casual } from "../../utils/testUtils/testUtils";
+import { casual, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
 import { FlashMessage, FlashMessageProps } from "./FlashMessage";
 
 const mockFlashMessage = (): FlashMessageProps => ({
@@ -14,16 +14,30 @@ const mockFlashMessage = (): FlashMessageProps => ({
   children: casual.random_element([undefined, casual.string])
 });
 
+const mockFlashMessages = new Array(ITERATION_SIZE)
+  .fill(null)
+  .map(mockFlashMessage);
+
 describe("<FlashMessage />", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(<FlashMessage {...mockFlashMessage()} />);
+    mockFlashMessages.forEach(fakeProps => {
+      const wrapper = enzyme.shallow(<FlashMessage {...fakeProps} />);
 
-    expect(wrapper).toBeTruthy();
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.shallow(<FlashMessage {...mockFlashMessage()} />);
+    mockFlashMessages.forEach(fakeProps => {
+      const wrapper = enzyme.render(<FlashMessage {...fakeProps} />);
 
-    expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
+    });
   });
+
+  // it("matches snapshot", () => {
+  //   const wrapper = enzyme.shallow(<FlashMessage {...mockFlashMessage()} />);
+
+  //   expect(wrapper).toMatchSnapshot();
+  // });
 });
