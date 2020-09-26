@@ -88,4 +88,16 @@ describe("<DropDown>", () => {
       expect(mockDropDown.onSelect).toHaveBeenCalledTimes(2);
     });
   });
+
+  it("adds className to parent div", () => {
+    mockDropDowns.forEach(mockDropDown => {
+      const wrapper = enzyme.shallow(<DropDown {...mockDropDown} />);
+
+      if (!mockDropDown.className) return;
+
+      expect(wrapper.find("div").first().prop("className")).toContain(
+        mockDropDown.className
+      );
+    });
+  });
 });
