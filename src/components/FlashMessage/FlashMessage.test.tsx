@@ -36,13 +36,25 @@ describe("<FlashMessage />", () => {
     });
   });
 
-  it("returns no children if not visible", () => {
+  it("renders no children if not visible", () => {
     mockFlashMessages.forEach(fakeProps => {
       const wrapper = enzyme.mount(<FlashMessage {...fakeProps} />);
 
       if (fakeProps.isVisible) return;
 
       expect(wrapper.find("FlashMessage").last().children()).toEqual({});
+    });
+  });
+
+  it("renders children if visible", () => {
+    mockFlashMessages.forEach(fakeProps => {
+      const wrapper = enzyme.mount(<FlashMessage {...fakeProps} />);
+
+      if (!fakeProps.isVisible) return;
+
+      expect(wrapper.find("FlashMessage").last().prop("children")).toEqual(
+        fakeProps.children
+      );
     });
   });
 });
