@@ -37,13 +37,11 @@ describe("<Descriptor>", () => {
     });
   });
 
-  // it("Renders correct description", () => {
-  //   expect(wrapper.render().find("p").text()).toEqual(children);
+  it("renders expected description", () => {
+    mockDescriptors.forEach(mockDescriptor => {
+      const wrapper = enzyme.shallow(<Descriptor {...mockDescriptor} />);
 
-  //   // Test an updated description
-  //   wrapper.setProps({ children: "Second description test" });
-  //   expect(wrapper.render().find("p").text()).toEqual(
-  //     "Second description test"
-  //   );
-  // });
+      expect(wrapper.find("p").text()).toEqual(mockDescriptor.children);
+    });
+  });
 });
