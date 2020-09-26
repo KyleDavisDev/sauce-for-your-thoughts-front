@@ -57,4 +57,14 @@ describe("<FlashMessage />", () => {
       );
     });
   });
+
+  it("renders link if slug and slugText are provided", () => {
+    mockFlashMessages.forEach(fakeProps => {
+      const wrapper = enzyme.shallow(<FlashMessage {...fakeProps} />);
+
+      if (!fakeProps.slug || !fakeProps.slugText) return;
+
+      expect(wrapper.find("Link")).toBeTruthy();
+    });
+  });
 });
