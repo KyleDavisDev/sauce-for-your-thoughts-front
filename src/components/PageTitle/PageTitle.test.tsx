@@ -36,4 +36,14 @@ describe("<PageTitle />", () => {
       );
     });
   });
+
+  it("renders expected children", () => {
+    mockPageTitles.forEach(mockPageTitle => {
+      if (!mockPageTitle.children) return;
+
+      const wrapper = enzyme.shallow(<PageTitle {...mockPageTitle} />);
+
+      expect(wrapper.text()).toEqual(mockPageTitle.children);
+    });
+  });
 });
