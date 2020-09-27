@@ -19,6 +19,13 @@ describe("<PageTitle />", () => {
     });
   });
 
+  it("matches snapshot", () => {
+    mockPageTitles.forEach(mockPageTitle => {
+      const wrapper = enzyme.shallow(<PageTitle {...mockPageTitle} />);
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
   it("adds className to parent", () => {
     mockPageTitles.forEach(mockPageTitle => {
       if (!mockPageTitle.className) return;
