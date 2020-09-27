@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PageTitle /> matches snapshot 1`] = `
+<h1
+  className="fugiat error molestiae laborum est possimus assumenda"
+/>
+`;
+
+exports[`<PageTitle /> matches snapshot 2`] = `
+<h1>
+  enim iure facilis ut explicabo iure vitae
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 3`] = `
+<h1>
+  soluta non omnis consequatur enim quia autem
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 4`] = `
+<h1>
+  laborum eius aut illo dolorum ab aliquam
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 5`] = `
+<h1
+  className="cupiditate illum saepe ut assumenda sint quia"
+>
+  occaecati illum animi vel provident dicta perferendis
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 6`] = `
+<h1
+  className="assumenda quasi adipisci mollitia iste itaque omnis"
+>
+  exercitationem omnis laborum exercitationem est sapiente laudantium
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 7`] = `
+<h1
+  className="commodi eaque nisi cum ducimus nemo doloremque"
+/>
+`;
+
+exports[`<PageTitle /> matches snapshot 8`] = `<h1 />`;
