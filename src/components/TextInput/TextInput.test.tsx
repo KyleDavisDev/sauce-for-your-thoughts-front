@@ -189,4 +189,18 @@ describe("<TextInput />", () => {
       expect(wrapper.find("input").prop("name")).toBeUndefined();
     });
   });
+
+  it("renders requirement text if provided", () => {
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+      if (mockTextInput.requirementText) {
+        expect(wrapper.find("p").text()).toEqual(mockTextInput.requirementText);
+
+        return;
+      }
+
+      expect(wrapper.find("p")).toEqual({});
+    });
+  });
 });
