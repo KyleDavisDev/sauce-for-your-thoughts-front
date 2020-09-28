@@ -25,4 +25,11 @@ describe("<CheckBox />", () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it("adds className to parent", () => {
+    const mockCheckBox = fakeCheckBox();
+    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+
+    expect(wrapper.first().prop("className")).toContain(mockCheckBox.className);
+  });
 });
