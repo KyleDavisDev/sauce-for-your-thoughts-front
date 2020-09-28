@@ -120,4 +120,19 @@ describe("<TextInput />", () => {
       expect(wrapper.find("input").prop("aria-required")).toEqual(false);
     });
   });
+
+  it("renders input element with expected placeholder", () => {
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+      if (mockTextInput.placeholder) {
+        expect(wrapper.find("input").prop("placeholder")).toEqual(
+          mockTextInput.placeholder
+        );
+        return;
+      }
+
+      expect(wrapper.find("input").prop("placeholder")).toBeUndefined();
+    });
+  });
 });
