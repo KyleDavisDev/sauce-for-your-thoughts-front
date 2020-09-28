@@ -2,7 +2,7 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 
 import TextInput, { TextInputProps } from "./TextInput";
-import { casual } from "../../utils/testUtils/testUtils";
+import { casual, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
 
 const fakeTextInput = (): TextInputProps => ({
   id: casual.random_element([undefined, casual.string]),
@@ -20,37 +20,66 @@ const fakeTextInput = (): TextInputProps => ({
   onChange: jest.fn()
 });
 
+const mockTextInputs = new Array(ITERATION_SIZE).fill(null).map(fakeTextInput);
+
 describe("<TextInput />", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(<TextInput {...fakeTextInput()} />);
-    expect(wrapper).toBeTruthy();
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.shallow(<TextInput {...fakeTextInput()} />);
-    expect(wrapper).toMatchSnapshot();
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   it("adds className to parent", () => {
-    const mockTextInput = fakeTextInput();
-    if (!mockTextInput.className) return;
-    const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+    mockTextInputs.forEach(mockTextInput => {
+      if (!mockTextInput.className) return;
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
 
-    expect(wrapper.first().prop("className")).toContain(
-      mockTextInput.className
-    );
+      expect(wrapper.first().prop("className")).toContain(
+        mockTextInput.className
+      );
+    });
   });
 
   it("renders single input element", () => {
-    const wrapper = enzyme.shallow(<TextInput {...fakeTextInput()} />);
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
 
-    expect(wrapper.find("input")).toBeTruthy();
+      expect(wrapper.find("input")).toBeTruthy();
+    });
   });
 
-  it("renders input element with expected type", () => {
-    const mockTextInput = fakeTextInput();
-    const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+  it("renders input element with expected type or default", () => {
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
 
-    expect(wrapper.find("input").prop("type")).toEqual(mockTextInput.type);
+      if (mockTextInput.type) {
+        expect(wrapper.find("input").prop("type")).toEqual(mockTextInput.type);
+        return;
+      }
+
+      expect(wrapper.find("input").prop("type")).toEqual("text");
+    });
+  });
+
+  it("renders input element with expected id", () => {
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+      if (mockTextInput.id) {
+        expect(wrapper.find("input").prop("id")).toEqual(mockTextInput.id);
+        return;
+      }
+
+      expect(wrapper.find("input").prop("id")).toBeDefined();
+    });
   });
 });
