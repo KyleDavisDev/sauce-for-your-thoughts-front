@@ -124,4 +124,12 @@ describe("<RadioButton />", () => {
       expect(mockRadioButton.onClick).toHaveBeenCalledTimes(2);
     });
   });
+
+  it("renders label element", () => {
+    mockRadioButtons.forEach(mockRadioButton => {
+      const wrapper = enzyme.shallow(<RadioButton {...mockRadioButton} />);
+
+      expect(wrapper.find("Label")).toBeTruthy();
+    });
+  });
 });
