@@ -190,6 +190,19 @@ describe("<TextInput />", () => {
     });
   });
 
+  it("renders paragraph element if requirement text is provided", () => {
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+      if (mockTextInput.requirementText) {
+        expect(wrapper.find("p")).toBeTruthy();
+        return;
+      }
+
+      expect(wrapper.find("p")).toEqual({});
+    });
+  });
+
   it("renders requirement text if provided", () => {
     mockTextInputs.forEach(mockTextInput => {
       const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
