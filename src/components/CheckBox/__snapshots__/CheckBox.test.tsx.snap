@@ -10,7 +10,6 @@ exports[`<CheckBox /> matches snapshot 1`] = `
     <input
       checked={true}
       id="82fd03e8-18d9-4d81-898d-fec8184c94bf"
-      onChange={[Function]}
       onClick={[MockFunction]}
       type="checkbox"
       value="laudantium molestias assumenda quasi adipisci mollitia iste"
