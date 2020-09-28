@@ -20,4 +20,10 @@ describe("<RadioButton />", () => {
 
     expect(wrapper).toBeTruthy();
   });
+
+  it("matches snapshot", () => {
+    const wrapper = enzyme.shallow(<RadioButton {...fakeRadioButton()} />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
