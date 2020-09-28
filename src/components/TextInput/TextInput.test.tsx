@@ -159,4 +159,20 @@ describe("<TextInput />", () => {
       expect(mockTextInput.onChange).toHaveBeenCalledTimes(2);
     });
   });
+
+  it("renders input element with expected value", () => {
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+      if (mockTextInput.value) {
+        expect(wrapper.find("input").prop("value")).toEqual(
+          mockTextInput.value
+        );
+
+        return;
+      }
+
+      expect(wrapper.find("input").prop("value")).toBeUndefined();
+    });
+  });
 });
