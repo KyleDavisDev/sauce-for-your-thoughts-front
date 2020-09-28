@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckBox /> matches snapshot 1`] = `
+<div
+  className="sed sapiente soluta corporis commodi eaque nisi"
+>
+  <Label
+    htmlFor="82fd03e8-18d9-4d81-898d-fec8184c94bf"
+  >
+    <input
+      checked={true}
+      id="82fd03e8-18d9-4d81-898d-fec8184c94bf"
+      onChange={[Function]}
+      onClick={[MockFunction]}
+      type="checkbox"
+      value="laudantium molestias assumenda quasi adipisci mollitia iste"
+    />
+    itaque omnis debitis rem similique temporibus aliquam
+  </Label>
+</div>
+`;
