@@ -74,4 +74,13 @@ describe("<CheckBox />", () => {
 
     expect(wrapper.find("Label").prop("htmlFor")).toEqual(mockCheckBox.id);
   });
+
+  it("renders a label and input pair", () => {
+    const mockCheckBox = fakeCheckBox();
+    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+
+    expect(wrapper.find("Label").prop("htmlFor")).toEqual(
+      wrapper.find("input").prop("id")
+    );
+  });
 });
