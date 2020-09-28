@@ -44,6 +44,7 @@ export const StyledDescriptor = styled(Descriptor)`
     max-width: 33%;
   }
 `;
+StyledDescriptor.displayName = "Descriptor";
 
 export const StyledRightSide = styled.div`
   width: 100%;
