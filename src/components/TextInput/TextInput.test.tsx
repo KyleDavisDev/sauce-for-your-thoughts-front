@@ -82,4 +82,23 @@ describe("<TextInput />", () => {
       expect(wrapper.find("input").prop("id")).toBeDefined();
     });
   });
+
+  it("renders input element with expected enable/disable or default", () => {
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+      if (mockTextInput.disabled) {
+        expect(wrapper.find("input").prop("disabled")).toEqual(
+          mockTextInput.disabled
+        );
+        expect(wrapper.find("input").prop("aria-disabled")).toEqual(
+          mockTextInput.disabled
+        );
+        return;
+      }
+
+      expect(wrapper.find("input").prop("disabled")).toEqual(false);
+      expect(wrapper.find("input").prop("aria-disabled")).toEqual(false);
+    });
+  });
 });
