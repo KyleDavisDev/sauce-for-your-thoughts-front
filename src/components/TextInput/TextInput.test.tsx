@@ -21,16 +21,14 @@ const fakeTextInput = (): TextInputProps => ({
 });
 
 describe("<TextInput />", () => {
-  const onChange = jest.fn();
-
   it("renders", () => {
-    const wrapper = enzyme.shallow(<TextInput onChange={onChange} />);
+    const wrapper = enzyme.shallow(<TextInput {...fakeTextInput()} />);
     expect(wrapper).toBeTruthy();
   });
 
   it("defaults to rendering single input", () => {
-    const wrapper = enzyme.shallow(<TextInput onChange={onChange} />);
+    const wrapper = enzyme.shallow(<TextInput {...fakeTextInput()} />);
 
-    expect(wrapper.find("StyledInput").length).toEqual(1);
+    expect(wrapper.find("input")).toBeTruthy();
   });
 });
