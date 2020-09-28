@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as enzyme from "enzyme";
 
-import { TextInput, TextInputProps } from "./TextInput";
+import TextInput, { TextInputProps } from "./TextInput";
 import { casual } from "../../utils/testUtils/testUtils";
 
 const fakeTextInput = (): TextInputProps => ({
@@ -45,5 +45,12 @@ describe("<TextInput />", () => {
     const wrapper = enzyme.shallow(<TextInput {...fakeTextInput()} />);
 
     expect(wrapper.find("input")).toBeTruthy();
+  });
+
+  it("renders input element with expected type", () => {
+    const mockTextInput = fakeTextInput();
+    const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+    expect(wrapper.find("input").prop("type")).toEqual(mockTextInput.type);
   });
 });
