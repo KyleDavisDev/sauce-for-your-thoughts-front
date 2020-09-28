@@ -1,7 +1,11 @@
 import * as React from "react";
 import * as enzyme from "enzyme";
 
-import { casual, fakeJSXElement } from "../../utils/testUtils/testUtils";
+import {
+  casual,
+  fakeJSXElement,
+  ITERATION_SIZE
+} from "../../utils/testUtils/testUtils";
 import RadioButton, { RadioButtonProps } from "./RadioButton";
 
 const fakeRadioButton = (): RadioButtonProps => ({
@@ -14,16 +18,24 @@ const fakeRadioButton = (): RadioButtonProps => ({
   className: casual.random_element([undefined, casual.string])
 });
 
+const mockRadioButtons = new Array(ITERATION_SIZE)
+  .fill(null)
+  .map(fakeRadioButton);
+
 describe("<RadioButton />", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(<RadioButton {...fakeRadioButton()} />);
+    mockRadioButtons.forEach(mockRadioButton => {
+      const wrapper = enzyme.shallow(<RadioButton {...mockRadioButton} />);
 
-    expect(wrapper).toBeTruthy();
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.shallow(<RadioButton {...fakeRadioButton()} />);
+    mockRadioButtons.forEach(mockRadioButton => {
+      const wrapper = enzyme.shallow(<RadioButton {...mockRadioButton} />);
 
-    expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 });
