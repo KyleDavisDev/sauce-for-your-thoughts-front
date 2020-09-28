@@ -70,7 +70,7 @@ describe("<TextInput />", () => {
     });
   });
 
-  it("renders input element with expected id", () => {
+  it("renders input element with expected id or default", () => {
     mockTextInputs.forEach(mockTextInput => {
       const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
 
