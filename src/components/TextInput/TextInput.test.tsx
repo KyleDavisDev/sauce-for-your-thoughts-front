@@ -31,4 +31,14 @@ describe("<TextInput />", () => {
 
     expect(wrapper.find("input")).toBeTruthy();
   });
+
+  it("adds className to parent", () => {
+    const mockTextInput = fakeTextInput();
+    if (!mockTextInput.className) return;
+    const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+    expect(wrapper.first().prop("className")).toContain(
+      mockTextInput.className
+    );
+  });
 });
