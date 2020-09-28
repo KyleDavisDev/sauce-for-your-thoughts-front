@@ -46,7 +46,7 @@ describe("<RadioButton />", () => {
 
       const wrapper = enzyme.shallow(<RadioButton {...mockRadioButton} />);
 
-      expect(wrapper.find("div").first().prop("className")).toContain(
+      expect(wrapper.first().prop("className")).toContain(
         mockRadioButton.className
       );
     });
