@@ -7,6 +7,7 @@ import {
   ITERATION_SIZE
 } from "../../utils/testUtils/testUtils";
 import RadioButton, { RadioButtonProps } from "./RadioButton";
+import { editSauce } from "../../redux/sauces/actions";
 
 const fakeRadioButton = (): RadioButtonProps => ({
   checked: casual.boolean,
@@ -48,6 +49,27 @@ describe("<RadioButton />", () => {
       expect(wrapper.find("div").first().prop("className")).toContain(
         mockRadioButton.className
       );
+    });
+  });
+
+  it("calls onClick when clicked", () => {
+    mockRadioButtons.forEach(mockRadioButton => {
+      const wrapper = enzyme.shallow(<RadioButton {...mockRadioButton} />);
+
+      // check no click
+      expect(mockRadioButton.onClick).not.toHaveBeenCalled();
+
+      // click
+      wrapper.find("input").simulate("click");
+
+      // check click
+      expect(mockRadioButton.onClick).toHaveBeenCalled();
+
+      // click
+      wrapper.find("input").simulate("click");
+
+      // check click
+      expect(mockRadioButton.onClick).toHaveBeenCalledTimes(2);
     });
   });
 });
