@@ -47,6 +47,13 @@ describe("<CheckBox />", () => {
     expect(wrapper.find("input").prop("id")).toEqual(mockCheckBox.id);
   });
 
+  it("renders an input with expected checked attribute", () => {
+    const mockCheckBox = fakeCheckBox();
+    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+
+    expect(wrapper.find("input").prop("checked")).toEqual(mockCheckBox.checked);
+  });
+
   it("renders a label element", () => {
     const mockCheckBox = fakeCheckBox();
     const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
