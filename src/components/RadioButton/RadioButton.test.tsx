@@ -52,7 +52,7 @@ describe("<RadioButton />", () => {
     });
   });
 
-  it("renders input with type radio", () => {
+  it("renders input element", () => {
     mockRadioButtons.forEach(mockRadioButton => {
       const wrapper = enzyme.shallow(<RadioButton {...mockRadioButton} />);
 
