@@ -38,4 +38,16 @@ describe("<RadioButton />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("adds className to parent", () => {
+    mockRadioButtons.forEach(mockRadioButton => {
+      if (!mockRadioButton.className) return;
+
+      const wrapper = enzyme.shallow(<RadioButton {...mockRadioButton} />);
+
+      expect(wrapper.find("div").first().prop("className")).toContain(
+        mockRadioButton.className
+      );
+    });
+  });
 });
