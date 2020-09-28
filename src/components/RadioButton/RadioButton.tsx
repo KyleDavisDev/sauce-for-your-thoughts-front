@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import Label from "../Label/Label";
 
-interface RadioButtonProps {
+export interface RadioButtonProps {
   checked: boolean;
   id: string;
   value: string;
@@ -10,12 +10,11 @@ interface RadioButtonProps {
   onClick: (event: React.MouseEvent<HTMLInputElement>) => void;
   name: string;
   className?: string;
-  key?: string;
 }
 
 const RadioButton: React.FC<RadioButtonProps> = props => {
   return (
-    <div className={props.className} key={props.key}>
+    <div className={props.className}>
       <Label htmlFor={props.id}>
         <input
           defaultChecked={props.checked}
@@ -54,3 +53,4 @@ const StyledRadioButton = styled(RadioButton)`
 `;
 
 export { StyledRadioButton as RadioButton };
+export default RadioButton;
