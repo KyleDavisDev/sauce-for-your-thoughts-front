@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RadioButton /> matches snapshot 1`] = `
+<div
+  className="aut eveniet beatae incidunt ut ducimus fugiat"
+>
+  <Label
+    htmlFor="905ab010-f05c-4ef4-842c-bdcad4806618"
+  >
+    <input
+      defaultChecked={false}
+      id="905ab010-f05c-4ef4-842c-bdcad4806618"
+      name="libero odit aut labore qui aut inventore"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Mr. Opal Torphy"
+    />
+    <div
+      key="8edfec40-7f4f-4733-a072-fdb7370bb8c8"
+    >
+      rem similique et maxime quia dolores quisquam
+    </div>
+  </Label>
+</div>
+`;
