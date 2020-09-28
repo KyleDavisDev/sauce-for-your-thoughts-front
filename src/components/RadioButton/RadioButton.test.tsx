@@ -140,4 +140,14 @@ describe("<RadioButton />", () => {
       expect(wrapper.find("Label").prop("htmlFor")).toEqual(mockRadioButton.id);
     });
   });
+
+  it("renders a label and input pair", () => {
+    mockRadioButtons.forEach(mockRadioButton => {
+      const wrapper = enzyme.shallow(<RadioButton {...mockRadioButton} />);
+
+      expect(wrapper.find("Label").prop("htmlFor")).toEqual(
+        wrapper.find("input").prop("id")
+      );
+    });
+  });
 });
