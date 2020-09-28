@@ -1,11 +1,11 @@
 import * as React from "react";
-import * as shortid from "shortid";
 
 import Label from "../Label/Label";
 import { StyledDiv, StyledInput } from "./TextInputStyle";
 import styled from "../../theme/styled-components";
+import { casual } from "../../utils/testUtils/testUtils";
 
-interface TextInputProps {
+export interface TextInputProps {
   id?: string;
   name?: string;
   placeholder?: string;
@@ -24,7 +24,7 @@ interface TextInputProps {
 const TextInput: React.FunctionComponent<TextInputProps> = props => {
   // grab info from props and assign defaults if needed
   const {
-    id = shortid.generate(),
+    id = casual.uuid,
     type = "text",
     disabled = false,
     required = false,
@@ -79,3 +79,4 @@ const StyledTextInput = styled(TextInput)`
 `;
 
 export { StyledTextInput as TextInput };
+export default TextInput;
