@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "../../theme/styled-components";
 
 export const StyledDiv = styled.div`
   display: flex;
@@ -11,6 +11,7 @@ export const StyledDiv = styled.div`
     margin-bottom: 15px;
   }
 `;
+StyledDiv.displayName = "div";
 
 export const StyledInput = styled.input`
   width: 100%;
@@ -22,4 +23,4 @@ export const StyledInput = styled.input`
   margin-bottom: 15px;
   font-family: System;
 `;
-StyledInput.displayName = "StyledInput";
+StyledInput.displayName = "input";
