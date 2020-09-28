@@ -78,6 +78,14 @@ describe("<RadioButton />", () => {
     });
   });
 
+  it("renders input with expected id", () => {
+    mockRadioButtons.forEach(mockRadioButton => {
+      const wrapper = enzyme.shallow(<RadioButton {...mockRadioButton} />);
+
+      expect(wrapper.find("input").prop("id")).toEqual(mockRadioButton.id);
+    });
+  });
+
   it("calls onClick when clicked", () => {
     mockRadioButtons.forEach(mockRadioButton => {
       const wrapper = enzyme.shallow(<RadioButton {...mockRadioButton} />);
