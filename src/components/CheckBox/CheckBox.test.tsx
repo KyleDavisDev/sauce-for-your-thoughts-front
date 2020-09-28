@@ -32,4 +32,11 @@ describe("<CheckBox />", () => {
 
     expect(wrapper.first().prop("className")).toContain(mockCheckBox.className);
   });
+
+  it("renders an input with type checkbox", () => {
+    const mockCheckBox = fakeCheckBox();
+    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+
+    expect(wrapper.find("input").props().type).toEqual("checkbox");
+  });
 });
