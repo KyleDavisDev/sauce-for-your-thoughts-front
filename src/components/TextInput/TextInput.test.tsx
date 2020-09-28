@@ -106,7 +106,7 @@ describe("<TextInput />", () => {
     mockTextInputs.forEach(mockTextInput => {
       const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
 
-      if (mockTextInput.disabled) {
+      if (mockTextInput.required) {
         expect(wrapper.find("input").prop("required")).toEqual(
           mockTextInput.required
         );
