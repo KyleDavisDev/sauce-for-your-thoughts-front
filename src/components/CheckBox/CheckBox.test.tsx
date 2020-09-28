@@ -46,4 +46,11 @@ describe("<CheckBox />", () => {
 
     expect(wrapper.find("label")).toBeTruthy();
   });
+
+  it("renders a label with expected htmlFor attribute", () => {
+    const mockCheckBox = fakeCheckBox();
+    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+
+    expect(wrapper.find("Label").prop("htmlFor")).toEqual(mockCheckBox.id);
+  });
 });
