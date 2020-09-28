@@ -2,20 +2,152 @@
 
 exports[`<TextInput /> matches snapshot 1`] = `
 <div
-  className="sit ex expedita est doloremque explicabo eaque"
+  className="omnis adipisci eius laborum eius aut illo"
 >
   <input
     aria-disabled={false}
     aria-required={false}
     disabled={false}
-    id="omnis debitis rem similique temporibus aliquam sed"
+    id="db7ec3d2-ec86-4fb6-8dc7-c1c2c9cbc8c9"
+    name="fugiat error molestiae laborum est possimus assumenda"
+    onChange={[MockFunction]}
+    placeholder="enim iure facilis ut explicabo iure vitae"
+    required={false}
+    type="text"
+    value="quia autem et modi tenetur amet modi"
+  />
+  <p>
+    id sit delectus vel ipsa tempora aut
+  </p>
+</div>
+`;
+
+exports[`<TextInput /> matches snapshot 2`] = `
+<div
+  className="ducimus nemo doloremque maiores esse atque et"
+>
+  <input
+    aria-disabled={false}
+    aria-required={false}
+    disabled={false}
+    id="7387134f-9131-4813-99b5-25aacc578bfe"
+    onChange={[MockFunction]}
+    required={false}
+    type="text"
+    value={[Function]}
+  />
+</div>
+`;
+
+exports[`<TextInput /> matches snapshot 3`] = `
+<div>
+  <input
+    aria-disabled={false}
+    aria-required={false}
+    disabled={false}
+    id="2d6659bc-b9a8-4c27-9289-285c16b5f5a1"
+    name="nihil quam nulla est unde sit ex"
+    onChange={[MockFunction]}
+    placeholder="est doloremque explicabo eaque necessitatibus sit suscipit"
+    required={false}
+    type="text"
+    value="et doloremque voluptate in sunt occaecati nulla"
+  />
+</div>
+`;
+
+exports[`<TextInput /> matches snapshot 4`] = `
+<div>
+  <input
+    aria-disabled={false}
+    aria-required={false}
+    disabled={false}
+    id="iusto sapiente nostrum aut corrupti sed consectetur"
     onChange={[MockFunction]}
     required={false}
     type="password"
     value={[Function]}
   />
   <p>
-    omnis necessitatibus maiores ullam quae corporis qui
+    laborum quos eum voluptate sit saepe assumenda
+  </p>
+</div>
+`;
+
+exports[`<TextInput /> matches snapshot 5`] = `
+<div
+  className="quo sunt possimus earum animi quis expedita"
+>
+  <input
+    aria-disabled={false}
+    aria-required={false}
+    disabled={false}
+    id="consequatur itaque et in fugit in rerum"
+    name="odit aut labore qui aut inventore aut"
+    onChange={[MockFunction]}
+    placeholder="beatae incidunt ut ducimus fugiat et et"
+    required={false}
+    type="text"
+    value={[Function]}
+  />
+</div>
+`;
+
+exports[`<TextInput /> matches snapshot 6`] = `
+<div
+  className="aliquam molestiae occaecati a culpa facilis eligendi"
+>
+  <input
+    aria-disabled={false}
+    aria-required={false}
+    disabled={false}
+    id="428ee790-fc9d-4ed2-a035-e0a7ae53c8fe"
+    name="quas repellendus in dolores totam animi ipsum"
+    onChange={[MockFunction]}
+    required={false}
+    type="password"
+    value={[Function]}
+  />
+  <p>
+    in eum ut dignissimos aspernatur voluptate voluptatem
+  </p>
+</div>
+`;
+
+exports[`<TextInput /> matches snapshot 7`] = `
+<div
+  className="aliquid ea animi architecto accusantium vel enim"
+>
+  <input
+    aria-disabled={true}
+    aria-required={false}
+    disabled={true}
+    id="eius dolorem amet quia quia aut sint"
+    name="sunt mollitia quibusdam officia eum repudiandae minima"
+    onChange={[MockFunction]}
+    required={false}
+    type="text"
+    value="voluptatem quia dolores dolor voluptates sequi perferendis"
+  />
+</div>
+`;
+
+exports[`<TextInput /> matches snapshot 8`] = `
+<div
+  className="occaecati eveniet aut eligendi iusto sed pariatur"
+>
+  <input
+    aria-disabled={false}
+    aria-required={false}
+    disabled={false}
+    id="6db13ce6-f850-40b4-a80a-dd560bf183af"
+    onChange={[MockFunction]}
+    required={false}
+    type="text"
+    value="harum a aut esse unde ea voluptatem"
+  />
+  <p>
+    saepe iure quia culpa suscipit totam libero
   </p>
 </div>
 `;
