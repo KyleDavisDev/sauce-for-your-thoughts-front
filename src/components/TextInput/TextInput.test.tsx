@@ -26,10 +26,9 @@ describe("<TextInput />", () => {
     expect(wrapper).toBeTruthy();
   });
 
-  it("defaults to rendering single input", () => {
+  it("matches snapshot", () => {
     const wrapper = enzyme.shallow(<TextInput {...fakeTextInput()} />);
-
-    expect(wrapper.find("input")).toBeTruthy();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it("adds className to parent", () => {
@@ -40,5 +39,11 @@ describe("<TextInput />", () => {
     expect(wrapper.first().prop("className")).toContain(
       mockTextInput.className
     );
+  });
+
+  it("renders single input element", () => {
+    const wrapper = enzyme.shallow(<TextInput {...fakeTextInput()} />);
+
+    expect(wrapper.find("input")).toBeTruthy();
   });
 });
