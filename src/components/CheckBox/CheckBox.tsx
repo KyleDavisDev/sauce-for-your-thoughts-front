@@ -2,19 +2,18 @@ import * as React from "react";
 import styled from "styled-components";
 import Label from "../Label/Label";
 
-interface CheckBoxProps {
+export interface CheckBoxProps {
   checked: boolean;
   id: string;
   value: string;
   label: string;
   onClick: (event: React.MouseEvent<HTMLInputElement>) => void;
-  key?: string;
   className?: string;
 }
 
 const CheckBox: React.FC<CheckBoxProps> = props => {
   return (
-    <div className={props.className} key={props.key}>
+    <div className={props.className}>
       <Label htmlFor={props.id}>
         <input
           checked={props.checked}
@@ -53,3 +52,4 @@ const StyledCheckbox = styled(CheckBox)`
 `;
 
 export { StyledCheckbox as CheckBox };
+export default CheckBox;
