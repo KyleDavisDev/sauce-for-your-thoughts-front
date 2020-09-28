@@ -135,4 +135,14 @@ describe("<TextInput />", () => {
       expect(wrapper.find("input").prop("placeholder")).toBeUndefined();
     });
   });
+
+  it("renders input element with expected onChange", () => {
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+      expect(wrapper.find("input").prop("onChange")).toEqual(
+        mockTextInput.onChange
+      );
+    });
+  });
 });
