@@ -145,4 +145,18 @@ describe("<TextInput />", () => {
       );
     });
   });
+
+  it("triggers onChange function when input is changed", () => {
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+      expect(mockTextInput.onChange).not.toHaveBeenCalled();
+
+      wrapper.find("input").simulate("change");
+      expect(mockTextInput.onChange).toHaveBeenCalled();
+
+      wrapper.find("input").simulate("change");
+      expect(mockTextInput.onChange).toHaveBeenCalledTimes(2);
+    });
+  });
 });
