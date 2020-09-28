@@ -101,4 +101,23 @@ describe("<TextInput />", () => {
       expect(wrapper.find("input").prop("aria-disabled")).toEqual(false);
     });
   });
+
+  it("renders input element with expected required or default", () => {
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+      if (mockTextInput.disabled) {
+        expect(wrapper.find("input").prop("required")).toEqual(
+          mockTextInput.required
+        );
+        expect(wrapper.find("input").prop("aria-required")).toEqual(
+          mockTextInput.required
+        );
+        return;
+      }
+
+      expect(wrapper.find("input").prop("required")).toEqual(false);
+      expect(wrapper.find("input").prop("aria-required")).toEqual(false);
+    });
+  });
 });
