@@ -60,6 +60,16 @@ describe("<RadioButton />", () => {
     });
   });
 
+  it("renders input with expected checked", () => {
+    mockRadioButtons.forEach(mockRadioButton => {
+      const wrapper = enzyme.shallow(<RadioButton {...mockRadioButton} />);
+
+      expect(wrapper.find("input").prop("defaultChecked")).toEqual(
+        mockRadioButton.checked
+      );
+    });
+  });
+
   it("renders input with expected name", () => {
     mockRadioButtons.forEach(mockRadioButton => {
       const wrapper = enzyme.shallow(<RadioButton {...mockRadioButton} />);
