@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as enzyme from "enzyme";
 
-import { casual } from "../../utils/testUtils/testUtils";
+import { casual, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
 import CheckBox, { CheckBoxProps } from "./CheckBox";
 
 const fakeCheckBox = (): CheckBoxProps => ({
@@ -13,74 +13,94 @@ const fakeCheckBox = (): CheckBoxProps => ({
   className: casual.random_element([undefined, casual.string])
 });
 
+const mockCheckBoxes = new Array(ITERATION_SIZE).fill(null).map(fakeCheckBox);
+
 describe("<CheckBox />", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(<CheckBox {...fakeCheckBox()} />);
+    mockCheckBoxes.forEach(mockCheckBox => {
+      const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
 
-    expect(wrapper).toBeTruthy();
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.shallow(<CheckBox {...fakeCheckBox()} />);
+    mockCheckBoxes.forEach(mockCheckBox => {
+      const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
 
-    expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   it("adds className to parent", () => {
-    const mockCheckBox = fakeCheckBox();
-    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+    mockCheckBoxes.forEach(mockCheckBox => {
+      if (!mockCheckBox.className) return;
 
-    expect(wrapper.first().prop("className")).toContain(mockCheckBox.className);
+      const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+
+      expect(wrapper.first().prop("className")).toContain(
+        mockCheckBox.className
+      );
+    });
   });
 
   it("renders an input with type checkbox", () => {
-    const mockCheckBox = fakeCheckBox();
-    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+    mockCheckBoxes.forEach(mockCheckBox => {
+      const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
 
-    expect(wrapper.find("input").props().type).toEqual("checkbox");
+      expect(wrapper.find("input").props().type).toEqual("checkbox");
+    });
   });
 
   it("renders an input with expected id attribute", () => {
-    const mockCheckBox = fakeCheckBox();
-    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+    mockCheckBoxes.forEach(mockCheckBox => {
+      const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
 
-    expect(wrapper.find("input").prop("id")).toEqual(mockCheckBox.id);
+      expect(wrapper.find("input").prop("id")).toEqual(mockCheckBox.id);
+    });
   });
 
   it("renders an input with expected checked attribute", () => {
-    const mockCheckBox = fakeCheckBox();
-    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+    mockCheckBoxes.forEach(mockCheckBox => {
+      const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
 
-    expect(wrapper.find("input").prop("checked")).toEqual(mockCheckBox.checked);
+      expect(wrapper.find("input").prop("checked")).toEqual(
+        mockCheckBox.checked
+      );
+    });
   });
 
   it("renders an input with expected value attribute", () => {
-    const mockCheckBox = fakeCheckBox();
-    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+    mockCheckBoxes.forEach(mockCheckBox => {
+      const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
 
-    expect(wrapper.find("input").prop("value")).toEqual(mockCheckBox.value);
+      expect(wrapper.find("input").prop("value")).toEqual(mockCheckBox.value);
+    });
   });
 
   it("renders a label element", () => {
-    const mockCheckBox = fakeCheckBox();
-    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+    mockCheckBoxes.forEach(mockCheckBox => {
+      const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
 
-    expect(wrapper.find("label")).toBeTruthy();
+      expect(wrapper.find("label")).toBeTruthy();
+    });
   });
 
   it("renders a label with expected htmlFor attribute", () => {
-    const mockCheckBox = fakeCheckBox();
-    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+    mockCheckBoxes.forEach(mockCheckBox => {
+      const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
 
-    expect(wrapper.find("Label").prop("htmlFor")).toEqual(mockCheckBox.id);
+      expect(wrapper.find("Label").prop("htmlFor")).toEqual(mockCheckBox.id);
+    });
   });
 
   it("renders a label and input pair", () => {
-    const mockCheckBox = fakeCheckBox();
-    const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
+    mockCheckBoxes.forEach(mockCheckBox => {
+      const wrapper = enzyme.shallow(<CheckBox {...mockCheckBox} />);
 
-    expect(wrapper.find("Label").prop("htmlFor")).toEqual(
-      wrapper.find("input").prop("id")
-    );
+      expect(wrapper.find("Label").prop("htmlFor")).toEqual(
+        wrapper.find("input").prop("id")
+      );
+    });
   });
 });

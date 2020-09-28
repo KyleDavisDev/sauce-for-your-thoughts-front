@@ -1,6 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CheckBox /> matches snapshot 1`] = `
+<div>
+  <Label
+    htmlFor="b430a73d-8e9b-4cce-96a5-0618965ffea6"
+  >
+    <input
+      checked={true}
+      id="b430a73d-8e9b-4cce-96a5-0618965ffea6"
+      onClick={[MockFunction]}
+      type="checkbox"
+      value="soluta non omnis consequatur enim quia autem"
+    />
+    et modi tenetur amet modi reprehenderit omnis
+  </Label>
+</div>
+`;
+
+exports[`<CheckBox /> matches snapshot 2`] = `
 <div
   className="sed sapiente soluta corporis commodi eaque nisi"
 >
@@ -15,6 +32,116 @@ exports[`<CheckBox /> matches snapshot 1`] = `
       value="laudantium molestias assumenda quasi adipisci mollitia iste"
     />
     itaque omnis debitis rem similique temporibus aliquam
+  </Label>
+</div>
+`;
+
+exports[`<CheckBox /> matches snapshot 3`] = `
+<div
+  className="corporis qui aut nobis quo consequatur harum"
+>
+  <Label
+    htmlFor="50f67ee1-6558-4f56-9601-06bcd266da80"
+  >
+    <input
+      checked={true}
+      id="50f67ee1-6558-4f56-9601-06bcd266da80"
+      onClick={[MockFunction]}
+      type="checkbox"
+      value="ex expedita est doloremque explicabo eaque necessitatibus"
+    />
+    sit suscipit omnis necessitatibus maiores ullam quae
+  </Label>
+</div>
+`;
+
+exports[`<CheckBox /> matches snapshot 4`] = `
+<div
+  className="nihil iste est unde rem similique et"
+>
+  <Label
+    htmlFor="906618d0-0ced-482d-9e59-fdfec406f4f7"
+  >
+    <input
+      checked={true}
+      id="906618d0-0ced-482d-9e59-fdfec406f4f7"
+      onClick={[MockFunction]}
+      type="checkbox"
+      value="sed consectetur soluta inventore laudantium dolor sint"
+    />
+    officiis qui dignissimos dolore qui voluptatem cumque
+  </Label>
+</div>
+`;
+
+exports[`<CheckBox /> matches snapshot 5`] = `
+<div>
+  <Label
+    htmlFor="6b1588f4-b56b-4c68-896e-9d13d38d97d6"
+  >
+    <input
+      checked={true}
+      id="6b1588f4-b56b-4c68-896e-9d13d38d97d6"
+      onClick={[MockFunction]}
+      type="checkbox"
+      value="sit saepe assumenda deserunt consequatur itaque et"
+    />
+    in fugit in rerum libero odit aut
+  </Label>
+</div>
+`;
+
+exports[`<CheckBox /> matches snapshot 6`] = `
+<div
+  className="eaque atque quos rerum nobis nam dolor"
+>
+  <Label
+    htmlFor="6d81cafa-0cf4-4cc8-bf5a-77b9b1bb9cf9"
+  >
+    <input
+      checked={true}
+      id="6d81cafa-0cf4-4cc8-bf5a-77b9b1bb9cf9"
+      onClick={[MockFunction]}
+      type="checkbox"
+      value="quis expedita et optio consequatur velit voluptate"
+    />
+    necessitatibus excepturi et qui sunt nesciunt provident
+  </Label>
+</div>
+`;
+
+exports[`<CheckBox /> matches snapshot 7`] = `
+<div
+  className="in eum ut dignissimos aspernatur voluptate voluptatem"
+>
+  <Label
+    htmlFor="827928a0-2168-460c-86ee-001ad5580c98"
+  >
+    <input
+      checked={false}
+      id="827928a0-2168-460c-86ee-001ad5580c98"
+      onClick={[MockFunction]}
+      type="checkbox"
+      value="quis quis nobis repudiandae aliquam molestiae occaecati"
+    />
+    a culpa facilis eligendi voluptatibus similique blanditiis
+  </Label>
+</div>
+`;
+
+exports[`<CheckBox /> matches snapshot 8`] = `
+<div>
+  <Label
+    htmlFor="32521eb1-8c9d-4e4c-95c8-3ec38a2d7cbe"
+  >
+    <input
+      checked={true}
+      id="32521eb1-8c9d-4e4c-95c8-3ec38a2d7cbe"
+      onClick={[MockFunction]}
+      type="checkbox"
+      value="aliquid ex architecto ut corrupti voluptatem quia"
+    />
+    dolores dolor voluptates sequi perferendis nostrum aliquid
   </Label>
 </div>
 `;
