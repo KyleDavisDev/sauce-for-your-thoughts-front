@@ -3,11 +3,11 @@
 exports[`<HeaderSimple /> matches snapshot 1`] = `
 <header>
   <styled.div>
-    <Styled(LinkComponent)
+    <Link
       href="/"
     >
       <LogoSFYT />
-    </Styled(LinkComponent)>
+    </Link>
   </styled.div>
   <hr />
 </header>
@@ -16,11 +16,11 @@ exports[`<HeaderSimple /> matches snapshot 1`] = `
 exports[`<HeaderSimple /> matches snapshot 2`] = `
 <header>
   <styled.div>
-    <Styled(LinkComponent)
+    <Link
       href="/"
     >
       <LogoSFYT />
-    </Styled(LinkComponent)>
+    </Link>
   </styled.div>
   <hr />
 </header>
@@ -29,11 +29,11 @@ exports[`<HeaderSimple /> matches snapshot 2`] = `
 exports[`<HeaderSimple /> matches snapshot 3`] = `
 <header>
   <styled.div>
-    <Styled(LinkComponent)
+    <Link
       href="/"
     >
       <LogoSFYT />
-    </Styled(LinkComponent)>
+    </Link>
   </styled.div>
   <hr />
 </header>
@@ -42,11 +42,11 @@ exports[`<HeaderSimple /> matches snapshot 3`] = `
 exports[`<HeaderSimple /> matches snapshot 4`] = `
 <header>
   <styled.div>
-    <Styled(LinkComponent)
+    <Link
       href="/"
     >
       <LogoSFYT />
-    </Styled(LinkComponent)>
+    </Link>
   </styled.div>
   <hr />
 </header>
@@ -55,11 +55,11 @@ exports[`<HeaderSimple /> matches snapshot 4`] = `
 exports[`<HeaderSimple /> matches snapshot 5`] = `
 <header>
   <styled.div>
-    <Styled(LinkComponent)
+    <Link
       href="/"
     >
       <LogoSFYT />
-    </Styled(LinkComponent)>
+    </Link>
   </styled.div>
   <hr />
 </header>
@@ -68,11 +68,11 @@ exports[`<HeaderSimple /> matches snapshot 5`] = `
 exports[`<HeaderSimple /> matches snapshot 6`] = `
 <header>
   <styled.div>
-    <Styled(LinkComponent)
+    <Link
       href="/"
     >
       <LogoSFYT />
-    </Styled(LinkComponent)>
+    </Link>
   </styled.div>
   <hr />
 </header>
@@ -81,11 +81,11 @@ exports[`<HeaderSimple /> matches snapshot 6`] = `
 exports[`<HeaderSimple /> matches snapshot 7`] = `
 <header>
   <styled.div>
-    <Styled(LinkComponent)
+    <Link
       href="/"
     >
       <LogoSFYT />
-    </Styled(LinkComponent)>
+    </Link>
   </styled.div>
   <hr />
 </header>
@@ -94,11 +94,11 @@ exports[`<HeaderSimple /> matches snapshot 7`] = `
 exports[`<HeaderSimple /> matches snapshot 8`] = `
 <header>
   <styled.div>
-    <Styled(LinkComponent)
+    <Link
       href="/"
     >
       <LogoSFYT />
-    </Styled(LinkComponent)>
+    </Link>
   </styled.div>
   <hr />
 </header>

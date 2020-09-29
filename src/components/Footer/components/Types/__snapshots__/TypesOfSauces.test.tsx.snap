@@ -120,7 +120,7 @@ exports[`<Types /> matches snapshot 1`] = `
                   id="f5322a02-e560-4593-99ad-0f3856f68ac4"
                   key="f5322a02-e560-4593-99ad-0f3856f68ac4"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=rerum"
                   >
                     <LinkComponent
@@ -141,13 +141,13 @@ exports[`<Types /> matches snapshot 1`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="7b17a08b-fa3d-4f05-9b65-49d2c91906a3"
                   key="7b17a08b-fa3d-4f05-9b65-49d2c91906a3"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=nobis"
                   >
                     <LinkComponent
@@ -168,13 +168,13 @@ exports[`<Types /> matches snapshot 1`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="9c733f25-7027-4e7c-a3be-afab564b5c37"
                   key="9c733f25-7027-4e7c-a3be-afab564b5c37"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=sit"
                   >
                     <LinkComponent
@@ -195,13 +195,13 @@ exports[`<Types /> matches snapshot 1`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="2dbc8fba-44d7-4e9d-8b81-3f5e8ddd4747"
                   key="2dbc8fba-44d7-4e9d-8b81-3f5e8ddd4747"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=nihil"
                   >
                     <LinkComponent
@@ -222,13 +222,13 @@ exports[`<Types /> matches snapshot 1`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="7cd27d91-9180-4ced-a2fa-61d4fe495be1"
                   key="7cd27d91-9180-4ced-a2fa-61d4fe495be1"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=sint"
                   >
                     <LinkComponent
@@ -249,13 +249,13 @@ exports[`<Types /> matches snapshot 1`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="0daf71f4-a99a-4a24-8216-1857fc80dfb0"
                   key="0daf71f4-a99a-4a24-8216-1857fc80dfb0"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=occaecati"
                   >
                     <LinkComponent
@@ -276,13 +276,13 @@ exports[`<Types /> matches snapshot 1`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="a54e8bf0-6e14-470f-896d-a4b3d7fd511a"
                   key="a54e8bf0-6e14-470f-896d-a4b3d7fd511a"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=dolore"
                   >
                     <LinkComponent
@@ -303,7 +303,7 @@ exports[`<Types /> matches snapshot 1`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
               </ul>
             </ul>
@@ -435,7 +435,7 @@ exports[`<Types /> matches snapshot 2`] = `
                   id="8f01ffb1-d0c7-41a5-8544-bb5caf10baf7"
                   key="8f01ffb1-d0c7-41a5-8544-bb5caf10baf7"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=vel"
                   >
                     <LinkComponent
@@ -456,13 +456,13 @@ exports[`<Types /> matches snapshot 2`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="57e4983c-6359-4933-93c5-88c2ea7935da"
                   key="57e4983c-6359-4933-93c5-88c2ea7935da"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=inventore"
                   >
                     <LinkComponent
@@ -483,13 +483,13 @@ exports[`<Types /> matches snapshot 2`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="29de1f47-b230-4aef-acdb-a7349b5529c7"
                   key="29de1f47-b230-4aef-acdb-a7349b5529c7"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=iusto"
                   >
                     <LinkComponent
@@ -510,13 +510,13 @@ exports[`<Types /> matches snapshot 2`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="5a0ca2b9-a5ed-4d57-a5ca-14a3a053c505"
                   key="5a0ca2b9-a5ed-4d57-a5ca-14a3a053c505"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=aut"
                   >
                     <LinkComponent
@@ -537,13 +537,13 @@ exports[`<Types /> matches snapshot 2`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="d9794767-3513-48a3-9110-a3ef1710e408"
                   key="d9794767-3513-48a3-9110-a3ef1710e408"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
                   >
                     <LinkComponent
@@ -564,13 +564,13 @@ exports[`<Types /> matches snapshot 2`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="cd7bf6ad-f413-40f6-b9b0-b57d833583fe"
                   key="cd7bf6ad-f413-40f6-b9b0-b57d833583fe"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=inventore"
                   >
                     <LinkComponent
@@ -591,13 +591,13 @@ exports[`<Types /> matches snapshot 2`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="9fad8f1a-d1e6-426e-9e97-67adb687f571"
                   key="9fad8f1a-d1e6-426e-9e97-67adb687f571"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=voluptates"
                   >
                     <LinkComponent
@@ -618,7 +618,7 @@ exports[`<Types /> matches snapshot 2`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
               </ul>
             </ul>
@@ -750,7 +750,7 @@ exports[`<Types /> matches snapshot 3`] = `
                   id="792e8edd-cbba-449f-b8b3-bccd8b3d8db6"
                   key="792e8edd-cbba-449f-b8b3-bccd8b3d8db6"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=non"
                   >
                     <LinkComponent
@@ -771,13 +771,13 @@ exports[`<Types /> matches snapshot 3`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="a41384d0-2751-4801-acf0-716049402888"
                   key="a41384d0-2751-4801-acf0-716049402888"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=fuga"
                   >
                     <LinkComponent
@@ -798,13 +798,13 @@ exports[`<Types /> matches snapshot 3`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="177035e4-0c2b-4a19-aac4-516252a7b976"
                   key="177035e4-0c2b-4a19-aac4-516252a7b976"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=occaecati"
                   >
                     <LinkComponent
@@ -825,13 +825,13 @@ exports[`<Types /> matches snapshot 3`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="a7b802c1-5178-4a00-918e-446c33c77105"
                   key="a7b802c1-5178-4a00-918e-446c33c77105"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=eius"
                   >
                     <LinkComponent
@@ -852,13 +852,13 @@ exports[`<Types /> matches snapshot 3`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="2dc17ec2-3658-45d2-9726-ea173d265a16"
                   key="2dc17ec2-3658-45d2-9726-ea173d265a16"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=quo"
                   >
                     <LinkComponent
@@ -879,13 +879,13 @@ exports[`<Types /> matches snapshot 3`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="17015a16-c60b-4aca-b172-d010aab2c6a3"
                   key="17015a16-c60b-4aca-b172-d010aab2c6a3"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=praesentium"
                   >
                     <LinkComponent
@@ -906,13 +906,13 @@ exports[`<Types /> matches snapshot 3`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="cbc9138f-80c7-437d-86e7-ba0e95b3d8b7"
                   key="cbc9138f-80c7-437d-86e7-ba0e95b3d8b7"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=qui"
                   >
                     <LinkComponent
@@ -933,7 +933,7 @@ exports[`<Types /> matches snapshot 3`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
               </ul>
             </ul>
@@ -1065,7 +1065,7 @@ exports[`<Types /> matches snapshot 4`] = `
                   id="c2e8207a-bb47-4a03-bbd6-6e90470611f2"
                   key="c2e8207a-bb47-4a03-bbd6-6e90470611f2"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=impedit"
                   >
                     <LinkComponent
@@ -1086,13 +1086,13 @@ exports[`<Types /> matches snapshot 4`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="f0f70e70-eae9-4e88-ab7c-69cf4619cb21"
                   key="f0f70e70-eae9-4e88-ab7c-69cf4619cb21"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=dolorem"
                   >
                     <LinkComponent
@@ -1113,13 +1113,13 @@ exports[`<Types /> matches snapshot 4`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="0a59fb42-81a0-4168-bd40-02b557a67abc"
                   key="0a59fb42-81a0-4168-bd40-02b557a67abc"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=natus"
                   >
                     <LinkComponent
@@ -1140,13 +1140,13 @@ exports[`<Types /> matches snapshot 4`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="2cb616c2-7933-429e-a744-f7b220b1ca4b"
                   key="2cb616c2-7933-429e-a744-f7b220b1ca4b"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=dolor"
                   >
                     <LinkComponent
@@ -1167,13 +1167,13 @@ exports[`<Types /> matches snapshot 4`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="fac07f5e-f3a9-442a-bb9f-78805b497d1b"
                   key="fac07f5e-f3a9-442a-bb9f-78805b497d1b"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
                   >
                     <LinkComponent
@@ -1194,13 +1194,13 @@ exports[`<Types /> matches snapshot 4`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="ee63a306-cced-437d-ada3-e619079e4a47"
                   key="ee63a306-cced-437d-ada3-e619079e4a47"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=eum"
                   >
                     <LinkComponent
@@ -1221,13 +1221,13 @@ exports[`<Types /> matches snapshot 4`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="f6d25388-f51a-40b0-8b52-544b3b567cb3"
                   key="f6d25388-f51a-40b0-8b52-544b3b567cb3"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=dolorem"
                   >
                     <LinkComponent
@@ -1248,7 +1248,7 @@ exports[`<Types /> matches snapshot 4`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
               </ul>
             </ul>
@@ -1380,7 +1380,7 @@ exports[`<Types /> matches snapshot 5`] = `
                   id="9b318e69-794d-4b69-9811-1673d93746f9"
                   key="9b318e69-794d-4b69-9811-1673d93746f9"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=aut"
                   >
                     <LinkComponent
@@ -1401,13 +1401,13 @@ exports[`<Types /> matches snapshot 5`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="91b1ba5d-7f77-4c02-a798-41bdd5b4fee1"
                   key="91b1ba5d-7f77-4c02-a798-41bdd5b4fee1"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=itaque"
                   >
                     <LinkComponent
@@ -1428,13 +1428,13 @@ exports[`<Types /> matches snapshot 5`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="9d5f8e44-c351-44ef-8458-fc01eb3f0d34"
                   key="9d5f8e44-c351-44ef-8458-fc01eb3f0d34"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=mollitia"
                   >
                     <LinkComponent
@@ -1455,13 +1455,13 @@ exports[`<Types /> matches snapshot 5`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="ac068d3e-a96e-4685-b983-4ff008fadec7"
                   key="ac068d3e-a96e-4685-b983-4ff008fadec7"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=temporibus"
                   >
                     <LinkComponent
@@ -1482,13 +1482,13 @@ exports[`<Types /> matches snapshot 5`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="16adfe82-67cd-4ffc-b834-168ce46e047d"
                   key="16adfe82-67cd-4ffc-b834-168ce46e047d"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=tempora"
                   >
                     <LinkComponent
@@ -1509,13 +1509,13 @@ exports[`<Types /> matches snapshot 5`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="dae27f43-7ea2-4364-8620-b20e3f0b9630"
                   key="dae27f43-7ea2-4364-8620-b20e3f0b9630"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=necessitatibus"
                   >
                     <LinkComponent
@@ -1536,13 +1536,13 @@ exports[`<Types /> matches snapshot 5`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="449692f4-8ffa-48d8-9d7a-06e929f603ed"
                   key="449692f4-8ffa-48d8-9d7a-06e929f603ed"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=consequatur"
                   >
                     <LinkComponent
@@ -1563,7 +1563,7 @@ exports[`<Types /> matches snapshot 5`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
               </ul>
             </ul>
@@ -1695,7 +1695,7 @@ exports[`<Types /> matches snapshot 6`] = `
                   id="62021d77-13e7-4b8c-8c7b-85d82aa8b1d3"
                   key="62021d77-13e7-4b8c-8c7b-85d82aa8b1d3"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=asperiores"
                   >
                     <LinkComponent
@@ -1716,13 +1716,13 @@ exports[`<Types /> matches snapshot 6`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="64ea25bc-5dbe-40fd-9b86-157b9f538ea8"
                   key="64ea25bc-5dbe-40fd-9b86-157b9f538ea8"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=omnis"
                   >
                     <LinkComponent
@@ -1743,13 +1743,13 @@ exports[`<Types /> matches snapshot 6`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="63c1f166-1072-4988-9c67-31bb5acc125f"
                   key="63c1f166-1072-4988-9c67-31bb5acc125f"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=porro"
                   >
                     <LinkComponent
@@ -1770,13 +1770,13 @@ exports[`<Types /> matches snapshot 6`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="452ea0bc-b2a1-4813-bd33-41ca37a3900c"
                   key="452ea0bc-b2a1-4813-bd33-41ca37a3900c"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=non"
                   >
                     <LinkComponent
@@ -1797,13 +1797,13 @@ exports[`<Types /> matches snapshot 6`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="a9b43d39-606c-4cca-a640-cbda4f7f5b7b"
                   key="a9b43d39-606c-4cca-a640-cbda4f7f5b7b"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=id"
                   >
                     <LinkComponent
@@ -1824,13 +1824,13 @@ exports[`<Types /> matches snapshot 6`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="454fe8d2-731c-4501-ad7a-6764326718d2"
                   key="454fe8d2-731c-4501-ad7a-6764326718d2"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=et"
                   >
                     <LinkComponent
@@ -1851,13 +1851,13 @@ exports[`<Types /> matches snapshot 6`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="315ee9cb-0843-4960-8e23-682e1a778831"
                   key="315ee9cb-0843-4960-8e23-682e1a778831"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=voluptatum"
                   >
                     <LinkComponent
@@ -1878,7 +1878,7 @@ exports[`<Types /> matches snapshot 6`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
               </ul>
             </ul>
@@ -2010,7 +2010,7 @@ exports[`<Types /> matches snapshot 7`] = `
                   id="229a6a4c-a66a-4337-9310-1ec381dafcd1"
                   key="229a6a4c-a66a-4337-9310-1ec381dafcd1"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=reiciendis"
                   >
                     <LinkComponent
@@ -2031,13 +2031,13 @@ exports[`<Types /> matches snapshot 7`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="8e1e216f-bd05-4a58-b5d0-772eaeef21eb"
                   key="8e1e216f-bd05-4a58-b5d0-772eaeef21eb"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=dolores"
                   >
                     <LinkComponent
@@ -2058,13 +2058,13 @@ exports[`<Types /> matches snapshot 7`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="033e36c7-8088-491f-813e-9aabd5c479c0"
                   key="033e36c7-8088-491f-813e-9aabd5c479c0"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=pariatur"
                   >
                     <LinkComponent
@@ -2085,13 +2085,13 @@ exports[`<Types /> matches snapshot 7`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="adcc33c9-d1c5-4b46-99ab-82c107db88e6"
                   key="adcc33c9-d1c5-4b46-99ab-82c107db88e6"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=corrupti"
                   >
                     <LinkComponent
@@ -2112,13 +2112,13 @@ exports[`<Types /> matches snapshot 7`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="f6094684-2e3c-4612-8642-54864b2e4a17"
                   key="f6094684-2e3c-4612-8642-54864b2e4a17"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=nam"
                   >
                     <LinkComponent
@@ -2139,13 +2139,13 @@ exports[`<Types /> matches snapshot 7`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="2c9538b0-c1d6-4fc6-b5dd-6cb69459cf5c"
                   key="2c9538b0-c1d6-4fc6-b5dd-6cb69459cf5c"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=molestias"
                   >
                     <LinkComponent
@@ -2166,13 +2166,13 @@ exports[`<Types /> matches snapshot 7`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="5e8cd0d3-a28b-450b-ae18-a9e52743d209"
                   key="5e8cd0d3-a28b-450b-ae18-a9e52743d209"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=aliquid"
                   >
                     <LinkComponent
@@ -2193,7 +2193,7 @@ exports[`<Types /> matches snapshot 7`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
               </ul>
             </ul>
@@ -2325,7 +2325,7 @@ exports[`<Types /> matches snapshot 8`] = `
                   id="cf7721f3-577e-4e4f-9986-8e67b218317e"
                   key="cf7721f3-577e-4e4f-9986-8e67b218317e"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=expedita"
                   >
                     <LinkComponent
@@ -2346,13 +2346,13 @@ exports[`<Types /> matches snapshot 8`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="afb4aae5-ca8e-4804-8df4-c1005c87f0d1"
                   key="afb4aae5-ca8e-4804-8df4-c1005c87f0d1"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=dolores"
                   >
                     <LinkComponent
@@ -2373,13 +2373,13 @@ exports[`<Types /> matches snapshot 8`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="0264d89e-6b8b-4ee0-bb06-d67041edd1c7"
                   key="0264d89e-6b8b-4ee0-bb06-d67041edd1c7"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=eos"
                   >
                     <LinkComponent
@@ -2400,13 +2400,13 @@ exports[`<Types /> matches snapshot 8`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="3dd60085-11be-429e-a946-7c91eacf4e03"
                   key="3dd60085-11be-429e-a946-7c91eacf4e03"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=et"
                   >
                     <LinkComponent
@@ -2427,13 +2427,13 @@ exports[`<Types /> matches snapshot 8`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="dfc422f9-5da1-40c2-8a2a-6d96474a0df4"
                   key="dfc422f9-5da1-40c2-8a2a-6d96474a0df4"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=similique"
                   >
                     <LinkComponent
@@ -2454,13 +2454,13 @@ exports[`<Types /> matches snapshot 8`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="41a0a5ad-404b-4ac8-ba9c-e0ec112b8f0c"
                   key="41a0a5ad-404b-4ac8-ba9c-e0ec112b8f0c"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=pariatur"
                   >
                     <LinkComponent
@@ -2481,13 +2481,13 @@ exports[`<Types /> matches snapshot 8`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
                 <li
                   id="4dfa28c6-8b77-496f-bbe9-c9915782c109"
                   key="4dfa28c6-8b77-496f-bbe9-c9915782c109"
                 >
-                  <Styled(LinkComponent)
+                  <Link
                     href="/sauces?limit=15&order=newest&page=1&type=et"
                   >
                     <LinkComponent
@@ -2508,7 +2508,7 @@ exports[`<Types /> matches snapshot 8`] = `
                         </a>
                       </Link>
                     </LinkComponent>
-                  </Styled(LinkComponent)>
+                  </Link>
                 </li>
               </ul>
             </ul>
