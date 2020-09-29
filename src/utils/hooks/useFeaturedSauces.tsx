@@ -18,7 +18,7 @@ export function useFeaturedSauces(): [ISauce[] | null, boolean] {
   // run once
   React.useEffect(() => {
     // check if we need to dispatch redux action or not
-    if (sauces.featured.length === 0 && !loading) {
+    if (sauces.featured?.length === 0 && !loading) {
       // emmit redux action to populate sauces.featured
       dispatch(getSaucesByFeatured());
 
@@ -57,7 +57,7 @@ export function useFeaturedSauces(): [ISauce[] | null, boolean] {
       return [null, loading];
     }
 
-    if (results.length === 0 && sauces.featured.length > 0) {
+    if (results.length === 0 && sauces.featured && sauces.featured.length > 0) {
       getData();
     }
   }, [sauces.featured]);
