@@ -136,30 +136,6 @@ describe("<TextInput />", () => {
     });
   });
 
-  it("renders input element with expected onChange", () => {
-    mockTextInputs.forEach(mockTextInput => {
-      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
-
-      expect(wrapper.find("input").prop("onChange")).toEqual(
-        mockTextInput.onChange
-      );
-    });
-  });
-
-  it("triggers onChange function when input is changed", () => {
-    mockTextInputs.forEach(mockTextInput => {
-      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
-
-      expect(mockTextInput.onChange).not.toHaveBeenCalled();
-
-      wrapper.find("input").simulate("change");
-      expect(mockTextInput.onChange).toHaveBeenCalled();
-
-      wrapper.find("input").simulate("change");
-      expect(mockTextInput.onChange).toHaveBeenCalledTimes(2);
-    });
-  });
-
   it("renders input element with expected value", () => {
     mockTextInputs.forEach(mockTextInput => {
       const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
@@ -190,6 +166,30 @@ describe("<TextInput />", () => {
     });
   });
 
+  it("renders input element with expected onChange", () => {
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+      expect(wrapper.find("input").prop("onChange")).toEqual(
+        mockTextInput.onChange
+      );
+    });
+  });
+
+  it("triggers onChange function when input is changed", () => {
+    mockTextInputs.forEach(mockTextInput => {
+      const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
+
+      expect(mockTextInput.onChange).not.toHaveBeenCalled();
+
+      wrapper.find("input").simulate("change");
+      expect(mockTextInput.onChange).toHaveBeenCalled();
+
+      wrapper.find("input").simulate("change");
+      expect(mockTextInput.onChange).toHaveBeenCalledTimes(2);
+    });
+  });
+
   it("renders paragraph element if requirement text is provided", () => {
     mockTextInputs.forEach(mockTextInput => {
       const wrapper = enzyme.shallow(<TextInput {...mockTextInput} />);
@@ -209,11 +209,8 @@ describe("<TextInput />", () => {
 
       if (mockTextInput.requirementText) {
         expect(wrapper.find("p").text()).toEqual(mockTextInput.requirementText);
-
         return;
       }
-
-      expect(wrapper.find("p")).toEqual({});
     });
   });
 });
