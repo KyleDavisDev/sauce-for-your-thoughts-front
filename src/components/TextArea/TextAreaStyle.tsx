@@ -11,6 +11,7 @@ export const StyledDiv = styled.div`
     margin-bottom: 15px;
   }
 `;
+StyledDiv.displayName = "div";
 
 export const StyledTextArea = styled.textarea`
   width: 100%;
@@ -25,4 +26,4 @@ export const StyledTextArea = styled.textarea`
   max-height: 220px;
   font-family: System;
 `;
-StyledTextArea.displayName = "StyledTextArea";
+StyledTextArea.displayName = "textarea";
