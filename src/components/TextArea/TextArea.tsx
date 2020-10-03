@@ -1,8 +1,8 @@
 import * as React from "react";
-import * as shortid from "shortid";
 
 import { StyledDiv, StyledTextArea } from "./TextAreaStyle";
 import Label from "../Label/Label";
+import { casual } from "../../utils/testUtils/testUtils";
 
 export interface TextAreaProps {
   id?: string;
@@ -17,11 +17,11 @@ export interface TextAreaProps {
   readOnly?: boolean;
   maxLength?: number;
   requirementText?: string;
-  onChange(
+  onChange: (
     event:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
-  ): void;
+  ) => void;
 }
 
 const TextArea: React.FunctionComponent<TextAreaProps> = props => {
@@ -30,7 +30,7 @@ const TextArea: React.FunctionComponent<TextAreaProps> = props => {
     required = false,
     disabled = false,
     readOnly = false,
-    id = shortid.generate(),
+    id = casual.uuid,
     className,
     label,
     placeholder,
