@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextArea /> matches snapshot 1`] = `
+<div
+  class="sc-AxjAm dGVwxi"
+>
+  <textarea
+    class="sc-AxirZ dtXFaH"
+    cols="30"
+    id="7ae8c415-d3f2-4368-8393-f090492fd03e"
+    rows="10"
+  />
+</div>
+`;
