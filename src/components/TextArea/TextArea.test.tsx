@@ -26,7 +26,7 @@ const mockTextAreas = new Array(ITERATION_SIZE).fill(null).map(fakeTextArea);
 describe("<TextArea />", () => {
   it("renders", () => {
     mockTextAreas.forEach(mockTextArea => {
-      const wrapper = enzyme.render(
+      const wrapper = enzyme.shallow(
         <TextArea onChange={mockTextArea.onChange} />
       );
 
@@ -36,9 +36,21 @@ describe("<TextArea />", () => {
 
   it("matches snapshot", () => {
     mockTextAreas.forEach(mockTextArea => {
-      const wrapper = enzyme.render(<TextArea {...mockTextArea} />);
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
 
       expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  it("adds className to parent if passed", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      if (!mockTextArea.className) return;
+
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.first().prop("className")).toContain(
+        mockTextArea.className
+      );
     });
   });
 });
