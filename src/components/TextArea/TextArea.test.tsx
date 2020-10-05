@@ -1,4 +1,3 @@
-// import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
 
@@ -54,13 +53,13 @@ describe("<TextArea />", () => {
     });
   });
 
-  it("renders Label component if showLabel and label are true", () => {
+  it("renders Label component if showLabel and label are truthy", () => {
     mockTextAreas.forEach(mockTextArea => {
       if (!mockTextArea.showLabel || !mockTextArea.label) return;
+
       const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
 
-      expect(wrapper.find("Label")).toBeTruthy();
-      expect(wrapper.find("Label")).not.toEqual({});
+      expect(wrapper.find("Label").exists()).toBeTruthy();
     });
   });
 
@@ -75,8 +74,7 @@ describe("<TextArea />", () => {
 
       const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
 
-      expect(wrapper.find("span")).toBeTruthy();
-      expect(wrapper.find("span")).not.toEqual({});
+      expect(wrapper.find("span").exists()).toBeTruthy();
     });
   });
 });
