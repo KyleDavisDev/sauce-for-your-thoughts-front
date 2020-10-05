@@ -145,4 +145,16 @@ describe("<TextArea />", () => {
       );
     });
   });
+
+  it("renders textarea element with expected disabled value when disabled is passed", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      if (mockTextArea.disabled === undefined) return;
+
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.find("textarea").prop("disabled")).toEqual(
+        mockTextArea.disabled
+      );
+    });
+  });
 });
