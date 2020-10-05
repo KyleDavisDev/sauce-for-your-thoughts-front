@@ -86,7 +86,7 @@ describe("<TextArea />", () => {
     });
   });
 
-  it("renders textarea element with expected id", () => {
+  it("renders textarea element with expected id when id passed", () => {
     mockTextAreas.forEach(mockTextArea => {
       if (!mockTextArea.id) return;
 
@@ -130,6 +130,18 @@ describe("<TextArea />", () => {
 
       expect(wrapper.find("textarea").prop("value")).toEqual(
         mockTextArea.value
+      );
+    });
+  });
+
+  it("renders textarea element with expected required value when required is passed", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      if (mockTextArea.required === undefined) return;
+
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.find("textarea").prop("required")).toEqual(
+        mockTextArea.required
       );
     });
   });
