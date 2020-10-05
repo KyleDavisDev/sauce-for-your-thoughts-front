@@ -113,4 +113,14 @@ describe("<TextArea />", () => {
       expect(wrapper.find("textarea").prop("name")).toEqual(mockTextArea.name);
     });
   });
+
+  it("renders textarea element with expected placeholder", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.find("textarea").prop("placeholder")).toEqual(
+        mockTextArea.placeholder
+      );
+    });
+  });
 });
