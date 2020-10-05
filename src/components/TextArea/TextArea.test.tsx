@@ -123,4 +123,14 @@ describe("<TextArea />", () => {
       );
     });
   });
+
+  it("renders textarea element with expected value", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.find("textarea").prop("value")).toEqual(
+        mockTextArea.value
+      );
+    });
+  });
 });
