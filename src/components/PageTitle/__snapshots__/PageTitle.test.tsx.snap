@@ -47,3 +47,141 @@ exports[`<PageTitle /> matches snapshot 7`] = `
 `;
 
 exports[`<PageTitle /> matches snapshot 8`] = `<h1 />`;
+
+exports[`<PageTitle /> matches snapshot 9`] = `<h1 />`;
+
+exports[`<PageTitle /> matches snapshot 10`] = `
+<h1
+  className="ullam quae corporis qui aut nobis quo"
+>
+  explicabo eaque necessitatibus sit suscipit omnis necessitatibus
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 11`] = `
+<h1
+  className="occaecati nulla aut sunt est rerum at"
+/>
+`;
+
+exports[`<PageTitle /> matches snapshot 12`] = `
+<h1>
+  dolores fugiat quis et voluptas culpa et
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 13`] = `
+<h1
+  className="sint officiis qui dignissimos dolore qui voluptatem"
+/>
+`;
+
+exports[`<PageTitle /> matches snapshot 14`] = `
+<h1
+  className="quia dolores quisquam aut consequatur sint provident"
+>
+  nihil iste est unde rem similique et
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 15`] = `
+<h1>
+  ullam distinctio autem quam qui facere in
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 16`] = `<h1 />`;
+
+exports[`<PageTitle /> matches snapshot 17`] = `
+<h1>
+  fugit in rerum libero odit aut labore
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 18`] = `
+<h1
+  className="autem ut ullam et possimus sint fugiat"
+/>
+`;
+
+exports[`<PageTitle /> matches snapshot 19`] = `
+<h1
+  className="minus quo sunt possimus earum animi quis"
+/>
+`;
+
+exports[`<PageTitle /> matches snapshot 20`] = `
+<h1
+  className="qui sunt nesciunt provident eaque atque quos"
+>
+  et optio consequatur velit voluptate necessitatibus excepturi
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 21`] = `<h1 />`;
+
+exports[`<PageTitle /> matches snapshot 22`] = `
+<h1
+  className="et ipsa consequuntur quidem dolorem quia consequatur"
+>
+  cupiditate autem consequatur consequatur accusantium molestiae non
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 23`] = `
+<h1
+  className="aliquam molestiae occaecati a culpa facilis eligendi"
+>
+  ab assumenda animi non quis quis nobis
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 24`] = `<h1 />`;
+
+exports[`<PageTitle /> matches snapshot 25`] = `
+<h1
+  className="minima temporibus ducimus quia assumenda ut neque"
+>
+  sint cumque sunt mollitia quibusdam officia eum
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 26`] = `
+<h1>
+  est labore sed rerum nesciunt voluptas rem
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 27`] = `<h1 />`;
+
+exports[`<PageTitle /> matches snapshot 28`] = `
+<h1>
+  porro ut est sed qui repellat assumenda
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 29`] = `
+<h1
+  className="dolor eum velit aperiam voluptas eos quam"
+/>
+`;
+
+exports[`<PageTitle /> matches snapshot 30`] = `
+<h1
+  className="et dicta odit vel quisquam qui harum"
+/>
+`;
+
+exports[`<PageTitle /> matches snapshot 31`] = `
+<h1>
+  aut esse unde ea voluptatem totam occaecati
+</h1>
+`;
+
+exports[`<PageTitle /> matches snapshot 32`] = `
+<h1
+  className="quis ratione eveniet ea totam aut aut"
+>
+  saepe iure quia culpa suscipit totam libero
+</h1>
+`;

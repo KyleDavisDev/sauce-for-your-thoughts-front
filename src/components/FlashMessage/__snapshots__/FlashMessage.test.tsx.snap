@@ -84,3 +84,220 @@ exports[`<FlashMessage /> matches snapshot 8`] = `
   </styled.div>
 </styled.div>
 `;
+
+exports[`<FlashMessage /> matches snapshot 9`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 10`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 11`] = `
+<styled.div
+  className="in eum ut dignissimos aspernatur voluptate voluptatem"
+>
+  <styled.div>
+    <styled.div>
+       
+      <Link
+        href="http://www.Chance.com/"
+      >
+        Mr. Piper McClure
+      </Link>
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
+    >
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 12`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      qui repellat assumenda et incidunt aut distinctio
+       
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
+    >
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 13`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 14`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      aut sunt enim rem qui hic dolore
+       
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
+    >
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 15`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 16`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 17`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 18`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 19`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 20`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 21`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      non sit a perferendis soluta dignissimos cum
+       
+      <Link
+        href="http://Elyssa.us/"
+      >
+        Dr. Laurel Balistreri
+      </Link>
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
+    >
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 22`] = `
+<styled.div
+  className="ea sed consequatur ut sapiente molestiae dolores"
+>
+  <styled.div>
+    <styled.div>
+      sit optio rerum quasi occaecati modi soluta
+       
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
+    >
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 23`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 24`] = `
+<styled.div
+  className="aut non ipsam fuga rem eius est"
+>
+  <styled.div>
+    <styled.div>
+      sapiente fuga unde aliquam et debitis dolorem
+       
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
+    >
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 25`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+       
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
+    >
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 26`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      maiores cumque consequuntur rerum aspernatur nulla aut
+       
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
+    >
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 27`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      eum doloribus et perspiciatis sunt eligendi nihil
+       
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
+    >
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 28`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 29`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      quisquam voluptatum qui exercitationem eum laudantium autem
+       
+      <Link
+        href="http://Bartell.tv/"
+      >
+        Mr. Osbaldo Sipes
+      </Link>
+       
+    </styled.div>
+    <Styled(Button)
+      onClick={[Function]}
+    >
+      X
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<FlashMessage /> matches snapshot 30`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 31`] = `""`;
+
+exports[`<FlashMessage /> matches snapshot 32`] = `""`;

@@ -103,3 +103,315 @@ exports[`<HeaderSimple /> matches snapshot 8`] = `
   <hr />
 </header>
 `;
+
+exports[`<HeaderSimple /> matches snapshot 9`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 10`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 11`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 12`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 13`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 14`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 15`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 16`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 17`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 18`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 19`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 20`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 21`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 22`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 23`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 24`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 25`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 26`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 27`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 28`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 29`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 30`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 31`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;
+
+exports[`<HeaderSimple /> matches snapshot 32`] = `
+<header>
+  <styled.div>
+    <Link
+      href="/"
+    >
+      <LogoSFYT />
+    </Link>
+  </styled.div>
+  <hr />
+</header>
+`;

@@ -171,3 +171,489 @@ exports[`<RadioButton /> matches snapshot 8`] = `
   </Label>
 </div>
 `;
+
+exports[`<RadioButton /> matches snapshot 9`] = `
+<div>
+  <Label
+    htmlFor="59cfe0bb-0552-409d-bdae-d648b58ce7db"
+  >
+    <input
+      defaultChecked={false}
+      id="59cfe0bb-0552-409d-bdae-d648b58ce7db"
+      name="laborum veniam asperiores et consectetur animi non"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Miss Allie Conn"
+    />
+    <span
+      key="1be83c82-e655-4ed5-a4a2-2d308283bf5a"
+    >
+      est ab quia ab sed voluptas ullam
+    </span>
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 10`] = `
+<div>
+  <Label
+    htmlFor="291af1cf-9226-4b95-b5f2-aef25c9a594d"
+  >
+    <input
+      defaultChecked={false}
+      id="291af1cf-9226-4b95-b5f2-aef25c9a594d"
+      name="molestiae aut doloribus animi sunt dolorum tempore"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Miss Lora Douglas"
+    />
+    provident rem enim ut dolor et placeat
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 11`] = `
+<div>
+  <Label
+    htmlFor="cad1b901-9524-440a-b003-24d7053bef0e"
+  >
+    <input
+      defaultChecked={false}
+      id="cad1b901-9524-440a-b003-24d7053bef0e"
+      name="quia veritatis qui optio autem et dolorum"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Dr. Carolyne Witting"
+    />
+    dolores qui qui architecto aliquid iure eos
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 12`] = `
+<div>
+  <Label
+    htmlFor="88c5dc97-f034-45cf-94a0-9c3e9d2a1d4a"
+  >
+    <input
+      defaultChecked={true}
+      id="88c5dc97-f034-45cf-94a0-9c3e9d2a1d4a"
+      name="ut unde ut beatae similique totam quia"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Mrs. Consuelo Bartoletti"
+    />
+    libero ipsa voluptates quaerat recusandae accusamus et
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 13`] = `
+<div>
+  <Label
+    htmlFor="4902ed9b-02a5-4cf8-97b5-e6b9c878b030"
+  >
+    <input
+      defaultChecked={false}
+      id="4902ed9b-02a5-4cf8-97b5-e6b9c878b030"
+      name="asperiores nihil illum ut nobis velit velit"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Ms. Odie Kerluke"
+    />
+    id id repellat maiores iure fuga sit
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 14`] = `
+<div
+  className="sit veniam est molestias odio qui sit"
+>
+  <Label
+    htmlFor="9020eebd-9c33-410c-ab8b-8dc104405a1f"
+  >
+    <input
+      defaultChecked={false}
+      id="9020eebd-9c33-410c-ab8b-8dc104405a1f"
+      name="et nam eaque sit porro dolor corrupti"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Mrs. Julius Metz"
+    />
+    cum enim mollitia voluptas accusamus quidem dolorum
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 15`] = `
+<div
+  className="iste quia fugiat ducimus quia sit eum"
+>
+  <Label
+    htmlFor="0a434a1b-8e31-4e92-8322-b38672e06974"
+  >
+    <input
+      defaultChecked={true}
+      id="0a434a1b-8e31-4e92-8322-b38672e06974"
+      name="tenetur expedita veritatis pariatur magni ut explicabo"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Ms. Barrett Ullrich"
+    />
+    <div
+      key="d464b324-02f7-4eeb-83d0-86301448b6e8"
+    >
+      qui aut enim culpa eius possimus voluptatem
+    </div>
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 16`] = `
+<div>
+  <Label
+    htmlFor="bd374285-82b6-495b-867a-5eff79174907"
+  >
+    <input
+      defaultChecked={true}
+      id="bd374285-82b6-495b-867a-5eff79174907"
+      name="qui ea aliquam hic explicabo tempore ipsa"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Mrs. Tony Grady"
+    />
+    <span
+      key="0a7491c5-b0a2-4850-ba7a-85c81c7aa34d"
+    >
+      molestias accusamus impedit sed maxime vitae mollitia
+    </span>
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 17`] = `
+<div
+  className="animi autem ducimus cum neque tempore ipsa"
+>
+  <Label
+    htmlFor="32df9e86-c77b-4409-ba94-e948007f85e6"
+  >
+    <input
+      defaultChecked={false}
+      id="32df9e86-c77b-4409-ba94-e948007f85e6"
+      name="id aliquid tempora praesentium hic veniam quia"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Mrs. Janie Nikolaus"
+    />
+    asperiores eius consequatur quam nesciunt quis enim
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 18`] = `
+<div
+  className="sed vel non maiores nam est voluptas"
+>
+  <Label
+    htmlFor="637113c4-4334-49a9-a3b5-739689e3e771"
+  >
+    <input
+      defaultChecked={true}
+      id="637113c4-4334-49a9-a3b5-739689e3e771"
+      name="natus magnam ad quod eum cupiditate delectus"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Miss Lukas Hickle"
+    />
+    molestiae voluptatem id id laborum commodi sit
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 19`] = `
+<div>
+  <Label
+    htmlFor="c451cf68-acf2-4a83-a75e-304693f9593b"
+  >
+    <input
+      defaultChecked={true}
+      id="c451cf68-acf2-4a83-a75e-304693f9593b"
+      name="minus error placeat optio non sit et"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Mrs. Laverna Pagac"
+    />
+    <span
+      key="21c9b520-3c2d-4585-9b3c-8ede14b5ec71"
+    >
+      minima laborum voluptatem ut unde quidem molestias
+    </span>
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 20`] = `
+<div
+  className="dolor tempore tenetur ratione et adipisci maxime"
+>
+  <Label
+    htmlFor="907ccd92-970a-4c57-a276-25633e776307"
+  >
+    <input
+      defaultChecked={true}
+      id="907ccd92-970a-4c57-a276-25633e776307"
+      name="quod aut sint autem possimus similique ut"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Dr. Ruth Beatty"
+    />
+    nulla et et porro dolorem autem eum
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 21`] = `
+<div
+  className="sint non pariatur accusamus nihil beatae similique"
+>
+  <Label
+    htmlFor="f0813ceb-b2de-4cf1-a0ca-76d0c46cbcfe"
+  >
+    <input
+      defaultChecked={true}
+      id="f0813ceb-b2de-4cf1-a0ca-76d0c46cbcfe"
+      name="consequatur est facilis illum id debitis ut"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Ms. Josefina Jacobi"
+    />
+    <div
+      key="9004049b-d1f1-41d4-8cb8-5201a11855f7"
+    >
+      sunt numquam iste nisi corporis blanditiis omnis
+    </div>
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 22`] = `
+<div
+  className="delectus et quo blanditiis doloremque iste non"
+>
+  <Label
+    htmlFor="6b7e6dd7-7bb1-485d-99e7-f7b883b10f30"
+  >
+    <input
+      defaultChecked={false}
+      id="6b7e6dd7-7bb1-485d-99e7-f7b883b10f30"
+      name="est voluptas magni doloremque quis amet sint"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Mr. Herminio Kuphal"
+    />
+    vel esse accusantium id ut fugit qui
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 23`] = `
+<div>
+  <Label
+    htmlFor="48544959-d94b-4d67-9327-98bfb80c654c"
+  >
+    <input
+      defaultChecked={true}
+      id="48544959-d94b-4d67-9327-98bfb80c654c"
+      name="possimus excepturi qui magni voluptatem et aspernatur"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Mrs. Aniya Bogisich"
+    />
+    a numquam delectus maiores aliquam odio at
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 24`] = `
+<div>
+  <Label
+    htmlFor="6b7c27e9-b685-4501-9c3a-f4e951363920"
+  >
+    <input
+      defaultChecked={false}
+      id="6b7c27e9-b685-4501-9c3a-f4e951363920"
+      name="illo asperiores magni suscipit numquam voluptas tempora"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Dr. Rowland Harvey"
+    />
+    <div
+      key="81af0228-09f9-40dd-985a-e482883e2dbd"
+    >
+      quo voluptas saepe alias molestias quo ut
+    </div>
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 25`] = `
+<div
+  className="et qui voluptas recusandae similique eaque debitis"
+>
+  <Label
+    htmlFor="09aa9993-7462-4db6-b32e-44d932d64159"
+  >
+    <input
+      defaultChecked={false}
+      id="09aa9993-7462-4db6-b32e-44d932d64159"
+      name="veritatis non deleniti qui facere cupiditate similique"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Mrs. Curt Shanahan"
+    />
+    et necessitatibus aliquid accusamus et aperiam eaque
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 26`] = `
+<div>
+  <Label
+    htmlFor="490b5bd6-bac3-4a67-94f4-c8b158db0938"
+  >
+    <input
+      defaultChecked={false}
+      id="490b5bd6-bac3-4a67-94f4-c8b158db0938"
+      name="veritatis quis porro ullam et voluptatem eum"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Ms. Noel Gutmann"
+    />
+    et in ipsa illo deleniti adipisci eos
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 27`] = `
+<div
+  className="ad illo natus et temporibus odit doloremque"
+>
+  <Label
+    htmlFor="8c53342b-717c-49a8-8823-a6a5712194e2"
+  >
+    <input
+      defaultChecked={true}
+      id="8c53342b-717c-49a8-8823-a6a5712194e2"
+      name="aut harum corrupti eos dolorem sunt dolor"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Miss Electa Krajcik"
+    />
+    unde libero dolorum at consequatur eos eligendi
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 28`] = `
+<div>
+  <Label
+    htmlFor="65a8bbfc-1706-46af-94de-a3741ce3422e"
+  >
+    <input
+      defaultChecked={true}
+      id="65a8bbfc-1706-46af-94de-a3741ce3422e"
+      name="enim expedita natus quas sed ea excepturi"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Miss Dolly Ryan"
+    />
+    <span
+      key="d95a1db2-7e87-4776-9a69-4a04e8ed8623"
+    >
+      quae debitis nesciunt officiis exercitationem necessitatibus libero
+    </span>
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 29`] = `
+<div
+  className="ipsam quaerat inventore eaque mollitia quia aspernatur"
+>
+  <Label
+    htmlFor="b070047f-18e3-47e7-ab58-50ff29b06bd1"
+  >
+    <input
+      defaultChecked={false}
+      id="b070047f-18e3-47e7-ab58-50ff29b06bd1"
+      name="dolorem sit inventore autem cupiditate eius aut"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Miss Susana Bayer"
+    />
+    nobis explicabo qui qui ut qui sint
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 30`] = `
+<div>
+  <Label
+    htmlFor="08cdcad4-1d13-4b20-b4cf-2ab2647684fd"
+  >
+    <input
+      defaultChecked={false}
+      id="08cdcad4-1d13-4b20-b4cf-2ab2647684fd"
+      name="eum deleniti et est cum accusantium aut"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Ms. Christina Price"
+    />
+    <div
+      key="f20de38f-9169-47b8-a580-6178e030ba53"
+    >
+      sint quae mollitia et quia totam ea
+    </div>
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 31`] = `
+<div>
+  <Label
+    htmlFor="0c2bc6bc-54f8-45e2-b4ed-f79efb8cf4b7"
+  >
+    <input
+      defaultChecked={false}
+      id="0c2bc6bc-54f8-45e2-b4ed-f79efb8cf4b7"
+      name="cum ut nemo error laudantium dolore quasi"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Ms. Golda Marquardt"
+    />
+    nostrum dolorem aliquid illo rem pariatur tempora
+  </Label>
+</div>
+`;
+
+exports[`<RadioButton /> matches snapshot 32`] = `
+<div
+  className="nemo impedit et itaque debitis rerum exercitationem"
+>
+  <Label
+    htmlFor="e9b99f13-d3d2-4de1-b4cc-20127a48215c"
+  >
+    <input
+      defaultChecked={false}
+      id="e9b99f13-d3d2-4de1-b4cc-20127a48215c"
+      name="quisquam modi ut ut ut nemo reprehenderit"
+      onClick={[MockFunction]}
+      type="radio"
+      value="Ms. Timmothy Dare"
+    />
+    unde illum sit aut totam hic expedita
+  </Label>
+</div>
+`;

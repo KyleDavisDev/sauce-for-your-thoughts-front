@@ -100,3 +100,303 @@ exports[`<Overlay /> matches snapshot 8`] = `
   </span>
 </Overlay>
 `;
+
+exports[`<Overlay /> matches snapshot 9`] = `
+<Overlay
+  className="sc-AxjAm jXVRFe nulla sit officia doloremque non sit a"
+  enabled={true}
+>
+  <span
+    key="8bca9a8c-3762-4893-a5c1-7b5f5a1528ee"
+  >
+    blanditiis deserunt accusantium debitis aut laborum at
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 10`] = `
+<Overlay
+  className="sc-AxjAm lftuZY aut non ipsam fuga rem eius est"
+>
+  <span
+    key="bf87018b-4808-416d-82e0-a33398f2d7fa"
+  >
+    libero mollitia facilis est laboriosam tempora aut
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 11`] = `
+<Overlay
+  className="sc-AxjAm lftuZY voluptatem qui dolores eaque quis omnis ut"
+>
+  <div
+    key="5f488845-bb76-410b-a589-0f984ce2c04c"
+  >
+    aspernatur voluptatem consequatur temporibus quasi numquam ut
+  </div>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 12`] = `
+<Overlay
+  className="sc-AxjAm jXVRFe et aperiam quia est et suscipit ipsa"
+  enabled={true}
+>
+  <span
+    key="9fab414d-ec89-4bbb-95db-cfef9af762f2"
+  >
+    accusantium autem consequuntur qui repellat laudantium et
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 13`] = `
+<Overlay
+  className="sc-AxjAm lftuZY perferendis similique et facere fugiat rerum officiis"
+>
+  <div
+    key="66643f02-e4a5-472a-b0fa-909cdeb7d467"
+  >
+    autem et recusandae voluptatem possimus voluptas eaque
+  </div>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 14`] = `
+<Overlay
+  className="sc-AxjAm jXVRFe soluta qui adipisci vero dolore aut iste"
+  enabled={true}
+>
+  <div
+    key="58b58ce7-cb8a-4202-9179-e011642ca8cc"
+  >
+    ut velit odit ratione saepe id officia
+  </div>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 15`] = `
+<Overlay
+  className="sc-AxjAm lftuZY fugiat officiis enim voluptatem adipisci sequi magnam"
+>
+  <div
+    key="2bf5aa05-11d4-4989-9f93-88f67b221483"
+  >
+    qui odit nam doloribus et facere voluptatibus
+  </div>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 16`] = `
+<Overlay
+  className="sc-AxjAm jXVRFe ducimus voluptatem iusto tempore voluptas tempore accusamus"
+  enabled={true}
+>
+  <div
+    key="828d280a-295f-468f-898d-a09b257fd448"
+  >
+    dolor voluptatibus officiis voluptatem veniam aut voluptas
+  </div>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 17`] = `
+<Overlay
+  className="sc-AxjAm lftuZY quae ut dolores quam ea dolores tempore"
+  enabled={false}
+>
+  <div
+    key="80185244-1ad0-4033-9d70-43bef0e4ea2f"
+  >
+    dolores qui qui architecto aliquid iure eos
+  </div>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 18`] = `
+<Overlay
+  className="sc-AxjAm lftuZY enim numquam esse quia aperiam libero ipsa"
+>
+  <span
+    key="969a7431-88c5-4dc9-9e03-55cf64a08c3e"
+  >
+    culpa nulla ipsum et explicabo vel quaerat
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 19`] = `
+<Overlay
+  className="sc-AxjAm jXVRFe voluptatem aut adipisci ab ut unde ut"
+  enabled={true}
+>
+  <span
+    key="616b1e71-068e-48df-b2ab-ec8d23c406cc"
+  >
+    doloribus cum qui aut natus aperiam est
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 20`] = `
+<Overlay
+  className="sc-AxjAm lftuZY aut in blanditiis quia aliquam eum exercitationem"
+  enabled={false}
+>
+  <span
+    key="a030f75c-69bf-4f69-8be4-ea7a35efba5b"
+  >
+    veniam perferendis est aliquam consequuntur omnis velit
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 21`] = `
+<Overlay
+  className="sc-AxjAm lftuZY impedit cumque cupiditate quod et dolorem possimus"
+>
+  <span
+    key="b657ae12-e6d4-4a36-a987-8cc5b8020eeb"
+  >
+    quo sed aut dolore labore vitae aperiam
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 22`] = `
+<Overlay
+  className="sc-AxjAm lftuZY iste explicabo expedita eos ut id unde"
+>
+  <span
+    key="cc5bc9df-8451-40d4-be95-f3a4defe438c"
+  >
+    sit pariatur quam et excepturi laborum sit
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 23`] = `
+<Overlay
+  className="sc-AxjAm lftuZY exercitationem vitae magni a corrupti eveniet non"
+>
+  <div
+    key="c662fecd-c173-4a00-a275-5a87d2e61a43"
+  >
+    quaerat expedita sunt est laborum ut non
+  </div>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 24`] = `
+<Overlay
+  className="sc-AxjAm lftuZY vel expedita voluptas labore dolores enim magni"
+>
+  <span
+    key="4b46c898-7cbe-4428-a598-a512dfa0d251"
+  >
+    iste quia fugiat ducimus quia sit eum
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 25`] = `
+<Overlay
+  className="sc-AxjAm jXVRFe laborum fugit est voluptatem et perferendis et"
+  enabled={true}
+>
+  <div
+    key="82b695b1-77a4-4eff-9917-590772ae4d44"
+  >
+    voluptas quia nam quisquam quia nostrum rerum
+  </div>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 26`] = `
+<Overlay
+  className="sc-AxjAm lftuZY rem est asperiores eius consequatur quam nesciunt"
+>
+  <span
+    key="6441e22d-e9e8-46d7-9b40-8da94f948007"
+  >
+    voluptatibus perspiciatis quia eveniet iusto laborum voluptatem
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 27`] = `
+<Overlay
+  className="sc-AxjAm jXVRFe non id aliquid tempora praesentium hic veniam"
+  enabled={true}
+>
+  <div
+    key="fe04072f-05fa-4d4c-a399-46956ad745ee"
+  >
+    vel quasi et nulla dolorem natus et
+  </div>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 28`] = `
+<Overlay
+  className="sc-AxjAm jXVRFe veritatis in nisi quia et ea velit"
+  enabled={true}
+>
+  <span
+    key="0faaa5e4-8995-428f-8430-436bd4a10a15"
+  >
+    architecto est enim dicta iusto placeat et
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 29`] = `
+<Overlay
+  className="sc-AxjAm lftuZY et sequi sit corporis nihil dolorum quia"
+  enabled={false}
+>
+  <div
+    key="fdafc5bb-d121-4ca1-87b3-3a1e59ee5a03"
+  >
+    rerum qui fugiat nihil perferendis illum modi
+  </div>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 30`] = `
+<Overlay
+  className="sc-AxjAm lftuZY architecto ut quisquam ipsam sint possimus dignissimos"
+>
+  <span
+    key="1f5a38c1-150a-4617-b31c-8b5202c2d585"
+  >
+    odio eligendi adipisci omnis laborum repudiandae quo
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 31`] = `
+<Overlay
+  className="sc-AxjAm lftuZY eum est quas quas exercitationem aperiam tempora"
+>
+  <span
+    key="6a276356-23e7-4763-872f-fd0deabd662b"
+  >
+    a quibusdam et ea cupiditate quis ad
+  </span>
+</Overlay>
+`;
+
+exports[`<Overlay /> matches snapshot 32`] = `
+<Overlay
+  className="sc-AxjAm jXVRFe perspiciatis aut sed quibusdam voluptates eligendi quidem"
+  enabled={true}
+>
+  <div
+    key="2c3ea72b-3292-458c-9c7d-97fcadeb7d23"
+  >
+    assumenda rerum officiis cumque dolore quidem sunt
+  </div>
+</Overlay>
+`;

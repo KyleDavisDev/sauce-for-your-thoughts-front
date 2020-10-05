@@ -107,3 +107,335 @@ exports[`<Button> matches snapshot 8`] = `
   Omnis ut praesentium vel earum quo. Et ut voluptate delectus officia maiores cumque consequuntur rerum. Nulla aut omnis blanditiis.
 </Button>
 `;
+
+exports[`<Button> matches snapshot 9`] = `
+<Button
+  className="sc-AxjAm isKaRq error tempore aspernatur soluta possimus voluptas sed"
+  disabled={true}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="submit"
+>
+  <span
+    key="3f20c2bf-6eb6-401a-b506-876643f02f4a"
+  >
+    ipsam dolores voluptatem et autem doloremque earum
+  </span>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 10`] = `
+<Button
+  className="sc-AxjAm bKCvEV repudiandae qui ex unde veniam soluta qui"
+  disabled={false}
+  displayType="outline"
+  onClick={[MockFunction]}
+  type="button"
+>
+  <span
+    key="4179f011-742c-4a8c-b861-3e99def5301a"
+  >
+    quas in ullam voluptatibus minima consequatur eligendi
+  </span>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 11`] = `
+<Button
+  className="sc-AxjAm isKaRq magni ea laudantium hic quo corporis minima"
+  disabled={true}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="submit"
+>
+  Sequi ex adipisci fugiat officiis enim voluptatem. Sequi magnam doloremque laudantium. Magni molestias dolorem nesciunt sed consequatur cum. Deserunt ut tenetur iure. Aut ab laborum sint qui id ipsa.
+</Button>
+`;
+
+exports[`<Button> matches snapshot 12`] = `
+<Button
+  className="sc-AxjAm gKYImC eos iste aut inventore optio tempora excepturi"
+  disabled={true}
+  displayType="outline"
+  onClick={[MockFunction]}
+  type="submit"
+>
+  Aut nostrum repudiandae. Neque ut dolores qui qui architecto aliquid. Eos expedita assumenda eligendi aut nostrum. Ullam voluptatem accusantium blanditiis iste animi ipsa. Molestias deserunt quo impedit sint similique quos. Nihil voluptatem est impedit assumenda qui.
+</Button>
+`;
+
+exports[`<Button> matches snapshot 13`] = `
+<Button
+  className="sc-AxjAm isKaRq iure quos sed quibusdam voluptatem ducimus est"
+  disabled={true}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="reset"
+>
+  Nulla ipsum et explicabo vel quaerat fuga. Numquam esse quia aperiam libero. Voluptates quaerat recusandae. Et unde quia incidunt ex et molestiae facere labore. Ut unde consequatur sequi autem reiciendis blanditiis. Nisi culpa provident voluptatem sit id.
+</Button>
+`;
+
+exports[`<Button> matches snapshot 14`] = `
+<Button
+  className="sc-AxjAm isKaRq veniam perferendis est aliquam consequuntur omnis velit"
+  disabled={true}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="reset"
+>
+  <div
+    key="0716b1e7-0168-4e8d-bd2a-afc8d23c406c"
+  >
+    dolor doloribus cum qui aut natus aperiam
+  </div>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 15`] = `
+<Button
+  className="sc-AxjAm iiZAfZ sit illo consequatur itaque vero repellendus ex"
+  disabled={false}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="submit"
+>
+  Aut dolore labore vitae aperiam voluptas impedit. Cupiditate quod et dolorem possimus quasi accusantium quaerat. Perferendis commodi harum et reiciendis. Quis dolor non id cum enim mollitia. Accusamus quidem dolorum quis esse aut eaque dignissimos incidunt. Non ut molestiae repellendus quibusdam delectus.
+</Button>
+`;
+
+exports[`<Button> matches snapshot 16`] = `
+<Button
+  className="sc-AxjAm bKCvEV ea veniam optio magnam dolor exercitationem vitae"
+  disabled={false}
+  displayType="outline"
+  onClick={[MockFunction]}
+  type="button"
+>
+  Ut non fugit sint est dolores dolore. Ipsum ratione expedita modi. Nihil et voluptatem ut ipsa iure similique. Minima sunt deserunt sit aut et. Voluptatum est eos vero odio rerum.
+</Button>
+`;
+
+exports[`<Button> matches snapshot 17`] = `
+<Button
+  className="sc-AxjAm isKaRq quae laudantium quos sequi et non quis"
+  disabled={true}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="reset"
+>
+  <span
+    key="2f4725b4-7c89-486c-ae42-9b598b512dfa"
+  >
+    veritatis pariatur magni ut explicabo iste quia
+  </span>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 18`] = `
+<Button
+  className="sc-AxjAm isKaRq est id corporis reiciendis laborum enim molestias"
+  disabled={true}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="button"
+>
+  Vitae mollitia temporibus minus qui ea aliquam hic. Tempore ipsa id hic. Ut deleniti ad quaerat. Et neque ipsum vero. Id non non eum accusamus rem totam impedit enim doloremque.
+</Button>
+`;
+
+exports[`<Button> matches snapshot 19`] = `
+<Button
+  className="sc-AxjAm isKaRq veniam quia animi autem ducimus cum neque"
+  disabled={true}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="submit"
+>
+  <div
+    key="6f85e695-d7af-4306-844e-f04072f15fad"
+  >
+    veniam est minus velit error officia ea
+  </div>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 20`] = `
+<Button
+  className="sc-AxjAm isKaRq non autem et quae labore rerum qui"
+  disabled={true}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="reset"
+>
+  Libero debitis eos rerum. Voluptas aliquid optio impedit omnis aut dolores aut dolor soluta. Beatae qui optio et. Tempore architecto molestiae suscipit.
+</Button>
+`;
+
+exports[`<Button> matches snapshot 21`] = `
+<Button
+  className="sc-AxjAm isKaRq architecto ut quisquam ipsam sint possimus dignissimos"
+  disabled={true}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="button"
+>
+  Similique quia dolorem non earum et ut. Veritatis reprehenderit aperiam doloribus nisi tempore eius omnis et. Quae ut veritatis. Reprehenderit explicabo ducimus maiores velit aut repellendus animi. Aliquid amet ab dolorem aut qui nulla consequatur. Ut odio eligendi adipisci omnis laborum repudiandae.
+</Button>
+`;
+
+exports[`<Button> matches snapshot 22`] = `
+<Button
+  className="sc-AxjAm iiZAfZ earum molestiae quae et qui accusamus architecto"
+  disabled={false}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="reset"
+>
+  <span
+    key="6a276356-23e7-4763-872f-fd0deabd662b"
+  >
+    a quibusdam et ea cupiditate quis ad
+  </span>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 23`] = `
+<Button
+  className="sc-AxjAm gKYImC ipsa consectetur repellat qui fugiat velit est"
+  disabled={true}
+  displayType="outline"
+  onClick={[MockFunction]}
+  type="submit"
+>
+  Aut quia explicabo pariatur. Beatae possimus porro iste ad. Aperiam odit libero sunt. Provident suscipit commodi delectus. Sunt numquam iste nisi corporis blanditiis.
+</Button>
+`;
+
+exports[`<Button> matches snapshot 24`] = `
+<Button
+  className="sc-AxjAm isKaRq debitis quisquam rerum aliquid molestias ipsam et"
+  disabled={true}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="submit"
+>
+  <div
+    key="c35a4b04-d29d-420b-8b3a-c90f0734d4e5"
+  >
+    est facilis illum id debitis ut sint
+  </div>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 25`] = `
+<Button
+  className="sc-AxjAm bKCvEV harum cumque et totam neque mollitia et"
+  disabled={false}
+  displayType="outline"
+  onClick={[MockFunction]}
+  type="reset"
+>
+  <div
+    key="39b35312-cb05-4d7b-8616-ec0bb27e8155"
+  >
+    aut quam reprehenderit et aut corporis omnis
+  </div>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 26`] = `
+<Button
+  className="sc-AxjAm iiZAfZ hic sit dolorem voluptatem provident fugit mollitia"
+  disabled={false}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="reset"
+>
+  <span
+    key="0d1f6ff0-48ae-4256-b8d2-3a152d732f7a"
+  >
+    ducimus maxime quos omnis ratione voluptatum eveniet
+  </span>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 27`] = `
+<Button
+  className="sc-AxjAm iiZAfZ et aperiam eaque vel minima sint tenetur"
+  disabled={false}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="submit"
+>
+  <span
+    key="9489f78d-ceca-4822-937b-e0b3c4e3a0f2"
+  >
+    suscipit numquam voluptas tempora fuga et est
+  </span>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 28`] = `
+<Button
+  className="sc-AxjAm isKaRq ipsa illo deleniti adipisci eos odit provident"
+  disabled={true}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="submit"
+>
+  Et qui voluptas recusandae similique eaque debitis. Quibusdam aliquid deserunt inventore quisquam quis quisquam vero molestiae. Tempore temporibus tempora est vel quos enim ut. Corporis at provident impedit vitae ut excepturi vero maxime aut. Consectetur occaecati sit perspiciatis amet possimus nemo.
+</Button>
+`;
+
+exports[`<Button> matches snapshot 29`] = `
+<Button
+  className="sc-AxjAm bKCvEV maxime et cum aliquid atque aut sit"
+  disabled={false}
+  displayType="outline"
+  onClick={[MockFunction]}
+  type="button"
+>
+  <span
+    key="53b43744-e1be-4c35-a449-8023401e5e8d"
+  >
+    non exercitationem consequatur neque odit veritatis quis
+  </span>
+</Button>
+`;
+
+exports[`<Button> matches snapshot 30`] = `
+<Button
+  className="sc-AxjAm bKCvEV corrupti perferendis esse voluptate cum delectus voluptas"
+  disabled={false}
+  displayType="outline"
+  onClick={[MockFunction]}
+  type="submit"
+>
+  Tempora maiores tempora officia laborum totam rerum ut occaecati. Sed saepe excepturi consequatur aut. Corrupti eos dolorem sunt dolor ad illo. Et temporibus odit doloremque possimus nihil rem. Facilis ut quod porro voluptatibus.
+</Button>
+`;
+
+exports[`<Button> matches snapshot 31`] = `
+<Button
+  className="sc-AxjAm iiZAfZ quas sed ea excepturi laboriosam culpa dicta"
+  disabled={false}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="button"
+>
+  Est nihil dolorum sit facilis aperiam. Debitis sed aut pariatur quas. Qui sed quae debitis nesciunt officiis. Necessitatibus libero repellendus libero enim.
+</Button>
+`;
+
+exports[`<Button> matches snapshot 32`] = `
+<Button
+  className="sc-AxjAm iiZAfZ consequuntur ab iusto et non optio iusto"
+  disabled={false}
+  displayType="solid"
+  onClick={[MockFunction]}
+  type="reset"
+>
+  Optio temporibus nemo debitis. Fugit et vitae ipsum voluptas. In eius sed. Dolores non odio totam. Accusamus commodi impedit omnis molestias culpa nesciunt delectus.
+</Button>
+`;
