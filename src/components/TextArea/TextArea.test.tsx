@@ -53,4 +53,14 @@ describe("<TextArea />", () => {
       );
     });
   });
+
+  it("renders Label component if showLabel and label are true", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      if (!mockTextArea.showLabel || !mockTextArea.label) return;
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.find("Label")).toBeTruthy();
+      expect(wrapper.find("Label")).not.toEqual({});
+    });
+  });
 });
