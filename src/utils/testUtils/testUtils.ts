@@ -9,7 +9,7 @@ import { ISauce, ISaucesState } from "../../redux/sauces/types";
 import { FlashMessageProps } from "../../components/FlashMessage/FlashMessage";
 import Flatn from "../Flatn/Flatn";
 
-export const ITERATION_SIZE = 8;
+export const ITERATION_SIZE = 32;
 const REACT_REGEX = /react(\d+)?./i;
 
 // seed it so we get consistent results
