@@ -77,4 +77,12 @@ describe("<TextArea />", () => {
       expect(wrapper.find("span").exists()).toBeTruthy();
     });
   });
+
+  it("renders textarea element", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.find("textarea").exists()).toBeTruthy();
+    });
+  });
 });
