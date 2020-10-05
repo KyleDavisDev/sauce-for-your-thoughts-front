@@ -63,4 +63,20 @@ describe("<TextArea />", () => {
       expect(wrapper.find("Label")).not.toEqual({});
     });
   });
+
+  it("renders span tag if showLabel, label, and required are truthy", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      const shouldRenderRequiredText =
+        !!mockTextArea.showLabel &&
+        !!mockTextArea.label &&
+        !!mockTextArea.required;
+
+      if (!shouldRenderRequiredText) return;
+
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.find("span")).toBeTruthy();
+      expect(wrapper.find("span")).not.toEqual({});
+    });
+  });
 });
