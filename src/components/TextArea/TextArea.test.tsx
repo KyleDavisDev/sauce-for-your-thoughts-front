@@ -157,4 +157,16 @@ describe("<TextArea />", () => {
       );
     });
   });
+
+  it("renders textarea element with expected maxlength value", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      if (mockTextArea.maxLength === undefined) return;
+
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.find("textarea").prop("maxLength")).toEqual(
+        mockTextArea.maxLength
+      );
+    });
+  });
 });
