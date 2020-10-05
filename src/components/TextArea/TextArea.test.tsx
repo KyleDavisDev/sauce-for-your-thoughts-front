@@ -85,4 +85,14 @@ describe("<TextArea />", () => {
       expect(wrapper.find("textarea").exists()).toBeTruthy();
     });
   });
+
+  it("renders textarea element with expected id", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      if (!mockTextArea.id) return;
+
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.find("textarea").prop("id")).toEqual(mockTextArea.id);
+    });
+  });
 });
