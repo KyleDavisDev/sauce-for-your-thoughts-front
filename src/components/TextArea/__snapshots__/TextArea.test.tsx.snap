@@ -7,8 +7,158 @@ exports[`<TextArea /> matches snapshot 1`] = `
   <textarea
     class="sc-AxirZ dtXFaH"
     cols="30"
-    id="7ae8c415-d3f2-4368-8393-f090492fd03e"
+    id="135f0a7a-f53c-48fe-9db1-2ce6e8500b48"
+    maxlength="900"
+    name="fugiat error molestiae laborum est possimus assumenda"
+    placeholder="enim iure facilis ut explicabo iure vitae"
+    readonly=""
     rows="10"
+    style="margin-bottom:0px"
   />
+  <p>
+    vel ipsa tempora aut sint aperiam occaecati
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 2`] = `
+<div
+  class="sc-AxjAm dGVwxi"
+>
+  <textarea
+    class="sc-AxirZ dtXFaH"
+    cols="30"
+    id="illum animi vel provident dicta perferendis dolorum"
+    placeholder="omnis laborum exercitationem est sapiente laudantium molestias"
+    readonly=""
+    rows="10"
+    style="margin-bottom:0px"
+  >
+    sapiente soluta corporis commodi eaque nisi cum
+  </textarea>
+  <p>
+    ea ducimus autem sit aspernatur aspernatur quam
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 3`] = `
+<div
+  class="sc-AxjAm dGVwxi at sint dolores fugiat quis et voluptas"
+>
+  <textarea
+    class="sc-AxirZ dtXFaH"
+    cols="30"
+    id="eligendi est fugiat dolorem nihil quam nulla"
+    rows="10"
+    style="margin-bottom:0px"
+  >
+    function () { [native code] }
+  </textarea>
+  <p>
+    quae iusto sapiente nostrum aut corrupti sed
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 4`] = `
+<div
+  class="sc-AxjAm dGVwxi tempora at modi occaecati illum laborum quos"
+>
+  <textarea
+    class="sc-AxirZ dtXFaH"
+    cols="30"
+    id="consectetur soluta inventore laudantium dolor sint officiis"
+    maxlength="2955"
+    name="dignissimos dolore qui voluptatem cumque nihil iste"
+    placeholder="unde rem similique et maxime quia dolores"
+    rows="10"
+    style="margin-bottom:0px"
+  />
+  <p>
+    itaque et in fugit in rerum libero
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 5`] = `
+<div
+  class="sc-AxjAm dGVwxi et optio consequatur velit voluptate necessitatibus excepturi"
+>
+  <textarea
+    class="sc-AxirZ dtXFaH"
+    cols="30"
+    disabled=""
+    id="odit aut labore qui aut inventore aut"
+    name="beatae incidunt ut ducimus fugiat et et"
+    placeholder="quidem voluptatibus libero aut autem ut ullam"
+    readonly=""
+    rows="10"
+    style="margin-bottom:0px"
+  >
+    minus quo sunt possimus earum animi quis
+  </textarea>
+  <p>
+    quos rerum nobis nam dolor quas repellendus
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 6`] = `
+<div
+  class="sc-AxjAm dGVwxi"
+>
+  <textarea
+    class="sc-AxirZ dtXFaH"
+    cols="30"
+    id="90acd560-af18-43af-a701-9b580816d12e"
+    placeholder="molestiae non sint et ipsa consequuntur quidem"
+    rows="10"
+    style="margin-bottom:0px"
+  >
+    molestiae occaecati a culpa facilis eligendi voluptatibus
+  </textarea>
+  <p>
+    aut sint cumque sunt mollitia quibusdam officia
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 7`] = `
+<div
+  class="sc-AxjAm dGVwxi"
+>
+  <textarea
+    class="sc-AxirZ dtXFaH"
+    cols="30"
+    id="eum repudiandae minima temporibus ducimus quia assumenda"
+    name="neque saepe est labore sed rerum nesciunt"
+    readonly=""
+    rows="10"
+    style="margin-bottom:0px"
+  >
+    architecto accusantium vel enim sint voluptatem porro
+  </textarea>
+  <p>
+    vitae consequuntur non sit et ut voluptatem
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 8`] = `
+<div
+  class="sc-AxjAm dGVwxi culpa suscipit totam libero necessitatibus quis ratione"
+>
+  <textarea
+    class="sc-AxirZ dtXFaH"
+    cols="30"
+    id="1b33398f-3d7f-4aa9-aa53-f8ee5973ab54"
+    placeholder="molestiae et dicta odit vel quisquam qui"
+    rows="10"
+    style="margin-bottom:0px"
+  />
+  <p>
+    rem qui hic dolore quibusdam quasi quisquam
+  </p>
 </div>
 `;

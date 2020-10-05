@@ -3,7 +3,7 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 
 import TextArea, { TextAreaProps } from "./TextArea";
-import { casual } from "../../utils/testUtils/testUtils";
+import { casual, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
 
 const fakeTextArea = (): TextAreaProps => ({
   id: casual.random_element([undefined, casual.string]),
@@ -21,16 +21,24 @@ const fakeTextArea = (): TextAreaProps => ({
   onChange: jest.fn()
 });
 
+const mockTextAreas = new Array(ITERATION_SIZE).fill(null).map(fakeTextArea);
+
 describe("<TextArea />", () => {
   it("renders", () => {
-    const wrapper = enzyme.render(<TextArea onChange={() => {}} />);
+    mockTextAreas.forEach(mockTextArea => {
+      const wrapper = enzyme.render(
+        <TextArea onChange={mockTextArea.onChange} />
+      );
 
-    expect(wrapper).toBeTruthy();
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.render(<TextArea onChange={() => {}} />);
+    mockTextAreas.forEach(mockTextArea => {
+      const wrapper = enzyme.render(<TextArea {...mockTextArea} />);
 
-    expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 });
