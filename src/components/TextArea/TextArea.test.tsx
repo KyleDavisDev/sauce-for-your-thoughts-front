@@ -105,4 +105,12 @@ describe("<TextArea />", () => {
       expect(wrapper.find("textarea").prop("id")).toBeTruthy();
     });
   });
+
+  it("renders textarea element with expected name", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.find("textarea").prop("name")).toEqual(mockTextArea.name);
+    });
+  });
 });
