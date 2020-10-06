@@ -46,7 +46,7 @@ const DropDown: React.FC<DropDownProps> = props => {
         >
           {options.map(opt => {
             return (
-              <option key={casual.uuid} value={opt.toLowerCase()}>
+              <option key={opt.toLowerCase()} value={opt.toLowerCase()}>
                 {opt}
               </option>
             );
