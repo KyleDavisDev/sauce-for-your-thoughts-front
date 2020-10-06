@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Navigation from "./components/Navigation/Navigation";
-import TypesOfSauces from "./components/Types/TypesOfSauces";
+import TypesOfSauces from "./components/TypesOfSauces/TypesOfSauces";
 import About from "./components/About/About";
 import { StyledFooter, StyledDiv } from "./FooterStyle";
 
