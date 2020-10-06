@@ -26,12 +26,15 @@ export const StyledLink = styled(Link)`
     fill: ${x => x.theme.primaryThemeColor};
   }
 `;
+StyledLink.displayName = "Link";
 
 export const StyledDropDown = styled(Dropdown)`
   margin-right: 2em;
 `;
+StyledDropDown.displayName = "Dropdown";
 
 export const StyledAvatar = styled.img`
   max-width: 35px;
   margin-left: 5px;
 `;
+StyledAvatar.displayName = "img";
