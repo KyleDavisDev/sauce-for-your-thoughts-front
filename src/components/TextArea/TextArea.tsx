@@ -2,10 +2,9 @@ import * as React from "react";
 
 import { StyledDiv, StyledTextArea } from "./TextAreaStyle";
 import Label from "../Label/Label";
-import { casual } from "../../utils/testUtils/testUtils";
 
 export interface TextAreaProps {
-  id?: string;
+  id: string;
   name?: string;
   placeholder?: string;
   required?: boolean;
@@ -30,7 +29,7 @@ const TextArea: React.FunctionComponent<TextAreaProps> = props => {
     required = false,
     disabled = false,
     readOnly = false,
-    id = casual.uuid,
+    id,
     className,
     label,
     placeholder,

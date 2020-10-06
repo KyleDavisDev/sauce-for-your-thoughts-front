@@ -1,11 +1,10 @@
 import * as React from "react";
 
 import Label from "../Label/Label";
-import { casual } from "../../utils/testUtils/testUtils";
 import { SelectContainer, StyledSelect } from "./DropDownStyle";
 
 export interface DropDownProps {
-  id?: string;
+  id: string;
   options: string[];
   selectedValue?: string;
   name?: string;
@@ -25,7 +24,7 @@ const DropDown: React.FC<DropDownProps> = props => {
     label,
     onSelect,
     selectedValue,
-    id = casual.uuid,
+    id,
     showLabel = false,
     required = false
   } = props;

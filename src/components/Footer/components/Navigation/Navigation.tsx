@@ -2,7 +2,6 @@ import * as React from "react";
 
 import List, { ListItem } from "../../../List/List";
 import styled from "../../../../theme/styled-components";
-import { casual } from "../../../../utils/testUtils/testUtils";
 
 const StyledList = styled(List)`
   h5,
@@ -18,11 +17,11 @@ StyledList.displayName = "List";
 
 const Navigation: React.FunctionComponent = () => {
   const items: ListItem[] = [
-    { link: "/", text: "Home", id: casual.uuid },
-    { link: "/sauces", text: "All Sauces", id: casual.uuid },
-    { link: "/sauce/add", text: "Add Sauce", id: casual.uuid },
-    { link: "/account/register", text: "Register", id: casual.uuid },
-    { link: "/account/login", text: "Log In", id: casual.uuid }
+    { link: "/", text: "Home", id: "Home" },
+    { link: "/sauces", text: "All Sauces", id: "All_Sauces" },
+    { link: "/sauce/add", text: "Add Sauce", id: "Add_Sauces" },
+    { link: "/account/register", text: "Register", id: "Register" },
+    { link: "/account/login", text: "Log In", id: "Log_In" }
   ];
 
   return <StyledList title="Navigation" items={items} />;
