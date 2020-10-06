@@ -19,11 +19,11 @@ StyledList.displayName = "List";
 
 const TypesOfSauces: React.FC = () => {
   const items = useSelector((store: AppState) => store.sauces.types).map(
-    type => {
+    (type, ind) => {
       return {
         link: `/sauces?limit=15&order=newest&page=1&type=${type}`,
         text: type,
-        id: type
+        id: ind + "-" + type
       };
     }
   );
