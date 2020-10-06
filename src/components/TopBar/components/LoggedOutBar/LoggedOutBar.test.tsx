@@ -9,4 +9,10 @@ describe("<LoggedOutBar />", () => {
 
     expect(wrapper.exists()).toBeTruthy();
   });
+
+  it("matches snapshot", () => {
+    const wrapper = enzyme.shallow(<LoggedOutBar />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
