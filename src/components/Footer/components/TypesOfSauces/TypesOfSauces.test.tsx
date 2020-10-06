@@ -72,6 +72,7 @@ describe("<Types />", () => {
       const reduxState = mockStore.getState() as AppState;
       const reduxTypes = reduxState.sauces.types;
 
+      // compare
       expect(items?.length).toEqual(reduxTypes.length);
     });
   });
