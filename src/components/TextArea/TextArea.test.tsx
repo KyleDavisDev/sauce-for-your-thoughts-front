@@ -180,6 +180,20 @@ describe("<TextArea />", () => {
     });
   });
 
+  it("triggers onChange event when textarea is changed", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(mockTextArea.onChange).not.toHaveBeenCalled();
+
+      wrapper.find("textarea").simulate("change");
+      expect(mockTextArea.onChange).toHaveBeenCalled();
+
+      wrapper.find("textarea").simulate("change");
+      expect(mockTextArea.onChange).toHaveBeenCalledTimes(2);
+    });
+  });
+
   it("renders p element when requirementText is truthy", () => {
     mockTextAreas.forEach(mockTextArea => {
       if (mockTextArea.requirementText === undefined) return;
