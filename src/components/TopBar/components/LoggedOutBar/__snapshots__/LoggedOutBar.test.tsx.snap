@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoggedOutBar /> matches snapshot 1`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
