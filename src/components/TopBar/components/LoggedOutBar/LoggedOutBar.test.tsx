@@ -15,4 +15,10 @@ describe("<LoggedOutBar />", () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it("renders two Link components", () => {
+    const wrapper = enzyme.shallow(<LoggedOutBar />);
+
+    expect(wrapper.find("Link").length).toEqual(2);
+  });
 });
