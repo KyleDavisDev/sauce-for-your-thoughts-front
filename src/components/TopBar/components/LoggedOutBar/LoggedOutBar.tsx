@@ -4,9 +4,9 @@ import LoginIcon from "../../../../images/icons/LoginIcon";
 import UserIcon from "../../../../images/icons/UserIcon";
 import { StyledDiv, StyledLink } from "../../TopBarStyle";
 
-interface IDefaultOptionsProps {}
+interface ILoggedOutBarProps {}
 
-const DefaultOptions: React.FunctionComponent<IDefaultOptionsProps> = props => {
+const LoggedOutBar: React.FunctionComponent<ILoggedOutBarProps> = props => {
   return (
     <StyledDiv>
       <StyledLink href="/account/register">
@@ -21,4 +21,4 @@ const DefaultOptions: React.FunctionComponent<IDefaultOptionsProps> = props => {
   );
 };
 
-export default DefaultOptions;
+export default LoggedOutBar;

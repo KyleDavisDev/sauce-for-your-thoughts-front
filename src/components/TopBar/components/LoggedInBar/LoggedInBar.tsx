@@ -7,12 +7,12 @@ import { StyledAvatar, StyledDiv, StyledDropDown } from "../../TopBarStyle";
 import Trigger from "../Trigger/Trigger";
 import Body from "../Body/Body";
 
-interface ILoggedInOptionsProps {
+interface ILoggedInBarProps {
   displayName: string;
   avatarURL: string;
 }
 
-const LoggedInOptions: React.FunctionComponent<ILoggedInOptionsProps> = props => {
+const LoggedInBar: React.FunctionComponent<ILoggedInBarProps> = props => {
   const { displayName, avatarURL } = props;
 
   return (
@@ -38,4 +38,4 @@ const LoggedInOptions: React.FunctionComponent<ILoggedInOptionsProps> = props =>
   );
 };
 
-export default LoggedInOptions;
+export default LoggedInBar;

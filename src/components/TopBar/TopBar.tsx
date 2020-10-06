@@ -2,8 +2,8 @@ import * as React from "react";
 import { useSelector } from "react-redux";
 
 import { AppState } from "../../redux/configureStore";
-import LoggedInOptions from "./components/LoggedInOptions/LoggedInOptions";
-import DefaultOptions from "./components/DefaultOptions/DefaultOptions";
+import LoggedInBar from "./components/LoggedInBar/LoggedInBar";
+import LoggedOutBar from "./components/LoggedOutBar/LoggedOutBar";
 
 const TopBar: React.FC = () => {
   const { self } = useSelector((state: AppState) => {
@@ -15,9 +15,9 @@ const TopBar: React.FC = () => {
   return (
     <header>
       {isLoggedIn && displayName && avatarURL ? (
-        <LoggedInOptions displayName={displayName} avatarURL={avatarURL} />
+        <LoggedInBar displayName={displayName} avatarURL={avatarURL} />
       ) : (
-        <DefaultOptions />
+        <LoggedOutBar />
       )}
     </header>
   );
