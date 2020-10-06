@@ -170,6 +170,16 @@ describe("<TextArea />", () => {
     });
   });
 
+  it("renders textarea element with expected onChange", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.find("textarea").prop("onChange")).toEqual(
+        mockTextArea.onChange
+      );
+    });
+  });
+
   it("renders p element when requirementText is truthy", () => {
     mockTextAreas.forEach(mockTextArea => {
       if (mockTextArea.requirementText === undefined) return;
