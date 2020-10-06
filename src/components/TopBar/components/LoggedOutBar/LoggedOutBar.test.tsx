@@ -27,4 +27,10 @@ describe("<LoggedOutBar />", () => {
 
     expect(wrapper.find("Link").first().prop("href")).toContain("register");
   });
+
+  it("last link is for login", () => {
+    const wrapper = enzyme.shallow(<LoggedOutBar />);
+
+    expect(wrapper.find("Link").last().prop("href")).toContain("login");
+  });
 });
