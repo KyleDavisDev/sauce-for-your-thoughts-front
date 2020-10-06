@@ -169,4 +169,14 @@ describe("<TextArea />", () => {
       );
     });
   });
+
+  it("renders p element when requirementText is truthy", () => {
+    mockTextAreas.forEach(mockTextArea => {
+      if (mockTextArea.requirementText === undefined) return;
+
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
+
+      expect(wrapper.find("p").exists()).toBeTruthy();
+    });
+  });
 });
