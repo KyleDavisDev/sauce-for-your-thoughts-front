@@ -9,12 +9,11 @@ const TopBar: React.FC = () => {
   const { self } = useSelector((state: AppState) => {
     return state.users;
   });
-  const { displayName, avatarURL } = self;
-  const isLoggedIn = !!self.token;
+  const { displayName, avatarURL, token } = self;
 
   return (
     <header>
-      {isLoggedIn && displayName && avatarURL ? (
+      {token && displayName && avatarURL ? (
         <LoggedInBar displayName={displayName} avatarURL={avatarURL} />
       ) : (
         <LoggedOutBar />
