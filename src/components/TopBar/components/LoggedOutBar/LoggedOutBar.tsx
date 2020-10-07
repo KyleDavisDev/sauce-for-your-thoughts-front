@@ -2,13 +2,13 @@ import * as React from "react";
 
 import LoginIcon from "../../../../images/icons/LoginIcon";
 import UserIcon from "../../../../images/icons/UserIcon";
-import { StyledDiv, StyledLink } from "../../TopBarStyle";
+import { StyledLink } from "./LoggedOutBarStyle";
 
 interface ILoggedOutBarProps {}
 
 const LoggedOutBar: React.FunctionComponent<ILoggedOutBarProps> = props => {
   return (
-    <StyledDiv>
+    <>
       <StyledLink href="/account/register">
         <UserIcon />
         Register
@@ -17,7 +17,7 @@ const LoggedOutBar: React.FunctionComponent<ILoggedOutBarProps> = props => {
         <LoginIcon />
         Log in
       </StyledLink>
-    </StyledDiv>
+    </>
   );
 };
 
