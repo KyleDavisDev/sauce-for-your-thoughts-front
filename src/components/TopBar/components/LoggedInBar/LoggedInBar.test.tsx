@@ -12,4 +12,12 @@ describe("<LoggedInBar />", () => {
 
     expect(wrapper).toBeTruthy();
   });
+
+  it("matches snapshot", () => {
+    const wrapper = enzyme.shallow(
+      <LoggedInBar displayName={""} avatarURL={""} />
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
