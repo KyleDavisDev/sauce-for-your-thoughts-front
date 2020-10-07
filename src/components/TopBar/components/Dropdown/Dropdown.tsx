@@ -1,12 +1,11 @@
 import * as React from "react";
-
-import Trigger from "../Trigger/Trigger";
-import Body from "../Body/Body";
-import styled from "styled-components";
 import { findDOMNode } from "react-dom";
+
+import styled from "../../../../theme/styled-components";
 
 const StyledDiv = styled.div`
   position: relative;
+  margin-right: 2em;
 `;
 
 export interface DropdownProps {
@@ -20,123 +19,89 @@ export interface DropdownState {
   active: boolean;
 }
 
-class Dropdown extends React.Component<DropdownProps, DropdownState> {
-  constructor(props: DropdownProps) {
-    super(props);
+const Dropdown: React.FC<DropdownProps> = props => {
+  const [isActive, setIsActive] = React.useState(false);
 
-    this.state = { active: false };
-  }
+  const dropDownRef = React.useRef(null);
 
-  public componentDidMount() {
+  const onWindowClick = React.useCallback(
+    event => {
+      // Quick sanity check -- If the menu isn't even open, then we don't need to do anything
+      if (!isActive) return;
+
+      // Find this component in the DOM
+      const dropDownElem = dropDownRef.current as Element | null;
+      if (dropDownElem === null) return;
+
+      // Check for valid clicked target
+      const isClickedElementValidNode = event.target instanceof Node;
+      if (!isClickedElementValidNode) return;
+
+      // Check if click was inside this FunctionalComponent or outside
+      const isClickedElementWithinComponent = dropDownElem.contains(
+        event.target
+      );
+      if (isClickedElementWithinComponent) return;
+
+      setIsActive(false); // Close dropdown
+    },
+    [isActive, props.children]
+  );
+
+  // assign window click event on load
+  React.useEffect(() => {
     // Needs to be removed when component unmounts
-    window.addEventListener("click", this.onWindowClick);
-  }
+    window.addEventListener("click", onWindowClick);
 
-  public componentWillUnmount() {
-    // No need to have global click event when component unmounted
-    window.removeEventListener("click", this.onWindowClick);
-  }
+    return () => {
+      // Needs to be removed when component unmounts
+      window.removeEventListener("click", onWindowClick);
+    };
+  }, [onWindowClick]);
 
-  public render() {
-    let TriggerChild: null | JSX.Element = null;
-    let BodyChild: null | JSX.Element = null;
+  const [ToggleChild, BodyChild] = findAndAssignElements();
 
-    for (let i = 0, len = this.props.children.length; i < len; i++) {
-      // Grab child
-      const child: JSX.Element = this.props.children[i];
+  return (
+    <StyledDiv className={props.className} ref={dropDownRef}>
+      {ToggleChild}
+      {isActive && BodyChild}
+    </StyledDiv>
+  );
 
-      // Grab first Trigger/Styled(Trigger) child
-      if (
-        (child.type.displayName === "Trigger" ||
-          child.type.displayName === "Styled(Trigger)") &&
-        TriggerChild === null
-      ) {
-        TriggerChild = React.cloneElement(child, {
+  function findAndAssignElements() {
+    let _toggleChild: null | JSX.Element = null,
+      _bodyChild: null | JSX.Element = null;
+
+    props.children.forEach(child => {
+      // Quick escape if we have assignment
+      if (_toggleChild !== null && _bodyChild !== null) return;
+
+      if (child.type.displayName === "Toggle" && _toggleChild === null) {
+        _toggleChild = React.cloneElement(child, {
           onClick: (event: React.MouseEvent) => {
-            this.onToggleClick(event); // pass onclick to child
+            onToggleClick(event); // pass onclick to child
           }
         });
       }
 
-      // Grab first Body/Styled(Body) child
       if (
         (child.type.displayName === "Body" ||
           child.type.displayName === "Styled(Body)") &&
-        BodyChild === null
+        _bodyChild === null
       ) {
-        BodyChild = React.cloneElement(child, {});
+        _bodyChild = React.cloneElement(child, {});
       }
+    });
 
-      // If both are assigned, we can stop looping
-      if (TriggerChild !== null && BodyChild !== null) break;
-    }
-
-    return (
-      <StyledDiv className={this.props.className}>
-        {TriggerChild}
-        {this.state.active && BodyChild}
-      </StyledDiv>
-    );
+    return [_toggleChild, _bodyChild];
   }
 
-  private onToggleClick = (event: React.MouseEvent): void => {
+  function onToggleClick(event: React.MouseEvent): void {
     event.preventDefault();
 
     // Show or hide BodyChild based on state
-    this.isActive() ? this.close() : this.open();
-  };
+    setIsActive(!isActive);
+  }
+};
 
-  private isActive = (): boolean => {
-    return this.state.active;
-  };
-
-  private close = (): void => {
-    this.setState(
-      {
-        active: false
-      },
-      () => {
-        if (this.props.onClose) {
-          this.props.onClose(); // Call passed function if there
-        }
-      }
-    );
-  };
-
-  private open = (): void => {
-    this.setState(
-      {
-        active: true
-      },
-      () => {
-        if (this.props.onOpen) {
-          this.props.onOpen(); // Call passed function if there
-        }
-      }
-    );
-  };
-
-  private onWindowClick = (event: MouseEvent): void => {
-    // Simple check to see if we need to do the more heavy-lifting stuff or not
-    if (!this.isActive()) return;
-
-    // Find Dropdown elemt
-    const dropDownElem = findDOMNode(this);
-
-    // Get targetted elem
-    const elem: EventTarget | null = event.target;
-
-    // Sanity checks
-    if (dropDownElem === null) return;
-    if (!(elem instanceof Node) || elem === null) return;
-
-    if (
-      event.target !== dropDownElem && // If the clicked element is NOT Dropdown iteself
-      !dropDownElem.contains(elem) // If the clicked element isn't contained inside of Dropdown
-    ) {
-      this.close(); // Close dropdown
-    }
-  };
-}
-
-export { Trigger, Body, Dropdown };
+export default Dropdown;
