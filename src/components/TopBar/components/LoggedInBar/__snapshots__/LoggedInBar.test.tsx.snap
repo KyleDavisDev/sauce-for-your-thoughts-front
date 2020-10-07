@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoggedInBar /> matches snapshot 1`] = `
+<styled.div>
+  <Dropdown>
+    <Trigger>
+      <ChevronDown />
+      <img
+        onError={[Function]}
+        src=""
+      />
+    </Trigger>
+    <Body>
+      <Menu />
+    </Body>
+  </Dropdown>
+</styled.div>
+`;
