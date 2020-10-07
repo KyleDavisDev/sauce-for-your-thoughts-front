@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Types /> matches snapshot 1`] = `
+exports[`<TypesOfSauces /> matches snapshot 1`] = `
 <Provider
   store={
     Object {
@@ -315,7 +315,7 @@ exports[`<Types /> matches snapshot 1`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 2`] = `
+exports[`<TypesOfSauces /> matches snapshot 2`] = `
 <Provider
   store={
     Object {
@@ -630,7 +630,7 @@ exports[`<Types /> matches snapshot 2`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 3`] = `
+exports[`<TypesOfSauces /> matches snapshot 3`] = `
 <Provider
   store={
     Object {
@@ -945,7 +945,7 @@ exports[`<Types /> matches snapshot 3`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 4`] = `
+exports[`<TypesOfSauces /> matches snapshot 4`] = `
 <Provider
   store={
     Object {
@@ -1260,7 +1260,7 @@ exports[`<Types /> matches snapshot 4`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 5`] = `
+exports[`<TypesOfSauces /> matches snapshot 5`] = `
 <Provider
   store={
     Object {
@@ -1575,7 +1575,7 @@ exports[`<Types /> matches snapshot 5`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 6`] = `
+exports[`<TypesOfSauces /> matches snapshot 6`] = `
 <Provider
   store={
     Object {
@@ -1890,7 +1890,7 @@ exports[`<Types /> matches snapshot 6`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 7`] = `
+exports[`<TypesOfSauces /> matches snapshot 7`] = `
 <Provider
   store={
     Object {
@@ -2205,7 +2205,7 @@ exports[`<Types /> matches snapshot 7`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 8`] = `
+exports[`<TypesOfSauces /> matches snapshot 8`] = `
 <Provider
   store={
     Object {
@@ -2520,7 +2520,7 @@ exports[`<Types /> matches snapshot 8`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 9`] = `
+exports[`<TypesOfSauces /> matches snapshot 9`] = `
 <Provider
   store={
     Object {
@@ -2835,7 +2835,7 @@ exports[`<Types /> matches snapshot 9`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 10`] = `
+exports[`<TypesOfSauces /> matches snapshot 10`] = `
 <Provider
   store={
     Object {
@@ -3150,7 +3150,7 @@ exports[`<Types /> matches snapshot 10`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 11`] = `
+exports[`<TypesOfSauces /> matches snapshot 11`] = `
 <Provider
   store={
     Object {
@@ -3465,7 +3465,7 @@ exports[`<Types /> matches snapshot 11`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 12`] = `
+exports[`<TypesOfSauces /> matches snapshot 12`] = `
 <Provider
   store={
     Object {
@@ -3780,7 +3780,7 @@ exports[`<Types /> matches snapshot 12`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 13`] = `
+exports[`<TypesOfSauces /> matches snapshot 13`] = `
 <Provider
   store={
     Object {
@@ -4095,7 +4095,7 @@ exports[`<Types /> matches snapshot 13`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 14`] = `
+exports[`<TypesOfSauces /> matches snapshot 14`] = `
 <Provider
   store={
     Object {
@@ -4410,7 +4410,7 @@ exports[`<Types /> matches snapshot 14`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 15`] = `
+exports[`<TypesOfSauces /> matches snapshot 15`] = `
 <Provider
   store={
     Object {
@@ -4725,7 +4725,7 @@ exports[`<Types /> matches snapshot 15`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 16`] = `
+exports[`<TypesOfSauces /> matches snapshot 16`] = `
 <Provider
   store={
     Object {
@@ -5040,7 +5040,7 @@ exports[`<Types /> matches snapshot 16`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 17`] = `
+exports[`<TypesOfSauces /> matches snapshot 17`] = `
 <Provider
   store={
     Object {
@@ -5355,7 +5355,7 @@ exports[`<Types /> matches snapshot 17`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 18`] = `
+exports[`<TypesOfSauces /> matches snapshot 18`] = `
 <Provider
   store={
     Object {
@@ -5670,7 +5670,7 @@ exports[`<Types /> matches snapshot 18`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 19`] = `
+exports[`<TypesOfSauces /> matches snapshot 19`] = `
 <Provider
   store={
     Object {
@@ -5985,7 +5985,7 @@ exports[`<Types /> matches snapshot 19`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 20`] = `
+exports[`<TypesOfSauces /> matches snapshot 20`] = `
 <Provider
   store={
     Object {
@@ -6300,7 +6300,7 @@ exports[`<Types /> matches snapshot 20`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 21`] = `
+exports[`<TypesOfSauces /> matches snapshot 21`] = `
 <Provider
   store={
     Object {
@@ -6615,7 +6615,7 @@ exports[`<Types /> matches snapshot 21`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 22`] = `
+exports[`<TypesOfSauces /> matches snapshot 22`] = `
 <Provider
   store={
     Object {
@@ -6930,7 +6930,7 @@ exports[`<Types /> matches snapshot 22`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 23`] = `
+exports[`<TypesOfSauces /> matches snapshot 23`] = `
 <Provider
   store={
     Object {
@@ -7245,7 +7245,7 @@ exports[`<Types /> matches snapshot 23`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 24`] = `
+exports[`<TypesOfSauces /> matches snapshot 24`] = `
 <Provider
   store={
     Object {
@@ -7560,7 +7560,7 @@ exports[`<Types /> matches snapshot 24`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 25`] = `
+exports[`<TypesOfSauces /> matches snapshot 25`] = `
 <Provider
   store={
     Object {
@@ -7875,7 +7875,7 @@ exports[`<Types /> matches snapshot 25`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 26`] = `
+exports[`<TypesOfSauces /> matches snapshot 26`] = `
 <Provider
   store={
     Object {
@@ -8190,7 +8190,7 @@ exports[`<Types /> matches snapshot 26`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 27`] = `
+exports[`<TypesOfSauces /> matches snapshot 27`] = `
 <Provider
   store={
     Object {
@@ -8505,7 +8505,7 @@ exports[`<Types /> matches snapshot 27`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 28`] = `
+exports[`<TypesOfSauces /> matches snapshot 28`] = `
 <Provider
   store={
     Object {
@@ -8820,7 +8820,7 @@ exports[`<Types /> matches snapshot 28`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 29`] = `
+exports[`<TypesOfSauces /> matches snapshot 29`] = `
 <Provider
   store={
     Object {
@@ -9135,7 +9135,7 @@ exports[`<Types /> matches snapshot 29`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 30`] = `
+exports[`<TypesOfSauces /> matches snapshot 30`] = `
 <Provider
   store={
     Object {
@@ -9450,7 +9450,7 @@ exports[`<Types /> matches snapshot 30`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 31`] = `
+exports[`<TypesOfSauces /> matches snapshot 31`] = `
 <Provider
   store={
     Object {
@@ -9765,7 +9765,7 @@ exports[`<Types /> matches snapshot 31`] = `
 </Provider>
 `;
 
-exports[`<Types /> matches snapshot 32`] = `
+exports[`<TypesOfSauces /> matches snapshot 32`] = `
 <Provider
   store={
     Object {
