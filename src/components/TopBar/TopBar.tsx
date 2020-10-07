@@ -4,20 +4,17 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../redux/configureStore";
 import LoggedInBar from "./components/LoggedInBar/LoggedInBar";
 import LoggedOutBar from "./components/LoggedOutBar/LoggedOutBar";
+import { StyledDiv } from "./TopBarStyle";
 
 const TopBar: React.FC = () => {
   const { self } = useSelector((state: AppState) => {
     return state.users;
   });
-  const { displayName, avatarURL, token } = self;
+  const { token } = self;
 
   return (
     <header>
-      {token && displayName && avatarURL ? (
-        <LoggedInBar displayName={displayName} avatarURL={avatarURL} />
-      ) : (
-        <LoggedOutBar />
-      )}
+      <StyledDiv>{token ? <LoggedInBar /> : <LoggedOutBar />}</StyledDiv>
     </header>
   );
 };
