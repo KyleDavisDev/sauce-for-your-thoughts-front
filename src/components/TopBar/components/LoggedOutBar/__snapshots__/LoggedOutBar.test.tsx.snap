@@ -16,3 +16,530 @@ exports[`<LoggedOutBar /> matches snapshot 1`] = `
   </Link>
 </styled.div>
 `;
+
+exports[`<LoggedOutBar /> matches snapshot 2`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 3`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 4`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 5`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 6`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 7`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 8`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 9`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 10`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 11`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 12`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 13`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 14`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 15`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 16`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 17`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 18`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 19`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 20`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 21`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 22`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 23`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 24`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 25`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 26`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 27`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 28`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 29`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 30`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 31`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
+
+exports[`<LoggedOutBar /> matches snapshot 32`] = `
+<styled.div>
+  <Link
+    href="/account/register"
+  >
+    <UserIcon />
+    Register
+  </Link>
+  <Link
+    href="/account/login"
+  >
+    <LoginIcon />
+    Log in
+  </Link>
+</styled.div>
+`;
