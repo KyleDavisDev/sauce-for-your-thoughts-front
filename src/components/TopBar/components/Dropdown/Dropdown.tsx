@@ -59,24 +59,27 @@ const Dropdown: React.FC<DropdownProps> = props => {
     };
   }, [onWindowClick]);
 
-  const [ToggleChild, BodyChild] = findAndAssignElements();
+  const [ToggleChild, MenuChild] = findAndAssignElements();
 
   return (
     <StyledDiv className={props.className} ref={dropDownRef}>
       {ToggleChild}
-      {isActive && BodyChild}
+      {isActive && MenuChild}
     </StyledDiv>
   );
 
   function findAndAssignElements() {
     let _toggleChild: null | JSX.Element = null,
-      _bodyChild: null | JSX.Element = null;
+      _menuChild: null | JSX.Element = null;
 
     props.children.forEach(child => {
       // Quick escape if we have assignment
-      if (_toggleChild !== null && _bodyChild !== null) return;
+      if (_toggleChild !== null && _menuChild !== null) return;
 
-      if (child.type.displayName === "Toggle" && _toggleChild === null) {
+      // grab name of child
+      const name = child.type.name || child.type.displayName;
+
+      if (name === "Toggle" && _toggleChild === null) {
         _toggleChild = React.cloneElement(child, {
           onClick: (event: React.MouseEvent) => {
             onToggleClick(event); // pass onclick to child
@@ -84,16 +87,12 @@ const Dropdown: React.FC<DropdownProps> = props => {
         });
       }
 
-      if (
-        (child.type.displayName === "Body" ||
-          child.type.displayName === "Styled(Body)") &&
-        _bodyChild === null
-      ) {
-        _bodyChild = React.cloneElement(child, {});
+      if (name === "Menu" && _menuChild === null) {
+        _menuChild = React.cloneElement(child, {});
       }
     });
 
-    return [_toggleChild, _bodyChild];
+    return [_toggleChild, _menuChild];
   }
 
   function onToggleClick(event: React.MouseEvent): void {
