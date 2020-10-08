@@ -7,6 +7,7 @@ const StyledDiv = styled.div`
   position: relative;
   margin-right: 2em;
 `;
+StyledDiv.displayName = "div";
 
 export interface DropdownProps {
   children: JSX.Element[];
@@ -24,6 +25,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
 
   const dropDownRef = React.useRef(null);
 
+  // Create memoized function that updates when children change or isActive changes
   const onWindowClick = React.useCallback(
     event => {
       // Quick sanity check -- If the menu isn't even open, then we don't need to do anything
@@ -48,7 +50,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
     [isActive, props.children]
   );
 
-  // assign window click event on load
+  // assign and remove window click event
   React.useEffect(() => {
     // Needs to be removed when component unmounts
     window.addEventListener("click", onWindowClick);
