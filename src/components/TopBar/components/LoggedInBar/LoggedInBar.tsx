@@ -1,10 +1,8 @@
 import * as React from "react";
 
-import Menu from "../Menu/Menu";
-
 import DropDown from "../Dropdown/Dropdown";
-import Body from "../Body/Body";
 import Toggle from "../Toggle/Toggle";
+import Menu from "../Menu/Menu";
 
 interface ILoggedInBarProps {}
 
@@ -12,9 +10,7 @@ const LoggedInBar: React.FunctionComponent<ILoggedInBarProps> = props => {
   return (
     <DropDown>
       <Toggle />
-      <Body>
-        <Menu />
-      </Body>
+      <Menu />
     </DropDown>
   );
 };
