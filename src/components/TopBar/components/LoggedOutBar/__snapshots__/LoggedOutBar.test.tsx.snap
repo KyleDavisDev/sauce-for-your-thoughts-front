@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LoggedOutBar /> matches snapshot 1`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -14,11 +14,11 @@ exports[`<LoggedOutBar /> matches snapshot 1`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 2`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -31,11 +31,11 @@ exports[`<LoggedOutBar /> matches snapshot 2`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 3`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -48,11 +48,11 @@ exports[`<LoggedOutBar /> matches snapshot 3`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 4`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -65,11 +65,11 @@ exports[`<LoggedOutBar /> matches snapshot 4`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 5`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -82,11 +82,11 @@ exports[`<LoggedOutBar /> matches snapshot 5`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 6`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -99,11 +99,11 @@ exports[`<LoggedOutBar /> matches snapshot 6`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 7`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -116,11 +116,11 @@ exports[`<LoggedOutBar /> matches snapshot 7`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 8`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -133,11 +133,11 @@ exports[`<LoggedOutBar /> matches snapshot 8`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 9`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -150,11 +150,11 @@ exports[`<LoggedOutBar /> matches snapshot 9`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 10`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -167,11 +167,11 @@ exports[`<LoggedOutBar /> matches snapshot 10`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 11`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -184,11 +184,11 @@ exports[`<LoggedOutBar /> matches snapshot 11`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 12`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -201,11 +201,11 @@ exports[`<LoggedOutBar /> matches snapshot 12`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 13`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -218,11 +218,11 @@ exports[`<LoggedOutBar /> matches snapshot 13`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 14`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -235,11 +235,11 @@ exports[`<LoggedOutBar /> matches snapshot 14`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 15`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -252,11 +252,11 @@ exports[`<LoggedOutBar /> matches snapshot 15`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 16`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -269,11 +269,11 @@ exports[`<LoggedOutBar /> matches snapshot 16`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 17`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -286,11 +286,11 @@ exports[`<LoggedOutBar /> matches snapshot 17`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 18`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -303,11 +303,11 @@ exports[`<LoggedOutBar /> matches snapshot 18`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 19`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -320,11 +320,11 @@ exports[`<LoggedOutBar /> matches snapshot 19`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 20`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -337,11 +337,11 @@ exports[`<LoggedOutBar /> matches snapshot 20`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 21`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -354,11 +354,11 @@ exports[`<LoggedOutBar /> matches snapshot 21`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 22`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -371,11 +371,11 @@ exports[`<LoggedOutBar /> matches snapshot 22`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 23`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -388,11 +388,11 @@ exports[`<LoggedOutBar /> matches snapshot 23`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 24`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -405,11 +405,11 @@ exports[`<LoggedOutBar /> matches snapshot 24`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 25`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -422,11 +422,11 @@ exports[`<LoggedOutBar /> matches snapshot 25`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 26`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -439,11 +439,11 @@ exports[`<LoggedOutBar /> matches snapshot 26`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 27`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -456,11 +456,11 @@ exports[`<LoggedOutBar /> matches snapshot 27`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 28`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -473,11 +473,11 @@ exports[`<LoggedOutBar /> matches snapshot 28`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 29`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -490,11 +490,11 @@ exports[`<LoggedOutBar /> matches snapshot 29`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 30`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -507,11 +507,11 @@ exports[`<LoggedOutBar /> matches snapshot 30`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 31`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -524,11 +524,11 @@ exports[`<LoggedOutBar /> matches snapshot 31`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
 
 exports[`<LoggedOutBar /> matches snapshot 32`] = `
-<styled.div>
+<Fragment>
   <Link
     href="/account/register"
   >
@@ -541,5 +541,5 @@ exports[`<LoggedOutBar /> matches snapshot 32`] = `
     <LoginIcon />
     Log in
   </Link>
-</styled.div>
+</Fragment>
 `;
