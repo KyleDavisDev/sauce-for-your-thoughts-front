@@ -9,7 +9,7 @@ import {
   HeroBody,
   HeroTitle,
   StyledDiv,
-  StyledDropDown,
+  StyledSelect,
   StyledInput,
   StyledButton
 } from "./LandingImageStyle";

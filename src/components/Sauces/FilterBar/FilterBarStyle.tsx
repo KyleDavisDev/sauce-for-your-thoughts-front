@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import DropDown from "../../DropDown/DropDown";
+import Select from "../../Select/Select";
 import { TextInput } from "../../TextInput/TextInput";
 import { Button } from "../../Button/Button";
 
@@ -29,7 +29,7 @@ export const StyledForm = styled.form`
   }
 `;
 
-export const StyledDropDown = styled(DropDown)`
+export const StyledSelect = styled(Select)`
   width: 100%;
   padding: 10px;
   box-sizing: border-box;

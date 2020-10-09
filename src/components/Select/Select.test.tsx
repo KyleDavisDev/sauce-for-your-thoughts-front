@@ -2,16 +2,17 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 
 import { casual, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
-import DropDown, { DropDownProps } from "./DropDown";
+import DropDown, { SelectProps } from "./Select";
 
 const getRandomValFromArr = (arr: string[]) => {
   // get rnadom value from array if possible
   const randomIndexInArray = casual.integer(0, arr.length);
+  // console.log(randomIndexInArray, arr);
 
   return arr[randomIndexInArray];
 };
 
-const fakeDropDown = (): DropDownProps => {
+const fakeSelect = (): SelectProps => {
   // generate options
   const options = casual.array_of_words();
 
@@ -34,9 +35,9 @@ const fakeDropDown = (): DropDownProps => {
   };
 };
 
-const mockDropDowns = new Array(ITERATION_SIZE).fill(null).map(fakeDropDown);
+const mockDropDowns = new Array(ITERATION_SIZE).fill(null).map(fakeSelect);
 
-describe("<DropDown>", () => {
+describe("<Select />", () => {
   it("renders", () => {
     mockDropDowns.forEach(mockDropDown => {
       const wrapper = enzyme.shallow(<DropDown {...mockDropDown} />);
@@ -61,16 +62,12 @@ describe("<DropDown>", () => {
     });
   });
 
-  it("selects assigned prop", () => {
+  it("renders select tag with expected selectedValue value", () => {
     mockDropDowns.forEach(mockDropDown => {
       const wrapper = enzyme.shallow(<DropDown {...mockDropDown} />);
 
-      // get random value and update props
-      const randomVal = getRandomValFromArr(mockDropDown.options);
-      wrapper.setProps({ selectedValue: randomVal });
-
-      expect(wrapper.render().find("select [selected]").text()).toEqual(
-        randomVal
+      expect(wrapper.find("select").prop("value")).toEqual(
+        mockDropDown.selectedValue
       );
     });
   });
@@ -79,7 +76,7 @@ describe("<DropDown>", () => {
     mockDropDowns.forEach(mockDropDown => {
       const wrapper = enzyme.shallow(<DropDown {...mockDropDown} />);
 
-      const select = wrapper.find("StyledSelect");
+      const select = wrapper.find("select");
 
       select.simulate("change");
       expect(mockDropDown.onSelect).toHaveBeenCalledTimes(1);

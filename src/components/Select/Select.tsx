@@ -1,9 +1,9 @@
 import * as React from "react";
 
 import Label from "../Label/Label";
-import { SelectContainer, StyledSelect } from "./DropDownStyle";
+import { SelectContainer, StyledSelect } from "./SelectStyle";
 
-export interface DropDownProps {
+export interface SelectProps {
   id: string;
   options: string[];
   selectedValue?: string;
@@ -15,7 +15,7 @@ export interface DropDownProps {
   onSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const DropDown: React.FC<DropDownProps> = props => {
+const Select: React.FC<SelectProps> = props => {
   // get info from props and assign defaults if needed
   const {
     className,
@@ -57,4 +57,4 @@ const DropDown: React.FC<DropDownProps> = props => {
   );
 };
 
-export default DropDown;
+export default Select;

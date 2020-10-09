@@ -18,6 +18,7 @@ export const SelectContainer = styled.div`
     top: -7px;
   }
 `;
+SelectContainer.displayName = "div";
 
 export const StyledSelect = styled.select`
   width: 100%;
@@ -35,4 +36,4 @@ export const StyledSelect = styled.select`
   padding: 0px 40px 0 15px;
   font-size: 1rem;
 `;
-StyledSelect.displayName = "StyledSelect"; // useful for testing
+StyledSelect.displayName = "select";

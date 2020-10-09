@@ -7,7 +7,7 @@ import useParamsFromPath from "../../../utils/hooks/useParamsFromPath";
 import {
   StyledFormContainer,
   StyledForm,
-  StyledDropDown,
+  StyledSelect,
   StyledInput,
   StyledButton
 } from "./FilterBarStyle";
