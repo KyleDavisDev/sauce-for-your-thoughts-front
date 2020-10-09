@@ -35,7 +35,7 @@ const LandingImage: React.FC<LandingImageProps> = props => {
         <HeroTitle>Find your perfect sauce</HeroTitle>
         <form onSubmit={onSubmit}>
           <StyledDiv>
-            <StyledDropDown
+            <StyledSelect
               options={types}
               selectedValue={selectedValue}
               onSelect={e => setSelectedValue(e.target.value)}
