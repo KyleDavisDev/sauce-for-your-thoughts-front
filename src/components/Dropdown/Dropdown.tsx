@@ -1,7 +1,7 @@
 import * as React from "react";
 import { findDOMNode } from "react-dom";
 
-import styled from "../../../../theme/styled-components";
+import styled from "../../theme/styled-components";
 
 const StyledDiv = styled.div`
   position: relative;
