@@ -1,5 +1,4 @@
 import * as React from "react";
-import { findDOMNode } from "react-dom";
 
 import styled from "../../theme/styled-components";
 
@@ -10,7 +9,7 @@ const StyledDiv = styled.div`
 StyledDiv.displayName = "div";
 
 export interface DropdownProps {
-  children: JSX.Element[];
+  children: Array<React.ReactElement>;
   className?: string;
 }
 
@@ -77,7 +76,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
       if (_toggleChild !== null && _menuChild !== null) return;
 
       // grab name of child
-      const name = child.type.name || child.type.displayName;
+      const name = child.props.name || child.props.displayName;
 
       if (name === "Toggle" && _toggleChild === null) {
         _toggleChild = React.cloneElement(child, {
