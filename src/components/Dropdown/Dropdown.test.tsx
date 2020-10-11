@@ -76,6 +76,23 @@ describe("<Dropdown />", () => {
     });
   });
 
+  it("does not render a Toggle component when a component with the name of Toggle is not passed", () => {
+    const fakeDropdownOnlyToggleChild = (): DropdownProps => ({
+      children: []
+    });
+    const mockDropdownsOnlyToggleChild = new Array(ITERATION_SIZE)
+      .fill(null)
+      .map(fakeDropdownOnlyToggleChild);
+
+    mockDropdownsOnlyToggleChild.forEach(mockDropdown => {
+      const wrapper = enzyme.shallow(
+        <Dropdown {...mockDropdown}>{mockDropdown.children}</Dropdown>
+      );
+
+      expect(wrapper.find("[name='Toggle']").exists()).toBeFalsy();
+    });
+  });
+
   // it("renders a Menu component when a component with the name of Menu is passed", () => {
   //   const fakeDropdownOnlyMenuChild = (): DropdownProps => ({
   //     children: [fakeMenu()]
