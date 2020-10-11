@@ -9,30 +9,44 @@ const fakeBody = (): IBodyProps => ({
   description: casual.random_element([undefined, casual.string])
 });
 
+const mockBodies = new Array(ITERATION_SIZE).fill(null).map(fakeBody);
+
 describe("<Body />", () => {
   const defaultText = "Loading ...";
 
   it("renders", () => {
-    const wrapper = enzyme.shallow(<Body />);
+    mockBodies.forEach(mockBody => {
+      const wrapper = enzyme.shallow(<Body {...mockBody} />);
 
-    expect(wrapper).toBeTruthy();
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.shallow(<Body />);
+    mockBodies.forEach(mockBody => {
+      const wrapper = enzyme.shallow(<Body {...mockBody} />);
 
-    expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   it("renders default title", () => {
-    const wrapper = enzyme.shallow(<Body />);
+    mockBodies.forEach(mockBody => {
+      if (mockBody.title) return;
 
-    expect(wrapper.find("h4").text()).toEqual(defaultText);
+      const wrapper = enzyme.shallow(<Body {...mockBody} />);
+
+      expect(wrapper.find("h4").text()).toEqual(defaultText);
+    });
   });
 
   it("renders default description", () => {
-    const wrapper = enzyme.shallow(<Body />);
+    mockBodies.forEach(mockBody => {
+      if (mockBody.description) return;
 
-    expect(wrapper.find("p").text()).toEqual(defaultText);
+      const wrapper = enzyme.shallow(<Body {...mockBody} />);
+
+      expect(wrapper.find("p").text()).toEqual(defaultText);
+    });
   });
 });
