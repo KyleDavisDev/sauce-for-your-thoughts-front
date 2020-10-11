@@ -4,10 +4,10 @@ exports[`<Footer /> matches snapshot 1`] = `
 <Link
   href=""
 >
-  <Styled(Button)
+  <Button
     displayType="outline"
   >
     View
-  </Styled(Button)>
+  </Button>
 </Link>
 `;
