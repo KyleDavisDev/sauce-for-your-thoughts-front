@@ -23,14 +23,9 @@ const fakeMenu = () =>
   );
 
 const fakeDropdown = (): DropdownProps => ({
-  children: casual.random_element([
-    [fakeToggle()], // pass only a toggle element
-    [fakeMenu()], // pass only a menu element
-    [fakeToggle(), fakeMenu()] // pass both toggle and menu
-  ]),
+  children: [fakeToggle(), fakeMenu()],
   className: casual.random_element([undefined, casual.string])
 });
-
 const mockDropdowns = new Array(ITERATION_SIZE).fill(null).map(fakeDropdown);
 
 describe("<Dropdown />", () => {
@@ -63,4 +58,40 @@ describe("<Dropdown />", () => {
       expect(wrapper.first().prop("className")).toEqual(mockDropdown.className);
     });
   });
+
+  it("renders a Toggle component when a component with the name of Toggle is passed", () => {
+    const fakeDropdownOnlyToggleChild = (): DropdownProps => ({
+      children: [fakeToggle()]
+    });
+    const mockDropdownsOnlyToggleChild = new Array(ITERATION_SIZE)
+      .fill(null)
+      .map(fakeDropdownOnlyToggleChild);
+
+    mockDropdownsOnlyToggleChild.forEach(mockDropdown => {
+      const wrapper = enzyme.shallow(
+        <Dropdown {...mockDropdown}>{mockDropdown.children}</Dropdown>
+      );
+
+      expect(wrapper.find("[name='Toggle']").exists()).toBeTruthy();
+    });
+  });
+
+  // it("renders a Menu component when a component with the name of Menu is passed", () => {
+  //   const fakeDropdownOnlyMenuChild = (): DropdownProps => ({
+  //     children: [fakeMenu()]
+  //   });
+  //   const mockDropdownsOnlyMenuChild = new Array(ITERATION_SIZE)
+  //     .fill(null)
+  //     .map(fakeDropdownOnlyMenuChild);
+
+  //   mockDropdownsOnlyMenuChild.forEach(mockDropdown => {
+  //     const wrapper = enzyme.shallow(
+  //       <Dropdown {...mockDropdown}>{mockDropdown.children}</Dropdown>
+  //     );
+
+  //     console.log(wrapper.debug());
+
+  //     expect(wrapper.find("Menu").exists()).toBeTruthy();
+  //   });
+  // });
 });
