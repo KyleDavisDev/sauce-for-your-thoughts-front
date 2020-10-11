@@ -93,22 +93,20 @@ describe("<Dropdown />", () => {
     });
   });
 
-  // it("renders a Menu component when a component with the name of Menu is passed", () => {
-  //   const fakeDropdownOnlyMenuChild = (): DropdownProps => ({
-  //     children: [fakeMenu()]
-  //   });
-  //   const mockDropdownsOnlyMenuChild = new Array(ITERATION_SIZE)
-  //     .fill(null)
-  //     .map(fakeDropdownOnlyMenuChild);
+  it("renders a Menu component after Toggle has been clicked", () => {
+    mockDropdowns.forEach(mockDropdown => {
+      const wrapper = enzyme.shallow(
+        <Dropdown {...mockDropdown}>{mockDropdown.children}</Dropdown>
+      );
 
-  //   mockDropdownsOnlyMenuChild.forEach(mockDropdown => {
-  //     const wrapper = enzyme.shallow(
-  //       <Dropdown {...mockDropdown}>{mockDropdown.children}</Dropdown>
-  //     );
+      // should NOT find component right now
+      expect(wrapper.find("[name='Menu']").exists()).toBeFalsy();
 
-  //     console.log(wrapper.debug());
+      // simulate click to open Menu
+      wrapper.find("[name='Toggle']").simulate("click");
 
-  //     expect(wrapper.find("Menu").exists()).toBeTruthy();
-  //   });
-  // });
+      // verify Menu is visible
+      expect(wrapper.find("[name='Menu']").exists()).toBeTruthy();
+    });
+  });
 });
