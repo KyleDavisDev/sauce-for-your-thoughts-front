@@ -3,7 +3,7 @@ import * as React from "react";
 import { Button } from "../../Button/Button";
 import { StyledLink } from "./FooterStyle";
 
-interface IFooterProps {
+export interface IFooterProps {
   to: string;
   anchorText?: string;
 }
