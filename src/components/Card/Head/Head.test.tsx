@@ -27,8 +27,14 @@ describe("<Head />", () => {
   });
 
   it("does not render Link component if showLink is false", () => {
-    const wrapper = enzyme.shallow(<Head to="" />);
+    const wrapper = enzyme.shallow(<Head to="" showLink={false} />);
 
     expect(wrapper.exists("Link")).toBeFalsy();
+  });
+
+  it("renders Link component if showLink is true", () => {
+    const wrapper = enzyme.shallow(<Head to="" showLink={true} />);
+
+    expect(wrapper.exists("Link")).toBeTruthy();
   });
 });
