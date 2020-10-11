@@ -35,6 +35,14 @@ describe("<Card />", () => {
     });
   });
 
+  it("appends className to parent", () => {
+    mockCards.forEach(mockCard => {
+      const wrapper = enzyme.shallow(<Card {...mockCard} />);
+
+      expect(wrapper.first().prop("className")).toEqual(mockCard.className);
+    });
+  });
+
   it("passes expected 'to' to Head component", () => {
     mockCards.forEach(mockCard => {
       const wrapper = enzyme.shallow(<Card {...mockCard} />);
