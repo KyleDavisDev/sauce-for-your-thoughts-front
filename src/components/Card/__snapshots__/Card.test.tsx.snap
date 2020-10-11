@@ -1,0 +1,572 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> matches snapshot 1`] = `
+<div>
+  <Head
+    description="magnam fugiat error molestiae laborum est possimus"
+    imageLink="iure vitae occaecati officia iure nisi ut"
+    showLink={false}
+    to="assumenda aut enim iure facilis ut explicabo"
+  />
+  <Body
+    description="magnam fugiat error molestiae laborum est possimus"
+    title="sequi facilis corporis sed veritatis quidem praesentium"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 2`] = `
+<div>
+  <Head
+    description="ab aliquam id sit delectus vel ipsa"
+    imageLink="vel provident dicta perferendis dolorum cupiditate illum"
+    showLink={false}
+    to="tempora aut sint aperiam occaecati illum animi"
+  />
+  <Body
+    description="ab aliquam id sit delectus vel ipsa"
+    title="adipisci eius laborum eius aut illo dolorum"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 3`] = `
+<div>
+  <Head
+    description="aliquam sed sapiente soluta corporis commodi eaque"
+    imageLink="atque et non explicabo dolores ipsam laboriosam"
+    showLink={false}
+    to="nisi cum ducimus nemo doloremque maiores esse"
+  />
+  <Body
+    description="aliquam sed sapiente soluta corporis commodi eaque"
+    title="iste itaque omnis debitis rem similique temporibus"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 4`] = `
+<div
+  className="occaecati nulla aut sunt est rerum at"
+>
+  <Head
+    description="eaque necessitatibus sit suscipit omnis necessitatibus maiores"
+    imageLink="consequatur harum qui enim et doloremque voluptate"
+    showLink={true}
+    to="ullam quae corporis qui aut nobis quo"
+  />
+  <Body
+    description="eaque necessitatibus sit suscipit omnis necessitatibus maiores"
+    title="unde sit ex expedita est doloremque explicabo"
+  />
+  <Footer
+    anchorText="dolores fugiat quis et voluptas culpa et"
+    to="ullam quae corporis qui aut nobis quo"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 5`] = `
+<div
+  className="et maxime quia dolores quisquam aut consequatur"
+>
+  <Head
+    description="nostrum aut corrupti sed consectetur soluta inventore"
+    imageLink="qui voluptatem cumque nihil iste est unde"
+    showLink={true}
+    to="laudantium dolor sint officiis qui dignissimos dolore"
+  />
+  <Body
+    description="nostrum aut corrupti sed consectetur soluta inventore"
+    title="repellat eveniet assumenda quis quae iusto sapiente"
+  />
+  <Footer
+    anchorText="provident aut ullam distinctio autem quam qui"
+    to="laudantium dolor sint officiis qui dignissimos dolore"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 6`] = `
+<div
+  className="odit aut labore qui aut inventore aut"
+>
+  <Head
+    description="at odit tempora at modi occaecati illum"
+    imageLink="deserunt consequatur itaque et in fugit in"
+    showLink={false}
+    to="laborum quos eum voluptate sit saepe assumenda"
+  />
+  <Body
+    description="at odit tempora at modi occaecati illum"
+    title="in ut odit animi in ut occaecati"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 7`] = `
+<div
+  className="consequatur velit voluptate necessitatibus excepturi et qui"
+>
+  <Head
+    description="et possimus sint fugiat maiores autem est"
+    imageLink="quo sunt possimus earum animi quis expedita"
+    showLink={false}
+    to="esse quos minus deserunt nihil quasi minus"
+  />
+  <Body
+    description="et possimus sint fugiat maiores autem est"
+    title="quidem voluptatibus libero aut autem ut ullam"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 8`] = `
+<div
+  className="ab assumenda animi non quis quis nobis"
+>
+  <Head
+    description="ipsum occaecati et consequatur consectetur sunt molestiae"
+    imageLink="sint et ipsa consequuntur quidem dolorem quia"
+    showLink={true}
+    to="cupiditate autem consequatur consequatur accusantium molestiae non"
+  />
+  <Body
+    description="ipsum occaecati et consequatur consectetur sunt molestiae"
+    title="dolor quas repellendus in dolores totam animi"
+  />
+  <Footer
+    anchorText="aliquam molestiae occaecati a culpa facilis eligendi"
+    to="cupiditate autem consequatur consequatur accusantium molestiae non"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 9`] = `
+<div
+  className="neque saepe est labore sed rerum nesciunt"
+>
+  <Head
+    description="voluptate voluptatem est eius dolorem amet quia"
+    imageLink="officia eum repudiandae minima temporibus ducimus quia"
+    showLink={false}
+    to="quia aut sint cumque sunt mollitia quibusdam"
+  />
+  <Body
+    description="voluptate voluptatem est eius dolorem amet quia"
+    title="similique blanditiis in eum ut dignissimos aspernatur"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 10`] = `
+<div>
+  <Head
+    description="perferendis nostrum aliquid ea animi architecto accusantium"
+    imageLink="sed qui repellat assumenda et incidunt aut"
+    showLink={false}
+    to="vel enim sint voluptatem porro ut est"
+  />
+  <Body
+    description="perferendis nostrum aliquid ea animi architecto accusantium"
+    title="corrupti voluptatem quia dolores dolor voluptates sequi"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 11`] = `
+<div>
+  <Head
+    description="excepturi saepe autem quis molestiae et dicta"
+    imageLink="esse unde ea voluptatem totam occaecati eveniet"
+    showLink={true}
+    to="odit vel quisquam qui harum a aut"
+  />
+  <Body
+    description="excepturi saepe autem quis molestiae et dicta"
+    title="voluptas eos quam consequatur ipsam sed nobis"
+  />
+  <Footer
+    to="odit vel quisquam qui harum a aut"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 12`] = `
+<div>
+  <Head
+    description="rem qui hic dolore quibusdam quasi quisquam"
+    imageLink="nihil quis eveniet sit voluptas dicta non"
+    showLink={true}
+    to="ut libero explicabo at quae autem eligendi"
+  />
+  <Body
+    description="rem qui hic dolore quibusdam quasi quisquam"
+    title="eveniet ea totam aut aut sunt enim"
+  />
+  <Footer
+    to="ut libero explicabo at quae autem eligendi"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 13`] = `
+<div>
+  <Head
+    description="reiciendis ut eos commodi at impedit sint"
+    imageLink="qui est aut laborum nesciunt dolor vero"
+    showLink={true}
+    to="perferendis in dolorem repudiandae possimus dignissimos esse"
+  />
+  <Body
+    description="reiciendis ut eos commodi at impedit sint"
+    title="sed ea qui minima laboriosam tempore voluptatibus"
+  />
+  <Footer
+    to="perferendis in dolorem repudiandae possimus dignissimos esse"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 14`] = `
+<div>
+  <Head
+    description="molestiae aut quos quasi distinctio reiciendis perspiciatis"
+    imageLink="est reprehenderit commodi perspiciatis quas et quos"
+    showLink={true}
+    to="ut illo sit rerum accusamus molestiae quia"
+  />
+  <Body
+    description="molestiae aut quos quasi distinctio reiciendis perspiciatis"
+    title="eos quos tenetur voluptas quia nam laborum"
+  />
+  <Footer
+    anchorText="unde minus facere iste sunt modi aut"
+    to="ut illo sit rerum accusamus molestiae quia"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 15`] = `
+<div>
+  <Head
+    description="ipsa odio sit laboriosam quis voluptatem quod"
+    imageLink="vero quia voluptatibus consequatur provident qui delectus"
+    showLink={true}
+    to="tempore temporibus impedit dolores saepe dolor incidunt"
+  />
+  <Body
+    description="ipsa odio sit laboriosam quis voluptatem quod"
+    title="in non dolorem nihil optio est non"
+  />
+  <Footer
+    anchorText="assumenda officia aut id possimus quas dolor"
+    to="tempore temporibus impedit dolores saepe dolor incidunt"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 16`] = `
+<div
+  className="officiis sed illum et ea quia sunt"
+>
+  <Head
+    description="voluptatibus omnis fugit labore quia et beatae"
+    imageLink="et et voluptas repellendus nisi corrupti quas"
+    showLink={false}
+    to="adipisci voluptatum id porro ea numquam consequatur"
+  />
+  <Body
+    description="voluptatibus omnis fugit labore quia et beatae"
+    title="eum incidunt provident deleniti consequuntur velit ad"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 17`] = `
+<div
+  className="sit officia doloremque non sit a perferendis"
+>
+  <Head
+    description="repellendus quia voluptate optio suscipit delectus aliquid"
+    imageLink="blanditiis deserunt accusantium debitis aut laborum at"
+    showLink={false}
+    to="et dicta ipsam qui provident rerum necessitatibus"
+  />
+  <Body
+    description="repellendus quia voluptate optio suscipit delectus aliquid"
+    title="voluptate sit excepturi sunt consectetur perspiciatis nisi"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 18`] = `
+<div
+  className="soluta hic omnis atque inventore vitae sint"
+>
+  <Head
+    description="recusandae ea necessitatibus sed ea ab doloremque"
+    imageLink="eos quia quam sit optio rerum quasi"
+    showLink={true}
+    to="est nemo iste omnis eaque nobis possimus"
+  />
+  <Body
+    description="recusandae ea necessitatibus sed ea ab doloremque"
+    title="molestiae dolores voluptas placeat vitae ut facere"
+  />
+  <Footer
+    to="est nemo iste omnis eaque nobis possimus"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 19`] = `
+<div
+  className="nihil sit enim itaque nostrum omnis non"
+>
+  <Head
+    description="error sed asperiores amet et quos repellat"
+    imageLink="aut cupiditate aut non ipsam fuga rem"
+    showLink={true}
+    to="distinctio libero mollitia facilis est laboriosam tempora"
+  />
+  <Body
+    description="error sed asperiores amet et quos repellat"
+    title="ipsum saepe veritatis quisquam eius dolore quia"
+  />
+  <Footer
+    to="distinctio libero mollitia facilis est laboriosam tempora"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 20`] = `
+<div
+  className="itaque qui dolorem voluptatem laboriosam iusto et"
+>
+  <Head
+    description="fuga unde aliquam et debitis dolorem possimus"
+    imageLink="quasi numquam ut et quia cupiditate minus"
+    showLink={false}
+    to="accusantium enim est aspernatur voluptatem consequatur temporibus"
+  />
+  <Body
+    description="fuga unde aliquam et debitis dolorem possimus"
+    title="minus animi quis unde animi aut sapiente"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 21`] = `
+<div
+  className="ut voluptate delectus officia maiores cumque consequuntur"
+>
+  <Head
+    description="aut quasi quia quisquam quia blanditiis qui"
+    imageLink="quis omnis ut praesentium vel earum quo"
+    showLink={true}
+    to="sed a dolores voluptatem qui dolores eaque"
+  />
+  <Body
+    description="aut quasi quia quisquam quia blanditiis qui"
+    title="voluptas repellendus voluptatum quos ut dolor maiores"
+  />
+  <Footer
+    to="sed a dolores voluptatem qui dolores eaque"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 22`] = `
+<div
+  className="eligendi nihil porro suscipit sit eos maxime"
+>
+  <Head
+    description="illo dolor reprehenderit architecto dolores laborum libero"
+    imageLink="qui veniam quasi ut eum doloribus et"
+    showLink={false}
+    to="odio modi consequuntur et provident repellat et"
+  />
+  <Body
+    description="illo dolor reprehenderit architecto dolores laborum libero"
+    title="quo enim facere illo nemo iusto iste"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 23`] = `
+<div
+  className="et ipsam dolores voluptatem et autem doloremque"
+>
+  <Head
+    description="repellat laudantium et qui et aperiam quia"
+    imageLink="ea vel quaerat labore rerum aut voluptatem"
+    showLink={true}
+    to="est et suscipit ipsa et id qui"
+  />
+  <Body
+    description="repellat laudantium et qui et aperiam quia"
+    title="voluptatem itaque quia accusantium autem consequuntur qui"
+  />
+  <Footer
+    anchorText="cum et perferendis id dolor eum ut"
+    to="est et suscipit ipsa et id qui"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 24`] = `
+<div>
+  <Head
+    description="recusandae voluptatem possimus voluptas eaque expedita iste"
+    imageLink="veritatis voluptates suscipit reiciendis in exercitationem et"
+    showLink={false}
+    to="velit et optio laborum officia iure eius"
+  />
+  <Body
+    description="recusandae voluptatem possimus voluptas eaque expedita iste"
+    title="voluptatum qui exercitationem eum laudantium autem et"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 25`] = `
+<div>
+  <Head
+    description="et facere fugiat rerum officiis assumenda nihil"
+    imageLink="dignissimos voluptas quod omnis rerum nesciunt ipsa"
+    showLink={true}
+    to="ad ut maxime aliquid sint voluptas saepe"
+  />
+  <Body
+    description="et facere fugiat rerum officiis assumenda nihil"
+    title="quisquam aspernatur quis consequatur eos perferendis similique"
+  />
+  <Footer
+    anchorText="voluptatem dolores voluptas quidem excepturi temporibus facere"
+    to="ad ut maxime aliquid sint voluptas saepe"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 26`] = `
+<div>
+  <Head
+    description="et tenetur consequatur ut consequatur fugit libero"
+    imageLink="excepturi fugit beatae ut ea rerum nobis"
+    showLink={true}
+    to="quas in ullam voluptatibus minima consequatur eligendi"
+  />
+  <Body
+    description="et tenetur consequatur ut consequatur fugit libero"
+    title="velit odit ratione saepe id officia pariatur"
+  />
+  <Footer
+    anchorText="ex nisi repudiandae qui ex unde veniam"
+    to="quas in ullam voluptatibus minima consequatur eligendi"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 27`] = `
+<div
+  className="iure laudantium est dolorem ratione sed enim"
+>
+  <Head
+    description="perspiciatis eius quod a nisi et est"
+    imageLink="excepturi laborum veniam asperiores et consectetur animi"
+    showLink={false}
+    to="ab quia ab sed voluptas ullam animi"
+  />
+  <Body
+    description="perspiciatis eius quod a nisi et est"
+    title="qui adipisci vero dolore aut iste eos"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 28`] = `
+<div>
+  <Head
+    description="rerum aliquid reiciendis dolorem porro voluptates ut"
+    imageLink="veniam eum laudantium accusamus nobis harum sed"
+    showLink={true}
+    to="amet ea repellendus qui est quis est"
+  />
+  <Body
+    description="rerum aliquid reiciendis dolorem porro voluptates ut"
+    title="quas consequuntur dolores nihil eligendi sunt aliquid"
+  />
+  <Footer
+    to="amet ea repellendus qui est quis est"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 29`] = `
+<div>
+  <Head
+    description="sed consequatur cum non deserunt ut tenetur"
+    imageLink="id ipsa est est magni ea laudantium"
+    showLink={false}
+    to="iure iste aut ab laborum sint qui"
+  />
+  <Body
+    description="sed consequatur cum non deserunt ut tenetur"
+    title="doloremque laudantium dolorum magni molestias dolorem nesciunt"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 30`] = `
+<div
+  className="possimus eos et ducimus voluptatem iusto tempore"
+>
+  <Head
+    description="rerum incidunt porro amet at asperiores libero"
+    imageLink="molestiae aut doloribus animi sunt dolorum tempore"
+    showLink={false}
+    to="officia totam corporis rem sit eligendi ipsa"
+  />
+  <Body
+    description="rerum incidunt porro amet at asperiores libero"
+    title="nulla ut molestias nisi corporis nulla officia"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 31`] = `
+<div
+  className="architecto aliquid iure eos expedita assumenda eligendi"
+>
+  <Head
+    description="voluptatem ab incidunt velit voluptatem pariatur blanditiis"
+    imageLink="aut nostrum repudiandae harum neque ut dolores"
+    showLink={false}
+    to="voluptatem laboriosam sed est et sapiente ipsa"
+  />
+  <Body
+    description="voluptatem ab incidunt velit voluptatem pariatur blanditiis"
+    title="ex magni ullam ullam doloremque quidem vel"
+  />
+</div>
+`;
+
+exports[`<Card /> matches snapshot 32`] = `
+<div>
+  <Head
+    description="similique quos rem nihil voluptatem est impedit"
+    imageLink="inventore optio tempora excepturi ipsam molestiae quae"
+    showLink={true}
+    to="assumenda qui cum quos eos iste aut"
+  />
+  <Body
+    description="similique quos rem nihil voluptatem est impedit"
+    title="ipsa est molestias deserunt quo impedit sint"
+  />
+  <Footer
+    anchorText="veritatis iste ut a ut exercitationem voluptatem"
+    to="assumenda qui cum quos eos iste aut"
+  />
+</div>
+`;
