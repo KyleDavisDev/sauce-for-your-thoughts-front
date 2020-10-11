@@ -13,6 +13,8 @@ const fakeFooter = (): IFooterProps => ({
 const mockFooters = new Array(ITERATION_SIZE).fill(null).map(fakeFooter);
 
 describe("<Footer />", () => {
+  const _defaultText = "View";
+
   it("renders", () => {
     const wrapper = enzyme.shallow(<Footer to="" />);
 
@@ -23,5 +25,11 @@ describe("<Footer />", () => {
     const wrapper = enzyme.shallow(<Footer to="" />);
 
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it("passes 'to' to Link", () => {
+    const wrapper = enzyme.shallow(<Footer to="" />);
+
+    expect(wrapper.find("Link").prop("href")).toEqual("");
   });
 });
