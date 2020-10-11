@@ -6,7 +6,7 @@ import { casual, ITERATION_SIZE } from "../../../utils/testUtils/testUtils";
 
 const fakeHead = (): IHeadProps => ({
   showLink: casual.random_element([undefined, casual.boolean]),
-  to: casual.string,
+  to: casual.random_element([undefined, casual.string]),
   imageLink: casual.random_element([undefined, casual.string]),
   description: casual.random_element([undefined, casual.string])
 });
@@ -40,9 +40,10 @@ describe("<Head />", () => {
     });
   });
 
-  it("renders Link component if showLink is true", () => {
+  it("renders Link component if showLink is true and 'to' is truthy", () => {
     mockHeads.forEach(mockHead => {
       if (!mockHead.showLink) return;
+      if (!mockHead.to) return;
 
       const wrapper = enzyme.shallow(<Head {...mockHead} />);
 
@@ -50,9 +51,10 @@ describe("<Head />", () => {
     });
   });
 
-  it("passes 'to' to Link component if showLink is true", () => {
+  it("passes 'to' to Link component if showLink is true and 'to' is provided", () => {
     mockHeads.forEach(mockHead => {
       if (!mockHead.showLink) return;
+      if (!mockHead.to) return;
 
       const wrapper = enzyme.shallow(<Head {...mockHead} />);
 
