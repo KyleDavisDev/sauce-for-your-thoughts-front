@@ -43,4 +43,14 @@ describe("<Dropdown />", () => {
       expect(wrapper).toBeTruthy();
     });
   });
+
+  it("matches snapshot", () => {
+    mockDropdowns.forEach(mockDropdown => {
+      const wrapper = enzyme.shallow(
+        <Dropdown {...mockDropdown}>{mockDropdown.children}</Dropdown>
+      );
+
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });

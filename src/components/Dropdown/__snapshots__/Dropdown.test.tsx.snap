@@ -1,0 +1,385 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dropdown /> matches snapshot 1`] = `<div />`;
+
+exports[`<Dropdown /> matches snapshot 2`] = `
+<div
+  className="minus animi quis unde animi aut sapiente"
+>
+  <div
+    key="0a85a821-032a-4f03-8630-c26c58a8ec56"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <div
+      key="911db6af-d685-4078-b1b6-0de77e61957a"
+    >
+      necessitatibus quis ratione eveniet ea totam aut
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 3`] = `
+<div
+  className="laudantium hic quo corporis minima cupiditate dolor"
+/>
+`;
+
+exports[`<Dropdown /> matches snapshot 4`] = `
+<div
+  className="laboriosam occaecati expedita quam ex et nobis"
+>
+  <div
+    key="53630a0e-5ed8-4833-9c6c-2a88c2cf7659"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <span
+      key="c23c406c-dfa6-4f80-aa5c-203851973dc7"
+    >
+      ducimus facere esse culpa aspernatur earum ex
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 5`] = `
+<div
+  className="id non non eum accusamus rem totam"
+>
+  <div
+    key="19630144-9b6e-4861-993c-345a16a3b0b2"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <div
+      key="2f4725b4-7c89-486c-ae42-9b598b512dfa"
+    >
+      veritatis pariatur magni ut explicabo iste quia
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 6`] = `
+<div>
+  <div
+    key="b117b32a-0e59-4ee5-a03f-cd60d3178848"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <span
+      key="83f9593b-25d9-4af2-ab6c-19a604ebcc0d"
+    >
+      harum similique quia dolorem non earum et
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 7`] = `
+<div
+  className="mollitia et possimus recusandae optio saepe eligendi"
+>
+  <div
+    key="72bfca68-44fd-4a88-903f-23c3ea72b229"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <span
+      key="721cbad2-f3bf-48cc-a5ca-e2a3bf5e0813"
+    >
+      quibusdam voluptates eligendi quidem eos fugiat voluptates
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 8`] = `
+<div>
+  <div
+    key="7d32e54d-832d-4641-99e2-f3d1e5dc0064"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <div
+      key="9f98654e-1243-48d2-9e64-8c15f0078969"
+    >
+      possimus facilis dignissimos commodi harum tenetur occaecati
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 9`] = `
+<div>
+  <div
+    key="59902340-0e5e-48d8-9c21-14b4e0d53be4"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <div
+      key="86509c53-242b-4617-b9a8-2823b6a57121"
+    >
+      animi ullam repudiandae neque enim rerum consequatur
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 10`] = `
+<div
+  className="qui et expedita doloribus consequuntur doloremque velit"
+>
+  <div
+    key="2b9299fe-faf1-4382-9558-4534afc8299b"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <span
+      key="03c3d2de-0f4c-4c30-827a-58215c480e28"
+    >
+      illum sit aut totam hic expedita sit
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 11`] = `
+<div
+  className="expedita in expedita iure dolor facere dolorem"
+/>
+`;
+
+exports[`<Dropdown /> matches snapshot 12`] = `
+<div
+  className="ut architecto doloremque sit dolorem ullam officia"
+/>
+`;
+
+exports[`<Dropdown /> matches snapshot 13`] = `
+<div
+  className="ea voluptate dolores rerum voluptas tempora laboriosam"
+>
+  <div
+    key="f87e5c0b-6f8a-4e1d-85a7-08c8c8d06170"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <div
+      key="f1202afe-184b-426c-b31a-aec2f998dd62"
+    >
+      ipsum aspernatur amet et consequatur est reprehenderit
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 14`] = `
+<div
+  className="quia aut adipisci quas qui omnis impedit"
+>
+  <div
+    key="0a4de6d3-2355-4d4b-8ee7-5c71ef1ed2e0"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <span
+      key="334bf727-ec1b-4ad8-ab0b-c285de3021ab"
+    >
+      quaerat accusantium alias quae quis quia veniam
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 15`] = `
+<div
+  className="atque ipsam rem qui est accusamus corporis"
+/>
+`;
+
+exports[`<Dropdown /> matches snapshot 16`] = `
+<div
+  className="velit illum assumenda dolore laudantium voluptatem itaque"
+>
+  <div
+    key="9c50bd07-28c6-40de-b161-16f43baa1cf1"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <span
+      key="12e90aa1-4df4-49ed-8a6c-4bf1d697a2f0"
+    >
+      ipsa aperiam modi qui et cupiditate iure
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 17`] = `<div />`;
+
+exports[`<Dropdown /> matches snapshot 18`] = `
+<div
+  className="possimus et molestiae eveniet non temporibus ad"
+>
+  <div
+    key="31ead21e-5b50-4a5e-985f-79fb7f2bcb7c"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <span
+      key="7240c232-0ff8-407c-80a2-d7c9c9fa6b15"
+    >
+      vero non sit molestiae voluptates sapiente dolores
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 19`] = `
+<div
+  className="quo molestias aut libero deleniti commodi possimus"
+>
+  <div
+    key="c0c63c71-8906-48e3-b7e1-98fca81a3448"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <span
+      key="7d0960d7-c940-4567-a7fe-d5cdfe28d54e"
+    >
+      nemo incidunt tenetur praesentium veniam aut harum
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 20`] = `
+<div
+  className="aut molestiae dolorum voluptatum et quod harum"
+>
+  <div
+    key="d7045f5f-f836-46ad-b7b6-056d77059932"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <div
+      key="a4d73a11-aba8-4826-8942-179052249a86"
+    >
+      harum ex molestiae accusamus at rem velit
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 21`] = `<div />`;
+
+exports[`<Dropdown /> matches snapshot 22`] = `<div />`;
+
+exports[`<Dropdown /> matches snapshot 23`] = `
+<div
+  className="eaque consequuntur doloribus omnis omnis vel excepturi"
+/>
+`;
+
+exports[`<Dropdown /> matches snapshot 24`] = `
+<div>
+  <div
+    key="600577cd-c0dd-435d-9945-7c20907f3912"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <span
+      key="b9824e42-de64-45db-8b8c-af6923cd6972"
+    >
+      non excepturi est quo dolor modi aut
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 25`] = `
+<div>
+  <div
+    key="689fa473-ef1b-41b0-84f3-40043f89a06d"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <div
+      key="98b98272-0d78-443e-aa70-ff7a511eb0c0"
+    >
+      nihil eaque sunt et maxime quisquam eos
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 26`] = `
+<div
+  className="dolore consequatur ut et ipsum aut dicta"
+/>
+`;
+
+exports[`<Dropdown /> matches snapshot 27`] = `
+<div
+  className="sunt ea dolores voluptatem ut veritatis aspernatur"
+>
+  <div
+    key="1a2a1012-41d2-48ec-a923-22b5997da59b"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <div
+      key="d5d1a6f8-1ea8-4f46-9433-97c83cc056ee"
+    >
+      sapiente autem sed cumque architecto adipisci consequuntur
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 28`] = `
+<div
+  className="quaerat numquam placeat perferendis aut pariatur quod"
+/>
+`;
+
+exports[`<Dropdown /> matches snapshot 29`] = `<div />`;
+
+exports[`<Dropdown /> matches snapshot 30`] = `
+<div>
+  <div
+    key="c949423d-e81f-4233-834a-96679da76fdd"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <div
+      key="1313584b-62a5-4739-ab50-3d6f7cbd7b47"
+    >
+      hic nostrum harum id possimus doloremque consequuntur
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 31`] = `
+<div
+  className="voluptatem dolorum est eaque aperiam porro quia"
+>
+  <div
+    key="8f2ecbbc-d0ef-4297-b6f0-704ad4a598a0"
+    name="Toggle"
+    onClick={[Function]}
+  >
+    <div
+      key="1c6913aa-9aed-40eb-8362-c0b1884093da"
+    >
+      ea temporibus at iste illum eius consequatur
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> matches snapshot 32`] = `<div />`;
