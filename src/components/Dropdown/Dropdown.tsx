@@ -12,8 +12,6 @@ StyledDiv.displayName = "div";
 export interface DropdownProps {
   children: JSX.Element[];
   className?: string;
-  onClose?: () => void;
-  onOpen?: () => void;
 }
 
 export interface DropdownState {
