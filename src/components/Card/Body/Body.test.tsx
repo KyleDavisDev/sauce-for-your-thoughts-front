@@ -11,6 +11,7 @@ const fakeBody = (): IBodyProps => ({
 
 describe("<Body />", () => {
   const defaultText = "Loading ...";
+
   it("renders", () => {
     const wrapper = enzyme.shallow(<Body />);
 
@@ -21,5 +22,11 @@ describe("<Body />", () => {
     const wrapper = enzyme.shallow(<Body />);
 
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it("renders default title", () => {
+    const wrapper = enzyme.shallow(<Body />);
+
+    expect(wrapper.find("h4").text()).toEqual(defaultText);
   });
 });
