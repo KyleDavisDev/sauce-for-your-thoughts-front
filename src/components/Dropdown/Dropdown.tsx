@@ -94,8 +94,8 @@ const Dropdown: React.FC<DropdownProps> = props => {
     return [_toggleChild, _menuChild];
   }
 
-  function onToggleClick(event: React.MouseEvent): void {
-    event.preventDefault();
+  function onToggleClick(event?: React.MouseEvent): void {
+    if (event) event.preventDefault();
 
     // Show or hide BodyChild based on state
     setIsActive(!isActive);
