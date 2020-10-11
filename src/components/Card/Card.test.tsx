@@ -100,4 +100,14 @@ describe("<Card />", () => {
       );
     });
   });
+
+  it("renders Footer component when showLink is true or undefined", () => {
+    mockCards.forEach(mockCard => {
+      if (mockCard.showLink === false) return;
+
+      const wrapper = enzyme.shallow(<Card {...mockCard} />);
+
+      expect(wrapper.find("Footer").exists).toBeTruthy();
+    });
+  });
 });
