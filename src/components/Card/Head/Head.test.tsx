@@ -25,4 +25,10 @@ describe("<Head />", () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it("if showLink is false, do not render Link component", () => {
+    const wrapper = enzyme.shallow(<Head to="" />);
+
+    expect(wrapper.exists("Link")).toBeFalsy();
+  });
 });
