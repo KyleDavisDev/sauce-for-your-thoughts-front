@@ -38,3 +38,4 @@ const StyledArticle = styled(Article)`
 `;
 
 export { StyledArticle as Article };
+export default Article;
