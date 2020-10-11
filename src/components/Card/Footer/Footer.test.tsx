@@ -50,4 +50,14 @@ describe("<Footer />", () => {
       );
     });
   });
+
+  it("passes a defualt anchorText value if none provided to Button", () => {
+    mockFooters.forEach(mockFooter => {
+      if (mockFooter.anchorText) return;
+
+      const wrapper = enzyme.shallow(<Footer {...mockFooter} />);
+
+      expect(wrapper.find("Button").prop("children")).toEqual(_defaultText);
+    });
+  });
 });
