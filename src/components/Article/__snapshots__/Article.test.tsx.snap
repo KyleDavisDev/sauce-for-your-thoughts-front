@@ -1,11 +1,349 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Article> matches snapshot 1`] = `
-<Article
-  className="sc-AxjAm dajTkq"
+<article
+  className="sint quia sed exercitationem omnis laborum exercitationem"
 >
-  <span>
-    hello!
+  <span
+    key="4c3f2368-2393-4e09-8492-ed03e808d9d8"
+  >
+    dicta perferendis dolorum cupiditate illum saepe ut
   </span>
-</Article>
+</article>
+`;
+
+exports[`<Article> matches snapshot 2`] = `
+<article>
+  <div
+    key="68c1398f-9e79-4c41-ba45-15a740f67ee1"
+  >
+    dolores ipsam laboriosam non itaque voluptas ea
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 3`] = `
+<article>
+  <div
+    key="ded82d4e-49ed-4fec-906f-5f733a072edb"
+  >
+    dignissimos dolore qui voluptatem cumque nihil iste
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 4`] = `
+<article
+  className="molestiae cupiditate autem consequatur consequatur accusantium molestiae"
+>
+  <div
+    key="fa1039c0-0e13-457d-a1ca-ea1cf4cc8df5"
+  >
+    est esse quos minus deserunt nihil quasi
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 5`] = `
+<article>
+  <div
+    key="001ad558-1c98-454a-b468-e9abf9796f71"
+  >
+    voluptate voluptatem est eius dolorem amet quia
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 6`] = `
+<article>
+  <span
+    key="fc56811d-a6af-4c68-9078-f1b61de77e61"
+  >
+    culpa suscipit totam libero necessitatibus quis ratione
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 7`] = `
+<article
+  className="quo aut quia cumque architecto eos quos"
+>
+  <span
+    key="745aff4d-4dbe-4062-bc76-6c0922d664e8"
+  >
+    omnis qui illo excepturi esse porro impedit
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 8`] = `
+<article
+  className="et placeat ipsum assumenda officia aut id"
+>
+  <span
+    key="03cd632b-ab80-4725-92ba-db7ec3d2fc86"
+  >
+    delectus qui qui ab officiis omnis rem
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 9`] = `
+<article>
+  <span
+    key="8bca9a8c-3762-4893-a5c1-7b5f5a1528ee"
+  >
+    blanditiis deserunt accusantium debitis aut laborum at
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 10`] = `
+<article
+  className="aut non ipsam fuga rem eius est"
+>
+  <span
+    key="bf87018b-4808-416d-82e0-a33398f2d7fa"
+  >
+    libero mollitia facilis est laboriosam tempora aut
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 11`] = `
+<article>
+  <div
+    key="5f488845-bb76-410b-a589-0f984ce2c04c"
+  >
+    aspernatur voluptatem consequatur temporibus quasi numquam ut
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 12`] = `
+<article>
+  <span
+    key="9fab414d-ec89-4bbb-95db-cfef9af762f2"
+  >
+    accusantium autem consequuntur qui repellat laudantium et
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 13`] = `
+<article
+  className="perferendis similique et facere fugiat rerum officiis"
+>
+  <div
+    key="66643f02-e4a5-472a-b0fa-909cdeb7d467"
+  >
+    autem et recusandae voluptatem possimus voluptas eaque
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 14`] = `
+<article>
+  <div
+    key="58b58ce7-cb8a-4202-9179-e011642ca8cc"
+  >
+    ut velit odit ratione saepe id officia
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 15`] = `
+<article>
+  <div
+    key="2bf5aa05-11d4-4989-9f93-88f67b221483"
+  >
+    qui odit nam doloribus et facere voluptatibus
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 16`] = `
+<article>
+  <div
+    key="828d280a-295f-468f-898d-a09b257fd448"
+  >
+    dolor voluptatibus officiis voluptatem veniam aut voluptas
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 17`] = `
+<article
+  className="quae ut dolores quam ea dolores tempore"
+>
+  <div
+    key="80185244-1ad0-4033-9d70-43bef0e4ea2f"
+  >
+    dolores qui qui architecto aliquid iure eos
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 18`] = `
+<article
+  className="enim numquam esse quia aperiam libero ipsa"
+>
+  <span
+    key="969a7431-88c5-4dc9-9e03-55cf64a08c3e"
+  >
+    culpa nulla ipsum et explicabo vel quaerat
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 19`] = `
+<article>
+  <span
+    key="616b1e71-068e-48df-b2ab-ec8d23c406cc"
+  >
+    doloribus cum qui aut natus aperiam est
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 20`] = `
+<article
+  className="aut in blanditiis quia aliquam eum exercitationem"
+>
+  <span
+    key="a030f75c-69bf-4f69-8be4-ea7a35efba5b"
+  >
+    veniam perferendis est aliquam consequuntur omnis velit
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 21`] = `
+<article>
+  <span
+    key="b657ae12-e6d4-4a36-a987-8cc5b8020eeb"
+  >
+    quo sed aut dolore labore vitae aperiam
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 22`] = `
+<article
+  className="iste explicabo expedita eos ut id unde"
+>
+  <span
+    key="cc5bc9df-8451-40d4-be95-f3a4defe438c"
+  >
+    sit pariatur quam et excepturi laborum sit
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 23`] = `
+<article
+  className="exercitationem vitae magni a corrupti eveniet non"
+>
+  <div
+    key="c662fecd-c173-4a00-a275-5a87d2e61a43"
+  >
+    quaerat expedita sunt est laborum ut non
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 24`] = `
+<article
+  className="vel expedita voluptas labore dolores enim magni"
+>
+  <span
+    key="4b46c898-7cbe-4428-a598-a512dfa0d251"
+  >
+    iste quia fugiat ducimus quia sit eum
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 25`] = `
+<article>
+  <div
+    key="82b695b1-77a4-4eff-9917-590772ae4d44"
+  >
+    voluptas quia nam quisquam quia nostrum rerum
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 26`] = `
+<article>
+  <span
+    key="6441e22d-e9e8-46d7-9b40-8da94f948007"
+  >
+    voluptatibus perspiciatis quia eveniet iusto laborum voluptatem
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 27`] = `
+<article>
+  <div
+    key="fe04072f-05fa-4d4c-a399-46956ad745ee"
+  >
+    vel quasi et nulla dolorem natus et
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 28`] = `
+<article>
+  <span
+    key="0faaa5e4-8995-428f-8430-436bd4a10a15"
+  >
+    architecto est enim dicta iusto placeat et
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 29`] = `
+<article
+  className="et sequi sit corporis nihil dolorum quia"
+>
+  <div
+    key="fdafc5bb-d121-4ca1-87b3-3a1e59ee5a03"
+  >
+    rerum qui fugiat nihil perferendis illum modi
+  </div>
+</article>
+`;
+
+exports[`<Article> matches snapshot 30`] = `
+<article>
+  <span
+    key="1f5a38c1-150a-4617-b31c-8b5202c2d585"
+  >
+    odio eligendi adipisci omnis laborum repudiandae quo
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 31`] = `
+<article
+  className="eum est quas quas exercitationem aperiam tempora"
+>
+  <span
+    key="6a276356-23e7-4763-872f-fd0deabd662b"
+  >
+    a quibusdam et ea cupiditate quis ad
+  </span>
+</article>
+`;
+
+exports[`<Article> matches snapshot 32`] = `
+<article>
+  <div
+    key="2c3ea72b-3292-458c-9c7d-97fcadeb7d23"
+  >
+    assumenda rerum officiis cumque dolore quidem sunt
+  </div>
+</article>
 `;
