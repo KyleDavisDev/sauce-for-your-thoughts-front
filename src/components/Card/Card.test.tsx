@@ -1,34 +1,43 @@
 import * as React from "react";
 import * as enzyme from "enzyme";
-import { MemoryRouter } from "react-router-dom";
-import Card from "./Card";
+
+import Card, { CardProps } from "./Card";
+import { casual, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
+
+const fakeCard = (): CardProps => ({
+  title: casual.string,
+  description: casual.string,
+  to: casual.string,
+  imageLink: casual.string,
+  showLink: casual.random_element([undefined, casual.boolean]),
+  className: casual.random_element([undefined, casual.string]),
+  anchorText: casual.random_element([undefined, casual.string])
+});
+
+const mockCards = new Array(ITERATION_SIZE).fill(null).map(fakeCard);
 
 describe("<Card />", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(<Card title="" description="" to="" />);
-    expect(wrapper).toBeTruthy();
+    mockCards.forEach(mockCard => {
+      const wrapper = enzyme.shallow(<Card {...mockCard} />);
+
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.shallow(<Card title="" description="" to="" />);
-    expect(wrapper).toBeTruthy();
+    mockCards.forEach(mockCard => {
+      const wrapper = enzyme.shallow(<Card {...mockCard} />);
+
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
-  it("renders correct content", () => {
-    let wrapper = enzyme.render(
-      <MemoryRouter>
-        <Card title="Title1" description="Desc1" to="" />
-      </MemoryRouter>
-    );
-    expect(wrapper.find("h4").text()).toEqual("Title1");
-    expect(wrapper.find("p").text()).toEqual("Desc1");
+  it("passes expected 'to' to Head component", () => {
+    mockCards.forEach(mockCard => {
+      const wrapper = enzyme.shallow(<Card {...mockCard} />);
 
-    wrapper = enzyme.render(
-      <MemoryRouter>
-        <Card title="Title2" description="Desc2" to="" />
-      </MemoryRouter>
-    );
-    expect(wrapper.find("h4").text()).toEqual("Title2");
-    expect(wrapper.find("p").text()).toEqual("Desc2");
+      expect(wrapper.find("Head").prop("to")).toEqual(mockCard.to);
+    });
   });
 });
