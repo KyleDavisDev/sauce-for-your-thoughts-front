@@ -1,7 +1,237 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Head /> matches snapshot 1`] = `
+<Link
+  href="corporis sed veritatis quidem praesentium magnam fugiat"
+>
+  <img
+    alt="iure facilis ut explicabo iure vitae occaecati"
+    onError={[Function]}
+  />
+</Link>
+`;
+
+exports[`<Head /> matches snapshot 2`] = `
 <img
   onError={[Function]}
+  src="omnis consequatur enim quia autem et modi"
+/>
+`;
+
+exports[`<Head /> matches snapshot 3`] = `
+<img
+  alt="vel provident dicta perferendis dolorum cupiditate illum"
+  onError={[Function]}
+  src="ipsa tempora aut sint aperiam occaecati illum"
+/>
+`;
+
+exports[`<Head /> matches snapshot 4`] = `
+<img
+  onError={[Function]}
+  src="est sapiente laudantium molestias assumenda quasi adipisci"
+/>
+`;
+
+exports[`<Head /> matches snapshot 5`] = `
+<Link
+  href="soluta corporis commodi eaque nisi cum ducimus"
+>
+  <img
+    onError={[Function]}
+  />
+</Link>
+`;
+
+exports[`<Head /> matches snapshot 6`] = `
+<img
+  alt="est doloremque explicabo eaque necessitatibus sit suscipit"
+  onError={[Function]}
+  src="nihil quam nulla est unde sit ex"
+/>
+`;
+
+exports[`<Head /> matches snapshot 7`] = `
+<img
+  alt="sunt occaecati nulla aut sunt est rerum"
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 8`] = `
+<img
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 9`] = `
+<img
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 10`] = `
+<img
+  alt="occaecati illum laborum quos eum voluptate sit"
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 11`] = `
+<img
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 12`] = `
+<img
+  alt="minus deserunt nihil quasi minus quo sunt"
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 13`] = `
+<img
+  alt="atque quos rerum nobis nam dolor quas"
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 14`] = `
+<img
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 15`] = `
+<Link
+  href="ab assumenda animi non quis quis nobis"
+>
+  <img
+    onError={[Function]}
+    src="repudiandae aliquam molestiae occaecati a culpa facilis"
+  />
+</Link>
+`;
+
+exports[`<Head /> matches snapshot 16`] = `
+<img
+  alt="minima temporibus ducimus quia assumenda ut neque"
+  onError={[Function]}
+  src="sint cumque sunt mollitia quibusdam officia eum"
+/>
+`;
+
+exports[`<Head /> matches snapshot 17`] = `
+<img
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 18`] = `
+<img
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 19`] = `
+<img
+  onError={[Function]}
+  src="aperiam voluptas eos quam consequatur ipsam sed"
+/>
+`;
+
+exports[`<Head /> matches snapshot 20`] = `
+<img
+  alt="pariatur voluptates odio rem saepe iure quia"
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 21`] = `
+<img
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 22`] = `
+<img
+  alt="architecto ut quasi quasi accusantium modi molestiae"
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 23`] = `
+<img
+  alt="in dolorem repudiandae possimus dignissimos esse qui"
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 24`] = `
+<Link
+  href="nesciunt dolor vero voluptate esse aliquam molestiae"
+>
+  <img
+    onError={[Function]}
+    src="quas omnis qui illo excepturi esse porro"
+  />
+</Link>
+`;
+
+exports[`<Head /> matches snapshot 25`] = `
+<img
+  onError={[Function]}
+  src="distinctio reiciendis perspiciatis ut illo sit rerum"
+/>
+`;
+
+exports[`<Head /> matches snapshot 26`] = `
+<img
+  alt="aut dolorem in non dolorem nihil optio"
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 27`] = `
+<img
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 28`] = `
+<img
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 29`] = `
+<img
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 30`] = `
+<Link
+  href="est aut et sunt libero et et"
+>
+  <img
+    onError={[Function]}
+    src="ratione qui voluptate sit excepturi sunt consectetur"
+  />
+</Link>
+`;
+
+exports[`<Head /> matches snapshot 31`] = `
+<img
+  onError={[Function]}
+/>
+`;
+
+exports[`<Head /> matches snapshot 32`] = `
+<img
+  alt="sed ea ab doloremque est nemo iste"
+  onError={[Function]}
+  src="voluptas placeat vitae ut facere recusandae ea"
 />
 `;

@@ -11,30 +11,42 @@ const fakeHead = (): IHeadProps => ({
   description: casual.random_element([undefined, casual.string])
 });
 
-const mockHead = new Array(ITERATION_SIZE).fill(null).map(fakeHead);
+const mockHeads = new Array(ITERATION_SIZE).fill(null).map(fakeHead);
 
 describe("<Head />", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(<Head to="" />);
+    mockHeads.forEach(mockHead => {
+      const wrapper = enzyme.shallow(<Head {...mockHead} />);
 
-    expect(wrapper).toBeTruthy();
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.shallow(<Head to="" />);
+    mockHeads.forEach(mockHead => {
+      const wrapper = enzyme.shallow(<Head {...mockHead} />);
 
-    expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   it("does not render Link component if showLink is false", () => {
-    const wrapper = enzyme.shallow(<Head to="" showLink={false} />);
+    mockHeads.forEach(mockHead => {
+      if (mockHead.showLink) return;
 
-    expect(wrapper.exists("Link")).toBeFalsy();
+      const wrapper = enzyme.shallow(<Head {...mockHead} />);
+
+      expect(wrapper.exists("Link")).toBeFalsy();
+    });
   });
 
   it("renders Link component if showLink is true", () => {
-    const wrapper = enzyme.shallow(<Head to="" showLink={true} />);
+    mockHeads.forEach(mockHead => {
+      if (!mockHead.showLink) return;
 
-    expect(wrapper.exists("Link")).toBeTruthy();
+      const wrapper = enzyme.shallow(<Head {...mockHead} />);
+
+      expect(wrapper.exists("Link")).toBeTruthy();
+    });
   });
 });
