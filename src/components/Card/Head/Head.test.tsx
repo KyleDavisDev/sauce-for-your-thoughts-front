@@ -59,4 +59,12 @@ describe("<Head />", () => {
       expect(wrapper.find("Link").prop("href")).toEqual(mockHead.to);
     });
   });
+
+  it("passes expected imageLink to image", () => {
+    mockHeads.forEach(mockHead => {
+      const wrapper = enzyme.shallow(<Head {...mockHead} />);
+
+      expect(wrapper.find("img").prop("src")).toEqual(mockHead.imageLink);
+    });
+  });
 });
