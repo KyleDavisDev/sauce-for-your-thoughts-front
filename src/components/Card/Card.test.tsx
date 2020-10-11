@@ -17,6 +17,8 @@ const fakeCard = (): CardProps => ({
 const mockCards = new Array(ITERATION_SIZE).fill(null).map(fakeCard);
 
 describe("<Card />", () => {
+  const _defaultShowLink = true;
+
   it("renders", () => {
     mockCards.forEach(mockCard => {
       const wrapper = enzyme.shallow(<Card {...mockCard} />);
@@ -43,11 +45,21 @@ describe("<Card />", () => {
 
   it("passes expected showLink to Head component when showLink provided", () => {
     mockCards.forEach(mockCard => {
-      if (!mockCard.showLink) return;
+      if (mockCard.showLink === undefined) return;
 
       const wrapper = enzyme.shallow(<Card {...mockCard} />);
 
       expect(wrapper.find("Head").prop("showLink")).toEqual(mockCard.showLink);
+    });
+  });
+
+  it("passes default showLink to Head component when showLink not provided", () => {
+    mockCards.forEach(mockCard => {
+      if (mockCard.showLink !== undefined) return;
+
+      const wrapper = enzyme.shallow(<Card {...mockCard} />);
+
+      expect(wrapper.find("Head").prop("showLink")).toEqual(_defaultShowLink);
     });
   });
 });
