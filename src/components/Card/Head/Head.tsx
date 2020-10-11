@@ -4,15 +4,15 @@ import { StyledLink, StyledImage } from "./HeadStyle";
 
 export interface IHeadProps {
   showLink?: boolean;
-  to: string;
   imageLink: string;
+  to?: string;
   description?: string;
 }
 
 const Head: React.FC<IHeadProps> = props => {
   const { showLink, imageLink, description, to } = props;
 
-  if (!showLink) return image();
+  if (!showLink || !to) return image();
 
   return <StyledLink href={to}>{image()}</StyledLink>;
 
