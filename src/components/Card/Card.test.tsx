@@ -90,4 +90,14 @@ describe("<Card />", () => {
       expect(wrapper.find("Body").prop("title")).toEqual(mockCard.title);
     });
   });
+
+  it("passes expected description to Body component", () => {
+    mockCards.forEach(mockCard => {
+      const wrapper = enzyme.shallow(<Card {...mockCard} />);
+
+      expect(wrapper.find("Body").prop("description")).toEqual(
+        mockCard.description
+      );
+    });
+  });
 });
