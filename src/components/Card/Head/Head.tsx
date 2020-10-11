@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { StyledLink, StyledImage } from "./HeadStyle";
 
-interface IHeadProps {
+export interface IHeadProps {
   showLink?: boolean;
   to: string;
   imageLink?: string;
