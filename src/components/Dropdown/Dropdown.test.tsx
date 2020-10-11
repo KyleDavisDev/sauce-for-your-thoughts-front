@@ -53,4 +53,14 @@ describe("<Dropdown />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("appends className to parent", () => {
+    mockDropdowns.forEach(mockDropdown => {
+      const wrapper = enzyme.shallow(
+        <Dropdown {...mockDropdown}>{mockDropdown.children}</Dropdown>
+      );
+
+      expect(wrapper.first().prop("className")).toEqual(mockDropdown.className);
+    });
+  });
 });
