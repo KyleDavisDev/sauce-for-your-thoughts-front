@@ -72,4 +72,14 @@ describe("<Card />", () => {
       );
     });
   });
+
+  it("passes expected description to Head component", () => {
+    mockCards.forEach(mockCard => {
+      const wrapper = enzyme.shallow(<Card {...mockCard} />);
+
+      expect(wrapper.find("Head").prop("description")).toEqual(
+        mockCard.description
+      );
+    });
+  });
 });
