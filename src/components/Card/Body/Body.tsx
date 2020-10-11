@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { StyledBody, StyledTextContainer } from "./BodyStyle";
 
-interface IBodyProps {
+export interface IBodyProps {
   title?: string;
   description?: string;
 }
