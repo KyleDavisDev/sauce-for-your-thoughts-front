@@ -32,4 +32,10 @@ describe("<Footer />", () => {
 
     expect(wrapper.find("Link").prop("href")).toEqual("");
   });
+
+  it("passes anchorText to Button", () => {
+    const wrapper = enzyme.shallow(<Footer to="" />);
+    // console.log(wrapper.debug());
+    expect(wrapper.find("Button").prop("children")).toEqual(_defaultText);
+  });
 });
