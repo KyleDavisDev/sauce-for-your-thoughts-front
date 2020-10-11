@@ -16,9 +16,11 @@ export interface CardProps {
 }
 
 const Card: React.FC<CardProps> = props => {
+  const _defaultShowLink = true;
+
   // get info from props
   const {
-    showLink = true,
+    showLink = _defaultShowLink,
     title,
     description,
     to,
