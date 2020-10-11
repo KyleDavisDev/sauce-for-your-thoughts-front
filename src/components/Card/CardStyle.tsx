@@ -15,10 +15,12 @@ export const StyledDiv = styled.div`
     margin: auto auto 0;
   }
 `;
+StyledDiv.displayName = "div";
 
-export const Image = styled.img`
+export const StyledImage = styled.img`
   width: 100%;
 `;
+StyledImage.displayName = "img";
 
 export const StyledBody = styled.div`
   padding: 1em;
@@ -28,11 +30,13 @@ export const StyledBody = styled.div`
     font-family: FuturaMedium;
   }
 `;
+StyledBody.displayName = "div";
 
 export const StyledTextContainer = styled.div`
   padding: 0;
   margin: 0;
 `;
+StyledTextContainer.displayName = "div";
 
 export const StyledLink = styled(Link)`
   // margin: 0 auto 0;
@@ -44,3 +48,4 @@ export const StyledLink = styled(Link)`
     margin: auto auto 0;
   }
 `;
+StyledLink.displayName = "Link";
