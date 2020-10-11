@@ -29,4 +29,10 @@ describe("<Body />", () => {
 
     expect(wrapper.find("h4").text()).toEqual(defaultText);
   });
+
+  it("renders default description", () => {
+    const wrapper = enzyme.shallow(<Body />);
+
+    expect(wrapper.find("p").text()).toEqual(defaultText);
+  });
 });
