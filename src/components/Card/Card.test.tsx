@@ -101,6 +101,16 @@ describe("<Card />", () => {
     });
   });
 
+  it("does not render Footer component when showLink is false", () => {
+    mockCards.forEach(mockCard => {
+      if (mockCard.showLink || mockCard.showLink === undefined) return;
+
+      const wrapper = enzyme.shallow(<Card {...mockCard} />);
+
+      expect(wrapper.find("Footer").exists()).toBeFalsy();
+    });
+  });
+
   it("renders Footer component when showLink is true or undefined", () => {
     mockCards.forEach(mockCard => {
       if (mockCard.showLink === false) return;
