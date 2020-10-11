@@ -9,6 +9,8 @@ export interface IBodyProps {
 
 const Body: React.FC<IBodyProps> = props => {
   const defaultText = "Loading ...";
+  const defaultLength = 60;
+
   const { title = defaultText, description = defaultText } = props;
 
   return (
@@ -16,8 +18,8 @@ const Body: React.FC<IBodyProps> = props => {
       <h4>{title}</h4>
       <StyledTextContainer>
         <p>
-          {description.length > 60
-            ? description.substring(0, 59) + "..."
+          {description.length > defaultLength
+            ? description.substring(0, defaultLength - 1) + "..."
             : description}
         </p>
       </StyledTextContainer>
