@@ -6,13 +6,18 @@ import { casual, ITERATION_SIZE } from "../../../utils/testUtils/testUtils";
 
 const fakeBody = (): IBodyProps => ({
   title: casual.random_element([undefined, casual.string]),
-  description: casual.random_element([undefined, casual.string])
+  description: casual.random_element([
+    undefined,
+    casual.string,
+    casual.sentences(10)
+  ])
 });
 
 const mockBodies = new Array(ITERATION_SIZE).fill(null).map(fakeBody);
 
 describe("<Body />", () => {
   const defaultText = "Loading ...";
+  const defaultLength = 60;
 
   it("renders", () => {
     mockBodies.forEach(mockBody => {
@@ -60,13 +65,27 @@ describe("<Body />", () => {
     });
   });
 
-  it("renders expected description", () => {
+  it("renders expected description if short", () => {
     mockBodies.forEach(mockBody => {
       if (!mockBody.description) return;
+      if (mockBody.description.length > defaultLength) return;
 
       const wrapper = enzyme.shallow(<Body {...mockBody} />);
 
       expect(wrapper.find("p").text()).toEqual(mockBody.description);
+    });
+  });
+
+  it("cuts down descriptions if long", () => {
+    mockBodies.forEach(mockBody => {
+      if (!mockBody.description) return;
+      if (mockBody.description.length < defaultLength) return;
+
+      const wrapper = enzyme.shallow(<Body {...mockBody} />);
+
+      expect(wrapper.find("p").text()).toEqual(
+        mockBody.description.substring(0, defaultLength - 1) + "..."
+      );
     });
   });
 });
