@@ -3,7 +3,7 @@ import * as enzyme from "enzyme";
 import { MemoryRouter } from "react-router-dom";
 import Card from "./Card";
 
-describe("<Card>", () => {
+describe("<Card />", () => {
   it("renders", () => {
     const wrapper = enzyme.shallow(<Card title="" description="" to="" />);
     expect(wrapper).toBeTruthy();
