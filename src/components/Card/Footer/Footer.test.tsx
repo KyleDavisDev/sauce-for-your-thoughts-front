@@ -2,7 +2,6 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 
 import Footer, { IFooterProps } from "./Footer";
-
 import { casual, ITERATION_SIZE } from "../../../utils/testUtils/testUtils";
 
 const fakeFooter = (): IFooterProps => ({
