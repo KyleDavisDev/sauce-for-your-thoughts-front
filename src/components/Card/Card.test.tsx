@@ -40,4 +40,14 @@ describe("<Card />", () => {
       expect(wrapper.find("Head").prop("to")).toEqual(mockCard.to);
     });
   });
+
+  it("passes expected showLink to Head component when showLink provided", () => {
+    mockCards.forEach(mockCard => {
+      if (!mockCard.showLink) return;
+
+      const wrapper = enzyme.shallow(<Card {...mockCard} />);
+
+      expect(wrapper.find("Head").prop("showLink")).toEqual(mockCard.showLink);
+    });
+  });
 });
