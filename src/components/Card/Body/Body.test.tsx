@@ -59,4 +59,14 @@ describe("<Body />", () => {
       expect(wrapper.find("p").text()).toEqual(defaultText);
     });
   });
+
+  it("renders expected description", () => {
+    mockBodies.forEach(mockBody => {
+      if (!mockBody.description) return;
+
+      const wrapper = enzyme.shallow(<Body {...mockBody} />);
+
+      expect(wrapper.find("p").text()).toEqual(mockBody.description);
+    });
+  });
 });
