@@ -2,7 +2,7 @@ import * as React from "react";
 import { Button } from "../Button/Button";
 import {
   StyledDiv,
-  Image,
+  StyledImage,
   StyledBody,
   StyledTextContainer,
   StyledLink
@@ -34,7 +34,7 @@ const Card: React.FC<CardProps> = props => {
     <StyledDiv className={className}>
       {showLink ? (
         <StyledLink href={to}>
-          <Image
+          <StyledImage
             src={imageLink}
             alt={description}
             onError={e => {
@@ -45,7 +45,7 @@ const Card: React.FC<CardProps> = props => {
           />
         </StyledLink>
       ) : (
-        <Image src={imageLink} alt={description} />
+        <StyledImage src={imageLink} alt={description} />
       )}
       <StyledBody>
         <h4>{title}</h4>
