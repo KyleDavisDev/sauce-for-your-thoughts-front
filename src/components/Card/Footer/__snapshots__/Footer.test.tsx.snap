@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> matches snapshot 1`] = `
+<Link
+  href=""
+>
+  <Styled(Button)
+    displayType="outline"
+  >
+    View
+  </Styled(Button)>
+</Link>
+`;
