@@ -9,7 +9,9 @@ export interface IFooterProps {
 }
 
 const Footer: React.FunctionComponent<IFooterProps> = props => {
-  const { to, anchorText = "View" } = props;
+  const _defaultText = "View";
+
+  const { to, anchorText = _defaultText } = props;
 
   return (
     <StyledLink href={to}>
