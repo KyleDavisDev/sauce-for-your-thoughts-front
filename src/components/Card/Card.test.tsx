@@ -62,4 +62,14 @@ describe("<Card />", () => {
       expect(wrapper.find("Head").prop("showLink")).toEqual(_defaultShowLink);
     });
   });
+
+  it("passes expected imageLink to Head component", () => {
+    mockCards.forEach(mockCard => {
+      const wrapper = enzyme.shallow(<Card {...mockCard} />);
+
+      expect(wrapper.find("Head").prop("imageLink")).toEqual(
+        mockCard.imageLink
+      );
+    });
+  });
 });
