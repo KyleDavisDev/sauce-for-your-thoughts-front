@@ -49,4 +49,14 @@ describe("<Head />", () => {
       expect(wrapper.exists("Link")).toBeTruthy();
     });
   });
+
+  it("passes 'to' to Link component if showLink is true", () => {
+    mockHeads.forEach(mockHead => {
+      if (!mockHead.showLink) return;
+
+      const wrapper = enzyme.shallow(<Head {...mockHead} />);
+
+      expect(wrapper.find("Link").prop("href")).toEqual(mockHead.to);
+    });
+  });
 });
