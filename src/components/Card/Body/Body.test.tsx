@@ -16,4 +16,10 @@ describe("<Body />", () => {
 
     expect(wrapper).toBeTruthy();
   });
+
+  it("matches snapshot", () => {
+    const wrapper = enzyme.shallow(<Body />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
