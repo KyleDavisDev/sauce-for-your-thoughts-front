@@ -1,12 +1,9 @@
 import * as React from "react";
-import { Button } from "../Button/Button";
-import {
-  StyledDiv,
-  StyledImage,
-  StyledBody,
-  StyledTextContainer,
-  StyledLink
-} from "./CardStyle";
+
+import Head from "./Head/Head";
+import Body from "./Body/Body";
+import Footer from "./Footer/Footer";
+import { StyledDiv } from "./CardStyle";
 
 export interface CardProps {
   title: string;
@@ -32,36 +29,16 @@ const Card: React.FC<CardProps> = props => {
 
   return (
     <StyledDiv className={className}>
-      {showLink ? (
-        <StyledLink href={to}>
-          <StyledImage
-            src={imageLink}
-            alt={description}
-            onError={e => {
-              const elem = e.target as HTMLImageElement;
-              elem.src =
-                "https://res.cloudinary.com/foryourthoughts/image/upload/v1575869743/sauces/ra1o7bsr9v2eurosoo5y_bktfsa.png";
-            }}
-          />
-        </StyledLink>
-      ) : (
-        <StyledImage src={imageLink} alt={description} />
-      )}
-      <StyledBody>
-        <h4>{title}</h4>
-        <StyledTextContainer>
-          <p>
-            {description.length > 60
-              ? description.substring(0, 59) + "..."
-              : description}
-          </p>
-        </StyledTextContainer>
-      </StyledBody>
-      {showLink && (
-        <StyledLink href={to}>
-          <Button displayType="outline">{anchorText || "View"}</Button>
-        </StyledLink>
-      )}
+      <Head
+        showLink={showLink}
+        to={to}
+        imageLink={imageLink}
+        description={description}
+      />
+
+      <Body title={title} description={description} />
+
+      {showLink && <Footer to={to} anchorText={anchorText} />}
     </StyledDiv>
   );
 };

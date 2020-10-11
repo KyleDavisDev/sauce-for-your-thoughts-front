@@ -16,36 +16,3 @@ export const StyledDiv = styled.div`
   }
 `;
 StyledDiv.displayName = "div";
-
-export const StyledImage = styled.img`
-  width: 100%;
-`;
-StyledImage.displayName = "img";
-
-export const StyledBody = styled.div`
-  padding: 1em;
-  font-family: AvenirNextReg;
-
-  h4 {
-    font-family: FuturaMedium;
-  }
-`;
-StyledBody.displayName = "div";
-
-export const StyledTextContainer = styled.div`
-  padding: 0;
-  margin: 0;
-`;
-StyledTextContainer.displayName = "div";
-
-export const StyledLink = styled(Link)`
-  // margin: 0 auto 0;
-
-  button {
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin: auto auto 0;
-  }
-`;
-StyledLink.displayName = "Link";
