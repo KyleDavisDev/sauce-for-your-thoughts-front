@@ -16,26 +16,38 @@ describe("<Footer />", () => {
   const _defaultText = "View";
 
   it("renders", () => {
-    const wrapper = enzyme.shallow(<Footer to="" />);
+    mockFooters.forEach(mockFooter => {
+      const wrapper = enzyme.shallow(<Footer {...mockFooter} />);
 
-    expect(wrapper).toBeTruthy();
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.shallow(<Footer to="" />);
+    mockFooters.forEach(mockFooter => {
+      const wrapper = enzyme.shallow(<Footer {...mockFooter} />);
 
-    expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   it("passes 'to' to Link", () => {
-    const wrapper = enzyme.shallow(<Footer to="" />);
+    mockFooters.forEach(mockFooter => {
+      const wrapper = enzyme.shallow(<Footer {...mockFooter} />);
 
-    expect(wrapper.find("Link").prop("href")).toEqual("");
+      expect(wrapper.find("Link").prop("href")).toEqual(mockFooter.to);
+    });
   });
 
-  it("passes anchorText to Button", () => {
-    const wrapper = enzyme.shallow(<Footer to="" />);
-    // console.log(wrapper.debug());
-    expect(wrapper.find("Button").prop("children")).toEqual(_defaultText);
+  it("passes expected anchorText to Button ", () => {
+    mockFooters.forEach(mockFooter => {
+      if (!mockFooter.anchorText) return;
+
+      const wrapper = enzyme.shallow(<Footer {...mockFooter} />);
+
+      expect(wrapper.find("Button").prop("children")).toEqual(
+        mockFooter.anchorText
+      );
+    });
   });
 });
