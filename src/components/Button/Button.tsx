@@ -109,5 +109,6 @@ const StyledButton = styled(Button)`
     }
   }
 `;
+StyledButton.displayName = "Button";
 
 export { StyledButton as Button };
