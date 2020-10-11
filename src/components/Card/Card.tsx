@@ -9,8 +9,8 @@ export interface CardProps {
   title: string;
   description: string;
   to: string;
-  showLink?: boolean;
   imageLink: string;
+  showLink?: boolean;
   className?: string;
   anchorText?: string;
 }
