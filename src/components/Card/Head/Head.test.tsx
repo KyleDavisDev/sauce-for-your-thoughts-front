@@ -67,4 +67,12 @@ describe("<Head />", () => {
       expect(wrapper.find("img").prop("src")).toEqual(mockHead.imageLink);
     });
   });
+
+  it("passes expected description to image", () => {
+    mockHeads.forEach(mockHead => {
+      const wrapper = enzyme.shallow(<Head {...mockHead} />);
+
+      expect(wrapper.find("img").prop("alt")).toEqual(mockHead.description);
+    });
+  });
 });
