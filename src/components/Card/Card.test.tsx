@@ -130,4 +130,16 @@ describe("<Card />", () => {
       expect(wrapper.find("Footer").prop("to")).toEqual(mockCard.to);
     });
   });
+
+  it("passes expected anchorText to Footer component when showLabel is true", () => {
+    mockCards.forEach(mockCard => {
+      if (mockCard.showLink === false) return;
+
+      const wrapper = enzyme.shallow(<Card {...mockCard} />);
+
+      expect(wrapper.find("Footer").prop("anchorText")).toEqual(
+        mockCard.anchorText
+      );
+    });
+  });
 });
