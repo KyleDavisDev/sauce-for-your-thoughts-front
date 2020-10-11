@@ -12,10 +12,12 @@ export interface IHeadProps {
 const Head: React.FC<IHeadProps> = props => {
   const { showLink, imageLink, description, to } = props;
 
-  if (!showLink) return <StyledImage src={imageLink} alt={description} />;
+  if (!showLink) return image();
 
-  return (
-    <StyledLink href={to}>
+  return <StyledLink href={to}>{image()}</StyledLink>;
+
+  function image() {
+    return (
       <StyledImage
         src={imageLink}
         alt={description}
@@ -25,8 +27,8 @@ const Head: React.FC<IHeadProps> = props => {
             "https://res.cloudinary.com/foryourthoughts/image/upload/v1575869743/sauces/ra1o7bsr9v2eurosoo5y_bktfsa.png";
         }}
       />
-    </StyledLink>
-  );
+    );
+  }
 };
 
 export default Head;
