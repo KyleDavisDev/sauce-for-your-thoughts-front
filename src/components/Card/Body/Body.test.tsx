@@ -40,6 +40,16 @@ describe("<Body />", () => {
     });
   });
 
+  it("renders expected title", () => {
+    mockBodies.forEach(mockBody => {
+      if (!mockBody.title) return;
+
+      const wrapper = enzyme.shallow(<Body {...mockBody} />);
+
+      expect(wrapper.find("h4").text()).toEqual(mockBody.title);
+    });
+  });
+
   it("renders default description", () => {
     mockBodies.forEach(mockBody => {
       if (mockBody.description) return;
