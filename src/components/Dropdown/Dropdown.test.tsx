@@ -8,8 +8,26 @@ import {
   ITERATION_SIZE
 } from "../../utils/testUtils/testUtils";
 
+const fakeToggle = () =>
+  React.createElement(
+    "div",
+    { name: "Toggle", key: casual.uuid },
+    fakeJSXElement()
+  );
+
+const fakeMenu = () =>
+  React.createElement(
+    "div",
+    { name: "Menu", key: casual.uuid },
+    fakeJSXElement()
+  );
+
 const fakeDropdown = (): DropdownProps => ({
-  children: [fakeJSXElement()],
+  children: casual.random_element([
+    [fakeToggle()], // pass only a toggle element
+    [fakeMenu()], // pass only a menu element
+    [fakeToggle(), fakeMenu()] // pass both toggle and menu
+  ]),
   className: casual.random_element([undefined, casual.string])
 });
 
