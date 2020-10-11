@@ -5,7 +5,7 @@ import { StyledLink, StyledImage } from "./HeadStyle";
 export interface IHeadProps {
   showLink?: boolean;
   to: string;
-  imageLink?: string;
+  imageLink: string;
   description?: string;
 }
 
