@@ -12,7 +12,7 @@ import {
   StyledButton
 } from "./BodyStyle";
 
-interface IBodyProps {}
+export interface IBodyProps {}
 
 const Body: React.FunctionComponent<IBodyProps> = props => {
   const _defaultTitleText = "Find your perfect sauce";
