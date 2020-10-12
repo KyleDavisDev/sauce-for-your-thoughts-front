@@ -44,9 +44,12 @@ const Select: React.FC<SelectProps> = props => {
           value={selectedValue}
           name={name}
         >
-          {options.map(opt => {
+          {options.map((opt, ind) => {
             return (
-              <option key={opt.toLowerCase()} value={opt.toLowerCase()}>
+              <option
+                key={ind + "-" + opt.toLowerCase()}
+                value={opt.toLowerCase()}
+              >
                 {opt}
               </option>
             );
