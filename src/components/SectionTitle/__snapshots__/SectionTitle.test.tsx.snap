@@ -1,0 +1,353 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SectionTitle /> matches snapshot 1`] = `
+<div>
+  <h2>
+    sequi facilis corporis sed veritatis quidem praesentium
+  </h2>
+  <h6>
+    magnam fugiat error molestiae laborum est possimus
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 2`] = `
+<div>
+  <h2>
+    assumenda aut enim iure facilis ut explicabo
+  </h2>
+  <h6>
+    iure vitae occaecati officia iure nisi ut
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 3`] = `
+<div>
+  <h2>
+    maiores recusandae fuga reprehenderit soluta non omnis
+  </h2>
+  <h6>
+    consequatur enim quia autem et modi tenetur
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 4`] = `
+<div>
+  <h2>
+    amet modi reprehenderit omnis adipisci eius laborum
+  </h2>
+  <h6>
+    eius aut illo dolorum ab aliquam id
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 5`] = `
+<div>
+  <h2>
+    sit delectus vel ipsa tempora aut sint
+  </h2>
+  <h6>
+    aperiam occaecati illum animi vel provident dicta
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 6`] = `
+<div>
+  <h2>
+    perferendis dolorum cupiditate illum saepe ut assumenda
+  </h2>
+  <h6>
+    sint quia sed exercitationem omnis laborum exercitationem
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 7`] = `
+<div>
+  <h2>
+    est sapiente laudantium molestias assumenda quasi adipisci
+  </h2>
+  <h6>
+    mollitia iste itaque omnis debitis rem similique
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 8`] = `
+<div>
+  <h2>
+    temporibus aliquam sed sapiente soluta corporis commodi
+  </h2>
+  <h6>
+    eaque nisi cum ducimus nemo doloremque maiores
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 9`] = `
+<div>
+  <h2>
+    esse atque et non explicabo dolores ipsam
+  </h2>
+  <h6>
+    laboriosam non itaque voluptas ea ducimus autem
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 10`] = `
+<div>
+  <h2>
+    sit aspernatur aspernatur quam eligendi est fugiat
+  </h2>
+  <h6>
+    dolorem nihil quam nulla est unde sit
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 11`] = `
+<div>
+  <h2>
+    ex expedita est doloremque explicabo eaque necessitatibus
+  </h2>
+  <h6>
+    sit suscipit omnis necessitatibus maiores ullam quae
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 12`] = `
+<div>
+  <h2>
+    corporis qui aut nobis quo consequatur harum
+  </h2>
+  <h6>
+    qui enim et doloremque voluptate in sunt
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 13`] = `
+<div>
+  <h2>
+    occaecati nulla aut sunt est rerum at
+  </h2>
+  <h6>
+    sint dolores fugiat quis et voluptas culpa
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 14`] = `
+<div>
+  <h2>
+    et vero repellat eveniet assumenda quis quae
+  </h2>
+  <h6>
+    iusto sapiente nostrum aut corrupti sed consectetur
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 15`] = `
+<div>
+  <h2>
+    soluta inventore laudantium dolor sint officiis qui
+  </h2>
+  <h6>
+    dignissimos dolore qui voluptatem cumque nihil iste
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 16`] = `
+<div>
+  <h2>
+    est unde rem similique et maxime quia
+  </h2>
+  <h6>
+    dolores quisquam aut consequatur sint provident aut
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 17`] = `
+<div>
+  <h2>
+    ullam distinctio autem quam qui facere in
+  </h2>
+  <h6>
+    ut odit animi in ut occaecati at
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 18`] = `
+<div>
+  <h2>
+    odit tempora at modi occaecati illum laborum
+  </h2>
+  <h6>
+    quos eum voluptate sit saepe assumenda deserunt
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 19`] = `
+<div>
+  <h2>
+    consequatur itaque et in fugit in rerum
+  </h2>
+  <h6>
+    libero odit aut labore qui aut inventore
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 20`] = `
+<div>
+  <h2>
+    aut eveniet beatae incidunt ut ducimus fugiat
+  </h2>
+  <h6>
+    et et aut quidem voluptatibus libero aut
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 21`] = `
+<div>
+  <h2>
+    autem ut ullam et possimus sint fugiat
+  </h2>
+  <h6>
+    maiores autem est esse quos minus deserunt
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 22`] = `
+<div>
+  <h2>
+    nihil quasi minus quo sunt possimus earum
+  </h2>
+  <h6>
+    animi quis expedita et optio consequatur velit
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 23`] = `
+<div>
+  <h2>
+    voluptate necessitatibus excepturi et qui sunt nesciunt
+  </h2>
+  <h6>
+    provident eaque atque quos rerum nobis nam
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 24`] = `
+<div>
+  <h2>
+    dolor quas repellendus in dolores totam animi
+  </h2>
+  <h6>
+    ipsum occaecati et consequatur consectetur sunt molestiae
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 25`] = `
+<div>
+  <h2>
+    cupiditate autem consequatur consequatur accusantium molestiae non
+  </h2>
+  <h6>
+    sint et ipsa consequuntur quidem dolorem quia
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 26`] = `
+<div>
+  <h2>
+    consequatur omnis ab assumenda animi non quis
+  </h2>
+  <h6>
+    quis nobis repudiandae aliquam molestiae occaecati a
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 27`] = `
+<div>
+  <h2>
+    culpa facilis eligendi voluptatibus similique blanditiis in
+  </h2>
+  <h6>
+    eum ut dignissimos aspernatur voluptate voluptatem est
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 28`] = `
+<div>
+  <h2>
+    eius dolorem amet quia quia aut sint
+  </h2>
+  <h6>
+    cumque sunt mollitia quibusdam officia eum repudiandae
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 29`] = `
+<div>
+  <h2>
+    minima temporibus ducimus quia assumenda ut neque
+  </h2>
+  <h6>
+    saepe est labore sed rerum nesciunt voluptas
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 30`] = `
+<div>
+  <h2>
+    rem repellendus nihil repudiandae aliquid ex architecto
+  </h2>
+  <h6>
+    ut corrupti voluptatem quia dolores dolor voluptates
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 31`] = `
+<div>
+  <h2>
+    sequi perferendis nostrum aliquid ea animi architecto
+  </h2>
+  <h6>
+    accusantium vel enim sint voluptatem porro ut
+  </h6>
+</div>
+`;
+
+exports[`<SectionTitle /> matches snapshot 32`] = `
+<div>
+  <h2>
+    est sed qui repellat assumenda et incidunt
+  </h2>
+  <h6>
+    aut distinctio molestias autem expedita omnis sit
+  </h6>
+</div>
+`;
