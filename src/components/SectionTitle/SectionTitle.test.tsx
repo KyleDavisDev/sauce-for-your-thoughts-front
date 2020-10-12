@@ -30,14 +30,14 @@ describe("<SectionTitle />", () => {
     });
   });
 
-  it("renders correct tags", () => {
+  it("renders single h2 and single h6 tags", () => {
     mockSectionTitles.forEach(mockSectionTitle => {
       const wrapper = enzyme.shallow(<SectionTitle {...mockSectionTitle} />);
 
-      expect(wrapper.find("h2")).toBeTruthy();
+      expect(wrapper.find("h2").exists()).toBeTruthy();
       expect(wrapper.find("h2").length).toEqual(1);
 
-      expect(wrapper.find("h6")).toBeTruthy();
+      expect(wrapper.find("h6").exists()).toBeTruthy();
       expect(wrapper.find("h6").length).toEqual(1);
     });
   });
