@@ -42,7 +42,7 @@ describe("<SectionTitle />", () => {
     });
   });
 
-  it("renders correct h2 text", () => {
+  it("renders expected title", () => {
     mockSectionTitles.forEach(mockSectionTitle => {
       const wrapper = enzyme.shallow(<SectionTitle {...mockSectionTitle} />);
 
@@ -52,7 +52,7 @@ describe("<SectionTitle />", () => {
     });
   });
 
-  it("renders correct h6 text", () => {
+  it("renders expected description", () => {
     mockSectionTitles.forEach(mockSectionTitle => {
       const wrapper = enzyme.shallow(<SectionTitle {...mockSectionTitle} />);
 
