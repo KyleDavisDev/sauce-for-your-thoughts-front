@@ -15,6 +15,7 @@ export const HeroContainer = styled.div`
     margin-bottom: 3.5rem;
   }
 `;
+HeroContainer.displayName = "div";
 
 export const HeroImage = styled.div`
   background-image: url('${SaucesImage}');
@@ -23,6 +24,7 @@ export const HeroImage = styled.div`
   opacity: 0.45;
   height: 400px;
 `;
+HeroImage.displayName = "div";
 
 export const HeroBody = styled.div`
   position: absolute;
@@ -37,17 +39,20 @@ export const HeroBody = styled.div`
   align-items: flex-end;
   justify-content: center;
 `;
+HeroBody.displayName = "div";
 
 export const HeroTitle = styled.h1`
   color: ${x => x.theme.landingHeroTextColor};
   font-family: FuturaMedium;
 `;
+HeroTitle.displayName = "h1";
 
 export const StyledDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: stretch;
 `;
+StyledDiv.displayName = "div";
 
 export const StyledSelect = styled(Select)`
   min-height: 30px;
@@ -67,6 +72,7 @@ export const StyledSelect = styled(Select)`
     border: 0;
   }
 `;
+StyledSelect.displayName = "select";
 
 export const StyledInput = styled(TextInput)`
   flex-direction: row;
@@ -89,7 +95,9 @@ export const StyledInput = styled(TextInput)`
     }
   }
 `;
+StyledInput.displayName = "input";
 
 export const StyledButton = styled(Button)`
   display: flex;
 `;
+StyledButton.displayName = "button";
