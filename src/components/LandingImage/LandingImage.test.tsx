@@ -49,4 +49,17 @@ describe("<LandingImage />", () => {
       expect(wrapper.find("div").first().prop("className")).toEqual(className);
     });
   });
+
+  it("renders a form", () => {
+    mockStores.forEach(mockStore => {
+      const className = casual.string;
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <LandingImage className={className} />
+        </Provider>
+      );
+
+      expect(wrapper.find("form").exists()).toBeTruthy();
+    });
+  });
 });
