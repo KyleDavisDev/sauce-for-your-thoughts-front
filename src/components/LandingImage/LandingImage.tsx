@@ -36,11 +36,13 @@ const LandingImage: React.FC<LandingImageProps> = props => {
         <form onSubmit={onSubmit}>
           <StyledDiv>
             <StyledSelect
+              id="types"
               options={types}
               selectedValue={selectedValue}
               onSelect={e => setSelectedValue(e.target.value)}
             />
             <StyledInput
+              id="search"
               type="text"
               onChange={e => setSearch(e.target.value)}
               placeholder="Search..."
