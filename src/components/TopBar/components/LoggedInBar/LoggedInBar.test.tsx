@@ -6,18 +6,18 @@ import { ITERATION_SIZE } from "../../../../utils/testUtils/testUtils";
 
 describe("<LoggedInBar />", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(
-      <LoggedInBar displayName={""} avatarURL={""} />
-    );
+    new Array(ITERATION_SIZE).fill(null).map(() => {
+      const wrapper = enzyme.shallow(<LoggedInBar />);
 
-    expect(wrapper).toBeTruthy();
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it("matches snapshot", () => {
-    const wrapper = enzyme.shallow(
-      <LoggedInBar displayName={""} avatarURL={""} />
-    );
+    new Array(ITERATION_SIZE).fill(null).map(() => {
+      const wrapper = enzyme.shallow(<LoggedInBar />);
 
-    expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 });
