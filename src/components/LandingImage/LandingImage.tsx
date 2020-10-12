@@ -19,6 +19,8 @@ export interface LandingImageProps {
 }
 
 const LandingImage: React.FC<LandingImageProps> = props => {
+  const _defaultTitleText = "Find your perfect sauce";
+
   const [search, setSearch] = React.useState("");
   const [selectedValue, setSelectedValue] = React.useState("all");
   const types = useSelector((store: AppState) => {
@@ -32,7 +34,7 @@ const LandingImage: React.FC<LandingImageProps> = props => {
     <HeroContainer className={props.className}>
       <HeroImage />
       <HeroBody>
-        <HeroTitle>Find your perfect sauce</HeroTitle>
+        <HeroTitle>{_defaultTitleText}</HeroTitle>
         <form onSubmit={onSubmit}>
           <StyledDiv>
             <StyledSelect
