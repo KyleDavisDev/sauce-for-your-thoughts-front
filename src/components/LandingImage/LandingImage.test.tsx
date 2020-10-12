@@ -13,6 +13,8 @@ import {
 const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
 describe("<LandingImage />", () => {
+  const _defaultTitleText = "Find your perfect sauce";
+
   it("renders", () => {
     mockStores.forEach(mockStore => {
       const wrapper = enzyme.mount(
@@ -52,14 +54,25 @@ describe("<LandingImage />", () => {
 
   it("renders a form", () => {
     mockStores.forEach(mockStore => {
-      const className = casual.string;
       const wrapper = enzyme.mount(
         <Provider store={mockStore}>
-          <LandingImage className={className} />
+          <LandingImage />
         </Provider>
       );
 
       expect(wrapper.find("form").exists()).toBeTruthy();
+    });
+  });
+
+  it("renders a default title text", () => {
+    mockStores.forEach(mockStore => {
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <LandingImage />
+        </Provider>
+      );
+
+      expect(wrapper.find("h1").first().text()).toEqual(_defaultTitleText);
     });
   });
 });
