@@ -1,3 +1,4 @@
+import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
 import { Provider } from "react-redux";
@@ -17,6 +18,18 @@ describe("<LandingImage />", () => {
       );
 
       expect(wrapper).toBeTruthy();
+    });
+  });
+
+  it("matches snapshot", () => {
+    mockStores.forEach(mockStore => {
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <LandingImage />
+        </Provider>
+      );
+
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });
