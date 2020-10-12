@@ -4,14 +4,18 @@ import * as enzyme from "enzyme";
 import { Provider } from "react-redux";
 
 import LandingImage, { LandingImageProps } from "./LandingImage";
-import { ITERATION_SIZE, fakeStore } from "../../utils/testUtils/testUtils";
+import {
+  ITERATION_SIZE,
+  fakeStore,
+  casual
+} from "../../utils/testUtils/testUtils";
 
 const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
 describe("<LandingImage />", () => {
   it("renders", () => {
     mockStores.forEach(mockStore => {
-      const wrapper = enzyme.shallow(
+      const wrapper = enzyme.mount(
         <Provider store={mockStore}>
           <LandingImage />
         </Provider>
@@ -30,6 +34,19 @@ describe("<LandingImage />", () => {
       );
 
       expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  it("appends classname to parent", () => {
+    mockStores.forEach(mockStore => {
+      const className = casual.string;
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <LandingImage className={className} />
+        </Provider>
+      );
+
+      expect(wrapper.find("div").first().prop("className")).toEqual(className);
     });
   });
 });
