@@ -13,66 +13,46 @@ import {
 const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
 describe("<LandingImage />", () => {
-  const _defaultTitleText = "Find your perfect sauce";
+  // const _defaultTitleText = "Find your perfect sauce";
 
   it("renders", () => {
-    mockStores.forEach(mockStore => {
-      const wrapper = enzyme.mount(
-        <Provider store={mockStore}>
-          <LandingImage />
-        </Provider>
-      );
+    new Array(ITERATION_SIZE).fill(null).forEach(() => {
+      const wrapper = enzyme.shallow(<LandingImage />);
 
       expect(wrapper).toBeTruthy();
     });
   });
 
   it("matches snapshot", () => {
-    mockStores.forEach(mockStore => {
-      const wrapper = enzyme.mount(
-        <Provider store={mockStore}>
-          <LandingImage />
-        </Provider>
-      );
+    new Array(ITERATION_SIZE).fill(null).forEach(() => {
+      const wrapper = enzyme.shallow(<LandingImage />);
 
       expect(wrapper).toMatchSnapshot();
     });
   });
 
   it("appends classname to parent", () => {
-    mockStores.forEach(mockStore => {
+    new Array(ITERATION_SIZE).fill(null).forEach(() => {
       const className = casual.string;
-      const wrapper = enzyme.mount(
-        <Provider store={mockStore}>
-          <LandingImage className={className} />
-        </Provider>
-      );
+      const wrapper = enzyme.shallow(<LandingImage className={className} />);
 
-      expect(wrapper.find("div").first().prop("className")).toEqual(className);
+      expect(wrapper.first().prop("className")).toEqual(className);
     });
   });
 
-  it("renders a form", () => {
-    mockStores.forEach(mockStore => {
-      const wrapper = enzyme.mount(
-        <Provider store={mockStore}>
-          <LandingImage />
-        </Provider>
-      );
+  // it("renders a form", () => {
+  //   mockStores.forEach(mockStore => {
+  //     const wrapper = enzyme.shallow(<LandingImage />);
 
-      expect(wrapper.find("form").exists()).toBeTruthy();
-    });
-  });
+  //     expect(wrapper.find("form").exists()).toBeTruthy();
+  //   });
+  // });
 
-  it("renders a default title text", () => {
-    mockStores.forEach(mockStore => {
-      const wrapper = enzyme.mount(
-        <Provider store={mockStore}>
-          <LandingImage />
-        </Provider>
-      );
+  // it("renders a default title text", () => {
+  //   mockStores.forEach(mockStore => {
+  //     const wrapper = enzyme.shallow(<LandingImage />);
 
-      expect(wrapper.find("h1").first().text()).toEqual(_defaultTitleText);
-    });
-  });
+  //     expect(wrapper.find("h1").first().text()).toEqual(_defaultTitleText);
+  //   });
+  // });
 });
