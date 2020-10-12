@@ -1,18 +1,225 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LoggedInBar /> matches snapshot 1`] = `
-<styled.div>
-  <Dropdown>
-    <Trigger>
-      <ChevronDown />
-      <img
-        onError={[Function]}
-        src=""
-      />
-    </Trigger>
-    <Body>
-      <Menu />
-    </Body>
-  </Dropdown>
-</styled.div>
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 2`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 3`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 4`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 5`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 6`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 7`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 8`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 9`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 10`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 11`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 12`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 13`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 14`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 15`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 16`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 17`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 18`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 19`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 20`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 21`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 22`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 23`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 24`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 25`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 26`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 27`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 28`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 29`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 30`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 31`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
+`;
+
+exports[`<LoggedInBar /> matches snapshot 32`] = `
+<Dropdown>
+  <Toggle />
+  <Menu />
+</Dropdown>
 `;
