@@ -22,6 +22,14 @@ describe("<SectionTitle />", () => {
     });
   });
 
+  it("matches snapshot", () => {
+    mockSectionTitles.forEach(mockSectionTitle => {
+      const wrapper = enzyme.shallow(<SectionTitle {...mockSectionTitle} />);
+
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
   it("renders correct tags", () => {
     mockSectionTitles.forEach(mockSectionTitle => {
       const wrapper = enzyme.shallow(<SectionTitle {...mockSectionTitle} />);
