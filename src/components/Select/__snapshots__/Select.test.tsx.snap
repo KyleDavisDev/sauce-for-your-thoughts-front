@@ -9,43 +9,43 @@ exports[`<Select /> matches snapshot 1`] = `
       value="corporis"
     >
       <option
-        key="sequi"
+        key="0-sequi"
         value="sequi"
       >
         sequi
       </option>
       <option
-        key="facilis"
+        key="1-facilis"
         value="facilis"
       >
         facilis
       </option>
       <option
-        key="corporis"
+        key="2-corporis"
         value="corporis"
       >
         corporis
       </option>
       <option
-        key="sed"
+        key="3-sed"
         value="sed"
       >
         sed
       </option>
       <option
-        key="veritatis"
+        key="4-veritatis"
         value="veritatis"
       >
         veritatis
       </option>
       <option
-        key="quidem"
+        key="5-quidem"
         value="quidem"
       >
         quidem
       </option>
       <option
-        key="praesentium"
+        key="6-praesentium"
         value="praesentium"
       >
         praesentium
@@ -65,43 +65,43 @@ exports[`<Select /> matches snapshot 2`] = `
       value="omnis"
     >
       <option
-        key="itaque"
+        key="0-itaque"
         value="itaque"
       >
         itaque
       </option>
       <option
-        key="omnis"
+        key="1-omnis"
         value="omnis"
       >
         omnis
       </option>
       <option
-        key="debitis"
+        key="2-debitis"
         value="debitis"
       >
         debitis
       </option>
       <option
-        key="rem"
+        key="3-rem"
         value="rem"
       >
         rem
       </option>
       <option
-        key="similique"
+        key="4-similique"
         value="similique"
       >
         similique
       </option>
       <option
-        key="temporibus"
+        key="5-temporibus"
         value="temporibus"
       >
         temporibus
       </option>
       <option
-        key="aliquam"
+        key="6-aliquam"
         value="aliquam"
       >
         aliquam
@@ -119,43 +119,43 @@ exports[`<Select /> matches snapshot 3`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="assumenda"
+        key="0-assumenda"
         value="assumenda"
       >
         assumenda
       </option>
       <option
-        key="quis"
+        key="1-quis"
         value="quis"
       >
         quis
       </option>
       <option
-        key="quae"
+        key="2-quae"
         value="quae"
       >
         quae
       </option>
       <option
-        key="iusto"
+        key="3-iusto"
         value="iusto"
       >
         iusto
       </option>
       <option
-        key="sapiente"
+        key="4-sapiente"
         value="sapiente"
       >
         sapiente
       </option>
       <option
-        key="nostrum"
+        key="5-nostrum"
         value="nostrum"
       >
         nostrum
       </option>
       <option
-        key="aut"
+        key="6-aut"
         value="aut"
       >
         aut
@@ -177,43 +177,43 @@ exports[`<Select /> matches snapshot 4`] = `
       value="sint"
     >
       <option
-        key="aut"
+        key="0-aut"
         value="aut"
       >
         aut
       </option>
       <option
-        key="autem"
+        key="1-autem"
         value="autem"
       >
         autem
       </option>
       <option
-        key="ut"
+        key="2-ut"
         value="ut"
       >
         ut
       </option>
       <option
-        key="ullam"
+        key="3-ullam"
         value="ullam"
       >
         ullam
       </option>
       <option
-        key="et"
+        key="4-et"
         value="et"
       >
         et
       </option>
       <option
-        key="possimus"
+        key="5-possimus"
         value="possimus"
       >
         possimus
       </option>
       <option
-        key="sint"
+        key="6-sint"
         value="sint"
       >
         sint
@@ -232,43 +232,43 @@ exports[`<Select /> matches snapshot 5`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="ut"
+        key="0-ut"
         value="ut"
       >
         ut
       </option>
       <option
-        key="dignissimos"
+        key="1-dignissimos"
         value="dignissimos"
       >
         dignissimos
       </option>
       <option
-        key="aspernatur"
+        key="2-aspernatur"
         value="aspernatur"
       >
         aspernatur
       </option>
       <option
-        key="voluptate"
+        key="3-voluptate"
         value="voluptate"
       >
         voluptate
       </option>
       <option
-        key="voluptatem"
+        key="4-voluptatem"
         value="voluptatem"
       >
         voluptatem
       </option>
       <option
-        key="est"
+        key="5-est"
         value="est"
       >
         est
       </option>
       <option
-        key="eius"
+        key="6-eius"
         value="eius"
       >
         eius
@@ -286,43 +286,43 @@ exports[`<Select /> matches snapshot 6`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="sed"
+        key="0-sed"
         value="sed"
       >
         sed
       </option>
       <option
-        key="nobis"
+        key="1-nobis"
         value="nobis"
       >
         nobis
       </option>
       <option
-        key="excepturi"
+        key="2-excepturi"
         value="excepturi"
       >
         excepturi
       </option>
       <option
-        key="saepe"
+        key="3-saepe"
         value="saepe"
       >
         saepe
       </option>
       <option
-        key="autem"
+        key="4-autem"
         value="autem"
       >
         autem
       </option>
       <option
-        key="quis"
+        key="5-quis"
         value="quis"
       >
         quis
       </option>
       <option
-        key="molestiae"
+        key="6-molestiae"
         value="molestiae"
       >
         molestiae
@@ -342,43 +342,43 @@ exports[`<Select /> matches snapshot 7`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="voluptatibus"
+        key="0-voluptatibus"
         value="voluptatibus"
       >
         voluptatibus
       </option>
       <option
-        key="reiciendis"
+        key="1-reiciendis"
         value="reiciendis"
       >
         reiciendis
       </option>
       <option
-        key="ut"
+        key="2-ut"
         value="ut"
       >
         ut
       </option>
       <option
-        key="eos"
+        key="3-eos"
         value="eos"
       >
         eos
       </option>
       <option
-        key="commodi"
+        key="4-commodi"
         value="commodi"
       >
         commodi
       </option>
       <option
-        key="at"
+        key="5-at"
         value="at"
       >
         at
       </option>
       <option
-        key="impedit"
+        key="6-impedit"
         value="impedit"
       >
         impedit
@@ -398,43 +398,43 @@ exports[`<Select /> matches snapshot 8`] = `
       value="voluptatem"
     >
       <option
-        key="ipsa"
+        key="0-ipsa"
         value="ipsa"
       >
         ipsa
       </option>
       <option
-        key="odio"
+        key="1-odio"
         value="odio"
       >
         odio
       </option>
       <option
-        key="sit"
+        key="2-sit"
         value="sit"
       >
         sit
       </option>
       <option
-        key="laboriosam"
+        key="3-laboriosam"
         value="laboriosam"
       >
         laboriosam
       </option>
       <option
-        key="quis"
+        key="4-quis"
         value="quis"
       >
         quis
       </option>
       <option
-        key="voluptatem"
+        key="5-voluptatem"
         value="voluptatem"
       >
         voluptatem
       </option>
       <option
-        key="quod"
+        key="6-quod"
         value="quod"
       >
         quod
@@ -452,43 +452,43 @@ exports[`<Select /> matches snapshot 9`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="quia"
+        key="0-quia"
         value="quia"
       >
         quia
       </option>
       <option
-        key="voluptate"
+        key="1-voluptate"
         value="voluptate"
       >
         voluptate
       </option>
       <option
-        key="optio"
+        key="2-optio"
         value="optio"
       >
         optio
       </option>
       <option
-        key="suscipit"
+        key="3-suscipit"
         value="suscipit"
       >
         suscipit
       </option>
       <option
-        key="delectus"
+        key="4-delectus"
         value="delectus"
       >
         delectus
       </option>
       <option
-        key="aliquid"
+        key="5-aliquid"
         value="aliquid"
       >
         aliquid
       </option>
       <option
-        key="et"
+        key="6-et"
         value="et"
       >
         et
@@ -507,43 +507,43 @@ exports[`<Select /> matches snapshot 10`] = `
       value="repellat"
     >
       <option
-        key="asperiores"
+        key="0-asperiores"
         value="asperiores"
       >
         asperiores
       </option>
       <option
-        key="amet"
+        key="1-amet"
         value="amet"
       >
         amet
       </option>
       <option
-        key="et"
+        key="2-et"
         value="et"
       >
         et
       </option>
       <option
-        key="quos"
+        key="3-quos"
         value="quos"
       >
         quos
       </option>
       <option
-        key="repellat"
+        key="4-repellat"
         value="repellat"
       >
         repellat
       </option>
       <option
-        key="distinctio"
+        key="5-distinctio"
         value="distinctio"
       >
         distinctio
       </option>
       <option
-        key="libero"
+        key="6-libero"
         value="libero"
       >
         libero
@@ -561,43 +561,43 @@ exports[`<Select /> matches snapshot 11`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="quisquam"
+        key="0-quisquam"
         value="quisquam"
       >
         quisquam
       </option>
       <option
-        key="quia"
+        key="1-quia"
         value="quia"
       >
         quia
       </option>
       <option
-        key="blanditiis"
+        key="2-blanditiis"
         value="blanditiis"
       >
         blanditiis
       </option>
       <option
-        key="qui"
+        key="3-qui"
         value="qui"
       >
         qui
       </option>
       <option
-        key="sed"
+        key="4-sed"
         value="sed"
       >
         sed
       </option>
       <option
-        key="a"
+        key="5-a"
         value="a"
       >
         a
       </option>
       <option
-        key="dolores"
+        key="6-dolores"
         value="dolores"
       >
         dolores
@@ -618,43 +618,43 @@ exports[`<Select /> matches snapshot 12`] = `
       value="est"
     >
       <option
-        key="et"
+        key="0-et"
         value="et"
       >
         et
       </option>
       <option
-        key="aperiam"
+        key="1-aperiam"
         value="aperiam"
       >
         aperiam
       </option>
       <option
-        key="quia"
+        key="2-quia"
         value="quia"
       >
         quia
       </option>
       <option
-        key="est"
+        key="3-est"
         value="est"
       >
         est
       </option>
       <option
-        key="et"
+        key="4-et"
         value="et"
       >
         et
       </option>
       <option
-        key="suscipit"
+        key="5-suscipit"
         value="suscipit"
       >
         suscipit
       </option>
       <option
-        key="ipsa"
+        key="6-ipsa"
         value="ipsa"
       >
         ipsa
@@ -679,43 +679,43 @@ exports[`<Select /> matches snapshot 13`] = `
       value="aliquid"
     >
       <option
-        key="assumenda"
+        key="0-assumenda"
         value="assumenda"
       >
         assumenda
       </option>
       <option
-        key="nihil"
+        key="1-nihil"
         value="nihil"
       >
         nihil
       </option>
       <option
-        key="ad"
+        key="2-ad"
         value="ad"
       >
         ad
       </option>
       <option
-        key="ut"
+        key="3-ut"
         value="ut"
       >
         ut
       </option>
       <option
-        key="maxime"
+        key="4-maxime"
         value="maxime"
       >
         maxime
       </option>
       <option
-        key="aliquid"
+        key="5-aliquid"
         value="aliquid"
       >
         aliquid
       </option>
       <option
-        key="sint"
+        key="6-sint"
         value="sint"
       >
         sint
@@ -735,43 +735,43 @@ exports[`<Select /> matches snapshot 14`] = `
       value="sed"
     >
       <option
-        key="est"
+        key="0-est"
         value="est"
       >
         est
       </option>
       <option
-        key="ab"
+        key="1-ab"
         value="ab"
       >
         ab
       </option>
       <option
-        key="quia"
+        key="2-quia"
         value="quia"
       >
         quia
       </option>
       <option
-        key="ab"
+        key="3-ab"
         value="ab"
       >
         ab
       </option>
       <option
-        key="sed"
+        key="4-sed"
         value="sed"
       >
         sed
       </option>
       <option
-        key="voluptas"
+        key="5-voluptas"
         value="voluptas"
       >
         voluptas
       </option>
       <option
-        key="ullam"
+        key="6-ullam"
         value="ullam"
       >
         ullam
@@ -788,43 +788,43 @@ exports[`<Select /> matches snapshot 15`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="iure"
+        key="0-iure"
         value="iure"
       >
         iure
       </option>
       <option
-        key="iste"
+        key="1-iste"
         value="iste"
       >
         iste
       </option>
       <option
-        key="aut"
+        key="2-aut"
         value="aut"
       >
         aut
       </option>
       <option
-        key="ab"
+        key="3-ab"
         value="ab"
       >
         ab
       </option>
       <option
-        key="laborum"
+        key="4-laborum"
         value="laborum"
       >
         laborum
       </option>
       <option
-        key="sint"
+        key="5-sint"
         value="sint"
       >
         sint
       </option>
       <option
-        key="qui"
+        key="6-qui"
         value="qui"
       >
         qui
@@ -843,43 +843,43 @@ exports[`<Select /> matches snapshot 16`] = `
       value="est"
     >
       <option
-        key="laboriosam"
+        key="0-laboriosam"
         value="laboriosam"
       >
         laboriosam
       </option>
       <option
-        key="sed"
+        key="1-sed"
         value="sed"
       >
         sed
       </option>
       <option
-        key="est"
+        key="2-est"
         value="est"
       >
         est
       </option>
       <option
-        key="et"
+        key="3-et"
         value="et"
       >
         et
       </option>
       <option
-        key="sapiente"
+        key="4-sapiente"
         value="sapiente"
       >
         sapiente
       </option>
       <option
-        key="ipsa"
+        key="5-ipsa"
         value="ipsa"
       >
         ipsa
       </option>
       <option
-        key="aut"
+        key="6-aut"
         value="aut"
       >
         aut
@@ -898,43 +898,43 @@ exports[`<Select /> matches snapshot 17`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="fuga"
+        key="0-fuga"
         value="fuga"
       >
         fuga
       </option>
       <option
-        key="adipisci"
+        key="1-adipisci"
         value="adipisci"
       >
         adipisci
       </option>
       <option
-        key="saepe"
+        key="2-saepe"
         value="saepe"
       >
         saepe
       </option>
       <option
-        key="quam"
+        key="3-quam"
         value="quam"
       >
         quam
       </option>
       <option
-        key="quia"
+        key="4-quia"
         value="quia"
       >
         quia
       </option>
       <option
-        key="veritatis"
+        key="5-veritatis"
         value="veritatis"
       >
         veritatis
       </option>
       <option
-        key="qui"
+        key="6-qui"
         value="qui"
       >
         qui
@@ -953,43 +953,43 @@ exports[`<Select /> matches snapshot 18`] = `
       value="quia"
     >
       <option
-        key="ducimus"
+        key="0-ducimus"
         value="ducimus"
       >
         ducimus
       </option>
       <option
-        key="est"
+        key="1-est"
         value="est"
       >
         est
       </option>
       <option
-        key="vel"
+        key="2-vel"
         value="vel"
       >
         vel
       </option>
       <option
-        key="quia"
+        key="3-quia"
         value="quia"
       >
         quia
       </option>
       <option
-        key="fugit"
+        key="4-fugit"
         value="fugit"
       >
         fugit
       </option>
       <option
-        key="totam"
+        key="5-totam"
         value="totam"
       >
         totam
       </option>
       <option
-        key="quia"
+        key="6-quia"
         value="quia"
       >
         quia
@@ -1008,43 +1008,43 @@ exports[`<Select /> matches snapshot 19`] = `
       value="consequatur"
     >
       <option
-        key="adipisci"
+        key="0-adipisci"
         value="adipisci"
       >
         adipisci
       </option>
       <option
-        key="ab"
+        key="1-ab"
         value="ab"
       >
         ab
       </option>
       <option
-        key="rerum"
+        key="2-rerum"
         value="rerum"
       >
         rerum
       </option>
       <option
-        key="quos"
+        key="3-quos"
         value="quos"
       >
         quos
       </option>
       <option
-        key="consequatur"
+        key="4-consequatur"
         value="consequatur"
       >
         consequatur
       </option>
       <option
-        key="assumenda"
+        key="5-assumenda"
         value="assumenda"
       >
         assumenda
       </option>
       <option
-        key="odio"
+        key="6-odio"
         value="odio"
       >
         odio
@@ -1065,43 +1065,43 @@ exports[`<Select /> matches snapshot 20`] = `
       value="velit"
     >
       <option
-        key="nihil"
+        key="0-nihil"
         value="nihil"
       >
         nihil
       </option>
       <option
-        key="illum"
+        key="1-illum"
         value="illum"
       >
         illum
       </option>
       <option
-        key="ut"
+        key="2-ut"
         value="ut"
       >
         ut
       </option>
       <option
-        key="nobis"
+        key="3-nobis"
         value="nobis"
       >
         nobis
       </option>
       <option
-        key="velit"
+        key="4-velit"
         value="velit"
       >
         velit
       </option>
       <option
-        key="velit"
+        key="5-velit"
         value="velit"
       >
         velit
       </option>
       <option
-        key="perspiciatis"
+        key="6-perspiciatis"
         value="perspiciatis"
       >
         perspiciatis
@@ -1123,43 +1123,43 @@ exports[`<Select /> matches snapshot 21`] = `
       value="quaerat"
     >
       <option
-        key="voluptates"
+        key="0-voluptates"
         value="voluptates"
       >
         voluptates
       </option>
       <option
-        key="similique"
+        key="1-similique"
         value="similique"
       >
         similique
       </option>
       <option
-        key="laboriosam"
+        key="2-laboriosam"
         value="laboriosam"
       >
         laboriosam
       </option>
       <option
-        key="molestiae"
+        key="3-molestiae"
         value="molestiae"
       >
         molestiae
       </option>
       <option
-        key="modi"
+        key="4-modi"
         value="modi"
       >
         modi
       </option>
       <option
-        key="expedita"
+        key="5-expedita"
         value="expedita"
       >
         expedita
       </option>
       <option
-        key="quaerat"
+        key="6-quaerat"
         value="quaerat"
       >
         quaerat
@@ -1180,43 +1180,43 @@ exports[`<Select /> matches snapshot 22`] = `
       value="voluptatum"
     >
       <option
-        key="aut"
+        key="0-aut"
         value="aut"
       >
         aut
       </option>
       <option
-        key="et"
+        key="1-et"
         value="et"
       >
         et
       </option>
       <option
-        key="quis"
+        key="2-quis"
         value="quis"
       >
         quis
       </option>
       <option
-        key="voluptatum"
+        key="3-voluptatum"
         value="voluptatum"
       >
         voluptatum
       </option>
       <option
-        key="est"
+        key="4-est"
         value="est"
       >
         est
       </option>
       <option
-        key="eos"
+        key="5-eos"
         value="eos"
       >
         eos
       </option>
       <option
-        key="vero"
+        key="6-vero"
         value="vero"
       >
         vero
@@ -1237,43 +1237,43 @@ exports[`<Select /> matches snapshot 23`] = `
       value="fugiat"
     >
       <option
-        key="explicabo"
+        key="0-explicabo"
         value="explicabo"
       >
         explicabo
       </option>
       <option
-        key="iste"
+        key="1-iste"
         value="iste"
       >
         iste
       </option>
       <option
-        key="quia"
+        key="2-quia"
         value="quia"
       >
         quia
       </option>
       <option
-        key="fugiat"
+        key="3-fugiat"
         value="fugiat"
       >
         fugiat
       </option>
       <option
-        key="ducimus"
+        key="4-ducimus"
         value="ducimus"
       >
         ducimus
       </option>
       <option
-        key="quia"
+        key="5-quia"
         value="quia"
       >
         quia
       </option>
       <option
-        key="sit"
+        key="6-sit"
         value="sit"
       >
         sit
@@ -1293,43 +1293,43 @@ exports[`<Select /> matches snapshot 24`] = `
       value="praesentium"
     >
       <option
-        key="praesentium"
+        key="0-praesentium"
         value="praesentium"
       >
         praesentium
       </option>
       <option
-        key="quaerat"
+        key="1-quaerat"
         value="quaerat"
       >
         quaerat
       </option>
       <option
-        key="laborum"
+        key="2-laborum"
         value="laborum"
       >
         laborum
       </option>
       <option
-        key="fugit"
+        key="3-fugit"
         value="fugit"
       >
         fugit
       </option>
       <option
-        key="est"
+        key="4-est"
         value="est"
       >
         est
       </option>
       <option
-        key="voluptatem"
+        key="5-voluptatem"
         value="voluptatem"
       >
         voluptatem
       </option>
       <option
-        key="et"
+        key="6-et"
         value="et"
       >
         et
@@ -1347,43 +1347,43 @@ exports[`<Select /> matches snapshot 25`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="quam"
+        key="0-quam"
         value="quam"
       >
         quam
       </option>
       <option
-        key="nesciunt"
+        key="1-nesciunt"
         value="nesciunt"
       >
         nesciunt
       </option>
       <option
-        key="quis"
+        key="2-quis"
         value="quis"
       >
         quis
       </option>
       <option
-        key="enim"
+        key="3-enim"
         value="enim"
       >
         enim
       </option>
       <option
-        key="aut"
+        key="4-aut"
         value="aut"
       >
         aut
       </option>
       <option
-        key="recusandae"
+        key="5-recusandae"
         value="recusandae"
       >
         recusandae
       </option>
       <option
-        key="doloremque"
+        key="6-doloremque"
         value="doloremque"
       >
         doloremque
@@ -1404,43 +1404,43 @@ exports[`<Select /> matches snapshot 26`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="neque"
+        key="0-neque"
         value="neque"
       >
         neque
       </option>
       <option
-        key="tempore"
+        key="1-tempore"
         value="tempore"
       >
         tempore
       </option>
       <option
-        key="ipsa"
+        key="2-ipsa"
         value="ipsa"
       >
         ipsa
       </option>
       <option
-        key="perspiciatis"
+        key="3-perspiciatis"
         value="perspiciatis"
       >
         perspiciatis
       </option>
       <option
-        key="illo"
+        key="4-illo"
         value="illo"
       >
         illo
       </option>
       <option
-        key="laudantium"
+        key="5-laudantium"
         value="laudantium"
       >
         laudantium
       </option>
       <option
-        key="sed"
+        key="6-sed"
         value="sed"
       >
         sed
@@ -1465,43 +1465,43 @@ exports[`<Select /> matches snapshot 27`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="dolores"
+        key="0-dolores"
         value="dolores"
       >
         dolores
       </option>
       <option
-        key="aut"
+        key="1-aut"
         value="aut"
       >
         aut
       </option>
       <option
-        key="dolor"
+        key="2-dolor"
         value="dolor"
       >
         dolor
       </option>
       <option
-        key="soluta"
+        key="3-soluta"
         value="soluta"
       >
         soluta
       </option>
       <option
-        key="aspernatur"
+        key="4-aspernatur"
         value="aspernatur"
       >
         aspernatur
       </option>
       <option
-        key="beatae"
+        key="5-beatae"
         value="beatae"
       >
         beatae
       </option>
       <option
-        key="qui"
+        key="6-qui"
         value="qui"
       >
         qui
@@ -1522,43 +1522,43 @@ exports[`<Select /> matches snapshot 28`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="libero"
+        key="0-libero"
         value="libero"
       >
         libero
       </option>
       <option
-        key="esse"
+        key="1-esse"
         value="esse"
       >
         esse
       </option>
       <option
-        key="inventore"
+        key="2-inventore"
         value="inventore"
       >
         inventore
       </option>
       <option
-        key="enim"
+        key="3-enim"
         value="enim"
       >
         enim
       </option>
       <option
-        key="necessitatibus"
+        key="4-necessitatibus"
         value="necessitatibus"
       >
         necessitatibus
       </option>
       <option
-        key="nihil"
+        key="5-nihil"
         value="nihil"
       >
         nihil
       </option>
       <option
-        key="autem"
+        key="6-autem"
         value="autem"
       >
         autem
@@ -1580,43 +1580,43 @@ exports[`<Select /> matches snapshot 29`] = `
       value="accusantium"
     >
       <option
-        key="perspiciatis"
+        key="0-perspiciatis"
         value="perspiciatis"
       >
         perspiciatis
       </option>
       <option
-        key="accusantium"
+        key="1-accusantium"
         value="accusantium"
       >
         accusantium
       </option>
       <option
-        key="ducimus"
+        key="2-ducimus"
         value="ducimus"
       >
         ducimus
       </option>
       <option
-        key="possimus"
+        key="3-possimus"
         value="possimus"
       >
         possimus
       </option>
       <option
-        key="omnis"
+        key="4-omnis"
         value="omnis"
       >
         omnis
       </option>
       <option
-        key="accusamus"
+        key="5-accusamus"
         value="accusamus"
       >
         accusamus
       </option>
       <option
-        key="dolorum"
+        key="6-dolorum"
         value="dolorum"
       >
         dolorum
@@ -1635,43 +1635,43 @@ exports[`<Select /> matches snapshot 30`] = `
       value="assumenda"
     >
       <option
-        key="assumenda"
+        key="0-assumenda"
         value="assumenda"
       >
         assumenda
       </option>
       <option
-        key="rerum"
+        key="1-rerum"
         value="rerum"
       >
         rerum
       </option>
       <option
-        key="officiis"
+        key="2-officiis"
         value="officiis"
       >
         officiis
       </option>
       <option
-        key="cumque"
+        key="3-cumque"
         value="cumque"
       >
         cumque
       </option>
       <option
-        key="dolore"
+        key="4-dolore"
         value="dolore"
       >
         dolore
       </option>
       <option
-        key="quidem"
+        key="5-quidem"
         value="quidem"
       >
         quidem
       </option>
       <option
-        key="sunt"
+        key="6-sunt"
         value="sunt"
       >
         sunt
@@ -1691,43 +1691,43 @@ exports[`<Select /> matches snapshot 31`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="sunt"
+        key="0-sunt"
         value="sunt"
       >
         sunt
       </option>
       <option
-        key="porro"
+        key="1-porro"
         value="porro"
       >
         porro
       </option>
       <option
-        key="et"
+        key="2-et"
         value="et"
       >
         et
       </option>
       <option
-        key="sed"
+        key="3-sed"
         value="sed"
       >
         sed
       </option>
       <option
-        key="aut"
+        key="4-aut"
         value="aut"
       >
         aut
       </option>
       <option
-        key="quia"
+        key="5-quia"
         value="quia"
       >
         quia
       </option>
       <option
-        key="explicabo"
+        key="6-explicabo"
         value="explicabo"
       >
         explicabo
@@ -1745,43 +1745,43 @@ exports[`<Select /> matches snapshot 32`] = `
       onChange={[MockFunction]}
     >
       <option
-        key="fugiat"
+        key="0-fugiat"
         value="fugiat"
       >
         fugiat
       </option>
       <option
-        key="vero"
+        key="1-vero"
         value="vero"
       >
         vero
       </option>
       <option
-        key="corrupti"
+        key="2-corrupti"
         value="corrupti"
       >
         corrupti
       </option>
       <option
-        key="nihil"
+        key="3-nihil"
         value="nihil"
       >
         nihil
       </option>
       <option
-        key="est"
+        key="4-est"
         value="est"
       >
         est
       </option>
       <option
-        key="maxime"
+        key="5-maxime"
         value="maxime"
       >
         maxime
       </option>
       <option
-        key="vitae"
+        key="6-vitae"
         value="vitae"
       >
         vitae
