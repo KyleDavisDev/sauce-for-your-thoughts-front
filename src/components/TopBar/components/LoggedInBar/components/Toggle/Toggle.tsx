@@ -5,7 +5,7 @@ import ChevronDown from "../../../../../../images/icons/ChevronDown";
 import { AppState } from "../../../../../../redux/configureStore";
 import { useSelector } from "react-redux";
 
-interface ToggleProps {
+export interface ToggleProps {
   className?: string;
   onClick?: () => any;
 }
