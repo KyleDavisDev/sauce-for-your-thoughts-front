@@ -15,7 +15,7 @@ export interface MenuProps {
 }
 
 const Menu: React.FC<MenuProps> = props => {
-  const isAdmin = useSelector((store: AppState) => store.users.self.isAdmin);
+  const isAdmin = useSelector((store: AppState) => store.users?.self?.isAdmin);
 
   return (
     <StyledDiv className={props.className}>
