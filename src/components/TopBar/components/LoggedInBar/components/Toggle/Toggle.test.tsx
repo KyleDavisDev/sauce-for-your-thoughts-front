@@ -20,7 +20,7 @@ const mockToggles = new Array(ITERATION_SIZE).fill(null).map(fakeToggle);
 
 describe("<Toggle />", () => {
   const _defaultDisplayName = "N/A";
-  const _defaultAvatarURL = "N/A";
+  const _defaultAvatarURL = "";
 
   it("renders", () => {
     mockToggles.forEach(mockToggle => {
@@ -128,6 +128,25 @@ describe("<Toggle />", () => {
       );
 
       expect(wrapper.find("img").last().prop("src")).toEqual(avatarURL);
+    });
+  });
+
+  it("renders img tag with default src when not provided", () => {
+    mockToggles.forEach(mockToggle => {
+      const store = fakeStore();
+
+      // make sure avatarURL is  provided
+      const reduxState = store.getState() as AppState;
+      const avatarURL = reduxState.users?.self?.avatarURL;
+      if (avatarURL) return;
+
+      const wrapper = enzyme.mount(
+        <Provider store={store}>
+          <Toggle {...mockToggle} />
+        </Provider>
+      );
+
+      expect(wrapper.find("img").last().prop("src")).toEqual(_defaultAvatarURL);
     });
   });
 });
