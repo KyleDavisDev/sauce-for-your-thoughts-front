@@ -3,16 +3,30 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 import { Provider } from "react-redux";
 
-import Toggle from "./Toggle";
+import Toggle, { ToggleProps } from "./Toggle";
 import {
-  fakeStore,
-  ITERATION_SIZE
+  casual,
+  ITERATION_SIZE,
+  fakeStore
 } from "../../../../../../utils/testUtils/testUtils";
+
+const fakeToggle = (): ToggleProps => ({
+  className: casual.random_element([undefined, casual.string]),
+  onClick: jest.fn()
+});
+
+const mockToggles = new Array(ITERATION_SIZE).fill(null).map(fakeToggle);
 
 describe("<Toggle />", () => {
   it("renders", () => {
-    const wrapper = enzyme.shallow(<Toggle />);
+    mockToggles.forEach(mockToggle => {
+      const wrapper = enzyme.shallow(
+        <Provider store={fakeStore()}>
+          <Toggle {...mockToggle} />
+        </Provider>
+      );
 
-    expect(wrapper).toBeTruthy();
+      expect(wrapper).toBeTruthy();
+    });
   });
 });
