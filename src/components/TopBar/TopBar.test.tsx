@@ -1,16 +1,19 @@
 import * as React from "react";
 import * as enzyme from "enzyme";
-import { MemoryRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+
 import TopBar from "./TopBar";
+import { fakeStore, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
 
 describe("<TopBar />", () => {
-  const wrapper = enzyme.render(
-    <MemoryRouter>
-      <TopBar />
-    </MemoryRouter>
-  );
-
   it("renders", () => {
-    expect(wrapper).toBeTruthy();
+    new Array(ITERATION_SIZE).fill(null).map(() => {
+      const wrapper = enzyme.render(
+        <Provider store={fakeStore()}>
+          <TopBar />
+        </Provider>
+      );
+      expect(wrapper).toBeTruthy();
+    });
   });
 });
