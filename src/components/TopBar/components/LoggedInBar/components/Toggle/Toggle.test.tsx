@@ -92,4 +92,23 @@ describe("<Toggle />", () => {
       expect(wrapper.find("button").last().text()).toEqual(displayName);
     });
   });
+
+  it("renders expected default displayName when not provided", () => {
+    mockToggles.forEach(mockToggle => {
+      const store = fakeStore();
+
+      // make sure displayName is not provided
+      const reduxState = store.getState() as AppState;
+      const displayName = reduxState.users?.self?.displayName;
+      if (displayName) return;
+
+      const wrapper = enzyme.mount(
+        <Provider store={store}>
+          <Toggle {...mockToggle} />
+        </Provider>
+      );
+
+      expect(wrapper.find("button").last().text()).toEqual(_defaultDisplayName);
+    });
+  });
 });
