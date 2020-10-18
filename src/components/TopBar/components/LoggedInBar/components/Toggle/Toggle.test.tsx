@@ -29,4 +29,16 @@ describe("<Toggle />", () => {
       expect(wrapper).toBeTruthy();
     });
   });
+
+  it("matches snapshot", () => {
+    mockToggles.forEach(mockToggle => {
+      const wrapper = enzyme.mount(
+        <Provider store={fakeStore()}>
+          <Toggle {...mockToggle} />
+        </Provider>
+      );
+
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });
