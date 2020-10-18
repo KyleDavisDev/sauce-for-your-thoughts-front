@@ -9,6 +9,7 @@ import {
   ITERATION_SIZE,
   fakeStore
 } from "../../../../../../utils/testUtils/testUtils";
+import { AppState } from "../../../../../../redux/configureStore";
 
 const fakeToggle = (): ToggleProps => ({
   className: casual.random_element([undefined, casual.string]),
@@ -18,6 +19,9 @@ const fakeToggle = (): ToggleProps => ({
 const mockToggles = new Array(ITERATION_SIZE).fill(null).map(fakeToggle);
 
 describe("<Toggle />", () => {
+  const _defaultDisplayName = "N/A";
+  const _defaultAvatarURL = "N/A";
+
   it("renders", () => {
     mockToggles.forEach(mockToggle => {
       const wrapper = enzyme.shallow(
@@ -67,6 +71,25 @@ describe("<Toggle />", () => {
       expect(wrapper.find("Toggle").prop("onClick")).toEqual(
         mockToggle.onClick
       );
+    });
+  });
+
+  it("renders expected displayName when provided", () => {
+    mockToggles.forEach(mockToggle => {
+      const store = fakeStore();
+
+      // make sure displayName is provided
+      const reduxState = store.getState() as AppState;
+      const displayName = reduxState.users?.self?.displayName;
+      if (!displayName) return;
+
+      const wrapper = enzyme.mount(
+        <Provider store={store}>
+          <Toggle {...mockToggle} />
+        </Provider>
+      );
+
+      expect(wrapper.find("button").last().text()).toEqual(displayName);
     });
   });
 });
