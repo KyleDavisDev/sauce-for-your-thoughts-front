@@ -6,7 +6,7 @@ import reviews from "./reviews/reducer";
 import { IReview } from "./reviews/types";
 import sauces from "./sauces/reducer";
 import users from "./users/reducer";
-import { IUser } from "./users/types";
+import { IUser, IUserState } from "./users/types";
 import { ISaucesState } from "./sauces/types";
 
 const rootReducer = combineReducers({
@@ -18,16 +18,7 @@ const rootReducer = combineReducers({
 
 export interface AppState {
   sauces: ISaucesState;
-  users: {
-    self: {
-      token?: string;
-      displayName?: string;
-      avatarURL?: string;
-      isAdmin?: boolean;
-    };
-    byDisplayName?: { [key: string]: IUser };
-    allDisplayNames?: string[];
-  };
+  users: IUserState,
   reviews: {
     byReviewID?: { [key: string]: IReview };
     allReviewIDs?: string[];
