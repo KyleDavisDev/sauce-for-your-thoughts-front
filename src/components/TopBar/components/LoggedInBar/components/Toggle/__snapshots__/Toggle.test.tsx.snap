@@ -1,0 +1,1731 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Toggle /> matches snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src="http://Ernser.info/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://Ernser.info/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 2`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="fugiat error molestiae laborum est possimus assumenda"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="fugiat error molestiae laborum est possimus assumenda"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn fugiat error molestiae laborum est possimus assumenda"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 3`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="enim iure facilis ut explicabo iure vitae"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="enim iure facilis ut explicabo iure vitae"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn enim iure facilis ut explicabo iure vitae"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        Dr. Meagan Cassin
+        <img
+          onError={[Function]}
+          src="http://www.Dexter.ca/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://www.Dexter.ca/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 4`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src="http://Albertha.com/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://Albertha.com/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 5`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="soluta non omnis consequatur enim quia autem"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="soluta non omnis consequatur enim quia autem"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn soluta non omnis consequatur enim quia autem"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        Miss Frank Yundt
+        <img
+          onError={[Function]}
+          src="http://www.Champlin.org/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://www.Champlin.org/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 6`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        Miss Charlene Metz
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 7`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="laborum eius aut illo dolorum ab aliquam"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="laborum eius aut illo dolorum ab aliquam"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn laborum eius aut illo dolorum ab aliquam"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        Mrs. Julio Yost
+        <img
+          onError={[Function]}
+          src="http://Runolfsdottir.co.uk/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://Runolfsdottir.co.uk/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 8`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        Mrs. Joyce Larson
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 9`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="occaecati illum animi vel provident dicta perferendis"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="occaecati illum animi vel provident dicta perferendis"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn occaecati illum animi vel provident dicta perferendis"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src="http://Hickle.info/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://Hickle.info/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 10`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="cupiditate illum saepe ut assumenda sint quia"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="cupiditate illum saepe ut assumenda sint quia"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn cupiditate illum saepe ut assumenda sint quia"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 11`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="exercitationem omnis laborum exercitationem est sapiente laudantium"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="exercitationem omnis laborum exercitationem est sapiente laudantium"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn exercitationem omnis laborum exercitationem est sapiente laudantium"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 12`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="assumenda quasi adipisci mollitia iste itaque omnis"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="assumenda quasi adipisci mollitia iste itaque omnis"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn assumenda quasi adipisci mollitia iste itaque omnis"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 13`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 14`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="commodi eaque nisi cum ducimus nemo doloremque"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="commodi eaque nisi cum ducimus nemo doloremque"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn commodi eaque nisi cum ducimus nemo doloremque"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 15`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 16`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 17`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src="http://Wiza.name/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://Wiza.name/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 18`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 19`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="explicabo eaque necessitatibus sit suscipit omnis necessitatibus"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="explicabo eaque necessitatibus sit suscipit omnis necessitatibus"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn explicabo eaque necessitatibus sit suscipit omnis necessitatibus"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        Miss Allene Blick
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 20`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="ullam quae corporis qui aut nobis quo"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="ullam quae corporis qui aut nobis quo"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn ullam quae corporis qui aut nobis quo"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        Mrs. Electa Kovacek
+        <img
+          onError={[Function]}
+          src="http://www.Hintz.biz/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://www.Hintz.biz/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 21`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 22`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="occaecati nulla aut sunt est rerum at"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="occaecati nulla aut sunt est rerum at"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn occaecati nulla aut sunt est rerum at"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 23`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="dolores fugiat quis et voluptas culpa et"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="dolores fugiat quis et voluptas culpa et"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn dolores fugiat quis et voluptas culpa et"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        Ms. Yvonne Kirlin
+        <img
+          onError={[Function]}
+          src="http://Fae.biz/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://Fae.biz/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 24`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src="http://www.Elmore.info/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://www.Elmore.info/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 25`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 26`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="sint officiis qui dignissimos dolore qui voluptatem"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="sint officiis qui dignissimos dolore qui voluptatem"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn sint officiis qui dignissimos dolore qui voluptatem"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        Ms. Myriam Mayert
+        <img
+          onError={[Function]}
+          src="http://German.tv/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://German.tv/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 27`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="nihil iste est unde rem similique et"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="nihil iste est unde rem similique et"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn nihil iste est unde rem similique et"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 28`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="quia dolores quisquam aut consequatur sint provident"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="quia dolores quisquam aut consequatur sint provident"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn quia dolores quisquam aut consequatur sint provident"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 29`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    className="ullam distinctio autem quam qui facere in"
+    onClick={[MockFunction]}
+  >
+    <button
+      className="ullam distinctio autem quam qui facere in"
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn ullam distinctio autem quam qui facere in"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        Miss Clementine Durgan
+        <img
+          onError={[Function]}
+          src="http://Daugherty.net/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://Daugherty.net/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 30`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        Mrs. Daisha Boehm
+        <img
+          onError={[Function]}
+          src=""
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src=""
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 31`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        Mrs. Cathrine Crooks
+        <img
+          onError={[Function]}
+          src="http://Rice.net/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://Rice.net/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
+
+exports[`<Toggle /> matches snapshot 32`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Toggle
+    onClick={[MockFunction]}
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <button
+        className="sc-AxjAm eKRKLn"
+        onClick={[MockFunction]}
+      >
+        <ChevronDown>
+          <svg
+            height="24"
+            preserveAspectRatio="xMinYMin"
+            viewBox="-5 -8 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z"
+            />
+          </svg>
+        </ChevronDown>
+        N/A
+        <img
+          onError={[Function]}
+          src="http://Kozey.info/"
+        >
+          <img
+            className="sc-AxirZ cvBUtc"
+            onError={[Function]}
+            src="http://Kozey.info/"
+          />
+        </img>
+      </button>
+    </button>
+  </Toggle>
+</Provider>
+`;
