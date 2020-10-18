@@ -111,4 +111,23 @@ describe("<Toggle />", () => {
       expect(wrapper.find("button").last().text()).toEqual(_defaultDisplayName);
     });
   });
+
+  it("renders img tag with expected src when provided", () => {
+    mockToggles.forEach(mockToggle => {
+      const store = fakeStore();
+
+      // make sure avatarURL is  provided
+      const reduxState = store.getState() as AppState;
+      const avatarURL = reduxState.users?.self?.avatarURL;
+      if (!avatarURL) return;
+
+      const wrapper = enzyme.mount(
+        <Provider store={store}>
+          <Toggle {...mockToggle} />
+        </Provider>
+      );
+
+      expect(wrapper.find("img").last().prop("src")).toEqual(avatarURL);
+    });
+  });
 });
