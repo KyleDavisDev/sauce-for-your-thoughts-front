@@ -41,4 +41,18 @@ describe("<Toggle />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("appends className to parent", () => {
+    mockToggles.forEach(mockToggle => {
+      const wrapper = enzyme.shallow(
+        <Provider store={fakeStore()}>
+          <Toggle {...mockToggle} />
+        </Provider>
+      );
+
+      expect(wrapper.find("Toggle").prop("className")).toEqual(
+        mockToggle.className
+      );
+    });
+  });
 });
