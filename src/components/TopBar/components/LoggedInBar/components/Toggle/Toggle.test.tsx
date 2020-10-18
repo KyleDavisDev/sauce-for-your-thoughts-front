@@ -55,4 +55,18 @@ describe("<Toggle />", () => {
       );
     });
   });
+
+  it("passes onClick to parent", () => {
+    mockToggles.forEach(mockToggle => {
+      const wrapper = enzyme.shallow(
+        <Provider store={fakeStore()}>
+          <Toggle {...mockToggle} />
+        </Provider>
+      );
+
+      expect(wrapper.find("Toggle").prop("onClick")).toEqual(
+        mockToggle.onClick
+      );
+    });
+  });
 });
