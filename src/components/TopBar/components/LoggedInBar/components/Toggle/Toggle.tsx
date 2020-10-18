@@ -11,11 +11,17 @@ export interface ToggleProps {
 }
 
 const Toggle: React.FC<ToggleProps> = props => {
+  const _defaultDisplayName = "N/A";
+  const _defaultAvatarURL = "";
+
   const { self } = useSelector((state: AppState) => {
     return state.users;
   });
 
-  const { displayName = "N/A", avatarURL = "" } = self ? self : {};
+  const {
+    displayName = _defaultDisplayName,
+    avatarURL = _defaultAvatarURL
+  } = self ? self : {};
 
   return (
     <StyledButton className={props.className} onClick={props.onClick}>
