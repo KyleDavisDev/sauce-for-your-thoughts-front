@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
 
-import styled from "../../../../theme/styled-components";
-import { AppState } from "../../../../redux/configureStore";
+import styled from "../../../../../../theme/styled-components";
+import { AppState } from "../../../../../../redux/configureStore";
 import ProfileMenuItem from "./components/ProfileMenuItem/ProfileMenuItem";
 import AccountMenuItem from "./components/AccountMenuItem/AccountMenuItem";
 import HelpMenuItem from "./components/HelpMenuItem/HelpMenuItem";

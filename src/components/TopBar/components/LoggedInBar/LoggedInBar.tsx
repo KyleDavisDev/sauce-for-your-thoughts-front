@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import DropDown from "../../../Dropdown/Dropdown";
-import Toggle from "../Toggle/Toggle";
-import Menu from "../Menu/Menu";
+import Toggle from "./components/Toggle/Toggle";
+import Menu from "./components/Menu/Menu";
 
 interface ILoggedInBarProps {}
 

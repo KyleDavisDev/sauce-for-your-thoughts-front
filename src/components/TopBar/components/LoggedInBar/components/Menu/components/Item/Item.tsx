@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "../../../../../Link/Link";
+import { Link } from "../../../../../../../Link/Link";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`

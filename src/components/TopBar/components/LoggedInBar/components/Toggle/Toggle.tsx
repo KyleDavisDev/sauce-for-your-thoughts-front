@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { StyledButton, StyledAvatar } from "./ToggleStyle";
-import ChevronDown from "../../../../images/icons/ChevronDown";
-import { AppState } from "../../../../redux/configureStore";
+import ChevronDown from "../../../../../../images/icons/ChevronDown";
+import { AppState } from "../../../../../../redux/configureStore";
 import { useSelector } from "react-redux";
 
 interface ToggleProps {

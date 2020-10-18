@@ -7,8 +7,8 @@ import {
   StyledImage,
   StyledFoot
 } from "./ProfileMenuItemStyle";
-import { Button } from "../../../../../Button/Button";
-import { AppState } from "../../../../../../redux/configureStore";
+import { Button } from "../../../../../../../Button/Button";
+import { AppState } from "../../../../../../../../redux/configureStore";
 
 interface ProfileMenuItemProps {
   displayName?: string;
