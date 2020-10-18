@@ -8,6 +8,7 @@ import { AppState } from "../../redux/configureStore";
 import { ISauce, ISaucesState } from "../../redux/sauces/types";
 import { FlashMessageProps } from "../../components/FlashMessage/FlashMessage";
 import Flatn from "../Flatn/Flatn";
+import { IUserState } from "../../redux/users/types";
 
 export const ITERATION_SIZE = 32;
 const REACT_REGEX = /react(\d+)?./i;
@@ -62,33 +63,35 @@ export const fakeSaucesState = (): ISaucesState => {
     allSlugs,
     bySlug,
     total: allSlugs.length,
-    query: undefined, // IQuery,
-    saucesWithNewestReviews: undefined, // Array<{ name: string; slug: string }>,
-    newest: undefined, //string[],
-    featured: undefined, //string[],
+    query: undefined, 
+    saucesWithNewestReviews: undefined, 
+    newest: undefined, 
+    featured: undefined, 
     types: casual.array_of_words(),
     orders: ["Newest", "Name", "Times Reviewed", "Avg Rating"]
   };
 };
+
+const fakeUsersState = (): IUserState => ({  
+    self: casual.random_element([undefined, {
+      token: casual.random_element([undefined, casual.uuid]),
+      displayName: casual.random_element([undefined, casual.name]),
+      avatarURL: casual.random_element([undefined, casual.url]),
+      isAdmin: casual.random_element([undefined, casual.boolean])
+    }]),
+    byDisplayName: undefined, 
+    allDisplayNames: undefined   
+})
 
 export const fakeStore = () => {
   const storeConfig = configureStore([]);
 
   const store: AppState = {
     sauces: fakeSaucesState(),
-    users: {
-      self: {
-        token: casual.random_element([undefined, casual.uuid]),
-        displayName: casual.random_element([undefined, casual.name]),
-        avatarURL: casual.random_element([undefined, casual.url]),
-        isAdmin: casual.random_element([undefined, casual.boolean])
-      },
-      byDisplayName: undefined, // { [key: string]: IUser };
-      allDisplayNames: undefined //  string[];
-    },
+    users: fakeUsersState(),
     reviews: {
-      byReviewID: undefined, //  { [key: string]: IReview };
-      allReviewIDs: undefined //  string[];
+      byReviewID: undefined, 
+      allReviewIDs: undefined 
     }
   };
 
