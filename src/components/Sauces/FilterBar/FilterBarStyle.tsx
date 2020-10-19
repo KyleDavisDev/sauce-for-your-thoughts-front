@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "../../../theme/styled-components";
 import Select from "../../Select/Select";
 import { TextInput } from "../../TextInput/TextInput";
 import { Button } from "../../Button/Button";
@@ -26,6 +26,7 @@ export const StyledForm = styled.form`
 
   @media (min-width: ${props => props.theme.smToMd}) {
     align-items: flex-end;
+    flex-wrap: nowrap;
   }
 `;
 
@@ -37,14 +38,6 @@ export const StyledSelect = styled(Select)`
   select {
     height: 35px;
   }
-
-  @media (min-width: ${props => props.theme.exToSm}) {
-    width: 50%;
-  }
-
-  @media (min-width: ${props => props.theme.smToMd}) {
-    width: 20%;
-  }
 `;
 
 export const StyledInput = styled(TextInput)`
@@ -55,14 +48,6 @@ export const StyledInput = styled(TextInput)`
   input {
     margin-bottom: 0px;
     height: 35px;
-  }
-
-  @media (min-width: ${props => props.theme.exToSm}) {
-    width: 50%;
-  }
-
-  @media (min-width: ${props => props.theme.smToMd}) {
-    width: 20%;
   }
 `;
 
