@@ -5,15 +5,13 @@ import Item from "../Item/Item";
 
 export interface AdminProps {}
 
-class Admin extends React.PureComponent<AdminProps, any> {
-  public render() {
-    return (
-      <div>
-        <Title>Admin</Title>
-        <Item to="/admin/approvesaucesubmissions">Approve Submissions</Item>
-      </div>
-    );
-  }
-}
+const Admin: React.FC<AdminProps> = props => {
+  return (
+    <>
+      <Title>Admin</Title>
+      <Item to="/admin/approvesaucesubmissions">Approve Submissions</Item>
+    </>
+  );
+};
 
 export default Admin;
