@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
 
-import styled from "../../../../../../theme/styled-components";
 import { AppState } from "../../../../../../redux/configureStore";
 import Profile from "./components/Profile/Profile";
 import Account from "./components/Account/Acount";

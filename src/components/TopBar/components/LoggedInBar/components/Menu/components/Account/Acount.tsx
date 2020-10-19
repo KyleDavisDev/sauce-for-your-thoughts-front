@@ -3,9 +3,9 @@ import * as React from "react";
 import Title from "../Title/Title";
 import Item from "../Item/Item";
 
-export interface AccountMenuItemProps {}
+export interface AccountProps {}
 
-class AccountMenuItem extends React.PureComponent<AccountMenuItemProps, any> {
+class Account extends React.PureComponent<AccountProps, any> {
   public render() {
     return (
       <div>
@@ -17,4 +17,4 @@ class AccountMenuItem extends React.PureComponent<AccountMenuItemProps, any> {
   }
 }
 
-export default AccountMenuItem;
+export default Account;

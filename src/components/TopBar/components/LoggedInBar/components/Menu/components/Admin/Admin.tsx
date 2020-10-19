@@ -3,9 +3,9 @@ import * as React from "react";
 import Title from "../Title/Title";
 import Item from "../Item/Item";
 
-export interface AdminMenuItemProps {}
+export interface AdminProps {}
 
-class AdminMenuItem extends React.PureComponent<AdminMenuItemProps, any> {
+class Admin extends React.PureComponent<AdminProps, any> {
   public render() {
     return (
       <div>
@@ -16,4 +16,4 @@ class AdminMenuItem extends React.PureComponent<AdminMenuItemProps, any> {
   }
 }
 
-export default AdminMenuItem;
+export default Admin;

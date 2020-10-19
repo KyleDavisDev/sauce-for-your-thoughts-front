@@ -3,9 +3,9 @@ import * as React from "react";
 import Title from "../Title/Title";
 import Item from "../Item/Item";
 
-export interface HelpMenuItemProps {}
+export interface HelpProps {}
 
-class HelpMenuItem extends React.PureComponent<HelpMenuItemProps, any> {
+class Help extends React.PureComponent<HelpProps, any> {
   public render() {
     return (
       <div>
@@ -17,4 +17,4 @@ class HelpMenuItem extends React.PureComponent<HelpMenuItemProps, any> {
   }
 }
 
-export default HelpMenuItem;
+export default Help;
