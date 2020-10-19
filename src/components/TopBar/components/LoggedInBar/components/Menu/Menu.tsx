@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import styled from "../../../../../../theme/styled-components";
 import { AppState } from "../../../../../../redux/configureStore";
-import ProfileMenuItem from "./components/ProfileMenuItem/ProfileMenuItem";
+import ProfileMenuItem from "./components/Profile/Profile";
 import AccountMenuItem from "./components/AccountMenuItem/AccountMenuItem";
 import HelpMenuItem from "./components/HelpMenuItem/HelpMenuItem";
 import AdminMenuItem from "./components/AdminMenuItem/AdminMenuItem";
