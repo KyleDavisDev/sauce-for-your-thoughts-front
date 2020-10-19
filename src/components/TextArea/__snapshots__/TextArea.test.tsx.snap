@@ -1,61 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<TextArea /> matches snapshot 1`] = `
-<div>
-  <textarea
-    cols={30}
-    disabled={false}
-    maxLength={900}
-    name="fugiat error molestiae laborum est possimus assumenda"
-    onChange={[MockFunction]}
-    placeholder="enim iure facilis ut explicabo iure vitae"
-    readOnly={true}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-  />
-  <p>
-    vel ipsa tempora aut sint aperiam occaecati
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 2`] = `
-<div>
-  <textarea
-    cols={30}
-    disabled={false}
-    id="illum animi vel provident dicta perferendis dolorum"
-    onChange={[MockFunction]}
-    placeholder="omnis laborum exercitationem est sapiente laudantium molestias"
-    readOnly={true}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-    value="sapiente soluta corporis commodi eaque nisi cum"
-  />
-  <p>
-    ea ducimus autem sit aspernatur aspernatur quam
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 3`] = `
 <div
-  className="at sint dolores fugiat quis et voluptas"
+  className="modi reprehenderit omnis adipisci eius laborum eius"
 >
   <textarea
     cols={30}
-    disabled={false}
-    id="eligendi est fugiat dolorem nihil quam nulla"
+    disabled={true}
+    id="sequi facilis corporis sed veritatis quidem praesentium"
+    name="magnam fugiat error molestiae laborum est possimus"
     onChange={[MockFunction]}
     readOnly={false}
     required={false}
@@ -65,27 +18,75 @@ exports[`<TextArea /> matches snapshot 3`] = `
         "marginBottom": "0px",
       }
     }
-    value={[Function]}
   />
   <p>
-    quae iusto sapiente nostrum aut corrupti sed
+    delectus vel ipsa tempora aut sint aperiam
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 2`] = `
+<div
+  className="cum ducimus nemo doloremque maiores esse atque"
+>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="occaecati illum animi vel provident dicta perferendis"
+    maxLength={1700}
+    onChange={[MockFunction]}
+    readOnly={false}
+    required={false}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value="aliquam sed sapiente soluta corporis commodi eaque"
+  />
+  <p>
+    itaque voluptas ea ducimus autem sit aspernatur
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 3`] = `
+<div>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="aspernatur quam eligendi est fugiat dolorem nihil"
+    maxLength={4300}
+    name="quam nulla est unde sit ex expedita"
+    onChange={[MockFunction]}
+    placeholder="doloremque explicabo eaque necessitatibus sit suscipit omnis"
+    readOnly={false}
+    required={false}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+  />
+  <p>
+    eveniet assumenda quis quae iusto sapiente nostrum
   </p>
 </div>
 `;
 
 exports[`<TextArea /> matches snapshot 4`] = `
 <div
-  className="tempora at modi occaecati illum laborum quos"
+  className="ut occaecati at odit tempora at modi"
 >
   <textarea
     cols={30}
     disabled={false}
-    id="consectetur soluta inventore laudantium dolor sint officiis"
-    maxLength={2955}
-    name="dignissimos dolore qui voluptatem cumque nihil iste"
+    id="aut corrupti sed consectetur soluta inventore laudantium"
     onChange={[MockFunction]}
-    placeholder="unde rem similique et maxime quia dolores"
-    readOnly={false}
+    placeholder="cumque nihil iste est unde rem similique"
+    readOnly={true}
     required={false}
     rows={10}
     style={
@@ -93,47 +94,50 @@ exports[`<TextArea /> matches snapshot 4`] = `
         "marginBottom": "0px",
       }
     }
+    value="quam qui facere in ut odit animi"
   />
   <p>
-    itaque et in fugit in rerum libero
+    saepe assumenda deserunt consequatur itaque et in
   </p>
 </div>
 `;
 
 exports[`<TextArea /> matches snapshot 5`] = `
 <div
-  className="et optio consequatur velit voluptate necessitatibus excepturi"
+  className="possimus earum animi quis expedita et optio"
 >
   <textarea
     cols={30}
-    disabled={true}
-    id="odit aut labore qui aut inventore aut"
-    name="beatae incidunt ut ducimus fugiat et et"
+    disabled={false}
+    id="fugit in rerum libero odit aut labore"
     onChange={[MockFunction]}
-    placeholder="quidem voluptatibus libero aut autem ut ullam"
-    readOnly={true}
-    required={false}
+    placeholder="ducimus fugiat et et aut quidem voluptatibus"
+    readOnly={false}
+    required={true}
     rows={10}
     style={
       Object {
         "marginBottom": "0px",
       }
     }
-    value="minus quo sunt possimus earum animi quis"
+    value="quos minus deserunt nihil quasi minus quo"
   />
   <p>
-    quos rerum nobis nam dolor quas repellendus
+    sunt nesciunt provident eaque atque quos rerum
   </p>
 </div>
 `;
 
 exports[`<TextArea /> matches snapshot 6`] = `
-<div>
+<div
+  className="a culpa facilis eligendi voluptatibus similique blanditiis"
+>
   <textarea
     cols={30}
-    disabled={false}
+    disabled={true}
+    id="nobis nam dolor quas repellendus in dolores"
     onChange={[MockFunction]}
-    placeholder="molestiae non sint et ipsa consequuntur quidem"
+    placeholder="molestiae cupiditate autem consequatur consequatur accusantium molestiae"
     readOnly={false}
     required={false}
     rows={10}
@@ -142,23 +146,24 @@ exports[`<TextArea /> matches snapshot 6`] = `
         "marginBottom": "0px",
       }
     }
-    value="molestiae occaecati a culpa facilis eligendi voluptatibus"
+    value="non quis quis nobis repudiandae aliquam molestiae"
   />
   <p>
-    aut sint cumque sunt mollitia quibusdam officia
+    est eius dolorem amet quia quia aut
   </p>
 </div>
 `;
 
 exports[`<TextArea /> matches snapshot 7`] = `
-<div>
+<div
+  className="accusantium vel enim sint voluptatem porro ut"
+>
   <textarea
     cols={30}
-    disabled={false}
-    id="eum repudiandae minima temporibus ducimus quia assumenda"
-    name="neque saepe est labore sed rerum nesciunt"
+    disabled={true}
+    id="sint cumque sunt mollitia quibusdam officia eum"
     onChange={[MockFunction]}
-    readOnly={true}
+    readOnly={false}
     required={false}
     rows={10}
     style={
@@ -166,310 +171,19 @@ exports[`<TextArea /> matches snapshot 7`] = `
         "marginBottom": "0px",
       }
     }
-    value="architecto accusantium vel enim sint voluptatem porro"
   />
   <p>
-    vitae consequuntur non sit et ut voluptatem
+    aut distinctio molestias autem expedita omnis sit
   </p>
 </div>
 `;
 
 exports[`<TextArea /> matches snapshot 8`] = `
-<div
-  className="culpa suscipit totam libero necessitatibus quis ratione"
->
-  <textarea
-    cols={30}
-    disabled={false}
-    onChange={[MockFunction]}
-    placeholder="molestiae et dicta odit vel quisquam qui"
-    readOnly={false}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-  />
-  <p>
-    rem qui hic dolore quibusdam quasi quisquam
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 9`] = `
-<div>
-  <textarea
-    cols={30}
-    disabled={false}
-    id="ut libero explicabo at quae autem eligendi"
-    onChange={[MockFunction]}
-    readOnly={false}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-    value={[Function]}
-  />
-  <p>
-    dolor vero voluptate esse aliquam molestiae quas
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 10`] = `
-<div
-  className="delectus molestias ut distinctio molestias placeat exercitationem"
->
-  <textarea
-    cols={30}
-    disabled={false}
-    id="omnis qui illo excepturi esse porro impedit"
-    maxLength={1104}
-    name="quo aut quia cumque architecto eos quos"
-    onChange={[MockFunction]}
-    readOnly={false}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-  />
-  <p>
-    dolorem in non dolorem nihil optio est
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 11`] = `
-<div>
-  <textarea
-    cols={30}
-    disabled={false}
-    id="non ipsa odio sit laboriosam quis voluptatem"
-    maxLength={3021}
-    name="tempore temporibus impedit dolores saepe dolor incidunt"
-    onChange={[MockFunction]}
-    readOnly={false}
-    required={true}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-    value="possimus quas dolor error eum incidunt provident"
-  />
-  <p>
-    ea numquam consequatur et et voluptas repellendus
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 12`] = `
 <div>
   <Label
-    htmlFor="nisi corrupti quas eligendi ut officiis sed"
+    htmlFor="vitae consequuntur non sit et ut voluptatem"
   >
-    perspiciatis nisi repellendus quia voluptate optio suscipit
-  </Label>
-  <textarea
-    cols={30}
-    disabled={false}
-    id="nisi corrupti quas eligendi ut officiis sed"
-    name="et ea quia sunt est aut et"
-    onChange={[MockFunction]}
-    placeholder="libero et et ratione qui voluptate sit"
-    readOnly={false}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-    value="dicta ipsam qui provident rerum necessitatibus blanditiis"
-  />
-  <p>
-    soluta dignissimos cum non ea sed consequatur
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 13`] = `
-<div
-  className="odit in eos sunt ipsum saepe veritatis"
->
-  <textarea
-    cols={30}
-    disabled={false}
-    maxLength={2675}
-    onChange={[MockFunction]}
-    placeholder="est nemo iste omnis eaque nobis possimus"
-    readOnly={true}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-    value="inventore vitae sint eligendi quis excepturi veritatis"
-  />
-  <p>
-    amet et quos repellat distinctio libero mollitia
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 14`] = `
-<div>
-  <Label
-    htmlFor="facilis est laboriosam tempora aut cupiditate aut"
-  >
-    iure dicta ab minus animi quis unde
-  </Label>
-  <textarea
-    cols={30}
-    disabled={true}
-    id="facilis est laboriosam tempora aut cupiditate aut"
-    maxLength={3663}
-    onChange={[MockFunction]}
-    placeholder="itaque nostrum omnis non provident enim quia"
-    readOnly={true}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-  />
-  <p>
-    est itaque qui dolorem voluptatem laboriosam iusto
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 15`] = `
-<div
-  className="maiores cumque consequuntur rerum aspernatur nulla aut"
->
-  <textarea
-    cols={30}
-    disabled={true}
-    name="non doloremque voluptas repellendus voluptatum quos ut"
-    onChange={[MockFunction]}
-    placeholder="maiores aut quasi quia quisquam quia blanditiis"
-    readOnly={false}
-    required={true}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-    value="earum quo fugiat et ut voluptate delectus"
-  />
-  <p>
-    facere illo nemo iusto iste illo dolor
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 16`] = `
-<div
-  className="repellat laudantium et qui et aperiam quia"
->
-  <textarea
-    cols={30}
-    disabled={false}
-    onChange={[MockFunction]}
-    placeholder="eum doloribus et perspiciatis sunt eligendi nihil"
-    readOnly={false}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-    value="velit voluptatem itaque quia accusantium autem consequuntur"
-  />
-  <p>
-    ea vel quaerat labore rerum aut voluptatem
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 17`] = `
-<div
-  className="exercitationem et error tempore aspernatur soluta possimus"
->
-  <textarea
-    cols={30}
-    disabled={false}
-    id="delectus aliquam et ipsam dolores voluptatem et"
-    name="doloremque earum cum et perferendis id dolor"
-    onChange={[MockFunction]}
-    placeholder="ut quisquam voluptatum qui exercitationem eum laudantium"
-    readOnly={false}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-    value="officia iure eius veritatis voluptates suscipit reiciendis"
-  />
-  <p>
-    similique autem doloribus et voluptatem id quisquam
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 18`] = `
-<div
-  className="ut velit odit ratione saepe id officia"
->
-  <textarea
-    cols={30}
-    disabled={false}
-    id="aspernatur quis consequatur eos perferendis similique et"
-    name="fugiat rerum officiis assumenda nihil ad ut"
-    onChange={[MockFunction]}
-    placeholder="aliquid sint voluptas saepe dignissimos voluptas quod"
-    readOnly={false}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-    value={[Function]}
-  />
-  <p>
-    libero quas in ullam voluptatibus minima consequatur
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 19`] = `
-<div
-  className="voluptas ullam animi excepturi laborum veniam asperiores"
->
-  <Label
-    htmlFor="eligendi excepturi fugit beatae ut ea rerum"
-  >
-    qui adipisci vero dolore aut iste eos
+    dicta odit vel quisquam qui harum a
     <span
       style={
         Object {
@@ -482,10 +196,58 @@ exports[`<TextArea /> matches snapshot 19`] = `
   </Label>
   <textarea
     cols={30}
-    disabled={true}
-    id="eligendi excepturi fugit beatae ut ea rerum"
+    disabled={false}
+    id="vitae consequuntur non sit et ut voluptatem"
     onChange={[MockFunction]}
-    placeholder="doloribus reprehenderit ex nisi repudiandae qui ex"
+    readOnly={true}
+    required={true}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value="ea voluptatem totam occaecati eveniet aut eligendi"
+  />
+  <p>
+    ratione eveniet ea totam aut aut sunt
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 9`] = `
+<div>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="enim rem qui hic dolore quibusdam quasi"
+    name="quisquam ut libero explicabo at quae autem"
+    onChange={[MockFunction]}
+    readOnly={false}
+    required={false}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value="modi molestiae rerum non quis sed ea"
+  />
+  <p>
+    repudiandae possimus dignissimos esse qui est aut
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 10`] = `
+<div>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="laborum nesciunt dolor vero voluptate esse aliquam"
+    maxLength={2706}
+    name="molestiae quas omnis qui illo excepturi esse"
+    onChange={[MockFunction]}
     readOnly={false}
     required={true}
     rows={10}
@@ -496,49 +258,47 @@ exports[`<TextArea /> matches snapshot 19`] = `
     }
   />
   <p>
-    est dolorem ratione sed enim provident ut
+    molestias placeat exercitationem unde minus facere iste
   </p>
 </div>
 `;
 
-exports[`<TextArea /> matches snapshot 20`] = `
-<div>
-  <Label
-    htmlFor="qui odit nam doloribus et facere voluptatibus"
-  >
-    quis est veniam eum laudantium accusamus nobis
-  </Label>
-  <textarea
-    cols={30}
-    disabled={false}
-    id="qui odit nam doloribus et facere voluptatibus"
-    maxLength={638}
-    onChange={[MockFunction]}
-    placeholder="reiciendis dolorem porro voluptates ut amet ea"
-    readOnly={true}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-  />
-  <p>
-    dolorem nesciunt sed consequatur cum non deserunt
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 21`] = `
+exports[`<TextArea /> matches snapshot 11`] = `
 <div>
   <textarea
     cols={30}
     disabled={true}
-    id="ut tenetur iure iste aut ab laborum"
-    maxLength={4419}
+    id="sunt modi aut dolorem in non dolorem"
     onChange={[MockFunction]}
-    placeholder="hic quo corporis minima cupiditate dolor voluptatibus"
+    placeholder="quis voluptatem quod tempore temporibus impedit dolores"
+    readOnly={false}
+    required={false}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value={[Function]}
+  />
+  <p>
+    voluptatibus omnis fugit labore quia et beatae
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 12`] = `
+<div
+  className="suscipit delectus aliquid et dicta ipsam qui"
+>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="adipisci voluptatum id porro ea numquam consequatur"
+    maxLength={128}
+    name="et et voluptas repellendus nisi corrupti quas"
+    onChange={[MockFunction]}
+    placeholder="ut officiis sed illum et ea quia"
     readOnly={true}
     required={false}
     rows={10}
@@ -547,22 +307,23 @@ exports[`<TextArea /> matches snapshot 21`] = `
         "marginBottom": "0px",
       }
     }
-    value="molestias nisi corporis nulla officia rerum incidunt"
+    value="sunt consectetur perspiciatis nisi repellendus quia voluptate"
   />
   <p>
-    animi sunt dolorum tempore animi vel possimus
+    aut laborum at non nulla sit officia
   </p>
 </div>
 `;
 
-exports[`<TextArea /> matches snapshot 22`] = `
+exports[`<TextArea /> matches snapshot 13`] = `
 <div
-  className="qui architecto aliquid iure eos expedita assumenda"
+  className="modi soluta hic omnis atque inventore vitae"
 >
   <textarea
     cols={30}
     disabled={false}
-    id="eos et ducimus voluptatem iusto tempore voluptas"
+    id="doloremque non sit a perferendis soluta dignissimos"
+    name="cum non ea sed consequatur ut sapiente"
     onChange={[MockFunction]}
     readOnly={false}
     required={false}
@@ -572,10 +333,261 @@ exports[`<TextArea /> matches snapshot 22`] = `
         "marginBottom": "0px",
       }
     }
-    value="aut nostrum repudiandae harum neque ut dolores"
+    value="eos quia quam sit optio rerum quasi"
   />
   <p>
-    blanditiis iste animi ipsa est molestias deserunt
+    in eos sunt ipsum saepe veritatis quisquam
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 14`] = `
+<div
+  className="animi quis unde animi aut sapiente fuga"
+>
+  <textarea
+    cols={30}
+    disabled={true}
+    id="eius dolore quia error sed asperiores amet"
+    name="et quos repellat distinctio libero mollitia facilis"
+    onChange={[MockFunction]}
+    placeholder="laboriosam tempora aut cupiditate aut non ipsam"
+    readOnly={false}
+    required={false}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value="quia et optio praesentium iure dicta ab"
+  />
+  <p>
+    enim est aspernatur voluptatem consequatur temporibus quasi
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 15`] = `
+<div
+  className="dolores eaque quis omnis ut praesentium vel"
+>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="numquam ut et quia cupiditate minus cum"
+    maxLength={2042}
+    name="est itaque qui dolorem voluptatem laboriosam iusto"
+    onChange={[MockFunction]}
+    placeholder="sint architecto corrupti quia nostrum molestiae quae"
+    readOnly={false}
+    required={false}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value="quia blanditiis qui sed a dolores voluptatem"
+  />
+  <p>
+    officia maiores cumque consequuntur rerum aspernatur nulla
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 16`] = `
+<div>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="aut omnis blanditiis accusamus ut odit quo"
+    maxLength={114}
+    name="enim facere illo nemo iusto iste illo"
+    onChange={[MockFunction]}
+    readOnly={false}
+    required={false}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value="sunt eligendi nihil porro suscipit sit eos"
+  />
+  <p>
+    consequuntur qui repellat laudantium et qui et
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 17`] = `
+<div
+  className="possimus voluptas eaque expedita iste velit et"
+>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="aperiam quia est et suscipit ipsa et"
+    maxLength={294}
+    onChange={[MockFunction]}
+    placeholder="voluptatem delectus aliquam et ipsam dolores voluptatem"
+    readOnly={false}
+    required={false}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value="qui exercitationem eum laudantium autem et recusandae"
+  />
+  <p>
+    suscipit reiciendis in exercitationem et error tempore
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 18`] = `
+<div>
+  <Label
+    htmlFor="aspernatur soluta possimus voluptas sed esse rem"
+  >
+    fugiat rerum officiis assumenda nihil ad ut
+  </Label>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="aspernatur soluta possimus voluptas sed esse rem"
+    maxLength={664}
+    onChange={[MockFunction]}
+    placeholder="id quisquam aspernatur quis consequatur eos perferendis"
+    readOnly={false}
+    required={false}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+  />
+  <p>
+    quidem excepturi temporibus facere ut velit odit
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 19`] = `
+<div>
+  <Label
+    htmlFor="ratione saepe id officia pariatur et tenetur"
+  >
+    nobis sit nihil sint occaecati dolore autem
+    <span
+      style={
+        Object {
+          "color": "#B20000",
+        }
+      }
+    >
+      *
+    </span>
+  </Label>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="ratione saepe id officia pariatur et tenetur"
+    maxLength={1711}
+    onChange={[MockFunction]}
+    placeholder="voluptatibus minima consequatur eligendi excepturi fugit beatae"
+    readOnly={false}
+    required={true}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value="reprehenderit ex nisi repudiandae qui ex unde"
+  />
+  <p>
+    est ab quia ab sed voluptas ullam
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 20`] = `
+<div
+  className="qui est quis est veniam eum laudantium"
+>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="animi excepturi laborum veniam asperiores et consectetur"
+    onChange={[MockFunction]}
+    placeholder="sed enim provident ut qui odit nam"
+    readOnly={true}
+    required={true}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value={[Function]}
+  />
+  <p>
+    ut dolor et placeat rerum sequi ex
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 21`] = `
+<div
+  className="officiis voluptatem veniam aut voluptas suscipit sit"
+>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="adipisci fugiat officiis enim voluptatem adipisci sequi"
+    maxLength={2706}
+    onChange={[MockFunction]}
+    readOnly={true}
+    required={false}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value={[Function]}
+  />
+  <p>
+    nisi corporis nulla officia rerum incidunt porro
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 22`] = `
+<div>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="amet at asperiores libero officia totam corporis"
+    name="rem sit eligendi ipsa molestiae aut doloribus"
+    onChange={[MockFunction]}
+    readOnly={false}
+    required={false}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value={[Function]}
+  />
+  <p>
+    aut nostrum repudiandae harum neque ut dolores
   </p>
 </div>
 `;
@@ -585,10 +597,10 @@ exports[`<TextArea /> matches snapshot 23`] = `
   <textarea
     cols={30}
     disabled={false}
-    maxLength={4960}
-    name="est impedit assumenda qui cum quos eos"
+    id="qui qui architecto aliquid iure eos expedita"
     onChange={[MockFunction]}
-    readOnly={true}
+    placeholder="blanditiis iste animi ipsa est molestias deserunt"
+    readOnly={false}
     required={false}
     rows={10}
     style={
@@ -596,28 +608,49 @@ exports[`<TextArea /> matches snapshot 23`] = `
         "marginBottom": "0px",
       }
     }
-    value="ut a ut exercitationem voluptatem nam in"
+    value="quos eos iste aut inventore optio tempora"
   />
   <p>
-    fuga adipisci saepe quam quia veritatis qui
+    iste ut a ut exercitationem voluptatem nam
   </p>
 </div>
 `;
 
 exports[`<TextArea /> matches snapshot 24`] = `
 <div
-  className="enim numquam esse quia aperiam libero ipsa"
+  className="qui necessitatibus quae tempora voluptatem autem voluptas"
 >
-  <Label
-    htmlFor="optio autem et dolorum explicabo provident molestiae"
-  >
-    voluptas delectus iure veniam est consequatur ut
-  </Label>
   <textarea
     cols={30}
-    disabled={true}
-    id="optio autem et dolorum explicabo provident molestiae"
-    name="est laudantium corporis sed aut est molestias"
+    disabled={false}
+    id="in quod et ea quasi perferendis voluptatem"
+    maxLength={2696}
+    name="nemo consequatur voluptatum eligendi eos magni iste"
+    onChange={[MockFunction]}
+    placeholder="et fuga adipisci saepe quam quia veritatis"
+    readOnly={false}
+    required={false}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value="aut est molestias omnis nisi vel omnis"
+  />
+  <p>
+    numquam et culpa nulla ipsum et explicabo
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 25`] = `
+<div>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="vel quaerat fuga enim numquam esse quia"
+    name="aperiam libero ipsa voluptates quaerat recusandae accusamus"
     onChange={[MockFunction]}
     readOnly={false}
     required={false}
@@ -627,50 +660,21 @@ exports[`<TextArea /> matches snapshot 24`] = `
         "marginBottom": "0px",
       }
     }
-    value="culpa nulla ipsum et explicabo vel quaerat"
   />
   <p>
-    incidunt ex et molestiae facere labore et
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 25`] = `
-<div
-  className="maxime a repellendus perspiciatis vero dolores incidunt"
->
-  <textarea
-    cols={30}
-    disabled={false}
-    maxLength={3907}
-    name="nisi culpa provident voluptatem sit id in"
-    onChange={[MockFunction]}
-    placeholder="iure quos sed quibusdam voluptatem ducimus est"
-    readOnly={true}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-    value="provident voluptates perspiciatis nulla maiores pariatur amet"
-  />
-  <p>
-    cum qui aut natus aperiam est est
+    sunt aut quam provident voluptates perspiciatis nulla
   </p>
 </div>
 `;
 
 exports[`<TextArea /> matches snapshot 26`] = `
 <div
-  className="sint voluptatum cupiditate quo sit adipisci ab"
+  className="aspernatur earum ex officia veritatis eos aut"
 >
   <textarea
     cols={30}
     disabled={false}
-    maxLength={3026}
-    name="similique totam quia eum temporibus praesentium ducimus"
+    id="maiores pariatur amet harum maxime a repellendus"
     onChange={[MockFunction]}
     readOnly={false}
     required={false}
@@ -680,23 +684,47 @@ exports[`<TextArea /> matches snapshot 26`] = `
         "marginBottom": "0px",
       }
     }
-    value={[Function]}
+    value="quia eum temporibus praesentium ducimus facere esse"
   />
   <p>
-    repellat maiores iure fuga sit quod officiis
+    dolor delectus unde reprehenderit deleniti nihil ex
   </p>
 </div>
 `;
 
 exports[`<TextArea /> matches snapshot 27`] = `
-<div
-  className="iste quo earum et nam rem adipisci"
->
+<div>
   <textarea
     cols={30}
     disabled={true}
-    id="exercitationem ut expedita quos nam labore aliquid"
-    name="a quod rerum suscipit impedit veniam perferendis"
+    id="maiores nihil quisquam id omnis sint voluptatum"
+    maxLength={3462}
+    onChange={[MockFunction]}
+    placeholder="assumenda odio id id repellat maiores iure"
+    readOnly={true}
+    required={true}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value="quod rerum suscipit impedit veniam perferendis est"
+  />
+  <p>
+    similique optio hic perspiciatis dolor quod doloribus
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 28`] = `
+<div
+  className="velit velit perspiciatis mollitia ut corrupti sunt"
+>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="culpa possimus consectetur voluptas perferendis dicta iste"
     onChange={[MockFunction]}
     readOnly={false}
     required={false}
@@ -706,35 +734,10 @@ exports[`<TextArea /> matches snapshot 27`] = `
         "marginBottom": "0px",
       }
     }
+    value="saepe dicta qui asperiores nihil illum ut"
   />
   <p>
-    sed vel blanditiis aut qui veniam quis
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 28`] = `
-<div>
-  <textarea
-    cols={30}
-    disabled={false}
-    id="sapiente laboriosam occaecati expedita quam ex et"
-    maxLength={321}
-    name="saepe dicta qui asperiores nihil illum ut"
-    onChange={[MockFunction]}
-    placeholder="velit velit perspiciatis mollitia ut corrupti sunt"
-    readOnly={true}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-    value="aut dolore labore vitae aperiam voluptas impedit"
-  />
-  <p>
-    mollitia quis dolor non id cum enim
+    voluptatem rerum et cumque quo sed aut
   </p>
 </div>
 `;
@@ -743,10 +746,36 @@ exports[`<TextArea /> matches snapshot 29`] = `
 <div>
   <textarea
     cols={30}
-    disabled={true}
-    name="eaque dignissimos incidunt quis non ut molestiae"
+    disabled={false}
+    id="dolore labore vitae aperiam voluptas impedit cumque"
+    maxLength={3472}
     onChange={[MockFunction]}
-    placeholder="quibusdam delectus non cupiditate sit illo consequatur"
+    readOnly={false}
+    required={true}
+    rows={10}
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    value="aut eaque dignissimos incidunt quis non ut"
+  />
+  <p>
+    animi et sapiente qui minima ea beatae
+  </p>
+</div>
+`;
+
+exports[`<TextArea /> matches snapshot 30`] = `
+<div>
+  <textarea
+    cols={30}
+    disabled={false}
+    id="consequatur vero quis voluptates voluptates similique laboriosam"
+    maxLength={1411}
+    name="molestiae modi expedita quaerat eos aut itaque"
+    onChange={[MockFunction]}
+    placeholder="quis incidunt provident assumenda sit pariatur quam"
     readOnly={false}
     required={false}
     rows={10}
@@ -758,21 +787,21 @@ exports[`<TextArea /> matches snapshot 29`] = `
     value={[Function]}
   />
   <p>
-    et excepturi laborum sit aut iste explicabo
+    molestias odio qui sit et voluptate vitae
   </p>
 </div>
 `;
 
-exports[`<TextArea /> matches snapshot 30`] = `
+exports[`<TextArea /> matches snapshot 31`] = `
 <div>
   <textarea
     cols={30}
     disabled={true}
-    id="expedita eos ut id unde est doloremque"
-    name="molestiae velit sequi sapiente et voluptas at"
+    id="quidem aliquam et quaerat expedita sunt est"
+    maxLength={4666}
     onChange={[MockFunction]}
     readOnly={true}
-    required={false}
+    required={true}
     rows={10}
     style={
       Object {
@@ -782,46 +811,23 @@ exports[`<TextArea /> matches snapshot 30`] = `
     value={[Function]}
   />
   <p>
-    voluptatem ut ipsa iure similique voluptatum minima
-  </p>
-</div>
-`;
-
-exports[`<TextArea /> matches snapshot 31`] = `
-<div>
-  <textarea
-    cols={30}
-    disabled={false}
-    id="sunt deserunt sit aut et quis voluptatum"
-    maxLength={1085}
-    onChange={[MockFunction]}
-    readOnly={true}
-    required={false}
-    rows={10}
-    style={
-      Object {
-        "marginBottom": "0px",
-      }
-    }
-    value="exercitationem aliquam unde quisquam vel saepe et"
-  />
-  <p>
-    ab maxime dolor modi tenetur enim praesentium
+    eaque adipisci eos ab error velit modi
   </p>
 </div>
 `;
 
 exports[`<TextArea /> matches snapshot 32`] = `
 <div
-  className="dolores enim magni perspiciatis voluptas officia voluptatem"
+  className="sint enim ratione cupiditate cumque suscipit fuga"
 >
   <textarea
     cols={30}
-    disabled={true}
-    id="voluptatem ipsam quod voluptatem molestiae temporibus non"
-    name="natus reprehenderit facere qui sint enim ratione"
+    disabled={false}
+    id="sit sunt exercitationem aliquam unde quisquam vel"
+    maxLength={4071}
+    name="saepe et qui aut enim culpa eius"
     onChange={[MockFunction]}
-    readOnly={true}
+    readOnly={false}
     required={false}
     rows={10}
     style={
@@ -829,9 +835,10 @@ exports[`<TextArea /> matches snapshot 32`] = `
         "marginBottom": "0px",
       }
     }
+    value="molestiae temporibus non dolorum natus reprehenderit facere"
   />
   <p>
-    dignissimos tempore aliquam eveniet aut ut ducimus
+    expedita veritatis pariatur magni ut explicabo iste
   </p>
 </div>
 `;
