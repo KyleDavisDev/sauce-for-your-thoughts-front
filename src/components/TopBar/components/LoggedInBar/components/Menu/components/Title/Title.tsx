@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { StyledDiv } from "./TitleStyle";
 
-interface TitleProps {
+export interface TitleProps {
   children: string;
   className?: string;
 }
