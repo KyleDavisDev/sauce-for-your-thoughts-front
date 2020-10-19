@@ -25,9 +25,7 @@ const mockTextAreas = new Array(ITERATION_SIZE).fill(null).map(fakeTextArea);
 describe("<TextArea />", () => {
   it("renders", () => {
     mockTextAreas.forEach(mockTextArea => {
-      const wrapper = enzyme.shallow(
-        <TextArea onChange={mockTextArea.onChange} />
-      );
+      const wrapper = enzyme.shallow(<TextArea {...mockTextArea} />);
 
       expect(wrapper).toBeTruthy();
     });
