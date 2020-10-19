@@ -24,6 +24,7 @@ const StyledArticle = styled(Article)`
   margin: 0 auto;
   font-family: AvenirNextReg;
   padding: 0 15px;
+  box-sizing: border-box;
 
   > div {
     margin-bottom: 3.5rem;
