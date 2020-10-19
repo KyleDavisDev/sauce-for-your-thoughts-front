@@ -5,16 +5,14 @@ import Item from "../Item/Item";
 
 export interface AccountProps {}
 
-class Account extends React.PureComponent<AccountProps, any> {
-  public render() {
-    return (
-      <div>
-        <Title>Account</Title>
-        <Item to="/account/settings">Settings</Item>
-        <Item to="#">Profile (Coming Soon)</Item>
-      </div>
-    );
-  }
-}
+const Account: React.FC<AccountProps> = props => {
+  return (
+    <>
+      <Title>Account</Title>
+      <Item to="/account/settings">Settings</Item>
+      <Item to="#">Profile (Coming Soon)</Item>
+    </>
+  );
+};
 
 export default Account;
