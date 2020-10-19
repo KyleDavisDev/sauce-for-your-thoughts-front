@@ -57,7 +57,8 @@ const FilterBar: React.FunctionComponent<FilterBarProps> = props => {
   return (
     <StyledFormContainer>
       <StyledForm onSubmit={onSubmit}>
-        <StyledDropDown
+        <StyledSelect
+          id="options"
           showLabel={true}
           label={"Type"}
           name={"types"}
@@ -66,16 +67,18 @@ const FilterBar: React.FunctionComponent<FilterBarProps> = props => {
           selectedValue={type}
         />
 
-        <StyledDropDown
+        <StyledSelect
+          id="order"
           showLabel={true}
           label={"Order"}
           name={"order"}
-          options={orders.options}
+          options={orders.options || []}
           onSelect={e => setOrder(e.target.value)}
           selectedValue={order}
         />
 
-        <StyledDropDown
+        <StyledSelect
+          id="limi"
           showLabel={true}
           label={"Limit"}
           name={"limit"}
@@ -85,6 +88,7 @@ const FilterBar: React.FunctionComponent<FilterBarProps> = props => {
         />
 
         <StyledInput
+          id="name"
           showLabel={true}
           label={"Name like..."}
           onChange={e => setSrch(e.target.value)}
