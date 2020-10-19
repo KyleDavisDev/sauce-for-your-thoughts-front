@@ -34,4 +34,14 @@ describe("<Title />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("appends className to parent", () => {
+    mockTitles.forEach(mockTitle => {
+      const wrapper = enzyme.shallow(
+        <Title {...mockTitle}>{mockTitle.children}</Title>
+      );
+
+      expect(wrapper.first().prop("className")).toEqual(mockTitle.className);
+    });
+  });
 });
