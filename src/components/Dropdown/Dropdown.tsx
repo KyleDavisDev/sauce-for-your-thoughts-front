@@ -72,16 +72,18 @@ const Dropdown: React.FC<DropdownProps> = props => {
       _menuChild: null | JSX.Element = null;
 
     props.children.forEach(child => {
-      console.log(child.props);
       // Quick escape if we have assignment
       if (_toggleChild !== null && _menuChild !== null) return;
 
       // grab name of child wherever it's set
-      const name =
-        child.props.name ||
-        child.props.displayName ||
-        child.type.name ||
-        child.type.displayName;
+      let name = child.props.name || child.props.displayName;
+      if (!name) {
+        // try assigning again
+        const tmp = child.type as { name?: string; displayName?: string };
+        name = tmp.name || tmp.displayName;
+      }
+      // if we still don't have a name, get out
+      if (!name) return;
 
       if (name === "Toggle" && _toggleChild === null) {
         _toggleChild = React.cloneElement(child, {
