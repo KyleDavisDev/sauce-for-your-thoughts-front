@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 
 import styled from "../../../../../../theme/styled-components";
 import { AppState } from "../../../../../../redux/configureStore";
-import ProfileMenuItem from "./components/Profile/Profile";
-import AccountMenuItem from "./components/AccountMenuItem/AccountMenuItem";
-import HelpMenuItem from "./components/HelpMenuItem/HelpMenuItem";
-import AdminMenuItem from "./components/AdminMenuItem/AdminMenuItem";
+import Profile from "./components/Profile/Profile";
+import Account from "./components/Account/Acount";
+import Help from "./components/Help/Help";
+import Admin from "./components/Admin/Admin";
 import Item from "./components/Item/Item";
 import { StyledDiv, StyledUL } from "./MenuStyle";
 
@@ -21,17 +21,17 @@ const Menu: React.FC<MenuProps> = props => {
     <StyledDiv className={props.className}>
       <StyledUL>
         <li>
-          <ProfileMenuItem />
+          <Profile />
         </li>
         <li>
-          <AccountMenuItem />
+          <Account />
         </li>
         <li>
-          <HelpMenuItem />
+          <Help />
         </li>
         {isAdmin && (
           <li>
-            <AdminMenuItem />
+            <Admin />
           </li>
         )}
         <hr style={{ margin: 0 }} />
