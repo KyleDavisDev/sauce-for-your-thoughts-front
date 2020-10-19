@@ -44,4 +44,14 @@ describe("<Title />", () => {
       expect(wrapper.first().prop("className")).toEqual(mockTitle.className);
     });
   });
+
+  it("renders expected child", () => {
+    mockTitles.forEach(mockTitle => {
+      const wrapper = enzyme.shallow(
+        <Title {...mockTitle}>{mockTitle.children}</Title>
+      );
+
+      expect(wrapper.first().prop("children")).toEqual(mockTitle.children);
+    });
+  });
 });
