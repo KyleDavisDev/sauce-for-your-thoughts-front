@@ -5,7 +5,7 @@ import TextArea, { TextAreaProps } from "./TextArea";
 import { casual, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
 
 const fakeTextArea = (): TextAreaProps => ({
-  id: casual.random_element([undefined, casual.string]),
+  id: casual.string,
   name: casual.random_element([undefined, casual.string]),
   placeholder: casual.random_element([undefined, casual.string]),
   required: casual.random_element([undefined, casual.boolean]),
