@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useRouter } from "next/router";
-import shortid from "shortid";
 import { useSelector, useDispatch } from "react-redux";
 
 import { ISauce } from "../../redux/sauces/types";
@@ -47,26 +46,24 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
   // get info from redux
   const { author, typesOfSauces, token } = useSelector((store: AppState) => {
     // 1. Find author
-    const _author = store.users.self.displayName;
+    const _author = store.users?.self?.displayName;
 
     // 2. Find token
-    const _token = store.users.self.token;
+    const _token = store.users?.self?.token;
 
     // 3. Find types of suaces
     const _typesOfSauces: {
       [key: string]: { value: string; checked: boolean; key: string };
     } = {};
     if (store.sauces.types) {
-      store.sauces.types.forEach(type => {
-        if (type === "All") {
-          // continue;
-        } else {
-          _typesOfSauces[type] = {
-            value: type,
-            checked: false,
-            key: shortid.generate()
-          };
-        }
+      store.sauces.types.forEach((type, ind) => {
+        if (type === "All") return;
+
+        _typesOfSauces[type] = {
+          value: type,
+          checked: false,
+          key: ind + "-" + type
+        };
       });
     }
 
