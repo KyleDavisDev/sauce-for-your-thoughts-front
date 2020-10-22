@@ -9,4 +9,10 @@ describe("<Account />", () => {
 
     expect(wrapper).toBeTruthy();
   });
+
+  it("matches snapshot", () => {
+    const wrapper = enzyme.shallow(<Account />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Account /> matches snapshot 1`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
