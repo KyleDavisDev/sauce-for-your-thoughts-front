@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "../../../../../../../Link/Link";
-import styled from "styled-components";
+import styled from "../../../../../../../../theme/styled-components";
 
 const StyledDiv = styled.div`
   display: inline-block;
@@ -19,16 +19,18 @@ const StyledDiv = styled.div`
   }
 `;
 
-interface ItemProps {
+export interface ItemProps {
   to?: string;
   children: string;
   onClick?: (event: any) => void;
 }
 
 const Item: React.SFC<ItemProps> = props => {
+  const _defaultPath = "#";
+
   return (
     <StyledDiv onClick={props.onClick}>
-      <Link href={props.to || "#"}>{props.children}</Link>
+      <Link href={props.to || _defaultPath}>{props.children}</Link>
     </StyledDiv>
   );
 };
