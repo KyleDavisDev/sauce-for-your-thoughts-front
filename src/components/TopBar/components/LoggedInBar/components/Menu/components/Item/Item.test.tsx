@@ -38,6 +38,18 @@ describe("<Item />", () => {
     });
   });
 
+  it("renders a Link component", () => {
+    mockItems.forEach(mockItem => {
+      if (!mockItem.to) return;
+
+      const wrapper = enzyme.shallow(
+        <Item {...mockItem}>{mockItem.children}</Item>
+      );
+
+      expect(wrapper.find("Link").exists()).toBeTruthy();
+    });
+  });
+
   it("passes expected 'to' to Link component when provided", () => {
     mockItems.forEach(mockItem => {
       if (!mockItem.to) return;
