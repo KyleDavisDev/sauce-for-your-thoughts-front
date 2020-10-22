@@ -61,4 +61,16 @@ describe("<Item />", () => {
       expect(wrapper.find("Link").prop("href")).toEqual(mockItem.to);
     });
   });
+
+  it("passes default 'to' to Link component when not provided", () => {
+    mockItems.forEach(mockItem => {
+      if (mockItem.to) return;
+
+      const wrapper = enzyme.shallow(
+        <Item {...mockItem}>{mockItem.children}</Item>
+      );
+
+      expect(wrapper.find("Link").prop("href")).toEqual(_defaultPath);
+    });
+  });
 });
