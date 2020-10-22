@@ -83,4 +83,14 @@ describe("<Item />", () => {
       expect(wrapper.find("Link").prop("children")).toEqual(mockItem.children);
     });
   });
+
+  it("passes expected 'onClick' to parent", () => {
+    mockItems.forEach(mockItem => {
+      const wrapper = enzyme.shallow(
+        <Item {...mockItem}>{mockItem.children}</Item>
+      );
+
+      expect(wrapper.first().prop("onClick")).toEqual(mockItem.onClick);
+    });
+  });
 });
