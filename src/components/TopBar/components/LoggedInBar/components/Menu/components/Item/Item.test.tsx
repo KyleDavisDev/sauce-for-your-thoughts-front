@@ -84,8 +84,10 @@ describe("<Item />", () => {
     });
   });
 
-  it("passes expected 'onClick' to parent", () => {
+  it("passes expected 'onClick' to parent when provided", () => {
     mockItems.forEach(mockItem => {
+      if (!mockItem.onClick) return;
+
       const wrapper = enzyme.shallow(
         <Item {...mockItem}>{mockItem.children}</Item>
       );
