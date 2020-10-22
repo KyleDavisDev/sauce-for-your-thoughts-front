@@ -25,7 +25,7 @@ export interface ItemProps {
   onClick?: (event: any) => void;
 }
 
-const Item: React.SFC<ItemProps> = props => {
+const Item: React.FC<ItemProps> = props => {
   const _defaultPath = "#";
 
   return (
