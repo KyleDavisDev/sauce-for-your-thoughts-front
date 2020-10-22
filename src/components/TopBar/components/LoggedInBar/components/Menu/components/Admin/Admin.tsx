@@ -6,9 +6,11 @@ import Item from "../Item/Item";
 export interface AdminProps {}
 
 const Admin: React.FC<AdminProps> = props => {
+  const _title = "Admin";
+
   return (
     <>
-      <Title>Admin</Title>
+      <Title>{_title}</Title>
       <Item to="/admin/approvesaucesubmissions">Approve Submissions</Item>
     </>
   );
