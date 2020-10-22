@@ -6,9 +6,10 @@ import Item from "../Item/Item";
 export interface AccountProps {}
 
 const Account: React.FC<AccountProps> = props => {
+  const _title = "Account";
   return (
     <>
-      <Title>Account</Title>
+      <Title>{_title}</Title>
       <Item to="/account/settings">Settings</Item>
       <Item to="#">Profile (Coming Soon)</Item>
     </>
