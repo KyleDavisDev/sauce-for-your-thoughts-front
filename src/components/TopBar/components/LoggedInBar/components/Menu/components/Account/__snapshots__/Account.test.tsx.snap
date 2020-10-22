@@ -17,3 +17,561 @@ exports[`<Account /> matches snapshot 1`] = `
   </Item>
 </Fragment>
 `;
+
+exports[`<Account /> matches snapshot 2`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 3`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 4`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 5`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 6`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 7`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 8`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 9`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 10`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 11`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 12`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 13`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 14`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 15`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 16`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 17`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 18`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 19`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 20`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 21`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 22`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 23`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 24`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 25`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 26`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 27`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 28`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 29`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 30`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 31`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Account /> matches snapshot 32`] = `
+<Fragment>
+  <Title>
+    Account
+  </Title>
+  <Item
+    to="/account/settings"
+  >
+    Settings
+  </Item>
+  <Item
+    to="#"
+  >
+    Profile (Coming Soon)
+  </Item>
+</Fragment>
+`;
