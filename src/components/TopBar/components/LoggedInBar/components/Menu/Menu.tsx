@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { AppState } from "../../../../../../redux/configureStore";
 import Profile from "./components/Profile/Profile";
-import Account from "./components/Account/Acount";
+import Account from "./components/Account/Account";
 import Help from "./components/Help/Help";
 import Admin from "./components/Admin/Admin";
 import Item from "./components/Item/Item";
