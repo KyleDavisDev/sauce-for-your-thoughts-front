@@ -20,4 +20,12 @@ describe("<Account />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("renders a Title component", () => {
+    new Array(ITERATION_SIZE).fill(null).map(() => {
+      const wrapper = enzyme.shallow(<Account />);
+
+      expect(wrapper.find("Title").exists()).toBeTruthy();
+    });
+  });
 });
