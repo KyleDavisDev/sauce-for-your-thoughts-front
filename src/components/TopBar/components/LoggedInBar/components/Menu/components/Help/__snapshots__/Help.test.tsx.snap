@@ -1,0 +1,577 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Help /> matches snapshot 1`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 2`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 3`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 4`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 5`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 6`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 7`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 8`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 9`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 10`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 11`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 12`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 13`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 14`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 15`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 16`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 17`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 18`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 19`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 20`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 21`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 22`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 23`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 24`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 25`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 26`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 27`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 28`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 29`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 30`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 31`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
+
+exports[`<Help /> matches snapshot 32`] = `
+<Fragment>
+  <Title>
+    Need Help?
+  </Title>
+  <Item
+    to="#"
+  >
+    Quick Guide (Coming Soon)
+  </Item>
+  <Item
+    to="#"
+  >
+    Contact Us (Coming Soon)
+  </Item>
+</Fragment>
+`;
