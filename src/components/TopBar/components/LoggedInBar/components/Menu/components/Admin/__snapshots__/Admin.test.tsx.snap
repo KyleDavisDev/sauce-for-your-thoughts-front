@@ -1,0 +1,417 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Admin /> matches snapshot 1`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 2`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 3`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 4`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 5`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 6`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 7`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 8`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 9`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 10`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 11`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 12`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 13`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 14`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 15`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 16`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 17`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 18`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 19`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 20`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 21`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 22`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 23`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 24`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 25`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 26`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 27`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 28`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 29`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 30`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 31`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
+
+exports[`<Admin /> matches snapshot 32`] = `
+<Fragment>
+  <Title>
+    Admin
+  </Title>
+  <Item
+    to="/admin/approvesaucesubmissions"
+  >
+    Approve Submissions
+  </Item>
+</Fragment>
+`;
