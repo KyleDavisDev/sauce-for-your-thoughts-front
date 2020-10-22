@@ -38,4 +38,12 @@ describe("<Account />", () => {
       expect(wrapper.find("Title").prop("children")).toEqual(_title);
     });
   });
+
+  it("renders two Item components", () => {
+    new Array(ITERATION_SIZE).fill(null).map(() => {
+      const wrapper = enzyme.shallow(<Account />);
+
+      expect(wrapper.find("Item").length).toEqual(2);
+    });
+  });
 });
