@@ -73,4 +73,14 @@ describe("<Item />", () => {
       expect(wrapper.find("Link").prop("href")).toEqual(_defaultPath);
     });
   });
+
+  it("passes expected children to Link component", () => {
+    mockItems.forEach(mockItem => {
+      const wrapper = enzyme.shallow(
+        <Item {...mockItem}>{mockItem.children}</Item>
+      );
+
+      expect(wrapper.find("Link").prop("children")).toEqual(mockItem.children);
+    });
+  });
 });
