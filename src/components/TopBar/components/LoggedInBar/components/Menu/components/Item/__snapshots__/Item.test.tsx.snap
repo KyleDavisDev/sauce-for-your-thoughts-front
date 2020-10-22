@@ -1,0 +1,385 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Item /> matches snapshot 1`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    quidem praesentium magnam fugiat error molestiae laborum
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 2`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    iure facilis ut explicabo iure vitae occaecati
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 3`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://Everette.me/"
+  >
+    recusandae fuga reprehenderit soluta non omnis consequatur
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 4`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    tenetur amet modi reprehenderit omnis adipisci eius
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 5`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://Shany.com/"
+  >
+    ab aliquam id sit delectus vel ipsa
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 6`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://www.Lang.co.uk/"
+  >
+    illum animi vel provident dicta perferendis dolorum
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 7`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://Tremblay.tv/"
+  >
+    sint quia sed exercitationem omnis laborum exercitationem
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 8`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://Klocko.info/"
+  >
+    quasi adipisci mollitia iste itaque omnis debitis
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 9`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    sapiente soluta corporis commodi eaque nisi cum
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 10`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    atque et non explicabo dolores ipsam laboriosam
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 11`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    autem sit aspernatur aspernatur quam eligendi est
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 12`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://Herbert.biz/"
+  >
+    est unde sit ex expedita est doloremque
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 13`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    omnis necessitatibus maiores ullam quae corporis qui
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 14`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://Smitham.biz/"
+  >
+    qui enim et doloremque voluptate in sunt
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 15`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://Adams.com/"
+  >
+    rerum at sint dolores fugiat quis et
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 16`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://www.Ullrich.biz/"
+  >
+    eveniet assumenda quis quae iusto sapiente nostrum
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 17`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://Colton.us/"
+  >
+    inventore laudantium dolor sint officiis qui dignissimos
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 18`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://www.Aisha.io/"
+  >
+    iste est unde rem similique et maxime
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 19`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    sint provident aut ullam distinctio autem quam
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 20`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    animi in ut occaecati at odit tempora
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 21`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://Joshua.biz/"
+  >
+    quos eum voluptate sit saepe assumenda deserunt
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 22`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    in rerum libero odit aut labore qui
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 23`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    incidunt ut ducimus fugiat et et aut
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 24`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://Pacocha.com/"
+  >
+    ut ullam et possimus sint fugiat maiores
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 25`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://www.Jenkins.info/"
+  >
+    deserunt nihil quasi minus quo sunt possimus
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 26`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://Grady.io/"
+  >
+    optio consequatur velit voluptate necessitatibus excepturi et
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 27`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    atque quos rerum nobis nam dolor quas
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 28`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://Christiansen.info/"
+  >
+    ipsum occaecati et consequatur consectetur sunt molestiae
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 29`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    molestiae non sint et ipsa consequuntur quidem
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 30`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    assumenda animi non quis quis nobis repudiandae
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 31`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="http://www.Joshua.me/"
+  >
+    facilis eligendi voluptatibus similique blanditiis in eum
+  </Link>
+</styled.div>
+`;
+
+exports[`<Item /> matches snapshot 32`] = `
+<styled.div
+  onClick={[MockFunction]}
+>
+  <Link
+    href="#"
+  >
+    est eius dolorem amet quia quia aut
+  </Link>
+</styled.div>
+`;
