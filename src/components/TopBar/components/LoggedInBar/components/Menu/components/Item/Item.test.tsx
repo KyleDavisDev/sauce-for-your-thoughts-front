@@ -25,4 +25,14 @@ describe("<Item />", () => {
       expect(wrapper).toBeTruthy();
     });
   });
+
+  it("matches snapshot", () => {
+    mockItems.forEach(mockItem => {
+      const wrapper = enzyme.shallow(
+        <Item {...mockItem}>{mockItem.children}</Item>
+      );
+
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });
