@@ -10,7 +10,7 @@ import {
 const fakeItem = (): ItemProps => ({
   to: casual.random_element([undefined, casual.url]),
   children: casual.string,
-  onClick: jest.fn()
+  onClick: casual.random_element([undefined, jest.fn()])
 });
 
 const mockItems = new Array(ITERATION_SIZE).fill(null).map(fakeItem);
