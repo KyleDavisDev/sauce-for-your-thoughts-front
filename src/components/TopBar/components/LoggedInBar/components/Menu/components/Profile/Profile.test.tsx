@@ -10,20 +10,25 @@ import {
 } from "../../../../../../../../utils/testUtils/testUtils";
 import { AppState } from "../../../../../../../../redux/configureStore";
 
-const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
-
 describe("<Profile />", () => {
   const _defaultDisplayName = "Me";
   const _defaultAvatarURL = "";
   let wrappers: any = [];
 
-  mockStores.forEach(mockStore => {
-    let tmp = enzyme.mount(
-      <Provider store={mockStore}>
-        <Profile />
-      </Provider>
-    );
-    wrappers.push(tmp);
+  beforeAll(() => {
+    // create mock stores
+    const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
+
+    // create wrappers
+    mockStores.forEach(mockStore => {
+      wrappers.push(
+        enzyme.mount(
+          <Provider store={mockStore}>
+            <Profile />
+          </Provider>
+        )
+      );
+    });
   });
 
   it("renders", () => {
