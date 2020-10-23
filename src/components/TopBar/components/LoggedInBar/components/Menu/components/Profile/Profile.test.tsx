@@ -14,11 +14,10 @@ describe("<Profile />", () => {
   const _defaultDisplayName = "Me";
   const _defaultAvatarURL = "";
   let wrappers: any = [];
+  // create mock stores
+  const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
   beforeAll(() => {
-    // create mock stores
-    const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
-
     // create wrappers
     mockStores.forEach(mockStore => {
       wrappers.push(
