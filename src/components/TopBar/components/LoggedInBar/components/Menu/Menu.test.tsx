@@ -3,8 +3,9 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 import { Provider } from "react-redux";
 
-import Menu from "./Menu";
+import Menu, { MenuProps } from "./Menu";
 import {
+  casual,
   fakeStore,
   ITERATION_SIZE
 } from "../../../../../../utils/testUtils/testUtils";
@@ -14,6 +15,9 @@ describe("<Menu />", () => {
   let wrappers: any = [];
   // create stores
   const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
+  const fakeMenuProps = (): MenuProps => ({
+    className: casual.random_element([undefined, casual.string])
+  });
 
   beforeAll(() => {
     // create wrappers
@@ -21,7 +25,7 @@ describe("<Menu />", () => {
       wrappers.push(
         enzyme.mount(
           <Provider store={mockStore}>
-            <Menu />
+            <Menu {...fakeMenuProps()} />
           </Provider>
         )
       );
