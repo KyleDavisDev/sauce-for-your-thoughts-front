@@ -68,4 +68,15 @@ describe("<Menu />", () => {
       expect(wrapper.find("Admin").exists()).toBeTruthy();
     });
   });
+
+  it("does not render Admin component when not admin", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // grab isAdmin from store
+      const reduxState = mockStores[ind].getState() as AppState;
+      const isAdmin = reduxState.users.self?.isAdmin;
+      if (isAdmin) return;
+
+      expect(wrapper.find("Admin").exists()).toBeFalsy();
+    });
+  });
 });
