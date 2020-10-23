@@ -9,24 +9,33 @@ import {
   ITERATION_SIZE
 } from "../../../../../../utils/testUtils/testUtils";
 
-const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
-
 describe("<Menu />", () => {
   let wrappers: any = [];
+  // create stores
+  const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
-  mockStores.forEach(mockStore => {
-    wrappers.push(
-      enzyme.mount(
-        <Provider store={mockStore}>
-          <Menu />
-        </Provider>
-      )
-    );
+  beforeAll(() => {
+    // create wrappers
+    mockStores.forEach(mockStore => {
+      wrappers.push(
+        enzyme.mount(
+          <Provider store={mockStore}>
+            <Menu />
+          </Provider>
+        )
+      );
+    });
   });
 
   it("renders", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper).toBeTruthy();
+    });
+  });
+
+  it("matches snapshot", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });
