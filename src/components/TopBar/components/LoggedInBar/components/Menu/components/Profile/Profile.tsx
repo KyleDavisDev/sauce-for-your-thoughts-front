@@ -13,7 +13,7 @@ import { AppState } from "../../../../../../../../redux/configureStore";
 interface ProfileProps {}
 
 const Profile: React.FC<ProfileProps> = props => {
-  const _defaultDisplayName = "N/A";
+  const _defaultDisplayName = "Me";
   const _defaultAvatarURL = "";
 
   const { self } = useSelector((state: AppState) => {
@@ -43,7 +43,7 @@ const Profile: React.FC<ProfileProps> = props => {
         </div>
 
         <div>
-          <h3>{displayName || "Me"}</h3>
+          <h3>{displayName}</h3>
           <h4>Sauce Fanatic</h4>
         </div>
       </StyledHead>
