@@ -75,4 +75,15 @@ describe("<Profile />", () => {
       expect(wrapper.find("h3").exists()).toBeTruthy();
     });
   });
+
+  it("passes expected displayName to h3 tag when possible", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // grab displayName from store
+      const reduxState = mockStores[ind].getState() as AppState;
+      const displayName = reduxState.users.self?.displayName;
+      if (!displayName) return;
+
+      expect(wrapper.find("h3").text()).toEqual(displayName);
+    });
+  });
 });
