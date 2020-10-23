@@ -38,4 +38,10 @@ describe("<Menu />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("renders Profile component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("Profile").exists()).toBeTruthy();
+    });
+  });
 });
