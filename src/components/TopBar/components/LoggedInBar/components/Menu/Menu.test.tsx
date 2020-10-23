@@ -44,4 +44,10 @@ describe("<Menu />", () => {
       expect(wrapper.find("Profile").exists()).toBeTruthy();
     });
   });
+
+  it("renders Account component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("Account").exists()).toBeTruthy();
+    });
+  });
 });
