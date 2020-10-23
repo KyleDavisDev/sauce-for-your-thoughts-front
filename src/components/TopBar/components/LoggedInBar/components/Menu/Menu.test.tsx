@@ -50,4 +50,10 @@ describe("<Menu />", () => {
       expect(wrapper.find("Account").exists()).toBeTruthy();
     });
   });
+
+  it("renders Help component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("Help").exists()).toBeTruthy();
+    });
+  });
 });
