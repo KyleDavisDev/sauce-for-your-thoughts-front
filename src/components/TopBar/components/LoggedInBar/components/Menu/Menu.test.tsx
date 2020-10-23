@@ -18,14 +18,15 @@ describe("<Menu />", () => {
   const fakeMenuProps = (): MenuProps => ({
     className: casual.random_element([undefined, casual.string])
   });
+  const mockMenus = new Array(ITERATION_SIZE).fill(null).map(fakeMenuProps);
 
   beforeAll(() => {
     // create wrappers
-    mockStores.forEach(mockStore => {
+    mockStores.forEach((mockStore, ind) => {
       wrappers.push(
         enzyme.mount(
           <Provider store={mockStore}>
-            <Menu {...fakeMenuProps()} />
+            <Menu {...mockMenus[ind]} />
           </Provider>
         )
       );
@@ -41,6 +42,15 @@ describe("<Menu />", () => {
   it("matches snapshot", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  it("adds className to parent", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // console.log(mockMenus[ind].className);
+      expect(wrapper.find("div").first().prop("className")).toEqual(
+        mockMenus[ind].className
+      );
     });
   });
 
