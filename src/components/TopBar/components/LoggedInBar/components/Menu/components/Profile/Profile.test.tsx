@@ -1,3 +1,4 @@
+import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
 
@@ -20,6 +21,18 @@ describe("<Profile />", () => {
       );
 
       expect(wrapper).toBeTruthy();
+    });
+  });
+
+  it("matches snapshot", () => {
+    mockStores.forEach(mockStore => {
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <Profile />
+        </Provider>
+      );
+
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });
