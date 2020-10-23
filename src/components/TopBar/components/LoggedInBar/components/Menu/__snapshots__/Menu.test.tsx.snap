@@ -13,10 +13,14 @@ exports[`<Menu /> matches snapshot 1`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="error aspernatur ducimus ut dolorem iste voluptatem"
+  >
+    <div
+      className="error aspernatur ducimus ut dolorem iste voluptatem"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS error aspernatur ducimus ut dolorem iste voluptatem"
       >
         <ul>
           <ul
@@ -307,10 +311,14 @@ exports[`<Menu /> matches snapshot 2`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="vitae fuga voluptatem consequatur pariatur sint id"
+  >
+    <div
+      className="vitae fuga voluptatem consequatur pariatur sint id"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS vitae fuga voluptatem consequatur pariatur sint id"
       >
         <ul>
           <ul
@@ -1234,10 +1242,14 @@ exports[`<Menu /> matches snapshot 5`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="et quis voluptas temporibus qui earum sint"
+  >
+    <div
+      className="et quis voluptas temporibus qui earum sint"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS et quis voluptas temporibus qui earum sint"
       >
         <ul>
           <ul
@@ -1528,10 +1540,14 @@ exports[`<Menu /> matches snapshot 6`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="aut vel libero veniam ratione sint totam"
+  >
+    <div
+      className="aut vel libero veniam ratione sint totam"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS aut vel libero veniam ratione sint totam"
       >
         <ul>
           <ul
@@ -2998,10 +3014,14 @@ exports[`<Menu /> matches snapshot 11`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="aliquam quae sed autem id voluptas iusto"
+  >
+    <div
+      className="aliquam quae sed autem id voluptas iusto"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS aliquam quae sed autem id voluptas iusto"
       >
         <ul>
           <ul
@@ -3337,10 +3357,14 @@ exports[`<Menu /> matches snapshot 12`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="quas reprehenderit optio modi amet aut soluta"
+  >
+    <div
+      className="quas reprehenderit optio modi amet aut soluta"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS quas reprehenderit optio modi amet aut soluta"
       >
         <ul>
           <ul
@@ -3631,10 +3655,14 @@ exports[`<Menu /> matches snapshot 13`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="consequatur aut quasi sed ullam aspernatur autem"
+  >
+    <div
+      className="consequatur aut quasi sed ullam aspernatur autem"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS consequatur aut quasi sed ullam aspernatur autem"
       >
         <ul>
           <ul
@@ -4219,10 +4247,14 @@ exports[`<Menu /> matches snapshot 15`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="doloremque voluptatem deleniti et modi dolorum ut"
+  >
+    <div
+      className="doloremque voluptatem deleniti et modi dolorum ut"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS doloremque voluptatem deleniti et modi dolorum ut"
       >
         <ul>
           <ul
@@ -4558,10 +4590,14 @@ exports[`<Menu /> matches snapshot 16`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="sit earum delectus vero voluptatum eligendi cum"
+  >
+    <div
+      className="sit earum delectus vero voluptatum eligendi cum"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS sit earum delectus vero voluptatum eligendi cum"
       >
         <ul>
           <ul
@@ -6028,10 +6064,14 @@ exports[`<Menu /> matches snapshot 21`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="officiis ipsum est molestias sequi corporis quae"
+  >
+    <div
+      className="officiis ipsum est molestias sequi corporis quae"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS officiis ipsum est molestias sequi corporis quae"
       >
         <ul>
           <ul
@@ -6322,10 +6362,14 @@ exports[`<Menu /> matches snapshot 22`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="voluptate tenetur veniam nemo aliquam laboriosam magnam"
+  >
+    <div
+      className="voluptate tenetur veniam nemo aliquam laboriosam magnam"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS voluptate tenetur veniam nemo aliquam laboriosam magnam"
       >
         <ul>
           <ul
@@ -6616,10 +6660,14 @@ exports[`<Menu /> matches snapshot 23`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="mollitia ea modi qui debitis deleniti quos"
+  >
+    <div
+      className="mollitia ea modi qui debitis deleniti quos"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS mollitia ea modi qui debitis deleniti quos"
       >
         <ul>
           <ul
@@ -6910,10 +6958,14 @@ exports[`<Menu /> matches snapshot 24`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="porro molestiae recusandae suscipit in ab aliquid"
+  >
+    <div
+      className="porro molestiae recusandae suscipit in ab aliquid"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS porro molestiae recusandae suscipit in ab aliquid"
       >
         <ul>
           <ul
@@ -7498,10 +7550,14 @@ exports[`<Menu /> matches snapshot 26`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="tempora nihil non cumque est tempore totam"
+  >
+    <div
+      className="tempora nihil non cumque est tempore totam"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS tempora nihil non cumque est tempore totam"
       >
         <ul>
           <ul
@@ -8131,10 +8187,14 @@ exports[`<Menu /> matches snapshot 28`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="nostrum quia dolores quam et molestiae deleniti"
+  >
+    <div
+      className="nostrum quia dolores quam et molestiae deleniti"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS nostrum quia dolores quam et molestiae deleniti"
       >
         <ul>
           <ul
@@ -8719,10 +8779,14 @@ exports[`<Menu /> matches snapshot 30`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="qui nostrum rerum error aliquid voluptates quis"
+  >
+    <div
+      className="qui nostrum rerum error aliquid voluptates quis"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS qui nostrum rerum error aliquid voluptates quis"
       >
         <ul>
           <ul
@@ -9058,10 +9122,14 @@ exports[`<Menu /> matches snapshot 31`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="sunt exercitationem neque id excepturi enim rem"
+  >
+    <div
+      className="sunt exercitationem neque id excepturi enim rem"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS sunt exercitationem neque id excepturi enim rem"
       >
         <ul>
           <ul
@@ -9352,10 +9420,14 @@ exports[`<Menu /> matches snapshot 32`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="et porro tempora aut nulla est placeat"
+  >
+    <div
+      className="et porro tempora aut nulla est placeat"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS et porro tempora aut nulla est placeat"
       >
         <ul>
           <ul
