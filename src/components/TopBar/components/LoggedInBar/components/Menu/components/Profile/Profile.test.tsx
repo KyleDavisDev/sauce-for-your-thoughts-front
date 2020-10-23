@@ -13,7 +13,7 @@ import { AppState } from "../../../../../../../../redux/configureStore";
 const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
 describe("<Profile />", () => {
-  const _defaultDisplayName = "N/A";
+  const _defaultDisplayName = "Me";
   const _defaultAvatarURL = "";
   let wrappers: any = [];
 
@@ -67,6 +67,12 @@ describe("<Profile />", () => {
       expect(wrapper.find("img").first().prop("src")).toEqual(
         _defaultAvatarURL
       );
+    });
+  });
+
+  it("renders h3 tag", () => {
+    wrappers.forEach((wrapper, ind) => {
+      expect(wrapper.find("h3").exists()).toBeTruthy();
     });
   });
 });
