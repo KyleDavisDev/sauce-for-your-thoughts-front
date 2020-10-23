@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "../../../../../../../../theme/styled-components";
 
 export const StyledLink = styled.a`
   padding: 12px 12px 4px;
@@ -27,11 +27,13 @@ export const StyledHead = styled.div`
     font-size: 14px;
   }
 `;
+StyledHead.displayName = "div";
 
 export const StyledImage = styled.img`
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 `;
+StyledImage.displayName = "img";
 
 export const StyledFoot = styled.div`
   width: 100%;
@@ -52,3 +54,4 @@ export const StyledFoot = styled.div`
     }
   }
 `;
+StyledFoot.displayName = "div";
