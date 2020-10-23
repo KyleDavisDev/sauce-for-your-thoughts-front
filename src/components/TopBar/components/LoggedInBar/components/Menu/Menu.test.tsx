@@ -8,6 +8,7 @@ import {
   fakeStore,
   ITERATION_SIZE
 } from "../../../../../../utils/testUtils/testUtils";
+import { AppState } from "../../../../../../redux/configureStore";
 
 describe("<Menu />", () => {
   let wrappers: any = [];
@@ -54,6 +55,17 @@ describe("<Menu />", () => {
   it("renders Help component", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("Help").exists()).toBeTruthy();
+    });
+  });
+
+  it("renders Admin component when possible", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // grab isAdmin from store
+      const reduxState = mockStores[ind].getState() as AppState;
+      const isAdmin = reduxState.users.self?.isAdmin;
+      if (!isAdmin) return;
+
+      expect(wrapper.find("Admin").exists()).toBeTruthy();
     });
   });
 });
