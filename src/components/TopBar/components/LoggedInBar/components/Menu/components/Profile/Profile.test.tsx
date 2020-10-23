@@ -8,6 +8,7 @@ import {
   ITERATION_SIZE
 } from "../../../../../../../../utils/testUtils/testUtils";
 import { Provider } from "react-redux";
+import { AppState } from "../../../../../../../../redux/configureStore";
 
 const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
@@ -48,6 +49,24 @@ describe("<Profile />", () => {
       );
 
       expect(wrapper.find("img").exists()).toBeTruthy();
+    });
+  });
+
+  it("passes expected src to img tag when possible", () => {
+    mockStores.forEach(mockStore => {
+      // grab avatarURL from store
+      const reduxState = mockStore.getState() as AppState;
+      const avatarURL = reduxState.users.self?.avatarURL;
+      if (!avatarURL) return;
+
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <Profile />
+        </Provider>
+      );
+
+      // compare component to redux store
+      expect(wrapper.find("img").first().prop("src")).toEqual(avatarURL);
     });
   });
 });
