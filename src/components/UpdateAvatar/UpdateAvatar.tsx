@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
-import shortid from "shortid";
 
 import { AppState } from "../../redux/configureStore";
 import { updateAvatar } from "../../redux/users/actions";
@@ -27,8 +26,12 @@ export interface UpdateAvatarProps {}
 
 const UpdateAvatar: React.FC<UpdateAvatarProps> = props => {
   // get info from redux
-  const { displayName, token, avatarURL: selected } = useSelector(
-    (store: AppState) => store.users.self
+  const {
+    displayName,
+    token,
+    avatarURL: selected
+  } = useSelector((store: AppState) =>
+    store.users.self ? store.users.self : {}
   );
   // assign state
   const [urls, setUrls] = React.useState<Array<{ key: string; path: string }>>(
@@ -62,8 +65,8 @@ const UpdateAvatar: React.FC<UpdateAvatarProps> = props => {
 
       // Update state with urls
       setUrls(
-        strings.map((str: string) => {
-          return { key: shortid.generate(), path: str };
+        strings.map((str, ind) => {
+          return { key: `${ind}-${str}`, path: str };
         })
       );
     };
@@ -102,6 +105,7 @@ const UpdateAvatar: React.FC<UpdateAvatarProps> = props => {
             <br />
             <TextInput
               type="password"
+              id="password"
               onChange={e => setPassword(e.target.value)}
               disabled={false}
               showLabel={true}
