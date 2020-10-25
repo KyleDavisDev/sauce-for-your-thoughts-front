@@ -33,4 +33,14 @@ describe("<ButtonRedirect />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("renders h4 tag", () => {
+    mockButtonRedirects.forEach(mockButtonRedirect => {
+      const wrapper = enzyme.shallow(
+        <ButtonRedirect {...mockButtonRedirect} />
+      );
+
+      expect(wrapper.find("h4").exists()).toBeTruthy();
+    });
+  });
 });
