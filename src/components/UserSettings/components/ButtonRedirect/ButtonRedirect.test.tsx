@@ -23,4 +23,14 @@ describe("<ButtonRedirect />", () => {
       expect(wrapper).toBeTruthy();
     });
   });
+
+  it("matches snapshot", () => {
+    mockButtonRedirects.forEach(mockButtonRedirect => {
+      const wrapper = enzyme.shallow(
+        <ButtonRedirect {...mockButtonRedirect} />
+      );
+
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });
