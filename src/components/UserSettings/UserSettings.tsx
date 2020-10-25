@@ -15,6 +15,7 @@ import ArrowLeft from "../../images/icons/ArrowLeft";
 import { API } from "../../utils/api/API";
 import { useIsEmailConfirmed } from "../../utils/hooks/useIsEmailConfirmed";
 import ButtonRedirect from "./components/ButtonRedirect/ButtonRedirect";
+import RequestConfirmation from "./components/RequestConfirmation/RequestConfirmation";
 
 export interface UserSettingsProps {}
 
@@ -30,41 +31,6 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
   // check if the email was confirmed
   const { loading, isEmailConfirmed, error } = useIsEmailConfirmed();
 
-  const onButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // // Quick sanity check
-    // if (!token) {
-    //   router.replace(`/account/login?return=${router.asPath}`);
-    //   return;
-    // }
-    // // Function that calls API to see if email has been verified or not
-    // const resendVerificationEmail = async function () {
-    //   setLoading(true);
-    //   try {
-    //     const res = await API.user.resendVerificationEmail();
-    //     // Show flash message and update state
-    //     setEmailConfirmed(true);
-    //     setFlashMessage({
-    //       isVisible: true,
-    //       text: res.data.msg,
-    //       type: "success"
-    //     });
-    //   } catch (err) {
-    //     // Show flash message and update state
-    //     setEmailConfirmed(false);
-    //     // show flash message
-    //     setFlashMessage({
-    //       type: "warning",
-    //       isVisible: true,
-    //       text: err.response.data.msg
-    //     });
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // };
-    // // Call function
-    // resendVerificationEmail();
-  };
-
   // if we have any errors, let's show em!
   React.useEffect(() => {
     // console.log(error);
@@ -72,6 +38,11 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
       setFlashMessage({ ...error });
     }
   }, [error]);
+
+  // move screen to top when flashMessage changes
+  React.useEffect(() => {
+    window.moveTo(0, 0);
+  }, [flashMessage.text]);
 
   return (
     <StyledContainer>
@@ -93,16 +64,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
       <ButtonRedirect name="Update Password" href="/account/update/password" />
 
       {!isEmailConfirmed && (
-        <StyledGroup>
-          <h4>Request Email Confirmation</h4>
-          <StyledButton
-            type="button"
-            onClick={e => onButtonClick(e)}
-            disabled={loading}
-          >
-            Request{loading ? "ing..." : ""} Email Confirmation <ArrowRight />
-          </StyledButton>
-        </StyledGroup>
+        <RequestConfirmation setFlashMessage={setFlashMessage} />
       )}
 
       <Link href="/">
