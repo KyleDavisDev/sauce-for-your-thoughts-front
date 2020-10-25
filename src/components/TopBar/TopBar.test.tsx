@@ -35,7 +35,7 @@ describe("<TopBar />", () => {
 
   it("renders a header tag", () => {
     wrappers.forEach(wrapper => {
-      // expect(wrapper.find("header").exists()).toBeTruthy();
+      expect(wrapper.find("header").exists()).toBeTruthy();
     });
   });
 });
