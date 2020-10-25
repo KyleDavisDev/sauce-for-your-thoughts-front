@@ -53,4 +53,14 @@ describe("<ButtonRedirect />", () => {
       expect(wrapper.find("h4").text()).toEqual(mockButtonRedirect.name);
     });
   });
+
+  it("renders a Link component", () => {
+    mockButtonRedirects.forEach(mockButtonRedirect => {
+      const wrapper = enzyme.shallow(
+        <ButtonRedirect {...mockButtonRedirect} />
+      );
+
+      expect(wrapper.find("Link").exists()).toBeTruthy();
+    });
+  });
 });
