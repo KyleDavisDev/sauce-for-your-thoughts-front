@@ -14,7 +14,7 @@ import ArrowLeft from "../../images/icons/ArrowLeft";
 
 import { API } from "../../utils/api/API";
 import { useIsEmailConfirmed } from "../../utils/hooks/useIsEmailConfirmed";
-import Group from "./components/Group/Group";
+import ButtonRedirect from "./components/ButtonRedirect/ButtonRedirect";
 
 export interface UserSettingsProps {}
 
@@ -81,13 +81,16 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
         </FlashMessage>
       )}
 
-      <Group name="Update Email" href="/account/update/email" />
+      <ButtonRedirect name="Update Email" href="/account/update/email" />
 
-      <Group name="Update Display Name" href="/account/update/displayName" />
+      <ButtonRedirect
+        name="Update Display Name"
+        href="/account/update/displayName"
+      />
 
-      <Group name="Update Avatar" href="/account/update/avatar" />
+      <ButtonRedirect name="Update Avatar" href="/account/update/avatar" />
 
-      <Group name="Update Password" href="/account/update/password" />
+      <ButtonRedirect name="Update Password" href="/account/update/password" />
 
       {!isEmailConfirmed && (
         <StyledGroup>
