@@ -63,4 +63,16 @@ describe("<ButtonRedirect />", () => {
       expect(wrapper.find("Link").exists()).toBeTruthy();
     });
   });
+
+  it("passes expected href to Link component", () => {
+    mockButtonRedirects.forEach(mockButtonRedirect => {
+      const wrapper = enzyme.shallow(
+        <ButtonRedirect {...mockButtonRedirect} />
+      );
+
+      expect(wrapper.find("Link").prop("href")).toEqual(
+        mockButtonRedirect.href
+      );
+    });
+  });
 });
