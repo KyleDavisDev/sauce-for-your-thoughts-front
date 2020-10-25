@@ -4,7 +4,7 @@ import { StyledButton, StyledDiv } from "./ButtonRedirectStyle";
 import ArrowRight from "../../../../images/icons/ArrowRight";
 import { Link } from "../../../Link/Link";
 
-interface IButtonRedirectProps {
+export interface IButtonRedirectProps {
   name: string;
   href: string;
 }
