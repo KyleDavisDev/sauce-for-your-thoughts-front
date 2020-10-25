@@ -5,15 +5,18 @@ import { Provider } from "react-redux";
 
 import TopBar from "./TopBar";
 import { fakeStore, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
+import { AppState } from "../../redux/configureStore";
 
 describe("<TopBar />", () => {
   const wrappers: any = [];
+  const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
   beforeAll(() => {
-    new Array(ITERATION_SIZE).fill(null).map(() => {
+    mockStores.forEach(mockStore => {
+      // add mounted component to array
       wrappers.push(
         enzyme.mount(
-          <Provider store={fakeStore()}>
+          <Provider store={mockStore}>
             <TopBar />
           </Provider>
         )
@@ -36,6 +39,19 @@ describe("<TopBar />", () => {
   it("renders a header tag", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("header").exists()).toBeTruthy();
+    });
+  });
+
+  it("renders LoggedInBar component when user has a token tag", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const reduxStore = mockStores[ind].getState() as AppState;
+      const token = reduxStore.users.self?.token;
+      const doesPersonHaveToken: boolean = !!token;
+
+      // If we do not have a token, go to next
+      if (!doesPersonHaveToken) return;
+
+      expect(wrapper.find("LoggedInBar").exists()).toBeTruthy();
     });
   });
 });
