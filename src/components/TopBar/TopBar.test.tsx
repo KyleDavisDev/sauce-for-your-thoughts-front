@@ -7,26 +7,28 @@ import TopBar from "./TopBar";
 import { fakeStore, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
 
 describe("<TopBar />", () => {
-  it("renders", () => {
-    new Array(ITERATION_SIZE).fill(null).map(() => {
-      const wrapper = enzyme.render(
-        <Provider store={fakeStore()}>
-          <TopBar />
-        </Provider>
-      );
+  const wrappers: any = [];
 
-      expect(wrapper).toBeTruthy();
+  beforeAll(() => {
+    new Array(ITERATION_SIZE).fill(null).map(() => {
+      wrappers.push(
+        enzyme.render(
+          <Provider store={fakeStore()}>
+            <TopBar />
+          </Provider>
+        )
+      );
+    });
+
+    it("renders", () => {
+      wrappers.forEach(wrapper => {
+        expect(wrapper).toBeTruthy();
+      });
     });
   });
 
   it("matches snapshot", () => {
-    new Array(ITERATION_SIZE).fill(null).map(() => {
-      const wrapper = enzyme.mount(
-        <Provider store={fakeStore()}>
-          <TopBar />
-        </Provider>
-      );
-
+    wrappers.forEach(wrapper => {
       expect(wrapper).toMatchSnapshot();
     });
   });
