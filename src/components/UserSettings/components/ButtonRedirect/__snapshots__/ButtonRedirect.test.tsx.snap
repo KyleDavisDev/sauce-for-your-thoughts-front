@@ -8,13 +8,13 @@ exports[`<ButtonRedirect /> matches snapshot 1`] = `
   <Link
     href="http://www.Luettgen.tv/"
   >
-    <button
+    <Button
       type="button"
     >
       sequi facilis corporis sed veritatis quidem praesentium
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -27,13 +27,13 @@ exports[`<ButtonRedirect /> matches snapshot 2`] = `
   <Link
     href="http://Augustus.biz/"
   >
-    <button
+    <Button
       type="button"
     >
       laborum est possimus assumenda aut enim iure
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -46,13 +46,13 @@ exports[`<ButtonRedirect /> matches snapshot 3`] = `
   <Link
     href="http://Howell.io/"
   >
-    <button
+    <Button
       type="button"
     >
       vitae occaecati officia iure nisi ut maiores
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -65,13 +65,13 @@ exports[`<ButtonRedirect /> matches snapshot 4`] = `
   <Link
     href="http://www.Dibbert.net/"
   >
-    <button
+    <Button
       type="button"
     >
       non omnis consequatur enim quia autem et
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -84,13 +84,13 @@ exports[`<ButtonRedirect /> matches snapshot 5`] = `
   <Link
     href="http://www.Beahan.net/"
   >
-    <button
+    <Button
       type="button"
     >
       reprehenderit omnis adipisci eius laborum eius aut
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -103,13 +103,13 @@ exports[`<ButtonRedirect /> matches snapshot 6`] = `
   <Link
     href="http://Joshua.biz/"
   >
-    <button
+    <Button
       type="button"
     >
       id sit delectus vel ipsa tempora aut
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -122,13 +122,13 @@ exports[`<ButtonRedirect /> matches snapshot 7`] = `
   <Link
     href="http://Turcotte.org/"
   >
-    <button
+    <Button
       type="button"
     >
       animi vel provident dicta perferendis dolorum cupiditate
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -141,13 +141,13 @@ exports[`<ButtonRedirect /> matches snapshot 8`] = `
   <Link
     href="http://Klocko.info/"
   >
-    <button
+    <Button
       type="button"
     >
       sint quia sed exercitationem omnis laborum exercitationem
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -160,13 +160,13 @@ exports[`<ButtonRedirect /> matches snapshot 9`] = `
   <Link
     href="http://Kevin.biz/"
   >
-    <button
+    <Button
       type="button"
     >
       assumenda quasi adipisci mollitia iste itaque omnis
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -179,13 +179,13 @@ exports[`<ButtonRedirect /> matches snapshot 10`] = `
   <Link
     href="http://www.Kiehn.ca/"
   >
-    <button
+    <Button
       type="button"
     >
       aliquam sed sapiente soluta corporis commodi eaque
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -198,13 +198,13 @@ exports[`<ButtonRedirect /> matches snapshot 11`] = `
   <Link
     href="http://www.Eva.info/"
   >
-    <button
+    <Button
       type="button"
     >
       doloremque maiores esse atque et non explicabo
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -217,13 +217,13 @@ exports[`<ButtonRedirect /> matches snapshot 12`] = `
   <Link
     href="http://www.Mathilde.org/"
   >
-    <button
+    <Button
       type="button"
     >
       itaque voluptas ea ducimus autem sit aspernatur
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -236,13 +236,13 @@ exports[`<ButtonRedirect /> matches snapshot 13`] = `
   <Link
     href="http://www.Madge.org/"
   >
-    <button
+    <Button
       type="button"
     >
       fugiat dolorem nihil quam nulla est unde
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -255,13 +255,13 @@ exports[`<ButtonRedirect /> matches snapshot 14`] = `
   <Link
     href="http://Greenholt.com/"
   >
-    <button
+    <Button
       type="button"
     >
       doloremque explicabo eaque necessitatibus sit suscipit omnis
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -274,13 +274,13 @@ exports[`<ButtonRedirect /> matches snapshot 15`] = `
   <Link
     href="http://Jewel.co.uk/"
   >
-    <button
+    <Button
       type="button"
     >
       corporis qui aut nobis quo consequatur harum
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -293,13 +293,13 @@ exports[`<ButtonRedirect /> matches snapshot 16`] = `
   <Link
     href="http://Steuber.info/"
   >
-    <button
+    <Button
       type="button"
     >
       voluptate in sunt occaecati nulla aut sunt
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -312,13 +312,13 @@ exports[`<ButtonRedirect /> matches snapshot 17`] = `
   <Link
     href="http://Tromp.org/"
   >
-    <button
+    <Button
       type="button"
     >
       dolores fugiat quis et voluptas culpa et
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -331,13 +331,13 @@ exports[`<ButtonRedirect /> matches snapshot 18`] = `
   <Link
     href="http://www.Marilie.com/"
   >
-    <button
+    <Button
       type="button"
     >
       quis quae iusto sapiente nostrum aut corrupti
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -350,13 +350,13 @@ exports[`<ButtonRedirect /> matches snapshot 19`] = `
   <Link
     href="http://www.Maximus.io/"
   >
-    <button
+    <Button
       type="button"
     >
       laudantium dolor sint officiis qui dignissimos dolore
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -369,13 +369,13 @@ exports[`<ButtonRedirect /> matches snapshot 20`] = `
   <Link
     href="http://www.Milton.com/"
   >
-    <button
+    <Button
       type="button"
     >
       iste est unde rem similique et maxime
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -388,13 +388,13 @@ exports[`<ButtonRedirect /> matches snapshot 21`] = `
   <Link
     href="http://www.Rosenbaum.biz/"
   >
-    <button
+    <Button
       type="button"
     >
       consequatur sint provident aut ullam distinctio autem
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -407,13 +407,13 @@ exports[`<ButtonRedirect /> matches snapshot 22`] = `
   <Link
     href="http://www.Ruben.net/"
   >
-    <button
+    <Button
       type="button"
     >
       ut odit animi in ut occaecati at
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -426,13 +426,13 @@ exports[`<ButtonRedirect /> matches snapshot 23`] = `
   <Link
     href="http://McCullough.biz/"
   >
-    <button
+    <Button
       type="button"
     >
       occaecati illum laborum quos eum voluptate sit
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -445,13 +445,13 @@ exports[`<ButtonRedirect /> matches snapshot 24`] = `
   <Link
     href="http://www.Dayana.name/"
   >
-    <button
+    <Button
       type="button"
     >
       itaque et in fugit in rerum libero
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -464,13 +464,13 @@ exports[`<ButtonRedirect /> matches snapshot 25`] = `
   <Link
     href="http://www.Kunde.com/"
   >
-    <button
+    <Button
       type="button"
     >
       aut inventore aut eveniet beatae incidunt ut
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -483,13 +483,13 @@ exports[`<ButtonRedirect /> matches snapshot 26`] = `
   <Link
     href="http://www.Rowe.info/"
   >
-    <button
+    <Button
       type="button"
     >
       aut quidem voluptatibus libero aut autem ut
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -502,13 +502,13 @@ exports[`<ButtonRedirect /> matches snapshot 27`] = `
   <Link
     href="http://Bernier.org/"
   >
-    <button
+    <Button
       type="button"
     >
       fugiat maiores autem est esse quos minus
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -521,13 +521,13 @@ exports[`<ButtonRedirect /> matches snapshot 28`] = `
   <Link
     href="http://Schulist.us/"
   >
-    <button
+    <Button
       type="button"
     >
       quo sunt possimus earum animi quis expedita
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -540,13 +540,13 @@ exports[`<ButtonRedirect /> matches snapshot 29`] = `
   <Link
     href="http://Jean.info/"
   >
-    <button
+    <Button
       type="button"
     >
       voluptate necessitatibus excepturi et qui sunt nesciunt
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -559,13 +559,13 @@ exports[`<ButtonRedirect /> matches snapshot 30`] = `
   <Link
     href="http://www.Lazaro.us/"
   >
-    <button
+    <Button
       type="button"
     >
       rerum nobis nam dolor quas repellendus in
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -578,13 +578,13 @@ exports[`<ButtonRedirect /> matches snapshot 31`] = `
   <Link
     href="http://www.Ramiro.co.uk/"
   >
-    <button
+    <Button
       type="button"
     >
       occaecati et consequatur consectetur sunt molestiae cupiditate
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
@@ -597,13 +597,13 @@ exports[`<ButtonRedirect /> matches snapshot 32`] = `
   <Link
     href="http://Freeman.name/"
   >
-    <button
+    <Button
       type="button"
     >
       molestiae non sint et ipsa consequuntur quidem
        
       <ArrowRight />
-    </button>
+    </Button>
   </Link>
 </div>
 `;
