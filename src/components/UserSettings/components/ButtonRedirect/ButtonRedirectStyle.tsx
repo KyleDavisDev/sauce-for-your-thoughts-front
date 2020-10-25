@@ -8,7 +8,7 @@ export const StyledButton = styled(Button)`
     color: #333;
   }
 `;
-StyledButton.displayName = "button";
+StyledButton.displayName = "Button";
 
 export const StyledDiv = styled.div`
   margin-bottom: 32px;
