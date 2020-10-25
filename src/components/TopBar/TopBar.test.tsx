@@ -54,4 +54,17 @@ describe("<TopBar />", () => {
       expect(wrapper.find("LoggedInBar").exists()).toBeTruthy();
     });
   });
+
+  it("renders LoggedOutBar component when user has a token tag", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const reduxStore = mockStores[ind].getState() as AppState;
+      const token = reduxStore.users.self?.token;
+      const doesPersonHaveToken: boolean = !!token;
+
+      // If we have a token, go to next
+      if (doesPersonHaveToken) return;
+
+      expect(wrapper.find("LoggedOutBar").exists()).toBeTruthy();
+    });
+  });
 });
