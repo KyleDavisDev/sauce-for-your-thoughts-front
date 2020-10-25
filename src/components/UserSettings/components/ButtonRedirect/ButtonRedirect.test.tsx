@@ -85,4 +85,16 @@ describe("<ButtonRedirect />", () => {
       expect(wrapper.find("Button").exists()).toBeTruthy();
     });
   });
+
+  it("passes expected name to Button component", () => {
+    mockButtonRedirects.forEach(mockButtonRedirect => {
+      const wrapper = enzyme.shallow(
+        <ButtonRedirect {...mockButtonRedirect} />
+      );
+
+      expect(wrapper.find("Button").prop("children")).toContain(
+        mockButtonRedirect.name
+      );
+    });
+  });
 });
