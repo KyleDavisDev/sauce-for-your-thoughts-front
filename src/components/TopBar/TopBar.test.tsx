@@ -12,24 +12,30 @@ describe("<TopBar />", () => {
   beforeAll(() => {
     new Array(ITERATION_SIZE).fill(null).map(() => {
       wrappers.push(
-        enzyme.render(
+        enzyme.mount(
           <Provider store={fakeStore()}>
             <TopBar />
           </Provider>
         )
       );
     });
+  });
 
-    it("renders", () => {
-      wrappers.forEach(wrapper => {
-        expect(wrapper).toBeTruthy();
-      });
+  it("renders", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper).toBeTruthy();
     });
   });
 
   it("matches snapshot", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  it("renders a header tag", () => {
+    wrappers.forEach(wrapper => {
+      // expect(wrapper.find("header").exists()).toBeTruthy();
     });
   });
 });
