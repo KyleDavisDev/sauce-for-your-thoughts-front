@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-import PageTitle from "../PageTitle/PageTitle";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import { Link } from "../Link/Link";
 import {
@@ -14,20 +13,13 @@ import ArrowRight from "../../images/icons/ArrowRight";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 
 import { API } from "../../utils/api/API";
-import HeaderSimple from "../HeaderSimple/HeaderSimple";
-import { Article } from "../Article/Article";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/configureStore";
 
 export interface UserSettingsProps {}
 
-export interface UserSettingsState {
-  isEmailConfirmed: boolean;
-  flashMessage: FlashMessageProps;
-}
-
 const UserSettings: React.FC<UserSettingsProps> = props => {
-  // init sate
+  // init state
   const [isEmailConfirmed, setEmailConfirmed] = useState(true);
   const [flashMessage, setFlashMessage] = useState<FlashMessageProps>({
     isVisible: false
@@ -38,7 +30,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
   const router = useRouter();
 
   // Grab token from redux
-  const token = useSelector((store: AppState) => store.users.self.token);
+  const token = useSelector((store: AppState) => store.users?.self?.token);
 
   // Make sure user has a token
   useEffect(() => {
@@ -117,75 +109,68 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
   };
 
   return (
-    <>
-      <HeaderSimple />
-      <Article size="sm">
-        <PageTitle>Manage your account</PageTitle>
-        <StyledContainer>
-          {flashMessage.isVisible && (
-            <FlashMessage type={flashMessage.type} isVisible>
-              {flashMessage.text}
-            </FlashMessage>
-          )}
+    <StyledContainer>
+      {flashMessage.isVisible && (
+        <FlashMessage type={flashMessage.type} isVisible>
+          {flashMessage.text}
+        </FlashMessage>
+      )}
 
-          <StyledGroup>
-            <h4>Update email</h4>
-            <Link href="/account/update/email">
-              <StyledButton type="button">
-                Update email <ArrowRight />
-              </StyledButton>
-            </Link>
-          </StyledGroup>
+      <StyledGroup>
+        <h4>Update email</h4>
+        <Link href="/account/update/email">
+          <StyledButton type="button">
+            Update email <ArrowRight />
+          </StyledButton>
+        </Link>
+      </StyledGroup>
 
-          <StyledGroup>
-            <h4>Update Display Name</h4>
-            <Link href="/account/update/displayName">
-              <StyledButton type="button">
-                Update Display Name <ArrowRight />
-              </StyledButton>
-            </Link>
-          </StyledGroup>
+      <StyledGroup>
+        <h4>Update Display Name</h4>
+        <Link href="/account/update/displayName">
+          <StyledButton type="button">
+            Update Display Name <ArrowRight />
+          </StyledButton>
+        </Link>
+      </StyledGroup>
 
-          <StyledGroup>
-            <h4>Update Avatar</h4>
-            <Link href="/account/update/avatar">
-              <StyledButton type="button">
-                Update Avatar <ArrowRight />
-              </StyledButton>
-            </Link>
-          </StyledGroup>
+      <StyledGroup>
+        <h4>Update Avatar</h4>
+        <Link href="/account/update/avatar">
+          <StyledButton type="button">
+            Update Avatar <ArrowRight />
+          </StyledButton>
+        </Link>
+      </StyledGroup>
 
-          <StyledGroup>
-            <h4>Update Password</h4>
-            <Link href="/account/update/password">
-              <StyledButton type="button">
-                Update Password <ArrowRight />
-              </StyledButton>
-            </Link>
-          </StyledGroup>
+      <StyledGroup>
+        <h4>Update Password</h4>
+        <Link href="/account/update/password">
+          <StyledButton type="button">
+            Update Password <ArrowRight />
+          </StyledButton>
+        </Link>
+      </StyledGroup>
 
-          {!isEmailConfirmed && (
-            <StyledGroup>
-              <h4>Request Email Confirmation</h4>
-              <StyledButton
-                type="button"
-                onClick={e => onButtonClick(e)}
-                disabled={loading}
-              >
-                Request{loading ? "ing..." : ""} Email Confirmation{" "}
-                <ArrowRight />
-              </StyledButton>
-            </StyledGroup>
-          )}
+      {!isEmailConfirmed && (
+        <StyledGroup>
+          <h4>Request Email Confirmation</h4>
+          <StyledButton
+            type="button"
+            onClick={e => onButtonClick(e)}
+            disabled={loading}
+          >
+            Request{loading ? "ing..." : ""} Email Confirmation <ArrowRight />
+          </StyledButton>
+        </StyledGroup>
+      )}
 
-          <Link href="/">
-            <StyledButton type="button" displayType="outline">
-              <ArrowLeft /> Return Home
-            </StyledButton>
-          </Link>
-        </StyledContainer>
-      </Article>
-    </>
+      <Link href="/">
+        <StyledButton type="button" displayType="outline">
+          <ArrowLeft /> Return Home
+        </StyledButton>
+      </Link>
+    </StyledContainer>
   );
 };
 
