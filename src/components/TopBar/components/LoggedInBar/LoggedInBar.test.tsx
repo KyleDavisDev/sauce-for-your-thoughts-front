@@ -20,4 +20,12 @@ describe("<LoggedInBar />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("renders Toggle component", () => {
+    new Array(ITERATION_SIZE).fill(null).map(() => {
+      const wrapper = enzyme.shallow(<LoggedInBar />);
+
+      expect(wrapper.find("Toggle").exists()).toBeTruthy();
+    });
+  });
 });
