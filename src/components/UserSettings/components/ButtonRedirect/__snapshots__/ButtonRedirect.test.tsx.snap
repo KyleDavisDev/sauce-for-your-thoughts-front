@@ -1,0 +1,609 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonRedirect /> matches snapshot 1`] = `
+<div>
+  <h4>
+    sequi facilis corporis sed veritatis quidem praesentium
+  </h4>
+  <Link
+    href="http://www.Luettgen.tv/"
+  >
+    <button
+      type="button"
+    >
+      sequi facilis corporis sed veritatis quidem praesentium
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 2`] = `
+<div>
+  <h4>
+    laborum est possimus assumenda aut enim iure
+  </h4>
+  <Link
+    href="http://Augustus.biz/"
+  >
+    <button
+      type="button"
+    >
+      laborum est possimus assumenda aut enim iure
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 3`] = `
+<div>
+  <h4>
+    vitae occaecati officia iure nisi ut maiores
+  </h4>
+  <Link
+    href="http://Howell.io/"
+  >
+    <button
+      type="button"
+    >
+      vitae occaecati officia iure nisi ut maiores
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 4`] = `
+<div>
+  <h4>
+    non omnis consequatur enim quia autem et
+  </h4>
+  <Link
+    href="http://www.Dibbert.net/"
+  >
+    <button
+      type="button"
+    >
+      non omnis consequatur enim quia autem et
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 5`] = `
+<div>
+  <h4>
+    reprehenderit omnis adipisci eius laborum eius aut
+  </h4>
+  <Link
+    href="http://www.Beahan.net/"
+  >
+    <button
+      type="button"
+    >
+      reprehenderit omnis adipisci eius laborum eius aut
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 6`] = `
+<div>
+  <h4>
+    id sit delectus vel ipsa tempora aut
+  </h4>
+  <Link
+    href="http://Joshua.biz/"
+  >
+    <button
+      type="button"
+    >
+      id sit delectus vel ipsa tempora aut
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 7`] = `
+<div>
+  <h4>
+    animi vel provident dicta perferendis dolorum cupiditate
+  </h4>
+  <Link
+    href="http://Turcotte.org/"
+  >
+    <button
+      type="button"
+    >
+      animi vel provident dicta perferendis dolorum cupiditate
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 8`] = `
+<div>
+  <h4>
+    sint quia sed exercitationem omnis laborum exercitationem
+  </h4>
+  <Link
+    href="http://Klocko.info/"
+  >
+    <button
+      type="button"
+    >
+      sint quia sed exercitationem omnis laborum exercitationem
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 9`] = `
+<div>
+  <h4>
+    assumenda quasi adipisci mollitia iste itaque omnis
+  </h4>
+  <Link
+    href="http://Kevin.biz/"
+  >
+    <button
+      type="button"
+    >
+      assumenda quasi adipisci mollitia iste itaque omnis
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 10`] = `
+<div>
+  <h4>
+    aliquam sed sapiente soluta corporis commodi eaque
+  </h4>
+  <Link
+    href="http://www.Kiehn.ca/"
+  >
+    <button
+      type="button"
+    >
+      aliquam sed sapiente soluta corporis commodi eaque
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 11`] = `
+<div>
+  <h4>
+    doloremque maiores esse atque et non explicabo
+  </h4>
+  <Link
+    href="http://www.Eva.info/"
+  >
+    <button
+      type="button"
+    >
+      doloremque maiores esse atque et non explicabo
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 12`] = `
+<div>
+  <h4>
+    itaque voluptas ea ducimus autem sit aspernatur
+  </h4>
+  <Link
+    href="http://www.Mathilde.org/"
+  >
+    <button
+      type="button"
+    >
+      itaque voluptas ea ducimus autem sit aspernatur
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 13`] = `
+<div>
+  <h4>
+    fugiat dolorem nihil quam nulla est unde
+  </h4>
+  <Link
+    href="http://www.Madge.org/"
+  >
+    <button
+      type="button"
+    >
+      fugiat dolorem nihil quam nulla est unde
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 14`] = `
+<div>
+  <h4>
+    doloremque explicabo eaque necessitatibus sit suscipit omnis
+  </h4>
+  <Link
+    href="http://Greenholt.com/"
+  >
+    <button
+      type="button"
+    >
+      doloremque explicabo eaque necessitatibus sit suscipit omnis
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 15`] = `
+<div>
+  <h4>
+    corporis qui aut nobis quo consequatur harum
+  </h4>
+  <Link
+    href="http://Jewel.co.uk/"
+  >
+    <button
+      type="button"
+    >
+      corporis qui aut nobis quo consequatur harum
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 16`] = `
+<div>
+  <h4>
+    voluptate in sunt occaecati nulla aut sunt
+  </h4>
+  <Link
+    href="http://Steuber.info/"
+  >
+    <button
+      type="button"
+    >
+      voluptate in sunt occaecati nulla aut sunt
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 17`] = `
+<div>
+  <h4>
+    dolores fugiat quis et voluptas culpa et
+  </h4>
+  <Link
+    href="http://Tromp.org/"
+  >
+    <button
+      type="button"
+    >
+      dolores fugiat quis et voluptas culpa et
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 18`] = `
+<div>
+  <h4>
+    quis quae iusto sapiente nostrum aut corrupti
+  </h4>
+  <Link
+    href="http://www.Marilie.com/"
+  >
+    <button
+      type="button"
+    >
+      quis quae iusto sapiente nostrum aut corrupti
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 19`] = `
+<div>
+  <h4>
+    laudantium dolor sint officiis qui dignissimos dolore
+  </h4>
+  <Link
+    href="http://www.Maximus.io/"
+  >
+    <button
+      type="button"
+    >
+      laudantium dolor sint officiis qui dignissimos dolore
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 20`] = `
+<div>
+  <h4>
+    iste est unde rem similique et maxime
+  </h4>
+  <Link
+    href="http://www.Milton.com/"
+  >
+    <button
+      type="button"
+    >
+      iste est unde rem similique et maxime
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 21`] = `
+<div>
+  <h4>
+    consequatur sint provident aut ullam distinctio autem
+  </h4>
+  <Link
+    href="http://www.Rosenbaum.biz/"
+  >
+    <button
+      type="button"
+    >
+      consequatur sint provident aut ullam distinctio autem
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 22`] = `
+<div>
+  <h4>
+    ut odit animi in ut occaecati at
+  </h4>
+  <Link
+    href="http://www.Ruben.net/"
+  >
+    <button
+      type="button"
+    >
+      ut odit animi in ut occaecati at
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 23`] = `
+<div>
+  <h4>
+    occaecati illum laborum quos eum voluptate sit
+  </h4>
+  <Link
+    href="http://McCullough.biz/"
+  >
+    <button
+      type="button"
+    >
+      occaecati illum laborum quos eum voluptate sit
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 24`] = `
+<div>
+  <h4>
+    itaque et in fugit in rerum libero
+  </h4>
+  <Link
+    href="http://www.Dayana.name/"
+  >
+    <button
+      type="button"
+    >
+      itaque et in fugit in rerum libero
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 25`] = `
+<div>
+  <h4>
+    aut inventore aut eveniet beatae incidunt ut
+  </h4>
+  <Link
+    href="http://www.Kunde.com/"
+  >
+    <button
+      type="button"
+    >
+      aut inventore aut eveniet beatae incidunt ut
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 26`] = `
+<div>
+  <h4>
+    aut quidem voluptatibus libero aut autem ut
+  </h4>
+  <Link
+    href="http://www.Rowe.info/"
+  >
+    <button
+      type="button"
+    >
+      aut quidem voluptatibus libero aut autem ut
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 27`] = `
+<div>
+  <h4>
+    fugiat maiores autem est esse quos minus
+  </h4>
+  <Link
+    href="http://Bernier.org/"
+  >
+    <button
+      type="button"
+    >
+      fugiat maiores autem est esse quos minus
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 28`] = `
+<div>
+  <h4>
+    quo sunt possimus earum animi quis expedita
+  </h4>
+  <Link
+    href="http://Schulist.us/"
+  >
+    <button
+      type="button"
+    >
+      quo sunt possimus earum animi quis expedita
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 29`] = `
+<div>
+  <h4>
+    voluptate necessitatibus excepturi et qui sunt nesciunt
+  </h4>
+  <Link
+    href="http://Jean.info/"
+  >
+    <button
+      type="button"
+    >
+      voluptate necessitatibus excepturi et qui sunt nesciunt
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 30`] = `
+<div>
+  <h4>
+    rerum nobis nam dolor quas repellendus in
+  </h4>
+  <Link
+    href="http://www.Lazaro.us/"
+  >
+    <button
+      type="button"
+    >
+      rerum nobis nam dolor quas repellendus in
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 31`] = `
+<div>
+  <h4>
+    occaecati et consequatur consectetur sunt molestiae cupiditate
+  </h4>
+  <Link
+    href="http://www.Ramiro.co.uk/"
+  >
+    <button
+      type="button"
+    >
+      occaecati et consequatur consectetur sunt molestiae cupiditate
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`<ButtonRedirect /> matches snapshot 32`] = `
+<div>
+  <h4>
+    molestiae non sint et ipsa consequuntur quidem
+  </h4>
+  <Link
+    href="http://Freeman.name/"
+  >
+    <button
+      type="button"
+    >
+      molestiae non sint et ipsa consequuntur quidem
+       
+      <ArrowRight />
+    </button>
+  </Link>
+</div>
+`;
