@@ -28,4 +28,12 @@ describe("<LoggedInBar />", () => {
       expect(wrapper.find("Toggle").exists()).toBeTruthy();
     });
   });
+
+  it("renders Menu component", () => {
+    new Array(ITERATION_SIZE).fill(null).map(() => {
+      const wrapper = enzyme.shallow(<LoggedInBar />);
+
+      expect(wrapper.find("Menu").exists()).toBeTruthy();
+    });
+  });
 });
