@@ -13,100 +13,65 @@ import ArrowRight from "../../images/icons/ArrowRight";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 
 import { API } from "../../utils/api/API";
-import { useSelector } from "react-redux";
-import { AppState } from "../../redux/configureStore";
+import { useIsEmailConfirmed } from "../../utils/hooks/useIsEmailConfirmed";
+import Group from "./components/Group/Group";
 
 export interface UserSettingsProps {}
 
 const UserSettings: React.FC<UserSettingsProps> = props => {
   // init state
-  const [isEmailConfirmed, setEmailConfirmed] = useState(true);
   const [flashMessage, setFlashMessage] = useState<FlashMessageProps>({
     isVisible: false
   });
-  const [loading, setLoading] = useState(false);
 
   // assign router
   const router = useRouter();
 
-  // Grab token from redux
-  const token = useSelector((store: AppState) => store.users?.self?.token);
-
-  // Make sure user has a token
-  useEffect(() => {
-    // Quick sanity check
-    if (!token) {
-      router.replace(`/account/login?return=${router.asPath}`);
-      return;
-    }
-    window.scrollTo(0, 0); // Move screen to top
-
-    const getEmailConfirmed = async function () {
-      // get token
-      if (!token) return null;
-
-      // construct data object
-      const data = { user: { token } };
-
-      try {
-        // hit our API
-        const res = await API.user.isEmailConfirmed({ data });
-        // Set state so we know if we should display the button or not
-        setEmailConfirmed(res.data.isGood);
-      } catch (err) {
-        // Set state so we know if we should display the button or not
-        setEmailConfirmed(err.response.data.isGood);
-        // show flash message
-        setFlashMessage({
-          type: "warning",
-          isVisible: true,
-          text: err.response.data.msg
-        });
-      }
-
-      return null;
-    };
-
-    // Check if user has their email verified or not
-    getEmailConfirmed();
-  }, []);
+  // check if the email was confirmed
+  const { loading, isEmailConfirmed, error } = useIsEmailConfirmed();
 
   const onButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // Quick sanity check
-    if (!token) {
-      router.replace(`/account/login?return=${router.asPath}`);
-      return;
-    }
-
-    // Function that calls API to see if email has been verified or not
-    const resendVerificationEmail = async function () {
-      setLoading(true);
-      try {
-        const res = await API.user.resendVerificationEmail();
-        // Show flash message and update state
-        setEmailConfirmed(true);
-        setFlashMessage({
-          isVisible: true,
-          text: res.data.msg,
-          type: "success"
-        });
-        setLoading(false);
-      } catch (err) {
-        // Show flash message and update state
-        setEmailConfirmed(false);
-        // show flash message
-        setFlashMessage({
-          type: "warning",
-          isVisible: true,
-          text: err.response.data.msg
-        });
-        setLoading(false);
-      }
-    };
-
-    // Call function
-    resendVerificationEmail();
+    // // Quick sanity check
+    // if (!token) {
+    //   router.replace(`/account/login?return=${router.asPath}`);
+    //   return;
+    // }
+    // // Function that calls API to see if email has been verified or not
+    // const resendVerificationEmail = async function () {
+    //   setLoading(true);
+    //   try {
+    //     const res = await API.user.resendVerificationEmail();
+    //     // Show flash message and update state
+    //     setEmailConfirmed(true);
+    //     setFlashMessage({
+    //       isVisible: true,
+    //       text: res.data.msg,
+    //       type: "success"
+    //     });
+    //   } catch (err) {
+    //     // Show flash message and update state
+    //     setEmailConfirmed(false);
+    //     // show flash message
+    //     setFlashMessage({
+    //       type: "warning",
+    //       isVisible: true,
+    //       text: err.response.data.msg
+    //     });
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
+    // // Call function
+    // resendVerificationEmail();
   };
+
+  // if we have any errors, let's show em!
+  React.useEffect(() => {
+    // console.log(error);
+    if (error.isVisible) {
+      setFlashMessage({ ...error });
+    }
+  }, [error]);
 
   return (
     <StyledContainer>
@@ -116,41 +81,13 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
         </FlashMessage>
       )}
 
-      <StyledGroup>
-        <h4>Update email</h4>
-        <Link href="/account/update/email">
-          <StyledButton type="button">
-            Update email <ArrowRight />
-          </StyledButton>
-        </Link>
-      </StyledGroup>
+      <Group name="Update Email" href="/account/update/email" />
 
-      <StyledGroup>
-        <h4>Update Display Name</h4>
-        <Link href="/account/update/displayName">
-          <StyledButton type="button">
-            Update Display Name <ArrowRight />
-          </StyledButton>
-        </Link>
-      </StyledGroup>
+      <Group name="Update Display Name" href="/account/update/displayName" />
 
-      <StyledGroup>
-        <h4>Update Avatar</h4>
-        <Link href="/account/update/avatar">
-          <StyledButton type="button">
-            Update Avatar <ArrowRight />
-          </StyledButton>
-        </Link>
-      </StyledGroup>
+      <Group name="Update Avatar" href="/account/update/avatar" />
 
-      <StyledGroup>
-        <h4>Update Password</h4>
-        <Link href="/account/update/password">
-          <StyledButton type="button">
-            Update Password <ArrowRight />
-          </StyledButton>
-        </Link>
-      </StyledGroup>
+      <Group name="Update Password" href="/account/update/password" />
 
       {!isEmailConfirmed && (
         <StyledGroup>
@@ -173,14 +110,5 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
     </StyledContainer>
   );
 };
-
-function useOnResendConfirmationEmail() {
-  // assign loading
-  const [loading, setLoading] = useState(false);
-  // assign results
-  const [results, setResults] = useState([]);
-
-  useEffect(() => {});
-}
 
 export default UserSettings;
