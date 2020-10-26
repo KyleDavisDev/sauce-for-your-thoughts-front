@@ -17,6 +17,7 @@ import { AppState } from "../../redux/configureStore";
 export interface UpdateEmailProps {}
 
 const UpdateEmail: React.FC<UpdateEmailProps> = props => {
+  const _defaultTitle = "Update Email";
   // Init state
   const [email, setEmail] = React.useState("");
   const [confirmEmail, setConfirmEmail] = React.useState("");
@@ -40,7 +41,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
 
   return (
     <>
-      <PageTitle>Update Email</PageTitle>
+      <PageTitle>{_defaultTitle}</PageTitle>
       <StyledFormContainer>
         {flashMessage.isVisible && (
           <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
