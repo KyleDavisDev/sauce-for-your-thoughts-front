@@ -7,6 +7,7 @@ export const StyledFormContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
 `;
+StyledFormContainer.displayName = "div";
 
 export const StyledButtonHolder = styled.div`
   display: flex;
@@ -14,3 +15,4 @@ export const StyledButtonHolder = styled.div`
   justify-content: space-between;
   align-items: stretch;
 `;
+StyledButtonHolder.displayName = "div";
