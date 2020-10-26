@@ -5,7 +5,7 @@ import { Article } from "../../../src/components/Article/Article";
 
 export interface EmailPageProps {}
 
-const EmailPage: React.SFC<EmailPageProps> = () => {
+const EmailPage: React.FC<EmailPageProps> = () => {
   return (
     <>
       <HeaderSimple />
