@@ -50,4 +50,10 @@ describe("<UpdateEmail />", () => {
       expect(wrapper.find("PageTitle").exists()).toBeTruthy();
     });
   });
+
+  it("passes the default title to the PageTitle component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("PageTitle").text()).toEqual(_defaultTitle);
+    });
+  });
 });
