@@ -24,7 +24,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
   const [flashMessage, setFlashMessage] = React.useState<FlashMessageProps>({
     isVisible: false
   });
-  const token = useSelector((store: AppState) => store.users.self.token);
+  const token = useSelector((store: AppState) => store.users?.self?.token);
 
   // assign router
   const router = useRouter();
@@ -45,8 +45,10 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
         {flashMessage.isVisible && (
           <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
         )}
+
         <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
           <TextInput
+            id="email"
             type="email"
             onChange={e => setEmail(e.target.value)}
             value={email}
@@ -56,6 +58,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
             required={true}
           />
           <TextInput
+            id="confirmEmail"
             type="email"
             onChange={e => setConfirmEmail(e.target.value)}
             value={confirmEmail}
@@ -67,6 +70,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
             requirementText={"Must match above."}
           />
           <TextInput
+            id="password"
             type="password"
             onChange={e => setPassword(e.target.value)}
             value={password}
