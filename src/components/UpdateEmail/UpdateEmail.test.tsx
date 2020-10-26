@@ -56,4 +56,10 @@ describe("<UpdateEmail />", () => {
       expect(wrapper.find("PageTitle").text()).toEqual(_defaultTitle);
     });
   });
+
+  it("renders a form tag", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("form").exists()).toBeTruthy();
+    });
+  });
 });
