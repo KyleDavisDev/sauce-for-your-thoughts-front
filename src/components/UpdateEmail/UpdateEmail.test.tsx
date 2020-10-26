@@ -17,6 +17,7 @@ jest.mock("next/router", () => ({
 }));
 
 describe("<UpdateEmail />", () => {
+  const _defaultTitle = "Update Email";
   const wrappers: any = [];
 
   beforeAll(() => {
@@ -41,6 +42,12 @@ describe("<UpdateEmail />", () => {
   it("matches snapshot", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  it("renders a PageTitle component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("PageTitle").exists()).toBeTruthy();
     });
   });
 });
