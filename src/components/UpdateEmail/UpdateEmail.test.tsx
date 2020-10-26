@@ -10,12 +10,18 @@ import {
   ITERATION_SIZE
 } from "../../utils/testUtils/testUtils";
 
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    push: jest.fn()
+  }))
+}));
+
 describe("<UpdateEmail />", () => {
   const wrappers: any = [];
 
   beforeAll(() => {
     // push our mounted component into array
-    new Array(ITERATION_SIZE).forEach(() => {
+    new Array(ITERATION_SIZE).fill(null).forEach(() => {
       wrappers.push(
         enzyme.mount(
           <Provider store={fakeStore()}>
@@ -29,6 +35,12 @@ describe("<UpdateEmail />", () => {
   it("renders", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper).toBeTruthy();
+    });
+  });
+
+  it("matches snapshot", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });
