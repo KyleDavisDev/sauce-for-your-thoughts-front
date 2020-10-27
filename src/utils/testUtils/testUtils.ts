@@ -115,13 +115,15 @@ const fakeCard = (): MockCard => ({
   anchorText: casual.string
 });
 
+const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount));
+
 function simulateInputChange(
   wrapper: ReactWrapper,
   name: string,
   value: string
 ) {
   wrapper
-    .find(`input[name='${name}']`)
+    // .find(`input[name='${name}']`)
     .simulate("change", { target: { name, value } });
 }
 
@@ -155,4 +157,4 @@ const isDOMTypeElement = (typeElement): boolean => {
   return isElement(typeElement) && typeof typeElement.type === "string";
 };
 
-export { casual, simulateInputChange, isDOMTypeElement, isComponent };
+export { casual, simulateInputChange, isDOMTypeElement, isComponent, wait };
