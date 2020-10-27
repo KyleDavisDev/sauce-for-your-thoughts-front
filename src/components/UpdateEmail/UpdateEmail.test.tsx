@@ -7,9 +7,11 @@ import UpdateEmail from "./UpdateEmail";
 import {
   casual,
   fakeStore,
-  ITERATION_SIZE
+  ITERATION_SIZE,
+  simulateInputChange
 } from "../../utils/testUtils/testUtils";
 
+// mock Next's router
 jest.mock("next/router", () => ({
   useRouter: jest.fn().mockImplementation(() => ({
     push: jest.fn()
@@ -35,6 +37,10 @@ describe("<UpdateEmail />", () => {
         )
       );
     });
+  });
+
+  afterAll(() => {
+    jest.clearAllMocks();
   });
 
   it("renders", () => {
@@ -76,6 +82,18 @@ describe("<UpdateEmail />", () => {
   it("first TextInput has an id of 'email'", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("TextInput").at(0).prop("id")).toEqual("email");
+    });
+  });
+
+  it("first TextInput updates 'email' value on change", () => {
+    wrappers.forEach(wrapper => {
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        "foo"
+      );
+
+      expect(wrapper.find("TextInput").at(0).prop("value")).toEqual("foo");
     });
   });
 
