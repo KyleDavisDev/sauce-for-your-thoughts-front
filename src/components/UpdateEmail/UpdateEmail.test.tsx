@@ -18,7 +18,11 @@ jest.mock("next/router", () => ({
 
 describe("<UpdateEmail />", () => {
   const _defaultTitle = "Update Email";
-  const wrappers: any = [];
+  const wrappers: Array<enzyme.ReactWrapper<
+    any,
+    Readonly<{}>,
+    React.Component<{}, {}, any>
+  >> = [];
 
   beforeAll(() => {
     // push our mounted component into array
@@ -66,6 +70,26 @@ describe("<UpdateEmail />", () => {
   it("renders 3 TextInput components", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("TextInput").length).toEqual(3);
+    });
+  });
+
+  it("first TextInput has an id of 'email'", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").at(0).prop("id")).toEqual("email");
+    });
+  });
+
+  it("second TextInput has an id of 'confirmEmail'", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").at(1).prop("id")).toEqual(
+        "confirmEmail"
+      );
+    });
+  });
+
+  it("third TextInput has an id of 'password'", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").at(2).prop("id")).toEqual("password");
     });
   });
 });
