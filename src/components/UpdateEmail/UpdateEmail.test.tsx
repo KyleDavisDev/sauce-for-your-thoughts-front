@@ -7,6 +7,7 @@ import UpdateEmail from "./UpdateEmail";
 import {
   casual,
   fakeStore,
+  generateValidPassword,
   ITERATION_SIZE,
   simulateInputChange
 } from "../../utils/testUtils/testUtils";
@@ -19,6 +20,7 @@ jest.mock("next/router", () => ({
 }));
 
 describe("<UpdateEmail />", () => {
+  const MIN_PASSWORD_LENGTH = 8;
   const _defaultTitle = "Update Email";
   const wrappers: Array<enzyme.ReactWrapper<
     any,
@@ -193,7 +195,7 @@ describe("<UpdateEmail />", () => {
     });
   });
 
-  it("the submit button is enabled after all fields have values", () => {
+  it("the submit button is enabled after all fields have values and password longer than minimum length", () => {
     wrappers.forEach(wrapper => {
       // check for disabled
       expect(
@@ -202,6 +204,7 @@ describe("<UpdateEmail />", () => {
 
       // add values
       const _value = casual.email;
+      const _pw = generateValidPassword(MIN_PASSWORD_LENGTH);
       simulateInputChange(
         wrapper.find("TextInput input[name='email']").first(),
         "email",
@@ -215,7 +218,7 @@ describe("<UpdateEmail />", () => {
       simulateInputChange(
         wrapper.find("TextInput input[name='password']").first(),
         "password",
-        "abcdasfasdfasdfasdfadsfa"
+        _pw
       );
 
       // check is now enabled
