@@ -17,6 +17,7 @@ import { AppState } from "../../redux/configureStore";
 export interface UpdateEmailProps {}
 
 const UpdateEmail: React.FC<UpdateEmailProps> = props => {
+  const MIN_PASSWORD_LENGTH = 8;
   const _defaultTitle = "Update Email";
   // Init state
   const [email, setEmail] = React.useState("");
@@ -107,7 +108,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
   }
 
   function isSubmitable(): boolean {
-    return toggleConfirmPassword() && password.length > 8;
+    return toggleConfirmPassword() && password.length >= MIN_PASSWORD_LENGTH;
   }
 
   async function onSubmit(event: React.FormEvent): Promise<any> {
