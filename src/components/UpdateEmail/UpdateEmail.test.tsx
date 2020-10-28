@@ -106,6 +106,24 @@ describe("<UpdateEmail />", () => {
     });
   });
 
+  it("the second TextInput is enabled once the first TextInput contains an email", () => {
+    wrappers.forEach(wrapper => {
+      // make sure is disabled
+      expect(wrapper.find("TextInput").at(1).prop("disabled")).toEqual(true);
+
+      // insert email
+      const _value = casual.email;
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _value
+      );
+
+      // make sure is now enabled
+      expect(wrapper.find("TextInput").at(1).prop("disabled")).toEqual(false);
+    });
+  });
+
   it("the second TextInput updates 'confirmEmail' value on change", () => {
     wrappers.forEach(wrapper => {
       const _value = casual.string;
