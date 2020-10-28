@@ -87,13 +87,14 @@ describe("<UpdateEmail />", () => {
 
   it("the first TextInput updates 'email' value on change", () => {
     wrappers.forEach(wrapper => {
+      const _value = casual.string;
       simulateInputChange(
         wrapper.find("TextInput input[name='email']").first(),
         "email",
-        "foo"
+        _value
       );
 
-      expect(wrapper.find("TextInput").at(0).prop("value")).toEqual("foo");
+      expect(wrapper.find("TextInput").at(0).prop("value")).toEqual(_value);
     });
   });
 
@@ -105,21 +106,35 @@ describe("<UpdateEmail />", () => {
     });
   });
 
-  it("the second TextInput updates 'email' value on change", () => {
+  it("the second TextInput updates 'confirmEmail' value on change", () => {
     wrappers.forEach(wrapper => {
+      const _value = casual.string;
       simulateInputChange(
         wrapper.find("TextInput input[name='confirmEmail']").first(),
         "confirmEmail",
-        "foo"
+        _value
       );
 
-      expect(wrapper.find("TextInput").at(0).prop("value")).toEqual("foo");
+      expect(wrapper.find("TextInput").at(1).prop("value")).toEqual(_value);
     });
   });
 
   it("the third TextInput has an id of 'password'", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("TextInput").at(2).prop("id")).toEqual("password");
+    });
+  });
+
+  it("the third TextInput updates 'password' value on change", () => {
+    wrappers.forEach(wrapper => {
+      const _value = casual.string;
+      simulateInputChange(
+        wrapper.find("TextInput input[name='password']").first(),
+        "password",
+        _value
+      );
+
+      expect(wrapper.find("TextInput").at(2).prop("value")).toEqual(_value);
     });
   });
 });
