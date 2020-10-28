@@ -192,4 +192,36 @@ describe("<UpdateEmail />", () => {
       expect(wrapper.find("TextInput").at(2).prop("value")).toEqual(_value);
     });
   });
+
+  it("the submit button is enabled after all fields have values", () => {
+    wrappers.forEach(wrapper => {
+      // check for disabled
+      expect(
+        wrapper.find("Button[type='submit']").first().prop("disabled")
+      ).toEqual(true);
+
+      // add values
+      const _value = casual.email;
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _value
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmEmail']").first(),
+        "confirmEmail",
+        _value
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='password']").first(),
+        "password",
+        "abcdasfasdfasdfasdfadsfa"
+      );
+
+      // check is now enabled
+      expect(
+        wrapper.find("Button[type='submit']").first().prop("disabled")
+      ).toEqual(false);
+    });
+  });
 });
