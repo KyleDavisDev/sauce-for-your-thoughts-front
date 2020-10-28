@@ -63,25 +63,28 @@ export const fakeSaucesState = (): ISaucesState => {
     allSlugs,
     bySlug,
     total: allSlugs.length,
-    query: undefined, 
-    saucesWithNewestReviews: undefined, 
-    newest: undefined, 
-    featured: undefined, 
+    query: undefined,
+    saucesWithNewestReviews: undefined,
+    newest: undefined,
+    featured: undefined,
     types: casual.array_of_words(),
     orders: ["Newest", "Name", "Times Reviewed", "Avg Rating"]
   };
 };
 
-const fakeUsersState = (): IUserState => ({  
-    self: casual.random_element([undefined, {
+const fakeUsersState = (): IUserState => ({
+  self: casual.random_element([
+    undefined,
+    {
       token: casual.random_element([undefined, casual.uuid]),
       displayName: casual.random_element([undefined, casual.name]),
       avatarURL: casual.random_element([undefined, casual.url]),
       isAdmin: casual.random_element([undefined, casual.boolean])
-    }]),
-    byDisplayName: undefined, 
-    allDisplayNames: undefined   
-})
+    }
+  ]),
+  byDisplayName: undefined,
+  allDisplayNames: undefined
+});
 
 export const fakeStore = () => {
   const storeConfig = configureStore([]);
@@ -90,8 +93,8 @@ export const fakeStore = () => {
     sauces: fakeSaucesState(),
     users: fakeUsersState(),
     reviews: {
-      byReviewID: undefined, 
-      allReviewIDs: undefined 
+      byReviewID: undefined,
+      allReviewIDs: undefined
     }
   };
 
@@ -115,7 +118,8 @@ const fakeCard = (): MockCard => ({
   anchorText: casual.string
 });
 
-const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount));
+const wait = (amount = 0) =>
+  new Promise(resolve => setTimeout(resolve, amount));
 
 function simulateInputChange(
   wrapper: ReactWrapper,
@@ -157,4 +161,30 @@ const isDOMTypeElement = (typeElement): boolean => {
   return isElement(typeElement) && typeof typeElement.type === "string";
 };
 
-export { casual, simulateInputChange, isDOMTypeElement, isComponent, wait };
+const generateValidPassword = (MIN_PASSWORD_LENGTH: number = 8) => {
+  // generate length between minimum length and 3x the minimum length
+  const _randomLength = casual.integer(
+    MIN_PASSWORD_LENGTH,
+    3 * MIN_PASSWORD_LENGTH
+  );
+
+  // turn generated length into random letters
+  return new Array(_randomLength).fill(null).map(casual._letter).join("");
+};
+
+const generateInValidPassword = (MIN_PASSWORD_LENGTH: number = 8) => {
+  // generate length between minimum length and 3x the minimum length
+  const _randomLength = casual.integer(0, MIN_PASSWORD_LENGTH);
+
+  // turn generated length into random letters
+  return new Array(_randomLength).fill(null).map(casual._letter).join("");
+};
+
+export {
+  casual,
+  simulateInputChange,
+  isDOMTypeElement,
+  isComponent,
+  wait,
+  generateValidPassword
+};
