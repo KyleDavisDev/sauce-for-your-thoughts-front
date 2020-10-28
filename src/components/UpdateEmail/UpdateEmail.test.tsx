@@ -39,6 +39,15 @@ describe("<UpdateEmail />", () => {
     });
   });
 
+  afterEach(() => {
+    // clear all inputs
+    wrappers.forEach(wrapper => {
+      wrapper.find("TextInput input").forEach(input => {
+        input.simulate("change", { target: { value: "" } });
+      });
+    });
+  });
+
   afterAll(() => {
     jest.clearAllMocks();
   });
@@ -140,6 +149,34 @@ describe("<UpdateEmail />", () => {
   it("the third TextInput has an id of 'password'", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("TextInput").at(2).prop("id")).toEqual("password");
+    });
+  });
+
+  it("the third TextInput is enabled when the first TextInput contains an email and matches the second TextInput", () => {
+    wrappers.forEach(wrapper => {
+      // make sure is disabled
+      expect(wrapper.find("TextInput").at(2).prop("disabled")).toEqual(true);
+
+      // insert email into first TextInput
+      const _value = casual.email;
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _value
+      );
+
+      // make sure is disabled
+      expect(wrapper.find("TextInput").at(2).prop("disabled")).toEqual(true);
+
+      // insert email into second TextInput
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmEmail']").first(),
+        "confirmEmail",
+        _value
+      );
+
+      // make sure is now enabled
+      expect(wrapper.find("TextInput").at(2).prop("disabled")).toEqual(false);
     });
   });
 
