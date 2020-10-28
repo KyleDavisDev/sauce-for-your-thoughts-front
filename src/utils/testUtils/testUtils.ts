@@ -161,7 +161,7 @@ const isDOMTypeElement = (typeElement): boolean => {
   return isElement(typeElement) && typeof typeElement.type === "string";
 };
 
-const generateValidPassword = (MIN_PASSWORD_LENGTH: number = 8) => {
+const generateValidPassword = (MIN_PASSWORD_LENGTH: number = 8): string => {
   // generate length between minimum length and 3x the minimum length
   const _randomLength = casual.integer(
     MIN_PASSWORD_LENGTH,
@@ -172,9 +172,9 @@ const generateValidPassword = (MIN_PASSWORD_LENGTH: number = 8) => {
   return new Array(_randomLength).fill(null).map(casual._letter).join("");
 };
 
-const generateInValidPassword = (MIN_PASSWORD_LENGTH: number = 8) => {
+const generateInValidPassword = (MIN_PASSWORD_LENGTH: number = 8): string => {
   // generate length between minimum length and 3x the minimum length
-  const _randomLength = casual.integer(0, MIN_PASSWORD_LENGTH);
+  const _randomLength = casual.integer(0, MIN_PASSWORD_LENGTH - 1);
 
   // turn generated length into random letters
   return new Array(_randomLength).fill(null).map(casual._letter).join("");
@@ -186,5 +186,6 @@ export {
   isDOMTypeElement,
   isComponent,
   wait,
-  generateValidPassword
+  generateValidPassword,
+  generateInValidPassword
 };
