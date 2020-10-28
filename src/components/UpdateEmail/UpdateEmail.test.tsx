@@ -7,6 +7,7 @@ import UpdateEmail from "./UpdateEmail";
 import {
   casual,
   fakeStore,
+  generateInValidPassword,
   generateValidPassword,
   ITERATION_SIZE,
   simulateInputChange
@@ -192,6 +193,39 @@ describe("<UpdateEmail />", () => {
       );
 
       expect(wrapper.find("TextInput").at(2).prop("value")).toEqual(_value);
+    });
+  });
+
+  it("the submit button is disabled after all fields have values and password shorter than minimum length", () => {
+    wrappers.forEach(wrapper => {
+      // check for disabled
+      expect(
+        wrapper.find("Button[type='submit']").first().prop("disabled")
+      ).toEqual(true);
+
+      // add values
+      const _value = casual.email;
+      const _pw = generateInValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _value
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmEmail']").first(),
+        "confirmEmail",
+        _value
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='password']").first(),
+        "password",
+        _pw
+      );
+
+      // check is still disabled
+      expect(
+        wrapper.find("Button[type='submit']").first().prop("disabled")
+      ).toEqual(true);
     });
   });
 
