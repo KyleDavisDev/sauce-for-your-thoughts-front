@@ -79,13 +79,13 @@ describe("<UpdateEmail />", () => {
     });
   });
 
-  it("first TextInput has an id of 'email'", () => {
+  it("the first TextInput has an id of 'email'", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("TextInput").at(0).prop("id")).toEqual("email");
     });
   });
 
-  it("first TextInput updates 'email' value on change", () => {
+  it("the first TextInput updates 'email' value on change", () => {
     wrappers.forEach(wrapper => {
       simulateInputChange(
         wrapper.find("TextInput input[name='email']").first(),
@@ -97,7 +97,7 @@ describe("<UpdateEmail />", () => {
     });
   });
 
-  it("second TextInput has an id of 'confirmEmail'", () => {
+  it("the second TextInput has an id of 'confirmEmail'", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("TextInput").at(1).prop("id")).toEqual(
         "confirmEmail"
@@ -105,7 +105,19 @@ describe("<UpdateEmail />", () => {
     });
   });
 
-  it("third TextInput has an id of 'password'", () => {
+  it("the second TextInput updates 'email' value on change", () => {
+    wrappers.forEach(wrapper => {
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmEmail']").first(),
+        "confirmEmail",
+        "foo"
+      );
+
+      expect(wrapper.find("TextInput").at(0).prop("value")).toEqual("foo");
+    });
+  });
+
+  it("the third TextInput has an id of 'password'", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("TextInput").at(2).prop("id")).toEqual("password");
     });
