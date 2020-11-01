@@ -18,7 +18,9 @@ export interface UpdateEmailProps {}
 
 const UpdateEmail: React.FC<UpdateEmailProps> = props => {
   const MIN_PASSWORD_LENGTH = 8;
-  const _defaultTitle = "Update Email";
+  const _title = "Update Email";
+  const _redirectPath = "/account/login?return=/account/settings/email";
+
   // Init state
   const [email, setEmail] = React.useState("");
   const [confirmEmail, setConfirmEmail] = React.useState("");
@@ -35,14 +37,14 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
 
   React.useEffect(() => {
     if (!token) {
-      router.push("/account/login?return=/account/settings/email");
+      router.push(_redirectPath);
       return;
     }
   });
 
   return (
     <>
-      <PageTitle>{_defaultTitle}</PageTitle>
+      <PageTitle>{_title}</PageTitle>
       <StyledFormContainer>
         {flashMessage.isVisible && (
           <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
