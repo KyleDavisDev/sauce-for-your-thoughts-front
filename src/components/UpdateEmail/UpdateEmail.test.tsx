@@ -94,6 +94,22 @@ describe("<UpdateEmail />", () => {
     });
   });
 
+  it("calls 'router' if no token is available with expected redirect path", () => {
+    mockStores.forEach((mockStore, ind) => {
+      // get info from redux store
+      const reduxStore = mockStores[ind].getState() as AppState;
+      const token = reduxStore.users.self?.token;
+      if (token) return;
+
+      enzyme.mount(
+        <Provider store={mockStore}>
+          <UpdateEmail />
+        </Provider>
+      );
+
+      expect(mockPush).toBeCalledWith(_redirectPath);
+    });
+  });
   it("renders a PageTitle component", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("PageTitle").exists()).toBeTruthy();
