@@ -12,29 +12,36 @@ import {
   ITERATION_SIZE,
   simulateInputChange
 } from "../../utils/testUtils/testUtils";
+import { AppState } from "../../redux/configureStore";
 
 // mock Next's router
+const mockPush = jest.fn();
 jest.mock("next/router", () => ({
-  useRouter: jest.fn().mockImplementation(() => ({
-    push: jest.fn()
-  }))
+  useRouter() {
+    return {
+      push: mockPush
+    };
+  }
 }));
 
 describe("<UpdateEmail />", () => {
   const MIN_PASSWORD_LENGTH = 8;
-  const _defaultTitle = "Update Email";
+  const _title = "Update Email";
+  const _redirectPath = "/account/login?return=/account/settings/email";
   const wrappers: Array<enzyme.ReactWrapper<
     any,
     Readonly<{}>,
     React.Component<{}, {}, any>
   >> = [];
 
+  const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
+
   beforeAll(() => {
     // push our mounted component into array
-    new Array(ITERATION_SIZE).fill(null).forEach(() => {
+    mockStores.forEach((mockStore, ind) => {
       wrappers.push(
         enzyme.mount(
-          <Provider store={fakeStore()}>
+          <Provider store={mockStore}>
             <UpdateEmail />
           </Provider>
         )
@@ -67,15 +74,35 @@ describe("<UpdateEmail />", () => {
     });
   });
 
+  it("calls 'router' if no token is available", () => {
+    mockStores.forEach((mockStore, ind) => {
+      // get info from redux store
+      const reduxStore = mockStores[ind].getState() as AppState;
+      const token = reduxStore.users.self?.token;
+      if (token) return;
+
+      // reset the mock counters
+      mockPush.mockReset();
+
+      enzyme.mount(
+        <Provider store={mockStore}>
+          <UpdateEmail />
+        </Provider>
+      );
+
+      expect(mockPush).toHaveBeenCalledTimes(1);
+    });
+  });
+
   it("renders a PageTitle component", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("PageTitle").exists()).toBeTruthy();
     });
   });
 
-  it("passes the default title to the PageTitle component", () => {
+  it("passes the expected title to the PageTitle component", () => {
     wrappers.forEach(wrapper => {
-      expect(wrapper.find("PageTitle").text()).toEqual(_defaultTitle);
+      expect(wrapper.find("PageTitle").text()).toEqual(_title);
     });
   });
 
@@ -230,6 +257,39 @@ describe("<UpdateEmail />", () => {
   });
 
   it("the submit button is enabled after all fields have values and password longer than minimum length", () => {
+    wrappers.forEach(wrapper => {
+      // check for disabled
+      expect(
+        wrapper.find("Button[type='submit']").first().prop("disabled")
+      ).toEqual(true);
+
+      // add values
+      const _value = casual.email;
+      const _pw = generateValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _value
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmEmail']").first(),
+        "confirmEmail",
+        _value
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='password']").first(),
+        "password",
+        _pw
+      );
+
+      // check is now enabled
+      expect(
+        wrapper.find("Button[type='submit']").first().prop("disabled")
+      ).toEqual(false);
+    });
+  });
+
+  it("calls ", () => {
     wrappers.forEach(wrapper => {
       // check for disabled
       expect(
