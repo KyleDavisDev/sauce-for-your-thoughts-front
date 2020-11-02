@@ -2,6 +2,7 @@ import * as React from "react";
 import casual from "casual";
 import { ReactWrapper } from "enzyme";
 import configureStore from "redux-mock-store";
+import thunk from "redux-thunk";
 
 import { MockCard } from "./types";
 import { AppState } from "../../redux/configureStore";
@@ -87,7 +88,8 @@ const fakeUsersState = (): IUserState => ({
 });
 
 export const fakeStore = () => {
-  const storeConfig = configureStore([]);
+  const middlewares = [thunk];
+  const storeConfig = configureStore(middlewares);
 
   const store: AppState = {
     sauces: fakeSaucesState(),
