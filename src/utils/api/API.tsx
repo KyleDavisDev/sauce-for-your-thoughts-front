@@ -200,9 +200,6 @@ export const API = {
 
     /** @description Update a user's email
      *  @param {IUserUpdateEmail} data - container for user information
-     *  @param {string} data.user.email - new email address
-     *  @param {string} data.user.confirmEmail - confirmed email adress
-     *  @param {string} data.user.password - user password
      *  @returns {AxiosPromise} AxiosPromise
      *  @resolves {Object} res.data - relevant info to request
      *
