@@ -205,11 +205,11 @@ export const logout = () => async (dispatch: any) => {
  *
  *  @reject {String} error message
  */
-export const updateEmail = async ({
+export const updateEmail = ({
   data
 }: {
   data: IUserUpdateEmail;
-}): Promise<null> => {
+}): MyThunkResult<Promise<null>> => async dispatch => {
   try {
     await API.user.updateEmail({ data });
   } catch (err) {
