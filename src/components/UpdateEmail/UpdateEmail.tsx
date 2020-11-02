@@ -1,9 +1,8 @@
 import * as React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import validator from "validator";
 import { useRouter } from "next/router";
 
-import { updateEmail } from "../../redux/users/actions";
 import { IUserUpdateEmail } from "../../redux/users/types";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 import PageTitle from "../PageTitle/PageTitle";
@@ -13,6 +12,7 @@ import { Button } from "../Button/Button";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import { StyledFormContainer, StyledButtonHolder } from "./UpdateEmailStyle";
 import { AppState } from "../../redux/configureStore";
+import { API } from "../../utils/api/API";
 
 export interface UpdateEmailProps {}
 
@@ -32,8 +32,6 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
 
   // assign router
   const router = useRouter();
-  // assign dispatch
-  const dispatch = useDispatch();
 
   React.useEffect(() => {
     if (!token) {
@@ -50,7 +48,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
           <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
         )}
 
-        <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+        <form onSubmit={onSubmit} style={{ width: "100%" }}>
           <TextInput
             id="email"
             type="email"
@@ -133,7 +131,8 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
         user: { email, confirmEmail, password }
       };
 
-      await dispatch(updateEmail({ data }));
+      // update email via API
+      await API.user.updateEmail({ data });
 
       // clear state and display flash
       setEmail("");
