@@ -200,21 +200,22 @@ export const logout = () => async (dispatch: any) => {
 
 /** @description Update a user's email
  *  @param {IUserUpdateEmail} data - container for user information
- *  @param {string} data.user.email - new email address
- *  @param {string} data.user.confirmEmail - confirmed email adress
- *  @param {string} data.user.password - user password
- *  @fires user#userUpdateEmail - set self.token in redux store
  *  @return {Promise} Promise
- *  @resolves {Object} res.data - data container
+ *  @resolves {null}
  *
  *  @reject {String} error message
  */
-export const updateEmail = ({
+export const updateEmail = async ({
   data
 }: {
   data: IUserUpdateEmail;
-}): MyThunkResult<Promise<null>> => async dispatch => {
-  await API.user.updateEmail({ data });
+}): Promise<null> => {
+  try {
+    await API.user.updateEmail({ data });
+  } catch (err) {
+    // Relay the error
+    throw err;
+  }
 
   return null;
 };
