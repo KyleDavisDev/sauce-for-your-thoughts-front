@@ -24,6 +24,26 @@ jest.mock("next/router", () => ({
   }
 }));
 
+// mock our API
+jest.mock("../../utils/api/API", () => {
+  return {
+    API: {
+      user: {
+        async updateEmail({
+          data
+        }: {
+          data: {
+            user: { email: string; confirmEmail: string; password: string };
+          };
+        }) {
+          return Promise.resolve({ data: { isGood: true } });
+        }
+      }
+    }
+  };
+});
+// import {API} from "../../utils/api/API"
+
 describe("<UpdateEmail />", () => {
   const MIN_PASSWORD_LENGTH = 8;
   const _title = "Update Email";
@@ -110,6 +130,7 @@ describe("<UpdateEmail />", () => {
       expect(mockPush).toBeCalledWith(_redirectPath);
     });
   });
+
   it("renders a PageTitle component", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("PageTitle").exists()).toBeTruthy();
@@ -305,13 +326,8 @@ describe("<UpdateEmail />", () => {
     });
   });
 
-  it("calls ", () => {
-    wrappers.forEach(wrapper => {
-      // check for disabled
-      expect(
-        wrapper.find("Button[type='submit']").first().prop("disabled")
-      ).toEqual(true);
-
+  it("dispatches a redux action on valid submission", () => {
+    wrappers.forEach(async (wrapper, ind) => {
       // add values
       const _value = casual.email;
       const _pw = generateValidPassword(MIN_PASSWORD_LENGTH);
@@ -331,10 +347,19 @@ describe("<UpdateEmail />", () => {
         _pw
       );
 
-      // check is now enabled
-      expect(
-        wrapper.find("Button[type='submit']").first().prop("disabled")
-      ).toEqual(false);
+      try {
+        // 'submit' form via click
+        const data = {
+          user: { email: _value, confirmEmail: _value, password: _pw }
+        };
+        // console.log(data);
+        await wrapper.find("form").first().simulate("submit");
+      } catch (err) {
+        console.log(err);
+      }
+
+      // expect(mockDispatch).toHaveBeenCalledTimes(1);
+      // console.log(mockStores[ind].getActions());
     });
   });
 });
