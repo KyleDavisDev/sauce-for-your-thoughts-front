@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import validator from "validator";
 import { useRouter } from "next/router";
 
-import { updateEmail, logout } from "../../redux/users/actions";
+import { updateEmail } from "../../redux/users/actions";
 import { IUserUpdateEmail } from "../../redux/users/types";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 import PageTitle from "../PageTitle/PageTitle";
@@ -127,11 +127,12 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
       return;
     }
 
-    // Construct data
-    const data: IUserUpdateEmail = {
-      user: { email, confirmEmail, password }
-    };
     try {
+      // Construct data
+      const data: IUserUpdateEmail = {
+        user: { email, confirmEmail, password }
+      };
+
       await dispatch(updateEmail({ data }));
 
       // clear state and display flash
@@ -159,5 +160,4 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
   }
 };
 
-// export default connect(mapState2Props, mapDispatch2Props)(UpdateEmail);
 export default UpdateEmail;
