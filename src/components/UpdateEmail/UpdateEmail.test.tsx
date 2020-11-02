@@ -26,18 +26,15 @@ jest.mock("next/router", () => ({
 }));
 
 // mock our API
+const mockAPICall = jest.fn(() => {
+  return Promise.resolve();
+});
 jest.mock("../../utils/api/API", () => {
   return {
     API: {
       user: {
-        updateEmail({
-          data
-        }: {
-          data: {
-            user: { email: string; confirmEmail: string; password: string };
-          };
-        }) {
-          return Promise.resolve({ data: { isGood: true } });
+        updateEmail: () => {
+          return mockAPICall();
         }
       }
     }
@@ -326,37 +323,43 @@ describe("<UpdateEmail />", () => {
     });
   });
 
-  it("dispatches a redux action on valid submission", () => {
-    wrappers.forEach(async (wrapper, ind) => {
+  it("calls API on valid submission", async () => {
+    for (let i = 0, len = wrappers.length; i < len; i++) {
       // get info from redux store
-      const reduxStore = mockStores[ind].getState() as AppState;
+      const reduxStore = mockStores[i].getState() as AppState;
       const token = reduxStore.users.self?.token;
       if (token) return;
 
-      act(() => {
-        // add values
-        const _value = casual.email;
-        const _pw = generateValidPassword(MIN_PASSWORD_LENGTH);
-        simulateInputChange(
-          wrapper.find("TextInput input[name='email']").first(),
-          "email",
-          _value
-        );
-        simulateInputChange(
-          wrapper.find("TextInput input[name='confirmEmail']").first(),
-          "confirmEmail",
-          _value
-        );
-        simulateInputChange(
-          wrapper.find("TextInput input[name='password']").first(),
-          "password",
-          _pw
-        );
+      // reset mock counter
+      mockAPICall.mockClear();
 
-        wrapper.find("form").first().simulate("submit");
+      // add values
+      const wrapper = wrappers[i];
+      const _value = casual.email;
+      const _pw = generateValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _value
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmEmail']").first(),
+        "confirmEmail",
+        _value
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='password']").first(),
+        "password",
+        _pw
+      );
+
+      // simulate form submission
+      await act(async () => {
+        await wrapper.find("Button[type='submit']").first().simulate("submit");
       });
 
-      console.log(mockStores[ind]);
-    });
+      // check our mockAPI was called
+      expect(mockAPICall).toHaveBeenCalledTimes(1);
+    }
   });
 });
