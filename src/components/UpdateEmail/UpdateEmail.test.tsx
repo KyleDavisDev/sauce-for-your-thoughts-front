@@ -2,6 +2,7 @@ import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
 import { Provider } from "react-redux";
+import { act } from "react-dom/test-utils";
 
 import UpdateEmail from "./UpdateEmail";
 import {
@@ -29,7 +30,7 @@ jest.mock("../../utils/api/API", () => {
   return {
     API: {
       user: {
-        async updateEmail({
+        updateEmail({
           data
         }: {
           data: {
@@ -42,7 +43,6 @@ jest.mock("../../utils/api/API", () => {
     }
   };
 });
-// import {API} from "../../utils/api/API"
 
 describe("<UpdateEmail />", () => {
   const MIN_PASSWORD_LENGTH = 8;
@@ -328,38 +328,35 @@ describe("<UpdateEmail />", () => {
 
   it("dispatches a redux action on valid submission", () => {
     wrappers.forEach(async (wrapper, ind) => {
-      // add values
-      const _value = casual.email;
-      const _pw = generateValidPassword(MIN_PASSWORD_LENGTH);
-      simulateInputChange(
-        wrapper.find("TextInput input[name='email']").first(),
-        "email",
-        _value
-      );
-      simulateInputChange(
-        wrapper.find("TextInput input[name='confirmEmail']").first(),
-        "confirmEmail",
-        _value
-      );
-      simulateInputChange(
-        wrapper.find("TextInput input[name='password']").first(),
-        "password",
-        _pw
-      );
+      // get info from redux store
+      const reduxStore = mockStores[ind].getState() as AppState;
+      const token = reduxStore.users.self?.token;
+      if (token) return;
 
-      try {
-        // 'submit' form via click
-        const data = {
-          user: { email: _value, confirmEmail: _value, password: _pw }
-        };
-        // console.log(data);
-        await wrapper.find("form").first().simulate("submit");
-      } catch (err) {
-        console.log(err);
-      }
+      act(() => {
+        // add values
+        const _value = casual.email;
+        const _pw = generateValidPassword(MIN_PASSWORD_LENGTH);
+        simulateInputChange(
+          wrapper.find("TextInput input[name='email']").first(),
+          "email",
+          _value
+        );
+        simulateInputChange(
+          wrapper.find("TextInput input[name='confirmEmail']").first(),
+          "confirmEmail",
+          _value
+        );
+        simulateInputChange(
+          wrapper.find("TextInput input[name='password']").first(),
+          "password",
+          _pw
+        );
 
-      // expect(mockDispatch).toHaveBeenCalledTimes(1);
-      // console.log(mockStores[ind].getActions());
+        wrapper.find("form").first().simulate("submit");
+      });
+
+      console.log(mockStores[ind]);
     });
   });
 });
