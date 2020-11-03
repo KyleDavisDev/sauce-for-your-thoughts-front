@@ -134,10 +134,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
       // update email via API
       await API.user.updateEmail({ data });
 
-      // clear state and display flash
-      setEmail("");
-      setConfirmEmail("");
-      setPassword("");
+      // show success
       setFlashMessage({
         isVisible: true,
         text: "Success! Email updated.",
@@ -146,15 +143,17 @@ const UpdateEmail: React.FC<UpdateEmailProps> = props => {
         slugText: "Back to Settings"
       });
     } catch (err) {
-      // Password bad or acc locked so going to reset
-      setEmail("");
-      setConfirmEmail("");
-      setPassword("");
+      // show error
       setFlashMessage({
         isVisible: true,
         text: err.response.data.msg,
         type: "warning"
       });
+    } finally {
+      // reset fields
+      setEmail("");
+      setConfirmEmail("");
+      setPassword("");
     }
   }
 };
