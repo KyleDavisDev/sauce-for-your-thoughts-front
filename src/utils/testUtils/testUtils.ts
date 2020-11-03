@@ -10,6 +10,7 @@ import { ISauce, ISaucesState } from "../../redux/sauces/types";
 import { FlashMessageProps } from "../../components/FlashMessage/FlashMessage";
 import Flatn from "../Flatn/Flatn";
 import { IUserState } from "../../redux/users/types";
+import { IErrParams, IErrReturn } from "../Err/Err";
 
 export const ITERATION_SIZE = 32;
 const REACT_REGEX = /react(\d+)?./i;
@@ -110,16 +111,6 @@ export const fakeJSXElement = (): JSX.Element => {
   ]);
 };
 
-const fakeCard = (): MockCard => ({
-  title: casual.string,
-  description: casual.string,
-  to: casual.url,
-  showLink: casual.boolean,
-  imageLink: casual.url,
-  className: casual.string,
-  anchorText: casual.string
-});
-
 const wait = (amount = 0) =>
   new Promise(resolve => setTimeout(resolve, amount));
 
@@ -182,6 +173,20 @@ const generateInValidPassword = (MIN_PASSWORD_LENGTH: number = 8): string => {
   return new Array(_randomLength).fill(null).map(casual._letter).join("");
 };
 
+// Function designed to resemble how a network error would look like.
+// This will help the catch(err) only have to handle a single format
+const generateErr = (): IErrReturn => {
+  return {
+    response: {
+      data: {
+        status: 400,
+        msg: casual.string,
+        isGood: false
+      }
+    }
+  };
+};
+
 export {
   casual,
   simulateInputChange,
@@ -189,5 +194,6 @@ export {
   isComponent,
   wait,
   generateValidPassword,
-  generateInValidPassword
+  generateInValidPassword,
+  generateErr
 };
