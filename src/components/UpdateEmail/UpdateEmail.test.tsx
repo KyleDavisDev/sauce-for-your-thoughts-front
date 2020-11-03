@@ -11,7 +11,8 @@ import {
   generateInValidPassword,
   generateValidPassword,
   ITERATION_SIZE,
-  simulateInputChange
+  simulateInputChange,
+  generateErr
 } from "../../utils/testUtils/testUtils";
 import { AppState } from "../../redux/configureStore";
 
@@ -27,7 +28,11 @@ jest.mock("next/router", () => ({
 
 // mock our API
 const mockAPICall = jest.fn(() => {
-  return Promise.resolve();
+  if (casual.boolean) {
+    return Promise.resolve({ isGood: true });
+  } else {
+    return Promise.reject(generateErr());
+  }
 });
 jest.mock("../../utils/api/API", () => {
   return {
@@ -328,7 +333,7 @@ describe("<UpdateEmail />", () => {
       // get info from redux store
       const reduxStore = mockStores[i].getState() as AppState;
       const token = reduxStore.users.self?.token;
-      if (token) return;
+      if (!token) continue;
 
       // reset mock counter
       mockAPICall.mockClear();
@@ -355,7 +360,7 @@ describe("<UpdateEmail />", () => {
 
       // simulate form submission
       await act(async () => {
-        await wrapper.find("Button[type='submit']").first().simulate("submit");
+        await wrapper.find("form").first().simulate("submit");
       });
 
       // check our mockAPI was called
