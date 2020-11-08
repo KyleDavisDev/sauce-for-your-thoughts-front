@@ -100,4 +100,26 @@ describe("<UpdatePassword />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("calls 'router' if no token is available", () => {
+    mockStores.forEach((mockStore, ind) => {
+      // get info from redux store
+      const reduxStore = mockStore.getState() as AppState;
+      const token = reduxStore.users.self?.token;
+      if (token) return;
+
+      // reset the mock counters
+      mockPush.mockReset();
+
+      // mount component
+      enzyme.mount(
+        <Provider store={mockStore}>
+          <UpdatePassword />
+        </Provider>
+      );
+
+      // check for mockPush to be called
+      expect(mockPush).toHaveBeenCalledTimes(1);
+    });
+  });
 });
