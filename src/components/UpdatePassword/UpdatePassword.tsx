@@ -1,7 +1,6 @@
 import * as React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { updatePassword } from "../../redux/users/actions";
 import { IUserUpdatePassword } from "../../redux/users/types";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 import PageTitle from "../PageTitle/PageTitle";
@@ -11,13 +10,12 @@ import { Button } from "../Button/Button";
 import { FlashMessage, FlashMessageProps } from "../FlashMessage/FlashMessage";
 import { StyledFormContainer, StyledButtonHolder } from "./UpdatePasswordStyle";
 import { useRouter } from "next/router";
-import HeaderSimple from "../HeaderSimple/HeaderSimple";
-import { Article } from "../Article/Article";
 import { AppState } from "../../redux/configureStore";
+import { API } from "../../utils/api/API";
 
 export interface UpdatePasswordProps {}
 
-const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
+const UpdatePassword: React.FC<UpdatePasswordProps> = () => {
   const MIN_PASSWORD_LENGTH = 8;
   const _pageTitle = "Update Password";
   const _redirectPath = "/account/login?return=/account/update/password";
@@ -37,8 +35,6 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
 
   // init router
   const router = useRouter();
-  // init dispatch
-  const dispatch = useDispatch();
 
   React.useEffect(() => {
     // Quick sanity check on token
@@ -163,8 +159,9 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
           confirmNewPassword
         }
       };
-      // dispatch redux action
-      await dispatch(updatePassword(data));
+
+      // update password via API
+      await API.user.updatePassword(data);
 
       // show success
       setFlashMessage({
