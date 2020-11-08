@@ -168,4 +168,10 @@ describe("<UpdatePassword />", () => {
       expect(wrapper.find("TextInput").at(0).prop("value")).toEqual(_password);
     });
   });
+
+  it("renders the first TextInput with the type of 'password'", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").at(0).prop("type")).toEqual("password");
+    });
+  });
 });
