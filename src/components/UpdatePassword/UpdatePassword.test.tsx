@@ -182,4 +182,17 @@ describe("<UpdatePassword />", () => {
       );
     });
   });
+
+  it("renders the second TextInput that, when onChange'd, updates it's own value", () => {
+    wrappers.forEach(wrapper => {
+      const _password = generateValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmNewPassword']").first(),
+        "confirmNewPassword",
+        _password
+      );
+
+      expect(wrapper.find("TextInput").at(1).prop("value")).toEqual(_password);
+    });
+  });
 });
