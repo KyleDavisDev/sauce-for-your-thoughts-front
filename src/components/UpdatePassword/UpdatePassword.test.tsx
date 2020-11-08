@@ -101,7 +101,7 @@ describe("<UpdatePassword />", () => {
     });
   });
 
-  it("calls 'router' if no token is available", () => {
+  it("calls 'router' if no token is available and w/ expected path", () => {
     mockStores.forEach((mockStore, ind) => {
       // get info from redux store
       const reduxStore = mockStore.getState() as AppState;
@@ -120,6 +120,9 @@ describe("<UpdatePassword />", () => {
 
       // check for mockPush to be called
       expect(mockPush).toHaveBeenCalledTimes(1);
+
+      // check for expected path
+      expect(mockPush).toHaveBeenCalledWith(_redirectPath);
     });
   });
 });
