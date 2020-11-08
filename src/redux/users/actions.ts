@@ -198,47 +198,6 @@ export const logout = () => async (dispatch: any) => {
   dispatch(userLoggedOut());
 };
 
-/** @description Update a user's email
- *  @param {IUserUpdateEmail} data - container for user information
- *  @return {Promise} Promise
- *  @resolves {null}
- *
- *  @reject {String} error message
- */
-export const updateEmail = ({
-  data
-}: {
-  data: IUserUpdateEmail;
-}): MyThunkResult<Promise<null>> => async dispatch => {
-  try {
-    await API.user.updateEmail({ data });
-  } catch (err) {
-    // Relay the error
-    throw err;
-  }
-
-  return null;
-};
-
-/** @description Call API to update user's password
- *  @param {IUserUpdateEmail} data - container for user information
- *  @return {Promise} Promise
- *  @resolves {NULL} token - unique user token
- *
- *  @reject {IErrReturn} error object
- */
-export const updatePassword = (
-  data: IUserUpdatePassword
-): MyThunkResult<Promise<null>> => async dispatch => {
-  // Call API
-  await API.user.updatePassword(data).catch(err => {
-    // Relay the error
-    throw err;
-  });
-
-  return null;
-};
-
 /** @description Call API to update user's display name
  *  @param {IUserUpdateDisplayName} data - container for user information
  *  @param {string} data.user.password - original password
