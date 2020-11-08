@@ -149,4 +149,10 @@ describe("<UpdatePassword />", () => {
       expect(wrapper.find("TextInput").length).toEqual(3);
     });
   });
+
+  it("renders the first TextInput with an id of 'newPassword'", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").at(0).prop("id")).toEqual("newPassword");
+    });
+  });
 });
