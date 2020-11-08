@@ -174,4 +174,12 @@ describe("<UpdatePassword />", () => {
       expect(wrapper.find("TextInput").at(0).prop("type")).toEqual("password");
     });
   });
+
+  it("renders the second TextInput with an id of 'confirmNewPassword'", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").at(1).prop("id")).toEqual(
+        "confirmNewPassword"
+      );
+    });
+  });
 });
