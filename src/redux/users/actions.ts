@@ -222,9 +222,6 @@ export const updateEmail = ({
 
 /** @description Call API to update user's password
  *  @param {IUserUpdateEmail} data - container for user information
- *  @param {string} data.user.password - original password
- *  @param {string} data.user.newPassword - new user password
- *  @param {string} data.user.confirmNewPassword - confirm new user password
  *  @return {Promise} Promise
  *  @resolves {NULL} token - unique user token
  *
