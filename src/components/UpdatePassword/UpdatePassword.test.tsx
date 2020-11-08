@@ -125,4 +125,10 @@ describe("<UpdatePassword />", () => {
       expect(mockPush).toHaveBeenCalledWith(_redirectPath);
     });
   });
+
+  it("renders a PageTitle component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("PageTitle").exists()).toBeTruthy();
+    });
+  });
 });
