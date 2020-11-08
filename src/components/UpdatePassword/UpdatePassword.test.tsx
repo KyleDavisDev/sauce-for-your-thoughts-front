@@ -143,4 +143,10 @@ describe("<UpdatePassword />", () => {
       expect(wrapper.find("form").exists()).toBeTruthy();
     });
   });
+
+  it("renders 3 TextInput components", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").length).toEqual(3);
+    });
+  });
 });
