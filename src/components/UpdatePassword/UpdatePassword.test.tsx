@@ -131,4 +131,10 @@ describe("<UpdatePassword />", () => {
       expect(wrapper.find("PageTitle").exists()).toBeTruthy();
     });
   });
+
+  it("passes the expected title to the PageTitle component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("PageTitle").text()).toEqual(_pageTitle);
+    });
+  });
 });
