@@ -17,9 +17,13 @@ import { AppState } from "../../redux/configureStore";
 
 export interface UpdatePasswordProps {}
 
-export interface UpdatePasswordState {}
-
 const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
+  const MIN_PASSWORD_LENGTH = 8;
+  const _pageTitle = "Update Password";
+  const _redirectPath = "/account/login?return=/account/update/password";
+  const _defaultErrorMsg =
+    "There was a problem updating your password. Please verify network connection and try again.";
+
   // Init state
   const [password, setPassword] = React.useState("");
   const [newPassword, setNewPassword] = React.useState("");
@@ -29,7 +33,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
   });
 
   // grab token from redux
-  const token = useSelector((store: AppState) => store.users.self.token);
+  const token = useSelector((store: AppState) => store.users?.self?.token);
 
   // init router
   const router = useRouter();
@@ -39,80 +43,84 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
   React.useEffect(() => {
     // Quick sanity check on token
     if (!token) {
-      router.push("/account/login?return=/account/update/password");
+      router.push(_redirectPath);
       return;
     }
-  }, []);
+  });
 
   return (
     <>
-      <HeaderSimple />
-      <Article size="sm">
-        <PageTitle>Update Password</PageTitle>
-        <StyledFormContainer>
-          {flashMessage.isVisible && (
-            <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
-          )}
-          <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
-            <TextInput
-              type="password"
-              onChange={e => setNewPassword(e.target.value)}
-              value={newPassword}
-              showLabel={true}
-              label={"New Password"}
-              name={"newPassword"}
-              required={true}
-              requirementText={"Must be at least 9 characters long."}
-            />
-            <TextInput
-              type="password"
-              onChange={e => setConfirmNewPassword(e.target.value)}
-              value={confirmNewPassword}
-              disabled={!toggleConfirmNewPassword()}
-              showLabel={true}
-              label={"Confirm New Password"}
-              name={"confirmNewPassword"}
-              required={true}
-              requirementText={"Must match above."}
-            />
-            <TextInput
-              type="password"
-              onChange={e => setPassword(e.target.value)}
-              value={password}
-              disabled={!toggleConfirmPassword()}
-              showLabel={true}
-              label={"Old Password"}
-              name={"password"}
-              required={true}
-            />
+      <PageTitle>{_pageTitle}</PageTitle>
+      <StyledFormContainer>
+        {flashMessage.isVisible && (
+          <FlashMessage {...flashMessage}>{flashMessage.text}</FlashMessage>
+        )}
+        <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+          <TextInput
+            type="password"
+            id="newPassword"
+            onChange={e => setNewPassword(e.target.value)}
+            value={newPassword}
+            showLabel={true}
+            label={"New Password"}
+            name={"newPassword"}
+            required={true}
+            requirementText={"Must be at least 8 characters long."}
+          />
+          <TextInput
+            type="password"
+            id="confirmNewPassword"
+            onChange={e => setConfirmNewPassword(e.target.value)}
+            value={confirmNewPassword}
+            disabled={!doesNewPasswordReachMinLength()}
+            showLabel={true}
+            label={"Confirm New Password"}
+            name={"confirmNewPassword"}
+            required={true}
+            requirementText={"Must match above."}
+          />
+          <TextInput
+            type="password"
+            id="oldPassword"
+            onChange={e => setPassword(e.target.value)}
+            value={password}
+            disabled={!doesConfirmReachMinLength()}
+            showLabel={true}
+            label={"Old Password"}
+            name={"password"}
+            required={true}
+          />
 
-            <StyledButtonHolder>
-              <Link href="/account/settings">
-                <Button type="button" displayType="outline">
-                  <ArrowLeft /> Settings
-                </Button>
-              </Link>
-              <Button type="submit" disabled={!toggleUpdateButton()}>
-                Update!
+          <StyledButtonHolder>
+            <Link href="/account/settings">
+              <Button type="button" displayType="outline">
+                <ArrowLeft /> Settings
               </Button>
-            </StyledButtonHolder>
-          </form>
-        </StyledFormContainer>
-      </Article>
+            </Link>
+            <Button type="submit" disabled={!isReadyForSubmission()}>
+              Update!
+            </Button>
+          </StyledButtonHolder>
+        </form>
+      </StyledFormContainer>
     </>
   );
 
-  function toggleConfirmNewPassword(): boolean {
+  function doesNewPasswordReachMinLength(): boolean {
     // If password is long enough, return true
-    return newPassword.length > 8;
+    return newPassword.length >= MIN_PASSWORD_LENGTH;
   }
 
-  function toggleConfirmPassword(): boolean {
-    return toggleConfirmNewPassword() && newPassword === confirmNewPassword;
+  function doesConfirmReachMinLength(): boolean {
+    return (
+      doesNewPasswordReachMinLength() && newPassword === confirmNewPassword
+    );
   }
 
-  function toggleUpdateButton(): boolean {
-    return toggleConfirmPassword() && password.length > 8;
+  function isReadyForSubmission(): boolean {
+    return (
+      doesConfirmReachMinLength() && password.length >= MIN_PASSWORD_LENGTH
+    );
   }
 
   async function onSubmit(event: React.FormEvent): Promise<any> {
@@ -142,26 +150,23 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
 
     // Quick sanity check on password
     if (!token) {
-      router.push("/account/login?return=/account/settings/password");
+      router.push(_redirectPath);
       return;
     }
 
-    // Construct data
-    const data: IUserUpdatePassword = {
-      user: {
-        password,
-        newPassword,
-        confirmNewPassword
-      }
-    };
     try {
+      // Construct data
+      const data: IUserUpdatePassword = {
+        user: {
+          password,
+          newPassword,
+          confirmNewPassword
+        }
+      };
       // dispatch redux action
       await dispatch(updatePassword(data));
 
-      // clear input and display flash
-      setPassword("");
-      setNewPassword("");
-      setConfirmNewPassword("");
+      // show success
       setFlashMessage({
         isVisible: true,
         text: "Success! Password updated.",
@@ -170,15 +175,17 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = props => {
         slugText: "Back to Settings"
       });
     } catch (err) {
-      // Password bad or acc locked so going to reset
+      // Show error
+      setFlashMessage({
+        isVisible: true,
+        text: err.response.data.msg || _defaultErrorMsg,
+        type: "warning"
+      });
+    } finally {
+      // reset inputs
       setPassword("");
       setNewPassword("");
       setConfirmNewPassword("");
-      setFlashMessage({
-        isVisible: true,
-        text: err.response.data.msg,
-        type: "warning"
-      });
     }
   }
 };
