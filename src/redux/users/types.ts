@@ -61,9 +61,9 @@ export interface ILoginUser {
 // Update user email
 export interface IUserUpdateEmail {
   user: {
-    email: string;
-    confirmEmail: string;
-    password: string;
+    email: string; // - original password
+    confirmEmail: string; // - new user password
+    password: string; // - confirm new user password
   };
 }
 
