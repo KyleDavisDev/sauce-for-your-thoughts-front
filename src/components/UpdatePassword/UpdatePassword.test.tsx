@@ -156,6 +156,12 @@ describe("<UpdatePassword />", () => {
     });
   });
 
+  it("renders the first TextInput with the type of 'password'", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").at(0).prop("type")).toEqual("password");
+    });
+  });
+
   it("renders the first TextInput that, when onChange'd, updates it's own value", () => {
     wrappers.forEach(wrapper => {
       const _password = generateValidPassword(MIN_PASSWORD_LENGTH);
@@ -169,17 +175,35 @@ describe("<UpdatePassword />", () => {
     });
   });
 
-  it("renders the first TextInput with the type of 'password'", () => {
-    wrappers.forEach(wrapper => {
-      expect(wrapper.find("TextInput").at(0).prop("type")).toEqual("password");
-    });
-  });
-
   it("renders the second TextInput with an id of 'confirmNewPassword'", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("TextInput").at(1).prop("id")).toEqual(
         "confirmNewPassword"
       );
+    });
+  });
+
+  it("renders the second TextInput with the type of 'password'", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").at(1).prop("type")).toEqual("password");
+    });
+  });
+
+  it("renders the second TextInput that is disabled until first TextInput contains valid password", () => {
+    wrappers.forEach(wrapper => {
+      // make sure is disabled
+      expect(wrapper.find("TextInput").at(1).prop("disabled")).toEqual(true);
+
+      // insert password
+      const _password = generateValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='newPassword']").first(),
+        "newPassword",
+        _password
+      );
+
+      // make sure is now enabled
+      expect(wrapper.find("TextInput").at(1).prop("disabled")).toEqual(false);
     });
   });
 
@@ -193,12 +217,6 @@ describe("<UpdatePassword />", () => {
       );
 
       expect(wrapper.find("TextInput").at(1).prop("value")).toEqual(_password);
-    });
-  });
-
-  it("renders the second TextInput with the type of 'password'", () => {
-    wrappers.forEach(wrapper => {
-      expect(wrapper.find("TextInput").at(1).prop("type")).toEqual("password");
     });
   });
 });
