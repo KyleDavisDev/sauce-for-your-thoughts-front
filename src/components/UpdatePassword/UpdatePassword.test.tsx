@@ -155,4 +155,17 @@ describe("<UpdatePassword />", () => {
       expect(wrapper.find("TextInput").at(0).prop("id")).toEqual("newPassword");
     });
   });
+
+  it("renders the first TextInput that, when onChange'd, updates it's own value", () => {
+    wrappers.forEach(wrapper => {
+      const _password = generateValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='newPassword']").first(),
+        "newPassword",
+        _password
+      );
+
+      expect(wrapper.find("TextInput").at(0).prop("value")).toEqual(_password);
+    });
+  });
 });
