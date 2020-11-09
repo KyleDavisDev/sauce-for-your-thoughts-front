@@ -189,7 +189,7 @@ describe("<UpdatePassword />", () => {
     });
   });
 
-  it("renders the second TextInput that is disabled until first TextInput contains valid password", () => {
+  it("renders the second TextInput which is disabled until the first TextInput contains valid password", () => {
     wrappers.forEach(wrapper => {
       // make sure is disabled
       expect(wrapper.find("TextInput").at(1).prop("disabled")).toEqual(true);
@@ -217,6 +217,12 @@ describe("<UpdatePassword />", () => {
       );
 
       expect(wrapper.find("TextInput").at(1).prop("value")).toEqual(_password);
+    });
+  });
+
+  it("renders the third TextInput with an id of 'oldPassword'", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").at(1).prop("id")).toEqual("oldPassword");
     });
   });
 });
