@@ -54,6 +54,7 @@ describe("<UpdatePassword />", () => {
   const _defaultErrorMsg =
     "There was a problem updating your password. Please verify network connection and try again.";
   const _backButtonText = "Back to Settings";
+  const _submitButtonText = "Update!";
 
   // May need to refer to these later so initializing out here
   let wrappers: Array<enzyme.ReactWrapper<
@@ -269,6 +270,12 @@ describe("<UpdatePassword />", () => {
   it("renders first button element with default back button text", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("button").first().text()).toEqual(_backButtonText);
+    });
+  });
+
+  it("renders second button element with default submit button text", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("button").last().text()).toEqual(_submitButtonText);
     });
   });
 });
