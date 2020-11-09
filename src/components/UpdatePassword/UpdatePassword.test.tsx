@@ -222,9 +222,11 @@ describe("<UpdatePassword />", () => {
     });
   });
 
-  it("renders the third TextInput with an id of 'oldPassword'", () => {
+  it("renders the third TextInput with an id of 'currentPassword'", () => {
     wrappers.forEach(wrapper => {
-      expect(wrapper.find("TextInput").at(2).prop("id")).toEqual("oldPassword");
+      expect(wrapper.find("TextInput").at(2).prop("id")).toEqual(
+        "currentPassword"
+      );
     });
   });
 
@@ -276,6 +278,43 @@ describe("<UpdatePassword />", () => {
   it("renders second button element with default submit button text", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("button").last().text()).toEqual(_submitButtonText);
+    });
+  });
+
+  it("renders second button element as disabled until inputs have appropriate length and matching text", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("button").last().prop("disabled")).toEqual(true);
+
+      // update first textbox
+      const _password = generateValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='newPassword']").first(),
+        "newPassword",
+        _password
+      );
+
+      // make sure is disabled
+      expect(wrapper.find("button").last().prop("disabled")).toEqual(true);
+
+      // update second textbox
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmNewPassword']").first(),
+        "confirmNewPassword",
+        _password
+      );
+
+      // make sure is disabled
+      expect(wrapper.find("button").last().prop("disabled")).toEqual(true);
+
+      // update third textbox
+      simulateInputChange(
+        wrapper.find("TextInput input[name='currentPassword']").first(),
+        "currentPassword",
+        _password
+      );
+
+      // make sure is enabled!
+      expect(wrapper.find("button").last().prop("disabled")).toEqual(false);
     });
   });
 });
