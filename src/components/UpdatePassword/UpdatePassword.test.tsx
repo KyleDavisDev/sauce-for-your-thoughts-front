@@ -8,7 +8,6 @@ import UpdatePassword from "./UpdatePassword";
 import {
   casual,
   fakeStore,
-  generateInValidPassword,
   generateValidPassword,
   ITERATION_SIZE,
   simulateInputChange,
