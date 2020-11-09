@@ -3,11 +3,7 @@ import { useRouter } from "next/router";
 
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import { Link } from "../Link/Link";
-import {
-  StyledContainer,
-  StyledButton,
-  StyledGroup
-} from "./UserSettingsStyle";
+import { StyledContainer, StyledButton } from "./UserSettingsStyle";
 
 import ArrowRight from "../../images/icons/ArrowRight";
 import ArrowLeft from "../../images/icons/ArrowLeft";
@@ -25,15 +21,11 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
     isVisible: false
   });
 
-  // assign router
-  const router = useRouter();
-
   // check if the email was confirmed
   const { loading, isEmailConfirmed, error } = useIsEmailConfirmed();
 
   // if we have any errors, let's show em!
   React.useEffect(() => {
-    // console.log(error);
     if (error.isVisible) {
       setFlashMessage({ ...error });
     }
