@@ -91,7 +91,8 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = () => {
           <StyledButtonHolder>
             <Link href="/account/settings">
               <Button type="button" displayType="outline">
-                <ArrowLeft /> {_backButtonText}
+                <ArrowLeft />
+                {_backButtonText}
               </Button>
             </Link>
             <Button type="submit" disabled={!isReadyForSubmission()}>
