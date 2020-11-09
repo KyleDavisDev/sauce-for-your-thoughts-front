@@ -261,8 +261,14 @@ describe("<UpdatePassword />", () => {
   });
 
   it("renders 2 button elements", () => {
-    wrappers.forEach((wrapper, ind) => {
+    wrappers.forEach(wrapper => {
       expect(wrapper.find("button").length).toEqual(2);
+    });
+  });
+
+  it("renders first button element with default back button text", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("button").first().text()).toEqual(_backButtonText);
     });
   });
 });
