@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { FlashMessageProps } from "../../components/FlashMessage/FlashMessage";
 import { AppState } from "../../redux/configureStore";
 import { API } from "../api/API";
