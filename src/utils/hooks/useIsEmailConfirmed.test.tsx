@@ -115,4 +115,26 @@ describe("useIsEmailConfirmed", () => {
       });
     }
   });
+
+  it("returns default error when no token found", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxState = mockStores[i].getState() as AppState;
+      const token = reduxState.users.self?.token;
+      if (!token) return;
+
+      await act(async () => {
+        const wrapper = enzyme.mount(
+          <Provider store={mockStores[i]}>
+            <HookWrapper data-hook={() => useIsEmailConfirmed()} />
+          </Provider>
+        );
+
+        const hook: IuseIsEmailConfirmed = wrapper
+          .find("div")
+          .prop("data-hook");
+
+        expect(hook.error).toEqual(_defaultFlashState);
+      });
+    }
+  });
 });
