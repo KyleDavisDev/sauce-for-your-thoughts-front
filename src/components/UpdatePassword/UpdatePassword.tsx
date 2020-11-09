@@ -21,6 +21,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = () => {
   const _redirectPath = "/account/login?return=/account/update/password";
   const _defaultErrorMsg =
     "There was a problem updating your password. Please verify network connection and try again.";
+  const _backButtonText = "Back to Settings";
 
   // Init state
   const [password, setPassword] = React.useState("");
@@ -90,7 +91,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = () => {
           <StyledButtonHolder>
             <Link href="/account/settings">
               <Button type="button" displayType="outline">
-                <ArrowLeft /> Settings
+                <ArrowLeft /> {_backButtonText}
               </Button>
             </Link>
             <Button type="submit" disabled={!isReadyForSubmission()}>
