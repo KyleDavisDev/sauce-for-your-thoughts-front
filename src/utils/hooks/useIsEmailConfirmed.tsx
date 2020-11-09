@@ -11,12 +11,19 @@ export interface IuseIsEmailConfirmed {
 }
 
 export function useIsEmailConfirmed(): IuseIsEmailConfirmed {
+  // init defaults
+  const _defaultIsLoading = false;
+  const _defaultIsEmailConfirmed = false;
+  const _defaultFlashState = { isVisible: false };
+
   // init state
-  const [_loading, setLoading] = React.useState(false);
-  const [_isEmailConfirmed, setIsEmailConfirmed] = React.useState(false);
-  const [_error, setError] = React.useState<FlashMessageProps>({
-    isVisible: false
-  });
+  const [_loading, setLoading] = React.useState(_defaultIsLoading);
+  const [_isEmailConfirmed, setIsEmailConfirmed] = React.useState(
+    _defaultIsEmailConfirmed
+  );
+  const [_error, setError] = React.useState<FlashMessageProps>(
+    _defaultFlashState
+  );
 
   // Grab token from redux
   const token = useSelector((store: AppState) => store.users?.self?.token);
@@ -25,8 +32,9 @@ export function useIsEmailConfirmed(): IuseIsEmailConfirmed {
   React.useEffect(() => {
     // Quick sanity check
     if (!token) {
-      setLoading(false);
-      setIsEmailConfirmed(false);
+      setLoading(_defaultIsLoading);
+      setIsEmailConfirmed(_defaultIsEmailConfirmed);
+      setError(_defaultFlashState);
       return;
     }
 
