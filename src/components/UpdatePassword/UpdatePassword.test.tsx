@@ -53,6 +53,7 @@ describe("<UpdatePassword />", () => {
   const _redirectPath = "/account/login?return=/account/update/password";
   const _defaultErrorMsg =
     "There was a problem updating your password. Please verify network connection and try again.";
+  const _backButtonText = "Back to Settings";
 
   // May need to refer to these later so initializing out here
   let wrappers: Array<enzyme.ReactWrapper<
@@ -256,6 +257,12 @@ describe("<UpdatePassword />", () => {
 
       // make sure is now enabled
       expect(wrapper.find("TextInput").at(2).prop("disabled")).toEqual(false);
+    });
+  });
+
+  it("renders 2 button elements", () => {
+    wrappers.forEach((wrapper, ind) => {
+      expect(wrapper.find("button").length).toEqual(2);
     });
   });
 });
