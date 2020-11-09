@@ -22,6 +22,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = () => {
   const _defaultErrorMsg =
     "There was a problem updating your password. Please verify network connection and try again.";
   const _backButtonText = "Back to Settings";
+  const _submitButtonText = "Update!";
 
   // Init state
   const [password, setPassword] = React.useState("");
@@ -96,7 +97,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = () => {
               </Button>
             </Link>
             <Button type="submit" disabled={!isReadyForSubmission()}>
-              Update!
+              {_submitButtonText}
             </Button>
           </StyledButtonHolder>
         </form>
