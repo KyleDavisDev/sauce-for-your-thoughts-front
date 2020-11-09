@@ -39,6 +39,10 @@ jest.mock("../../utils/api/API", () => {
   };
 });
 
+afterAll(() => {
+  jest.clearAllMocks();
+});
+
 const HookWrapper = props => {
   const hook = props["data-hook"] ? props["data-hook"]() : undefined;
   return <div data-hook={hook} />;
@@ -135,6 +139,28 @@ describe("useIsEmailConfirmed", () => {
 
         expect(hook.error).toEqual(_defaultFlashState);
       });
+    }
+  });
+
+  it("calls API when there is a token", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxState = mockStores[i].getState() as AppState;
+      const token = reduxState.users.self?.token;
+      if (!token) return; // skip since we only care about non-token stores
+
+      // reset mock
+      mockAPICall.mockClear();
+
+      await act(async () => {
+        enzyme.mount(
+          <Provider store={mockStores[i]}>
+            <HookWrapper data-hook={() => useIsEmailConfirmed()} />
+          </Provider>
+        );
+      });
+
+      // check if was called
+      expect(mockAPICall).toHaveBeenCalledTimes(1);
     }
   });
 });
