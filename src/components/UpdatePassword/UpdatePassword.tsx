@@ -79,13 +79,13 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = () => {
           />
           <TextInput
             type="password"
-            id="oldPassword"
+            id="currentPassword"
             onChange={e => setPassword(e.target.value)}
             value={password}
             disabled={!doesConfirmReachMinLength()}
             showLabel={true}
-            label={"Old Password"}
-            name={"password"}
+            label={"Current Password"}
+            name={"currentPassword"}
             required={true}
           />
 
