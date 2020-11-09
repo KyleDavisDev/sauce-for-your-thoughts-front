@@ -317,4 +317,44 @@ describe("<UpdatePassword />", () => {
       expect(wrapper.find("button").last().prop("disabled")).toEqual(false);
     });
   });
+
+  it("calls API on valid submission", async () => {
+    // Need to use this method allow for promises not to error us out
+    for (let i = 0, len = wrappers.length; i < len; i++) {
+      // get info from redux store
+      const reduxStore = mockStores[i].getState() as AppState;
+      const token = reduxStore.users.self?.token;
+      if (!token) continue;
+
+      // reset mock counter
+      mockAPICall.mockClear();
+
+      // add values
+      const wrapper = wrappers[i];
+      const _pw = generateValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='newPassword']").first(),
+        "newPassword",
+        _pw
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmNewPassword']").first(),
+        "confirmNewPassword",
+        _pw
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='currentPassword']").first(),
+        "currentPassword",
+        _pw
+      );
+
+      // simulate form submission
+      await act(async () => {
+        await wrapper.find("form").first().simulate("submit");
+      });
+
+      // check our mockAPI was called
+      expect(mockAPICall).toHaveBeenCalledTimes(1);
+    }
+  });
 });
