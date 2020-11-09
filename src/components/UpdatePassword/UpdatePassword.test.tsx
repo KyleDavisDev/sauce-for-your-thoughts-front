@@ -222,7 +222,13 @@ describe("<UpdatePassword />", () => {
 
   it("renders the third TextInput with an id of 'oldPassword'", () => {
     wrappers.forEach(wrapper => {
-      expect(wrapper.find("TextInput").at(1).prop("id")).toEqual("oldPassword");
+      expect(wrapper.find("TextInput").at(2).prop("id")).toEqual("oldPassword");
+    });
+  });
+
+  it("renders the third TextInput with the type of 'password'", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").at(2).prop("type")).toEqual("password");
     });
   });
 });
