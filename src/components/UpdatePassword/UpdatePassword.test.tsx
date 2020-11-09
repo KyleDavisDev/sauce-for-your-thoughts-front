@@ -231,4 +231,31 @@ describe("<UpdatePassword />", () => {
       expect(wrapper.find("TextInput").at(2).prop("type")).toEqual("password");
     });
   });
+
+  it("renders the third TextInput which is disabled until the first TextInput contains valid password and second TextInput matches first", () => {
+    wrappers.forEach(wrapper => {
+      // make sure is disabled
+      expect(wrapper.find("TextInput").at(2).prop("disabled")).toEqual(true);
+
+      // insert password
+      const _password = generateValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='newPassword']").first(),
+        "newPassword",
+        _password
+      );
+
+      // make sure is disabled
+      expect(wrapper.find("TextInput").at(2).prop("disabled")).toEqual(true);
+
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmNewPassword']").first(),
+        "confirmNewPassword",
+        _password
+      );
+
+      // make sure is now enabled
+      expect(wrapper.find("TextInput").at(2).prop("disabled")).toEqual(false);
+    });
+  });
 });
