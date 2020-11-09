@@ -15,6 +15,8 @@ export function useIsEmailConfirmed(): IuseIsEmailConfirmed {
   const _defaultIsLoading = false;
   const _defaultIsEmailConfirmed = false;
   const _defaultFlashState = { isVisible: false };
+  const _defaultErrorMsg =
+    "Error confirming whether or not your email has been confirmed. Please ensure network connectivity and try again.";
 
   // init state
   const [_loading, setLoading] = React.useState(_defaultIsLoading);
@@ -52,7 +54,7 @@ export function useIsEmailConfirmed(): IuseIsEmailConfirmed {
         setError({
           type: "warning",
           isVisible: true,
-          text: err.response.data.msg
+          text: err.response.data.msg || _defaultErrorMsg
         });
       } finally {
         setLoading(false);
