@@ -8,6 +8,7 @@ export interface IuseIsEmailConfirmed {
   loading: boolean;
   isEmailConfirmed: boolean;
   error: FlashMessageProps;
+  getEmailConfirmed: () => Promise<void>;
 }
 
 export function useIsEmailConfirmed(): IuseIsEmailConfirmed {
@@ -30,46 +31,40 @@ export function useIsEmailConfirmed(): IuseIsEmailConfirmed {
   // Grab token from redux
   const token = useSelector((store: AppState) => store.users?.self?.token);
 
-  // Make sure user has a token
-  React.useEffect(() => {
-    // Quick sanity check
-    if (!token) {
-      setLoading(_defaultIsLoading);
-      setIsEmailConfirmed(_defaultIsEmailConfirmed);
-      setError(_defaultFlashState);
-      return;
-    }
+  const getEmailConfirmed = async function () {
+    try {
+      setLoading(true);
 
-    const getEmailConfirmed = async function () {
-      try {
-        setLoading(true);
-
-        // hit our API
+      // hit our API
+      if (token && token.length > 0) {
         const data = { user: { token } };
         const res = await API.user.isEmailConfirmed({ data });
 
         setIsEmailConfirmed(res.data.isGood);
-      } catch (err) {
+      } else {
         setIsEmailConfirmed(false);
-        setError({
-          type: "warning",
-          isVisible: true,
-          text: err.response.data.msg || _defaultErrorMsg
-        });
-      } finally {
-        setLoading(false);
       }
-    };
-
-    // Check if user has their email verified or not
-    if (!_loading) {
-      getEmailConfirmed();
+    } catch (err) {
+      setIsEmailConfirmed(false);
+      setError({
+        type: "warning",
+        isVisible: true,
+        text: err.response.data.msg || _defaultErrorMsg
+      });
+    } finally {
+      setLoading(false);
     }
+  };
+
+  // update anytime token changes
+  React.useEffect(() => {
+    getEmailConfirmed();
   }, [token]);
 
   return {
     loading: _loading,
     isEmailConfirmed: _isEmailConfirmed,
-    error: _error
+    error: _error,
+    getEmailConfirmed
   };
 }
