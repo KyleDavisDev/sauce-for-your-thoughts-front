@@ -1,16 +1,17 @@
 import * as React from "react";
+import * as enzyme from "enzyme";
 import casual from "casual";
 import { ReactWrapper } from "enzyme";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
-import { MockCard } from "./types";
 import { AppState } from "../../redux/configureStore";
 import { ISauce, ISaucesState } from "../../redux/sauces/types";
-import { FlashMessageProps } from "../../components/FlashMessage/FlashMessage";
 import Flatn from "../Flatn/Flatn";
 import { IUserState } from "../../redux/users/types";
-import { IErrParams, IErrReturn } from "../Err/Err";
+import { IErrReturn } from "../Err/Err";
+import { act } from "react-dom/test-utils";
+import { Provider } from "react-redux";
 
 export const ITERATION_SIZE = 32;
 const REACT_REGEX = /react(\d+)?./i;
@@ -187,6 +188,45 @@ const generateErr = (): IErrReturn => {
   };
 };
 
+// lets us mount up a simple custom hook
+const mountReactHook = hook => {
+  const Component = ({ children }) => children(hook());
+  const componentHook = {};
+  let componentMount;
+
+  act(() => {
+    componentMount = enzyme.shallow(
+      <Component>
+        {hookValues => {
+          Object.assign(componentHook, hookValues);
+          return null;
+        }}
+      </Component>
+    );
+  });
+  return { componentMount, componentHook };
+};
+
+const mountReactHookWithReduxStore = (hook, store) => {
+  const Component = ({ children }) => children(hook());
+  const componentHook = {};
+  let componentMount;
+
+  act(() => {
+    componentMount = enzyme.mount(
+      <Provider store={store}>
+        <Component>
+          {hookValues => {
+            Object.assign(componentHook, hookValues);
+            return null;
+          }}
+        </Component>
+      </Provider>
+    );
+  });
+  return { componentMount, componentHook };
+};
+
 export {
   casual,
   simulateInputChange,
@@ -195,5 +235,7 @@ export {
   wait,
   generateValidPassword,
   generateInValidPassword,
-  generateErr
+  generateErr,
+  mountReactHook,
+  mountReactHookWithReduxStore
 };
