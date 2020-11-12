@@ -22,7 +22,19 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
   });
 
   // check if the email was confirmed
-  const { loading, isEmailConfirmed, error } = useIsEmailConfirmed();
+  const {
+    loading,
+    isEmailConfirmed,
+    error,
+    getEmailConfirmed
+  } = useIsEmailConfirmed();
+
+  useEffect(() => {
+    async function fetchData() {
+      await getEmailConfirmed();
+    }
+    fetchData();
+  }, []);
 
   // if we have any errors, let's show em!
   React.useEffect(() => {
