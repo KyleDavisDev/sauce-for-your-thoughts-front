@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { FlashMessageProps } from "../../components/FlashMessage/FlashMessage";
-import { AppState } from "../../redux/configureStore";
-import { API } from "../api/API";
+import { FlashMessageProps } from "../../../components/FlashMessage/FlashMessage";
+import { AppState } from "../../../redux/configureStore";
+import { API } from "../../api/API";
 
 export interface IuseIsEmailConfirmed {
   loading: boolean;
@@ -55,11 +55,6 @@ export function useIsEmailConfirmed(): IuseIsEmailConfirmed {
       setLoading(false);
     }
   };
-
-  // update anytime token changes
-  React.useEffect(() => {
-    getEmailConfirmed();
-  }, [token]);
 
   return {
     loading: _loading,
