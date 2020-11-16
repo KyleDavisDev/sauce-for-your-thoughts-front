@@ -20,10 +20,11 @@ import {
   mountReactHookWithReduxStore,
   ImountReactHookWithReduxStore
 } from "../../testUtils/testUtils";
+import { IErrReturn } from "../../Err/Err";
 
 // mock our API
 const mockAPISuccess = () => Promise.resolve({ data: { isGood: true } });
-const mockAPIFailure = () => Promise.reject(generateErr());
+const mockAPIFailure = (err: IErrReturn = generateErr()) => Promise.reject(err);
 const mockAPIFull = () =>
   casual.boolean ? mockAPISuccess() : mockAPIFailure();
 let mockAPICall: jest.Mock<any> = jest.fn();
@@ -201,7 +202,7 @@ describe("useIsEmailConfirmed hook", () => {
     }
   });
 
-  it("returns true if API says it is confirmed", async () => {
+  it("returns isEmailConfirmed as true if API says it is confirmed", async () => {
     // mock success api
     mockAPICall = jest.fn(mockAPISuccess);
 
@@ -229,6 +230,41 @@ describe("useIsEmailConfirmed hook", () => {
 
       // check success
       expect(hook.isEmailConfirmed).toEqual(true);
+    }
+  });
+
+  it("returns errors if API is unsuccessful", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      // mock error api
+      const err = generateErr();
+      mockAPICall = jest.fn(() => mockAPIFailure(err));
+
+      const reduxState = mockStores[i].getState() as AppState;
+      const token = reduxState.users.self?.token;
+      if (!token) continue; // skip since we interested in token'd users
+
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useIsEmailConfirmed,
+        mockStores[i]
+      );
+
+      // grab hook
+      const hook = wrapper.componentHook as IuseIsEmailConfirmed;
+
+      // check default
+      expect(hook.isEmailConfirmed).toEqual(false);
+      expect(hook.error.isVisible).toEqual(false);
+
+      // perform changes within our component
+      await act(async () => {
+        hook.getEmailConfirmed();
+      });
+
+      // check for errors
+      expect(hook.isEmailConfirmed).toEqual(false);
+      expect(hook.error.isVisible).toEqual(true);
+      expect(hook.error.text).toEqual(err.response.data.msg);
     }
   });
 });
