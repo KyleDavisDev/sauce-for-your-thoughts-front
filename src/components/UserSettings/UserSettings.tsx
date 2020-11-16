@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import { Link } from "../Link/Link";
 import { StyledContainer, StyledButton } from "./UserSettingsStyle";
 
-import ArrowRight from "../../images/icons/ArrowRight";
 import ArrowLeft from "../../images/icons/ArrowLeft";
 
-import { API } from "../../utils/api/API";
-import { useIsEmailConfirmed } from "../../utils/hooks/useIsEmailConfirmed";
+import { useIsEmailConfirmed } from "../../utils/hooks/useIsEmailConfirmed/useIsEmailConfirmed";
 import ButtonRedirect from "./components/ButtonRedirect/ButtonRedirect";
 import RequestConfirmation from "./components/RequestConfirmation/RequestConfirmation";
+import { AppState } from "../../redux/configureStore";
 
 export interface UserSettingsProps {}
 
@@ -20,6 +19,9 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
   const [flashMessage, setFlashMessage] = useState<FlashMessageProps>({
     isVisible: false
   });
+
+  // Grab token from redux
+  const token = useSelector((store: AppState) => store.users?.self?.token);
 
   // check if the email was confirmed
   const {
@@ -33,8 +35,9 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
     async function fetchData() {
       await getEmailConfirmed();
     }
-    fetchData();
-  }, []);
+
+    if (!loading) fetchData();
+  }, [token]);
 
   // if we have any errors, let's show em!
   React.useEffect(() => {
