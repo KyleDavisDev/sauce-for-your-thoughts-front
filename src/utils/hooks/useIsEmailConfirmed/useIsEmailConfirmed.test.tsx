@@ -17,19 +17,17 @@ import {
   generateErr,
   ITERATION_SIZE,
   wait,
-  mountReactHookWithReduxStore
+  mountReactHookWithReduxStore,
+  ImountReactHookWithReduxStore
 } from "../../testUtils/testUtils";
 
 // mock our API
-let mockAPICall = jest.fn(() => {
-  if (casual.boolean) {
-    return Promise.resolve({ data: { isGood: true } });
-  } else {
-    const err = generateErr();
-    return Promise.reject(err);
-  }
-});
-jest.mock("../../utils/api/API", () => {
+const mockAPISuccess = () => Promise.resolve({ data: { isGood: true } });
+const mockAPIFailure = () => Promise.reject(generateErr());
+const mockAPIFull = () =>
+  casual.boolean ? mockAPISuccess() : mockAPIFailure();
+let mockAPICall: jest.Mock<any> = jest.fn();
+jest.mock("../../../utils/api/API", () => {
   return {
     API: {
       user: {
@@ -41,22 +39,11 @@ jest.mock("../../utils/api/API", () => {
   };
 });
 
-afterAll(() => {
-  jest.clearAllMocks();
-});
-
-const HookWrapper = props => {
-  const hook = props["data-hook"] ? props["data-hook"]() : undefined;
-  return <div data-hook={hook} />;
-};
-
 describe("useIsEmailConfirmed hook", () => {
   // init defaults
   const _defaultIsLoading = false;
   const _defaultIsEmailConfirmed = false;
   const _defaultFlashState = { isVisible: false };
-  let setupComponents;
-  let hook: IuseIsEmailConfirmed | undefined;
 
   // May need to refer to these later so initializing out here
   let mockStores: MockStoreEnhanced<unknown, {}>[] = [];
@@ -64,148 +51,184 @@ describe("useIsEmailConfirmed hook", () => {
   beforeAll(() => {
     // add our mock stores
     mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
+  });
 
-    setupComponents = new Array(ITERATION_SIZE).fill(null).map((x, ind) => {
-      return mountReactHookWithReduxStore(useIsEmailConfirmed, mockStores[ind]);
-    });
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   it("renders", async () => {
-    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
-      await act(async () => {
-        const wrapper = enzyme.mount(
-          <Provider store={mockStores[i]}>
-            <HookWrapper data-hook={() => useIsEmailConfirmed()} />
-          </Provider>
-        );
+    // mock full api
+    mockAPICall = jest.fn(mockAPIFull);
 
-        expect(wrapper.exists()).toBeTruthy();
-      });
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      // mount component
+      const wrapper = await mountReactHookWithReduxStore(
+        useIsEmailConfirmed,
+        mockStores[i]
+      );
+
+      expect(wrapper.componentMount.exists()).toBeTruthy();
     }
   });
 
   it("returns default loading when no token found", async () => {
+    // mock full api
+    mockAPICall = jest.fn(mockAPIFull);
+
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
       const reduxState = mockStores[i].getState() as AppState;
       const token = reduxState.users.self?.token;
-      if (token) return; // skip since we only care about non-token stores
+      if (token) continue; // skip since we interested in token'd users
 
-      await act(async () => {
-        const wrapper = enzyme.mount(
-          <Provider store={mockStores[i]}>
-            <HookWrapper data-hook={() => useIsEmailConfirmed()} />
-          </Provider>
-        );
+      // mount component
+      const wrapper = await mountReactHookWithReduxStore(
+        useIsEmailConfirmed,
+        mockStores[i]
+      );
 
-        const hook: IuseIsEmailConfirmed = wrapper
-          .find("div")
-          .prop("data-hook");
+      const hook = wrapper.componentHook as IuseIsEmailConfirmed;
 
-        expect(hook.loading).toEqual(_defaultIsLoading);
-      });
+      expect(hook.loading).toEqual(_defaultIsLoading);
     }
   });
 
   it("returns default isEmailConfirmed when no token found", async () => {
+    // mock full api
+    mockAPICall = jest.fn(mockAPIFull);
+
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
       const reduxState = mockStores[i].getState() as AppState;
       const token = reduxState.users.self?.token;
-      if (token) return; // skip since we only care about non-token stores
+      if (token) continue; // skip since we interested in non-token'd users
 
-      await act(async () => {
-        const wrapper = enzyme.mount(
-          <Provider store={mockStores[i]}>
-            <HookWrapper data-hook={() => useIsEmailConfirmed()} />
-          </Provider>
-        );
+      // mount component
+      const wrapper = await mountReactHookWithReduxStore(
+        useIsEmailConfirmed,
+        mockStores[i]
+      );
 
-        const hook: IuseIsEmailConfirmed = wrapper
-          .find("div")
-          .prop("data-hook");
+      const hook = wrapper.componentHook as IuseIsEmailConfirmed;
 
-        expect(hook.isEmailConfirmed).toEqual(_defaultIsEmailConfirmed);
-      });
+      expect(hook.isEmailConfirmed).toEqual(_defaultIsEmailConfirmed);
     }
   });
 
   it("returns default error when no token found", async () => {
+    // mock full api
+    mockAPICall = jest.fn(mockAPIFull);
+
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
       const reduxState = mockStores[i].getState() as AppState;
       const token = reduxState.users.self?.token;
-      if (token) return; // skip since we only care about non-token stores
+      if (token) continue; // skip since we interested in non-token'd users
 
-      await act(async () => {
-        const wrapper = enzyme.mount(
-          <Provider store={mockStores[i]}>
-            <HookWrapper data-hook={() => useIsEmailConfirmed()} />
-          </Provider>
-        );
+      // mount component
+      const wrapper = await mountReactHookWithReduxStore(
+        useIsEmailConfirmed,
+        mockStores[i]
+      );
 
-        const hook: IuseIsEmailConfirmed = wrapper
-          .find("div")
-          .prop("data-hook");
+      const hook = wrapper.componentHook as IuseIsEmailConfirmed;
 
-        expect(hook.error).toEqual(_defaultFlashState);
-      });
+      expect(hook.error).toEqual(_defaultFlashState);
     }
   });
 
-  it("calls API when there is a token", async () => {
+  it("allows for API call when there is a token", async () => {
+    // mock full api
+    mockAPICall = jest.fn(mockAPIFull);
+
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
       const reduxState = mockStores[i].getState() as AppState;
       const token = reduxState.users.self?.token;
-      if (!token) return; // skip since we only care about non-token stores
+      if (!token) continue; // skip since we interested in token'd users
 
       // reset mock
       mockAPICall.mockClear();
 
       // mount component
-      let wrapper;
+      const wrapper = await mountReactHookWithReduxStore(
+        useIsEmailConfirmed,
+        mockStores[i]
+      );
+
+      // grab hook
+      const hook = wrapper.componentHook as IuseIsEmailConfirmed;
+
+      // perform changes within our component
       await act(async () => {
-        wrapper = mountReactHookWithReduxStore(
-          useIsEmailConfirmed,
-          mockStores[i]
-        );
+        hook.getEmailConfirmed();
       });
 
-      // grab hook info from wrapper
-      hook = wrapper.componentHook as IuseIsEmailConfirmed;
-      expect(hook.loading).toEqual(false);
-
-      await act(async () => {
-        // perform changes within our component
-        hook?.getEmailConfirmed();
-      });
-
-      // await act(async () => {
-      //   enzyme.mount(
-      //     <Provider store={mockStores[i]}>
-      //       <HookWrapper data-hook={() => useIsEmailConfirmed()} />
-      //     </Provider>
-      //   );
-      // });
-
-      // check if was called
+      // check if API was called
       expect(mockAPICall).toHaveBeenCalledTimes(1);
     }
   });
 
-  it("returns true if API says it is confirmed", async () => {
+  it("does not allow for API calls when there is not a token", async () => {
+    // mock full api
+    mockAPICall = jest.fn(mockAPIFull);
+
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
       const reduxState = mockStores[i].getState() as AppState;
       const token = reduxState.users.self?.token;
-      if (!token) return; // skip since we only care about non-token stores
+      if (token) continue; // skip since we interested in non-token'd users
 
-      let wrapper;
+      // reset mock
+      mockAPICall.mockClear();
+
+      // mount component
+      const wrapper = await mountReactHookWithReduxStore(
+        useIsEmailConfirmed,
+        mockStores[i]
+      );
+
+      // grab hook
+      const hook = wrapper.componentHook as IuseIsEmailConfirmed;
+
+      // perform changes within our component
       await act(async () => {
-        wrapper = mountReactHookWithReduxStore(
-          useIsEmailConfirmed,
-          mockStores[i]
-        );
+        hook.getEmailConfirmed();
       });
 
-      // let hook = wrapper
-      console.log(wrapper);
+      // make sure that API was not called
+      expect(mockAPICall).toHaveBeenCalledTimes(0);
+    }
+  });
+
+  it("returns true if API says it is confirmed", async () => {
+    // mock success api
+    mockAPICall = jest.fn(mockAPISuccess);
+
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxState = mockStores[i].getState() as AppState;
+      const token = reduxState.users.self?.token;
+      if (!token) continue; // skip since we interested in token'd users
+
+      // mount component
+      const wrapper = await mountReactHookWithReduxStore(
+        useIsEmailConfirmed,
+        mockStores[i]
+      );
+
+      // grab hook
+      const hook = wrapper.componentHook as IuseIsEmailConfirmed;
+
+      // check if false
+      expect(hook.isEmailConfirmed).toEqual(false);
+
+      // perform changes within our component
+      await act(async () => {
+        hook.getEmailConfirmed();
+      });
+
+      // check success
+      expect(hook.isEmailConfirmed).toEqual(true);
     }
   });
 });
