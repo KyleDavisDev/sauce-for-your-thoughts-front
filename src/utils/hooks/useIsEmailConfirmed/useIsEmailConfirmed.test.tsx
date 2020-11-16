@@ -45,6 +45,8 @@ describe("useIsEmailConfirmed hook", () => {
   const _defaultIsLoading = false;
   const _defaultIsEmailConfirmed = false;
   const _defaultFlashState = { isVisible: false };
+  const _defaultErrorMsg =
+    "Error confirming whether or not your email has been confirmed. Please ensure network connectivity and try again.";
 
   // May need to refer to these later so initializing out here
   let mockStores: MockStoreEnhanced<unknown, {}>[] = [];
@@ -265,6 +267,36 @@ describe("useIsEmailConfirmed hook", () => {
       expect(hook.isEmailConfirmed).toEqual(false);
       expect(hook.error.isVisible).toEqual(true);
       expect(hook.error.text).toEqual(err.response.data.msg);
+    }
+  });
+
+  it("returns default error message if API is unsuccessful and no message is found", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      // mock error api
+      const err = generateErr();
+      err.response.data.msg = "";
+      mockAPICall = jest.fn(() => mockAPIFailure(err));
+
+      const reduxState = mockStores[i].getState() as AppState;
+      const token = reduxState.users.self?.token;
+      if (!token) continue; // skip since we interested in token'd users
+
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useIsEmailConfirmed,
+        mockStores[i]
+      );
+
+      // grab hook
+      const hook = wrapper.componentHook as IuseIsEmailConfirmed;
+
+      // perform changes within our component
+      await act(async () => {
+        hook.getEmailConfirmed();
+      });
+
+      // check for default
+      expect(hook.error.text).toEqual(_defaultErrorMsg);
     }
   });
 });
