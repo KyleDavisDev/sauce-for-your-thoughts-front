@@ -67,7 +67,7 @@ describe("useIsEmailConfirmed hook", () => {
 
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
       // mount component
-      const wrapper = await mountReactHookWithReduxStore(
+      const wrapper = mountReactHookWithReduxStore(
         useIsEmailConfirmed,
         mockStores[i]
       );
@@ -86,7 +86,7 @@ describe("useIsEmailConfirmed hook", () => {
       if (token) continue; // skip since we interested in token'd users
 
       // mount component
-      const wrapper = await mountReactHookWithReduxStore(
+      const wrapper = mountReactHookWithReduxStore(
         useIsEmailConfirmed,
         mockStores[i]
       );
@@ -107,7 +107,7 @@ describe("useIsEmailConfirmed hook", () => {
       if (token) continue; // skip since we interested in non-token'd users
 
       // mount component
-      const wrapper = await mountReactHookWithReduxStore(
+      const wrapper = mountReactHookWithReduxStore(
         useIsEmailConfirmed,
         mockStores[i]
       );
@@ -128,7 +128,7 @@ describe("useIsEmailConfirmed hook", () => {
       if (token) continue; // skip since we interested in non-token'd users
 
       // mount component
-      const wrapper = await mountReactHookWithReduxStore(
+      const wrapper = mountReactHookWithReduxStore(
         useIsEmailConfirmed,
         mockStores[i]
       );
@@ -152,7 +152,7 @@ describe("useIsEmailConfirmed hook", () => {
       mockAPICall.mockClear();
 
       // mount component
-      const wrapper = await mountReactHookWithReduxStore(
+      const wrapper = mountReactHookWithReduxStore(
         useIsEmailConfirmed,
         mockStores[i]
       );
@@ -183,7 +183,7 @@ describe("useIsEmailConfirmed hook", () => {
       mockAPICall.mockClear();
 
       // mount component
-      const wrapper = await mountReactHookWithReduxStore(
+      const wrapper = mountReactHookWithReduxStore(
         useIsEmailConfirmed,
         mockStores[i]
       );
@@ -211,7 +211,7 @@ describe("useIsEmailConfirmed hook", () => {
       if (!token) continue; // skip since we interested in token'd users
 
       // mount component
-      const wrapper = await mountReactHookWithReduxStore(
+      const wrapper = mountReactHookWithReduxStore(
         useIsEmailConfirmed,
         mockStores[i]
       );

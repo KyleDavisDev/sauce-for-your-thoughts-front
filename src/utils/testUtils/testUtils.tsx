@@ -211,16 +211,16 @@ export interface ImountReactHookWithReduxStore {
   componentMount: any;
   componentHook: any;
 }
-const mountReactHookWithReduxStore = async (
+const mountReactHookWithReduxStore = (
   hook,
   store
-): Promise<ImountReactHookWithReduxStore> => {
+): ImountReactHookWithReduxStore => {
   const Component = ({ children }) => children(hook());
   const componentHook = {};
   let componentMount;
 
-  await act(async () => {
-    componentMount = await enzyme.mount(
+  act(() => {
+    componentMount = enzyme.mount(
       <Provider store={store}>
         <Component>
           {hookValues => {
