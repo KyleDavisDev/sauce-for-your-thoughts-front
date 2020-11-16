@@ -5,12 +5,12 @@ import { Provider } from "react-redux";
 import { MockStoreEnhanced } from "redux-mock-store";
 import { act } from "react-dom/test-utils";
 
-import { FlashMessageProps } from "../../components/FlashMessage/FlashMessage";
-import { AppState } from "../../redux/configureStore";
+import { FlashMessageProps } from "../../../components/FlashMessage/FlashMessage";
+import { AppState } from "../../../redux/configureStore";
 import {
   useIsEmailConfirmed,
   IuseIsEmailConfirmed
-} from "../../utils/hooks/useIsEmailConfirmed";
+} from "./useIsEmailConfirmed";
 import {
   casual,
   fakeStore,
@@ -18,7 +18,7 @@ import {
   ITERATION_SIZE,
   wait,
   mountReactHookWithReduxStore
-} from "../testUtils/testUtils";
+} from "../../testUtils/testUtils";
 
 // mock our API
 let mockAPICall = jest.fn(() => {
