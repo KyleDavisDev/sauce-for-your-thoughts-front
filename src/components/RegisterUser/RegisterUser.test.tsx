@@ -52,9 +52,9 @@ describe("<RegisterUser />", () => {
     });
   });
 
-  it("passes the default page title to the PageTitle component", () => {
+  it("renders a form element", () => {
     wrappers.forEach(wrapper => {
-      expect(wrapper.find("PageTitle").text()).toEqual(_pageTitle);
+      expect(wrapper.find("form").text()).toBeTruthy();
     });
   });
 });
