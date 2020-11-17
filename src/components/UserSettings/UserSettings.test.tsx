@@ -13,16 +13,20 @@ import {
 import { AppState } from "../../redux/configureStore";
 import { MockStoreEnhanced } from "redux-mock-store";
 
+const mockEmailConfirmed = jest.fn();
 jest.mock("../../utils/hooks/useIsEmailConfirmed/useIsEmailConfirmed", () => {
   return {
-    useIsEmailConfirmed: {
-      loading: false,
-      isEmailConfirmed: true,
-      error: {},
-      getEmailConfirmed: () => {}
+    useIsEmailConfirmed() {
+      return {
+        loading: false,
+        isEmailConfirmed: true,
+        error: {},
+        getEmailConfirmed: mockEmailConfirmed
+      };
     }
   };
 });
+window.moveTo = jest.fn();
 
 describe("<UserSettings />", () => {
   // May need to refer to these later so initializing out here
@@ -47,9 +51,27 @@ describe("<UserSettings />", () => {
     });
   });
 
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
+
   it("renders", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper).toBeTruthy();
+    });
+  });
+
+  it("calls hook API method on load", () => {
+    mockStores.forEach(mockStore => {
+      mockEmailConfirmed.mockClear();
+
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <UserSettings />
+        </Provider>
+      );
+
+      expect(mockEmailConfirmed).toHaveBeenCalledTimes(1);
     });
   });
 });
