@@ -13,15 +13,16 @@ import {
 import { AppState } from "../../redux/configureStore";
 import { MockStoreEnhanced } from "redux-mock-store";
 
-const mockEmailConfirmed = jest.fn();
+const mockGetEmailConfirmed = jest.fn();
+let mockIsEmailConfirmed = true;
 jest.mock("../../utils/hooks/useIsEmailConfirmed/useIsEmailConfirmed", () => {
   return {
     useIsEmailConfirmed() {
       return {
         loading: false,
-        isEmailConfirmed: true,
+        isEmailConfirmed: mockIsEmailConfirmed,
         error: {},
-        getEmailConfirmed: mockEmailConfirmed
+        getEmailConfirmed: mockGetEmailConfirmed
       };
     }
   };
@@ -80,7 +81,7 @@ describe("<UserSettings />", () => {
 
   it("calls hook API method on load", () => {
     mockStores.forEach(mockStore => {
-      mockEmailConfirmed.mockClear();
+      mockGetEmailConfirmed.mockClear();
 
       const wrapper = enzyme.mount(
         <Provider store={mockStore}>
@@ -88,7 +89,7 @@ describe("<UserSettings />", () => {
         </Provider>
       );
 
-      expect(mockEmailConfirmed).toHaveBeenCalledTimes(1);
+      expect(mockGetEmailConfirmed).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -144,5 +145,20 @@ describe("<UserSettings />", () => {
           .exists()
       ).toBeTruthy();
     });
+  });
+
+  it("renders RequestConfirmation component when email is not confirmed", () => {
+    // make sure is false
+    mockIsEmailConfirmed = false;
+
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const wrapper = enzyme.mount(
+        <Provider store={mockStores[i]}>
+          <UserSettings />
+        </Provider>
+      );
+
+      expect(wrapper.find("RequestConfirmation").exists()).toBeTruthy();
+    }
   });
 });
