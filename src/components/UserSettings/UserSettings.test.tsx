@@ -121,4 +121,16 @@ describe("<UserSettings />", () => {
       ).toBeTruthy();
     });
   });
+
+  it("renders a ButtonRedirect component for avatar", () => {
+    wrappers.forEach(wrapper => {
+      expect(
+        wrapper
+          .find(
+            `ButtonRedirect[name='${_avatarBtn.name}'][href='${_avatarBtn.href}']`
+          )
+          .exists()
+      ).toBeTruthy();
+    });
+  });
 });
