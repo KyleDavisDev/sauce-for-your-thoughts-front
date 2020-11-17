@@ -60,6 +60,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
         <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
           <TextInput
             type="email"
+            id="email"
             onChange={e => setEmail(e.target.value)}
             showLabel={true}
             label={"Email"}
@@ -68,6 +69,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
           />
           <TextInput
             type="email"
+            id="confirmEmail"
             onChange={e => setConfirmEmail(e.target.value)}
             showLabel={true}
             label={"Confirm Email"}
@@ -77,6 +79,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
           />
           <TextInput
             type="password"
+            id="password"
             onChange={e => setPassword(e.target.value)}
             showLabel={true}
             label={"Password"}
@@ -86,6 +89,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
           />
           <TextInput
             type="password"
+            id="confirmPassword"
             onChange={e => setConfirmPassword(e.target.value)}
             showLabel={true}
             label={"Confirm Password"}
@@ -95,6 +99,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
           />
           <TextInput
             type="text"
+            id="displayName"
             onChange={e => setDisplayName(e.target.value)}
             showLabel={true}
             label={"Display Name"}
