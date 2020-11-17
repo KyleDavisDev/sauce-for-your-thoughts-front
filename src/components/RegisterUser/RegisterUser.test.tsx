@@ -12,6 +12,9 @@ import {
 } from "../../utils/testUtils/testUtils";
 
 describe("<RegisterUser />", () => {
+  // defaults
+  const _pageTitle = "Register";
+
   // mock scrollTo
   window.scrollTo = jest.fn();
 
@@ -49,9 +52,9 @@ describe("<RegisterUser />", () => {
     });
   });
 
-  it("renders a PageTitle component", () => {
+  it("passes the default page title to the PageTitle component", () => {
     wrappers.forEach(wrapper => {
-      expect(wrapper.find("PageTitle").exists()).toBeTruthy();
+      expect(wrapper.find("PageTitle").text()).toEqual(_pageTitle);
     });
   });
 });
