@@ -80,4 +80,10 @@ describe("<UserSettings />", () => {
       expect(mockEmailConfirmed).toHaveBeenCalledTimes(1);
     });
   });
+
+  it("renders four ButtonRedirect components", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("ButtonRedirect").length).toEqual(4);
+    });
+  });
 });
