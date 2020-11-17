@@ -20,6 +20,7 @@ exports[`<UserSettings /> matches snapshot 1`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -85,7 +86,8 @@ exports[`<UserSettings /> matches snapshot 1`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -96,18 +98,18 @@ exports[`<UserSettings /> matches snapshot 1`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -152,6 +154,7 @@ exports[`<UserSettings /> matches snapshot 1`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -218,6 +221,7 @@ exports[`<UserSettings /> matches snapshot 1`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -362,6 +366,7 @@ exports[`<UserSettings /> matches snapshot 2`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -427,7 +432,8 @@ exports[`<UserSettings /> matches snapshot 2`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -438,18 +444,18 @@ exports[`<UserSettings /> matches snapshot 2`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -494,6 +500,7 @@ exports[`<UserSettings /> matches snapshot 2`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -560,6 +567,7 @@ exports[`<UserSettings /> matches snapshot 2`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -704,6 +712,7 @@ exports[`<UserSettings /> matches snapshot 3`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -769,7 +778,8 @@ exports[`<UserSettings /> matches snapshot 3`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -780,18 +790,18 @@ exports[`<UserSettings /> matches snapshot 3`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -836,6 +846,7 @@ exports[`<UserSettings /> matches snapshot 3`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -902,6 +913,7 @@ exports[`<UserSettings /> matches snapshot 3`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -1046,6 +1058,7 @@ exports[`<UserSettings /> matches snapshot 4`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -1111,7 +1124,8 @@ exports[`<UserSettings /> matches snapshot 4`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -1122,18 +1136,18 @@ exports[`<UserSettings /> matches snapshot 4`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -1178,6 +1192,7 @@ exports[`<UserSettings /> matches snapshot 4`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -1244,6 +1259,7 @@ exports[`<UserSettings /> matches snapshot 4`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -1388,6 +1404,7 @@ exports[`<UserSettings /> matches snapshot 5`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -1453,7 +1470,8 @@ exports[`<UserSettings /> matches snapshot 5`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -1464,18 +1482,18 @@ exports[`<UserSettings /> matches snapshot 5`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -1520,6 +1538,7 @@ exports[`<UserSettings /> matches snapshot 5`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -1586,6 +1605,7 @@ exports[`<UserSettings /> matches snapshot 5`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -1730,6 +1750,7 @@ exports[`<UserSettings /> matches snapshot 6`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -1795,7 +1816,8 @@ exports[`<UserSettings /> matches snapshot 6`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -1806,18 +1828,18 @@ exports[`<UserSettings /> matches snapshot 6`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -1862,6 +1884,7 @@ exports[`<UserSettings /> matches snapshot 6`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -1928,6 +1951,7 @@ exports[`<UserSettings /> matches snapshot 6`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -2072,6 +2096,7 @@ exports[`<UserSettings /> matches snapshot 7`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -2137,7 +2162,8 @@ exports[`<UserSettings /> matches snapshot 7`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -2148,18 +2174,18 @@ exports[`<UserSettings /> matches snapshot 7`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -2204,6 +2230,7 @@ exports[`<UserSettings /> matches snapshot 7`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -2270,6 +2297,7 @@ exports[`<UserSettings /> matches snapshot 7`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -2414,6 +2442,7 @@ exports[`<UserSettings /> matches snapshot 8`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -2479,7 +2508,8 @@ exports[`<UserSettings /> matches snapshot 8`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -2490,18 +2520,18 @@ exports[`<UserSettings /> matches snapshot 8`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -2546,6 +2576,7 @@ exports[`<UserSettings /> matches snapshot 8`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -2612,6 +2643,7 @@ exports[`<UserSettings /> matches snapshot 8`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -2756,6 +2788,7 @@ exports[`<UserSettings /> matches snapshot 9`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -2821,7 +2854,8 @@ exports[`<UserSettings /> matches snapshot 9`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -2832,18 +2866,18 @@ exports[`<UserSettings /> matches snapshot 9`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -2888,6 +2922,7 @@ exports[`<UserSettings /> matches snapshot 9`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -2954,6 +2989,7 @@ exports[`<UserSettings /> matches snapshot 9`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -3098,6 +3134,7 @@ exports[`<UserSettings /> matches snapshot 10`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -3163,7 +3200,8 @@ exports[`<UserSettings /> matches snapshot 10`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -3174,18 +3212,18 @@ exports[`<UserSettings /> matches snapshot 10`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -3230,6 +3268,7 @@ exports[`<UserSettings /> matches snapshot 10`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -3296,6 +3335,7 @@ exports[`<UserSettings /> matches snapshot 10`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -3440,6 +3480,7 @@ exports[`<UserSettings /> matches snapshot 11`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -3505,7 +3546,8 @@ exports[`<UserSettings /> matches snapshot 11`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -3516,18 +3558,18 @@ exports[`<UserSettings /> matches snapshot 11`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -3572,6 +3614,7 @@ exports[`<UserSettings /> matches snapshot 11`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -3638,6 +3681,7 @@ exports[`<UserSettings /> matches snapshot 11`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -3782,6 +3826,7 @@ exports[`<UserSettings /> matches snapshot 12`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -3847,7 +3892,8 @@ exports[`<UserSettings /> matches snapshot 12`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -3858,18 +3904,18 @@ exports[`<UserSettings /> matches snapshot 12`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -3914,6 +3960,7 @@ exports[`<UserSettings /> matches snapshot 12`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -3980,6 +4027,7 @@ exports[`<UserSettings /> matches snapshot 12`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -4124,6 +4172,7 @@ exports[`<UserSettings /> matches snapshot 13`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -4189,7 +4238,8 @@ exports[`<UserSettings /> matches snapshot 13`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -4200,18 +4250,18 @@ exports[`<UserSettings /> matches snapshot 13`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -4256,6 +4306,7 @@ exports[`<UserSettings /> matches snapshot 13`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -4322,6 +4373,7 @@ exports[`<UserSettings /> matches snapshot 13`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -4466,6 +4518,7 @@ exports[`<UserSettings /> matches snapshot 14`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -4531,7 +4584,8 @@ exports[`<UserSettings /> matches snapshot 14`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -4542,18 +4596,18 @@ exports[`<UserSettings /> matches snapshot 14`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -4598,6 +4652,7 @@ exports[`<UserSettings /> matches snapshot 14`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -4664,6 +4719,7 @@ exports[`<UserSettings /> matches snapshot 14`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -4808,6 +4864,7 @@ exports[`<UserSettings /> matches snapshot 15`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -4873,7 +4930,8 @@ exports[`<UserSettings /> matches snapshot 15`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -4884,18 +4942,18 @@ exports[`<UserSettings /> matches snapshot 15`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -4940,6 +4998,7 @@ exports[`<UserSettings /> matches snapshot 15`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -5006,6 +5065,7 @@ exports[`<UserSettings /> matches snapshot 15`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -5150,6 +5210,7 @@ exports[`<UserSettings /> matches snapshot 16`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -5215,7 +5276,8 @@ exports[`<UserSettings /> matches snapshot 16`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -5226,18 +5288,18 @@ exports[`<UserSettings /> matches snapshot 16`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -5282,6 +5344,7 @@ exports[`<UserSettings /> matches snapshot 16`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -5348,6 +5411,7 @@ exports[`<UserSettings /> matches snapshot 16`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -5492,6 +5556,7 @@ exports[`<UserSettings /> matches snapshot 17`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -5557,7 +5622,8 @@ exports[`<UserSettings /> matches snapshot 17`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -5568,18 +5634,18 @@ exports[`<UserSettings /> matches snapshot 17`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -5624,6 +5690,7 @@ exports[`<UserSettings /> matches snapshot 17`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -5690,6 +5757,7 @@ exports[`<UserSettings /> matches snapshot 17`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -5834,6 +5902,7 @@ exports[`<UserSettings /> matches snapshot 18`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -5899,7 +5968,8 @@ exports[`<UserSettings /> matches snapshot 18`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -5910,18 +5980,18 @@ exports[`<UserSettings /> matches snapshot 18`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -5966,6 +6036,7 @@ exports[`<UserSettings /> matches snapshot 18`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -6032,6 +6103,7 @@ exports[`<UserSettings /> matches snapshot 18`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -6176,6 +6248,7 @@ exports[`<UserSettings /> matches snapshot 19`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -6241,7 +6314,8 @@ exports[`<UserSettings /> matches snapshot 19`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -6252,18 +6326,18 @@ exports[`<UserSettings /> matches snapshot 19`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -6308,6 +6382,7 @@ exports[`<UserSettings /> matches snapshot 19`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -6374,6 +6449,7 @@ exports[`<UserSettings /> matches snapshot 19`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -6518,6 +6594,7 @@ exports[`<UserSettings /> matches snapshot 20`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -6583,7 +6660,8 @@ exports[`<UserSettings /> matches snapshot 20`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -6594,18 +6672,18 @@ exports[`<UserSettings /> matches snapshot 20`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -6650,6 +6728,7 @@ exports[`<UserSettings /> matches snapshot 20`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -6716,6 +6795,7 @@ exports[`<UserSettings /> matches snapshot 20`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -6860,6 +6940,7 @@ exports[`<UserSettings /> matches snapshot 21`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -6925,7 +7006,8 @@ exports[`<UserSettings /> matches snapshot 21`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -6936,18 +7018,18 @@ exports[`<UserSettings /> matches snapshot 21`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -6992,6 +7074,7 @@ exports[`<UserSettings /> matches snapshot 21`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -7058,6 +7141,7 @@ exports[`<UserSettings /> matches snapshot 21`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -7202,6 +7286,7 @@ exports[`<UserSettings /> matches snapshot 22`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -7267,7 +7352,8 @@ exports[`<UserSettings /> matches snapshot 22`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -7278,18 +7364,18 @@ exports[`<UserSettings /> matches snapshot 22`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -7334,6 +7420,7 @@ exports[`<UserSettings /> matches snapshot 22`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -7400,6 +7487,7 @@ exports[`<UserSettings /> matches snapshot 22`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -7544,6 +7632,7 @@ exports[`<UserSettings /> matches snapshot 23`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -7609,7 +7698,8 @@ exports[`<UserSettings /> matches snapshot 23`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -7620,18 +7710,18 @@ exports[`<UserSettings /> matches snapshot 23`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -7676,6 +7766,7 @@ exports[`<UserSettings /> matches snapshot 23`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -7742,6 +7833,7 @@ exports[`<UserSettings /> matches snapshot 23`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -7886,6 +7978,7 @@ exports[`<UserSettings /> matches snapshot 24`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -7951,7 +8044,8 @@ exports[`<UserSettings /> matches snapshot 24`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -7962,18 +8056,18 @@ exports[`<UserSettings /> matches snapshot 24`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -8018,6 +8112,7 @@ exports[`<UserSettings /> matches snapshot 24`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -8084,6 +8179,7 @@ exports[`<UserSettings /> matches snapshot 24`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -8228,6 +8324,7 @@ exports[`<UserSettings /> matches snapshot 25`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -8293,7 +8390,8 @@ exports[`<UserSettings /> matches snapshot 25`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -8304,18 +8402,18 @@ exports[`<UserSettings /> matches snapshot 25`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -8360,6 +8458,7 @@ exports[`<UserSettings /> matches snapshot 25`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -8426,6 +8525,7 @@ exports[`<UserSettings /> matches snapshot 25`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -8570,6 +8670,7 @@ exports[`<UserSettings /> matches snapshot 26`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -8635,7 +8736,8 @@ exports[`<UserSettings /> matches snapshot 26`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -8646,18 +8748,18 @@ exports[`<UserSettings /> matches snapshot 26`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -8702,6 +8804,7 @@ exports[`<UserSettings /> matches snapshot 26`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -8768,6 +8871,7 @@ exports[`<UserSettings /> matches snapshot 26`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -8912,6 +9016,7 @@ exports[`<UserSettings /> matches snapshot 27`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -8977,7 +9082,8 @@ exports[`<UserSettings /> matches snapshot 27`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -8988,18 +9094,18 @@ exports[`<UserSettings /> matches snapshot 27`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -9044,6 +9150,7 @@ exports[`<UserSettings /> matches snapshot 27`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -9110,6 +9217,7 @@ exports[`<UserSettings /> matches snapshot 27`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -9254,6 +9362,7 @@ exports[`<UserSettings /> matches snapshot 28`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -9319,7 +9428,8 @@ exports[`<UserSettings /> matches snapshot 28`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -9330,18 +9440,18 @@ exports[`<UserSettings /> matches snapshot 28`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -9386,6 +9496,7 @@ exports[`<UserSettings /> matches snapshot 28`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -9452,6 +9563,7 @@ exports[`<UserSettings /> matches snapshot 28`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -9596,6 +9708,7 @@ exports[`<UserSettings /> matches snapshot 29`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -9661,7 +9774,8 @@ exports[`<UserSettings /> matches snapshot 29`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -9672,18 +9786,18 @@ exports[`<UserSettings /> matches snapshot 29`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -9728,6 +9842,7 @@ exports[`<UserSettings /> matches snapshot 29`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -9794,6 +9909,7 @@ exports[`<UserSettings /> matches snapshot 29`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -9938,6 +10054,7 @@ exports[`<UserSettings /> matches snapshot 30`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -10003,7 +10120,8 @@ exports[`<UserSettings /> matches snapshot 30`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -10014,18 +10132,18 @@ exports[`<UserSettings /> matches snapshot 30`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -10070,6 +10188,7 @@ exports[`<UserSettings /> matches snapshot 30`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -10136,6 +10255,7 @@ exports[`<UserSettings /> matches snapshot 30`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -10280,6 +10400,7 @@ exports[`<UserSettings /> matches snapshot 31`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -10345,7 +10466,8 @@ exports[`<UserSettings /> matches snapshot 31`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -10356,18 +10478,18 @@ exports[`<UserSettings /> matches snapshot 31`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -10412,6 +10534,7 @@ exports[`<UserSettings /> matches snapshot 31`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -10478,6 +10601,7 @@ exports[`<UserSettings /> matches snapshot 31`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
@@ -10622,6 +10746,7 @@ exports[`<UserSettings /> matches snapshot 32`] = `
       >
         <ButtonRedirect
           href="/account/update/email"
+          key="0-Update Email"
           name="Update Email"
         >
           <div>
@@ -10687,7 +10812,8 @@ exports[`<UserSettings /> matches snapshot 32`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayName"
+          href="/account/update/displayname"
+          key="1-Update Display Name"
           name="Update Display Name"
         >
           <div>
@@ -10698,18 +10824,18 @@ exports[`<UserSettings /> matches snapshot 32`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayName"
+                href="/account/update/displayname"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayName"
+                  href="/account/update/displayname"
                 >
                   <Link
-                    href="/account/update/displayName"
+                    href="/account/update/displayname"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayName"
+                      href="/account/update/displayname"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -10754,6 +10880,7 @@ exports[`<UserSettings /> matches snapshot 32`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/avatar"
+          key="2-Update Avatar"
           name="Update Avatar"
         >
           <div>
@@ -10820,6 +10947,7 @@ exports[`<UserSettings /> matches snapshot 32`] = `
         </ButtonRedirect>
         <ButtonRedirect
           href="/account/update/password"
+          key="3-Update Password"
           name="Update Password"
         >
           <div>
