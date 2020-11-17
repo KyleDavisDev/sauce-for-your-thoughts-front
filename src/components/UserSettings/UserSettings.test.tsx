@@ -109,4 +109,16 @@ describe("<UserSettings />", () => {
       ).toBeTruthy();
     });
   });
+
+  it("renders a ButtonRedirect component for display name", () => {
+    wrappers.forEach(wrapper => {
+      expect(
+        wrapper
+          .find(
+            `ButtonRedirect[name='${_displayNameBtn.name}'][href='${_displayNameBtn.href}']`
+          )
+          .exists()
+      ).toBeTruthy();
+    });
+  });
 });
