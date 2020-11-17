@@ -133,4 +133,16 @@ describe("<UserSettings />", () => {
       ).toBeTruthy();
     });
   });
+
+  it("renders a ButtonRedirect component for password", () => {
+    wrappers.forEach(wrapper => {
+      expect(
+        wrapper
+          .find(
+            `ButtonRedirect[name='${_passwordBtn.name}'][href='${_passwordBtn.href}']`
+          )
+          .exists()
+      ).toBeTruthy();
+    });
+  });
 });
