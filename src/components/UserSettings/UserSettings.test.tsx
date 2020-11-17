@@ -2,7 +2,6 @@ import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
 import { Provider } from "react-redux";
-import { act } from "react-dom/test-utils";
 
 import UserSettings from "./UserSettings";
 import {
@@ -10,7 +9,6 @@ import {
   fakeStore,
   ITERATION_SIZE
 } from "../../utils/testUtils/testUtils";
-import { AppState } from "../../redux/configureStore";
 import { MockStoreEnhanced } from "redux-mock-store";
 
 const mockGetEmailConfirmed = jest.fn();
