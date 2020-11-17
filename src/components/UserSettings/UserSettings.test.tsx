@@ -14,13 +14,13 @@ import { AppState } from "../../redux/configureStore";
 import { MockStoreEnhanced } from "redux-mock-store";
 
 const mockGetEmailConfirmed = jest.fn();
-let mockIsEmailConfirmed = true;
+let mockIsEmailConfirmed = () => casual.boolean;
 jest.mock("../../utils/hooks/useIsEmailConfirmed/useIsEmailConfirmed", () => {
   return {
     useIsEmailConfirmed() {
       return {
         loading: false,
-        isEmailConfirmed: mockIsEmailConfirmed,
+        isEmailConfirmed: mockIsEmailConfirmed(),
         error: {},
         getEmailConfirmed: mockGetEmailConfirmed
       };
@@ -149,7 +149,7 @@ describe("<UserSettings />", () => {
 
   it("renders RequestConfirmation component when email is not confirmed", () => {
     // make sure is false
-    mockIsEmailConfirmed = false;
+    mockIsEmailConfirmed = () => false;
 
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
       const wrapper = enzyme.mount(
@@ -164,7 +164,7 @@ describe("<UserSettings />", () => {
 
   it("does not render a RequestConfirmation component when email is confirmed", () => {
     // make sure is true
-    mockIsEmailConfirmed = true;
+    mockIsEmailConfirmed = () => true;
 
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
       const wrapper = enzyme.mount(
@@ -175,5 +175,21 @@ describe("<UserSettings />", () => {
 
       expect(wrapper.find("RequestConfirmation").exists()).toBeFalsy();
     }
+  });
+
+  it("renders a Link component for home", () => {
+    wrappers.forEach(wrapper => {
+      // grab component
+      const linkComponent = wrapper.find("div > Link").first();
+
+      // make sure exists
+      expect(linkComponent.exists()).toBeTruthy();
+
+      // make sure will take us to root
+      expect(linkComponent.prop("href")).toEqual("/");
+
+      // make sure contains the word 'Home'
+      expect(linkComponent.text()).toContain("Home");
+    });
   });
 });
