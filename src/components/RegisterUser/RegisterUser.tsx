@@ -30,6 +30,9 @@ export interface RegisterUserState {
 }
 
 const RegisterUser: React.FC<RegisterUserProps> = props => {
+  // defaults
+  const _pageTitle = "Register";
+
   // set state
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
@@ -50,7 +53,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
 
   return (
     <>
-      <PageTitle>Register</PageTitle>
+      <PageTitle>{_pageTitle}</PageTitle>
       <StyledFormContainer>
         {flashMessage.isVisible && (
           <FlashMessage type={flashMessage.type} isVisible>
