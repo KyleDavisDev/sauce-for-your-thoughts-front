@@ -29,6 +29,17 @@ jest.mock("../../utils/hooks/useIsEmailConfirmed/useIsEmailConfirmed", () => {
 window.moveTo = jest.fn();
 
 describe("<UserSettings />", () => {
+  const _emailBtn = { name: "Update Email", href: "/account/update/email" };
+  const _displayNameBtn = {
+    name: "Update Display Name",
+    href: "/account/update/displayname"
+  };
+  const _avatarBtn = { name: "Update Avatar", href: "/account/update/avatar" };
+  const _passwordBtn = {
+    name: "Update Password",
+    href: "/account/update/password"
+  };
+
   // May need to refer to these later so initializing out here
   let wrappers: Array<enzyme.ReactWrapper<
     any,
@@ -84,6 +95,18 @@ describe("<UserSettings />", () => {
   it("renders four ButtonRedirect components", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("ButtonRedirect").length).toEqual(4);
+    });
+  });
+
+  it("renders a ButtonRedirect component for updating email", () => {
+    wrappers.forEach(wrapper => {
+      expect(
+        wrapper
+          .find(
+            `ButtonRedirect[name='${_emailBtn.name}'][href='${_emailBtn.href}']`
+          )
+          .exists()
+      ).toBeTruthy();
     });
   });
 });
