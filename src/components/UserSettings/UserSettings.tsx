@@ -15,6 +15,24 @@ import { AppState } from "../../redux/configureStore";
 export interface UserSettingsProps {}
 
 const UserSettings: React.FC<UserSettingsProps> = props => {
+  const _emailBtn = { name: "Update Email", href: "/account/update/email" };
+  const _displayNameBtn = {
+    name: "Update Display Name",
+    href: "/account/update/displayname"
+  };
+  const _avatarBtn = { name: "Update Avatar", href: "/account/update/avatar" };
+  const _passwordBtn = {
+    name: "Update Password",
+    href: "/account/update/password"
+  };
+
+  const _buttonsToRender = [
+    _emailBtn,
+    _displayNameBtn,
+    _avatarBtn,
+    _passwordBtn
+  ];
+
   // init state
   const [flashMessage, setFlashMessage] = useState<FlashMessageProps>({
     isVisible: false
@@ -59,16 +77,11 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
         </FlashMessage>
       )}
 
-      <ButtonRedirect name="Update Email" href="/account/update/email" />
-
-      <ButtonRedirect
-        name="Update Display Name"
-        href="/account/update/displayName"
-      />
-
-      <ButtonRedirect name="Update Avatar" href="/account/update/avatar" />
-
-      <ButtonRedirect name="Update Password" href="/account/update/password" />
+      {_buttonsToRender.map((buttonInfo, ind) => {
+        return (
+          <ButtonRedirect {...buttonInfo} key={ind + "-" + buttonInfo.name} />
+        );
+      })}
 
       {!isEmailConfirmed && (
         <RequestConfirmation setFlashMessage={setFlashMessage} />
