@@ -61,6 +61,12 @@ describe("<UserSettings />", () => {
     });
   });
 
+  it("matches snapshot", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
   it("calls hook API method on load", () => {
     mockStores.forEach(mockStore => {
       mockEmailConfirmed.mockClear();
