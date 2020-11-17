@@ -161,4 +161,19 @@ describe("<UserSettings />", () => {
       expect(wrapper.find("RequestConfirmation").exists()).toBeTruthy();
     }
   });
+
+  it("does not render a RequestConfirmation component when email is confirmed", () => {
+    // make sure is true
+    mockIsEmailConfirmed = true;
+
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const wrapper = enzyme.mount(
+        <Provider store={mockStores[i]}>
+          <UserSettings />
+        </Provider>
+      );
+
+      expect(wrapper.find("RequestConfirmation").exists()).toBeFalsy();
+    }
+  });
 });
