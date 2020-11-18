@@ -16,9 +16,7 @@ import {
   fakeStore,
   generateErr,
   ITERATION_SIZE,
-  wait,
-  mountReactHookWithReduxStore,
-  ImountReactHookWithReduxStore
+  mountReactHookWithReduxStore
 } from "../../testUtils/testUtils";
 import { IErrReturn } from "../../Err/Err";
 
