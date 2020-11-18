@@ -8,8 +8,12 @@ import RegisterUser from "./RegisterUser";
 import {
   casual,
   ITERATION_SIZE,
-  fakeStore
+  fakeStore,
+  simulateInputChange,
+  wait
 } from "../../utils/testUtils/testUtils";
+import { AppState } from "../../redux/configureStore";
+import { act } from "react-dom/test-utils";
 
 describe("<RegisterUser />", () => {
   // defaults
@@ -118,5 +122,36 @@ describe("<RegisterUser />", () => {
       expect(component.text()).toContain("Terms and Conditions");
       expect(component.prop("href")).toEqual("/tac");
     });
+  });
+
+  test.only("renders FlashMessage component on submission if email fields do not match", async () => {
+    // Need to use this method allow for promises not to error us out
+    for (let i = 30, len = wrappers.length; i < len; i++) {
+      // add email and slighty different email
+      const wrapper = wrappers[i];
+      const _email = casual.email;
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _email
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmEmail']").first(),
+        "confirmEmail",
+        _email + "1"
+      );
+
+      // make sure component isn't found
+      expect(wrappers[i].find("FlashMessage").exists()).toBeFalsy();
+
+      // simulate form submission
+      await wrapper.find("StyledButton").first().simulate("submit");
+
+      // wait for rerender
+      await wait();
+
+      // check if FlashMessage is now visible
+      expect(wrappers[i].find("FlashMessage").exists()).toBeTruthy();
+    }
   });
 });
