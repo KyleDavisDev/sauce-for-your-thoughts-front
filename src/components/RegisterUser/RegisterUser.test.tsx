@@ -91,4 +91,10 @@ describe("<RegisterUser />", () => {
       ).toBeTruthy();
     });
   });
+
+  it("renders a displayName TextInput component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput[id='displayName']").exists()).toBeTruthy();
+    });
+  });
 });
