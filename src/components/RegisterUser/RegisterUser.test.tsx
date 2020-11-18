@@ -83,4 +83,12 @@ describe("<RegisterUser />", () => {
       expect(wrapper.find("TextInput[id='password']").exists()).toBeTruthy();
     });
   });
+
+  it("renders a confirmPassword TextInput component", () => {
+    wrappers.forEach(wrapper => {
+      expect(
+        wrapper.find("TextInput[id='confirmPassword']").exists()
+      ).toBeTruthy();
+    });
+  });
 });
