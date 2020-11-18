@@ -57,4 +57,10 @@ describe("<RegisterUser />", () => {
       expect(wrapper.find("form").text()).toBeTruthy();
     });
   });
+
+  it("renders 5 TextInput components", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").length).toEqual(5);
+    });
+  });
 });
