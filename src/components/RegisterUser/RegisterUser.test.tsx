@@ -97,4 +97,13 @@ describe("<RegisterUser />", () => {
       expect(wrapper.find("TextInput[id='displayName']").exists()).toBeTruthy();
     });
   });
+
+  it("renders a Link component for Terms and Conditions", () => {
+    wrappers.forEach(wrapper => {
+      const component = wrapper.find("Link");
+
+      expect(component.exists()).toBeTruthy();
+      expect(component.text()).toContain("Terms and Conditions");
+    });
+  });
 });
