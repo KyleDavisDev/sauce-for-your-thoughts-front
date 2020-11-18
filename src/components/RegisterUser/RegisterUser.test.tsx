@@ -77,4 +77,10 @@ describe("<RegisterUser />", () => {
       ).toBeTruthy();
     });
   });
+
+  it("renders a password TextInput component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput[id='password']").exists()).toBeTruthy();
+    });
+  });
 });
