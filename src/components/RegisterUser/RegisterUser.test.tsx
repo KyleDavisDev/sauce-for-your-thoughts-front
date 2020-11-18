@@ -52,6 +52,12 @@ describe("<RegisterUser />", () => {
     });
   });
 
+  it("renders a PageTitle component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("PageTitle").exists()).toBeTruthy();
+    });
+  });
+
   it("renders a form element", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("form").text()).toBeTruthy();
@@ -104,6 +110,7 @@ describe("<RegisterUser />", () => {
 
       expect(component.exists()).toBeTruthy();
       expect(component.text()).toContain("Terms and Conditions");
+      expect(component.prop("href")).toEqual("/tac");
     });
   });
 });
