@@ -60,7 +60,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
             {flashMessage.text}
           </FlashMessage>
         )}
-        <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
+        <form onSubmit={async e => await onSubmit(e)} style={{ width: "100%" }}>
           <TextInput
             type="email"
             id="email"
