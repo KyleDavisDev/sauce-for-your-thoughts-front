@@ -58,6 +58,12 @@ describe("<RegisterUser />", () => {
     });
   });
 
+  it("passes the expected page title to the PageTitle component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("PageTitle").text()).toEqual(_pageTitle);
+    });
+  });
+
   it("renders a form element", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("form").text()).toBeTruthy();
