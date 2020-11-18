@@ -63,4 +63,18 @@ describe("<RegisterUser />", () => {
       expect(wrapper.find("TextInput").length).toEqual(5);
     });
   });
+
+  it("renders an email TextInput component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput[id='email']").exists()).toBeTruthy();
+    });
+  });
+
+  it("renders a confirmEmail TextInput component", () => {
+    wrappers.forEach(wrapper => {
+      expect(
+        wrapper.find("TextInput[id='confirmEmail']").exists()
+      ).toBeTruthy();
+    });
+  });
 });
