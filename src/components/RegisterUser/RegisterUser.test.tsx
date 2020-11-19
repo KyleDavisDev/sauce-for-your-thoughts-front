@@ -10,7 +10,8 @@ import {
   ITERATION_SIZE,
   fakeStore,
   simulateInputChange,
-  wait
+  wait,
+  generateValidPassword
 } from "../../utils/testUtils/testUtils";
 import { AppState } from "../../redux/configureStore";
 import { act } from "react-dom/test-utils";
@@ -42,6 +43,27 @@ describe("<RegisterUser />", () => {
         </Provider>
       );
     });
+  });
+
+  afterEach(async () => {
+    for (let i = 30, len = wrappers.length; i < len; i++) {
+      const wrapper = wrappers[i];
+
+      // clear all inputs
+      wrapper.find("TextInput input").forEach(input => {
+        input.simulate("change", { target: { value: "" } });
+      });
+
+      // Make sure flashmessage is closed
+      const button = wrapper.find("FlashMessage Button button");
+      if (!button.exists()) continue;
+
+      // close flashmessage
+      button.simulate("click");
+
+      // give pause for any rerenderings
+      await wait();
+    }
   });
 
   it("renders", () => {
@@ -124,7 +146,7 @@ describe("<RegisterUser />", () => {
     });
   });
 
-  test.only("renders FlashMessage component on submission if email fields do not match", async () => {
+  it("renders FlashMessage component on submission if email fields do not match", async () => {
     // Need to use this method allow for promises not to error us out
     for (let i = 30, len = wrappers.length; i < len; i++) {
       // add email and slighty different email
@@ -141,8 +163,61 @@ describe("<RegisterUser />", () => {
         _email + "1"
       );
 
-      // make sure component isn't found
-      expect(wrappers[i].find("FlashMessage").exists()).toBeFalsy();
+      // make sure component isn't found OR doesn't have children
+      let flashMessage = wrappers[i].find("FlashMessage FlashMessage");
+      expect(
+        flashMessage.exists() ? flashMessage.children().length : 0
+      ).toEqual(0);
+
+      // simulate form submission
+      await wrapper.find("StyledButton").first().simulate("submit");
+
+      // wait for rerender
+      await wait();
+
+      // check if FlashMessage is now visible (has children)
+      flashMessage = wrappers[i].find("FlashMessage FlashMessage");
+      expect(
+        flashMessage.exists() ? flashMessage.children().length : 0
+      ).toBeGreaterThan(0);
+    }
+  });
+
+  it("renders FlashMessage component on submission if password fields do not match", async () => {
+    // Need to use this method allow for promises not to error us out
+    for (let i = 30, len = wrappers.length; i < len; i++) {
+      // add same email to email fields
+      const wrapper = wrappers[i];
+      const _email = casual.email;
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _email
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmEmail']").first(),
+        "confirmEmail",
+        _email
+      );
+
+      // add password and slightly different password
+      const _pw = generateValidPassword();
+      simulateInputChange(
+        wrapper.find("TextInput input[name='password']").first(),
+        "password",
+        _pw
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmPassword']").first(),
+        "confirmPassword",
+        _pw + "1"
+      );
+
+      // make no flashmessage visible
+      let flashMessage = wrappers[i].find("FlashMessage FlashMessage");
+      expect(
+        flashMessage.exists() ? flashMessage.children().length : 0
+      ).toEqual(0);
 
       // simulate form submission
       await wrapper.find("StyledButton").first().simulate("submit");
@@ -151,7 +226,10 @@ describe("<RegisterUser />", () => {
       await wait();
 
       // check if FlashMessage is now visible
-      expect(wrappers[i].find("FlashMessage").exists()).toBeTruthy();
+      flashMessage = wrappers[i].find("FlashMessage FlashMessage");
+      expect(
+        flashMessage.exists() ? flashMessage.children().length : 0
+      ).toBeGreaterThan(0);
     }
   });
 });
