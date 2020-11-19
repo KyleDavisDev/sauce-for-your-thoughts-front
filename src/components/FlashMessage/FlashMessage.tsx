@@ -31,11 +31,12 @@ export interface FlashMessageProps {
   slugText?: string;
   text?: string;
   children?: string;
+  onClose?: () => void;
 }
 
 const FlashMessage: React.FC<FlashMessageProps> = props => {
   const [isVisible, setIsVisible] = React.useState(props.isVisible);
-  const { slug, slugText, text, children, className } = props;
+  const { slug, slugText, text, children, className, onClose } = props;
 
   if (!isVisible) {
     return null;
@@ -48,7 +49,9 @@ const FlashMessage: React.FC<FlashMessageProps> = props => {
           {children || text}{" "}
           {slug && slugText ? <Link href={slug}>{slugText}</Link> : ""}{" "}
         </StyledContent>
-        <Button onClick={e => setIsVisible(false)}>X</Button>
+        <Button onClick={e => (onClose ? onClose() : setIsVisible(false))}>
+          X
+        </Button>
       </StyledDiv>
     </StyledContainer>
   );
