@@ -31,6 +31,7 @@ export interface RegisterUserState {
 
 const RegisterUser: React.FC<RegisterUserProps> = props => {
   // defaults
+  const MIN_PASSWORD_LENGTH = 8;
   const _pageTitle = "Register";
 
   // set state
@@ -56,7 +57,11 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
       <PageTitle>{_pageTitle}</PageTitle>
       <StyledFormContainer>
         {flashMessage.isVisible && (
-          <FlashMessage type={flashMessage.type} isVisible>
+          <FlashMessage
+            type={flashMessage.type}
+            isVisible
+            onClose={onFlashClose}
+          >
             {flashMessage.text}
           </FlashMessage>
         )}
@@ -88,7 +93,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
             label={"Password"}
             name={"password"}
             required={true}
-            requirementText={"Must be at least 9 characters long."}
+            requirementText={"Must be at least 8 characters long."}
           />
           <TextInput
             type="password"
@@ -122,6 +127,15 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
     </>
   );
 
+  function onFlashClose() {
+    // clear flash message if was shown
+    setFlashMessage({
+      isVisible: false,
+      text: "",
+      type: undefined
+    });
+  }
+
   async function onSubmit(event: React.FormEvent): Promise<any> {
     event.preventDefault();
 
@@ -149,7 +163,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
       return;
     }
 
-    if (password.length < 8) {
+    if (password.length <= MIN_PASSWORD_LENGTH) {
       setFlashMessage({
         isVisible: true,
         text:
