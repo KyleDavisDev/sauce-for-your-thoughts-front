@@ -137,7 +137,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = () => {
     }
 
     // Confirm password is longer than 8 characters
-    if (password.length < 8) {
+    if (password.length <= MIN_PASSWORD_LENGTH) {
       setFlashMessage({
         isVisible: true,
         text:
