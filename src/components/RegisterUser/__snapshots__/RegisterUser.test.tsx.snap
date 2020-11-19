@@ -194,7 +194,7 @@ exports[`<RegisterUser /> matches snapshot 1`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -205,7 +205,7 @@ exports[`<RegisterUser /> matches snapshot 1`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -261,7 +261,7 @@ exports[`<RegisterUser /> matches snapshot 1`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -672,7 +672,7 @@ exports[`<RegisterUser /> matches snapshot 2`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -683,7 +683,7 @@ exports[`<RegisterUser /> matches snapshot 2`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -739,7 +739,7 @@ exports[`<RegisterUser /> matches snapshot 2`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -1150,7 +1150,7 @@ exports[`<RegisterUser /> matches snapshot 3`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -1161,7 +1161,7 @@ exports[`<RegisterUser /> matches snapshot 3`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -1217,7 +1217,7 @@ exports[`<RegisterUser /> matches snapshot 3`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -1628,7 +1628,7 @@ exports[`<RegisterUser /> matches snapshot 4`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -1639,7 +1639,7 @@ exports[`<RegisterUser /> matches snapshot 4`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -1695,7 +1695,7 @@ exports[`<RegisterUser /> matches snapshot 4`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -2106,7 +2106,7 @@ exports[`<RegisterUser /> matches snapshot 5`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -2117,7 +2117,7 @@ exports[`<RegisterUser /> matches snapshot 5`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -2173,7 +2173,7 @@ exports[`<RegisterUser /> matches snapshot 5`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -2584,7 +2584,7 @@ exports[`<RegisterUser /> matches snapshot 6`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -2595,7 +2595,7 @@ exports[`<RegisterUser /> matches snapshot 6`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -2651,7 +2651,7 @@ exports[`<RegisterUser /> matches snapshot 6`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -3062,7 +3062,7 @@ exports[`<RegisterUser /> matches snapshot 7`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -3073,7 +3073,7 @@ exports[`<RegisterUser /> matches snapshot 7`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -3129,7 +3129,7 @@ exports[`<RegisterUser /> matches snapshot 7`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -3540,7 +3540,7 @@ exports[`<RegisterUser /> matches snapshot 8`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -3551,7 +3551,7 @@ exports[`<RegisterUser /> matches snapshot 8`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -3607,7 +3607,7 @@ exports[`<RegisterUser /> matches snapshot 8`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -4018,7 +4018,7 @@ exports[`<RegisterUser /> matches snapshot 9`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -4029,7 +4029,7 @@ exports[`<RegisterUser /> matches snapshot 9`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -4085,7 +4085,7 @@ exports[`<RegisterUser /> matches snapshot 9`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -4496,7 +4496,7 @@ exports[`<RegisterUser /> matches snapshot 10`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -4507,7 +4507,7 @@ exports[`<RegisterUser /> matches snapshot 10`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -4563,7 +4563,7 @@ exports[`<RegisterUser /> matches snapshot 10`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -4974,7 +4974,7 @@ exports[`<RegisterUser /> matches snapshot 11`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -4985,7 +4985,7 @@ exports[`<RegisterUser /> matches snapshot 11`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -5041,7 +5041,7 @@ exports[`<RegisterUser /> matches snapshot 11`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -5452,7 +5452,7 @@ exports[`<RegisterUser /> matches snapshot 12`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -5463,7 +5463,7 @@ exports[`<RegisterUser /> matches snapshot 12`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -5519,7 +5519,7 @@ exports[`<RegisterUser /> matches snapshot 12`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -5930,7 +5930,7 @@ exports[`<RegisterUser /> matches snapshot 13`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -5941,7 +5941,7 @@ exports[`<RegisterUser /> matches snapshot 13`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -5997,7 +5997,7 @@ exports[`<RegisterUser /> matches snapshot 13`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -6408,7 +6408,7 @@ exports[`<RegisterUser /> matches snapshot 14`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -6419,7 +6419,7 @@ exports[`<RegisterUser /> matches snapshot 14`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -6475,7 +6475,7 @@ exports[`<RegisterUser /> matches snapshot 14`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -6886,7 +6886,7 @@ exports[`<RegisterUser /> matches snapshot 15`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -6897,7 +6897,7 @@ exports[`<RegisterUser /> matches snapshot 15`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -6953,7 +6953,7 @@ exports[`<RegisterUser /> matches snapshot 15`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -7364,7 +7364,7 @@ exports[`<RegisterUser /> matches snapshot 16`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -7375,7 +7375,7 @@ exports[`<RegisterUser /> matches snapshot 16`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -7431,7 +7431,7 @@ exports[`<RegisterUser /> matches snapshot 16`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -7842,7 +7842,7 @@ exports[`<RegisterUser /> matches snapshot 17`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -7853,7 +7853,7 @@ exports[`<RegisterUser /> matches snapshot 17`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -7909,7 +7909,7 @@ exports[`<RegisterUser /> matches snapshot 17`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -8320,7 +8320,7 @@ exports[`<RegisterUser /> matches snapshot 18`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -8331,7 +8331,7 @@ exports[`<RegisterUser /> matches snapshot 18`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -8387,7 +8387,7 @@ exports[`<RegisterUser /> matches snapshot 18`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -8798,7 +8798,7 @@ exports[`<RegisterUser /> matches snapshot 19`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -8809,7 +8809,7 @@ exports[`<RegisterUser /> matches snapshot 19`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -8865,7 +8865,7 @@ exports[`<RegisterUser /> matches snapshot 19`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -9276,7 +9276,7 @@ exports[`<RegisterUser /> matches snapshot 20`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -9287,7 +9287,7 @@ exports[`<RegisterUser /> matches snapshot 20`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -9343,7 +9343,7 @@ exports[`<RegisterUser /> matches snapshot 20`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -9754,7 +9754,7 @@ exports[`<RegisterUser /> matches snapshot 21`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -9765,7 +9765,7 @@ exports[`<RegisterUser /> matches snapshot 21`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -9821,7 +9821,7 @@ exports[`<RegisterUser /> matches snapshot 21`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -10232,7 +10232,7 @@ exports[`<RegisterUser /> matches snapshot 22`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -10243,7 +10243,7 @@ exports[`<RegisterUser /> matches snapshot 22`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -10299,7 +10299,7 @@ exports[`<RegisterUser /> matches snapshot 22`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -10710,7 +10710,7 @@ exports[`<RegisterUser /> matches snapshot 23`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -10721,7 +10721,7 @@ exports[`<RegisterUser /> matches snapshot 23`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -10777,7 +10777,7 @@ exports[`<RegisterUser /> matches snapshot 23`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -11188,7 +11188,7 @@ exports[`<RegisterUser /> matches snapshot 24`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -11199,7 +11199,7 @@ exports[`<RegisterUser /> matches snapshot 24`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -11255,7 +11255,7 @@ exports[`<RegisterUser /> matches snapshot 24`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -11666,7 +11666,7 @@ exports[`<RegisterUser /> matches snapshot 25`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -11677,7 +11677,7 @@ exports[`<RegisterUser /> matches snapshot 25`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -11733,7 +11733,7 @@ exports[`<RegisterUser /> matches snapshot 25`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -12144,7 +12144,7 @@ exports[`<RegisterUser /> matches snapshot 26`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -12155,7 +12155,7 @@ exports[`<RegisterUser /> matches snapshot 26`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -12211,7 +12211,7 @@ exports[`<RegisterUser /> matches snapshot 26`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -12622,7 +12622,7 @@ exports[`<RegisterUser /> matches snapshot 27`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -12633,7 +12633,7 @@ exports[`<RegisterUser /> matches snapshot 27`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -12689,7 +12689,7 @@ exports[`<RegisterUser /> matches snapshot 27`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -13100,7 +13100,7 @@ exports[`<RegisterUser /> matches snapshot 28`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -13111,7 +13111,7 @@ exports[`<RegisterUser /> matches snapshot 28`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -13167,7 +13167,7 @@ exports[`<RegisterUser /> matches snapshot 28`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -13578,7 +13578,7 @@ exports[`<RegisterUser /> matches snapshot 29`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -13589,7 +13589,7 @@ exports[`<RegisterUser /> matches snapshot 29`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -13645,7 +13645,7 @@ exports[`<RegisterUser /> matches snapshot 29`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -14056,7 +14056,7 @@ exports[`<RegisterUser /> matches snapshot 30`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -14067,7 +14067,7 @@ exports[`<RegisterUser /> matches snapshot 30`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -14123,7 +14123,7 @@ exports[`<RegisterUser /> matches snapshot 30`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -14534,7 +14534,7 @@ exports[`<RegisterUser /> matches snapshot 31`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -14545,7 +14545,7 @@ exports[`<RegisterUser /> matches snapshot 31`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -14601,7 +14601,7 @@ exports[`<RegisterUser /> matches snapshot 31`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
@@ -15012,7 +15012,7 @@ exports[`<RegisterUser /> matches snapshot 32`] = `
             name="password"
             onChange={[Function]}
             required={true}
-            requirementText="Must be at least 9 characters long."
+            requirementText="Must be at least 8 characters long."
             showLabel={true}
             type="password"
           >
@@ -15023,7 +15023,7 @@ exports[`<RegisterUser /> matches snapshot 32`] = `
               name="password"
               onChange={[Function]}
               required={true}
-              requirementText="Must be at least 9 characters long."
+              requirementText="Must be at least 8 characters long."
               showLabel={true}
               type="password"
             >
@@ -15079,7 +15079,7 @@ exports[`<RegisterUser /> matches snapshot 32`] = `
                     />
                   </input>
                   <p>
-                    Must be at least 9 characters long.
+                    Must be at least 8 characters long.
                   </p>
                 </div>
               </div>
