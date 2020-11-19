@@ -23,7 +23,7 @@ exports[`<RegisterUser /> matches snapshot 1`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -425,7 +425,7 @@ exports[`<RegisterUser /> matches snapshot 1`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -450,8 +450,8 @@ exports[`<RegisterUser /> matches snapshot 1`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -470,10 +470,10 @@ exports[`<RegisterUser /> matches snapshot 1`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -501,7 +501,7 @@ exports[`<RegisterUser /> matches snapshot 2`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -903,7 +903,7 @@ exports[`<RegisterUser /> matches snapshot 2`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -928,8 +928,8 @@ exports[`<RegisterUser /> matches snapshot 2`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -948,10 +948,10 @@ exports[`<RegisterUser /> matches snapshot 2`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -979,7 +979,7 @@ exports[`<RegisterUser /> matches snapshot 3`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -1381,7 +1381,7 @@ exports[`<RegisterUser /> matches snapshot 3`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -1406,8 +1406,8 @@ exports[`<RegisterUser /> matches snapshot 3`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -1426,10 +1426,10 @@ exports[`<RegisterUser /> matches snapshot 3`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -1457,7 +1457,7 @@ exports[`<RegisterUser /> matches snapshot 4`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -1859,7 +1859,7 @@ exports[`<RegisterUser /> matches snapshot 4`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -1884,8 +1884,8 @@ exports[`<RegisterUser /> matches snapshot 4`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -1904,10 +1904,10 @@ exports[`<RegisterUser /> matches snapshot 4`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -1935,7 +1935,7 @@ exports[`<RegisterUser /> matches snapshot 5`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -2337,7 +2337,7 @@ exports[`<RegisterUser /> matches snapshot 5`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -2362,8 +2362,8 @@ exports[`<RegisterUser /> matches snapshot 5`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -2382,10 +2382,10 @@ exports[`<RegisterUser /> matches snapshot 5`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -2413,7 +2413,7 @@ exports[`<RegisterUser /> matches snapshot 6`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -2815,7 +2815,7 @@ exports[`<RegisterUser /> matches snapshot 6`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -2840,8 +2840,8 @@ exports[`<RegisterUser /> matches snapshot 6`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -2860,10 +2860,10 @@ exports[`<RegisterUser /> matches snapshot 6`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -2891,7 +2891,7 @@ exports[`<RegisterUser /> matches snapshot 7`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -3293,7 +3293,7 @@ exports[`<RegisterUser /> matches snapshot 7`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -3318,8 +3318,8 @@ exports[`<RegisterUser /> matches snapshot 7`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -3338,10 +3338,10 @@ exports[`<RegisterUser /> matches snapshot 7`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -3369,7 +3369,7 @@ exports[`<RegisterUser /> matches snapshot 8`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -3771,7 +3771,7 @@ exports[`<RegisterUser /> matches snapshot 8`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -3796,8 +3796,8 @@ exports[`<RegisterUser /> matches snapshot 8`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -3816,10 +3816,10 @@ exports[`<RegisterUser /> matches snapshot 8`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -3847,7 +3847,7 @@ exports[`<RegisterUser /> matches snapshot 9`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -4249,7 +4249,7 @@ exports[`<RegisterUser /> matches snapshot 9`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -4274,8 +4274,8 @@ exports[`<RegisterUser /> matches snapshot 9`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -4294,10 +4294,10 @@ exports[`<RegisterUser /> matches snapshot 9`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -4325,7 +4325,7 @@ exports[`<RegisterUser /> matches snapshot 10`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -4727,7 +4727,7 @@ exports[`<RegisterUser /> matches snapshot 10`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -4752,8 +4752,8 @@ exports[`<RegisterUser /> matches snapshot 10`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -4772,10 +4772,10 @@ exports[`<RegisterUser /> matches snapshot 10`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -4803,7 +4803,7 @@ exports[`<RegisterUser /> matches snapshot 11`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -5205,7 +5205,7 @@ exports[`<RegisterUser /> matches snapshot 11`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -5230,8 +5230,8 @@ exports[`<RegisterUser /> matches snapshot 11`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -5250,10 +5250,10 @@ exports[`<RegisterUser /> matches snapshot 11`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -5281,7 +5281,7 @@ exports[`<RegisterUser /> matches snapshot 12`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -5683,7 +5683,7 @@ exports[`<RegisterUser /> matches snapshot 12`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -5708,8 +5708,8 @@ exports[`<RegisterUser /> matches snapshot 12`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -5728,10 +5728,10 @@ exports[`<RegisterUser /> matches snapshot 12`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -5759,7 +5759,7 @@ exports[`<RegisterUser /> matches snapshot 13`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -6161,7 +6161,7 @@ exports[`<RegisterUser /> matches snapshot 13`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -6186,8 +6186,8 @@ exports[`<RegisterUser /> matches snapshot 13`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -6206,10 +6206,10 @@ exports[`<RegisterUser /> matches snapshot 13`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -6237,7 +6237,7 @@ exports[`<RegisterUser /> matches snapshot 14`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -6639,7 +6639,7 @@ exports[`<RegisterUser /> matches snapshot 14`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -6664,8 +6664,8 @@ exports[`<RegisterUser /> matches snapshot 14`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -6684,10 +6684,10 @@ exports[`<RegisterUser /> matches snapshot 14`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -6715,7 +6715,7 @@ exports[`<RegisterUser /> matches snapshot 15`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -7117,7 +7117,7 @@ exports[`<RegisterUser /> matches snapshot 15`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -7142,8 +7142,8 @@ exports[`<RegisterUser /> matches snapshot 15`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -7162,10 +7162,10 @@ exports[`<RegisterUser /> matches snapshot 15`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -7193,7 +7193,7 @@ exports[`<RegisterUser /> matches snapshot 16`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -7595,7 +7595,7 @@ exports[`<RegisterUser /> matches snapshot 16`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -7620,8 +7620,8 @@ exports[`<RegisterUser /> matches snapshot 16`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -7640,10 +7640,10 @@ exports[`<RegisterUser /> matches snapshot 16`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -7671,7 +7671,7 @@ exports[`<RegisterUser /> matches snapshot 17`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -8073,7 +8073,7 @@ exports[`<RegisterUser /> matches snapshot 17`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -8098,8 +8098,8 @@ exports[`<RegisterUser /> matches snapshot 17`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -8118,10 +8118,10 @@ exports[`<RegisterUser /> matches snapshot 17`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -8149,7 +8149,7 @@ exports[`<RegisterUser /> matches snapshot 18`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -8551,7 +8551,7 @@ exports[`<RegisterUser /> matches snapshot 18`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -8576,8 +8576,8 @@ exports[`<RegisterUser /> matches snapshot 18`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -8596,10 +8596,10 @@ exports[`<RegisterUser /> matches snapshot 18`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -8627,7 +8627,7 @@ exports[`<RegisterUser /> matches snapshot 19`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -9029,7 +9029,7 @@ exports[`<RegisterUser /> matches snapshot 19`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -9054,8 +9054,8 @@ exports[`<RegisterUser /> matches snapshot 19`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -9074,10 +9074,10 @@ exports[`<RegisterUser /> matches snapshot 19`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -9105,7 +9105,7 @@ exports[`<RegisterUser /> matches snapshot 20`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -9507,7 +9507,7 @@ exports[`<RegisterUser /> matches snapshot 20`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -9532,8 +9532,8 @@ exports[`<RegisterUser /> matches snapshot 20`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -9552,10 +9552,10 @@ exports[`<RegisterUser /> matches snapshot 20`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -9583,7 +9583,7 @@ exports[`<RegisterUser /> matches snapshot 21`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -9985,7 +9985,7 @@ exports[`<RegisterUser /> matches snapshot 21`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -10010,8 +10010,8 @@ exports[`<RegisterUser /> matches snapshot 21`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -10030,10 +10030,10 @@ exports[`<RegisterUser /> matches snapshot 21`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -10061,7 +10061,7 @@ exports[`<RegisterUser /> matches snapshot 22`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -10463,7 +10463,7 @@ exports[`<RegisterUser /> matches snapshot 22`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -10488,8 +10488,8 @@ exports[`<RegisterUser /> matches snapshot 22`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -10508,10 +10508,10 @@ exports[`<RegisterUser /> matches snapshot 22`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -10539,7 +10539,7 @@ exports[`<RegisterUser /> matches snapshot 23`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -10941,7 +10941,7 @@ exports[`<RegisterUser /> matches snapshot 23`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -10966,8 +10966,8 @@ exports[`<RegisterUser /> matches snapshot 23`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -10986,10 +10986,10 @@ exports[`<RegisterUser /> matches snapshot 23`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -11017,7 +11017,7 @@ exports[`<RegisterUser /> matches snapshot 24`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -11419,7 +11419,7 @@ exports[`<RegisterUser /> matches snapshot 24`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -11444,8 +11444,8 @@ exports[`<RegisterUser /> matches snapshot 24`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -11464,10 +11464,10 @@ exports[`<RegisterUser /> matches snapshot 24`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -11495,7 +11495,7 @@ exports[`<RegisterUser /> matches snapshot 25`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -11897,7 +11897,7 @@ exports[`<RegisterUser /> matches snapshot 25`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -11922,8 +11922,8 @@ exports[`<RegisterUser /> matches snapshot 25`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -11942,10 +11942,10 @@ exports[`<RegisterUser /> matches snapshot 25`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -11973,7 +11973,7 @@ exports[`<RegisterUser /> matches snapshot 26`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -12375,7 +12375,7 @@ exports[`<RegisterUser /> matches snapshot 26`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -12400,8 +12400,8 @@ exports[`<RegisterUser /> matches snapshot 26`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -12420,10 +12420,10 @@ exports[`<RegisterUser /> matches snapshot 26`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -12451,7 +12451,7 @@ exports[`<RegisterUser /> matches snapshot 27`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -12853,7 +12853,7 @@ exports[`<RegisterUser /> matches snapshot 27`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -12878,8 +12878,8 @@ exports[`<RegisterUser /> matches snapshot 27`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -12898,10 +12898,10 @@ exports[`<RegisterUser /> matches snapshot 27`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -12929,7 +12929,7 @@ exports[`<RegisterUser /> matches snapshot 28`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -13331,7 +13331,7 @@ exports[`<RegisterUser /> matches snapshot 28`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -13356,8 +13356,8 @@ exports[`<RegisterUser /> matches snapshot 28`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -13376,10 +13376,10 @@ exports[`<RegisterUser /> matches snapshot 28`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -13407,7 +13407,7 @@ exports[`<RegisterUser /> matches snapshot 29`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -13809,7 +13809,7 @@ exports[`<RegisterUser /> matches snapshot 29`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -13834,8 +13834,8 @@ exports[`<RegisterUser /> matches snapshot 29`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -13854,10 +13854,10 @@ exports[`<RegisterUser /> matches snapshot 29`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -13885,7 +13885,7 @@ exports[`<RegisterUser /> matches snapshot 30`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -14287,7 +14287,7 @@ exports[`<RegisterUser /> matches snapshot 30`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -14312,8 +14312,8 @@ exports[`<RegisterUser /> matches snapshot 30`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -14332,10 +14332,10 @@ exports[`<RegisterUser /> matches snapshot 30`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -14363,7 +14363,7 @@ exports[`<RegisterUser /> matches snapshot 31`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -14765,7 +14765,7 @@ exports[`<RegisterUser /> matches snapshot 31`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -14790,8 +14790,8 @@ exports[`<RegisterUser /> matches snapshot 31`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -14810,10 +14810,10 @@ exports[`<RegisterUser /> matches snapshot 31`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
@@ -14841,7 +14841,7 @@ exports[`<RegisterUser /> matches snapshot 32`] = `
         </h1>
       </h1>
     </PageTitle>
-    <styled.div>
+    <StyledFormContainer>
       <div
         className="sc-Axmtr eVyEsV"
       >
@@ -15243,7 +15243,7 @@ exports[`<RegisterUser /> matches snapshot 32`] = `
               </div>
             </TextInput>
           </Styled(TextInput)>
-          <styled.p>
+          <StyledText>
             <p
               className="sc-AxmLO dfboul"
             >
@@ -15268,8 +15268,8 @@ exports[`<RegisterUser /> matches snapshot 32`] = `
                 </LinkComponent>
               </Link>
             </p>
-          </styled.p>
-          <Styled(Button)
+          </StyledText>
+          <StyledButton
             type="submit"
           >
             <Button
@@ -15288,10 +15288,10 @@ exports[`<RegisterUser /> matches snapshot 32`] = `
                 </button>
               </div>
             </Button>
-          </Styled(Button)>
+          </StyledButton>
         </form>
       </div>
-    </styled.div>
+    </StyledFormContainer>
   </RegisterUser>
 </Provider>
 `;
