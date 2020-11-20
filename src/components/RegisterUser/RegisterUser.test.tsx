@@ -3,6 +3,7 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 import { Provider } from "react-redux";
 import { MockStoreEnhanced } from "redux-mock-store";
+import { act } from "react-dom/test-utils";
 
 import RegisterUser from "./RegisterUser";
 import {
@@ -15,16 +16,28 @@ import {
   generateInValidPassword,
   generateErr
 } from "../../utils/testUtils/testUtils";
+import { userLoggedIn } from "../../redux/users/actions";
+import { IRegisterUser } from "../../redux/users/types";
 
-// mock our API
-const mockRegisterCall = jest.fn();
-// jest.mock("react-redux", () => {
-//   return {
-//     useDispatch: () => {
-//       return mockRegisterCall();
-//     }
-//   };
-// });
+// mock Next's router
+const mockPush = jest.fn();
+jest.mock("next/router", () => ({
+  useRouter() {
+    return {
+      push: mockPush
+    };
+  }
+}));
+
+const mockRegisterPayload = () => ({
+  type: "USER_LOGGED_IN"
+});
+
+jest.mock("../../redux/users/actions", () => ({
+  register: ({ credentials }: { credentials: IRegisterUser }) => {
+    return mockRegisterPayload();
+  }
+}));
 
 describe("<RegisterUser />", () => {
   // defaults
@@ -58,7 +71,7 @@ describe("<RegisterUser />", () => {
   });
 
   afterEach(async () => {
-    for (let i = 30, len = wrappers.length; i < len; i++) {
+    for (let i = 0, len = wrappers.length; i < len; i++) {
       const wrapper = wrappers[i];
 
       // clear all inputs
@@ -160,7 +173,7 @@ describe("<RegisterUser />", () => {
 
   it("renders FlashMessage component on submission if email fields do not match", async () => {
     // Need to use this method allow for promises not to error us out
-    for (let i = 30, len = wrappers.length; i < len; i++) {
+    for (let i = 0, len = wrappers.length; i < len; i++) {
       // add email and slighty different email
       const wrapper = wrappers[i];
       const _email = casual.email;
@@ -197,7 +210,7 @@ describe("<RegisterUser />", () => {
 
   it("renders FlashMessage component on submission if password fields do not match", async () => {
     // Need to use this method allow for promises not to error us out
-    for (let i = 30, len = wrappers.length; i < len; i++) {
+    for (let i = 0, len = wrappers.length; i < len; i++) {
       // add same email to email fields
       const wrapper = wrappers[i];
       const _email = casual.email;
@@ -247,7 +260,7 @@ describe("<RegisterUser />", () => {
 
   it("renders FlashMessage component on submission if password fields are too short", async () => {
     // Need to use this method allow for promises not to error us out
-    for (let i = 30, len = wrappers.length; i < len; i++) {
+    for (let i = 0, len = wrappers.length; i < len; i++) {
       // add same email to email fields
       const wrapper = wrappers[i];
       const _email = casual.email;
@@ -297,7 +310,7 @@ describe("<RegisterUser />", () => {
 
   it("renders FlashMessage component on submission if displayName field is shorter than minimum allowed", async () => {
     // Need to use this method allow for promises not to error us out
-    for (let i = 30, len = wrappers.length; i < len; i++) {
+    for (let i = 0, len = wrappers.length; i < len; i++) {
       const wrapper = wrappers[i];
       // Add valid inputs
       const _email = casual.email;
@@ -348,6 +361,58 @@ describe("<RegisterUser />", () => {
       expect(
         flashMessage.exists() ? flashMessage.children().length : 0
       ).toBeGreaterThan(0);
+    }
+  });
+
+  it("uses redux action emitter on valid submission", async () => {
+    // Need to use this method allow for promises not to error us out
+    for (let i = 0, len = wrappers.length; i < len; i++) {
+      const wrapper = wrappers[i];
+      // Add valid inputs
+      const _email = casual.email;
+      const _pw = generateValidPassword(MIN_PASSWORD_LENGTH);
+      const _displayName = generateValidPassword(MIN_DISPLAYNAME_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _email
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmEmail']").first(),
+        "confirmEmail",
+        _email
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='password']").first(),
+        "password",
+        _pw
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmPassword']").first(),
+        "confirmPassword",
+        _pw
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='displayName']").first(),
+        "displayName",
+        _displayName
+      );
+
+      // const store = mockStores[i];
+      const actionsBefore = mockStores[i].getActions();
+      //console.log(actions);
+      expect(actionsBefore).toEqual([]);
+      // submit form
+      wrapper.find("form").first().simulate("submit");
+
+      await wait(100);
+
+      // console.log(actions);
+      const actionsAfter = mockStores[i].getActions();
+      expect(actionsAfter).toEqual([mockRegisterPayload()]);
+
+      // check called
+      // expect(mockRegisterCall).toHaveBeenCalledTimes(1);
     }
   });
 });
