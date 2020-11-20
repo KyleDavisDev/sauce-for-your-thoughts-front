@@ -34,6 +34,8 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
   const MIN_PASSWORD_LENGTH = 8;
   const MIN_DISPLAYNAME_LENGTH = 6;
   const _pageTitle = "Register";
+  const _defaultErrorMessage =
+    "There was a problem registering your account. Please refresh your page and try again!";
 
   // set state
   const [email, setEmail] = useState("");
@@ -164,7 +166,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
       return;
     }
 
-    if (password.length <= MIN_PASSWORD_LENGTH) {
+    if (password.length < MIN_PASSWORD_LENGTH) {
       setFlashMessage({
         isVisible: true,
         text:
@@ -177,7 +179,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
       return;
     }
 
-    if (displayName.length <= MIN_DISPLAYNAME_LENGTH) {
+    if (displayName.length < MIN_DISPLAYNAME_LENGTH) {
       setFlashMessage({
         isVisible: true,
         text:
@@ -190,13 +192,13 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
       return;
     }
 
-    // Create credentials obj
-    const credentials: IRegisterUser = {
-      user: { email, confirmEmail, password, confirmPassword, displayName }
-    };
     try {
+      // Create credentials obj
+      const credentials: IRegisterUser = {
+        user: { email, confirmEmail, password, confirmPassword, displayName }
+      };
       // dispatch action which calls API to register user
-      await dispatch(register({ credentials }));
+      dispatch(register({ credentials }));
 
       // Redirect user to sauces page -- Maybe take them to user home page instead?
       router.push("/sauces");
@@ -205,19 +207,14 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
       // Create warning flash
       setFlashMessage({
         isVisible: true,
-        text: err.response.data.msg,
+        text: err.response?.data?.msg || _defaultErrorMessage,
         type: "warning"
       });
-      window.scrollTo(0, 0); // Move screen to top
+
+      // Move screen to top
+      window.scrollTo(0, 0);
       return;
     }
-
-    // clear flash message if was shown
-    setFlashMessage({
-      isVisible: false,
-      text: "",
-      type: undefined
-    });
   }
 };
 
