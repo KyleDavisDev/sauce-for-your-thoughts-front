@@ -11,7 +11,8 @@ import {
   fakeStore,
   simulateInputChange,
   wait,
-  generateValidPassword
+  generateValidPassword,
+  generateInValidPassword
 } from "../../utils/testUtils/testUtils";
 import { AppState } from "../../redux/configureStore";
 import { act } from "react-dom/test-utils";
@@ -211,6 +212,56 @@ describe("<RegisterUser />", () => {
         wrapper.find("TextInput input[name='confirmPassword']").first(),
         "confirmPassword",
         _pw + "1"
+      );
+
+      // make no flashmessage visible
+      let flashMessage = wrappers[i].find("FlashMessage FlashMessage");
+      expect(
+        flashMessage.exists() ? flashMessage.children().length : 0
+      ).toEqual(0);
+
+      // simulate form submission
+      await wrapper.find("StyledButton").first().simulate("submit");
+
+      // wait for rerender
+      await wait();
+
+      // check if FlashMessage is now visible
+      flashMessage = wrappers[i].find("FlashMessage FlashMessage");
+      expect(
+        flashMessage.exists() ? flashMessage.children().length : 0
+      ).toBeGreaterThan(0);
+    }
+  });
+
+  it("renders FlashMessage component on submission if password fields are too short", async () => {
+    // Need to use this method allow for promises not to error us out
+    for (let i = 30, len = wrappers.length; i < len; i++) {
+      // add same email to email fields
+      const wrapper = wrappers[i];
+      const _email = casual.email;
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _email
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmEmail']").first(),
+        "confirmEmail",
+        _email
+      );
+
+      // add password and slightly different password
+      const _pw = generateInValidPassword();
+      simulateInputChange(
+        wrapper.find("TextInput input[name='password']").first(),
+        "password",
+        _pw
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmPassword']").first(),
+        "confirmPassword",
+        _pw
       );
 
       // make no flashmessage visible
