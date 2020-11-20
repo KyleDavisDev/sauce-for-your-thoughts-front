@@ -32,6 +32,7 @@ export interface RegisterUserState {
 const RegisterUser: React.FC<RegisterUserProps> = props => {
   // defaults
   const MIN_PASSWORD_LENGTH = 8;
+  const MIN_DISPLAYNAME_LENGTH = 6;
   const _pageTitle = "Register";
 
   // set state
@@ -176,7 +177,7 @@ const RegisterUser: React.FC<RegisterUserProps> = props => {
       return;
     }
 
-    if (displayName.length < 6) {
+    if (displayName.length <= MIN_DISPLAYNAME_LENGTH) {
       setFlashMessage({
         isVisible: true,
         text:
