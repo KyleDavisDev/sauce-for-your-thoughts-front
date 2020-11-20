@@ -44,13 +44,15 @@ export const userLoggedIn = ({
   displayName: string;
   avatarURL: string;
   isAdmin: boolean;
-}): IUserAction => ({
-  type: USER_LOGGED_IN,
-  token,
-  displayName,
-  avatarURL,
-  isAdmin
-});
+}): IUserAction => {
+  return {
+    type: USER_LOGGED_IN,
+    token,
+    displayName,
+    avatarURL,
+    isAdmin
+  };
+};
 
 /** @description Update a single user's display name wherever it is found
  *  @param {String} displayName - new person's name
@@ -102,17 +104,13 @@ export const userLoggedOut = () => ({
  *  @param {IRegisterUser} credentials - credentials object
  *  @fires user#userLoggedIn - set self.token in redux store
  *  @return {Promise} Promise
- *  @resolves {Object} token - unique user token
- *
- *  {String} token - unique user token
- *
- *  {String} displayName - unique user displayName
+ *  @resolves {void}
  *
  *  @reject {String} error message
  */
 export const register = ({ credentials }: { credentials: IRegisterUser }) => (
   dispatch: any
-): Promise<object> => {
+): Promise<void> => {
   return API.user.register(credentials).then(res => {
     // Grab token and name
     const {
@@ -141,8 +139,6 @@ export const register = ({ credentials }: { credentials: IRegisterUser }) => (
 
     // Dispatch user login
     dispatch(userLoggedIn({ token, displayName, avatarURL, isAdmin }));
-
-    return { token, displayName };
   });
 };
 
