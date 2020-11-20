@@ -168,7 +168,7 @@ const generateValidPassword = (MIN_PASSWORD_LENGTH: number = 8): string => {
 
 const generateInValidPassword = (MIN_PASSWORD_LENGTH: number = 8): string => {
   // generate length between minimum length and 3x the minimum length
-  const _randomLength = casual.integer(0, MIN_PASSWORD_LENGTH - 1);
+  const _randomLength = casual.integer(1, MIN_PASSWORD_LENGTH - 1);
 
   // turn generated length into random letters
   return new Array(_randomLength).fill(null).map(casual._letter).join("");
