@@ -12,14 +12,25 @@ import {
   simulateInputChange,
   wait,
   generateValidPassword,
-  generateInValidPassword
+  generateInValidPassword,
+  generateErr
 } from "../../utils/testUtils/testUtils";
-import { AppState } from "../../redux/configureStore";
-import { act } from "react-dom/test-utils";
+
+// mock our API
+const mockRegisterCall = jest.fn();
+// jest.mock("react-redux", () => {
+//   return {
+//     useDispatch: () => {
+//       return mockRegisterCall();
+//     }
+//   };
+// });
 
 describe("<RegisterUser />", () => {
   // defaults
   const _pageTitle = "Register";
+  const MIN_PASSWORD_LENGTH = 8;
+  const MIN_DISPLAYNAME_LENGTH = 6;
 
   // mock scrollTo
   window.scrollTo = jest.fn();
@@ -252,7 +263,7 @@ describe("<RegisterUser />", () => {
       );
 
       // add password and slightly different password
-      const _pw = generateInValidPassword();
+      const _pw = generateInValidPassword(MIN_PASSWORD_LENGTH);
       simulateInputChange(
         wrapper.find("TextInput input[name='password']").first(),
         "password",
@@ -264,7 +275,63 @@ describe("<RegisterUser />", () => {
         _pw
       );
 
-      // make no flashmessage visible
+      // make sure that no flashmessage visible
+      let flashMessage = wrappers[i].find("FlashMessage FlashMessage");
+      expect(
+        flashMessage.exists() ? flashMessage.children().length : 0
+      ).toEqual(0);
+
+      // simulate form submission
+      await wrapper.find("StyledButton").first().simulate("submit");
+
+      // wait for rerender
+      await wait();
+
+      // check if FlashMessage is now visible
+      flashMessage = wrappers[i].find("FlashMessage FlashMessage");
+      expect(
+        flashMessage.exists() ? flashMessage.children().length : 0
+      ).toBeGreaterThan(0);
+    }
+  });
+
+  it("renders FlashMessage component on submission if displayName field is shorter than minimum allowed", async () => {
+    // Need to use this method allow for promises not to error us out
+    for (let i = 30, len = wrappers.length; i < len; i++) {
+      const wrapper = wrappers[i];
+      // Add valid inputs
+      const _email = casual.email;
+      const _pw = generateValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _email
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmEmail']").first(),
+        "confirmEmail",
+        _email
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='password']").first(),
+        "password",
+        _pw
+      );
+      simulateInputChange(
+        wrapper.find("TextInput input[name='confirmPassword']").first(),
+        "confirmPassword",
+        _pw
+      );
+
+      // Add string that is too short
+      const _displayName = generateInValidPassword(MIN_DISPLAYNAME_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='displayName']").first(),
+        "displayName",
+        _displayName
+      );
+
+      // make sure that no flashmessage visible
       let flashMessage = wrappers[i].find("FlashMessage FlashMessage");
       expect(
         flashMessage.exists() ? flashMessage.children().length : 0
