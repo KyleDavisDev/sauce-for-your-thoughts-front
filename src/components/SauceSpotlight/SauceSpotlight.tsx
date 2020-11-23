@@ -67,9 +67,9 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
     });
 
     // 5. Check if user has a review to edit
-    const _doesUserHaveReviewToEdit = store.users.self.displayName
+    const _doesUserHaveReviewToEdit = store.users.self?.displayName
       ? _reviews.some(rev => {
-          return rev.author === store.users.self.displayName;
+          return rev.author === store.users.self?.displayName;
         })
       : false;
 
@@ -143,8 +143,12 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
               <>
                 {sauce.slug && showAppropriateReviewButton(sauce.slug)}
                 <List
-                  items={sauce._related.map(x => {
-                    return { link: `/sauce/view?s=${x.slug}`, text: x.name };
+                  items={sauce._related.map((x, ind) => {
+                    return {
+                      link: `/sauce/view?s=${x.slug}`,
+                      text: x.name,
+                      id: `${ind}-${x.name}`
+                    };
                   })}
                   title="Related Sauces"
                 />
@@ -152,8 +156,12 @@ const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
             )}
             {saucesWithNewestReviews && saucesWithNewestReviews.length > 0 && (
               <List
-                items={saucesWithNewestReviews.map(x => {
-                  return { link: `/sauce/view?s=${x.slug}`, text: x.name };
+                items={saucesWithNewestReviews.map((x, ind) => {
+                  return {
+                    link: `/sauce/view?s=${x.slug}`,
+                    text: x.name,
+                    id: `${ind}-${x.name}`
+                  };
                 })}
                 title="Recently Reviewed"
               />
