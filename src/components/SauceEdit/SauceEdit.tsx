@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useRouter } from "next/router";
-import shortid from "shortid";
 import { useSelector, useDispatch } from "react-redux";
 
 import { ISauce } from "../../redux/sauces/types";
@@ -48,37 +47,36 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
   const { author, typesOfSauces, token, isAdmin } = useSelector(
     (store: AppState) => {
       // 1. Find author
-      const _author = store.users.self.displayName;
+      const _author = store.users.self?.displayName;
 
       // 2. Find token
-      const _token = store.users.self.token;
+      const _token = store.users.self?.token;
 
       // 3. Find types of suaces
       const _typesOfSauces: {
         [key: string]: { value: string; checked: boolean; key: string };
       } = {};
       if (store.sauces.types) {
-        store.sauces.types.forEach(type => {
+        store.sauces.types.forEach((type, ind) => {
           if (type === "All") {
             // continue;
           } else {
             _typesOfSauces[type] = {
               value: type,
               checked: false,
-              key: shortid.generate()
+              key: `${ind}-${type}`
             };
           }
         });
       }
 
       // 4. Find if person is admin or not
-      const _isAdmin = store.users.self.isAdmin;
+      const _isAdmin = store.users.self?.isAdmin;
 
       return {
         author: _author,
         token: _token,
         typesOfSauces: _typesOfSauces,
-
         isAdmin: _isAdmin
       };
     }
