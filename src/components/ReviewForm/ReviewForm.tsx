@@ -34,7 +34,7 @@ const ReviewForm: React.FunctionComponent<ReviewFormProps> = props => {
   const router = useRouter();
 
   // assign state
-  const token = useSelector((store: AppState) => store.users.self.token);
+  const token = useSelector((store: AppState) => store.users.self?.token);
   const initRating = { rating: 0, txt: "" };
   const [overall, setOverall] = React.useState<IReviewSection>(initRating);
   const [label, setLabel] = React.useState<IReviewSection>(initRating);
