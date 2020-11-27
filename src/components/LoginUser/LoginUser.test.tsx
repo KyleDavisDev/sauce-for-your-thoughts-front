@@ -39,6 +39,9 @@ jest.mock("../../redux/users/actions", () => ({
 }));
 
 describe("<LoginUser />", () => {
+  // Constants from component
+  const _pageTitle = "Login";
+
   // mock scrollTo
   window.scrollTo = jest.fn();
 
@@ -79,6 +82,12 @@ describe("<LoginUser />", () => {
   it("renders a PageTitle component", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("PageTitle").exists()).toBeTruthy();
+    });
+  });
+
+  it("renders the expected page title", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("PageTitle").text()).toEqual(_pageTitle);
     });
   });
 });
