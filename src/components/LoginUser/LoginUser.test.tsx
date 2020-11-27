@@ -17,6 +17,7 @@ import {
 import { IRegisterUser } from "../../redux/users/types";
 import { MockStoreEnhanced } from "redux-mock-store";
 import { Provider } from "react-redux";
+import { TextInputSetup } from "../TextInput/TextInput";
 
 // mock Next's router
 const mockPush = jest.fn();
@@ -41,6 +42,14 @@ jest.mock("../../redux/users/actions", () => ({
 describe("<LoginUser />", () => {
   // Constants from component
   const _pageTitle = "Login";
+  const _emailInput: TextInputSetup = {
+    type: "email",
+    id: "email",
+    showLabel: true,
+    label: "Email",
+    name: "email",
+    required: true
+  };
 
   // mock scrollTo
   window.scrollTo = jest.fn();
@@ -100,6 +109,15 @@ describe("<LoginUser />", () => {
   it("renders 2 TextInput components", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("TextInput").length).toEqual(2);
+    });
+  });
+
+  it("renders the first TextInput with email defaults", () => {
+    wrappers.forEach(wrapper => {
+      const props = wrapper.find("TextInput").first().props();
+
+      // Make sure the defaults are inside of the props object
+      expect(props).toEqual(expect.objectContaining(_emailInput));
     });
   });
 });
