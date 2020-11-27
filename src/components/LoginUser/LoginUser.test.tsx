@@ -31,13 +31,13 @@ jest.mock("next/router", () => ({
   }
 }));
 
-const mockRegisterPayload = () => ({
+const mockLoginPayload = () => ({
   type: "USER_LOGGED_IN"
 });
 
 jest.mock("../../redux/users/actions", () => ({
-  register: ({ credentials }: { credentials: IRegisterUser }) => {
-    return mockRegisterPayload();
+  login: ({ credentials }: { credentials: IRegisterUser }) => {
+    return mockLoginPayload();
   }
 }));
 
@@ -112,6 +112,10 @@ describe("<LoginUser />", () => {
       // give pause for any rerenderings
       await wait();
     }
+  });
+
+  afterAll(() => {
+    jest.clearAllMocks();
   });
 
   it("renders", () => {
@@ -279,6 +283,43 @@ describe("<LoginUser />", () => {
       expect(
         flashMessage.exists() ? flashMessage.children().length : 0
       ).toBeGreaterThan(0);
+    }
+  });
+
+  it("uses redux action emitter on valid submission", async () => {
+    // Need to use this method allow for promises not to error us out
+    for (let i = 0, len = wrappers.length; i < len; i++) {
+      const wrapper = wrappers[i];
+
+      // add email
+      const _email = casual.email;
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _email
+      );
+
+      // add password
+      const _pw = generateValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='password']").first(),
+        "password",
+        _pw
+      );
+
+      // make sure empty list before
+      const actionsBefore = mockStores[i].getActions();
+      expect(actionsBefore).toEqual([]);
+
+      // submit form
+      wrapper.find("form").first().simulate("submit");
+
+      // wait for things
+      await wait(100);
+
+      // Make sure action was emitted
+      const actionsAfter = mockStores[i].getActions();
+      expect(actionsAfter).toEqual([mockLoginPayload()]);
     }
   });
 });
