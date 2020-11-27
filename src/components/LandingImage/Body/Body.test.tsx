@@ -75,6 +75,12 @@ describe("<Body />", () => {
     });
   });
 
+  it("renders a Select component with expected id", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("Select").first().prop("id")).toEqual("types");
+    });
+  });
+
   it("renders a TextInput component", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("TextInput").exists()).toBeTruthy();
