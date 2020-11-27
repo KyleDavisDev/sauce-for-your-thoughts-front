@@ -3,7 +3,7 @@ import { Button } from "../../Button/Button";
 import Select from "../../Select/Select";
 import { TextInput } from "../../TextInput/TextInput";
 
-export const HeroBody = styled.div`
+export const StyledContainer = styled.div`
   position: absolute;
   z-index: 1;
   bottom: 0;
@@ -16,13 +16,13 @@ export const HeroBody = styled.div`
   align-items: flex-end;
   justify-content: center;
 `;
-HeroBody.displayName = "div";
+StyledContainer.displayName = "div";
 
-export const HeroTitle = styled.h1`
+export const StyledTitle = styled.h1`
   color: ${x => x.theme.landingHeroTextColor};
   font-family: FuturaMedium;
 `;
-HeroTitle.displayName = "h1";
+StyledTitle.displayName = "h1";
 
 export const StyledDiv = styled.div`
   display: flex;
@@ -72,9 +72,9 @@ export const StyledInput = styled(TextInput)`
     }
   }
 `;
-StyledInput.displayName = "input";
+StyledInput.displayName = "TextInput";
 
 export const StyledButton = styled(Button)`
   display: flex;
 `;
-StyledButton.displayName = "button";
+StyledButton.displayName = "Button";
