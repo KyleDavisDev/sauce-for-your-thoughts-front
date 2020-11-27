@@ -75,4 +75,10 @@ describe("<LoginUser />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("renders a PageTitle component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("PageTitle").exists()).toBeTruthy();
+    });
+  });
 });
