@@ -9,19 +9,42 @@ import {
   fakeStore,
   casual
 } from "../../../utils/testUtils/testUtils";
+import { MockStoreEnhanced } from "redux-mock-store";
 
 const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
 describe("<Body />", () => {
-  it("renders", () => {
-    mockStores.forEach(mockStore => {
-      const wrapper = enzyme.mount(
-        <Provider store={mockStore}>
+  // May need to refer to these later so initializing out here
+  let wrappers: Array<enzyme.ReactWrapper<
+    any,
+    Readonly<{}>,
+    React.Component<{}, {}, any>
+  >> = [];
+  let mockStores: MockStoreEnhanced<unknown, {}>[] = [];
+
+  beforeAll(() => {
+    // add our mock stores
+    mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
+
+    // add our mounts
+    wrappers = new Array(ITERATION_SIZE).fill(null).map((x, ind) => {
+      return enzyme.mount(
+        <Provider store={mockStores[ind]}>
           <Body />
         </Provider>
       );
+    });
+  });
 
-      expect(wrapper).toBeTruthy();
+  it("renders", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.exists()).toBeTruthy();
+    });
+  });
+
+  it("matches snapshot", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.exists()).toMatchSnapshot();
     });
   });
 });
