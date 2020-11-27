@@ -315,11 +315,46 @@ describe("<LoginUser />", () => {
       wrapper.find("form").first().simulate("submit");
 
       // wait for things
-      await wait(100);
+      await wait();
 
       // Make sure action was emitted
       const actionsAfter = mockStores[i].getActions();
       expect(actionsAfter).toEqual([mockLoginPayload()]);
+    }
+  });
+
+  it("redirects user on successfull submission", async () => {
+    // Need to use this method allow for promises not to error us out
+    for (let i = 0, len = wrappers.length; i < len; i++) {
+      const wrapper = wrappers[i];
+
+      // add email
+      const _email = casual.email;
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _email
+      );
+
+      // add password
+      const _pw = generateValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='password']").first(),
+        "password",
+        _pw
+      );
+
+      // clear count
+      mockPush.mockClear();
+
+      // submit form
+      wrapper.find("form").first().simulate("submit");
+
+      // wait for things
+      await wait();
+
+      // check if called
+      expect(mockPush).toHaveBeenCalledTimes(1);
     }
   });
 });
