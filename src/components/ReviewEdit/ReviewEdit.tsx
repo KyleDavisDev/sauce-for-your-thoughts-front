@@ -48,7 +48,10 @@ const ReviewEdit: React.FunctionComponent<ReviewEditProps> = props => {
     isVisible: false
   });
   const slug = router.query.s;
-  const [review, token]:[review: IReview|null, token: string|null] = useSelector((store: AppState) => {
+  const [review, token] = useSelector((store: AppState): [
+    IReview | null,
+    string | null
+  ] => {
     // 1. Grab user's token. If not found, we will be redirected soon.
     const _token = store.users.self?.token;
     if (!_token) {
