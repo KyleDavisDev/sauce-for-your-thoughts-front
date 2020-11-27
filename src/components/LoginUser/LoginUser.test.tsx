@@ -19,6 +19,7 @@ import { MockStoreEnhanced } from "redux-mock-store";
 import { Provider } from "react-redux";
 import { TextInputSetup } from "../TextInput/TextInput";
 import { _password } from "casual";
+import { min } from "moment";
 
 // mock Next's router
 const mockPush = jest.fn();
@@ -42,6 +43,7 @@ jest.mock("../../redux/users/actions", () => ({
 
 describe("<LoginUser />", () => {
   // Constants from component
+  const MIN_PASSWORD_LENGTH = 8;
   const _pageTitle = "Login";
   const _submitButtonText = "Login";
   const _registerLink = { href: "/account/register", text: "Sign up!" };
@@ -89,6 +91,27 @@ describe("<LoginUser />", () => {
         </Provider>
       );
     });
+  });
+
+  afterEach(async () => {
+    for (let i = 0, len = wrappers.length; i < len; i++) {
+      const wrapper = wrappers[i];
+
+      // clear all inputs
+      wrapper.find("TextInput input").forEach(input => {
+        input.simulate("change", { target: { value: "" } });
+      });
+
+      // Make sure flashmessage is closed
+      const button = wrapper.find("FlashMessage Button button");
+      if (!button.exists()) continue;
+
+      // close flashmessage
+      button.simulate("click");
+
+      // give pause for any rerenderings
+      await wait();
+    }
   });
 
   it("renders", () => {
@@ -182,13 +205,58 @@ describe("<LoginUser />", () => {
   it("renders FlashMessage component on submission if email field is not an email", async () => {
     // Need to use this method allow for promises not to error us out
     for (let i = 0, len = wrappers.length; i < len; i++) {
-      // add email and slighty different email
       const wrapper = wrappers[i];
+
+      // add email
       const _email = casual.string;
       simulateInputChange(
         wrapper.find("TextInput input[name='email']").first(),
         "email",
         _email
+      );
+
+      // make sure component isn't found OR doesn't have children
+      let flashMessage = wrappers[i].find("FlashMessage FlashMessage");
+      expect(
+        flashMessage.exists() ? flashMessage.children().length : 0
+      ).toEqual(0);
+
+      // simulate form submission
+      await wrapper
+        .find("form button[type='submit']")
+        .first()
+        .simulate("submit");
+
+      // wait for rerender
+      await wait();
+
+      // check if FlashMessage is now visible (has children)
+      flashMessage = wrappers[i].find("FlashMessage FlashMessage");
+      expect(
+        flashMessage.exists() ? flashMessage.children().length : 0
+      ).toBeGreaterThan(0);
+    }
+  });
+
+  it("renders FlashMessage component on submission if email field is legit but password is too short", async () => {
+    // Need to use this method allow for promises not to error us out
+    for (let i = 0, len = wrappers.length; i < len; i++) {
+      const wrapper = wrappers[i];
+
+      // add email
+      const _email = casual.email;
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _email
+      );
+
+      // add short password
+      const _pw = generateInValidPassword(MIN_PASSWORD_LENGTH);
+      simulateInputChange(
+        wrapper.find("TextInput input[name='password']").first(),
+        "password",
+        _pw
       );
 
       // make sure component isn't found OR doesn't have children
