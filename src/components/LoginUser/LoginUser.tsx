@@ -1,11 +1,10 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import validator from "validator";
 
 import { login } from "../../redux/users/actions";
 import { ILoginUser } from "../../redux/users/types";
-import { AppState } from "../../redux/configureStore";
 import PageTitle from "../PageTitle/PageTitle";
 import { TextInput } from "../TextInput/TextInput";
 import { Link } from "../Link/Link";
@@ -20,6 +19,8 @@ import {
 export interface LoginProps {}
 
 const LoginUser: React.FC<LoginProps> = () => {
+  const _pageTitle = "Login";
+
   // assign state
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -34,23 +35,9 @@ const LoginUser: React.FC<LoginProps> = () => {
   // assign NextJS router
   const router = useRouter();
 
-  // Grab token from redux
-  const token = useSelector((store: AppState) => store.users.self.token);
-
-  React.useEffect(() => {
-    if (!token) return;
-
-    // Redirect user to where they were or to sauces page
-    if (router.query.return && !Array.isArray(router.query.return)) {
-      router.push(`${router.query.return}`);
-    } else {
-      router.push("/sauces");
-    }
-  }, [token]);
-
   return (
     <>
-      <PageTitle>Login</PageTitle>
+      <PageTitle>{_pageTitle}</PageTitle>
       <StyledFormContainer>
         {flashMessage.isVisible && (
           <FlashMessage type={flashMessage.type} isVisible>
@@ -60,6 +47,7 @@ const LoginUser: React.FC<LoginProps> = () => {
         <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
           <TextInput
             type="email"
+            id="email"
             onChange={e => setEmail(e.target.value)}
             value={email}
             showLabel={true}
@@ -69,6 +57,7 @@ const LoginUser: React.FC<LoginProps> = () => {
           />
           <TextInput
             type="password"
+            id="password"
             onChange={e => setPassword(e.target.value)}
             value={password}
             showLabel={true}
@@ -121,6 +110,13 @@ const LoginUser: React.FC<LoginProps> = () => {
     try {
       // dispatch action which calls API to login user
       await dispatch(login({ credentials }));
+
+      // Redirect user to where they were or to sauces page
+      if (router.query.return && !Array.isArray(router.query.return)) {
+        router.push(`${router.query.return}`);
+      } else {
+        router.push("/sauces");
+      }
     } catch (err) {
       // Create warning flash
       setFlashMessage({
