@@ -11,15 +11,13 @@ import {
   simulateInputChange,
   wait,
   generateValidPassword,
-  generateInValidPassword,
-  generateErr
+  generateInValidPassword
 } from "../../utils/testUtils/testUtils";
 import { IRegisterUser } from "../../redux/users/types";
 import { MockStoreEnhanced } from "redux-mock-store";
 import { Provider } from "react-redux";
 import { TextInputSetup } from "../TextInput/TextInput";
 import { _password } from "casual";
-import { min } from "moment";
 
 // mock Next's router
 const mockPush = jest.fn();
