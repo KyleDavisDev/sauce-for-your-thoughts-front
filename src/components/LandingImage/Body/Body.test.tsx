@@ -106,4 +106,10 @@ describe("<Body />", () => {
       expect(wrapper.find("TextInput").first().prop("id")).toEqual("search");
     });
   });
+
+  it("renders a submit button", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("form button[type='submit']").exists()).toBeTruthy();
+    });
+  });
 });
