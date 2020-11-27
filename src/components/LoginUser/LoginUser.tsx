@@ -6,7 +6,7 @@ import validator from "validator";
 import { login } from "../../redux/users/actions";
 import { ILoginUser } from "../../redux/users/types";
 import PageTitle from "../PageTitle/PageTitle";
-import { TextInput } from "../TextInput/TextInput";
+import { TextInput, TextInputSetup } from "../TextInput/TextInput";
 import { Link } from "../Link/Link";
 import { FlashMessageProps, FlashMessage } from "../FlashMessage/FlashMessage";
 import {
@@ -20,6 +20,14 @@ export interface LoginProps {}
 
 const LoginUser: React.FC<LoginProps> = () => {
   const _pageTitle = "Login";
+  const _emailInput: TextInputSetup = {
+    type: "email",
+    id: "email",
+    showLabel: true,
+    label: "Email",
+    name: "email",
+    required: true
+  };
 
   // assign state
   const [email, setEmail] = React.useState("");
@@ -46,14 +54,9 @@ const LoginUser: React.FC<LoginProps> = () => {
         )}
         <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
           <TextInput
-            type="email"
-            id="email"
             onChange={e => setEmail(e.target.value)}
             value={email}
-            showLabel={true}
-            label={"Email"}
-            name={"email"}
-            required={true}
+            {..._emailInput}
           />
           <TextInput
             type="password"
