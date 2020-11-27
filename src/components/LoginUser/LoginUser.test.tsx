@@ -69,4 +69,10 @@ describe("<LoginUser />", () => {
       expect(wrapper).toBeTruthy();
     });
   });
+
+  it("matches snapshot", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });
