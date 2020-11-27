@@ -21,6 +21,7 @@ export interface LoginProps {}
 const LoginUser: React.FC<LoginProps> = () => {
   const _pageTitle = "Login";
   const _submitButtonText = "Login";
+  const _registerLink = { href: "/account/register", text: "Sign up!" };
   const _emailInput: TextInputSetup = {
     type: "email",
     id: "email",
@@ -81,7 +82,7 @@ const LoginUser: React.FC<LoginProps> = () => {
 
           <StyledText>
             Don't have an account yet?{" "}
-            <Link href="/account/register">Sign up!</Link>
+            <Link href={_registerLink.href}>{_registerLink.text}</Link>
           </StyledText>
         </form>
       </StyledFormContainer>
