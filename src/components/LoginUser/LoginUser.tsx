@@ -28,6 +28,14 @@ const LoginUser: React.FC<LoginProps> = () => {
     name: "email",
     required: true
   };
+  const _passwordInput: TextInputSetup = {
+    type: "password",
+    id: "password",
+    showLabel: true,
+    label: "Password",
+    name: "password",
+    required: true
+  };
 
   // assign state
   const [email, setEmail] = React.useState("");
@@ -59,14 +67,9 @@ const LoginUser: React.FC<LoginProps> = () => {
             {..._emailInput}
           />
           <TextInput
-            type="password"
-            id="password"
             onChange={e => setPassword(e.target.value)}
             value={password}
-            showLabel={true}
-            label={"Password"}
-            name={"password"}
-            required={true}
+            {..._passwordInput}
           />
           <StyledFooterDivs>
             <StyledButton type="submit">Login</StyledButton>
