@@ -40,6 +40,7 @@ const SetPassword: React.SFC<SetPasswordProps> = (props: SetPasswordProps) => {
             <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
               <TextInput
                 type="password"
+                id="password"
                 onChange={e => setPassword(e.target.value)}
                 showLabel={true}
                 label={"Password"}
@@ -49,6 +50,7 @@ const SetPassword: React.SFC<SetPasswordProps> = (props: SetPasswordProps) => {
               />
               <TextInput
                 type="password"
+                id="confirmPassword"
                 onChange={e => setConfirmPassword(e.target.value)}
                 showLabel={true}
                 disabled={password.length < 8}
