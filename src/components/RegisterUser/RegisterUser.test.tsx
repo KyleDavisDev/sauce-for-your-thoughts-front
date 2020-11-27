@@ -3,7 +3,6 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 import { Provider } from "react-redux";
 import { MockStoreEnhanced } from "redux-mock-store";
-import { act } from "react-dom/test-utils";
 
 import RegisterUser from "./RegisterUser";
 import {
@@ -13,10 +12,8 @@ import {
   simulateInputChange,
   wait,
   generateValidPassword,
-  generateInValidPassword,
-  generateErr
+  generateInValidPassword
 } from "../../utils/testUtils/testUtils";
-import { userLoggedIn } from "../../redux/users/actions";
 import { IRegisterUser } from "../../redux/users/types";
 
 // mock Next's router
