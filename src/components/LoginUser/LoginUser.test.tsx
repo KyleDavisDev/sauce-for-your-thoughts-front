@@ -138,4 +138,10 @@ describe("<LoginUser />", () => {
       expect(props).toEqual(expect.objectContaining(_passwordInput));
     });
   });
+
+  it("renders a submit button", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("form button[type='submit']").exists()).toBeTruthy();
+    });
+  });
 });
