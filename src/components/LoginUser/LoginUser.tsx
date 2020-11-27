@@ -20,6 +20,7 @@ export interface LoginProps {}
 
 const LoginUser: React.FC<LoginProps> = () => {
   const _pageTitle = "Login";
+  const _submitButtonText = "Login";
   const _emailInput: TextInputSetup = {
     type: "email",
     id: "email",
@@ -72,7 +73,7 @@ const LoginUser: React.FC<LoginProps> = () => {
             {..._passwordInput}
           />
           <StyledFooterDivs>
-            <StyledButton type="submit">Login</StyledButton>
+            <StyledButton type="submit">{_submitButtonText}</StyledButton>
           </StyledFooterDivs>
           <StyledText>
             <Link href="/account/reset/password">Forgot your password?</Link>
