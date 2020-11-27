@@ -14,6 +14,9 @@ import { MockStoreEnhanced } from "redux-mock-store";
 const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
 describe("<Body />", () => {
+  // component constants
+  const _defaultTitleText = "Find your perfect sauce";
+
   // May need to refer to these later so initializing out here
   let wrappers: Array<enzyme.ReactWrapper<
     any,
@@ -48,9 +51,15 @@ describe("<Body />", () => {
     });
   });
 
-  it("renders an h1 tag", () => {
+  it("renders an h1 element", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("h1").exists()).toBeTruthy();
+    });
+  });
+
+  it("renders expected title inside h1 element", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("h1").first().text()).toEqual(_defaultTitleText);
     });
   });
 });
