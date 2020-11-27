@@ -195,7 +195,7 @@ exports[`<LoginUser /> matches snapshot 1`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -214,7 +214,7 @@ exports[`<LoginUser /> matches snapshot 1`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -477,7 +477,7 @@ exports[`<LoginUser /> matches snapshot 2`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -496,7 +496,7 @@ exports[`<LoginUser /> matches snapshot 2`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -759,7 +759,7 @@ exports[`<LoginUser /> matches snapshot 3`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -778,7 +778,7 @@ exports[`<LoginUser /> matches snapshot 3`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -1041,7 +1041,7 @@ exports[`<LoginUser /> matches snapshot 4`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -1060,7 +1060,7 @@ exports[`<LoginUser /> matches snapshot 4`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -1323,7 +1323,7 @@ exports[`<LoginUser /> matches snapshot 5`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -1342,7 +1342,7 @@ exports[`<LoginUser /> matches snapshot 5`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -1605,7 +1605,7 @@ exports[`<LoginUser /> matches snapshot 6`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -1624,7 +1624,7 @@ exports[`<LoginUser /> matches snapshot 6`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -1887,7 +1887,7 @@ exports[`<LoginUser /> matches snapshot 7`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -1906,7 +1906,7 @@ exports[`<LoginUser /> matches snapshot 7`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -2169,7 +2169,7 @@ exports[`<LoginUser /> matches snapshot 8`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -2188,7 +2188,7 @@ exports[`<LoginUser /> matches snapshot 8`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -2451,7 +2451,7 @@ exports[`<LoginUser /> matches snapshot 9`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -2470,7 +2470,7 @@ exports[`<LoginUser /> matches snapshot 9`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -2733,7 +2733,7 @@ exports[`<LoginUser /> matches snapshot 10`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -2752,7 +2752,7 @@ exports[`<LoginUser /> matches snapshot 10`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -3015,7 +3015,7 @@ exports[`<LoginUser /> matches snapshot 11`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -3034,7 +3034,7 @@ exports[`<LoginUser /> matches snapshot 11`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -3297,7 +3297,7 @@ exports[`<LoginUser /> matches snapshot 12`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -3316,7 +3316,7 @@ exports[`<LoginUser /> matches snapshot 12`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -3579,7 +3579,7 @@ exports[`<LoginUser /> matches snapshot 13`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -3598,7 +3598,7 @@ exports[`<LoginUser /> matches snapshot 13`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -3861,7 +3861,7 @@ exports[`<LoginUser /> matches snapshot 14`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -3880,7 +3880,7 @@ exports[`<LoginUser /> matches snapshot 14`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -4143,7 +4143,7 @@ exports[`<LoginUser /> matches snapshot 15`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -4162,7 +4162,7 @@ exports[`<LoginUser /> matches snapshot 15`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -4425,7 +4425,7 @@ exports[`<LoginUser /> matches snapshot 16`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -4444,7 +4444,7 @@ exports[`<LoginUser /> matches snapshot 16`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -4707,7 +4707,7 @@ exports[`<LoginUser /> matches snapshot 17`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -4726,7 +4726,7 @@ exports[`<LoginUser /> matches snapshot 17`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -4989,7 +4989,7 @@ exports[`<LoginUser /> matches snapshot 18`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -5008,7 +5008,7 @@ exports[`<LoginUser /> matches snapshot 18`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -5271,7 +5271,7 @@ exports[`<LoginUser /> matches snapshot 19`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -5290,7 +5290,7 @@ exports[`<LoginUser /> matches snapshot 19`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -5553,7 +5553,7 @@ exports[`<LoginUser /> matches snapshot 20`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -5572,7 +5572,7 @@ exports[`<LoginUser /> matches snapshot 20`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -5835,7 +5835,7 @@ exports[`<LoginUser /> matches snapshot 21`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -5854,7 +5854,7 @@ exports[`<LoginUser /> matches snapshot 21`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -6117,7 +6117,7 @@ exports[`<LoginUser /> matches snapshot 22`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -6136,7 +6136,7 @@ exports[`<LoginUser /> matches snapshot 22`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -6399,7 +6399,7 @@ exports[`<LoginUser /> matches snapshot 23`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -6418,7 +6418,7 @@ exports[`<LoginUser /> matches snapshot 23`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -6681,7 +6681,7 @@ exports[`<LoginUser /> matches snapshot 24`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -6700,7 +6700,7 @@ exports[`<LoginUser /> matches snapshot 24`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -6963,7 +6963,7 @@ exports[`<LoginUser /> matches snapshot 25`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -6982,7 +6982,7 @@ exports[`<LoginUser /> matches snapshot 25`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -7245,7 +7245,7 @@ exports[`<LoginUser /> matches snapshot 26`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -7264,7 +7264,7 @@ exports[`<LoginUser /> matches snapshot 26`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -7527,7 +7527,7 @@ exports[`<LoginUser /> matches snapshot 27`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -7546,7 +7546,7 @@ exports[`<LoginUser /> matches snapshot 27`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -7809,7 +7809,7 @@ exports[`<LoginUser /> matches snapshot 28`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -7828,7 +7828,7 @@ exports[`<LoginUser /> matches snapshot 28`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -8091,7 +8091,7 @@ exports[`<LoginUser /> matches snapshot 29`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -8110,7 +8110,7 @@ exports[`<LoginUser /> matches snapshot 29`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -8373,7 +8373,7 @@ exports[`<LoginUser /> matches snapshot 30`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -8392,7 +8392,7 @@ exports[`<LoginUser /> matches snapshot 30`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -8655,7 +8655,7 @@ exports[`<LoginUser /> matches snapshot 31`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -8674,7 +8674,7 @@ exports[`<LoginUser /> matches snapshot 31`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
@@ -8937,7 +8937,7 @@ exports[`<LoginUser /> matches snapshot 32`] = `
             <div
               className="sc-fznKkj fNTzHr"
             >
-              <Styled(Button)
+              <Button
                 type="submit"
               >
                 <Button
@@ -8956,7 +8956,7 @@ exports[`<LoginUser /> matches snapshot 32`] = `
                     </button>
                   </div>
                 </Button>
-              </Styled(Button)>
+              </Button>
             </div>
           </styled.div>
           <styled.p>
