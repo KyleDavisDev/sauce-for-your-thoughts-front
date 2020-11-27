@@ -22,6 +22,10 @@ const LoginUser: React.FC<LoginProps> = () => {
   const _pageTitle = "Login";
   const _submitButtonText = "Login";
   const _registerLink = { href: "/account/register", text: "Sign up!" };
+  const _forgotPasswordLink = {
+    href: "/account/reset/password",
+    text: "Forgot your password?"
+  };
   const _emailInput: TextInputSetup = {
     type: "email",
     id: "email",
@@ -76,10 +80,12 @@ const LoginUser: React.FC<LoginProps> = () => {
           <StyledFooterDivs>
             <StyledButton type="submit">{_submitButtonText}</StyledButton>
           </StyledFooterDivs>
-          <StyledText>
-            <Link href="/account/reset/password">Forgot your password?</Link>
-          </StyledText>
 
+          <StyledText>
+            <Link href={_forgotPasswordLink.href}>
+              {_forgotPasswordLink.text}
+            </Link>
+          </StyledText>
           <StyledText>
             Don't have an account yet?{" "}
             <Link href={_registerLink.href}>{_registerLink.text}</Link>
