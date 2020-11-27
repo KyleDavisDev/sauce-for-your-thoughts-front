@@ -19,6 +19,7 @@ import {
 export interface LoginProps {}
 
 const LoginUser: React.FC<LoginProps> = () => {
+  const MIN_PASSWORD_LENGTH = 8;
   const _pageTitle = "Login";
   const _submitButtonText = "Login";
   const _registerLink = { href: "/account/register", text: "Sign up!" };
@@ -62,7 +63,11 @@ const LoginUser: React.FC<LoginProps> = () => {
       <PageTitle>{_pageTitle}</PageTitle>
       <StyledFormContainer>
         {flashMessage.isVisible && (
-          <FlashMessage type={flashMessage.type} isVisible>
+          <FlashMessage
+            type={flashMessage.type}
+            isVisible
+            onClose={onFlashClose}
+          >
             {flashMessage.text}
           </FlashMessage>
         )}
@@ -95,6 +100,15 @@ const LoginUser: React.FC<LoginProps> = () => {
     </>
   );
 
+  function onFlashClose() {
+    // clear flash message if was shown
+    setFlashMessage({
+      isVisible: false,
+      text: "",
+      type: undefined
+    });
+  }
+
   async function onSubmit(event: React.FormEvent): Promise<any> {
     event.preventDefault();
 
@@ -109,7 +123,7 @@ const LoginUser: React.FC<LoginProps> = () => {
     }
 
     // If password too short, don't send network request
-    if (password.length < 8) {
+    if (password.length < MIN_PASSWORD_LENGTH) {
       setFlashMessage({
         isVisible: true,
         text: "Password must be longer than 8 characters",
