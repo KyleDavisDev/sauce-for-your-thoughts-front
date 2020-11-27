@@ -178,4 +178,39 @@ describe("<LoginUser />", () => {
       expect(link.text()).toEqual(_registerLink.text);
     });
   });
+
+  it("renders FlashMessage component on submission if email field is not an email", async () => {
+    // Need to use this method allow for promises not to error us out
+    for (let i = 0, len = wrappers.length; i < len; i++) {
+      // add email and slighty different email
+      const wrapper = wrappers[i];
+      const _email = casual.string;
+      simulateInputChange(
+        wrapper.find("TextInput input[name='email']").first(),
+        "email",
+        _email
+      );
+
+      // make sure component isn't found OR doesn't have children
+      let flashMessage = wrappers[i].find("FlashMessage FlashMessage");
+      expect(
+        flashMessage.exists() ? flashMessage.children().length : 0
+      ).toEqual(0);
+
+      // simulate form submission
+      await wrapper
+        .find("form button[type='submit']")
+        .first()
+        .simulate("submit");
+
+      // wait for rerender
+      await wait();
+
+      // check if FlashMessage is now visible (has children)
+      flashMessage = wrappers[i].find("FlashMessage FlashMessage");
+      expect(
+        flashMessage.exists() ? flashMessage.children().length : 0
+      ).toBeGreaterThan(0);
+    }
+  });
 });
