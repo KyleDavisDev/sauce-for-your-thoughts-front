@@ -10,6 +10,7 @@ import {
   casual
 } from "../../../utils/testUtils/testUtils";
 import { MockStoreEnhanced } from "redux-mock-store";
+import { AppState } from "../../../redux/configureStore";
 
 const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
@@ -78,6 +79,19 @@ describe("<Body />", () => {
   it("renders a Select component with expected id", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("Select").first().prop("id")).toEqual("types");
+    });
+  });
+
+  it("renders a Select component with expected options", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // get types from redux
+      const reduxState = mockStores[ind].getState() as AppState;
+      const reduxTypes = reduxState.sauces.types;
+
+      // compare redux types to component options
+      expect(wrapper.find("Select").first().prop("options")).toEqual(
+        reduxTypes
+      );
     });
   });
 
