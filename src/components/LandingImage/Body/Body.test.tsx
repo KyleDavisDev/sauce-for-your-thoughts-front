@@ -100,4 +100,10 @@ describe("<Body />", () => {
       expect(wrapper.find("TextInput").exists()).toBeTruthy();
     });
   });
+
+  it("renders a TextInput component with expected id", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").first().prop("id")).toEqual("search");
+    });
+  });
 });
