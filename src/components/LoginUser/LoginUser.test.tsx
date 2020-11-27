@@ -18,6 +18,7 @@ import { IRegisterUser } from "../../redux/users/types";
 import { MockStoreEnhanced } from "redux-mock-store";
 import { Provider } from "react-redux";
 import { TextInputSetup } from "../TextInput/TextInput";
+import { _password } from "casual";
 
 // mock Next's router
 const mockPush = jest.fn();
@@ -48,6 +49,14 @@ describe("<LoginUser />", () => {
     showLabel: true,
     label: "Email",
     name: "email",
+    required: true
+  };
+  const _passwordInput: TextInputSetup = {
+    type: "password",
+    id: "password",
+    showLabel: true,
+    label: "Password",
+    name: "password",
     required: true
   };
 
@@ -114,10 +123,19 @@ describe("<LoginUser />", () => {
 
   it("renders the first TextInput with email defaults", () => {
     wrappers.forEach(wrapper => {
-      const props = wrapper.find("TextInput").first().props();
+      const props = wrapper.find("TextInput").at(0).props();
 
       // Make sure the defaults are inside of the props object
       expect(props).toEqual(expect.objectContaining(_emailInput));
+    });
+  });
+
+  it("renders the second TextInput with password defaults", () => {
+    wrappers.forEach(wrapper => {
+      const props = wrapper.find("TextInput").at(1).props();
+
+      // Make sure the defaults are inside of the props object
+      expect(props).toEqual(expect.objectContaining(_passwordInput));
     });
   });
 });
