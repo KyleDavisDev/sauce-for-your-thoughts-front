@@ -44,6 +44,7 @@ describe("<LoginUser />", () => {
   // Constants from component
   const _pageTitle = "Login";
   const _submitButtonText = "Login";
+  const _registerLink = { href: "/account/register", text: "Sign up!" };
   const _emailInput: TextInputSetup = {
     type: "email",
     id: "email",
@@ -151,6 +152,16 @@ describe("<LoginUser />", () => {
       expect(wrapper.find("form button[type='submit']").text()).toEqual(
         _submitButtonText
       );
+    });
+  });
+
+  it("renders a Link component with expected values", () => {
+    wrappers.forEach(wrapper => {
+      const link = wrapper.find("form Link").last();
+
+      expect(link.exists).toBeTruthy();
+      expect(link.prop("href")).toEqual(_registerLink.href);
+      expect(link.text()).toEqual(_registerLink.text);
     });
   });
 });
