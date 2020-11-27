@@ -43,6 +43,7 @@ jest.mock("../../redux/users/actions", () => ({
 describe("<LoginUser />", () => {
   // Constants from component
   const _pageTitle = "Login";
+  const _submitButtonText = "Login";
   const _emailInput: TextInputSetup = {
     type: "email",
     id: "email",
@@ -142,6 +143,14 @@ describe("<LoginUser />", () => {
   it("renders a submit button", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("form button[type='submit']").exists()).toBeTruthy();
+    });
+  });
+
+  it("renders a submit button with expected text", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("form button[type='submit']").text()).toEqual(
+        _submitButtonText
+      );
     });
   });
 });
