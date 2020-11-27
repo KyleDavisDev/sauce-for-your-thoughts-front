@@ -15,6 +15,7 @@ import {
 export interface IBodyProps {}
 
 const Body: React.FunctionComponent<IBodyProps> = props => {
+  // component constants
   const _defaultTitleText = "Find your perfect sauce";
 
   const [search, setSearch] = React.useState("");
