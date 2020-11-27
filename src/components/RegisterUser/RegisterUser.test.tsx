@@ -88,6 +88,10 @@ describe("<RegisterUser />", () => {
     }
   });
 
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
+
   it("renders", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper).toBeTruthy();
@@ -404,12 +408,8 @@ describe("<RegisterUser />", () => {
 
       await wait(100);
 
-      // console.log(actions);
       const actionsAfter = mockStores[i].getActions();
       expect(actionsAfter).toEqual([mockRegisterPayload()]);
-
-      // check called
-      // expect(mockRegisterCall).toHaveBeenCalledTimes(1);
     }
   });
 });
