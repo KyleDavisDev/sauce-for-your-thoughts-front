@@ -96,4 +96,10 @@ describe("<LoginUser />", () => {
       expect(wrapper.find("form").text()).toBeTruthy();
     });
   });
+
+  it("renders 2 TextInput components", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").length).toEqual(2);
+    });
+  });
 });
