@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 
 import { AppState } from "../../../redux/configureStore";
 import {
-  HeroBody,
-  HeroTitle,
+  StyledContainer,
+  StyledTitle,
   StyledDiv,
   StyledSelect,
   StyledInput,
@@ -27,8 +27,8 @@ const Body: React.FunctionComponent<IBodyProps> = props => {
   const router = useRouter();
 
   return (
-    <HeroBody>
-      <HeroTitle>{_defaultTitleText}</HeroTitle>
+    <StyledContainer>
+      <StyledTitle>{_defaultTitleText}</StyledTitle>
       <form onSubmit={onSubmit}>
         <StyledDiv>
           <StyledSelect
@@ -46,7 +46,7 @@ const Body: React.FunctionComponent<IBodyProps> = props => {
           <StyledButton type="submit">Search</StyledButton>
         </StyledDiv>
       </form>
-    </HeroBody>
+    </StyledContainer>
   );
 
   async function onSubmit(event: React.FormEvent): Promise<null> {
