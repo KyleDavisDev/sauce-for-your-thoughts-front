@@ -4,7 +4,7 @@ import Label from "../Label/Label";
 import { StyledDiv, StyledInput } from "./TextInputStyle";
 import styled from "../../theme/styled-components";
 
-export interface TextInputProps {
+export interface TextInputSetup {
   id: string;
   name?: string;
   placeholder?: string;
@@ -16,8 +16,11 @@ export interface TextInputProps {
   className?: string;
   disabled?: boolean;
   requirementText?: string;
+}
 
+export interface TextInputProps extends TextInputSetup {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string | number;
 }
 
 const TextInput: React.FunctionComponent<TextInputProps> = props => {
