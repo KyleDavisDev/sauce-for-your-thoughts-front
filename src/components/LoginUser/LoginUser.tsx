@@ -23,6 +23,8 @@ const LoginUser: React.FC<LoginProps> = () => {
   const _pageTitle = "Login";
   const _submitButtonText = "Login";
   const _registerLink = { href: "/account/register", text: "Sign up!" };
+  const _defaultErrorMessage =
+    "There was a problem logging into your account. Please refresh your page and try again!";
   const _forgotPasswordLink = {
     href: "/account/reset/password",
     text: "Forgot your password?"
@@ -150,11 +152,10 @@ const LoginUser: React.FC<LoginProps> = () => {
         router.push("/sauces");
       }
     } catch (err) {
-      console.log(err, err.response);
       // Create warning flash
       setFlashMessage({
         isVisible: true,
-        text: err.response.data.msg,
+        text: err.response?.data?.msg || _defaultErrorMessage,
         type: "warning"
       });
 
