@@ -68,4 +68,10 @@ describe("<Body />", () => {
       expect(wrapper.find("form").exists()).toBeTruthy();
     });
   });
+
+  it("renders a Select component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("Select").exists()).toBeTruthy();
+    });
+  });
 });
