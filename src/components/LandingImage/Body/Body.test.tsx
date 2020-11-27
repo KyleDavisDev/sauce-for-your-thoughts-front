@@ -47,4 +47,10 @@ describe("<Body />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("renders an h1 tag", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("h1").exists()).toBeTruthy();
+    });
+  });
 });
