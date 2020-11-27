@@ -44,7 +44,7 @@ describe("<Body />", () => {
 
   it("matches snapshot", () => {
     wrappers.forEach(wrapper => {
-      expect(wrapper.exists()).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });
