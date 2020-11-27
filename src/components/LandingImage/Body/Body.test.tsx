@@ -74,4 +74,10 @@ describe("<Body />", () => {
       expect(wrapper.find("Select").exists()).toBeTruthy();
     });
   });
+
+  it("renders a TextInput component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("TextInput").exists()).toBeTruthy();
+    });
+  });
 });
