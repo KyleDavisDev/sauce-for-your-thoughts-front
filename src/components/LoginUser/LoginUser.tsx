@@ -140,12 +140,17 @@ const LoginUser: React.FC<LoginProps> = () => {
       await dispatch(login({ credentials }));
 
       // Redirect user to where they were or to sauces page
-      if (router.query.return && !Array.isArray(router.query.return)) {
+      if (
+        router.query &&
+        router.query.return &&
+        !Array.isArray(router.query.return)
+      ) {
         router.push(`${router.query.return}`);
       } else {
         router.push("/sauces");
       }
     } catch (err) {
+      console.log(err, err.response);
       // Create warning flash
       setFlashMessage({
         isVisible: true,
