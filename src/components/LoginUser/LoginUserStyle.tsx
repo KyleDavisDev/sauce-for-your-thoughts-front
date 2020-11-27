@@ -12,6 +12,7 @@ export const StyledFormContainer = styled.div`
 export const StyledButton = styled(Button)`
   text-align: center;
 `;
+StyledButton.displayName = "Button";
 
 export const StyledText = styled.p`
   text-align: center;
