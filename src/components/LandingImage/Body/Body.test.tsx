@@ -62,4 +62,10 @@ describe("<Body />", () => {
       expect(wrapper.find("h1").first().text()).toEqual(_defaultTitleText);
     });
   });
+
+  it("renders a form element", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("form").exists()).toBeTruthy();
+    });
+  });
 });
