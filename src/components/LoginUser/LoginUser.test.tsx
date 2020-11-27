@@ -45,6 +45,10 @@ describe("<LoginUser />", () => {
   const _pageTitle = "Login";
   const _submitButtonText = "Login";
   const _registerLink = { href: "/account/register", text: "Sign up!" };
+  const _forgotPasswordLink = {
+    href: "/account/reset/password",
+    text: "Forgot your password?"
+  };
   const _emailInput: TextInputSetup = {
     type: "email",
     id: "email",
@@ -155,7 +159,17 @@ describe("<LoginUser />", () => {
     });
   });
 
-  it("renders a Link component with expected values", () => {
+  it("renders a password reset Link component with expected values", () => {
+    wrappers.forEach(wrapper => {
+      const link = wrapper.find("form Link").first();
+
+      expect(link.exists).toBeTruthy();
+      expect(link.prop("href")).toEqual(_forgotPasswordLink.href);
+      expect(link.text()).toEqual(_forgotPasswordLink.text);
+    });
+  });
+
+  it("renders an account registration Link component with expected values", () => {
     wrappers.forEach(wrapper => {
       const link = wrapper.find("form Link").last();
 
