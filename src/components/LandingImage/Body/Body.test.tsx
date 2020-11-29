@@ -158,4 +158,29 @@ describe("<Body />", () => {
       );
     });
   });
+
+  it("concatinates expected type value on redirection string", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // get types from redux
+      const reduxState = mockStores[ind].getState() as AppState;
+      const reduxTypes = reduxState.sauces.types;
+      const reduxType: string = casual.random_element(reduxTypes);
+
+      // update dropdown
+      simulateInputChange(
+        wrapper.find("Select select[name='types']").first(),
+        "types",
+        reduxType
+      );
+
+      // submit form
+      const btn = wrapper.find("form button[type='submit']");
+      // simulate submission
+      btn.simulate("submit");
+
+      expect(mockPush).toHaveBeenCalledWith(
+        expect.stringContaining(`type=${reduxType}`)
+      );
+    });
+  });
 });
