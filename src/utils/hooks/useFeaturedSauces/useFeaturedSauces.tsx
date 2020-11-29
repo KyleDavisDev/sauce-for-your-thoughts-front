@@ -36,7 +36,9 @@ export function useFeaturedSauces(): IuseFeaturedSauces {
   // define function
   const getFeaturedSauces = async () => {
     // Prevent calling multiple times if already loading or if we already found sauces
-    if (sauces.length > 0 || loading) return;
+    if (sauces.length > 0) return;
+    if (loading) return;
+    if (reduxSauces.featured && reduxSauces.featured.length > 0) return;
 
     try {
       setLoading(true);
