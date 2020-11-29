@@ -3,16 +3,22 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 import { Provider } from "react-redux";
 
-import Body, { IBodyProps } from "./Body";
-import {
-  ITERATION_SIZE,
-  fakeStore,
-  casual
-} from "../../../utils/testUtils/testUtils";
+import Body from "./Body";
+import { ITERATION_SIZE, fakeStore } from "../../../utils/testUtils/testUtils";
 import { MockStoreEnhanced } from "redux-mock-store";
 import { AppState } from "../../../redux/configureStore";
 
-const mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
+// mock next's router
+const mockPush = jest.fn();
+jest.mock("next/router", () => {
+  return {
+    useRouter: () => {
+      return {
+        push: mockPush
+      };
+    }
+  };
+});
 
 describe("<Body />", () => {
   // component constants
@@ -110,6 +116,21 @@ describe("<Body />", () => {
   it("renders a submit button", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("form button[type='submit']").exists()).toBeTruthy();
+    });
+  });
+
+  it("calls router on submit", () => {
+    wrappers.forEach(wrapper => {
+      // submit form
+      const btn = wrapper.find("form button[type='submit']");
+
+      // clear mocks
+      mockPush.mockClear();
+
+      // simulate submission
+      btn.simulate("submit");
+
+      expect(mockPush).toHaveBeenCalledTimes(1);
     });
   });
 });
