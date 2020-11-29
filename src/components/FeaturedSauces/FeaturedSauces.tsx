@@ -1,7 +1,7 @@
 import React from "react";
 
 import SectionTitle from "../SectionTitle/SectionTitle";
-import { useFeaturedSauces } from "../../utils/hooks/useFeaturedSauces";
+import { useFeaturedSauces } from "../../utils/hooks/useFeaturedSauces/useFeaturedSauces";
 
 import {
   StyledDiv,
@@ -15,8 +15,12 @@ interface FeaturedSaucesProps {
 }
 
 const FeaturedSauces: React.FC<FeaturedSaucesProps> = props => {
-  // find our suaces
-  const [featuredSauces, loading] = useFeaturedSauces();
+  // Get featured sauces from hook
+  const { sauces, loading, error, getFeaturedSauces } = useFeaturedSauces();
+
+  React.useEffect(() => {
+    if (!loading && sauces.length === 0) getFeaturedSauces();
+  }, []);
 
   return (
     <StyledDiv className={props.className}>
@@ -33,22 +37,26 @@ const FeaturedSauces: React.FC<FeaturedSaucesProps> = props => {
       return <p>Loading...</p>;
     }
 
-    if (featuredSauces && featuredSauces.length > 0) {
-      return featuredSauces.map((sauce, ind) => {
-        return (
-          <StyledCardHolder key={ind}>
-            <StyledCard
-              title={sauce.name}
-              imageLink={`${sauce.photo}`}
-              description={sauce.description}
-              to={`/sauce/view?s=${sauce.slug}`}
-            />
-          </StyledCardHolder>
-        );
-      });
+    if (error.isVisible) {
+      return <p>{error.text}</p>;
     }
 
-    return <p>No sauces found...</p>;
+    if (sauces.length === 0) {
+      return <p>No sauces found...</p>;
+    }
+
+    return sauces.map((sauce, ind) => {
+      return (
+        <StyledCardHolder key={ind + "-" + sauce.created}>
+          <StyledCard
+            title={sauce.name}
+            imageLink={`${sauce.photo}`}
+            description={sauce.description}
+            to={`/sauce/view?s=${sauce.slug}`}
+          />
+        </StyledCardHolder>
+      );
+    });
   }
 };
 
