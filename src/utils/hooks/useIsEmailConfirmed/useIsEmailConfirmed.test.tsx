@@ -1,11 +1,7 @@
 import "jsdom-global/register";
-import * as React from "react";
-import * as enzyme from "enzyme";
-import { Provider } from "react-redux";
 import { MockStoreEnhanced } from "redux-mock-store";
 import { act } from "react-dom/test-utils";
 
-import { FlashMessageProps } from "../../../components/FlashMessage/FlashMessage";
 import { AppState } from "../../../redux/configureStore";
 import {
   useIsEmailConfirmed,
