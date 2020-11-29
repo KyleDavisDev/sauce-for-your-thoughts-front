@@ -32,6 +32,13 @@ jest.mock("../../../utils/api/API", () => {
 });
 
 describe("useFeaturedSauces hook", () => {
+  // defaults from function
+  const _defaultIsLoading = false;
+  const _defaultSauces = [];
+  const _defaultFlashState = { isVisible: false };
+  const _defaultErrorMsg =
+    "Error finding the featured sauces. Try refreshing your page.";
+
   // May need to refer to these later so initializing out here
   let mockStores: MockStoreEnhanced<unknown, {}>[] = [];
 
@@ -56,6 +63,25 @@ describe("useFeaturedSauces hook", () => {
       );
 
       expect(wrapper.componentMount.exists()).toBeTruthy();
+    }
+  });
+
+  it("returns defaults when first called", async () => {
+    // mock full api
+    mockAPICall = jest.fn(mockAPIFull);
+
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useFeaturedSauces,
+        mockStores[i]
+      );
+
+      const hook = wrapper.componentHook as IuseFeaturedSauces;
+
+      expect(hook.loading).toEqual(_defaultIsLoading);
+      expect(hook.sauces).toEqual(_defaultSauces);
+      expect(hook.error).toEqual(_defaultFlashState);
     }
   });
 });
