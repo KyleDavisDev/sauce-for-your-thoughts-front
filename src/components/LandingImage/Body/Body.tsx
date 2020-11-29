@@ -34,6 +34,7 @@ const Body: React.FunctionComponent<IBodyProps> = props => {
         <StyledDiv>
           <StyledSelect
             id="types"
+            name="types"
             options={types}
             selectedValue={selectedValue}
             onSelect={e => setSelectedValue(e.target.value)}

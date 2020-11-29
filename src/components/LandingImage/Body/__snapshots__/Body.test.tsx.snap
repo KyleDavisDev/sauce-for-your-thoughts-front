@@ -34,6 +34,7 @@ exports[`<Body /> matches snapshot 1`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -51,6 +52,7 @@ exports[`<Body /> matches snapshot 1`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -74,12 +76,14 @@ exports[`<Body /> matches snapshot 1`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -244,6 +248,7 @@ exports[`<Body /> matches snapshot 2`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -261,6 +266,7 @@ exports[`<Body /> matches snapshot 2`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -284,12 +290,14 @@ exports[`<Body /> matches snapshot 2`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -454,6 +462,7 @@ exports[`<Body /> matches snapshot 3`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -471,6 +480,7 @@ exports[`<Body /> matches snapshot 3`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -494,12 +504,14 @@ exports[`<Body /> matches snapshot 3`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -664,6 +676,7 @@ exports[`<Body /> matches snapshot 4`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -681,6 +694,7 @@ exports[`<Body /> matches snapshot 4`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -704,12 +718,14 @@ exports[`<Body /> matches snapshot 4`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -874,6 +890,7 @@ exports[`<Body /> matches snapshot 5`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -891,6 +908,7 @@ exports[`<Body /> matches snapshot 5`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -914,12 +932,14 @@ exports[`<Body /> matches snapshot 5`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -1084,6 +1104,7 @@ exports[`<Body /> matches snapshot 6`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -1101,6 +1122,7 @@ exports[`<Body /> matches snapshot 6`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -1124,12 +1146,14 @@ exports[`<Body /> matches snapshot 6`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -1294,6 +1318,7 @@ exports[`<Body /> matches snapshot 7`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -1311,6 +1336,7 @@ exports[`<Body /> matches snapshot 7`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -1334,12 +1360,14 @@ exports[`<Body /> matches snapshot 7`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -1504,6 +1532,7 @@ exports[`<Body /> matches snapshot 8`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -1521,6 +1550,7 @@ exports[`<Body /> matches snapshot 8`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -1544,12 +1574,14 @@ exports[`<Body /> matches snapshot 8`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -1714,6 +1746,7 @@ exports[`<Body /> matches snapshot 9`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -1731,6 +1764,7 @@ exports[`<Body /> matches snapshot 9`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -1754,12 +1788,14 @@ exports[`<Body /> matches snapshot 9`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -1924,6 +1960,7 @@ exports[`<Body /> matches snapshot 10`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -1941,6 +1978,7 @@ exports[`<Body /> matches snapshot 10`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -1964,12 +2002,14 @@ exports[`<Body /> matches snapshot 10`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -2134,6 +2174,7 @@ exports[`<Body /> matches snapshot 11`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -2151,6 +2192,7 @@ exports[`<Body /> matches snapshot 11`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -2174,12 +2216,14 @@ exports[`<Body /> matches snapshot 11`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -2344,6 +2388,7 @@ exports[`<Body /> matches snapshot 12`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -2361,6 +2406,7 @@ exports[`<Body /> matches snapshot 12`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -2384,12 +2430,14 @@ exports[`<Body /> matches snapshot 12`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -2554,6 +2602,7 @@ exports[`<Body /> matches snapshot 13`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -2571,6 +2620,7 @@ exports[`<Body /> matches snapshot 13`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -2594,12 +2644,14 @@ exports[`<Body /> matches snapshot 13`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -2764,6 +2816,7 @@ exports[`<Body /> matches snapshot 14`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -2781,6 +2834,7 @@ exports[`<Body /> matches snapshot 14`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -2804,12 +2858,14 @@ exports[`<Body /> matches snapshot 14`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -2974,6 +3030,7 @@ exports[`<Body /> matches snapshot 15`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -2991,6 +3048,7 @@ exports[`<Body /> matches snapshot 15`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -3014,12 +3072,14 @@ exports[`<Body /> matches snapshot 15`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -3184,6 +3244,7 @@ exports[`<Body /> matches snapshot 16`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -3201,6 +3262,7 @@ exports[`<Body /> matches snapshot 16`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -3224,12 +3286,14 @@ exports[`<Body /> matches snapshot 16`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -3394,6 +3458,7 @@ exports[`<Body /> matches snapshot 17`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -3411,6 +3476,7 @@ exports[`<Body /> matches snapshot 17`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -3434,12 +3500,14 @@ exports[`<Body /> matches snapshot 17`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -3604,6 +3672,7 @@ exports[`<Body /> matches snapshot 18`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -3621,6 +3690,7 @@ exports[`<Body /> matches snapshot 18`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -3644,12 +3714,14 @@ exports[`<Body /> matches snapshot 18`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -3814,6 +3886,7 @@ exports[`<Body /> matches snapshot 19`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -3831,6 +3904,7 @@ exports[`<Body /> matches snapshot 19`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -3854,12 +3928,14 @@ exports[`<Body /> matches snapshot 19`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -4024,6 +4100,7 @@ exports[`<Body /> matches snapshot 20`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -4041,6 +4118,7 @@ exports[`<Body /> matches snapshot 20`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -4064,12 +4142,14 @@ exports[`<Body /> matches snapshot 20`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -4234,6 +4314,7 @@ exports[`<Body /> matches snapshot 21`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -4251,6 +4332,7 @@ exports[`<Body /> matches snapshot 21`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -4274,12 +4356,14 @@ exports[`<Body /> matches snapshot 21`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -4444,6 +4528,7 @@ exports[`<Body /> matches snapshot 22`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -4461,6 +4546,7 @@ exports[`<Body /> matches snapshot 22`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -4484,12 +4570,14 @@ exports[`<Body /> matches snapshot 22`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -4654,6 +4742,7 @@ exports[`<Body /> matches snapshot 23`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -4671,6 +4760,7 @@ exports[`<Body /> matches snapshot 23`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -4694,12 +4784,14 @@ exports[`<Body /> matches snapshot 23`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -4864,6 +4956,7 @@ exports[`<Body /> matches snapshot 24`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -4881,6 +4974,7 @@ exports[`<Body /> matches snapshot 24`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -4904,12 +4998,14 @@ exports[`<Body /> matches snapshot 24`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -5074,6 +5170,7 @@ exports[`<Body /> matches snapshot 25`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -5091,6 +5188,7 @@ exports[`<Body /> matches snapshot 25`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -5114,12 +5212,14 @@ exports[`<Body /> matches snapshot 25`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -5284,6 +5384,7 @@ exports[`<Body /> matches snapshot 26`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -5301,6 +5402,7 @@ exports[`<Body /> matches snapshot 26`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -5324,12 +5426,14 @@ exports[`<Body /> matches snapshot 26`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -5494,6 +5598,7 @@ exports[`<Body /> matches snapshot 27`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -5511,6 +5616,7 @@ exports[`<Body /> matches snapshot 27`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -5534,12 +5640,14 @@ exports[`<Body /> matches snapshot 27`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -5704,6 +5812,7 @@ exports[`<Body /> matches snapshot 28`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -5721,6 +5830,7 @@ exports[`<Body /> matches snapshot 28`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -5744,12 +5854,14 @@ exports[`<Body /> matches snapshot 28`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -5914,6 +6026,7 @@ exports[`<Body /> matches snapshot 29`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -5931,6 +6044,7 @@ exports[`<Body /> matches snapshot 29`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -5954,12 +6068,14 @@ exports[`<Body /> matches snapshot 29`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -6124,6 +6240,7 @@ exports[`<Body /> matches snapshot 30`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -6141,6 +6258,7 @@ exports[`<Body /> matches snapshot 30`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -6164,12 +6282,14 @@ exports[`<Body /> matches snapshot 30`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -6334,6 +6454,7 @@ exports[`<Body /> matches snapshot 31`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -6351,6 +6472,7 @@ exports[`<Body /> matches snapshot 31`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -6374,12 +6496,14 @@ exports[`<Body /> matches snapshot 31`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
@@ -6544,6 +6668,7 @@ exports[`<Body /> matches snapshot 32`] = `
             >
               <Select
                 id="types"
+                name="types"
                 onSelect={[Function]}
                 options={
                   Array [
@@ -6561,6 +6686,7 @@ exports[`<Body /> matches snapshot 32`] = `
                 <Select
                   className="sc-fzoLsD jnvlYN"
                   id="types"
+                  name="types"
                   onSelect={[Function]}
                   options={
                     Array [
@@ -6584,12 +6710,14 @@ exports[`<Body /> matches snapshot 32`] = `
                       >
                         <select
                           id="types"
+                          name="types"
                           onChange={[Function]}
                           value="all"
                         >
                           <select
                             className="sc-AxhCb iMtCVq"
                             id="types"
+                            name="types"
                             onChange={[Function]}
                             value="all"
                           >
