@@ -138,7 +138,7 @@ describe("<Body />", () => {
     });
   });
 
-  it("concats expected search value on redirection string", () => {
+  it("concatinates expected search value on redirection string", () => {
     wrappers.forEach(wrapper => {
       // simulate search input
       const textInput: string = casual.string;
