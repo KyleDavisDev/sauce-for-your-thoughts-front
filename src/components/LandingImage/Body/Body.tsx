@@ -40,6 +40,7 @@ const Body: React.FunctionComponent<IBodyProps> = props => {
           />
           <StyledInput
             id="search"
+            name="search"
             type="text"
             onChange={e => setSearch(e.target.value)}
             placeholder="Search..."
