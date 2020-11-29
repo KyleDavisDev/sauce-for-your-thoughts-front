@@ -153,7 +153,9 @@ describe("<Body />", () => {
       // simulate submission
       btn.simulate("submit");
 
-      expect(mockPush).toHaveBeenCalledWith(`/sauces?srch=${textInput}`);
+      expect(mockPush).toHaveBeenCalledWith(
+        expect.stringContaining(`srch=${textInput}`)
+      );
     });
   });
 });
