@@ -4,7 +4,12 @@ import * as enzyme from "enzyme";
 import { Provider } from "react-redux";
 
 import Body from "./Body";
-import { ITERATION_SIZE, fakeStore } from "../../../utils/testUtils/testUtils";
+import {
+  ITERATION_SIZE,
+  fakeStore,
+  simulateInputChange,
+  casual
+} from "../../../utils/testUtils/testUtils";
 import { MockStoreEnhanced } from "redux-mock-store";
 import { AppState } from "../../../redux/configureStore";
 
@@ -121,16 +126,34 @@ describe("<Body />", () => {
 
   it("calls router on submit", () => {
     wrappers.forEach(wrapper => {
-      // submit form
-      const btn = wrapper.find("form button[type='submit']");
-
       // clear mocks
       mockPush.mockClear();
 
+      // get submit button
+      const btn = wrapper.find("form button[type='submit']");
       // simulate submission
       btn.simulate("submit");
 
       expect(mockPush).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  it("concats expected search value on redirection string", () => {
+    wrappers.forEach(wrapper => {
+      // simulate search input
+      const textInput: string = casual.string;
+      simulateInputChange(
+        wrapper.find("TextInput input[name='search']").first(),
+        "search",
+        textInput
+      );
+
+      // submit form
+      const btn = wrapper.find("form button[type='submit']");
+      // simulate submission
+      btn.simulate("submit");
+
+      expect(mockPush).toHaveBeenCalledWith(`/sauces?srch=${textInput}`);
     });
   });
 });
