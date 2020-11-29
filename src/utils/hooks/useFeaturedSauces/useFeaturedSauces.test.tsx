@@ -16,7 +16,7 @@ import { IErrReturn } from "../../Err/Err";
 
 // mock our action
 const mockLoginPayload = () => ({
-  type: "USER_LOGGED_IN"
+  type: "SAUCES_ADDED"
 });
 jest.mock(".../../../redux/sauces/actions", () => {
   return {
@@ -58,8 +58,11 @@ describe("useFeaturedSauces hook", () => {
     }
   });
 
-  it("returns defaults when first called", async () => {
+  it("returns defaults when first called and redux store is empty", async () => {
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxStore = mockStores[i].getState() as AppState;
+      if (reduxStore.sauces.featured) continue; // Keep going
+
       // mount component
       const wrapper = mountReactHookWithReduxStore(
         useFeaturedSauces,
@@ -74,8 +77,11 @@ describe("useFeaturedSauces hook", () => {
     }
   });
 
-  it("returns function which allows dispatches a redux action", async () => {
+  it("returns function which allows dispatches a redux action if redux featured sauces is empty", async () => {
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxStore = mockStores[i].getState() as AppState;
+      if (reduxStore.sauces.featured) continue; // Keep going
+
       // mount component
       const wrapper = mountReactHookWithReduxStore(
         useFeaturedSauces,
@@ -100,4 +106,28 @@ describe("useFeaturedSauces hook", () => {
       expect(actionsAfter).toEqual([mockLoginPayload()]);
     }
   });
+
+  // it("returns featured sauces from redux if possible", async () => {
+  //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+  //     const reduxStore = mockStores[i].getState() as AppState;
+  //     if (!reduxStore.sauces.featured) continue; // Keep going
+
+  //     // mount component
+  //     const wrapper = mountReactHookWithReduxStore(
+  //       useFeaturedSauces,
+  //       mockStores[i]
+  //     );
+
+  //     // perform changes within our component
+  //     const hook = wrapper.componentHook as IuseFeaturedSauces;
+  //     await act(async () => {
+  //       hook.getFeaturedSauces();
+  //     });
+
+  //     // wait for things
+  //     await wait();
+
+  //     console.log(hook);
+  //   }
+  // });
 });
