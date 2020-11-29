@@ -9,24 +9,19 @@ import {
   fakeStore,
   generateErr,
   ITERATION_SIZE,
-  mountReactHookWithReduxStore
+  mountReactHookWithReduxStore,
+  wait
 } from "../../testUtils/testUtils";
 import { IErrReturn } from "../../Err/Err";
 
-// mock our API
-const mockAPISuccess = () => Promise.resolve({ data: { isGood: true } });
-const mockAPIFailure = (err: IErrReturn = generateErr()) => Promise.reject(err);
-const mockAPIFull = () =>
-  casual.boolean ? mockAPISuccess() : mockAPIFailure();
-let mockAPICall: jest.Mock<any> = jest.fn();
-jest.mock("../../../utils/api/API", () => {
+// mock our action
+const mockLoginPayload = () => ({
+  type: "USER_LOGGED_IN"
+});
+jest.mock(".../../../redux/sauces/actions", () => {
   return {
-    API: {
-      user: {
-        isEmailConfirmed: () => {
-          return mockAPICall();
-        }
-      }
+    getSaucesByFeatured: () => {
+      return mockLoginPayload();
     }
   };
 });
@@ -52,9 +47,6 @@ describe("useFeaturedSauces hook", () => {
   });
 
   it("renders", async () => {
-    // mock full api
-    mockAPICall = jest.fn(mockAPIFull);
-
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
       // mount component
       const wrapper = mountReactHookWithReduxStore(
@@ -67,9 +59,6 @@ describe("useFeaturedSauces hook", () => {
   });
 
   it("returns defaults when first called", async () => {
-    // mock full api
-    mockAPICall = jest.fn(mockAPIFull);
-
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
       // mount component
       const wrapper = mountReactHookWithReduxStore(
@@ -82,6 +71,33 @@ describe("useFeaturedSauces hook", () => {
       expect(hook.loading).toEqual(_defaultIsLoading);
       expect(hook.sauces).toEqual(_defaultSauces);
       expect(hook.error).toEqual(_defaultFlashState);
+    }
+  });
+
+  it("returns function which allows dispatches a redux action", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useFeaturedSauces,
+        mockStores[i]
+      );
+
+      // make sure empty list before
+      const actionsBefore = mockStores[i].getActions();
+      expect(actionsBefore).toEqual([]);
+
+      // perform changes within our component
+      const hook = wrapper.componentHook as IuseFeaturedSauces;
+      await act(async () => {
+        hook.getFeaturedSauces();
+      });
+
+      // wait for things
+      await wait();
+
+      // Make sure action was emitted
+      const actionsAfter = mockStores[i].getActions();
+      expect(actionsAfter).toEqual([mockLoginPayload()]);
     }
   });
 });
