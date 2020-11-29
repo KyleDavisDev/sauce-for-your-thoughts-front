@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch, ReactReduxContext } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ISauce } from "../../../redux/sauces/types";
 import { getSaucesByFeatured } from "../../../redux/sauces/actions";
 import { AppState } from "../../../redux/configureStore";
