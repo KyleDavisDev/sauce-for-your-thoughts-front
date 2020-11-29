@@ -62,6 +62,16 @@ export const fakeSaucesState = (): ISaucesState => {
     .map(fakeSauce);
   const { allSlugs, bySlug } = Flatn.saucesArr({ sauces });
 
+  const featured: undefined | string[] = casual.random_element([
+    undefined,
+    bySlug
+      ? Object.keys(bySlug).map(slug => {
+          if (casual.random < 0.33) return slug;
+          return;
+        })
+      : undefined
+  ]);
+
   return {
     allSlugs,
     bySlug,
@@ -69,7 +79,7 @@ export const fakeSaucesState = (): ISaucesState => {
     query: undefined,
     saucesWithNewestReviews: undefined,
     newest: undefined,
-    featured: undefined,
+    featured,
     types: casual.array_of_words(),
     orders: ["Newest", "Name", "Times Reviewed", "Avg Rating"]
   };
