@@ -42,6 +42,12 @@ describe("useFeaturedSauces hook", () => {
     mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
   });
 
+  afterEach(() => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      mockStores[i].clearActions();
+    }
+  });
+
   afterAll(() => {
     jest.clearAllMocks();
   });
@@ -104,6 +110,39 @@ describe("useFeaturedSauces hook", () => {
       // Make sure action was emitted
       const actionsAfter = mockStores[i].getActions();
       expect(actionsAfter).toEqual([mockLoginPayload()]);
+    }
+  });
+
+  it("prevents dispatches action if redux featured sauces already has items", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxStore = mockStores[i].getState() as AppState;
+      const featured = reduxStore.sauces.featured;
+      if (!featured || featured.length === 0) {
+        continue; // Keep going
+      }
+
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useFeaturedSauces,
+        mockStores[i]
+      );
+
+      // make sure empty list before
+      const actionsBefore = mockStores[i].getActions();
+      expect(actionsBefore).toEqual([]);
+
+      // perform changes within our component
+      const hook = wrapper.componentHook as IuseFeaturedSauces;
+      await act(async () => {
+        hook.getFeaturedSauces();
+      });
+
+      // wait for things
+      await wait();
+
+      // Make sure there wasn't an action emitted
+      const actionsAfter = mockStores[i].getActions();
+      expect(actionsAfter).toEqual([]);
     }
   });
 
