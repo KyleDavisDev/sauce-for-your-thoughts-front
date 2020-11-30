@@ -83,4 +83,12 @@ describe("<FeaturedSauces />", () => {
       expect(wrapper.find("SectionTitle").exists()).toBeTruthy();
     });
   });
+
+  it("passes expected values to SectionTitle", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("SectionTitle").props()).toEqual(
+        expect.objectContaining(_title)
+      );
+    });
+  });
 });
