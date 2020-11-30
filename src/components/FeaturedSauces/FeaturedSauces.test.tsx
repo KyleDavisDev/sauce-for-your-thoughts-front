@@ -77,4 +77,10 @@ describe("<FeaturedSauces />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("renders a SectionTitle component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("SectionTitle").exists()).toBeTruthy();
+    });
+  });
 });
