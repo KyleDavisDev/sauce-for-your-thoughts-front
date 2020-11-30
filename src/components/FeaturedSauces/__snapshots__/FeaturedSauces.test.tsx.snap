@@ -14,7 +14,7 @@ exports[`<FeaturedSauces /> matches snapshot 1`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -43,17 +43,17 @@ exports[`<FeaturedSauces /> matches snapshot 1`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-386176298"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="sapiente repudiandae numquam laborum ab vero laborum"
                   imageLink="undefined"
                   title="Ms. Grace Rolfson"
@@ -183,16 +183,16 @@ exports[`<FeaturedSauces /> matches snapshot 1`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="1-630379456"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="asperiores reprehenderit quis nam est quae sit"
                   imageLink="undefined"
                   title="Mrs. Cyrus Fay"
@@ -322,16 +322,16 @@ exports[`<FeaturedSauces /> matches snapshot 1`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="2-667742689"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="in vel quia inventore veritatis perferendis quia"
                   imageLink="http://www.Lind.ca/"
                   title="Mrs. Toy Conroy"
@@ -461,16 +461,16 @@ exports[`<FeaturedSauces /> matches snapshot 1`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="3-1270825859"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ea aut et minus et qui et"
                   imageLink="http://Heller.me/"
                   title="Dr. Noah Powlowski"
@@ -600,16 +600,16 @@ exports[`<FeaturedSauces /> matches snapshot 1`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="4-1437967747"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus modi quia quod perferendis magnam doloribus"
                   imageLink="undefined"
                   title="Ms. Ernest Little"
@@ -739,13 +739,13 @@ exports[`<FeaturedSauces /> matches snapshot 1`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -764,7 +764,7 @@ exports[`<FeaturedSauces /> matches snapshot 2`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -793,17 +793,17 @@ exports[`<FeaturedSauces /> matches snapshot 2`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-543614891"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="id fugit sed accusamus quia autem et"
                   imageLink="http://Anibal.us/"
                   title="Mrs. Gerard Bartell"
@@ -933,13 +933,13 @@ exports[`<FeaturedSauces /> matches snapshot 2`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -958,7 +958,7 @@ exports[`<FeaturedSauces /> matches snapshot 3`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -987,7 +987,7 @@ exports[`<FeaturedSauces /> matches snapshot 3`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -995,9 +995,9 @@ exports[`<FeaturedSauces /> matches snapshot 3`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -1016,7 +1016,7 @@ exports[`<FeaturedSauces /> matches snapshot 4`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -1045,7 +1045,7 @@ exports[`<FeaturedSauces /> matches snapshot 4`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -1053,9 +1053,9 @@ exports[`<FeaturedSauces /> matches snapshot 4`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -1074,7 +1074,7 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -1103,17 +1103,17 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-662443920"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="omnis asperiores fuga aut cumque voluptatem maxime"
                   imageLink="undefined"
                   title="Ms. Dakota Macejkovic"
@@ -1243,16 +1243,16 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="1-1124781895"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="saepe similique ullam aut totam est ducimus"
                   imageLink="undefined"
                   title="Miss Dan Ebert"
@@ -1382,16 +1382,16 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="2-314745298"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="error quibusdam excepturi molestiae modi voluptas unde"
                   imageLink="undefined"
                   title="Mr. Ward Hills"
@@ -1521,16 +1521,16 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="3-100362622"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="autem dicta eos voluptas molestiae autem ullam"
                   imageLink="http://www.Schimmel.org/"
                   title="Miss Clovis Tillman"
@@ -1660,16 +1660,16 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="4-1245337767"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="quo ipsa nam nesciunt repellendus ducimus nesciunt"
                   imageLink="undefined"
                   title="Dr. Bertrand Torp"
@@ -1799,16 +1799,16 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="5-79613739"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ut in sit beatae ab quaerat totam"
                   imageLink="undefined"
                   title="Ms. Letitia Pfannerstill"
@@ -1938,16 +1938,16 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="6-708252536"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="et tempora distinctio est at animi eum"
                   imageLink="http://Axel.tv/"
                   title="Ms. Nathaniel McGlynn"
@@ -2077,16 +2077,16 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="7-1364378043"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="molestiae sunt molestias porro temporibus enim maiores"
                   imageLink="http://www.Kimberly.org/"
                   title="Ms. Landen Mitchell"
@@ -2216,16 +2216,16 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="8-106389369"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="accusantium porro eos aut iusto ut et"
                   imageLink="undefined"
                   title="Mr. Gust Green"
@@ -2355,16 +2355,16 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="9-548859049"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="exercitationem qui et voluptatibus sint ut et"
                   imageLink="undefined"
                   title="Miss Reynold Kulas"
@@ -2494,16 +2494,16 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="10-576609763"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="vero earum soluta illum animi et nihil"
                   imageLink="undefined"
                   title="Ms. Arthur Corkery"
@@ -2633,16 +2633,16 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="11-217105722"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="et sit velit autem deserunt unde dolor"
                   imageLink="http://Coralie.name/"
                   title="Mrs. Tillman Daniel"
@@ -2772,13 +2772,13 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -2797,7 +2797,7 @@ exports[`<FeaturedSauces /> matches snapshot 6`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -2826,7 +2826,7 @@ exports[`<FeaturedSauces /> matches snapshot 6`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -2834,9 +2834,9 @@ exports[`<FeaturedSauces /> matches snapshot 6`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -2855,7 +2855,7 @@ exports[`<FeaturedSauces /> matches snapshot 7`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -2884,7 +2884,7 @@ exports[`<FeaturedSauces /> matches snapshot 7`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -2892,9 +2892,9 @@ exports[`<FeaturedSauces /> matches snapshot 7`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -2913,7 +2913,7 @@ exports[`<FeaturedSauces /> matches snapshot 8`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -2942,7 +2942,7 @@ exports[`<FeaturedSauces /> matches snapshot 8`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -2950,9 +2950,9 @@ exports[`<FeaturedSauces /> matches snapshot 8`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -2971,7 +2971,7 @@ exports[`<FeaturedSauces /> matches snapshot 9`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -3000,7 +3000,7 @@ exports[`<FeaturedSauces /> matches snapshot 9`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -3008,9 +3008,9 @@ exports[`<FeaturedSauces /> matches snapshot 9`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -3029,7 +3029,7 @@ exports[`<FeaturedSauces /> matches snapshot 10`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -3058,7 +3058,7 @@ exports[`<FeaturedSauces /> matches snapshot 10`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -3066,9 +3066,9 @@ exports[`<FeaturedSauces /> matches snapshot 10`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -3087,7 +3087,7 @@ exports[`<FeaturedSauces /> matches snapshot 11`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -3116,17 +3116,17 @@ exports[`<FeaturedSauces /> matches snapshot 11`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-1434153835"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="vel totam reiciendis quia eum sint dolores"
                   imageLink="http://www.Daugherty.org/"
                   title="Miss Timmothy Leuschke"
@@ -3256,16 +3256,16 @@ exports[`<FeaturedSauces /> matches snapshot 11`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="1-748329535"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="dolorum delectus dolores autem rerum omnis maiores"
                   imageLink="http://Gerard.net/"
                   title="Mrs. Austin Parker"
@@ -3395,13 +3395,13 @@ exports[`<FeaturedSauces /> matches snapshot 11`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -3420,7 +3420,7 @@ exports[`<FeaturedSauces /> matches snapshot 12`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -3449,7 +3449,7 @@ exports[`<FeaturedSauces /> matches snapshot 12`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -3457,9 +3457,9 @@ exports[`<FeaturedSauces /> matches snapshot 12`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -3478,7 +3478,7 @@ exports[`<FeaturedSauces /> matches snapshot 13`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -3507,7 +3507,7 @@ exports[`<FeaturedSauces /> matches snapshot 13`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -3515,9 +3515,9 @@ exports[`<FeaturedSauces /> matches snapshot 13`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -3536,7 +3536,7 @@ exports[`<FeaturedSauces /> matches snapshot 14`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -3565,7 +3565,7 @@ exports[`<FeaturedSauces /> matches snapshot 14`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -3573,9 +3573,9 @@ exports[`<FeaturedSauces /> matches snapshot 14`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -3594,7 +3594,7 @@ exports[`<FeaturedSauces /> matches snapshot 15`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -3623,17 +3623,17 @@ exports[`<FeaturedSauces /> matches snapshot 15`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-148794444"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="occaecati repellendus tenetur numquam rerum nemo eum"
                   imageLink="http://McGlynn.co.uk/"
                   title="Ms. Maddison Monahan"
@@ -3763,16 +3763,16 @@ exports[`<FeaturedSauces /> matches snapshot 15`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="1-678605074"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="quidem nam saepe assumenda aliquid omnis perferendis"
                   imageLink="undefined"
                   title="Mrs. Percival Skiles"
@@ -3902,16 +3902,16 @@ exports[`<FeaturedSauces /> matches snapshot 15`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="2-844809811"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="consequatur possimus eius blanditiis eum sit tempore"
                   imageLink="http://Lenore.org/"
                   title="Ms. Meagan Feil"
@@ -4041,16 +4041,16 @@ exports[`<FeaturedSauces /> matches snapshot 15`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="3-1137444568"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="maxime maiores architecto sunt eum reprehenderit non"
                   imageLink="undefined"
                   title="Ms. Aleen Rohan"
@@ -4180,16 +4180,16 @@ exports[`<FeaturedSauces /> matches snapshot 15`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="4-1219843681"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="molestiae reiciendis vel quibusdam esse doloribus quo"
                   imageLink="undefined"
                   title="Mrs. Fausto Pouros"
@@ -4319,16 +4319,16 @@ exports[`<FeaturedSauces /> matches snapshot 15`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="5-696367846"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="minus sapiente iste asperiores quis et est"
                   imageLink="undefined"
                   title="Ms. Bert Kuhlman"
@@ -4458,16 +4458,16 @@ exports[`<FeaturedSauces /> matches snapshot 15`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="6-877008791"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="at est sequi hic ea consequatur voluptatum"
                   imageLink="http://Nettie.net/"
                   title="Miss Keaton Barrows"
@@ -4597,13 +4597,13 @@ exports[`<FeaturedSauces /> matches snapshot 15`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -4622,7 +4622,7 @@ exports[`<FeaturedSauces /> matches snapshot 16`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -4651,17 +4651,17 @@ exports[`<FeaturedSauces /> matches snapshot 16`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-1363610969"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="eum maiores dolorem odit maiores voluptatem voluptatum"
                   imageLink="http://Antonette.tv/"
                   title="Ms. Anya Hammes"
@@ -4791,16 +4791,16 @@ exports[`<FeaturedSauces /> matches snapshot 16`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="1-1135187256"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ducimus rem ut omnis id eum dicta"
                   imageLink="undefined"
                   title="Miss Sallie Cummerata"
@@ -4930,16 +4930,16 @@ exports[`<FeaturedSauces /> matches snapshot 16`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="2-1306298341"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="consequatur quidem placeat aspernatur voluptatem quibusdam dolore"
                   imageLink="http://www.Padberg.tv/"
                   title="Dr. Dillan Wiegand"
@@ -5069,16 +5069,16 @@ exports[`<FeaturedSauces /> matches snapshot 16`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="3-965692873"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="excepturi dolores omnis velit ipsa illum natus"
                   imageLink="undefined"
                   title="Mr. Jairo Hauck"
@@ -5208,16 +5208,16 @@ exports[`<FeaturedSauces /> matches snapshot 16`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="4-262818403"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="maxime excepturi quaerat sit ut porro consequatur"
                   imageLink="http://Gleichner.name/"
                   title="Mrs. Dixie Kshlerin"
@@ -5347,13 +5347,13 @@ exports[`<FeaturedSauces /> matches snapshot 16`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -5372,7 +5372,7 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -5401,17 +5401,17 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-802952683"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="commodi iure sed qui repellendus molestiae in"
                   imageLink="undefined"
                   title="Mrs. Annalise Stracke"
@@ -5541,16 +5541,16 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="1-288297174"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="reiciendis enim quia corrupti unde labore praesentium"
                   imageLink="undefined"
                   title="Mrs. Clay Sanford"
@@ -5680,16 +5680,16 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="2-325840657"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="dignissimos minus voluptatibus culpa a nulla pariatur"
                   imageLink="undefined"
                   title="Miss Horace Hills"
@@ -5819,16 +5819,16 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="3-52668540"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="voluptas omnis porro excepturi dicta dignissimos eum"
                   imageLink="http://Esther.com/"
                   title="Dr. Hayley Daugherty"
@@ -5958,16 +5958,16 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="4-1242442473"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="enim quod reiciendis eum cumque maxime voluptatem"
                   imageLink="http://www.Altenwerth.info/"
                   title="Miss Carol Predovic"
@@ -6097,16 +6097,16 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="5-740386924"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="dolor debitis velit molestias architecto doloremque debitis"
                   imageLink="http://www.Emmalee.biz/"
                   title="Mrs. Green Mohr"
@@ -6236,16 +6236,16 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="6-1175940291"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="laboriosam a aliquam aliquid dolores vero vero"
                   imageLink="http://www.Hudson.us/"
                   title="Mr. Jordyn Haley"
@@ -6375,16 +6375,16 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="7-1040696419"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="dolor nobis non quas voluptas nam excepturi"
                   imageLink="http://www.McLaughlin.net/"
                   title="Miss Kaia Nikolaus"
@@ -6514,16 +6514,16 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="8-254674522"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repudiandae magni molestias et suscipit numquam nulla"
                   imageLink="http://Shanahan.info/"
                   title="Mrs. Jarrell Hamill"
@@ -6653,16 +6653,16 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="9-695727432"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="minima consequatur veniam commodi porro facere eum"
                   imageLink="undefined"
                   title="Dr. Bertram Hammes"
@@ -6792,16 +6792,16 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="10-355488009"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="consectetur tempore sit blanditiis aut non harum"
                   imageLink="undefined"
                   title="Mrs. Dandre Rau"
@@ -6931,16 +6931,16 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="11-1091187063"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="maxime voluptas incidunt odio temporibus vel eveniet"
                   imageLink="undefined"
                   title="Mrs. Brain Wunsch"
@@ -7070,13 +7070,13 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -7095,7 +7095,7 @@ exports[`<FeaturedSauces /> matches snapshot 18`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -7124,17 +7124,17 @@ exports[`<FeaturedSauces /> matches snapshot 18`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-160061295"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="dolore reprehenderit necessitatibus adipisci in non molestiae"
                   imageLink="http://Cristian.me/"
                   title="Miss Mac Boyer"
@@ -7264,16 +7264,16 @@ exports[`<FeaturedSauces /> matches snapshot 18`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="1-123950657"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="molestiae et dolorum et qui voluptates architecto"
                   imageLink="undefined"
                   title="Ms. Marlene Aufderhar"
@@ -7403,16 +7403,16 @@ exports[`<FeaturedSauces /> matches snapshot 18`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="2-133559251"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="earum quisquam quos aut facilis eligendi labore"
                   imageLink="undefined"
                   title="Ms. Wellington Cole"
@@ -7542,16 +7542,16 @@ exports[`<FeaturedSauces /> matches snapshot 18`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="3-635330486"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="sit quidem autem quod totam sunt architecto"
                   imageLink="http://Fadel.io/"
                   title="Miss Eudora Gislason"
@@ -7681,16 +7681,16 @@ exports[`<FeaturedSauces /> matches snapshot 18`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="4-223335712"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="exercitationem voluptatum illum quibusdam et sunt qui"
                   imageLink="http://www.Aufderhar.org/"
                   title="Ms. Casey Gaylord"
@@ -7820,16 +7820,16 @@ exports[`<FeaturedSauces /> matches snapshot 18`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="5-1306950280"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nulla voluptatem odit minima dicta enim expedita"
                   imageLink="http://www.Jake.io/"
                   title="Ms. Jordan Schamberger"
@@ -7959,16 +7959,16 @@ exports[`<FeaturedSauces /> matches snapshot 18`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="6-1450095298"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repudiandae sit qui et doloremque libero libero"
                   imageLink="http://www.Travon.io/"
                   title="Mr. Wilson Beier"
@@ -8098,13 +8098,13 @@ exports[`<FeaturedSauces /> matches snapshot 18`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -8123,7 +8123,7 @@ exports[`<FeaturedSauces /> matches snapshot 19`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -8152,7 +8152,7 @@ exports[`<FeaturedSauces /> matches snapshot 19`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -8160,9 +8160,9 @@ exports[`<FeaturedSauces /> matches snapshot 19`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -8181,7 +8181,7 @@ exports[`<FeaturedSauces /> matches snapshot 20`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -8210,7 +8210,7 @@ exports[`<FeaturedSauces /> matches snapshot 20`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -8218,9 +8218,9 @@ exports[`<FeaturedSauces /> matches snapshot 20`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -8239,7 +8239,7 @@ exports[`<FeaturedSauces /> matches snapshot 21`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -8268,17 +8268,17 @@ exports[`<FeaturedSauces /> matches snapshot 21`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-960564787"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="quae cupiditate aut alias quo eveniet hic"
                   imageLink="undefined"
                   title="Dr. Birdie Miller"
@@ -8408,16 +8408,16 @@ exports[`<FeaturedSauces /> matches snapshot 21`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="1-393767386"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ut tempore eum vel et nihil eum"
                   imageLink="http://Ledner.biz/"
                   title="Dr. Reva Klein"
@@ -8547,16 +8547,16 @@ exports[`<FeaturedSauces /> matches snapshot 21`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="2-1293555325"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="deserunt molestias aut nihil dicta amet labore"
                   imageLink="undefined"
                   title="Miss Adela Collier"
@@ -8686,16 +8686,16 @@ exports[`<FeaturedSauces /> matches snapshot 21`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="3-918027662"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="rem aut corporis laborum incidunt quaerat quo"
                   imageLink="http://www.Geo.net/"
                   title="Ms. Meggie Carter"
@@ -8825,16 +8825,16 @@ exports[`<FeaturedSauces /> matches snapshot 21`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="4-1448221023"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="perspiciatis voluptatibus voluptatem magnam maiores est necessitatibus"
                   imageLink="undefined"
                   title="Mrs. Elisa Reilly"
@@ -8964,13 +8964,13 @@ exports[`<FeaturedSauces /> matches snapshot 21`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -8989,7 +8989,7 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -9018,17 +9018,17 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-905956217"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="est veniam libero cum sequi optio vel"
                   imageLink="http://Ellie.us/"
                   title="Mrs. Franz Hane"
@@ -9158,16 +9158,16 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="1-391325572"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="et et rem ducimus soluta dolor in"
                   imageLink="undefined"
                   title="Mrs. Jamison Macejkovic"
@@ -9297,16 +9297,16 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="2-1314789130"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="velit eos et cum libero qui ipsum"
                   imageLink="http://Harber.org/"
                   title="Mrs. Cathy Simonis"
@@ -9436,16 +9436,16 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="3-275201822"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="iusto aliquid quae et adipisci itaque quod"
                   imageLink="undefined"
                   title="Miss Johann McKenzie"
@@ -9575,16 +9575,16 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="4-1218708194"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="fugiat id aut reprehenderit mollitia laudantium provident"
                   imageLink="undefined"
                   title="Dr. Rico Gulgowski"
@@ -9714,16 +9714,16 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="5-1142676416"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="consequatur nulla vel molestiae quos vel itaque"
                   imageLink="http://www.Gibson.biz/"
                   title="Mrs. Lawrence McCullough"
@@ -9853,16 +9853,16 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="6-985066547"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="quia quos qui porro dicta et at"
                   imageLink="http://Greg.biz/"
                   title="Mrs. Bethel Lehner"
@@ -9992,16 +9992,16 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="7-502288296"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="accusantium recusandae aut natus sapiente sunt velit"
                   imageLink="undefined"
                   title="Miss Ransom Terry"
@@ -10131,16 +10131,16 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="8-1222496373"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="dolor nulla ut ut dicta repellendus numquam"
                   imageLink="undefined"
                   title="Miss Arvid Tillman"
@@ -10270,16 +10270,16 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="9-1219665275"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="et nobis et numquam culpa iste optio"
                   imageLink="http://Letha.name/"
                   title="Ms. Orlando Rosenbaum"
@@ -10409,16 +10409,16 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="10-132224458"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="cupiditate ut repellendus quo recusandae deleniti dignissimos"
                   imageLink="http://Cruickshank.org/"
                   title="Mrs. Britney Larson"
@@ -10548,16 +10548,16 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="11-472675923"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="modi veniam sit harum nobis sint sit"
                   imageLink="http://Armando.org/"
                   title="Ms. Abdul Schmidt"
@@ -10687,13 +10687,13 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -10712,7 +10712,7 @@ exports[`<FeaturedSauces /> matches snapshot 23`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -10741,17 +10741,17 @@ exports[`<FeaturedSauces /> matches snapshot 23`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-814552848"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="aut consequatur cupiditate et molestias ad ipsa"
                   imageLink="undefined"
                   title="Mr. Harvey Wilkinson"
@@ -10881,16 +10881,16 @@ exports[`<FeaturedSauces /> matches snapshot 23`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="1-903655980"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="quasi hic dolores omnis et dolores sed"
                   imageLink="undefined"
                   title="Miss Tyrique Raynor"
@@ -11020,16 +11020,16 @@ exports[`<FeaturedSauces /> matches snapshot 23`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="2-561989903"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="sed sunt reprehenderit et eligendi rerum et"
                   imageLink="http://www.Oberbrunner.name/"
                   title="Ms. Ladarius Shanahan"
@@ -11159,16 +11159,16 @@ exports[`<FeaturedSauces /> matches snapshot 23`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="3-1099655793"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="est sequi pariatur quos assumenda eveniet quae"
                   imageLink="http://www.Harvey.net/"
                   title="Ms. Deja Huel"
@@ -11298,16 +11298,16 @@ exports[`<FeaturedSauces /> matches snapshot 23`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="4-383688324"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ut odio veniam ducimus velit consequatur qui"
                   imageLink="http://www.Ferry.net/"
                   title="Mr. Nya Leuschke"
@@ -11437,16 +11437,16 @@ exports[`<FeaturedSauces /> matches snapshot 23`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="5-540735699"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="pariatur iusto nemo facilis aut quia fugiat"
                   imageLink="http://www.Dedric.co.uk/"
                   title="Ms. Cary Simonis"
@@ -11576,16 +11576,16 @@ exports[`<FeaturedSauces /> matches snapshot 23`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="6-464833074"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="tempore magnam blanditiis quaerat aliquam modi excepturi"
                   imageLink="undefined"
                   title="Dr. Ludwig Hills"
@@ -11715,16 +11715,16 @@ exports[`<FeaturedSauces /> matches snapshot 23`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="7-1430207054"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="mollitia voluptas quis et qui et aut"
                   imageLink="undefined"
                   title="Miss Greyson Little"
@@ -11854,16 +11854,16 @@ exports[`<FeaturedSauces /> matches snapshot 23`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="8-951889639"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="sit nam itaque sed quis aut odio"
                   imageLink="http://Huels.biz/"
                   title="Dr. Beryl Sipes"
@@ -11993,13 +11993,13 @@ exports[`<FeaturedSauces /> matches snapshot 23`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -12018,7 +12018,7 @@ exports[`<FeaturedSauces /> matches snapshot 24`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -12047,17 +12047,17 @@ exports[`<FeaturedSauces /> matches snapshot 24`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-992405481"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="assumenda ut dicta provident ut sed dolores"
                   imageLink="undefined"
                   title="Miss Myriam Schinner"
@@ -12187,16 +12187,16 @@ exports[`<FeaturedSauces /> matches snapshot 24`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="1-705287510"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="et nesciunt qui doloribus fuga assumenda occaecati"
                   imageLink="http://Anabelle.biz/"
                   title="Dr. Jenifer Bruen"
@@ -12326,16 +12326,16 @@ exports[`<FeaturedSauces /> matches snapshot 24`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="2-96044015"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="et repudiandae ab eveniet dolorem aliquid nihil"
                   imageLink="undefined"
                   title="Mr. Craig Ruecker"
@@ -12465,16 +12465,16 @@ exports[`<FeaturedSauces /> matches snapshot 24`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="3-108751671"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="doloremque voluptas rem facere possimus dolore quia"
                   imageLink="undefined"
                   title="Ms. Vallie Walter"
@@ -12604,13 +12604,13 @@ exports[`<FeaturedSauces /> matches snapshot 24`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -12629,7 +12629,7 @@ exports[`<FeaturedSauces /> matches snapshot 25`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -12658,7 +12658,7 @@ exports[`<FeaturedSauces /> matches snapshot 25`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -12666,9 +12666,9 @@ exports[`<FeaturedSauces /> matches snapshot 25`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -12687,7 +12687,7 @@ exports[`<FeaturedSauces /> matches snapshot 26`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -12716,7 +12716,7 @@ exports[`<FeaturedSauces /> matches snapshot 26`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -12724,9 +12724,9 @@ exports[`<FeaturedSauces /> matches snapshot 26`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -12745,7 +12745,7 @@ exports[`<FeaturedSauces /> matches snapshot 27`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -12774,7 +12774,7 @@ exports[`<FeaturedSauces /> matches snapshot 27`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -12782,9 +12782,9 @@ exports[`<FeaturedSauces /> matches snapshot 27`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -12803,7 +12803,7 @@ exports[`<FeaturedSauces /> matches snapshot 28`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -12832,17 +12832,17 @@ exports[`<FeaturedSauces /> matches snapshot 28`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
-            <styled.div
+            <div
               key="0-1353895443"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="consequatur modi rerum magni commodi dolorem optio"
                   imageLink="http://www.Carmen.me/"
                   title="Mrs. Grant Paucek"
@@ -12972,16 +12972,16 @@ exports[`<FeaturedSauces /> matches snapshot 28`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="1-987252986"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="sit sunt aut quae sit neque autem"
                   imageLink="undefined"
                   title="Miss Rosalia Brown"
@@ -13111,16 +13111,16 @@ exports[`<FeaturedSauces /> matches snapshot 28`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="2-520906763"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ad pariatur illum qui ab iure cum"
                   imageLink="undefined"
                   title="Dr. Aaron Romaguera"
@@ -13250,16 +13250,16 @@ exports[`<FeaturedSauces /> matches snapshot 28`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="3-867171419"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="quis quis illo et deleniti distinctio illum"
                   imageLink="http://www.Deven.ca/"
                   title="Ms. Jeffrey Ledner"
@@ -13389,16 +13389,16 @@ exports[`<FeaturedSauces /> matches snapshot 28`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="4-682334358"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="vel aut possimus qui voluptatem molestiae quo"
                   imageLink="undefined"
                   title="Ms. Lisa Turcotte"
@@ -13528,16 +13528,16 @@ exports[`<FeaturedSauces /> matches snapshot 28`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="5-37878729"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="voluptas vero modi architecto explicabo eos aperiam"
                   imageLink="http://Walsh.name/"
                   title="Mrs. Cameron Trantow"
@@ -13667,16 +13667,16 @@ exports[`<FeaturedSauces /> matches snapshot 28`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
-            <styled.div
+            </div>
+            <div
               key="6-1137117347"
             >
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="at tenetur deserunt ut laboriosam voluptatem vero"
                   imageLink="undefined"
                   title="Mr. Rolando Hamill"
@@ -13806,13 +13806,13 @@ exports[`<FeaturedSauces /> matches snapshot 28`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
-            </styled.div>
+            </div>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -13831,7 +13831,7 @@ exports[`<FeaturedSauces /> matches snapshot 29`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -13860,7 +13860,7 @@ exports[`<FeaturedSauces /> matches snapshot 29`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -13868,9 +13868,9 @@ exports[`<FeaturedSauces /> matches snapshot 29`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -13889,7 +13889,7 @@ exports[`<FeaturedSauces /> matches snapshot 30`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -13918,7 +13918,7 @@ exports[`<FeaturedSauces /> matches snapshot 30`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -13926,9 +13926,9 @@ exports[`<FeaturedSauces /> matches snapshot 30`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -13947,7 +13947,7 @@ exports[`<FeaturedSauces /> matches snapshot 31`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -13976,7 +13976,7 @@ exports[`<FeaturedSauces /> matches snapshot 31`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -13984,9 +13984,9 @@ exports[`<FeaturedSauces /> matches snapshot 31`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
@@ -14005,7 +14005,7 @@ exports[`<FeaturedSauces /> matches snapshot 32`] = `
   }
 >
   <FeaturedSauces>
-    <styled.div>
+    <div>
       <div
         className="sc-fzpans LTwEN"
       >
@@ -14034,7 +14034,7 @@ exports[`<FeaturedSauces /> matches snapshot 32`] = `
             </div>
           </div>
         </SectionTitle>
-        <styled.div>
+        <div>
           <div
             className="sc-fznKkj hNuaH"
           >
@@ -14042,9 +14042,9 @@ exports[`<FeaturedSauces /> matches snapshot 32`] = `
               No sauces found...
             </p>
           </div>
-        </styled.div>
+        </div>
       </div>
-    </styled.div>
+    </div>
   </FeaturedSauces>
 </Provider>
 `;
