@@ -64,9 +64,9 @@ export const fakeSaucesState = (): ISaucesState => {
 
   const featured: undefined | string[] = casual.random_element([
     undefined,
-    bySlug
-      ? Object.keys(bySlug).map(slug => {
-          if (casual.random < 0.33) return slug;
+    allSlugs.length > 0
+      ? allSlugs.filter(slug => {
+          if (casual.random < 0.4) return slug;
           return;
         })
       : undefined
