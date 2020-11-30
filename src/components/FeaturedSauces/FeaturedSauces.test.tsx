@@ -18,11 +18,12 @@ let mockGenerateSauces = () =>
     [],
     new Array(casual.integer(1, 15)).fill(null).map(fakeSauce)
   ]);
+let mockLoading = () => false;
 jest.mock("../../utils/hooks/useFeaturedSauces/useFeaturedSauces", () => {
   return {
     useFeaturedSauces() {
       return {
-        loading: false,
+        loading: mockLoading(),
         sauces: mockGenerateSauces(),
         error: {},
         getFeaturedSauces: mockGetFeaturedSauces
@@ -39,6 +40,7 @@ describe("<FeaturedSauces />", () => {
     description:
       "Check out some of these unique sauces. Discover flavors you've never tasted before!"
   };
+  const _loadingText = "Loading...";
 
   // May need to refer to these later so initializing out here
   let wrappers: Array<enzyme.ReactWrapper<
@@ -60,6 +62,11 @@ describe("<FeaturedSauces />", () => {
         </Provider>
       );
     });
+  });
+
+  afterEach(() => {
+    // reset back to original value
+    mockLoading = () => false;
   });
 
   afterAll(() => {
@@ -89,6 +96,21 @@ describe("<FeaturedSauces />", () => {
       expect(wrapper.find("SectionTitle").props()).toEqual(
         expect.objectContaining(_title)
       );
+    });
+  });
+
+  it("will display loading text if it is loading", () => {
+    // set loading
+    mockLoading = () => true;
+
+    wrappers.forEach(wrapper => {
+      // unmount and mount again to rerender
+      wrapper.unmount();
+      wrapper.mount();
+
+      expect(
+        wrapper.find("[data-testid='cardsContainer']").first().text()
+      ).toEqual(_loadingText);
     });
   });
 });
