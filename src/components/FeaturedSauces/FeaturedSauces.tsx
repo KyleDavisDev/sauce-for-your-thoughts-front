@@ -21,6 +21,7 @@ const FeaturedSauces: React.FC<FeaturedSaucesProps> = props => {
     description:
       "Check out some of these unique sauces. Discover flavors you've never tasted before!"
   };
+  const _loadingText = "Loading...";
 
   // Get featured sauces from hook
   const { sauces, loading, error, getFeaturedSauces } = useFeaturedSauces();
@@ -32,13 +33,15 @@ const FeaturedSauces: React.FC<FeaturedSaucesProps> = props => {
   return (
     <StyledDiv className={props.className}>
       <SectionTitle {..._title} />
-      <StyledCardContainer>{renderContent()}</StyledCardContainer>
+      <StyledCardContainer data-testid="cardsContainer">
+        {renderContent()}
+      </StyledCardContainer>
     </StyledDiv>
   );
 
   function renderContent() {
     if (loading) {
-      return <p>Loading...</p>;
+      return <p>{_loadingText}</p>;
     }
 
     if (error.isVisible) {
