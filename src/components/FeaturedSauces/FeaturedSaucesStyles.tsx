@@ -8,12 +8,14 @@ export const StyledDiv = styled.div`
   justify-content: center;
   margin-bottom: 1em;
 `;
+StyledDiv.displayName = "div";
 
 export const StyledCard = styled(Card)`
   box-sizing: border-box;
   width: 100%;
   margin-bottom: 16px;
 `;
+StyledCard.displayName = "Card";
 
 export const StyledCardHolder = styled.div`
   padding: 1em;
@@ -21,6 +23,7 @@ export const StyledCardHolder = styled.div`
   display: flex;
   flex: 1 auto auto;
 `;
+StyledCardHolder.displayName = "div";
 
 export const StyledCardContainer = styled.div`
   display: flex;
@@ -29,3 +32,4 @@ export const StyledCardContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
 `;
+StyledCardContainer.displayName = "div";
