@@ -15,6 +15,13 @@ interface FeaturedSaucesProps {
 }
 
 const FeaturedSauces: React.FC<FeaturedSaucesProps> = props => {
+  // constants
+  const _title = {
+    title: "Featured Sauces",
+    description:
+      "Check out some of these unique sauces. Discover flavors you've never tasted before!"
+  };
+
   // Get featured sauces from hook
   const { sauces, loading, error, getFeaturedSauces } = useFeaturedSauces();
 
@@ -24,10 +31,7 @@ const FeaturedSauces: React.FC<FeaturedSaucesProps> = props => {
 
   return (
     <StyledDiv className={props.className}>
-      <SectionTitle
-        title="Featured Sauces"
-        description="Check out some of these unique sauces. Discover flavors you've never tasted before!"
-      />
+      <SectionTitle {..._title} />
       <StyledCardContainer>{renderContent()}</StyledCardContainer>
     </StyledDiv>
   );
