@@ -43,9 +43,12 @@ exports[`<FeaturedSauces /> matches snapshot 1`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-386176298"
@@ -793,9 +796,12 @@ exports[`<FeaturedSauces /> matches snapshot 2`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-543614891"
@@ -987,9 +993,12 @@ exports[`<FeaturedSauces /> matches snapshot 3`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -1045,9 +1054,12 @@ exports[`<FeaturedSauces /> matches snapshot 4`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -1103,9 +1115,12 @@ exports[`<FeaturedSauces /> matches snapshot 5`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-662443920"
@@ -2826,9 +2841,12 @@ exports[`<FeaturedSauces /> matches snapshot 6`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -2884,9 +2902,12 @@ exports[`<FeaturedSauces /> matches snapshot 7`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -2942,9 +2963,12 @@ exports[`<FeaturedSauces /> matches snapshot 8`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -3000,9 +3024,12 @@ exports[`<FeaturedSauces /> matches snapshot 9`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -3058,9 +3085,12 @@ exports[`<FeaturedSauces /> matches snapshot 10`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -3116,9 +3146,12 @@ exports[`<FeaturedSauces /> matches snapshot 11`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-1434153835"
@@ -3449,9 +3482,12 @@ exports[`<FeaturedSauces /> matches snapshot 12`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -3507,9 +3543,12 @@ exports[`<FeaturedSauces /> matches snapshot 13`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -3565,9 +3604,12 @@ exports[`<FeaturedSauces /> matches snapshot 14`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -3623,9 +3665,12 @@ exports[`<FeaturedSauces /> matches snapshot 15`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-148794444"
@@ -4651,9 +4696,12 @@ exports[`<FeaturedSauces /> matches snapshot 16`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-1363610969"
@@ -5401,9 +5449,12 @@ exports[`<FeaturedSauces /> matches snapshot 17`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-802952683"
@@ -7124,9 +7175,12 @@ exports[`<FeaturedSauces /> matches snapshot 18`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-160061295"
@@ -8152,9 +8206,12 @@ exports[`<FeaturedSauces /> matches snapshot 19`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -8210,9 +8267,12 @@ exports[`<FeaturedSauces /> matches snapshot 20`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -8268,9 +8328,12 @@ exports[`<FeaturedSauces /> matches snapshot 21`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-960564787"
@@ -9018,9 +9081,12 @@ exports[`<FeaturedSauces /> matches snapshot 22`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-905956217"
@@ -10741,9 +10807,12 @@ exports[`<FeaturedSauces /> matches snapshot 23`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-814552848"
@@ -12047,9 +12116,12 @@ exports[`<FeaturedSauces /> matches snapshot 24`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-992405481"
@@ -12658,9 +12730,12 @@ exports[`<FeaturedSauces /> matches snapshot 25`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -12716,9 +12791,12 @@ exports[`<FeaturedSauces /> matches snapshot 26`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -12774,9 +12852,12 @@ exports[`<FeaturedSauces /> matches snapshot 27`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -12832,9 +12913,12 @@ exports[`<FeaturedSauces /> matches snapshot 28`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <div
               key="0-1353895443"
@@ -13860,9 +13944,12 @@ exports[`<FeaturedSauces /> matches snapshot 29`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -13918,9 +14005,12 @@ exports[`<FeaturedSauces /> matches snapshot 30`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -13976,9 +14066,12 @@ exports[`<FeaturedSauces /> matches snapshot 31`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
@@ -14034,9 +14127,12 @@ exports[`<FeaturedSauces /> matches snapshot 32`] = `
             </div>
           </div>
         </SectionTitle>
-        <div>
+        <div
+          data-testid="cardsContainer"
+        >
           <div
             className="sc-fznKkj hNuaH"
+            data-testid="cardsContainer"
           >
             <p>
               No sauces found...
