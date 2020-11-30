@@ -49,16 +49,21 @@ describe("<FeaturedSauces />", () => {
     React.Component<{}, {}, any>
   >> = [];
   let mockStores: MockStoreEnhanced<unknown, {}>[] = [];
+  let mockClassNames: string[] = [];
 
   beforeAll(() => {
     // add our mock stores
     mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
+    mockClassNames = new Array(ITERATION_SIZE)
+      .fill(null)
+      .map(x => casual.random_element([undefined, casual.string]));
+
     // add our mounts
     wrappers = new Array(ITERATION_SIZE).fill(null).map((x, ind) => {
       return enzyme.mount(
         <Provider store={mockStores[ind]}>
-          <FeaturedSauces />
+          <FeaturedSauces className={mockClassNames[ind]} />
         </Provider>
       );
     });
@@ -82,6 +87,16 @@ describe("<FeaturedSauces />", () => {
   it("matches snapshot", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  it("concatinates className onto parent container", () => {
+    wrappers.forEach((wrapper, ind) => {
+      if (!mockClassNames[ind]) return;
+
+      expect(wrapper.find("div").first().prop("className")).toContain(
+        mockClassNames[ind]
+      );
     });
   });
 
