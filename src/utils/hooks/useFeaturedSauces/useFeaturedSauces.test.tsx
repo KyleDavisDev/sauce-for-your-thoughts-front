@@ -146,27 +146,30 @@ describe("useFeaturedSauces hook", () => {
     }
   });
 
-  // it("returns featured sauces from redux if possible", async () => {
-  //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
-  //     const reduxStore = mockStores[i].getState() as AppState;
-  //     if (!reduxStore.sauces.featured) continue; // Keep going
+  it("returns featured sauces from redux if possible", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxStore = mockStores[i].getState() as AppState;
+      if (!reduxStore.sauces.featured) continue; // Keep going
+      if (reduxStore.sauces.featured.length === 0) continue; // Keep going
 
-  //     // mount component
-  //     const wrapper = mountReactHookWithReduxStore(
-  //       useFeaturedSauces,
-  //       mockStores[i]
-  //     );
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useFeaturedSauces,
+        mockStores[i]
+      );
 
-  //     // perform changes within our component
-  //     const hook = wrapper.componentHook as IuseFeaturedSauces;
-  //     await act(async () => {
-  //       hook.getFeaturedSauces();
-  //     });
+      // perform changes within our component
+      const hook = wrapper.componentHook as IuseFeaturedSauces;
+      await act(async () => {
+        hook.getFeaturedSauces();
+      });
 
-  //     // wait for things
-  //     await wait();
+      // wait for things
+      await wait();
 
-  //     console.log(hook);
-  //   }
-  // });
+      // Make sure that each sauce make it over.
+      // Hook will have entire sauce Obj so we filter by slug only
+      expect(hook.sauces.map(x => x.slug)).toEqual(reduxStore.sauces.featured);
+    }
+  });
 });
