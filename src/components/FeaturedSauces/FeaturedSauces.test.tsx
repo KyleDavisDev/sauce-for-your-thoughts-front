@@ -33,6 +33,13 @@ jest.mock("../../utils/hooks/useFeaturedSauces/useFeaturedSauces", () => {
 window.moveTo = jest.fn();
 
 describe("<FeaturedSauces />", () => {
+  // constants from component
+  const _title = {
+    title: "Featured Sauces",
+    description:
+      "Check out some of these unique sauces. Discover flavors you've never tasted before!"
+  };
+
   // May need to refer to these later so initializing out here
   let wrappers: Array<enzyme.ReactWrapper<
     any,
@@ -62,6 +69,12 @@ describe("<FeaturedSauces />", () => {
   it("renders", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper).toBeTruthy();
+    });
+  });
+
+  it("matches snapshot", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });
