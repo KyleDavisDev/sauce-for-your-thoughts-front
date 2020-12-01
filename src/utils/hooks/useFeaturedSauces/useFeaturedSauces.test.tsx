@@ -5,14 +5,11 @@ import { act } from "react-dom/test-utils";
 import { AppState } from "../../../redux/configureStore";
 import { useFeaturedSauces, IuseFeaturedSauces } from "./useFeaturedSauces";
 import {
-  casual,
   fakeStore,
-  generateErr,
   ITERATION_SIZE,
   mountReactHookWithReduxStore,
   wait
 } from "../../testUtils/testUtils";
-import { IErrReturn } from "../../Err/Err";
 
 // mock our action
 const mockLoginPayload = () => ({
