@@ -9,17 +9,14 @@ import {
   casual,
   fakeSauce,
   fakeStore,
+  generateFakeSauces,
   ITERATION_SIZE
 } from "../../utils/testUtils/testUtils";
 import { IuseFeaturedSauces } from "../../utils/hooks/useFeaturedSauces/useFeaturedSauces";
 import { FlashMessageProps } from "../FlashMessage/FlashMessage";
 
 const mockGetFeaturedSauces = jest.fn();
-let mockGenerateSauces = () =>
-  casual.random_element([
-    [],
-    new Array(casual.integer(1, 15)).fill(null).map(fakeSauce)
-  ]);
+let mockGenerateSauces = () => generateFakeSauces();
 let mockLoading = () => false;
 let mockError = (): FlashMessageProps => ({
   isVisible: false
@@ -46,6 +43,7 @@ describe("<FeaturedSauces />", () => {
       "Check out some of these unique sauces. Discover flavors you've never tasted before!"
   };
   const _loadingText = "Loading...";
+  const _noSaucesFoundText = "No sauces found...";
 
   // May need to refer to these later so initializing out here
   let wrappers: Array<enzyme.ReactWrapper<
@@ -75,8 +73,11 @@ describe("<FeaturedSauces />", () => {
   });
 
   afterEach(() => {
-    // reset back to original value
+    // reset back to original values
     mockLoading = () => false;
+    mockError = () => ({
+      isVisible: false
+    });
   });
 
   afterAll(() => {
@@ -131,6 +132,24 @@ describe("<FeaturedSauces />", () => {
       expect(
         wrapper.find("[data-testid='cardsContainer']").first().text()
       ).toEqual(_loadingText);
+    });
+  });
+
+  it("will display error text if there is an error", () => {
+    wrappers.forEach(wrapper => {
+      // set error
+      const err = casual.text;
+      mockError = (): FlashMessageProps => ({
+        isVisible: true,
+        text: err
+      });
+      // unmount and mount again to rerender
+      wrapper.unmount();
+      wrapper.mount();
+
+      expect(
+        wrapper.find("[data-testid='cardsContainer']").first().text()
+      ).toEqual(err);
     });
   });
 
