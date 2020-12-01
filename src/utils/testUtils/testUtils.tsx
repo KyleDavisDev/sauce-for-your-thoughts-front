@@ -56,10 +56,11 @@ export const fakeSauce = (): ISauce => ({
   slug: casual.random_element([undefined, casual.uuid])
 });
 
+export const generateFakeSauces = (): ISauce[] =>
+  new Array(casual.integer(1, 15)).fill(null).map(fakeSauce);
+
 export const fakeSaucesState = (): ISaucesState => {
-  const sauces: ISauce[] = new Array(casual.integer(1, 15))
-    .fill(null)
-    .map(fakeSauce);
+  const sauces: ISauce[] = generateFakeSauces();
   const { allSlugs, bySlug } = Flatn.saucesArr({ sauces });
 
   const featured: undefined | string[] = casual.random_element([
