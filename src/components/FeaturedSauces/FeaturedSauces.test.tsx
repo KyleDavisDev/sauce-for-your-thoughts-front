@@ -16,7 +16,7 @@ import { IuseFeaturedSauces } from "../../utils/hooks/useFeaturedSauces/useFeatu
 import { FlashMessageProps } from "../FlashMessage/FlashMessage";
 
 const mockGetFeaturedSauces = jest.fn();
-let mockGenerateSauces = () => generateFakeSauces();
+let mockSaucesArr = () => generateFakeSauces();
 let mockLoading = () => false;
 let mockError = (): FlashMessageProps => ({
   isVisible: false
@@ -26,7 +26,7 @@ jest.mock("../../utils/hooks/useFeaturedSauces/useFeaturedSauces", () => {
     useFeaturedSauces(): IuseFeaturedSauces {
       return {
         loading: mockLoading(),
-        sauces: mockGenerateSauces(),
+        sauces: mockSaucesArr(),
         error: mockError(),
         getFeaturedSauces: mockGetFeaturedSauces
       };
@@ -153,21 +153,18 @@ describe("<FeaturedSauces />", () => {
     });
   });
 
-  it("will display error text if there is an error", () => {
+  it("will show appropriate text when no sauces are found", () => {
+    // assign empty list
+    mockSaucesArr = () => [];
+
     wrappers.forEach(wrapper => {
-      // set error
-      const err = casual.text;
-      mockError = (): FlashMessageProps => ({
-        isVisible: true,
-        text: err
-      });
       // unmount and mount again to rerender
       wrapper.unmount();
       wrapper.mount();
 
       expect(
         wrapper.find("[data-testid='cardsContainer']").first().text()
-      ).toEqual(err);
+      ).toEqual(_noSaucesFoundText);
     });
   });
 });
