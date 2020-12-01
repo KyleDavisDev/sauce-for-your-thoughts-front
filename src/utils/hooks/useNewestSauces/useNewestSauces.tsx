@@ -38,7 +38,7 @@ export function useNewestSauces(): IuseNewestSauces {
     // Prevent calling multiple times if already loading or if we already found sauces
     if (sauces.length > 0) return;
     if (loading) return;
-    if (reduxSauces.featured && reduxSauces.featured.length > 0) return;
+    if (reduxSauces.newest && reduxSauces.newest.length > 0) return;
 
     try {
       setLoading(true);
