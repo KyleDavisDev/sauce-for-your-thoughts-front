@@ -16,18 +16,19 @@ import { IuseFeaturedSauces } from "../../utils/hooks/useFeaturedSauces/useFeatu
 import { FlashMessageProps } from "../FlashMessage/FlashMessage";
 
 const mockGetFeaturedSauces = jest.fn();
-let mockSaucesArr = () => generateFakeSauces();
-let mockLoading = () => false;
-let mockError = (): FlashMessageProps => ({
+let mockSaucesArr = generateFakeSauces();
+const staticSauces = mockSaucesArr;
+let mockLoading = false;
+let mockError: FlashMessageProps = {
   isVisible: false
-});
+};
 jest.mock("../../utils/hooks/useFeaturedSauces/useFeaturedSauces", () => {
   return {
     useFeaturedSauces(): IuseFeaturedSauces {
       return {
-        loading: mockLoading(),
-        sauces: mockSaucesArr(),
-        error: mockError(),
+        loading: mockLoading,
+        sauces: mockSaucesArr,
+        error: mockError,
         getFeaturedSauces: mockGetFeaturedSauces
       };
     }
@@ -74,10 +75,11 @@ describe("<FeaturedSauces />", () => {
 
   afterEach(() => {
     // reset back to original values
-    mockLoading = () => false;
-    mockError = () => ({
+    mockLoading = false;
+    mockError = {
       isVisible: false
-    });
+    };
+    mockSaucesArr = staticSauces;
   });
 
   afterAll(() => {
@@ -122,7 +124,7 @@ describe("<FeaturedSauces />", () => {
 
   it("will display loading text if it is loading", () => {
     // set loading
-    mockLoading = () => true;
+    mockLoading = true;
 
     wrappers.forEach(wrapper => {
       // unmount and mount again to rerender
@@ -139,10 +141,11 @@ describe("<FeaturedSauces />", () => {
     wrappers.forEach(wrapper => {
       // set error
       const err = casual.text;
-      mockError = (): FlashMessageProps => ({
+      mockError = {
         isVisible: true,
         text: err
-      });
+      };
+
       // unmount and mount again to rerender
       wrapper.unmount();
       wrapper.mount();
@@ -155,7 +158,7 @@ describe("<FeaturedSauces />", () => {
 
   it("will show appropriate text when no sauces are found", () => {
     // assign empty list
-    mockSaucesArr = () => [];
+    mockSaucesArr = [];
 
     wrappers.forEach(wrapper => {
       // unmount and mount again to rerender
