@@ -22,6 +22,7 @@ const FeaturedSauces: React.FC<FeaturedSaucesProps> = props => {
       "Check out some of these unique sauces. Discover flavors you've never tasted before!"
   };
   const _loadingText = "Loading...";
+  const _noSaucesFoundText = "No sauces found...";
 
   // Get featured sauces from hook
   const { sauces, loading, error, getFeaturedSauces } = useFeaturedSauces();
@@ -49,7 +50,7 @@ const FeaturedSauces: React.FC<FeaturedSaucesProps> = props => {
     }
 
     if (sauces.length === 0) {
-      return <p>No sauces found...</p>;
+      return <p>{_noSaucesFoundText}</p>;
     }
 
     return sauces.map((sauce, ind) => {
