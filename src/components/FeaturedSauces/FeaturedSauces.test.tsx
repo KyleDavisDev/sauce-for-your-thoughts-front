@@ -11,6 +11,8 @@ import {
   fakeStore,
   ITERATION_SIZE
 } from "../../utils/testUtils/testUtils";
+import { IuseFeaturedSauces } from "../../utils/hooks/useFeaturedSauces/useFeaturedSauces";
+import { FlashMessageProps } from "../FlashMessage/FlashMessage";
 
 const mockGetFeaturedSauces = jest.fn();
 let mockGenerateSauces = () =>
@@ -19,13 +21,16 @@ let mockGenerateSauces = () =>
     new Array(casual.integer(1, 15)).fill(null).map(fakeSauce)
   ]);
 let mockLoading = () => false;
+let mockError = (): FlashMessageProps => ({
+  isVisible: false
+});
 jest.mock("../../utils/hooks/useFeaturedSauces/useFeaturedSauces", () => {
   return {
-    useFeaturedSauces() {
+    useFeaturedSauces(): IuseFeaturedSauces {
       return {
         loading: mockLoading(),
         sauces: mockGenerateSauces(),
-        error: {},
+        error: mockError(),
         getFeaturedSauces: mockGetFeaturedSauces
       };
     }
@@ -126,6 +131,24 @@ describe("<FeaturedSauces />", () => {
       expect(
         wrapper.find("[data-testid='cardsContainer']").first().text()
       ).toEqual(_loadingText);
+    });
+  });
+
+  it("will display error text if there is an error", () => {
+    wrappers.forEach(wrapper => {
+      // set error
+      const err = casual.text;
+      mockError = (): FlashMessageProps => ({
+        isVisible: true,
+        text: err
+      });
+      // unmount and mount again to rerender
+      wrapper.unmount();
+      wrapper.mount();
+
+      expect(
+        wrapper.find("[data-testid='cardsContainer']").first().text()
+      ).toEqual(err);
     });
   });
 });
