@@ -168,4 +168,19 @@ describe("<NewstSauces />", () => {
       ).toEqual(_noSaucesFoundText);
     });
   });
+
+  it("will render a Card component for each featured sauce", () => {
+    wrappers.forEach(wrapper => {
+      mockSaucesArr = generateFakeSauces();
+
+      // unmount and mount again to rerender
+      wrapper.unmount();
+      wrapper.mount();
+
+      // Multiply by 2 bc of how StyledComponents renders components
+      expect(
+        wrapper.find("[data-testid='cardsContainer'] Card Card").length
+      ).toEqual(mockSaucesArr.length);
+    });
+  });
 });
