@@ -134,4 +134,23 @@ describe("<NewstSauces />", () => {
       ).toEqual(_loadingText);
     });
   });
+
+  it("will display error text if there is an error", () => {
+    wrappers.forEach(wrapper => {
+      // set error
+      const err = casual.text;
+      mockError = {
+        isVisible: true,
+        text: err
+      };
+
+      // unmount and mount again to rerender
+      wrapper.unmount();
+      wrapper.mount();
+
+      expect(
+        wrapper.find("[data-testid='cardsContainer']").first().text()
+      ).toEqual(err);
+    });
+  });
 });
