@@ -183,4 +183,27 @@ describe("<NewstSauces />", () => {
       ).toEqual(mockSaucesArr.length);
     });
   });
+
+  it("passes expected props to each Card component", () => {
+    wrappers.forEach(wrapper => {
+      mockSaucesArr = generateFakeSauces();
+
+      // unmount and mount again to rerender
+      wrapper.unmount();
+      wrapper.mount();
+
+      // Double Card selection bc of how StyledComponents renders components
+      const cards = wrapper.find("[data-testid='cardsContainer'] Card Card");
+      mockSaucesArr.forEach((sauce, ind) => {
+        // Grab specific card
+        const card = cards.at(ind);
+
+        // Test props
+        expect(card.prop("title")).toEqual(sauce.name);
+        expect(card.prop("imageLink")).toContain(sauce.photo);
+        expect(card.prop("description")).toEqual(sauce.description);
+        expect(card.prop("to")).toContain(sauce.slug);
+      });
+    });
+  });
 });
