@@ -60,7 +60,7 @@ exports[`<NewstSauces /> matches snapshot 1`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -190,7 +190,7 @@ exports[`<NewstSauces /> matches snapshot 1`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -199,7 +199,7 @@ exports[`<NewstSauces /> matches snapshot 1`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -329,7 +329,7 @@ exports[`<NewstSauces /> matches snapshot 1`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -338,7 +338,7 @@ exports[`<NewstSauces /> matches snapshot 1`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -468,7 +468,7 @@ exports[`<NewstSauces /> matches snapshot 1`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -539,7 +539,7 @@ exports[`<NewstSauces /> matches snapshot 2`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -669,7 +669,7 @@ exports[`<NewstSauces /> matches snapshot 2`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -678,7 +678,7 @@ exports[`<NewstSauces /> matches snapshot 2`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -808,7 +808,7 @@ exports[`<NewstSauces /> matches snapshot 2`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -817,7 +817,7 @@ exports[`<NewstSauces /> matches snapshot 2`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -947,7 +947,7 @@ exports[`<NewstSauces /> matches snapshot 2`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -1014,7 +1014,7 @@ exports[`<NewstSauces /> matches snapshot 3`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -1144,7 +1144,7 @@ exports[`<NewstSauces /> matches snapshot 3`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -1153,7 +1153,7 @@ exports[`<NewstSauces /> matches snapshot 3`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -1283,7 +1283,7 @@ exports[`<NewstSauces /> matches snapshot 3`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -1292,7 +1292,7 @@ exports[`<NewstSauces /> matches snapshot 3`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -1422,7 +1422,7 @@ exports[`<NewstSauces /> matches snapshot 3`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -1489,7 +1489,7 @@ exports[`<NewstSauces /> matches snapshot 4`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -1619,7 +1619,7 @@ exports[`<NewstSauces /> matches snapshot 4`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -1628,7 +1628,7 @@ exports[`<NewstSauces /> matches snapshot 4`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -1758,7 +1758,7 @@ exports[`<NewstSauces /> matches snapshot 4`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -1767,7 +1767,7 @@ exports[`<NewstSauces /> matches snapshot 4`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -1897,7 +1897,7 @@ exports[`<NewstSauces /> matches snapshot 4`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -1964,7 +1964,7 @@ exports[`<NewstSauces /> matches snapshot 5`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -2094,7 +2094,7 @@ exports[`<NewstSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -2103,7 +2103,7 @@ exports[`<NewstSauces /> matches snapshot 5`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -2233,7 +2233,7 @@ exports[`<NewstSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -2242,7 +2242,7 @@ exports[`<NewstSauces /> matches snapshot 5`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -2372,7 +2372,7 @@ exports[`<NewstSauces /> matches snapshot 5`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -2439,7 +2439,7 @@ exports[`<NewstSauces /> matches snapshot 6`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -2569,7 +2569,7 @@ exports[`<NewstSauces /> matches snapshot 6`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -2578,7 +2578,7 @@ exports[`<NewstSauces /> matches snapshot 6`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -2708,7 +2708,7 @@ exports[`<NewstSauces /> matches snapshot 6`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -2717,7 +2717,7 @@ exports[`<NewstSauces /> matches snapshot 6`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -2847,7 +2847,7 @@ exports[`<NewstSauces /> matches snapshot 6`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -2914,7 +2914,7 @@ exports[`<NewstSauces /> matches snapshot 7`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -3044,7 +3044,7 @@ exports[`<NewstSauces /> matches snapshot 7`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -3053,7 +3053,7 @@ exports[`<NewstSauces /> matches snapshot 7`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -3183,7 +3183,7 @@ exports[`<NewstSauces /> matches snapshot 7`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -3192,7 +3192,7 @@ exports[`<NewstSauces /> matches snapshot 7`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -3322,7 +3322,7 @@ exports[`<NewstSauces /> matches snapshot 7`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -3393,7 +3393,7 @@ exports[`<NewstSauces /> matches snapshot 8`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -3523,7 +3523,7 @@ exports[`<NewstSauces /> matches snapshot 8`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -3532,7 +3532,7 @@ exports[`<NewstSauces /> matches snapshot 8`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -3662,7 +3662,7 @@ exports[`<NewstSauces /> matches snapshot 8`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -3671,7 +3671,7 @@ exports[`<NewstSauces /> matches snapshot 8`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -3801,7 +3801,7 @@ exports[`<NewstSauces /> matches snapshot 8`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -3868,7 +3868,7 @@ exports[`<NewstSauces /> matches snapshot 9`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -3998,7 +3998,7 @@ exports[`<NewstSauces /> matches snapshot 9`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -4007,7 +4007,7 @@ exports[`<NewstSauces /> matches snapshot 9`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -4137,7 +4137,7 @@ exports[`<NewstSauces /> matches snapshot 9`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -4146,7 +4146,7 @@ exports[`<NewstSauces /> matches snapshot 9`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -4276,7 +4276,7 @@ exports[`<NewstSauces /> matches snapshot 9`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -4347,7 +4347,7 @@ exports[`<NewstSauces /> matches snapshot 10`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -4477,7 +4477,7 @@ exports[`<NewstSauces /> matches snapshot 10`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -4486,7 +4486,7 @@ exports[`<NewstSauces /> matches snapshot 10`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -4616,7 +4616,7 @@ exports[`<NewstSauces /> matches snapshot 10`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -4625,7 +4625,7 @@ exports[`<NewstSauces /> matches snapshot 10`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -4755,7 +4755,7 @@ exports[`<NewstSauces /> matches snapshot 10`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -4822,7 +4822,7 @@ exports[`<NewstSauces /> matches snapshot 11`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -4952,7 +4952,7 @@ exports[`<NewstSauces /> matches snapshot 11`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -4961,7 +4961,7 @@ exports[`<NewstSauces /> matches snapshot 11`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -5091,7 +5091,7 @@ exports[`<NewstSauces /> matches snapshot 11`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -5100,7 +5100,7 @@ exports[`<NewstSauces /> matches snapshot 11`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -5230,7 +5230,7 @@ exports[`<NewstSauces /> matches snapshot 11`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -5301,7 +5301,7 @@ exports[`<NewstSauces /> matches snapshot 12`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -5431,7 +5431,7 @@ exports[`<NewstSauces /> matches snapshot 12`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -5440,7 +5440,7 @@ exports[`<NewstSauces /> matches snapshot 12`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -5570,7 +5570,7 @@ exports[`<NewstSauces /> matches snapshot 12`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -5579,7 +5579,7 @@ exports[`<NewstSauces /> matches snapshot 12`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -5709,7 +5709,7 @@ exports[`<NewstSauces /> matches snapshot 12`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -5780,7 +5780,7 @@ exports[`<NewstSauces /> matches snapshot 13`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -5910,7 +5910,7 @@ exports[`<NewstSauces /> matches snapshot 13`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -5919,7 +5919,7 @@ exports[`<NewstSauces /> matches snapshot 13`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -6049,7 +6049,7 @@ exports[`<NewstSauces /> matches snapshot 13`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -6058,7 +6058,7 @@ exports[`<NewstSauces /> matches snapshot 13`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -6188,7 +6188,7 @@ exports[`<NewstSauces /> matches snapshot 13`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -6259,7 +6259,7 @@ exports[`<NewstSauces /> matches snapshot 14`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -6389,7 +6389,7 @@ exports[`<NewstSauces /> matches snapshot 14`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -6398,7 +6398,7 @@ exports[`<NewstSauces /> matches snapshot 14`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -6528,7 +6528,7 @@ exports[`<NewstSauces /> matches snapshot 14`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -6537,7 +6537,7 @@ exports[`<NewstSauces /> matches snapshot 14`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -6667,7 +6667,7 @@ exports[`<NewstSauces /> matches snapshot 14`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -6738,7 +6738,7 @@ exports[`<NewstSauces /> matches snapshot 15`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -6868,7 +6868,7 @@ exports[`<NewstSauces /> matches snapshot 15`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -6877,7 +6877,7 @@ exports[`<NewstSauces /> matches snapshot 15`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -7007,7 +7007,7 @@ exports[`<NewstSauces /> matches snapshot 15`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -7016,7 +7016,7 @@ exports[`<NewstSauces /> matches snapshot 15`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -7146,7 +7146,7 @@ exports[`<NewstSauces /> matches snapshot 15`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -7213,7 +7213,7 @@ exports[`<NewstSauces /> matches snapshot 16`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -7343,7 +7343,7 @@ exports[`<NewstSauces /> matches snapshot 16`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -7352,7 +7352,7 @@ exports[`<NewstSauces /> matches snapshot 16`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -7482,7 +7482,7 @@ exports[`<NewstSauces /> matches snapshot 16`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -7491,7 +7491,7 @@ exports[`<NewstSauces /> matches snapshot 16`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -7621,7 +7621,7 @@ exports[`<NewstSauces /> matches snapshot 16`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -7688,7 +7688,7 @@ exports[`<NewstSauces /> matches snapshot 17`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -7818,7 +7818,7 @@ exports[`<NewstSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -7827,7 +7827,7 @@ exports[`<NewstSauces /> matches snapshot 17`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -7957,7 +7957,7 @@ exports[`<NewstSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -7966,7 +7966,7 @@ exports[`<NewstSauces /> matches snapshot 17`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -8096,7 +8096,7 @@ exports[`<NewstSauces /> matches snapshot 17`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -8167,7 +8167,7 @@ exports[`<NewstSauces /> matches snapshot 18`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -8297,7 +8297,7 @@ exports[`<NewstSauces /> matches snapshot 18`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -8306,7 +8306,7 @@ exports[`<NewstSauces /> matches snapshot 18`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -8436,7 +8436,7 @@ exports[`<NewstSauces /> matches snapshot 18`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -8445,7 +8445,7 @@ exports[`<NewstSauces /> matches snapshot 18`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -8575,7 +8575,7 @@ exports[`<NewstSauces /> matches snapshot 18`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -8642,7 +8642,7 @@ exports[`<NewstSauces /> matches snapshot 19`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -8772,7 +8772,7 @@ exports[`<NewstSauces /> matches snapshot 19`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -8781,7 +8781,7 @@ exports[`<NewstSauces /> matches snapshot 19`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -8911,7 +8911,7 @@ exports[`<NewstSauces /> matches snapshot 19`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -8920,7 +8920,7 @@ exports[`<NewstSauces /> matches snapshot 19`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -9050,7 +9050,7 @@ exports[`<NewstSauces /> matches snapshot 19`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -9121,7 +9121,7 @@ exports[`<NewstSauces /> matches snapshot 20`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -9251,7 +9251,7 @@ exports[`<NewstSauces /> matches snapshot 20`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -9260,7 +9260,7 @@ exports[`<NewstSauces /> matches snapshot 20`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -9390,7 +9390,7 @@ exports[`<NewstSauces /> matches snapshot 20`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -9399,7 +9399,7 @@ exports[`<NewstSauces /> matches snapshot 20`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -9529,7 +9529,7 @@ exports[`<NewstSauces /> matches snapshot 20`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -9600,7 +9600,7 @@ exports[`<NewstSauces /> matches snapshot 21`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -9730,7 +9730,7 @@ exports[`<NewstSauces /> matches snapshot 21`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -9739,7 +9739,7 @@ exports[`<NewstSauces /> matches snapshot 21`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -9869,7 +9869,7 @@ exports[`<NewstSauces /> matches snapshot 21`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -9878,7 +9878,7 @@ exports[`<NewstSauces /> matches snapshot 21`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -10008,7 +10008,7 @@ exports[`<NewstSauces /> matches snapshot 21`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -10079,7 +10079,7 @@ exports[`<NewstSauces /> matches snapshot 22`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -10209,7 +10209,7 @@ exports[`<NewstSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -10218,7 +10218,7 @@ exports[`<NewstSauces /> matches snapshot 22`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -10348,7 +10348,7 @@ exports[`<NewstSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -10357,7 +10357,7 @@ exports[`<NewstSauces /> matches snapshot 22`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -10487,7 +10487,7 @@ exports[`<NewstSauces /> matches snapshot 22`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -10558,7 +10558,7 @@ exports[`<NewstSauces /> matches snapshot 23`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -10688,7 +10688,7 @@ exports[`<NewstSauces /> matches snapshot 23`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -10697,7 +10697,7 @@ exports[`<NewstSauces /> matches snapshot 23`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -10827,7 +10827,7 @@ exports[`<NewstSauces /> matches snapshot 23`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -10836,7 +10836,7 @@ exports[`<NewstSauces /> matches snapshot 23`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -10966,7 +10966,7 @@ exports[`<NewstSauces /> matches snapshot 23`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -11033,7 +11033,7 @@ exports[`<NewstSauces /> matches snapshot 24`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -11163,7 +11163,7 @@ exports[`<NewstSauces /> matches snapshot 24`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -11172,7 +11172,7 @@ exports[`<NewstSauces /> matches snapshot 24`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -11302,7 +11302,7 @@ exports[`<NewstSauces /> matches snapshot 24`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -11311,7 +11311,7 @@ exports[`<NewstSauces /> matches snapshot 24`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -11441,7 +11441,7 @@ exports[`<NewstSauces /> matches snapshot 24`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -11508,7 +11508,7 @@ exports[`<NewstSauces /> matches snapshot 25`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -11638,7 +11638,7 @@ exports[`<NewstSauces /> matches snapshot 25`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -11647,7 +11647,7 @@ exports[`<NewstSauces /> matches snapshot 25`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -11777,7 +11777,7 @@ exports[`<NewstSauces /> matches snapshot 25`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -11786,7 +11786,7 @@ exports[`<NewstSauces /> matches snapshot 25`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -11916,7 +11916,7 @@ exports[`<NewstSauces /> matches snapshot 25`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -11983,7 +11983,7 @@ exports[`<NewstSauces /> matches snapshot 26`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -12113,7 +12113,7 @@ exports[`<NewstSauces /> matches snapshot 26`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -12122,7 +12122,7 @@ exports[`<NewstSauces /> matches snapshot 26`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -12252,7 +12252,7 @@ exports[`<NewstSauces /> matches snapshot 26`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -12261,7 +12261,7 @@ exports[`<NewstSauces /> matches snapshot 26`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -12391,7 +12391,7 @@ exports[`<NewstSauces /> matches snapshot 26`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -12458,7 +12458,7 @@ exports[`<NewstSauces /> matches snapshot 27`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -12588,7 +12588,7 @@ exports[`<NewstSauces /> matches snapshot 27`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -12597,7 +12597,7 @@ exports[`<NewstSauces /> matches snapshot 27`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -12727,7 +12727,7 @@ exports[`<NewstSauces /> matches snapshot 27`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -12736,7 +12736,7 @@ exports[`<NewstSauces /> matches snapshot 27`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -12866,7 +12866,7 @@ exports[`<NewstSauces /> matches snapshot 27`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -12937,7 +12937,7 @@ exports[`<NewstSauces /> matches snapshot 28`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -13067,7 +13067,7 @@ exports[`<NewstSauces /> matches snapshot 28`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -13076,7 +13076,7 @@ exports[`<NewstSauces /> matches snapshot 28`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -13206,7 +13206,7 @@ exports[`<NewstSauces /> matches snapshot 28`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -13215,7 +13215,7 @@ exports[`<NewstSauces /> matches snapshot 28`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -13345,7 +13345,7 @@ exports[`<NewstSauces /> matches snapshot 28`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -13416,7 +13416,7 @@ exports[`<NewstSauces /> matches snapshot 29`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -13546,7 +13546,7 @@ exports[`<NewstSauces /> matches snapshot 29`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -13555,7 +13555,7 @@ exports[`<NewstSauces /> matches snapshot 29`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -13685,7 +13685,7 @@ exports[`<NewstSauces /> matches snapshot 29`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -13694,7 +13694,7 @@ exports[`<NewstSauces /> matches snapshot 29`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -13824,7 +13824,7 @@ exports[`<NewstSauces /> matches snapshot 29`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -13895,7 +13895,7 @@ exports[`<NewstSauces /> matches snapshot 30`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -14025,7 +14025,7 @@ exports[`<NewstSauces /> matches snapshot 30`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -14034,7 +14034,7 @@ exports[`<NewstSauces /> matches snapshot 30`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -14164,7 +14164,7 @@ exports[`<NewstSauces /> matches snapshot 30`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -14173,7 +14173,7 @@ exports[`<NewstSauces /> matches snapshot 30`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -14303,7 +14303,7 @@ exports[`<NewstSauces /> matches snapshot 30`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -14370,7 +14370,7 @@ exports[`<NewstSauces /> matches snapshot 31`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -14500,7 +14500,7 @@ exports[`<NewstSauces /> matches snapshot 31`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -14509,7 +14509,7 @@ exports[`<NewstSauces /> matches snapshot 31`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -14639,7 +14639,7 @@ exports[`<NewstSauces /> matches snapshot 31`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -14648,7 +14648,7 @@ exports[`<NewstSauces /> matches snapshot 31`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -14778,7 +14778,7 @@ exports[`<NewstSauces /> matches snapshot 31`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
@@ -14849,7 +14849,7 @@ exports[`<NewstSauces /> matches snapshot 32`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="ex unde veniam soluta qui adipisci vero"
                   imageLink="http://www.Kayla.us/"
                   title="Miss Green Gulgowski"
@@ -14979,7 +14979,7 @@ exports[`<NewstSauces /> matches snapshot 32`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -14988,7 +14988,7 @@ exports[`<NewstSauces /> matches snapshot 32`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="repellendus doloribus iusto sint quo quibusdam rerum"
                   imageLink="http://www.Kutch.net/"
                   title="Ms. Reese Ernser"
@@ -15118,7 +15118,7 @@ exports[`<NewstSauces /> matches snapshot 32`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
             <styled.div
@@ -15127,7 +15127,7 @@ exports[`<NewstSauces /> matches snapshot 32`] = `
               <div
                 className="sc-fznyAO fGwuy"
               >
-                <Styled(Card)
+                <Card
                   description="nihil a sapiente iusto nemo non debitis"
                   imageLink="undefined"
                   title="Mrs. Odessa Toy"
@@ -15257,7 +15257,7 @@ exports[`<NewstSauces /> matches snapshot 32`] = `
                       </div>
                     </div>
                   </Card>
-                </Styled(Card)>
+                </Card>
               </div>
             </styled.div>
           </div>
