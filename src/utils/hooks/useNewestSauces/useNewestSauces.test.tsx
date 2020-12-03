@@ -61,24 +61,24 @@ describe("useNewestSauces hook", () => {
     }
   });
 
-  // it("returns defaults when first called and redux store is empty", async () => {
-  //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
-  //     const reduxStore = mockStores[i].getState() as AppState;
-  //     if (reduxStore.sauces.featured) continue; // Keep going
+  it("returns defaults when first called and redux store is empty", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxStore = mockStores[i].getState() as AppState;
+      if (reduxStore.sauces.featured) continue; // Keep going
 
-  //     // mount component
-  //     const wrapper = mountReactHookWithReduxStore(
-  //       useNewestSauces,
-  //       mockStores[i]
-  //     );
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useNewestSauces,
+        mockStores[i]
+      );
 
-  //     const hook = wrapper.componentHook as IuseNewestSauces;
+      const hook = wrapper.componentHook as IuseNewestSauces;
 
-  //     expect(hook.loading).toEqual(_defaultIsLoading);
-  //     expect(hook.sauces).toEqual(_defaultSauces);
-  //     expect(hook.error).toEqual(_defaultFlashState);
-  //   }
-  // });
+      expect(hook.loading).toEqual(_defaultIsLoading);
+      expect(hook.sauces).toEqual(_defaultSauces);
+      expect(hook.error).toEqual(_defaultFlashState);
+    }
+  });
 
   // it("returns function which allows dispatches a redux action if redux featured sauces is empty", async () => {
   //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
