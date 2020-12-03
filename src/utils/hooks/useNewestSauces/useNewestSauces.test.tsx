@@ -17,7 +17,7 @@ const mockLoginPayload = () => ({
 });
 jest.mock(".../../../redux/sauces/actions", () => {
   return {
-    getSaucesByFeatured: () => {
+    getSaucesByNewest: () => {
       return mockLoginPayload();
     }
   };
@@ -64,7 +64,7 @@ describe("useNewestSauces hook", () => {
   it("returns defaults when first called and redux store is empty", async () => {
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
       const reduxStore = mockStores[i].getState() as AppState;
-      if (reduxStore.sauces.featured) continue; // Keep going
+      if (reduxStore.sauces.newest) continue; // Keep going
 
       // mount component
       const wrapper = mountReactHookWithReduxStore(
@@ -80,41 +80,41 @@ describe("useNewestSauces hook", () => {
     }
   });
 
-  // it("returns function which allows dispatches a redux action if redux featured sauces is empty", async () => {
+  it("returns function which allows dispatches a redux action if redux newest sauces is empty", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxStore = mockStores[i].getState() as AppState;
+      if (reduxStore.sauces.newest) continue; // Keep going
+
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useNewestSauces,
+        mockStores[i]
+      );
+
+      // make sure empty list before
+      const actionsBefore = mockStores[i].getActions();
+      expect(actionsBefore).toEqual([]);
+
+      // perform changes within our component
+      const hook = wrapper.componentHook as IuseNewestSauces;
+      await act(async () => {
+        hook.getNewestSauces();
+      });
+
+      // wait for things
+      await wait();
+
+      // Make sure action was emitted
+      const actionsAfter = mockStores[i].getActions();
+      // expect(actionsAfter).toEqual([mockLoginPayload()]);
+    }
+  });
+
+  // it("prevents dispatches action if redux newest sauces already has items", async () => {
   //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
   //     const reduxStore = mockStores[i].getState() as AppState;
-  //     if (reduxStore.sauces.featured) continue; // Keep going
-
-  //     // mount component
-  //     const wrapper = mountReactHookWithReduxStore(
-  //       useNewestSauces,
-  //       mockStores[i]
-  //     );
-
-  //     // make sure empty list before
-  //     const actionsBefore = mockStores[i].getActions();
-  //     expect(actionsBefore).toEqual([]);
-
-  //     // perform changes within our component
-  //     const hook = wrapper.componentHook as IuseNewestSauces;
-  //     await act(async () => {
-  //       hook.getNewestSauces();
-  //     });
-
-  //     // wait for things
-  //     await wait();
-
-  //     // Make sure action was emitted
-  //     const actionsAfter = mockStores[i].getActions();
-  //     expect(actionsAfter).toEqual([mockLoginPayload()]);
-  //   }
-  // });
-
-  // it("prevents dispatches action if redux featured sauces already has items", async () => {
-  //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
-  //     const reduxStore = mockStores[i].getState() as AppState;
-  //     const featured = reduxStore.sauces.featured;
-  //     if (!featured || featured.length === 0) {
+  //     const newest = reduxStore.sauces.newest;
+  //     if (!newest || newest.length === 0) {
   //       continue; // Keep going
   //     }
 
@@ -143,11 +143,11 @@ describe("useNewestSauces hook", () => {
   //   }
   // });
 
-  // it("returns featured sauces from redux if possible", async () => {
+  // it("returns newest sauces from redux if possible", async () => {
   //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
   //     const reduxStore = mockStores[i].getState() as AppState;
-  //     if (!reduxStore.sauces.featured) continue; // Keep going
-  //     if (reduxStore.sauces.featured.length === 0) continue; // Keep going
+  //     if (!reduxStore.sauces.newest) continue; // Keep going
+  //     if (reduxStore.sauces.newest.length === 0) continue; // Keep going
 
   //     // mount component
   //     const wrapper = mountReactHookWithReduxStore(
@@ -166,7 +166,7 @@ describe("useNewestSauces hook", () => {
 
   //     // Make sure that each sauce make it over.
   //     // Hook will have entire sauce Obj so we filter by slug only
-  //     expect(hook.sauces.map(x => x.slug)).toEqual(reduxStore.sauces.featured);
+  //     expect(hook.sauces.map(x => x.slug)).toEqual(reduxStore.sauces.newest);
   //   }
   // });
 });
