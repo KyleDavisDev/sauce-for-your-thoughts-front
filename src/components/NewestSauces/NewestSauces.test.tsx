@@ -95,4 +95,14 @@ describe("<NewstSauces />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("concatinates className onto parent container", () => {
+    wrappers.forEach((wrapper, ind) => {
+      if (!mockClassNames[ind]) return;
+
+      expect(wrapper.find("div").first().prop("className")).toContain(
+        mockClassNames[ind]
+      );
+    });
+  });
 });
