@@ -7,7 +7,6 @@ import { MockStoreEnhanced } from "redux-mock-store";
 import FeaturedSauces from "./FeaturedSauces";
 import {
   casual,
-  fakeSauce,
   fakeStore,
   generateFakeSauces,
   ITERATION_SIZE
