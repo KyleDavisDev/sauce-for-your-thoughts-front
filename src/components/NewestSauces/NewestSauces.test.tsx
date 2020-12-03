@@ -153,4 +153,19 @@ describe("<NewstSauces />", () => {
       ).toEqual(err);
     });
   });
+
+  it("will show appropriate text when no sauces are found", () => {
+    // assign empty list
+    mockSaucesArr = [];
+
+    wrappers.forEach(wrapper => {
+      // unmount and mount again to rerender
+      wrapper.unmount();
+      wrapper.mount();
+
+      expect(
+        wrapper.find("[data-testid='cardsContainer']").first().text()
+      ).toEqual(_noSaucesFoundText);
+    });
+  });
 });
