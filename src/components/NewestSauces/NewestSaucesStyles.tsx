@@ -14,6 +14,7 @@ export const StyledCard = styled(Card)`
   width: 100%;
   margin-bottom: 16px;
 `;
+StyledCard.displayName = "Card";
 
 export const StyledCardHolder = styled.div`
   padding: 1em;
