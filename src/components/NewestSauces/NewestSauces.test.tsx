@@ -119,4 +119,19 @@ describe("<NewstSauces />", () => {
       );
     });
   });
+
+  it("will display loading text if it is loading", () => {
+    // set loading
+    mockLoading = true;
+
+    wrappers.forEach(wrapper => {
+      // unmount and mount again to rerender
+      wrapper.unmount();
+      wrapper.mount();
+
+      expect(
+        wrapper.find("[data-testid='cardsContainer']").first().text()
+      ).toEqual(_loadingText);
+    });
+  });
 });
