@@ -110,38 +110,38 @@ describe("useNewestSauces hook", () => {
     }
   });
 
-  // it("prevents dispatches action if redux newest sauces already has items", async () => {
-  //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
-  //     const reduxStore = mockStores[i].getState() as AppState;
-  //     const newest = reduxStore.sauces.newest;
-  //     if (!newest || newest.length === 0) {
-  //       continue; // Keep going
-  //     }
+  it("prevents dispatches action if redux newest sauces already has items", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxStore = mockStores[i].getState() as AppState;
+      const newest = reduxStore.sauces.newest;
+      if (!newest || newest.length === 0) {
+        continue; // Keep going
+      }
 
-  //     // mount component
-  //     const wrapper = mountReactHookWithReduxStore(
-  //       useNewestSauces,
-  //       mockStores[i]
-  //     );
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useNewestSauces,
+        mockStores[i]
+      );
 
-  //     // make sure empty list before
-  //     const actionsBefore = mockStores[i].getActions();
-  //     expect(actionsBefore).toEqual([]);
+      // make sure empty list before
+      const actionsBefore = mockStores[i].getActions();
+      expect(actionsBefore).toEqual([]);
 
-  //     // perform changes within our component
-  //     const hook = wrapper.componentHook as IuseNewestSauces;
-  //     await act(async () => {
-  //       hook.getNewestSauces();
-  //     });
+      // perform changes within our component
+      const hook = wrapper.componentHook as IuseNewestSauces;
+      await act(async () => {
+        hook.getNewestSauces();
+      });
 
-  //     // wait for things
-  //     await wait();
+      // wait for things
+      await wait();
 
-  //     // Make sure there wasn't an action emitted
-  //     const actionsAfter = mockStores[i].getActions();
-  //     expect(actionsAfter).toEqual([]);
-  //   }
-  // });
+      // Make sure there wasn't an action emitted
+      const actionsAfter = mockStores[i].getActions();
+      expect(actionsAfter).toEqual([]);
+    }
+  });
 
   // it("returns newest sauces from redux if possible", async () => {
   //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
