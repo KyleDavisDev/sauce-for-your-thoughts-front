@@ -143,30 +143,30 @@ describe("useNewestSauces hook", () => {
     }
   });
 
-  // it("returns newest sauces from redux if possible", async () => {
-  //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
-  //     const reduxStore = mockStores[i].getState() as AppState;
-  //     if (!reduxStore.sauces.newest) continue; // Keep going
-  //     if (reduxStore.sauces.newest.length === 0) continue; // Keep going
+  it("returns newest sauces from redux if possible", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxStore = mockStores[i].getState() as AppState;
+      if (!reduxStore.sauces.newest) continue; // Keep going
+      if (reduxStore.sauces.newest.length === 0) continue; // Keep going
 
-  //     // mount component
-  //     const wrapper = mountReactHookWithReduxStore(
-  //       useNewestSauces,
-  //       mockStores[i]
-  //     );
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useNewestSauces,
+        mockStores[i]
+      );
 
-  //     // perform changes within our component
-  //     const hook = wrapper.componentHook as IuseNewestSauces;
-  //     await act(async () => {
-  //       hook.getNewestSauces();
-  //     });
+      // perform changes within our component
+      const hook = wrapper.componentHook as IuseNewestSauces;
+      await act(async () => {
+        hook.getNewestSauces();
+      });
 
-  //     // wait for things
-  //     await wait();
+      // wait for things
+      await wait();
 
-  //     // Make sure that each sauce make it over.
-  //     // Hook will have entire sauce Obj so we filter by slug only
-  //     expect(hook.sauces.map(x => x.slug)).toEqual(reduxStore.sauces.newest);
-  //   }
-  // });
+      // Make sure that each sauce make it over.
+      // Hook will have entire sauce Obj so we filter by slug only
+      expect(hook.sauces.map(x => x.slug)).toEqual(reduxStore.sauces.newest);
+    }
+  });
 });
