@@ -7,7 +7,7 @@ export const StyledSauceContainer = styled.div`
   margin-bottom: 3em;
 `;
 
-export const StyledImageContainer = styled.div`
+export const ImageContainer = styled.div`
   max-width: 100%;
   padding: 0 5px;
   box-sizing: border-box;
@@ -17,6 +17,7 @@ export const StyledImageContainer = styled.div`
     padding: 0 15px;
   }
 `;
+ImageContainer.displayName = "div";
 
 export const StyleImg = styled.img`
   width: 100%;
