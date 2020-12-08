@@ -945,6 +945,34 @@ export const API = {
     }
   },
 
+  reviews: {
+    /** @description Get sauce-specific reviews from the server
+     *  @param {Object}
+     *    @param {String} slug - unique sauce slug
+     *  @returns {AxiosPromise} AxiosPromise
+     *  @resolves {Object} res.data - relevant info to request
+     *
+     *  {Boolean} res.data.isGood - whether request was good or not
+     *
+     *  {Object} res.data.reviews - review information
+     *
+     *  @reject {String} error message
+     */
+    getBySlug: ({ slug }): AxiosPromise => {
+      const data = { sauce: { slug } };
+      return axios
+        .post(`${host}/api/reviews/get/by/slug`, data)
+        .then((res: any) => {
+          if (res.data.isGood) {
+            return res;
+          }
+
+          // If not good, throw an error
+          throw Err({ msg: res.data.msg, status: res.status });
+        });
+    }
+  },
+
   image: {
     /** @description Get the URL paths to avatars
      *  @param {Object} data data object
