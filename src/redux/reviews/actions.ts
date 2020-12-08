@@ -142,3 +142,31 @@ export const getReview = (
 
   return null;
 };
+
+/** @description Get review from server
+ *  @param {String} slug - sauce slug to lookup
+ *  @fires reviews#addedReviews - add review to store
+ *  @returns {Promise} Promise
+ *    @resolves {NULL} null
+ *  @reject {Error} error message
+ */
+export const getReviewsBySlug = ({
+  slug
+}: {
+  slug: string;
+}): MyThunkResult<Promise<null>> => async dispatch => {
+  // Find review
+  const res = await API.reviews.getBySlug({ slug });
+
+  // Normalize reviews
+  const { byReviewID, allReviewIDs } = Flatn.reviews({
+    reviews: res.data.reviews
+  });
+
+  // Create obj to redux
+  const normalizedReviews: IReviewsState = { byReviewID, allReviewIDs };
+  // Push reviews to redux
+  dispatch(addedReviews({ reviews: normalizedReviews }));
+
+  return null;
+};
