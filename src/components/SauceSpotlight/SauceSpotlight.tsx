@@ -19,7 +19,7 @@ import {
 
 export interface SauceSpotlightProps {}
 
-const SauceSpotlight: React.SFC<SauceSpotlightProps> = props => {
+const SauceSpotlight: React.FC<SauceSpotlightProps> = props => {
   return (
     <>
       <StyledLeftContainer>
