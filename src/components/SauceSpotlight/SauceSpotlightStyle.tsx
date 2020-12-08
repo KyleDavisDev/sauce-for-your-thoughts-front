@@ -1,5 +1,4 @@
 import styled from "../../theme/styled-components";
-import Descriptor from "../Descriptor/Descriptor";
 
 export const StyledLeftContainer = styled.div`
   width: 100%;
@@ -30,12 +29,5 @@ export const StyledRightContainer = styled.div`
 
   > * {
     margin-bottom: 2em;
-  }
-`;
-
-export const StyledDescriptor = styled(Descriptor)`
-  > p {
-    margin-top: 0;
-    font-style: italic;
   }
 `;
