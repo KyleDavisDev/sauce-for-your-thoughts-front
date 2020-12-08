@@ -81,7 +81,7 @@ export function useSauceBySlug(slug?: string): IuseSauceBySlug {
     if (!sauceWeWant || Object.keys(sauceWeWant).length === 0) return;
 
     setSauce(sauceWeWant);
-  }, [slug, router.query?.s]);
+  }, [slug, router.asPath]);
 
   return { loading, sauce, getTheSauce, error };
 }
