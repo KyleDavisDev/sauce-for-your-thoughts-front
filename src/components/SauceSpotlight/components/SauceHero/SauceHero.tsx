@@ -36,7 +36,7 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = props => {
 
   return (
     <>
-      {sauce.isAdminApproved ?? (
+      {!sauce.isAdminApproved ?? (
         <FlashMessage
           isVisible={true}
           text={
@@ -55,7 +55,7 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = props => {
           )}
         </ImageContainer>
         <StyledSauceInfoContainer>
-          <StyledH2>{name}</StyledH2>
+          <StyledH2>{sauce.name}</StyledH2>
           <p>
             <i>Maker:</i> {sauce.maker}
           </p>
