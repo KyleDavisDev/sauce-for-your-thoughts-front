@@ -2,71 +2,83 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../../redux/configureStore";
 import { ISauce } from "../../../../redux/sauces/types";
+import { useSauceBySlug } from "../../../../utils/hooks/useSauceBySlug/useSauceBySlug";
+import FlashMessage from "../../../FlashMessage/FlashMessage";
 
 import {
   StyledSauceContainer,
-  StyledImageContainer,
+  ImageContainer,
   StyleImg,
   StyledSauceInfoContainer,
   StyledH2
 } from "./SauceHeroStyle";
 
-export interface SauceHeroProps {
-  sauce?: ISauce; // This is sauce's slug that will have to be looked up
-}
+export interface SauceHeroProps {}
 
 const SauceHero: React.FunctionComponent<SauceHeroProps> = props => {
-  // grab sauce from pops and sanity check
-  const { sauce } = props;
-  if (!sauce) {
+  const { loading, sauce, error, getTheSauce } = useSauceBySlug();
+
+  React.useEffect(() => {
+    if (!loading && !sauce) getTheSauce();
+  }, []);
+
+  if (loading) {
     return <p>loading...</p>;
   }
 
-  // break down sauce
-  const {
-    name,
-    maker,
-    description,
-    ingredients,
-    types,
-    shu,
-    country,
-    photo
-  } = sauce;
+  if (error.isVisible) {
+    return <p>{error.text}</p>;
+  }
+
+  if (!sauce) {
+    return <p>Could not find sauce!</p>;
+  }
 
   return (
-    <StyledSauceContainer>
-      <StyledImageContainer>
-        {photo ? (
-          <StyleImg src={`${photo}`} />
-        ) : (
-          <StyleImg src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png" />
-        )}
-      </StyledImageContainer>
-      <StyledSauceInfoContainer>
-        <StyledH2>{name}</StyledH2>
-        <p>
-          <i>Maker:</i> {maker}
-        </p>
-        <p>
-          <i>Description:</i> {description}
-        </p>
-        <p>
-          <i>Ingredients:</i> {ingredients}
-        </p>
-        <p>
-          <i>Type:</i> {types ? types.join(", ") : "N/A"}
-        </p>
-        {shu && (
+    <>
+      {sauce.isAdminApproved ?? (
+        <FlashMessage
+          isVisible={true}
+          text={
+            "This sauce has not been approved by an admin yet and, as a result, will not appear listed with the other sauces."
+          }
+          type="warning"
+        />
+      )}
+
+      <StyledSauceContainer>
+        <ImageContainer>
+          {sauce.photo ? (
+            <StyleImg src={`${sauce.photo}`} />
+          ) : (
+            <StyleImg src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png" />
+          )}
+        </ImageContainer>
+        <StyledSauceInfoContainer>
+          <StyledH2>{name}</StyledH2>
           <p>
-            <i>SHU:</i> {shu} scoville
+            <i>Maker:</i> {sauce.maker}
           </p>
-        )}
-        <p>
-          <i>Made in:</i> {country || "Loading..."}
-        </p>
-      </StyledSauceInfoContainer>
-    </StyledSauceContainer>
+          <p>
+            <i>Description:</i> {sauce.description}
+          </p>
+          <p>
+            <i>Ingredients:</i> {sauce.ingredients}
+          </p>
+          <p>
+            <i>Type:</i> {sauce.types ? sauce.types.join(", ") : "N/A"}
+          </p>
+          {sauce.shu && (
+            <p>
+              <i>SHU:</i> {sauce.shu} scoville
+            </p>
+          )}
+          <p>
+            <i>Made in:</i> {sauce.country || "Loading..."}
+          </p>
+        </StyledSauceInfoContainer>
+      </StyledSauceContainer>
+    </>
   );
 };
 
