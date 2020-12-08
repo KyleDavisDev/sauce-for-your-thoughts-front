@@ -90,7 +90,7 @@ export function useGetReviewsBySlug(slug?: string): IuseGetReviewsBySlug {
       : [];
 
     setReviews(_reviews);
-  }, [slug, router.query?.s, reduxReviews.allReviewIDs]);
+  }, [slug, router.asPath, reduxReviews.allReviewIDs]);
 
   return { loading, reviews, getReviews, error };
 }
