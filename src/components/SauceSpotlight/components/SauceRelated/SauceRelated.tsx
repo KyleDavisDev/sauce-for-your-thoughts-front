@@ -1,11 +1,10 @@
 import * as React from "react";
-import { ISauce } from "../../../../redux/sauces/types";
 import { useSauceBySlug } from "../../../../utils/hooks/useSauceBySlug/useSauceBySlug";
 import List from "../../../List/List";
 
 interface ISauceRelatedProps {}
 
-const SauceRelated: React.FunctionComponent<ISauceRelatedProps> = props => {
+const SauceRelated: React.FunctionComponent<ISauceRelatedProps> = () => {
   const { loading, sauce, error, getTheSauce } = useSauceBySlug();
 
   React.useEffect(() => {
