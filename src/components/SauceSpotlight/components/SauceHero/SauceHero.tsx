@@ -1,7 +1,4 @@
 import * as React from "react";
-import { connect } from "react-redux";
-import { AppState } from "../../../../redux/configureStore";
-import { ISauce } from "../../../../redux/sauces/types";
 import { useSauceBySlug } from "../../../../utils/hooks/useSauceBySlug/useSauceBySlug";
 import FlashMessage from "../../../FlashMessage/FlashMessage";
 
@@ -15,7 +12,7 @@ import {
 
 export interface SauceHeroProps {}
 
-const SauceHero: React.FunctionComponent<SauceHeroProps> = props => {
+const SauceHero: React.FunctionComponent<SauceHeroProps> = () => {
   const { loading, sauce, error, getTheSauce } = useSauceBySlug();
 
   React.useEffect(() => {
@@ -62,20 +59,28 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = props => {
           <p>
             <i>Description:</i> {sauce.description}
           </p>
-          <p>
-            <i>Ingredients:</i> {sauce.ingredients}
-          </p>
+
+          {sauce.ingredients && (
+            <p>
+              <i>Ingredients:</i> {sauce.ingredients}
+            </p>
+          )}
+
           <p>
             <i>Type:</i> {sauce.types ? sauce.types.join(", ") : "N/A"}
           </p>
+
           {sauce.shu && (
             <p>
               <i>SHU:</i> {sauce.shu} scoville
             </p>
           )}
-          <p>
-            <i>Made in:</i> {sauce.country || "Loading..."}
-          </p>
+
+          {sauce.country && (
+            <p>
+              <i>Made in:</i> {sauce.country || "Loading..."}
+            </p>
+          )}
         </StyledSauceInfoContainer>
       </StyledSauceContainer>
     </>
