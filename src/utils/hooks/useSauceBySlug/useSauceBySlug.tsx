@@ -16,7 +16,7 @@ export interface IuseSauceBySlug {
 export function useSauceBySlug(slug?: string): IuseSauceBySlug {
   // init defaults
   const _defaultIsLoading = false;
-  const _defaultSauces = undefined;
+  const _defaultSauce = undefined;
   const _defaultFlashState = { isVisible: false };
   const _defaultErrorMsg =
     "Could not find a sauce corresponding to this page. Please refresh and try again.";
@@ -24,7 +24,7 @@ export function useSauceBySlug(slug?: string): IuseSauceBySlug {
   // get sauces from redux store
   const { sauces: reduxSauces } = useSelector((state: AppState) => state);
   // assign sauce
-  const [sauce, setSauce] = React.useState<ISauce | undefined>(_defaultSauces);
+  const [sauce, setSauce] = React.useState<ISauce | undefined>(_defaultSauce);
   // assign loading
   const [loading, setLoading] = React.useState(_defaultIsLoading);
   const [error, setError] = React.useState<FlashMessageProps>(
