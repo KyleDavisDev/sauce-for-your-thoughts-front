@@ -14,13 +14,13 @@ exports[`<Menu /> matches snapshot 1`] = `
   }
 >
   <Menu
-    className="error aspernatur ducimus ut dolorem iste voluptatem"
+    className="ullam similique assumenda soluta soluta harum explicabo"
   >
     <div
-      className="error aspernatur ducimus ut dolorem iste voluptatem"
+      className="ullam similique assumenda soluta soluta harum explicabo"
     >
       <div
-        className="sc-AxmLO bigGZS error aspernatur ducimus ut dolorem iste voluptatem"
+        className="sc-AxmLO bigGZS ullam similique assumenda soluta soluta harum explicabo"
       >
         <ul>
           <ul
@@ -41,25 +41,25 @@ exports[`<Menu /> matches snapshot 1`] = `
                       >
                         <div>
                           <img
-                            alt="Dr. Lew Wisozk"
+                            alt="Ms. Yvonne Hoppe"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Schultz.tv/"
+                            src="http://Tromp.name/"
                             width="50"
                           >
                             <img
-                              alt="Dr. Lew Wisozk"
+                              alt="Ms. Yvonne Hoppe"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Schultz.tv/"
+                              src="http://Tromp.name/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Dr. Lew Wisozk
+                            Ms. Yvonne Hoppe
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -312,13 +312,13 @@ exports[`<Menu /> matches snapshot 2`] = `
   }
 >
   <Menu
-    className="vitae fuga voluptatem consequatur pariatur sint id"
+    className="autem in error voluptatem neque qui non"
   >
     <div
-      className="vitae fuga voluptatem consequatur pariatur sint id"
+      className="autem in error voluptatem neque qui non"
     >
       <div
-        className="sc-AxmLO bigGZS vitae fuga voluptatem consequatur pariatur sint id"
+        className="sc-AxmLO bigGZS autem in error voluptatem neque qui non"
       >
         <ul>
           <ul
@@ -339,25 +339,25 @@ exports[`<Menu /> matches snapshot 2`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Mr. Elliott Dooley"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://Schmitt.us/"
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Mr. Elliott Dooley"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://Schmitt.us/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Mr. Elliott Dooley
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -633,14 +633,14 @@ exports[`<Menu /> matches snapshot 3`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Ms. Emilia Paucek"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Ms. Emilia Paucek"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -651,7 +651,7 @@ exports[`<Menu /> matches snapshot 3`] = `
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Ms. Emilia Paucek
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -1137,51 +1137,6 @@ exports[`<Menu /> matches snapshot 4`] = `
                 </Item>
               </Help>
             </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
-            </li>
             <hr
               style={
                 Object {
@@ -1242,14 +1197,10 @@ exports[`<Menu /> matches snapshot 5`] = `
     }
   }
 >
-  <Menu
-    className="et quis voluptas temporibus qui earum sint"
-  >
-    <div
-      className="et quis voluptas temporibus qui earum sint"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS et quis voluptas temporibus qui earum sint"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -1540,14 +1491,10 @@ exports[`<Menu /> matches snapshot 6`] = `
     }
   }
 >
-  <Menu
-    className="aut vel libero veniam ratione sint totam"
-  >
-    <div
-      className="aut vel libero veniam ratione sint totam"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS aut vel libero veniam ratione sint totam"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -1865,7 +1812,7 @@ exports[`<Menu /> matches snapshot 7`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://www.Gianni.us/"
                             width="50"
                           >
                             <img
@@ -1873,7 +1820,7 @@ exports[`<Menu /> matches snapshot 7`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://www.Gianni.us/"
                               width="50"
                             />
                           </img>
@@ -2132,10 +2079,14 @@ exports[`<Menu /> matches snapshot 8`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="dolores voluptas fuga necessitatibus doloribus incidunt nulla"
+  >
+    <div
+      className="dolores voluptas fuga necessitatibus doloribus incidunt nulla"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS dolores voluptas fuga necessitatibus doloribus incidunt nulla"
       >
         <ul>
           <ul
@@ -2156,25 +2107,25 @@ exports[`<Menu /> matches snapshot 8`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Mrs. Camille Wuckert"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Williamson.biz/"
+                            src=""
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Mrs. Camille Wuckert"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Williamson.biz/"
+                              src=""
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Mrs. Camille Wuckert
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -2365,6 +2316,51 @@ exports[`<Menu /> matches snapshot 8`] = `
                   </styled.div>
                 </Item>
               </Help>
+            </li>
+            <li>
+              <Admin>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Admin
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/admin/approvesaucesubmissions"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/admin/approvesaucesubmissions"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/admin/approvesaucesubmissions"
+                        >
+                          <Link
+                            href="/admin/approvesaucesubmissions"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/admin/approvesaucesubmissions"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Approve Submissions
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Admin>
             </li>
             <hr
               style={
@@ -2720,10 +2716,14 @@ exports[`<Menu /> matches snapshot 10`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="atque quas error id molestias incidunt rerum"
+  >
+    <div
+      className="atque quas error id molestias incidunt rerum"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS atque quas error id molestias incidunt rerum"
       >
         <ul>
           <ul
@@ -2744,25 +2744,25 @@ exports[`<Menu /> matches snapshot 10`] = `
                       >
                         <div>
                           <img
-                            alt="Mr. Era Armstrong"
+                            alt="Mrs. Judd Macejkovic"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Hoppe.biz/"
+                            src=""
                             width="50"
                           >
                             <img
-                              alt="Mr. Era Armstrong"
+                              alt="Mrs. Judd Macejkovic"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Hoppe.biz/"
+                              src=""
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Mr. Era Armstrong
+                            Mrs. Judd Macejkovic
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -3014,14 +3014,10 @@ exports[`<Menu /> matches snapshot 11`] = `
     }
   }
 >
-  <Menu
-    className="aliquam quae sed autem id voluptas iusto"
-  >
-    <div
-      className="aliquam quae sed autem id voluptas iusto"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS aliquam quae sed autem id voluptas iusto"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -3042,25 +3038,25 @@ exports[`<Menu /> matches snapshot 11`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Mr. Ola Bernhard"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Jamar.us/"
+                            src="http://www.Alexys.info/"
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Mr. Ola Bernhard"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Jamar.us/"
+                              src="http://www.Alexys.info/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Mr. Ola Bernhard
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -3252,51 +3248,6 @@ exports[`<Menu /> matches snapshot 11`] = `
                 </Item>
               </Help>
             </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
-            </li>
             <hr
               style={
                 Object {
@@ -3358,13 +3309,13 @@ exports[`<Menu /> matches snapshot 12`] = `
   }
 >
   <Menu
-    className="quas reprehenderit optio modi amet aut soluta"
+    className="aspernatur et adipisci non a non maiores"
   >
     <div
-      className="quas reprehenderit optio modi amet aut soluta"
+      className="aspernatur et adipisci non a non maiores"
     >
       <div
-        className="sc-AxmLO bigGZS quas reprehenderit optio modi amet aut soluta"
+        className="sc-AxmLO bigGZS aspernatur et adipisci non a non maiores"
       >
         <ul>
           <ul
@@ -3385,14 +3336,14 @@ exports[`<Menu /> matches snapshot 12`] = `
                       >
                         <div>
                           <img
-                            alt="Mrs. Kevin Schmeler"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Mrs. Kevin Schmeler"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -3403,7 +3354,7 @@ exports[`<Menu /> matches snapshot 12`] = `
                         </div>
                         <div>
                           <h3>
-                            Mrs. Kevin Schmeler
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -3656,13 +3607,13 @@ exports[`<Menu /> matches snapshot 13`] = `
   }
 >
   <Menu
-    className="consequatur aut quasi sed ullam aspernatur autem"
+    className="sed cupiditate nobis sit eum nam quo"
   >
     <div
-      className="consequatur aut quasi sed ullam aspernatur autem"
+      className="sed cupiditate nobis sit eum nam quo"
     >
       <div
-        className="sc-AxmLO bigGZS consequatur aut quasi sed ullam aspernatur autem"
+        className="sc-AxmLO bigGZS sed cupiditate nobis sit eum nam quo"
       >
         <ul>
           <ul
@@ -3686,7 +3637,7 @@ exports[`<Menu /> matches snapshot 13`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://Lemke.biz/"
+                            src=""
                             width="50"
                           >
                             <img
@@ -3694,7 +3645,7 @@ exports[`<Menu /> matches snapshot 13`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://Lemke.biz/"
+                              src=""
                               width="50"
                             />
                           </img>
@@ -3953,10 +3904,14 @@ exports[`<Menu /> matches snapshot 14`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="natus occaecati dolorum voluptas quos et ipsam"
+  >
+    <div
+      className="natus occaecati dolorum voluptas quos et ipsam"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS natus occaecati dolorum voluptas quos et ipsam"
       >
         <ul>
           <ul
@@ -4248,13 +4203,13 @@ exports[`<Menu /> matches snapshot 15`] = `
   }
 >
   <Menu
-    className="doloremque voluptatem deleniti et modi dolorum ut"
+    className="ex a suscipit et voluptates in mollitia"
   >
     <div
-      className="doloremque voluptatem deleniti et modi dolorum ut"
+      className="ex a suscipit et voluptates in mollitia"
     >
       <div
-        className="sc-AxmLO bigGZS doloremque voluptatem deleniti et modi dolorum ut"
+        className="sc-AxmLO bigGZS ex a suscipit et voluptates in mollitia"
       >
         <ul>
           <ul
@@ -4278,7 +4233,7 @@ exports[`<Menu /> matches snapshot 15`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://Enoch.net/"
+                            src=""
                             width="50"
                           >
                             <img
@@ -4286,7 +4241,7 @@ exports[`<Menu /> matches snapshot 15`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://Enoch.net/"
+                              src=""
                               width="50"
                             />
                           </img>
@@ -4485,51 +4440,6 @@ exports[`<Menu /> matches snapshot 15`] = `
                 </Item>
               </Help>
             </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
-            </li>
             <hr
               style={
                 Object {
@@ -4590,14 +4500,10 @@ exports[`<Menu /> matches snapshot 16`] = `
     }
   }
 >
-  <Menu
-    className="sit earum delectus vero voluptatum eligendi cum"
-  >
-    <div
-      className="sit earum delectus vero voluptatum eligendi cum"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS sit earum delectus vero voluptatum eligendi cum"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -4912,25 +4818,25 @@ exports[`<Menu /> matches snapshot 17`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Miss Elwyn Hilpert"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://Hamill.name/"
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Miss Elwyn Hilpert"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://Hamill.name/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Miss Elwyn Hilpert
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -5182,10 +5088,14 @@ exports[`<Menu /> matches snapshot 18`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="officia assumenda blanditiis aliquam quidem est impedit"
+  >
+    <div
+      className="officia assumenda blanditiis aliquam quidem est impedit"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS officia assumenda blanditiis aliquam quidem est impedit"
       >
         <ul>
           <ul
@@ -5206,14 +5116,14 @@ exports[`<Menu /> matches snapshot 18`] = `
                       >
                         <div>
                           <img
-                            alt="Mrs. Virginie Renner"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Mrs. Virginie Renner"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -5224,7 +5134,7 @@ exports[`<Menu /> matches snapshot 18`] = `
                         </div>
                         <div>
                           <h3>
-                            Mrs. Virginie Renner
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -5500,14 +5410,14 @@ exports[`<Menu /> matches snapshot 19`] = `
                       >
                         <div>
                           <img
-                            alt="Miss Velva Wiza"
+                            alt="Mrs. Lavina Mayert"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Miss Velva Wiza"
+                              alt="Mrs. Lavina Mayert"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -5518,7 +5428,7 @@ exports[`<Menu /> matches snapshot 19`] = `
                         </div>
                         <div>
                           <h3>
-                            Miss Velva Wiza
+                            Mrs. Lavina Mayert
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -5770,10 +5680,14 @@ exports[`<Menu /> matches snapshot 20`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="occaecati voluptate quis consequatur qui velit harum"
+  >
+    <div
+      className="occaecati voluptate quis consequatur qui velit harum"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS occaecati voluptate quis consequatur qui velit harum"
       >
         <ul>
           <ul
@@ -5794,14 +5708,14 @@ exports[`<Menu /> matches snapshot 20`] = `
                       >
                         <div>
                           <img
-                            alt="Mr. Gerhard Lemke"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Mr. Gerhard Lemke"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -5812,7 +5726,7 @@ exports[`<Menu /> matches snapshot 20`] = `
                         </div>
                         <div>
                           <h3>
-                            Mr. Gerhard Lemke
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -6065,13 +5979,13 @@ exports[`<Menu /> matches snapshot 21`] = `
   }
 >
   <Menu
-    className="officiis ipsum est molestias sequi corporis quae"
+    className="expedita sed incidunt ipsum quia facilis quidem"
   >
     <div
-      className="officiis ipsum est molestias sequi corporis quae"
+      className="expedita sed incidunt ipsum quia facilis quidem"
     >
       <div
-        className="sc-AxmLO bigGZS officiis ipsum est molestias sequi corporis quae"
+        className="sc-AxmLO bigGZS expedita sed incidunt ipsum quia facilis quidem"
       >
         <ul>
           <ul
@@ -6363,13 +6277,13 @@ exports[`<Menu /> matches snapshot 22`] = `
   }
 >
   <Menu
-    className="voluptate tenetur veniam nemo aliquam laboriosam magnam"
+    className="est consectetur error qui voluptatibus temporibus necessitatibus"
   >
     <div
-      className="voluptate tenetur veniam nemo aliquam laboriosam magnam"
+      className="est consectetur error qui voluptatibus temporibus necessitatibus"
     >
       <div
-        className="sc-AxmLO bigGZS voluptate tenetur veniam nemo aliquam laboriosam magnam"
+        className="sc-AxmLO bigGZS est consectetur error qui voluptatibus temporibus necessitatibus"
       >
         <ul>
           <ul
@@ -6390,14 +6304,14 @@ exports[`<Menu /> matches snapshot 22`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Ms. Chelsey Reichel"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Ms. Chelsey Reichel"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -6408,7 +6322,7 @@ exports[`<Menu /> matches snapshot 22`] = `
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Ms. Chelsey Reichel
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -6661,13 +6575,13 @@ exports[`<Menu /> matches snapshot 23`] = `
   }
 >
   <Menu
-    className="mollitia ea modi qui debitis deleniti quos"
+    className="cum qui perferendis qui quae dolorem voluptatem"
   >
     <div
-      className="mollitia ea modi qui debitis deleniti quos"
+      className="cum qui perferendis qui quae dolorem voluptatem"
     >
       <div
-        className="sc-AxmLO bigGZS mollitia ea modi qui debitis deleniti quos"
+        className="sc-AxmLO bigGZS cum qui perferendis qui quae dolorem voluptatem"
       >
         <ul>
           <ul
@@ -6958,14 +6872,10 @@ exports[`<Menu /> matches snapshot 24`] = `
     }
   }
 >
-  <Menu
-    className="porro molestiae recusandae suscipit in ab aliquid"
-  >
-    <div
-      className="porro molestiae recusandae suscipit in ab aliquid"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS porro molestiae recusandae suscipit in ab aliquid"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -7195,6 +7105,51 @@ exports[`<Menu /> matches snapshot 24`] = `
                   </styled.div>
                 </Item>
               </Help>
+            </li>
+            <li>
+              <Admin>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Admin
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/admin/approvesaucesubmissions"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/admin/approvesaucesubmissions"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/admin/approvesaucesubmissions"
+                        >
+                          <Link
+                            href="/admin/approvesaucesubmissions"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/admin/approvesaucesubmissions"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Approve Submissions
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Admin>
             </li>
             <hr
               style={
@@ -7550,14 +7505,10 @@ exports[`<Menu /> matches snapshot 26`] = `
     }
   }
 >
-  <Menu
-    className="tempora nihil non cumque est tempore totam"
-  >
-    <div
-      className="tempora nihil non cumque est tempore totam"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS tempora nihil non cumque est tempore totam"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -7872,25 +7823,25 @@ exports[`<Menu /> matches snapshot 27`] = `
                       >
                         <div>
                           <img
-                            alt="Dr. Stephania Terry"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Ora.ca/"
+                            src=""
                             width="50"
                           >
                             <img
-                              alt="Dr. Stephania Terry"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Ora.ca/"
+                              src=""
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Dr. Stephania Terry
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -8082,51 +8033,6 @@ exports[`<Menu /> matches snapshot 27`] = `
                 </Item>
               </Help>
             </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
-            </li>
             <hr
               style={
                 Object {
@@ -8188,13 +8094,13 @@ exports[`<Menu /> matches snapshot 28`] = `
   }
 >
   <Menu
-    className="nostrum quia dolores quam et molestiae deleniti"
+    className="vel eligendi et debitis illum amet amet"
   >
     <div
-      className="nostrum quia dolores quam et molestiae deleniti"
+      className="vel eligendi et debitis illum amet amet"
     >
       <div
-        className="sc-AxmLO bigGZS nostrum quia dolores quam et molestiae deleniti"
+        className="sc-AxmLO bigGZS vel eligendi et debitis illum amet amet"
       >
         <ul>
           <ul
@@ -8218,7 +8124,7 @@ exports[`<Menu /> matches snapshot 28`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://www.Shyann.org/"
                             width="50"
                           >
                             <img
@@ -8226,7 +8132,7 @@ exports[`<Menu /> matches snapshot 28`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://www.Shyann.org/"
                               width="50"
                             />
                           </img>
@@ -8485,10 +8391,14 @@ exports[`<Menu /> matches snapshot 29`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="inventore voluptas eius magni recusandae odio ea"
+  >
+    <div
+      className="inventore voluptas eius magni recusandae odio ea"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS inventore voluptas eius magni recusandae odio ea"
       >
         <ul>
           <ul
@@ -8509,25 +8419,25 @@ exports[`<Menu /> matches snapshot 29`] = `
                       >
                         <div>
                           <img
-                            alt="Ms. Reece Simonis"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://Armani.org/"
+                            src="http://Zena.io/"
                             width="50"
                           >
                             <img
-                              alt="Ms. Reece Simonis"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://Armani.org/"
+                              src="http://Zena.io/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Ms. Reece Simonis
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -8780,13 +8690,13 @@ exports[`<Menu /> matches snapshot 30`] = `
   }
 >
   <Menu
-    className="qui nostrum rerum error aliquid voluptates quis"
+    className="sunt qui magni earum et rerum earum"
   >
     <div
-      className="qui nostrum rerum error aliquid voluptates quis"
+      className="sunt qui magni earum et rerum earum"
     >
       <div
-        className="sc-AxmLO bigGZS qui nostrum rerum error aliquid voluptates quis"
+        className="sc-AxmLO bigGZS sunt qui magni earum et rerum earum"
       >
         <ul>
           <ul
@@ -8807,25 +8717,25 @@ exports[`<Menu /> matches snapshot 30`] = `
                       >
                         <div>
                           <img
-                            alt="Miss Colin Kunde"
+                            alt="Mrs. Concepcion Marvin"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Schmidt.org/"
+                            src="http://www.Huel.me/"
                             width="50"
                           >
                             <img
-                              alt="Miss Colin Kunde"
+                              alt="Mrs. Concepcion Marvin"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Schmidt.org/"
+                              src="http://www.Huel.me/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Miss Colin Kunde
+                            Mrs. Concepcion Marvin
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -9122,14 +9032,10 @@ exports[`<Menu /> matches snapshot 31`] = `
     }
   }
 >
-  <Menu
-    className="sunt exercitationem neque id excepturi enim rem"
-  >
-    <div
-      className="sunt exercitationem neque id excepturi enim rem"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS sunt exercitationem neque id excepturi enim rem"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -9421,13 +9327,13 @@ exports[`<Menu /> matches snapshot 32`] = `
   }
 >
   <Menu
-    className="et porro tempora aut nulla est placeat"
+    className="unde provident natus odit voluptas et ullam"
   >
     <div
-      className="et porro tempora aut nulla est placeat"
+      className="unde provident natus odit voluptas et ullam"
     >
       <div
-        className="sc-AxmLO bigGZS et porro tempora aut nulla est placeat"
+        className="sc-AxmLO bigGZS unde provident natus odit voluptas et ullam"
       >
         <ul>
           <ul
@@ -9448,25 +9354,25 @@ exports[`<Menu /> matches snapshot 32`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Mrs. Stan Hodkiewicz"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://Leannon.tv/"
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Mrs. Stan Hodkiewicz"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://Leannon.tv/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Mrs. Stan Hodkiewicz
                           </h3>
                           <h4>
                             Sauce Fanatic
