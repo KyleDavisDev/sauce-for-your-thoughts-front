@@ -9,7 +9,7 @@ import {
 
 export interface ISauceIngredientsProps {
   onTextChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  ingredients: string;
+  ingredients?: string;
 }
 
 export default class SauceIngredients extends React.PureComponent<
@@ -20,7 +20,7 @@ export default class SauceIngredients extends React.PureComponent<
     return (
       <StyledRow>
         <StyledDescriptor title="Ingredients">
-          Which ingredients make up the sauce? This should be a comma seperated
+          Which ingredients make up the sauce? This should be a comma separated
           list found somewhere on the sauce label.
         </StyledDescriptor>
         <StyledRightSide>
