@@ -6,6 +6,7 @@ export const StyledSauceContainer = styled.div`
   flex-wrap: wrap;
   margin-bottom: 3em;
 `;
+StyledSauceContainer.displayName = "div";
 
 export const ImageContainer = styled.div`
   max-width: 100%;
@@ -34,7 +35,9 @@ export const StyledSauceInfoContainer = styled.div`
     padding: 0 15px;
   }
 `;
+StyledSauceInfoContainer.displayName = "div";
 
 export const StyledH2 = styled.h2`
   margin-bottom: 16px;
 `;
+StyledH2.displayName = "h2";
