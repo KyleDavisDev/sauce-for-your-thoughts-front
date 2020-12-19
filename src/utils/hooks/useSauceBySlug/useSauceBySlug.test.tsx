@@ -3,7 +3,7 @@ import { MockStoreEnhanced } from "redux-mock-store";
 import { act } from "react-dom/test-utils";
 
 import { AppState } from "../../../redux/configureStore";
-import { useSauceBySlug, IuseSauceBySlug } from "./useSauceBySlug";
+import { IuseSauceBySlug, useSauceBySlug } from "./useSauceBySlug";
 import {
   casual,
   fakeStore,
@@ -17,6 +17,7 @@ const mockGetSaucePayload = () => ({
   type: "SAUCES_ADDED"
 });
 jest.mock(".../../../redux/sauces/actions", () => {
+  // noinspection JSUnusedGlobalSymbols
   return {
     getSauceBySlug: () => {
       return mockGetSaucePayload();
@@ -26,8 +27,7 @@ jest.mock(".../../../redux/sauces/actions", () => {
 
 // mock router
 const DEFAULT_QUERY = { s: "123" };
-let query = DEFAULT_QUERY;
-const useRouterReturn = { asPath: "", query: query };
+const useRouterReturn = { asPath: "", query: DEFAULT_QUERY };
 jest.mock("next/router", () => {
   return {
     useRouter: () => {
@@ -171,31 +171,40 @@ describe("useSauceBySlug hook", () => {
       expect(actionsAfter).toEqual([]);
     }
   });
-  //
-  // it("returns featured sauces from redux if possible", async () => {
-  //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
-  //     const reduxStore = mockStores[i].getState() as AppState;
-  //     if (!reduxStore.sauces.featured) continue; // Keep going
-  //     if (reduxStore.sauces.featured.length === 0) continue; // Keep going
-  //
-  //     // mount component
-  //     const wrapper = mountReactHookWithReduxStore(
-  //       useSauceBySlug,
-  //       mockStores[i]
-  //     );
-  //
-  //     // perform changes within our component
-  //     const hook = wrapper.componentHook as IuseSauceBySlug;
-  //     await act(async () => {
-  //       hook.getTheSauce();
-  //     });
-  //
-  //     // wait for things
-  //     await wait();
-  //
-  //     // Make sure that each sauce make it over.
-  //     // Hook will have entire sauce Obj so we filter by slug only
-  //     expect(hook.sauces.map(x => x.slug)).toEqual(reduxStore.sauces.featured);
-  //   }
-  // });
+
+  it("returns sauce from redux if possible", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxStore = mockStores[i].getState() as AppState;
+      if (
+        !reduxStore.sauces.bySlug ||
+        Object.keys(reduxStore.sauces.bySlug).length === 0
+      )
+        continue;
+
+      // Set as a slug we know of
+      const slug = casual.random_element(reduxStore.sauces.allSlugs);
+      useRouterReturn.query = {
+        s: slug
+      };
+
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useSauceBySlug,
+        mockStores[i]
+      );
+
+      // perform changes within our component
+      const hook = wrapper.componentHook as IuseSauceBySlug;
+      await act(async () => {
+        await hook.getTheSauce();
+      });
+
+      // wait for things
+      await wait();
+
+      // Make sure that the sauce made it over.
+      // Hook will have sauce obj in it
+      expect(hook.sauce).toEqual(reduxStore.sauces.bySlug[slug]);
+    }
+  });
 });
