@@ -14,7 +14,7 @@ export function useCanUserAddReview(): [boolean, IErrParams] {
     msg: "",
     status: 0
   });
-  const token = useSelector((store: AppState) => store.users.self.token);
+  const token = useSelector((store: AppState) => store.users.self?.token);
 
   // assign router
   const router = useRouter();
