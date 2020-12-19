@@ -1,6 +1,5 @@
 import "jsdom-global/register";
 import { MockStoreEnhanced } from "redux-mock-store";
-import { act } from "react-dom/test-utils";
 
 import { AppState } from "../../../redux/configureStore";
 import { useSauceBySlug, IuseSauceBySlug } from "./useSauceBySlug";
@@ -19,6 +18,15 @@ jest.mock(".../../../redux/sauces/actions", () => {
   return {
     getSaucesByFeatured: () => {
       return mockLoginPayload();
+    }
+  };
+});
+
+// mock router
+jest.mock("next/router", () => {
+  return {
+    useRouter: () => {
+      return { asPath: "", query: {} };
     }
   };
 });
