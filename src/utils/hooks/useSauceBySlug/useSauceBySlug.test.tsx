@@ -1,5 +1,6 @@
 import "jsdom-global/register";
 import { MockStoreEnhanced } from "redux-mock-store";
+import { act } from "react-dom/test-utils";
 
 import { AppState } from "../../../redux/configureStore";
 import { useSauceBySlug, IuseSauceBySlug } from "./useSauceBySlug";
@@ -11,13 +12,13 @@ import {
 } from "../../testUtils/testUtils";
 
 // mock our action
-const mockLoginPayload = () => ({
+const mockGetSaucePayload = () => ({
   type: "SAUCES_ADDED"
 });
 jest.mock(".../../../redux/sauces/actions", () => {
   return {
-    getSaucesByFeatured: () => {
-      return mockLoginPayload();
+    getSauceBySlug: () => {
+      return mockGetSaucePayload();
     }
   };
 });
@@ -26,7 +27,7 @@ jest.mock(".../../../redux/sauces/actions", () => {
 jest.mock("next/router", () => {
   return {
     useRouter: () => {
-      return { asPath: "", query: {} };
+      return { asPath: "", query: { s: "123" } };
     }
   };
 });
@@ -88,35 +89,35 @@ describe("useSauceBySlug hook", () => {
     }
   });
 
-  // it("returns function which allows dispatches a redux action if redux featured sauces is empty", async () => {
-  //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
-  //     const reduxStore = mockStores[i].getState() as AppState;
-  //     if (reduxStore.sauces.featured) continue; // Keep going
-  //
-  //     // mount component
-  //     const wrapper = mountReactHookWithReduxStore(
-  //       useSauceBySlug,
-  //       mockStores[i]
-  //     );
-  //
-  //     // make sure empty list before
-  //     const actionsBefore = mockStores[i].getActions();
-  //     expect(actionsBefore).toEqual([]);
-  //
-  //     // perform changes within our component
-  //     const hook = wrapper.componentHook as IuseSauceBySlug;
-  //     await act(async () => {
-  //       hook.getFeaturedSauces();
-  //     });
-  //
-  //     // wait for things
-  //     await wait();
-  //
-  //     // Make sure action was emitted
-  //     const actionsAfter = mockStores[i].getActions();
-  //     expect(actionsAfter).toEqual([mockLoginPayload()]);
-  //   }
-  // });
+  it("returns function which, when called, dispatches a redux action if redux featured sauces is empty", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxStore = mockStores[i].getState() as AppState;
+      if (reduxStore.sauces.featured) continue; // Keep going
+
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useSauceBySlug,
+        mockStores[i]
+      );
+
+      // make sure empty list before
+      const actionsBefore = mockStores[i].getActions();
+      expect(actionsBefore).toEqual([]);
+
+      // perform changes within our component
+      const hook = wrapper.componentHook as IuseSauceBySlug;
+      await act(async () => {
+        await hook.getTheSauce();
+      });
+
+      // wait for things
+      await wait();
+
+      // Make sure action was emitted
+      const actionsAfter = mockStores[i].getActions();
+      expect(actionsAfter).toEqual([mockGetSaucePayload()]);
+    }
+  });
   //
   // it("prevents dispatches action if redux featured sauces already has items", async () => {
   //   for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
