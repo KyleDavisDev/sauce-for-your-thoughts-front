@@ -256,4 +256,25 @@ describe("<SauceHero />", () => {
       );
     });
   });
+
+  it("renders the sauce's types when sauce is found and not loading", () => {
+    const sauce = fakeSauce();
+    mockSauce = sauce;
+    mockLoading = false;
+
+    mockStores.forEach(mockStore => {
+      if (!sauce.types) return;
+
+      // mount component
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <SauceHero />
+        </Provider>
+      );
+
+      expect(wrapper.find("[data-test-id='type']").text()).toContain(
+        sauce.types.join(", ")
+      );
+    });
+  });
 });
