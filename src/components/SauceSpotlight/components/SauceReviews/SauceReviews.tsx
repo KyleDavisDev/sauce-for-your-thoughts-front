@@ -11,7 +11,7 @@ import {
 
 export interface SauceReviewsProps {}
 
-const SauceReviews: React.FC<SauceReviewsProps> = props => {
+const SauceReviews: React.FC<SauceReviewsProps> = () => {
   const { loading, reviews, error, getReviews } = useGetReviewsBySlug();
 
   React.useEffect(() => {
