@@ -5,6 +5,10 @@ import List from "../../../List/List";
 interface ISauceRelatedProps {}
 
 const SauceRelated: React.FunctionComponent<ISauceRelatedProps> = () => {
+  // defaults
+  const _loadingTxt = "loading...";
+  const _noSauceTxt = "Could not find any related sauces!";
+
   const { loading, sauce, error, getTheSauce } = useSauceBySlug();
 
   React.useEffect(() => {
@@ -12,7 +16,7 @@ const SauceRelated: React.FunctionComponent<ISauceRelatedProps> = () => {
   }, []);
 
   if (loading) {
-    return <p>loading...</p>;
+    return <p>{_loadingTxt}</p>;
   }
 
   if (error.isVisible) {
@@ -20,7 +24,7 @@ const SauceRelated: React.FunctionComponent<ISauceRelatedProps> = () => {
   }
 
   if (!sauce || !sauce._related || sauce._related.length === 0) {
-    return <p>Could not find any related sauces!</p>;
+    return <p>{_noSauceTxt}</p>;
   }
 
   return (
