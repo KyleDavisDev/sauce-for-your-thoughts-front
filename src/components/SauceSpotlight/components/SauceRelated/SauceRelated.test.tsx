@@ -14,6 +14,7 @@ import {
 import { IuseSauceBySlug } from "../../../../utils/hooks/useSauceBySlug/useSauceBySlug";
 import { ISauce } from "../../../../redux/sauces/types";
 import { FlashMessageProps } from "../../../FlashMessage/FlashMessage";
+import { ListProps } from "../../../List/List";
 
 let mockLoading = false;
 let mockSauce: undefined | ISauce = undefined;
@@ -39,6 +40,7 @@ describe("<SauceRelated />", () => {
   // defaults from component
   const _loadingTxt = "loading...";
   const _noSauceTxt = "Could not find any related sauces!";
+  const _title = "Related Sauces";
 
   // May need to refer to these later so initializing out here
   let wrappers: Array<enzyme.ReactWrapper<
@@ -191,6 +193,27 @@ describe("<SauceRelated />", () => {
 
       console.log(wrapper.debug());
       expect(wrapper.find("List").exists()).toBeTruthy();
+    });
+  });
+
+  it("passes expected params to List component", () => {
+    const sauce = fakeSauce();
+    mockSauce = sauce;
+    mockLoading = false;
+
+    mockStores.forEach(mockStore => {
+      if (!sauce._related || sauce._related.length === 0) return;
+
+      // mount component
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <SauceRelated />
+        </Provider>
+      );
+
+      const list = wrapper.find("List").props() as ListProps;
+      expect(list.items.length).toEqual(sauce._related.length);
+      expect(list.title).toEqual(_title);
     });
   });
 });
