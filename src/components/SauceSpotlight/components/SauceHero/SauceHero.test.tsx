@@ -40,6 +40,8 @@ describe("<SauceHero />", () => {
   // defaults from component
   const _loadingTxt = "loading...";
   const _noSauceTxt = "Could not find sauce!";
+  const _defaultImagePath =
+    "https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png";
 
   // May need to refer to these later so initializing out here
   let wrappers: Array<enzyme.ReactWrapper<
@@ -109,7 +111,6 @@ describe("<SauceHero />", () => {
   });
 
   it("renders loading text when loading", () => {
-    // set no sauce so component will call function
     mockSauce = undefined;
     mockLoading = true;
 
@@ -126,7 +127,6 @@ describe("<SauceHero />", () => {
   });
 
   it("renders sauce not found text when there is no sauce", () => {
-    // set no sauce so component will call function
     mockSauce = undefined;
     mockLoading = false;
 
@@ -143,7 +143,6 @@ describe("<SauceHero />", () => {
   });
 
   it("renders error text when there is an error", () => {
-    // set no sauce so component will call function
     mockSauce = undefined;
     mockLoading = false;
     mockError = { isVisible: true, text: casual.string };
@@ -160,9 +159,10 @@ describe("<SauceHero />", () => {
     });
   });
 
-  it("renders an image", () => {
-    // set no sauce so component will call function
-    mockSauce = fakeSauce();
+  it("renders the sauce's image (or default) when sauce is found and not loading", () => {
+    const sauce = fakeSauce();
+    sauce.photo = casual.url; // force an image
+    mockSauce = sauce;
     mockLoading = false;
 
     mockStores.forEach(mockStore => {
@@ -174,11 +174,32 @@ describe("<SauceHero />", () => {
       );
 
       expect(wrapper.find("img").exists()).toBeTruthy();
+      expect(wrapper.find("img").first().prop("src")).toEqual(sauce.photo);
     });
   });
 
-  it("renders the sauce's title", () => {
-    // set no sauce so component will call function
+  it("renders the default image when sauce is found but has no image and is not loading", () => {
+    const sauce = fakeSauce();
+    sauce.photo = undefined; // force default
+    mockSauce = sauce;
+    mockLoading = false;
+
+    mockStores.forEach(mockStore => {
+      // mount component
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <SauceHero />
+        </Provider>
+      );
+
+      expect(wrapper.find("img").exists()).toBeTruthy();
+      expect(wrapper.find("img").first().prop("src")).toEqual(
+        _defaultImagePath
+      );
+    });
+  });
+
+  it("renders the sauce's title when sauce is found and not loading", () => {
     const sauce = fakeSauce();
     mockSauce = sauce;
     mockLoading = false;
