@@ -111,6 +111,23 @@ describe("<SauceHero />", () => {
     });
   });
 
+  it("renders sauce not found text when there is no sauce", () => {
+    // set no sauce so component will call function
+    mockSauce = () => undefined;
+    mockLoading = () => false;
+
+    mockStores.forEach(mockStore => {
+      // mount component
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <SauceHero />
+        </Provider>
+      );
+
+      expect(wrapper.text()).toEqual(_noSauceTxt);
+    });
+  });
+
   it("renders an image", () => {
     // set no sauce so component will call function
     mockSauce = () => fakeSauce();
