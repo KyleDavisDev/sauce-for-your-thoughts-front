@@ -59,7 +59,7 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = () => {
         </ImageContainer>
         <StyledSauceInfoContainer>
           <StyledH2>{sauce.name}</StyledH2>
-          <p>
+          <p data-test-id="maker">
             <i>Maker:</i> {sauce.maker}
           </p>
           <p>
@@ -67,23 +67,23 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = () => {
           </p>
 
           {sauce.ingredients && (
-            <p>
+            <p data-test-id="ingredients">
               <i>Ingredients:</i> {sauce.ingredients}
             </p>
           )}
 
-          <p>
+          <p data-test-id="type">
             <i>Type:</i> {sauce.types ? sauce.types.join(", ") : "N/A"}
           </p>
 
           {sauce.shu && (
-            <p>
+            <p data-test-id="shu">
               <i>SHU:</i> {sauce.shu} scoville
             </p>
           )}
 
           {sauce.country && (
-            <p>
+            <p data-test-id="country">
               <i>Made in:</i> {sauce.country || "Loading..."}
             </p>
           )}
