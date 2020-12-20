@@ -13,6 +13,10 @@ import {
 export interface SauceHeroProps {}
 
 const SauceHero: React.FunctionComponent<SauceHeroProps> = () => {
+  // defaults
+  const _loadingTxt = "loading...";
+  const _noSauceTxt = "Could not find sauce!";
+
   const { loading, sauce, error, getTheSauce } = useSauceBySlug();
 
   React.useEffect(() => {
@@ -20,7 +24,7 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = () => {
   }, []);
 
   if (loading) {
-    return <p>loading...</p>;
+    return <p>{_loadingTxt}</p>;
   }
 
   if (error.isVisible) {
@@ -28,7 +32,7 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = () => {
   }
 
   if (!sauce) {
-    return <p>Could not find sauce!</p>;
+    return <p>{_noSauceTxt}</p>;
   }
 
   return (
