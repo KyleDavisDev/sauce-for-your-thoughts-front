@@ -58,7 +58,7 @@ export function useSauceBySlug(slug?: string): IuseSauceBySlug {
       setError({
         type: "warning",
         isVisible: true,
-        text: err.response.data.msg || _defaultErrorMsg
+        text: err?.response?.data?.msg || _defaultErrorMsg
       });
     } finally {
       // finish loading
