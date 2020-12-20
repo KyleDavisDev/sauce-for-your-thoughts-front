@@ -9,19 +9,18 @@ import {
   fakeStore,
   ITERATION_SIZE,
   mountReactHookWithReduxStore,
-  wait
+  wait,
+  generateErr
 } from "../../testUtils/testUtils";
 
-// mock our action
-const mockGetSaucePayload = () => ({
-  type: "SAUCES_ADDED"
-});
-jest.mock(".../../../redux/sauces/actions", () => {
-  // noinspection JSUnusedGlobalSymbols
+// mock our action payload
+const mockSuccessPayload = { type: "SAUCES_ADDED" };
+let payload = () => {
+  return mockSuccessPayload;
+};
+jest.mock("../../../redux/sauces/actions", () => {
   return {
-    getSauceBySlug: () => {
-      return mockGetSaucePayload();
-    }
+    getSauceBySlug: () => payload()
   };
 });
 
@@ -59,6 +58,11 @@ describe("useSauceBySlug hook", () => {
 
       // reset router
       useRouterReturn.query = DEFAULT_QUERY;
+
+      // reset redux payload
+      payload = () => {
+        return mockSuccessPayload;
+      };
     }
   });
 
@@ -133,7 +137,7 @@ describe("useSauceBySlug hook", () => {
 
       // Make sure action was emitted
       const actionsAfter = mockStores[i].getActions();
-      expect(actionsAfter).toEqual([mockGetSaucePayload()]);
+      expect(actionsAfter).toEqual([mockSuccessPayload]);
     }
   });
 
@@ -205,6 +209,36 @@ describe("useSauceBySlug hook", () => {
       // Make sure that the sauce made it over.
       // Hook will have sauce obj in it
       expect(hook.sauce).toEqual(reduxStore.sauces.bySlug[slug]);
+    }
+  });
+
+  it("returns error if there was one", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      // Define the redux payload differently for this specific test
+      const err = generateErr();
+      payload = () => {
+        throw err;
+      };
+
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useSauceBySlug,
+        mockStores[i]
+      );
+
+      // perform changes within our component
+      const hook = wrapper.componentHook as IuseSauceBySlug;
+      await act(async () => {
+        await hook.getTheSauce();
+      });
+
+      // wait for things
+      await wait();
+
+      // Hook will have error obj in it
+      expect(hook.error.type).toEqual("warning");
+      expect(hook.error.isVisible).toEqual(true);
+      expect(hook.error.text).toEqual(err.response.data.msg);
     }
   });
 });
