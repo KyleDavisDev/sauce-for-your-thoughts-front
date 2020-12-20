@@ -86,7 +86,7 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = () => {
 
           {sauce.country && (
             <p data-test-id="country">
-              <i>Made in:</i> {sauce.country || "Loading..."}
+              <i>Made in:</i> {sauce.country}
             </p>
           )}
         </StyledSauceInfoContainer>
