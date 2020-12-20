@@ -296,4 +296,25 @@ describe("<SauceHero />", () => {
       expect(wrapper.find("[data-test-id='shu']").text()).toContain(sauce.shu);
     });
   });
+
+  it("renders the sauce's country when sauce is found and not loading", () => {
+    const sauce = fakeSauce();
+    mockSauce = sauce;
+    mockLoading = false;
+
+    mockStores.forEach(mockStore => {
+      if (!sauce.country) return;
+
+      // mount component
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <SauceHero />
+        </Provider>
+      );
+
+      expect(wrapper.find("[data-test-id='country']").text()).toContain(
+        sauce.country
+      );
+    });
+  });
 });
