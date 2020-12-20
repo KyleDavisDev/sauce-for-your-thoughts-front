@@ -49,7 +49,7 @@ describe("<SauceHero />", () => {
     Readonly<{}>,
     React.Component<{}, {}, any>
   >> = [];
-  let mockStores: MockStoreEnhanced<unknown, {}>[] = [];
+  let mockStores: MockStoreEnhanced<unknown, unknown>[] = [];
 
   beforeAll(() => {
     // add our mock stores
