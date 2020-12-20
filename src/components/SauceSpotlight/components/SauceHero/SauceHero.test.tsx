@@ -216,4 +216,23 @@ describe("<SauceHero />", () => {
       expect(wrapper.find("h2").first().text()).toEqual(sauce.name);
     });
   });
+
+  it("renders the sauce's maker when sauce is found and not loading", () => {
+    const sauce = fakeSauce();
+    mockSauce = sauce;
+    mockLoading = false;
+
+    mockStores.forEach(mockStore => {
+      // mount component
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <SauceHero />
+        </Provider>
+      );
+
+      expect(wrapper.find("[data-test-id='maker']").text()).toContain(
+        sauce.maker
+      );
+    });
+  });
 });
