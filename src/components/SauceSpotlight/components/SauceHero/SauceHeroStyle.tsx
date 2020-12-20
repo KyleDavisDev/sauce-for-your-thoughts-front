@@ -24,6 +24,7 @@ export const StyleImg = styled.img`
   width: 100%;
   box-sizing: border-box;
 `;
+StyleImg.displayName = "img";
 
 export const StyledSauceInfoContainer = styled.div`
   width: 100%;
