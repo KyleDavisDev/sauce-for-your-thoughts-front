@@ -8,22 +8,27 @@ import SauceHero from "./SauceHero";
 import {
   fakeStore,
   fakeSauce,
-  ITERATION_SIZE
+  ITERATION_SIZE,
+  casual
 } from "../../../../utils/testUtils/testUtils";
 import { IuseSauceBySlug } from "../../../../utils/hooks/useSauceBySlug/useSauceBySlug";
 import { ISauce } from "../../../../redux/sauces/types";
+import { FlashMessageProps } from "../../../FlashMessage/FlashMessage";
 
-let mockLoading = () => false;
-let mockSauce = (): undefined | ISauce => undefined;
+let mockLoading = false;
+let mockSauce: undefined | ISauce = undefined;
+let mockError: FlashMessageProps = {
+  isVisible: false
+};
 const mockGetTheSauce = jest.fn();
 jest.mock("../../../../utils/hooks/useSauceBySlug/useSauceBySlug", () => {
   // noinspection JSUnusedGlobalSymbols
   return {
     useSauceBySlug(): IuseSauceBySlug {
       return {
-        loading: mockLoading(),
-        sauce: mockSauce(),
-        error: { isVisible: false },
+        loading: mockLoading,
+        sauce: mockSauce,
+        error: mockError,
         getTheSauce: mockGetTheSauce
       };
     }
@@ -62,6 +67,15 @@ describe("<SauceHero />", () => {
     jest.clearAllMocks();
   });
 
+  afterEach(() => {
+    // reset
+    mockLoading = false;
+    mockSauce = undefined;
+    mockError = {
+      isVisible: false
+    };
+  });
+
   it("renders", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper).toBeTruthy();
@@ -76,8 +90,8 @@ describe("<SauceHero />", () => {
 
   it("calls hook API method on load", () => {
     // set so we can call api method
-    mockSauce = () => undefined;
-    mockLoading = () => false;
+    mockSauce = undefined;
+    mockLoading = false;
 
     mockStores.forEach(mockStore => {
       mockGetTheSauce.mockClear();
@@ -96,8 +110,8 @@ describe("<SauceHero />", () => {
 
   it("renders loading text when loading", () => {
     // set no sauce so component will call function
-    mockSauce = () => undefined;
-    mockLoading = () => true;
+    mockSauce = undefined;
+    mockLoading = true;
 
     mockStores.forEach(mockStore => {
       // mount component
@@ -113,8 +127,8 @@ describe("<SauceHero />", () => {
 
   it("renders sauce not found text when there is no sauce", () => {
     // set no sauce so component will call function
-    mockSauce = () => undefined;
-    mockLoading = () => false;
+    mockSauce = undefined;
+    mockLoading = false;
 
     mockStores.forEach(mockStore => {
       // mount component
@@ -128,10 +142,28 @@ describe("<SauceHero />", () => {
     });
   });
 
+  it("renders error text when there is an error", () => {
+    // set no sauce so component will call function
+    mockSauce = undefined;
+    mockLoading = false;
+    mockError = { isVisible: true, text: casual.string };
+
+    mockStores.forEach(mockStore => {
+      // mount component
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <SauceHero />
+        </Provider>
+      );
+
+      expect(wrapper.text()).toEqual(mockError.text);
+    });
+  });
+
   it("renders an image", () => {
     // set no sauce so component will call function
-    mockSauce = () => fakeSauce();
-    mockLoading = () => false;
+    mockSauce = fakeSauce();
+    mockLoading = false;
 
     mockStores.forEach(mockStore => {
       // mount component
@@ -148,8 +180,8 @@ describe("<SauceHero />", () => {
   it("renders the sauce's title", () => {
     // set no sauce so component will call function
     const sauce = fakeSauce();
-    mockSauce = () => sauce;
-    mockLoading = () => false;
+    mockSauce = sauce;
+    mockLoading = false;
 
     mockStores.forEach(mockStore => {
       // mount component
