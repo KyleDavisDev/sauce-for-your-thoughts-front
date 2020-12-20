@@ -1,0 +1,673 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SauceRelated /> matches snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 2`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 3`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 4`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 5`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 6`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 7`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 8`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 9`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 10`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 11`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 12`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 13`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 14`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 15`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 16`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 17`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 18`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 19`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 20`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 21`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 22`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 23`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 24`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 25`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 26`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 27`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 28`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 29`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 30`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 31`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
+
+exports[`<SauceRelated /> matches snapshot 32`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <SauceRelated>
+    <p>
+      Could not find any related sauces!
+    </p>
+  </SauceRelated>
+</Provider>
+`;
