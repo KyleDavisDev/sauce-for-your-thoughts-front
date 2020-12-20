@@ -16,6 +16,8 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = () => {
   // defaults
   const _loadingTxt = "loading...";
   const _noSauceTxt = "Could not find sauce!";
+  const _defaultImagePath =
+    "https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png";
 
   const { loading, sauce, error, getTheSauce } = useSauceBySlug();
 
@@ -52,7 +54,7 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = () => {
           {sauce.photo ? (
             <StyleImg src={`${sauce.photo}`} />
           ) : (
-            <StyleImg src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png" />
+            <StyleImg src={_defaultImagePath} />
           )}
         </ImageContainer>
         <StyledSauceInfoContainer>
