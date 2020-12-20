@@ -72,9 +72,11 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = () => {
             </p>
           )}
 
-          <p data-test-id="type">
-            <i>Type:</i> {sauce.types ? sauce.types.join(", ") : "N/A"}
-          </p>
+          {sauce.types && sauce.types.length > 0 && (
+            <p data-test-id="type">
+              <i>Type:</i> {sauce.types.join(", ")}
+            </p>
+          )}
 
           {sauce.shu && (
             <p data-test-id="shu">
