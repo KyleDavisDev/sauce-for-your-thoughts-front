@@ -78,13 +78,30 @@ describe("<SauceHero />", () => {
     mockStores.forEach(mockStore => {
       mockGetTheSauce.mockClear();
 
-      const wrapper = enzyme.mount(
+      enzyme.mount(
         <Provider store={mockStore}>
           <SauceHero />
         </Provider>
       );
 
       expect(mockGetTheSauce).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  it("renders loading text when loading", () => {
+    // set no sauce so component will call function
+    mockSauce = () => undefined;
+    mockLoading = () => true;
+
+    mockStores.forEach(mockStore => {
+      // mount component
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <SauceHero />
+        </Provider>
+      );
+
+      expect(wrapper.text()).toEqual(_loadingTxt);
     });
   });
 
