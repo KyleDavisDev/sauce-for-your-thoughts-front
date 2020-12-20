@@ -235,4 +235,25 @@ describe("<SauceHero />", () => {
       );
     });
   });
+
+  it("renders the sauce's ingredients when sauce is found and not loading", () => {
+    const sauce = fakeSauce();
+    mockSauce = sauce;
+    mockLoading = false;
+
+    mockStores.forEach(mockStore => {
+      if (!sauce.ingredients) return;
+
+      // mount component
+      const wrapper = enzyme.mount(
+        <Provider store={mockStore}>
+          <SauceHero />
+        </Provider>
+      );
+
+      expect(wrapper.find("[data-test-id='ingredients']").text()).toContain(
+        sauce.ingredients
+      );
+    });
+  });
 });
