@@ -6,7 +6,6 @@ import { MockStoreEnhanced } from "redux-mock-store";
 
 import SauceHero from "./SauceHero";
 import {
-  casual,
   fakeStore,
   fakeSauce,
   ITERATION_SIZE
@@ -18,6 +17,7 @@ let mockLoading = () => false;
 let mockSauce = (): undefined | ISauce => undefined;
 const mockGetTheSauce = jest.fn();
 jest.mock("../../../../utils/hooks/useSauceBySlug/useSauceBySlug", () => {
+  // noinspection JSUnusedGlobalSymbols
   return {
     useSauceBySlug(): IuseSauceBySlug {
       return {
@@ -75,15 +75,21 @@ describe("<SauceHero />", () => {
   });
 
   it("calls hook API method on load", () => {
+    // set so we can call api method
+    mockSauce = () => undefined;
+    mockLoading = () => false;
+
     mockStores.forEach(mockStore => {
       mockGetTheSauce.mockClear();
 
+      // mount up the component
       enzyme.mount(
         <Provider store={mockStore}>
           <SauceHero />
         </Provider>
       );
 
+      // Check if the function was ran or not
       expect(mockGetTheSauce).toHaveBeenCalledTimes(1);
     });
   });
