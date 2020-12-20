@@ -241,4 +241,31 @@ describe("useSauceBySlug hook", () => {
       expect(hook.error.text).toEqual(err.response.data.msg);
     }
   });
+
+  it("returns default error text if there was an error but no available text", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      // Define the redux payload differently for this specific test
+      payload = () => {
+        throw Error();
+      };
+
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useSauceBySlug,
+        mockStores[i]
+      );
+
+      // perform changes within our component
+      const hook = wrapper.componentHook as IuseSauceBySlug;
+      await act(async () => {
+        await hook.getTheSauce();
+      });
+
+      // wait for things
+      await wait();
+
+      // hook will have error obj
+      expect(hook.error.text).toEqual(_defaultErrorMsg);
+    }
+  });
 });
