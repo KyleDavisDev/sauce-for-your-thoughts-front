@@ -8,6 +8,7 @@ const SauceRelated: React.FunctionComponent<ISauceRelatedProps> = () => {
   // defaults
   const _loadingTxt = "loading...";
   const _noSauceTxt = "Could not find any related sauces!";
+  const _title = "Related Sauces";
 
   const { loading, sauce, error, getTheSauce } = useSauceBySlug();
 
@@ -38,7 +39,7 @@ const SauceRelated: React.FunctionComponent<ISauceRelatedProps> = () => {
             id: `${ind}-${x.name}`
           };
         })}
-        title="Related Sauces"
+        title={_title}
       />
     </>
   );
