@@ -34,10 +34,10 @@ export const fakeSauce = (): ISauce => ({
   ]), // List of related sauces
   isAdminApproved: casual.random_element([undefined, casual.boolean]),
   name: casual.name,
-  ingredients: casual.string,
+  ingredients: casual.random_element([undefined, casual.string]),
   author: casual.name,
   created: casual.unix_time, // Unix time (in seconds)
-  types: casual.array_of_words(),
+  types: casual.random_element([undefined, casual.array_of_words()]),
   maker: casual.name,
   description: casual.string,
   photo: casual.random_element([undefined, casual.url]),
