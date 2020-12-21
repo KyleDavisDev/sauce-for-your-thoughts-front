@@ -4,7 +4,7 @@ import * as enzyme from "enzyme";
 import { Provider } from "react-redux";
 import { MockStoreEnhanced } from "redux-mock-store";
 
-import SauceRelated from "./SauceRelated";
+import SauceRelated, { ISauceRelatedProps } from "./SauceRelated";
 import {
   fakeStore,
   fakeSauce,
@@ -15,6 +15,7 @@ import { IuseSauceBySlug } from "../../../../utils/hooks/useSauceBySlug/useSauce
 import { ISauce } from "../../../../redux/sauces/types";
 import { FlashMessageProps } from "../../../FlashMessage/FlashMessage";
 import { ListProps } from "../../../List/List";
+import { ShallowWrapper } from "enzyme";
 
 let mockLoading = false;
 let mockSauce: undefined | ISauce = undefined;
@@ -43,24 +44,24 @@ describe("<SauceRelated />", () => {
   const _title = "Related Sauces";
 
   // May need to refer to these later so initializing out here
-  let wrappers: Array<enzyme.ReactWrapper<
+  let wrappers: ShallowWrapper<
     any,
-    Readonly<{}>,
-    React.Component<{}, {}, any>
-  >> = [];
-  let mockStores: MockStoreEnhanced<unknown, unknown>[] = [];
+    React.Component["state"],
+    React.Component
+  >[] = [];
+  const fakeSauceRelatedProps: ISauceRelatedProps[] = [];
 
   beforeAll(() => {
     // add our mock stores
-    mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
 
     // add our mounts
     wrappers = new Array(ITERATION_SIZE).fill(null).map((x, ind) => {
-      return enzyme.mount(
-        <Provider store={mockStores[ind]}>
-          <SauceRelated />
-        </Provider>
-      );
+      fakeSauceRelatedProps.push({
+        sauce: fakeSauce(),
+        error: { isVisible: casual.boolean, text: casual.string },
+        loading: casual.boolean
+      });
+      return enzyme.shallow(<SauceRelated {...fakeSauceRelatedProps[ind]} />);
     });
   });
 
@@ -68,148 +69,91 @@ describe("<SauceRelated />", () => {
     jest.clearAllMocks();
   });
 
-  afterEach(() => {
-    // reset
-    mockLoading = false;
-    mockSauce = undefined;
-    mockError = {
-      isVisible: false
-    };
-  });
-
   it("renders", () => {
-    wrappers.forEach(wrapper => {
+    wrappers.forEach((wrapper, ind) => {
       expect(wrapper).toBeTruthy();
     });
   });
 
   it("matches snapshot", () => {
-    wrappers.forEach(wrapper => {
+    wrappers.forEach((wrapper, ind) => {
       expect(wrapper).toMatchSnapshot();
     });
   });
 
-  it("calls hook API method on load", () => {
-    // set so we can call api method
-    mockSauce = undefined;
-    mockLoading = false;
-
-    mockStores.forEach(mockStore => {
-      mockGetTheSauce.mockClear();
-
-      // mount up the component
-      enzyme.mount(
-        <Provider store={mockStore}>
-          <SauceRelated />
-        </Provider>
-      );
-
-      // Check if the function was ran or not
-      expect(mockGetTheSauce).toHaveBeenCalledTimes(1);
-    });
-  });
-
   it("renders loading text when loading", () => {
-    mockSauce = undefined;
-    mockLoading = true;
+    wrappers.forEach((wrapper, ind) => {
+      // Grab props
+      const { sauce, loading, error } = fakeSauceRelatedProps[ind];
 
-    mockStores.forEach(mockStore => {
-      // mount component
-      const wrapper = enzyme.mount(
-        <Provider store={mockStore}>
-          <SauceRelated />
-        </Provider>
-      );
+      if (!loading) return;
 
       expect(wrapper.text()).toEqual(_loadingTxt);
     });
   });
 
   it("renders no related sauces found text when sauce is empty", () => {
-    mockSauce = undefined;
-    mockLoading = false;
+    wrappers.forEach((wrapper, ind) => {
+      // Grab props
+      const { sauce, loading, error } = fakeSauceRelatedProps[ind];
 
-    mockStores.forEach(mockStore => {
-      // mount component
-      const wrapper = enzyme.mount(
-        <Provider store={mockStore}>
-          <SauceRelated />
-        </Provider>
-      );
+      if (loading) return;
+      if (error.isVisible) return;
+      if (sauce) return;
 
       expect(wrapper.text()).toEqual(_noRelatedSaucesTxt);
     });
   });
 
   it("renders no related sauces found text when no related sauces are found", () => {
-    const sauce = fakeSauce();
-    sauce._related = []; // force no related sauces
-    mockSauce = sauce;
-    mockLoading = false;
+    wrappers.forEach((wrapper, ind) => {
+      // Grab props
+      const { sauce, loading, error } = fakeSauceRelatedProps[ind];
 
-    mockStores.forEach(mockStore => {
-      // mount component
-      const wrapper = enzyme.mount(
-        <Provider store={mockStore}>
-          <SauceRelated />
-        </Provider>
-      );
+      if (loading) return;
+      if (error.isVisible) return;
+      if (!sauce) return;
+      if (sauce._related) return;
 
       expect(wrapper.text()).toEqual(_noRelatedSaucesTxt);
     });
   });
 
   it("renders error text when there is an error", () => {
-    mockSauce = undefined;
-    mockLoading = false;
-    mockError = { isVisible: true, text: casual.string };
+    wrappers.forEach((wrapper, ind) => {
+      // Grab props
+      const { sauce, loading, error } = fakeSauceRelatedProps[ind];
 
-    mockStores.forEach(mockStore => {
-      // mount component
-      const wrapper = enzyme.mount(
-        <Provider store={mockStore}>
-          <SauceRelated />
-        </Provider>
-      );
+      if (loading) return;
+      if (!error.isVisible) return;
 
-      expect(wrapper.text()).toEqual(mockError.text);
+      expect(wrapper.text()).toEqual(error.text);
     });
   });
 
   it("renders a List component when related sauces are found and not loading", () => {
-    const sauce = fakeSauce();
-    mockSauce = sauce;
-    mockLoading = false;
+    wrappers.forEach((wrapper, ind) => {
+      // Grab props
+      const { sauce, loading, error } = fakeSauceRelatedProps[ind];
 
-    mockStores.forEach(mockStore => {
-      if (!sauce._related || sauce._related.length === 0) return;
+      if (loading) return;
+      if (error.isVisible) return;
+      if (!sauce) return;
+      if (!sauce._related) return;
 
-      // mount component
-      const wrapper = enzyme.mount(
-        <Provider store={mockStore}>
-          <SauceRelated />
-        </Provider>
-      );
-
-      console.log(wrapper.debug());
       expect(wrapper.find("List").exists()).toBeTruthy();
     });
   });
 
   it("passes expected params to List component", () => {
-    const sauce = fakeSauce();
-    mockSauce = sauce;
-    mockLoading = false;
+    wrappers.forEach((wrapper, ind) => {
+      // Grab props
+      const { sauce, loading, error } = fakeSauceRelatedProps[ind];
 
-    mockStores.forEach(mockStore => {
-      if (!sauce._related || sauce._related.length === 0) return;
-
-      // mount component
-      const wrapper = enzyme.mount(
-        <Provider store={mockStore}>
-          <SauceRelated />
-        </Provider>
-      );
+      if (loading) return;
+      if (error.isVisible) return;
+      if (!sauce) return;
+      if (!sauce._related) return;
 
       const list = wrapper.find("List").props() as ListProps;
       expect(list.items.length).toEqual(sauce._related.length);
