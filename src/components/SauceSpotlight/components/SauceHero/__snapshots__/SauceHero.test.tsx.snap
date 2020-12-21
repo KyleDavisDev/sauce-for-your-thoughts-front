@@ -1,673 +1,435 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SauceHero /> matches snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 2`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 3`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<Fragment>
+  <Component />
+  <div>
+    <div>
+      <img
+        src="http://Metz.ca/"
+      />
+    </div>
+    <div>
+      <h2>
+        Mrs. Alec Dach
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Mrs. Kale Baumbach
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        facere fugit nemo libero consequuntur provident iusto
+      </p>
+      <p
+        data-test-id="ingredients"
+      >
+        <i>
+          Ingredients:
+        </i>
+         
+        eum modi cum porro quasi nihil a
+      </p>
+      <p
+        data-test-id="shu"
+      >
+        <i>
+          SHU:
+        </i>
+         
+        42
+         scoville
+      </p>
+    </div>
+  </div>
+</Fragment>
 `;
 
 exports[`<SauceHero /> matches snapshot 4`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  ut eum perspiciatis veritatis et accusamus atque
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 5`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 6`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 7`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<Fragment>
+  <Component />
+  <div>
+    <div>
+      <img
+        src="http://Grant.org/"
+      />
+    </div>
+    <div>
+      <h2>
+        Miss Agnes Stracke
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Dr. Orville Harvey
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        qui eos velit magnam ea et id
+      </p>
+      <p
+        data-test-id="shu"
+      >
+        <i>
+          SHU:
+        </i>
+         
+        121
+         scoville
+      </p>
+    </div>
+  </div>
+</Fragment>
 `;
 
 exports[`<SauceHero /> matches snapshot 8`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 9`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 10`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  quas quidem quisquam dicta veniam sunt autem
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 11`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 12`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 13`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 14`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 15`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 16`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 17`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 18`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 19`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 20`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  nihil omnis expedita dolores eos et similique
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 21`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<Fragment>
+  <div>
+    <div>
+      <img
+        src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png"
+      />
+    </div>
+    <div>
+      <h2>
+        Ms. Tate Nicolas
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Ms. Margarita Lindgren
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        deleniti tempora quibusdam aut doloribus et in
+      </p>
+      <p
+        data-test-id="ingredients"
+      >
+        <i>
+          Ingredients:
+        </i>
+         
+        dolores ex qui quibusdam nostrum eos placeat
+      </p>
+      <p
+        data-test-id="shu"
+      >
+        <i>
+          SHU:
+        </i>
+         
+        305
+         scoville
+      </p>
+    </div>
+  </div>
+</Fragment>
 `;
 
 exports[`<SauceHero /> matches snapshot 22`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<Fragment>
+  <div>
+    <div>
+      <img
+        src="http://Alf.ca/"
+      />
+    </div>
+    <div>
+      <h2>
+        Mrs. Geoffrey Gutkowski
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Miss Tommie Bashirian
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        ut id enim ullam autem qui est
+      </p>
+      <p
+        data-test-id="ingredients"
+      >
+        <i>
+          Ingredients:
+        </i>
+         
+        numquam et dolor sint impedit facere qui
+      </p>
+      <p
+        data-test-id="country"
+      >
+        <i>
+          Made in:
+        </i>
+         
+        United Kingdom
+      </p>
+    </div>
+  </div>
+</Fragment>
 `;
 
 exports[`<SauceHero /> matches snapshot 23`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 24`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 25`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 26`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 27`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  loading...
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 28`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  temporibus vitae cum tempore nulla soluta autem
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 29`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  et voluptatem minima vel recusandae ipsum exercitationem
+</p>
 `;
 
 exports[`<SauceHero /> matches snapshot 30`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<Fragment>
+  <Component />
+  <div>
+    <div>
+      <img
+        src="http://Roma.biz/"
+      />
+    </div>
+    <div>
+      <h2>
+        Mr. Rylee Pfeffer
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Ms. Roberto Will
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        nulla perferendis eligendi eos numquam voluptas dolores
+      </p>
+    </div>
+  </div>
+</Fragment>
 `;
 
 exports[`<SauceHero /> matches snapshot 31`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<Fragment>
+  <Component />
+  <div>
+    <div>
+      <img
+        src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png"
+      />
+    </div>
+    <div>
+      <h2>
+        Mrs. Matilde Sauer
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Mrs. Kira Gerlach
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        id voluptates sed non eveniet sint et
+      </p>
+      <p
+        data-test-id="shu"
+      >
+        <i>
+          SHU:
+        </i>
+         
+        417
+         scoville
+      </p>
+    </div>
+  </div>
+</Fragment>
 `;
 
 exports[`<SauceHero /> matches snapshot 32`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <SauceHero>
-    <p>
-      Could not find sauce!
-    </p>
-  </SauceHero>
-</Provider>
+<p>
+  et eum iste quibusdam tempore excepturi est
+</p>
 `;
