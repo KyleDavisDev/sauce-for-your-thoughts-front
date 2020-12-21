@@ -91,7 +91,6 @@ export function useSauceBySlug(slug?: string): IuseSauceBySlug {
       !sauceWeWant._full
     ) {
       // Go find sauce
-      console.log("here?");
       getTheSauce();
       return;
     }
