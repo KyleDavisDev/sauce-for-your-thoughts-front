@@ -1,12 +1,9 @@
 import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
-import { Provider } from "react-redux";
-// import { MockStoreEnhanced } from "redux-mock-store";
 
 import SauceHero, { SauceHeroProps } from "./SauceHero";
 import {
-  fakeStore,
   fakeSauce,
   ITERATION_SIZE,
   casual
@@ -81,13 +78,13 @@ describe("<SauceHero />", () => {
   });
 
   it("renders", () => {
-    wrappers.forEach((wrapper, ind) => {
+    wrappers.forEach(wrapper => {
       expect(wrapper).toBeTruthy();
     });
   });
 
   it("matches snapshot", () => {
-    wrappers.forEach((wrapper, ind) => {
+    wrappers.forEach(wrapper => {
       expect(wrapper).toMatchSnapshot();
     });
   });
@@ -141,9 +138,12 @@ describe("<SauceHero />", () => {
     // mockError = { isVisible: true, text: casual.string };
 
     wrappers.forEach((wrapper, ind) => {
-      // console.log(wrapper.);
-      // if (fakeSauceHeroProps[ind].error.isVisible) return;
-      // expect(wrapper.text()).toEqual(fakeSauceHeroProps[ind].error.text);
+      const { error, loading } = fakeSauceHeroProps[ind];
+
+      if (loading) return;
+      if (!error.isVisible) return;
+
+      expect(wrapper.text()).toEqual(error.text);
     });
   });
 
