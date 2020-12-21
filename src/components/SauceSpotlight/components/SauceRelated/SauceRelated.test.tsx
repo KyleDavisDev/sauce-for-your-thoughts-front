@@ -39,7 +39,7 @@ jest.mock("../../../../utils/hooks/useSauceBySlug/useSauceBySlug", () => {
 describe("<SauceRelated />", () => {
   // defaults from component
   const _loadingTxt = "loading...";
-  const _noSauceTxt = "Could not find any related sauces!";
+  const _noRelatedSaucesTxt = "Could not find any related sauces!";
   const _title = "Related Sauces";
 
   // May need to refer to these later so initializing out here
@@ -137,7 +137,7 @@ describe("<SauceRelated />", () => {
         </Provider>
       );
 
-      expect(wrapper.text()).toEqual(_noSauceTxt);
+      expect(wrapper.text()).toEqual(_noRelatedSaucesTxt);
     });
   });
 
@@ -155,7 +155,7 @@ describe("<SauceRelated />", () => {
         </Provider>
       );
 
-      expect(wrapper.text()).toEqual(_noSauceTxt);
+      expect(wrapper.text()).toEqual(_noRelatedSaucesTxt);
     });
   });
 
