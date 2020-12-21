@@ -5,10 +5,12 @@ import { AppState } from "../../../redux/configureStore";
 import { ISauce } from "../../../redux/sauces/types";
 import { FlashMessageProps } from "../../../components/FlashMessage/FlashMessage";
 import { useRouter } from "next/router";
+import { IReview } from "../../../redux/reviews/types";
 
 export interface IuseSauceBySlug {
   loading: boolean;
   sauce?: ISauce;
+  reviews?: IReview[];
   error: FlashMessageProps;
   getTheSauce: () => Promise<void>;
 }
@@ -17,17 +19,22 @@ export function useSauceBySlug(slug?: string): IuseSauceBySlug {
   // init defaults
   const _defaultIsLoading = false;
   const _defaultSauce = undefined;
+  const _defaultReviews: IReview[] = [];
   const _defaultFlashState = { isVisible: false };
   const _defaultErrorMsg =
     "Could not find a sauce corresponding to this page. Please refresh and try again.";
 
   // get sauces from redux store
   const {
-    sauces: { bySlug, allSlugs }
+    sauces: { bySlug, allSlugs },
+    reviews: { byReviewID, allReviewIDs }
   } = useSelector((state: AppState) => state);
-  // assign sauce
+
+  // assign local states
   const [sauce, setSauce] = React.useState<ISauce | undefined>(_defaultSauce);
-  // assign loading
+  const [reviews, setReviews] = React.useState<IReview[] | undefined>(
+    _defaultReviews
+  );
   const [loading, setLoading] = React.useState(_defaultIsLoading);
   const [error, setError] = React.useState<FlashMessageProps>(
     _defaultFlashState
@@ -95,9 +102,25 @@ export function useSauceBySlug(slug?: string): IuseSauceBySlug {
       return;
     }
 
-    // 5) Set the sauce
-    setSauce(sauceWeWant);
-  }, [allSlugs, router.asPath]);
+    // 5) Find reviews
+    const _reviews = getReviews(sauceWeWant);
 
-  return { loading, sauce, getTheSauce, error };
+    // 6) Set state
+    setSauce(sauceWeWant);
+    setReviews(_reviews);
+  }, [allSlugs, allReviewIDs, router.asPath]);
+
+  const getReviews = (sauce: ISauce): IReview[] => {
+    // Quick sanity checks
+    if (!byReviewID) return [];
+    if (!sauce.reviews) return [];
+    if (sauce.reviews.length === 0) return [];
+
+    // return full reviews
+    return sauce.reviews.map(review => {
+      return byReviewID[review];
+    });
+  };
+
+  return { loading, sauce, reviews, getTheSauce, error };
 }
