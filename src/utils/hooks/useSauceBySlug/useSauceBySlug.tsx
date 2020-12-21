@@ -52,8 +52,13 @@ export function useSauceBySlug(slug?: string): IuseSauceBySlug {
         return;
       }
 
-      // Go look for sauces
-      dispatch(getSauceBySlug({ slug: s }));
+      // Quick check to see if we can save an action dispatch
+      if (bySlug && bySlug[s] && bySlug[s]._full) {
+        setSauce(bySlug[s]);
+      } else {
+        // Go look for sauces
+        dispatch(getSauceBySlug({ slug: s }));
+      }
     } catch (err) {
       setError({
         type: "warning",
@@ -86,6 +91,7 @@ export function useSauceBySlug(slug?: string): IuseSauceBySlug {
       !sauceWeWant._full
     ) {
       // Go find sauce
+      console.log("here?");
       getTheSauce();
       return;
     }
