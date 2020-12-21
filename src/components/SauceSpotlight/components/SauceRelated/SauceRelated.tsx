@@ -7,7 +7,7 @@ import { Button } from "../../../Button/Button";
 import { ISauce } from "../../../../redux/sauces/types";
 import { FlashMessageProps } from "../../../FlashMessage/FlashMessage";
 
-interface ISauceRelatedProps {
+export interface ISauceRelatedProps {
   loading: boolean;
   sauce?: ISauce;
   error: FlashMessageProps;
