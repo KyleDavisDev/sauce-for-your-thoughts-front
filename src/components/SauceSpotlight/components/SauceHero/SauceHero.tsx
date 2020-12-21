@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useSauceBySlug } from "../../../../utils/hooks/useSauceBySlug/useSauceBySlug";
-import FlashMessage from "../../../FlashMessage/FlashMessage";
+import FlashMessage, {
+  FlashMessageProps
+} from "../../../FlashMessage/FlashMessage";
 
 import {
   StyledSauceContainer,
@@ -9,21 +11,22 @@ import {
   StyledSauceInfoContainer,
   StyledH2
 } from "./SauceHeroStyle";
+import { ISauce } from "../../../../redux/sauces/types";
 
-export interface SauceHeroProps {}
+export interface SauceHeroProps {
+  loading: boolean;
+  sauce?: ISauce;
+  error: FlashMessageProps;
+}
 
-const SauceHero: React.FunctionComponent<SauceHeroProps> = () => {
+const SauceHero: React.FunctionComponent<SauceHeroProps> = props => {
   // defaults
   const _loadingTxt = "loading...";
   const _noSauceTxt = "Could not find sauce!";
   const _defaultImagePath =
     "https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png";
 
-  const { loading, sauce, error, getTheSauce } = useSauceBySlug();
-
-  React.useEffect(() => {
-    if (!loading && !sauce) getTheSauce();
-  }, []);
+  const { loading, sauce, error } = props;
 
   if (loading) {
     return <p>{_loadingTxt}</p>;

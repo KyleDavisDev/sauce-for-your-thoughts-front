@@ -7,20 +7,31 @@ import {
   StyledLeftContainer,
   StyledRightContainer
 } from "./SauceSpotlightStyle";
+import { useSauceBySlug } from "../../utils/hooks/useSauceBySlug/useSauceBySlug";
+import { useRouter } from "next/router";
 
 export interface SauceSpotlightProps {}
 
 const SauceSpotlight: React.FC<SauceSpotlightProps> = props => {
+  const { loading, sauce, error, getTheSauce } = useSauceBySlug();
+  const router = useRouter();
+
+  React.useEffect(() => {
+    if (!loading) {
+      getTheSauce();
+    }
+  }, []);
+
   return (
     <>
       <StyledLeftContainer>
-        <SauceHero />
+        <SauceHero loading={loading} sauce={sauce} error={error} />
 
         <SauceReviews />
       </StyledLeftContainer>
 
       <StyledRightContainer>
-        <SauceRelated />
+        <SauceRelated loading={loading} sauce={sauce} error={error} />
 
         {/* {saucesWithNewestReviews && saucesWithNewestReviews.length > 0 && (
               <List
