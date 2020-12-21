@@ -31,8 +31,6 @@ const SauceRelated: React.FunctionComponent<ISauceRelatedProps> = props => {
 
   return (
     <>
-      {sauce && sauce.slug && showAppropriateReviewButton(sauce.slug)}
-
       {!sauce || !sauce._related || sauce._related.length === 0 ? (
         <p>{_noRelatedSaucesTxt}</p>
       ) : (
@@ -49,23 +47,6 @@ const SauceRelated: React.FunctionComponent<ISauceRelatedProps> = props => {
       )}
     </>
   );
-
-  function showAppropriateReviewButton(slug: string): JSX.Element {
-    // Determine which button to return
-    // if (doesUserHaveSauceReviewToEdit) {
-    //   return (
-    //     <Link href={`/review/edit?s=${slug}`}>
-    //       <Button displayType="solid">Edit Your Review</Button>
-    //     </Link>
-    //   );
-    // }
-
-    return (
-      <Link href={`/review/add?s=${slug}`}>
-        <Button displayType="solid">Add Review</Button>
-      </Link>
-    );
-  }
 };
 
 export default SauceRelated;
