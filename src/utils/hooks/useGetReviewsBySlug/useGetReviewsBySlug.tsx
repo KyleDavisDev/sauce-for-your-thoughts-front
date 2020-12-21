@@ -78,6 +78,7 @@ export function useGetReviewsBySlug(slug?: string): IuseGetReviewsBySlug {
 
     // Find actual sauces
     const sauceOfInterest = bySlug[s];
+    if (!sauceOfInterest) return;
 
     const { byReviewID } = reduxReviews;
     if (!byReviewID || Object.keys(byReviewID).length === 0) return;
