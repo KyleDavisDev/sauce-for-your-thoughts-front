@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useSauceBySlug } from "../../../../utils/hooks/useSauceBySlug/useSauceBySlug";
+
 import FlashMessage, {
   FlashMessageProps
 } from "../../../FlashMessage/FlashMessage";
