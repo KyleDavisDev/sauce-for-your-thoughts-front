@@ -1,12 +1,9 @@
 import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
-import { Provider } from "react-redux";
-import { MockStoreEnhanced } from "redux-mock-store";
 
 import SauceRelated, { ISauceRelatedProps } from "./SauceRelated";
 import {
-  fakeStore,
   fakeSauce,
   ITERATION_SIZE,
   casual
@@ -70,13 +67,13 @@ describe("<SauceRelated />", () => {
   });
 
   it("renders", () => {
-    wrappers.forEach((wrapper, ind) => {
+    wrappers.forEach(wrapper => {
       expect(wrapper).toBeTruthy();
     });
   });
 
   it("matches snapshot", () => {
-    wrappers.forEach((wrapper, ind) => {
+    wrappers.forEach(wrapper => {
       expect(wrapper).toMatchSnapshot();
     });
   });
@@ -84,7 +81,7 @@ describe("<SauceRelated />", () => {
   it("renders loading text when loading", () => {
     wrappers.forEach((wrapper, ind) => {
       // Grab props
-      const { sauce, loading, error } = fakeSauceRelatedProps[ind];
+      const { loading } = fakeSauceRelatedProps[ind];
 
       if (!loading) return;
 
@@ -122,7 +119,7 @@ describe("<SauceRelated />", () => {
   it("renders error text when there is an error", () => {
     wrappers.forEach((wrapper, ind) => {
       // Grab props
-      const { sauce, loading, error } = fakeSauceRelatedProps[ind];
+      const {  loading, error } = fakeSauceRelatedProps[ind];
 
       if (loading) return;
       if (!error.isVisible) return;
