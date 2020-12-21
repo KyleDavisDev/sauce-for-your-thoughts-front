@@ -119,7 +119,7 @@ describe("<SauceRelated />", () => {
   it("renders error text when there is an error", () => {
     wrappers.forEach((wrapper, ind) => {
       // Grab props
-      const {  loading, error } = fakeSauceRelatedProps[ind];
+      const { loading, error } = fakeSauceRelatedProps[ind];
 
       if (loading) return;
       if (!error.isVisible) return;
