@@ -1,9 +1,9 @@
 import {
-  StyledCategoryContainer,
-  StyledCategoryDescription,
+  StyledContainer,
+  StyledDescription,
   StyledEmptyStar,
   StyledFullStar
-} from "../SauceReviewBlock/SauceReviewBlockStyle";
+} from "./RatingBlockStyles";
 import ReactRating from "react-rating";
 import * as React from "react";
 
@@ -16,7 +16,7 @@ export interface IRatingBlock {
 const RatingBlock = ({ txt, rating, name }: IRatingBlock): JSX.Element => {
   return (
     <>
-      <StyledCategoryContainer>
+      <StyledContainer>
         <i>{name}:</i>
 
         {rating && (
@@ -30,8 +30,8 @@ const RatingBlock = ({ txt, rating, name }: IRatingBlock): JSX.Element => {
             <small>({rating.toString()})</small>
           </>
         )}
-      </StyledCategoryContainer>
-      <StyledCategoryDescription>{txt}</StyledCategoryDescription>
+      </StyledContainer>
+      <StyledDescription>{txt}</StyledDescription>
     </>
   );
 };
