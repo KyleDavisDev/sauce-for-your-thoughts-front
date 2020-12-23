@@ -48,7 +48,7 @@ export function useSauceBySlug(slug?: string): IuseSauceBySlug {
   // define function
   const getTheSauce = async () => {
     // Prevent calling multiple times if loading
-    if (loading) return;
+    if (loading && sauce?._full) return;
 
     try {
       setLoading(true);
