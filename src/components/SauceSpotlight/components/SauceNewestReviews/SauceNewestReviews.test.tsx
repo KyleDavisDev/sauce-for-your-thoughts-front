@@ -11,8 +11,13 @@ import {
 } from "../../../../utils/testUtils/testUtils";
 
 import SauceNewestReviews from "./SauceNewestReviews";
+import { AppState } from "../../../../redux/configureStore";
 
 describe("<SauceNewestReviews />", () => {
+  // defaults
+  const _noNewSauces = "Could not find any new sauces!";
+  const _title = "Newly Reviewed";
+
   let wrappers: ReactWrapper<
     any,
     Readonly<{}>,
@@ -41,6 +46,18 @@ describe("<SauceNewestReviews />", () => {
   it("matches snapshot", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  it("renders default empty text if no sauces found", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const reduxStore = fakeStores[ind].getState() as AppState;
+
+      // if we have newest sauces, then we wont render out the default so we can skip
+      if (reduxStore.sauces.newest && reduxStore.sauces.newest.length > 0)
+        return;
+
+      expect(wrapper.text()).toContain(_noNewSauces);
     });
   });
 });
