@@ -12,10 +12,15 @@ export interface SauceReviewsProps {
 }
 
 const SauceReviews: React.FC<SauceReviewsProps> = props => {
+  // defaults
+  const _loadingTxt = "loading...";
+  const _noReviewsFoundTxt =
+    "No reviews found! Have you tried this sauce? Add a review!";
+
   const { reviews, loading, error } = props;
 
   if (loading) {
-    return <p>loading...</p>;
+    return <p>{_loadingTxt}</p>;
   }
 
   if (error.isVisible) {
@@ -26,7 +31,7 @@ const SauceReviews: React.FC<SauceReviewsProps> = props => {
     return (
       <StyledContainer>
         <p style={{ marginTop: "0" }}>
-          <i>No reviews found! Have you tried this sauce? Add a review!</i>
+          <i>{_noReviewsFoundTxt}</i>
         </p>
       </StyledContainer>
     );
