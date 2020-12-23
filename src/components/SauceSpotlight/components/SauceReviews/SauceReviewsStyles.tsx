@@ -14,12 +14,14 @@ export const StyledContainer = styled.div`
     margin-bottom: 3em;
   }
 `;
+StyledContainer.displayName = "div";
 
 export const StyledLink = styled(Link)`
   > div {
     display: inline;
   }
 `;
+StyledLink.displayName = "Link";
 
 export const StyledDescriptor = styled(Descriptor)`
   > p {
@@ -27,3 +29,4 @@ export const StyledDescriptor = styled(Descriptor)`
     font-style: italic;
   }
 `;
+StyledDescriptor.displayName = "Descriptor";
