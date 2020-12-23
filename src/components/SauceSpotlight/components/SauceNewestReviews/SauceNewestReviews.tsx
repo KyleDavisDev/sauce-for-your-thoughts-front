@@ -8,7 +8,6 @@ interface ISauceNewestReviewsProps {}
 
 const SauceNewestReviews: React.FunctionComponent<ISauceNewestReviewsProps> = props => {
   // defaults
-  const _loadingTxt = "loading...";
   const _noNewSauces = "Could not find any new sauces!";
   const _title = "Newly Reviewed";
 
