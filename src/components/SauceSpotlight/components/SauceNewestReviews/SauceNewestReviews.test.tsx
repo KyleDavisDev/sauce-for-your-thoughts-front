@@ -37,4 +37,10 @@ describe("<SauceNewestReviews />", () => {
       expect(wrapper.exists()).toBeTruthy();
     });
   });
+
+  it("matches snapshot", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });
