@@ -15,22 +15,21 @@ const SauceNewestReviews: React.FunctionComponent<ISauceNewestReviewsProps> = pr
     (store: AppState) => store.sauces.saucesWithNewestReviews
   );
 
+  if (!sauces) return <p>{_noNewSauces}</p>;
+  if (sauces.length === 0) return <p>{_noNewSauces}</p>;
+
   return (
     <>
-      {!sauces || !sauces || sauces.length === 0 ? (
-        <p>{_noNewSauces}</p>
-      ) : (
-        <List
-          items={sauces.map((x, ind) => {
-            return {
-              link: `/sauce/view?s=${x.slug}`,
-              text: x.name,
-              id: `${ind}-${x.name}`
-            };
-          })}
-          title={_title}
-        />
-      )}
+      <List
+        items={sauces.map((x, ind) => {
+          return {
+            link: `/sauce/view?s=${x.slug}`,
+            text: x.name,
+            id: `${ind}-${x.name}`
+          };
+        })}
+        title={_title}
+      />
     </>
   );
 };
