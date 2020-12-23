@@ -6,17 +6,17 @@ import {
 import * as React from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../../../../redux/configureStore";
+import { IReview } from "../../../../../../redux/reviews/types";
 
 export interface IAuthorBlock {
-  author: string;
-  created: number;
+  review: IReview;
 }
 
 const AuthorBlock: React.FC<IAuthorBlock> = props => {
   // defaults
   const _noAuthor = "N/A";
 
-  const { created, author: authorName } = props;
+  const { created, author: authorName } = props.review;
 
   const author = useSelector((store: AppState) =>
     store.users.byDisplayName ? store.users.byDisplayName[authorName] : null
