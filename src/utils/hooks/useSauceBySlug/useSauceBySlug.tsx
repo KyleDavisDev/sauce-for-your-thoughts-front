@@ -17,7 +17,7 @@ export interface IuseSauceBySlug {
 
 export function useSauceBySlug(slug?: string): IuseSauceBySlug {
   // init defaults
-  const _defaultIsLoading = false;
+  const _defaultIsLoading = true;
   const _defaultSauce = undefined;
   const _defaultReviews: IReview[] = [];
   const _defaultFlashState = { isVisible: false };
