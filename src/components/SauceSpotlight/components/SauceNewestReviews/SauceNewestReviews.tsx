@@ -1,11 +1,6 @@
 import * as React from "react";
-import { useSauceBySlug } from "../../../../utils/hooks/useSauceBySlug/useSauceBySlug";
-import List from "../../../List/List";
-import { Link } from "../../../Link/Link";
-import { Button } from "../../../Button/Button";
 
-import { ISauce } from "../../../../redux/sauces/types";
-import { FlashMessageProps } from "../../../FlashMessage/FlashMessage";
+import List from "../../../List/List";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../../redux/configureStore";
 
