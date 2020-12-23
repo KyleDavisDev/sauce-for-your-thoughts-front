@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "../../../../../../theme/styled-components";
 import Star from "../../../../../../images/icons/Star";
 import { Button } from "../../../../../Button/Button";
 
@@ -9,7 +9,7 @@ export const StyledContainer = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   margin-bottom: 1em;
-  max-height: auto;
+  max-height: 999px;
 `;
 
 export const StyledButton = styled(Button)`
