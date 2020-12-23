@@ -12,6 +12,11 @@ import { IUserState } from "../../redux/users/types";
 import { IErrReturn } from "../Err/Err";
 import { act } from "react-dom/test-utils";
 import { Provider } from "react-redux";
+import {
+  IReview,
+  IReviewSection,
+  IReviewsState
+} from "../../redux/reviews/types";
 
 export const ITERATION_SIZE = 32;
 const REACT_REGEX = /react(\d+)?./i;
@@ -59,6 +64,28 @@ export const fakeSauce = (): ISauce => ({
 export const generateFakeSauces = (): ISauce[] =>
   new Array(casual.integer(1, 15)).fill(null).map(fakeSauce);
 
+export const fakeReview = (): IReview => {
+  // reviewID: string;
+  // author: string; // User's displayName
+  // sauce: string; // Sauce's slug
+  // created: number;
+  // overall: IReviewSection; // Only review bit that is required
+  // label?: IReviewSection;
+  // aroma?: IReviewSection;
+  // taste?: IReviewSection;
+  // heat?: IReviewSection;
+  // note?: IReviewSection;
+  // _addedToStore?: number;
+
+  return {
+    reviewID: generateValidPassword(),
+    author: casual.name,
+    sauce: casual.name,
+    created: casual.unix_time,
+    overall: { rating: 5, txt: "" }
+  };
+};
+
 const selectRandomSlugs = (slugs: string[]): undefined | string[] => {
   return casual.random_element([
     undefined,
@@ -96,7 +123,7 @@ export const fakeSaucesState = (): ISaucesState => {
   };
 };
 
-const fakeUsersState = (): IUserState => ({
+export const fakeUsersState = (): IUserState => ({
   self: casual.random_element([
     undefined,
     {
@@ -110,18 +137,23 @@ const fakeUsersState = (): IUserState => ({
   allDisplayNames: undefined
 });
 
+export const fakeReviewState = (): IReviewsState => {
+  const allReviewIDs = [];
+
+  const byReviewID = {};
+
+  return { allReviewIDs, byReviewID };
+};
+
 export const fakeStore = () => {
   const middlewares = [thunk];
   const storeConfig = configureStore(middlewares);
 
-  const store: AppState = {
-    sauces: fakeSaucesState(),
-    users: fakeUsersState(),
-    reviews: {
-      byReviewID: undefined,
-      allReviewIDs: undefined
-    }
-  };
+  const sauces = fakeSaucesState();
+  const users = fakeUsersState();
+  const reviews = fakeReviewState();
+
+  const store: AppState = { sauces, users, reviews };
 
   return storeConfig(store);
 };
