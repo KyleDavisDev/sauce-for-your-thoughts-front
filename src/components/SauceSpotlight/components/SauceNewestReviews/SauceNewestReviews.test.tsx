@@ -60,4 +60,16 @@ describe("<SauceNewestReviews />", () => {
       expect(wrapper.text()).toContain(_noNewSauces);
     });
   });
+
+  it("renders a List component if sauces found", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const reduxStore = fakeStores[ind].getState() as AppState;
+
+      // Make sure we have sauces to render
+      if (!reduxStore.sauces.newest) return;
+      if (reduxStore.sauces.newest.length === 0) return;
+
+      expect(wrapper.find("List").exists()).toBeTruthy();
+    });
+  });
 });
