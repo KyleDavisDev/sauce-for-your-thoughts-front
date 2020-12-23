@@ -16,6 +16,7 @@ import {
   StyledReviewerContainer,
   StyledReviewer
 } from "./SauceReviewBlockStyle";
+import RatingBlock from "../RatingBlock/RatingBlock";
 
 export interface SauceReviewBlockProps {
   review: IReview;
@@ -70,75 +71,59 @@ const SauceReviewBlock: React.FunctionComponent<SauceReviewBlockProps> = props =
         {isOpen ? (
           <div>
             {/* Overall */}
-            {review.overall &&
-              RatingDisplay({
-                name: "Overall",
-                txt: review.overall.txt,
-                rating: review.overall.rating
-              })}
-
+            {review.overall && (
+              <RatingBlock
+                name="Overall"
+                txt={review.overall.txt}
+                rating={review.overall.rating}
+              />
+            )}
             {/* Aroma */}
-            {review.aroma &&
-              (review.aroma.rating > 0 || review.aroma.txt) &&
-              RatingDisplay({
-                name: "Aroma",
-                txt: review.aroma.txt,
-                rating: review.aroma.rating
-              })}
-
+            {review.aroma && (review.aroma.rating > 0 || review.aroma.txt) && (
+              <RatingBlock
+                name="Aroma"
+                txt={review.aroma.txt}
+                rating={review.aroma.rating}
+              />
+            )}
             {/* Taste */}
-            {review.taste &&
-              (review.taste.rating > 0 || review.taste.txt) &&
-              RatingDisplay({
-                name: "Taste",
-                txt: review.taste.txt,
-                rating: review.taste.rating
-              })}
-
+            {review.taste && (review.taste.rating > 0 || review.taste.txt) && (
+              <RatingBlock
+                name="Taste"
+                txt={review.taste.txt}
+                rating={review.taste.rating}
+              />
+            )}
             {/* Label */}
-            {review.label &&
-              (review.label.rating > 0 || review.label.txt) &&
-              RatingDisplay({
-                name: "Label",
-                txt: review.label.txt,
-                rating: review.label.rating
-              })}
-
+            {review.label && (review.label.rating > 0 || review.label.txt) && (
+              <RatingBlock
+                name="Label"
+                txt={review.label.txt}
+                rating={review.label.rating}
+              />
+            )}
             {/* Heat */}
-            {review.heat &&
-              (review.heat.rating > 0 || review.heat.txt) &&
-              RatingDisplay({
-                name: "Heat",
-                txt: review.heat.txt,
-                rating: review.heat.rating
-              })}
-
+            {review.heat && (review.heat.rating > 0 || review.heat.txt) && (
+              <RatingBlock
+                name="Heat"
+                txt={review.heat.txt}
+                rating={review.heat.rating}
+              />
+            )}
             {/* Note */}
             {review.note && review.note.txt && (
-              <div>
-                <StyledCategoryContainer>
-                  <i>Note:</i>
-                </StyledCategoryContainer>
-                <StyledCategoryDescription>
-                  {review.note.txt}
-                </StyledCategoryDescription>
-              </div>
+              <RatingBlock name="Note" txt={review.note.txt} />
             )}
           </div>
         ) : (
           /* Overall */
           review.overall && (
             <>
-              <StyledCategoryContainer>
-                <i>Overall:</i>
-                <ReactRating
-                  initialRating={review.overall.rating}
-                  readonly={true}
-                  emptySymbol={<StyledEmptyStar height={20} />}
-                  fullSymbol={<StyledFullStar height={20} />}
-                />{" "}
-                <small>({review.overall.rating.toString()})</small>
-              </StyledCategoryContainer>
+              <RatingBlock
+                name="Overall"
+                txt={review.overall.txt}
+                rating={review.overall.rating}
+              />
             </>
           )
         )}
@@ -146,23 +131,5 @@ const SauceReviewBlock: React.FunctionComponent<SauceReviewBlockProps> = props =
     </StyledContainer>
   );
 };
-
-function RatingDisplay({ txt, rating, name }) {
-  return (
-    <>
-      <StyledCategoryContainer>
-        <i>{name}:</i>
-        <ReactRating
-          initialRating={rating}
-          readonly={true}
-          emptySymbol={<StyledEmptyStar height={20} />}
-          fullSymbol={<StyledFullStar height={20} />}
-        />{" "}
-        <small>({rating.toString()})</small>
-      </StyledCategoryContainer>
-      <StyledCategoryDescription>{txt}</StyledCategoryDescription>
-    </>
-  );
-}
 
 export default SauceReviewBlock;
