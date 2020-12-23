@@ -89,4 +89,19 @@ describe("<SauceNewestReviews />", () => {
       expect(items.length).toEqual(saucesWithNewestReviews.length);
     });
   });
+
+  it("passes expected title to List component", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const reduxStore = fakeStores[ind].getState() as AppState;
+
+      // Make sure we have sauces to render
+      const { saucesWithNewestReviews } = reduxStore.sauces;
+      if (!saucesWithNewestReviews) return;
+      if (saucesWithNewestReviews.length === 0) return;
+
+      // Check that the same number of items in redux store are passed to component
+      const title = wrapper.find("List").prop("title");
+      expect(title).toEqual(_title);
+    });
+  });
 });
