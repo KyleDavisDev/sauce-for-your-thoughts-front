@@ -12,6 +12,7 @@ import {
 
 import SauceNewestReviews from "./SauceNewestReviews";
 import { AppState } from "../../../../redux/configureStore";
+import { ListItem } from "../../../List/List";
 
 describe("<SauceNewestReviews />", () => {
   // defaults
@@ -53,9 +54,9 @@ describe("<SauceNewestReviews />", () => {
     wrappers.forEach((wrapper, ind) => {
       const reduxStore = fakeStores[ind].getState() as AppState;
 
-      // if we have newest sauces, then we wont render out the default so we can skip
-      if (reduxStore.sauces.newest && reduxStore.sauces.newest.length > 0)
-        return;
+      // skip if we have sauces
+      const { saucesWithNewestReviews } = reduxStore.sauces;
+      if (saucesWithNewestReviews && saucesWithNewestReviews.length > 0) return;
 
       expect(wrapper.text()).toContain(_noNewSauces);
     });
@@ -66,10 +67,26 @@ describe("<SauceNewestReviews />", () => {
       const reduxStore = fakeStores[ind].getState() as AppState;
 
       // Make sure we have sauces to render
-      if (!reduxStore.sauces.newest) return;
-      if (reduxStore.sauces.newest.length === 0) return;
+      const { saucesWithNewestReviews } = reduxStore.sauces;
+      if (!saucesWithNewestReviews) return;
+      if (saucesWithNewestReviews.length === 0) return;
 
       expect(wrapper.find("List").exists()).toBeTruthy();
+    });
+  });
+
+  it("passes expected number of items to List component", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const reduxStore = fakeStores[ind].getState() as AppState;
+
+      // Make sure we have sauces to render
+      const { saucesWithNewestReviews } = reduxStore.sauces;
+      if (!saucesWithNewestReviews) return;
+      if (saucesWithNewestReviews.length === 0) return;
+
+      // Check that the same number of items in redux store are passed to component
+      const items = wrapper.find("List").prop("items") as ListItem[];
+      expect(items.length).toEqual(saucesWithNewestReviews.length);
     });
   });
 });
