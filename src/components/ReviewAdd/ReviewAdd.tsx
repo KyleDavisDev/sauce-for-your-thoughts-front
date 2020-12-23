@@ -258,7 +258,7 @@ const ReviewAdd: React.FunctionComponent<ReviewAddProps> = props => {
           overall,
           label,
           note,
-          _id: 0, // Server will overwrite this
+          reviewID: "", // Server will overwrite this
           author: "", // Server will overwrite this
           sauce: slug,
           created: 0 // Server will overwrite this
