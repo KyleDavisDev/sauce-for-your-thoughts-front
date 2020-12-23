@@ -21,9 +21,7 @@ export interface IReviewsAction {
 }
 
 export interface IReview {
-  _id?: number | string;
-  _addedToStore?: number;
-  reviewID?: string;
+  reviewID: string;
   author: string; // User's displayName
   sauce: string; // Sauce's slug
   created: number;
@@ -33,6 +31,7 @@ export interface IReview {
   taste?: IReviewSection;
   heat?: IReviewSection;
   note?: IReviewSection;
+  _addedToStore?: number;
 }
 
 export interface IReviewAPI {
