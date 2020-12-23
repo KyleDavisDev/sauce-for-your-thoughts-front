@@ -24,7 +24,7 @@ const SauceSpotlight: React.FC<SauceSpotlightProps> = () => {
   );
 
   React.useEffect(() => {
-    if (!loading) {
+    if (!loading || !sauce) {
       getTheSauce();
     }
   }, []);
