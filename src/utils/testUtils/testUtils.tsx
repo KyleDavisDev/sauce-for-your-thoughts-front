@@ -59,26 +59,36 @@ export const fakeSauce = (): ISauce => ({
 export const generateFakeSauces = (): ISauce[] =>
   new Array(casual.integer(1, 15)).fill(null).map(fakeSauce);
 
+const selectRandomSlugs = (slugs: string[]): undefined | string[] => {
+  return casual.random_element([
+    undefined,
+    slugs.length > 0
+      ? slugs.filter(slug => {
+          if (casual.random < 0.4) return slug;
+          return;
+        })
+      : []
+  ]);
+};
+
 export const fakeSaucesState = (): ISaucesState => {
   const sauces: ISauce[] = generateFakeSauces();
   const { allSlugs, bySlug } = Flatn.saucesArr({ sauces });
 
-  const featured: undefined | string[] = casual.random_element([
-    undefined,
-    allSlugs.length > 0
-      ? allSlugs.filter(slug => {
-          if (casual.random < 0.4) return slug;
-          return;
-        })
-      : undefined
-  ]);
+  const featured = selectRandomSlugs(allSlugs);
+
+  const saucesWithNewestReviews = bySlug
+    ? allSlugs.map(slug => {
+        return { name: bySlug[slug].name, slug };
+      })
+    : [];
 
   return {
     allSlugs,
     bySlug,
     total: allSlugs.length,
     query: undefined,
-    saucesWithNewestReviews: undefined,
+    saucesWithNewestReviews,
     newest: undefined,
     featured,
     types: casual.array_of_words(),
