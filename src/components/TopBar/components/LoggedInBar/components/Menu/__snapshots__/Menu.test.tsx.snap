@@ -14,13 +14,13 @@ exports[`<Menu /> matches snapshot 1`] = `
   }
 >
   <Menu
-    className="ullam similique assumenda soluta soluta harum explicabo"
+    className="enim illo debitis quia mollitia quis quasi"
   >
     <div
-      className="ullam similique assumenda soluta soluta harum explicabo"
+      className="enim illo debitis quia mollitia quis quasi"
     >
       <div
-        className="sc-AxmLO bigGZS ullam similique assumenda soluta soluta harum explicabo"
+        className="sc-AxmLO bigGZS enim illo debitis quia mollitia quis quasi"
       >
         <ul>
           <ul
@@ -41,25 +41,25 @@ exports[`<Menu /> matches snapshot 1`] = `
                       >
                         <div>
                           <img
-                            alt="Ms. Yvonne Hoppe"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://Tromp.name/"
+                            src=""
                             width="50"
                           >
                             <img
-                              alt="Ms. Yvonne Hoppe"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://Tromp.name/"
+                              src=""
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Ms. Yvonne Hoppe
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -311,14 +311,10 @@ exports[`<Menu /> matches snapshot 2`] = `
     }
   }
 >
-  <Menu
-    className="autem in error voluptatem neque qui non"
-  >
-    <div
-      className="autem in error voluptatem neque qui non"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS autem in error voluptatem neque qui non"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -339,25 +335,25 @@ exports[`<Menu /> matches snapshot 2`] = `
                       >
                         <div>
                           <img
-                            alt="Mr. Elliott Dooley"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://Schmitt.us/"
+                            src="http://www.Williamson.me/"
                             width="50"
                           >
                             <img
-                              alt="Mr. Elliott Dooley"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://Schmitt.us/"
+                              src="http://www.Williamson.me/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Mr. Elliott Dooley
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -609,10 +605,14 @@ exports[`<Menu /> matches snapshot 3`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="rem molestiae et aut quos accusamus praesentium"
+  >
+    <div
+      className="rem molestiae et aut quos accusamus praesentium"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS rem molestiae et aut quos accusamus praesentium"
       >
         <ul>
           <ul
@@ -633,14 +633,14 @@ exports[`<Menu /> matches snapshot 3`] = `
                       >
                         <div>
                           <img
-                            alt="Ms. Emilia Paucek"
+                            alt="Ms. Alysha Jerde"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Ms. Emilia Paucek"
+                              alt="Ms. Alysha Jerde"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -651,7 +651,7 @@ exports[`<Menu /> matches snapshot 3`] = `
                         </div>
                         <div>
                           <h3>
-                            Ms. Emilia Paucek
+                            Ms. Alysha Jerde
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -903,10 +903,14 @@ exports[`<Menu /> matches snapshot 4`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="voluptate soluta quam deleniti ex culpa quisquam"
+  >
+    <div
+      className="voluptate soluta quam deleniti ex culpa quisquam"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS voluptate soluta quam deleniti ex culpa quisquam"
       >
         <ul>
           <ul
@@ -1197,10 +1201,14 @@ exports[`<Menu /> matches snapshot 5`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="laboriosam eum non quia odio labore consectetur"
+  >
+    <div
+      className="laboriosam eum non quia odio labore consectetur"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS laboriosam eum non quia odio labore consectetur"
       >
         <ul>
           <ul
@@ -1224,7 +1232,7 @@ exports[`<Menu /> matches snapshot 5`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://Sammy.com/"
                             width="50"
                           >
                             <img
@@ -1232,7 +1240,7 @@ exports[`<Menu /> matches snapshot 5`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://Sammy.com/"
                               width="50"
                             />
                           </img>
@@ -1430,6 +1438,51 @@ exports[`<Menu /> matches snapshot 5`] = `
                   </styled.div>
                 </Item>
               </Help>
+            </li>
+            <li>
+              <Admin>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Admin
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/admin/approvesaucesubmissions"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/admin/approvesaucesubmissions"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/admin/approvesaucesubmissions"
+                        >
+                          <Link
+                            href="/admin/approvesaucesubmissions"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/admin/approvesaucesubmissions"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Approve Submissions
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Admin>
             </li>
             <hr
               style={
@@ -1785,10 +1838,14 @@ exports[`<Menu /> matches snapshot 7`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="saepe dicta dolore nam magni nulla omnis"
+  >
+    <div
+      className="saepe dicta dolore nam magni nulla omnis"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS saepe dicta dolore nam magni nulla omnis"
       >
         <ul>
           <ul
@@ -1812,7 +1869,7 @@ exports[`<Menu /> matches snapshot 7`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Gianni.us/"
+                            src=""
                             width="50"
                           >
                             <img
@@ -1820,7 +1877,7 @@ exports[`<Menu /> matches snapshot 7`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Gianni.us/"
+                              src=""
                               width="50"
                             />
                           </img>
@@ -2080,13 +2137,13 @@ exports[`<Menu /> matches snapshot 8`] = `
   }
 >
   <Menu
-    className="dolores voluptas fuga necessitatibus doloribus incidunt nulla"
+    className="fuga reprehenderit et molestiae quos omnis voluptatibus"
   >
     <div
-      className="dolores voluptas fuga necessitatibus doloribus incidunt nulla"
+      className="fuga reprehenderit et molestiae quos omnis voluptatibus"
     >
       <div
-        className="sc-AxmLO bigGZS dolores voluptas fuga necessitatibus doloribus incidunt nulla"
+        className="sc-AxmLO bigGZS fuga reprehenderit et molestiae quos omnis voluptatibus"
       >
         <ul>
           <ul
@@ -2107,25 +2164,25 @@ exports[`<Menu /> matches snapshot 8`] = `
                       >
                         <div>
                           <img
-                            alt="Mrs. Camille Wuckert"
+                            alt="Ms. Ottis Haag"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://www.Pollich.io/"
                             width="50"
                           >
                             <img
-                              alt="Mrs. Camille Wuckert"
+                              alt="Ms. Ottis Haag"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://www.Pollich.io/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Mrs. Camille Wuckert
+                            Ms. Ottis Haag
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -2449,7 +2506,7 @@ exports[`<Menu /> matches snapshot 9`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://www.Nickolas.tv/"
                             width="50"
                           >
                             <img
@@ -2457,7 +2514,7 @@ exports[`<Menu /> matches snapshot 9`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://www.Nickolas.tv/"
                               width="50"
                             />
                           </img>
@@ -2717,13 +2774,13 @@ exports[`<Menu /> matches snapshot 10`] = `
   }
 >
   <Menu
-    className="atque quas error id molestias incidunt rerum"
+    className="rerum fugit qui dolores iste ab ut"
   >
     <div
-      className="atque quas error id molestias incidunt rerum"
+      className="rerum fugit qui dolores iste ab ut"
     >
       <div
-        className="sc-AxmLO bigGZS atque quas error id molestias incidunt rerum"
+        className="sc-AxmLO bigGZS rerum fugit qui dolores iste ab ut"
       >
         <ul>
           <ul
@@ -2744,14 +2801,14 @@ exports[`<Menu /> matches snapshot 10`] = `
                       >
                         <div>
                           <img
-                            alt="Mrs. Judd Macejkovic"
+                            alt="Miss Regan Heidenreich"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Mrs. Judd Macejkovic"
+                              alt="Miss Regan Heidenreich"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -2762,7 +2819,7 @@ exports[`<Menu /> matches snapshot 10`] = `
                         </div>
                         <div>
                           <h3>
-                            Mrs. Judd Macejkovic
+                            Miss Regan Heidenreich
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -3014,308 +3071,14 @@ exports[`<Menu /> matches snapshot 11`] = `
     }
   }
 >
-  <Menu>
-    <div>
-      <div
-        className="sc-AxmLO bigGZS"
-      >
-        <ul>
-          <ul
-            className="sc-fzozJi gFUdkl"
-          >
-            <li>
-              <Profile>
-                <styled.a
-                  href="#"
-                >
-                  <a
-                    className="sc-AxjAm kuwTYD"
-                    href="#"
-                  >
-                    <div>
-                      <div
-                        className="sc-AxirZ ivtElj"
-                      >
-                        <div>
-                          <img
-                            alt="Mr. Ola Bernhard"
-                            height="50"
-                            onError={[Function]}
-                            src="http://www.Alexys.info/"
-                            width="50"
-                          >
-                            <img
-                              alt="Mr. Ola Bernhard"
-                              className="sc-AxiKw nuWWp"
-                              height="50"
-                              onError={[Function]}
-                              src="http://www.Alexys.info/"
-                              width="50"
-                            />
-                          </img>
-                        </div>
-                        <div>
-                          <h3>
-                            Mr. Ola Bernhard
-                          </h3>
-                          <h4>
-                            Sauce Fanatic
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div
-                        className="sc-AxhCb guHPYI"
-                      >
-                        <Button
-                          displayType="outline"
-                        >
-                          <Button
-                            className="sc-AxhUy cJvrET"
-                            displayType="outline"
-                          >
-                            <div
-                              className="sc-AxhUy cJvrET"
-                            >
-                              <button
-                                aria-disabled={false}
-                                disabled={false}
-                                type="button"
-                              >
-                                View profile (Coming Soon)
-                              </button>
-                            </div>
-                          </Button>
-                        </Button>
-                      </div>
-                    </div>
-                  </a>
-                </styled.a>
-              </Profile>
-            </li>
-            <li>
-              <Account>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Account
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/account/settings"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/account/settings"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/account/settings"
-                        >
-                          <Link
-                            href="/account/settings"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/account/settings"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Settings
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Profile (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Account>
-            </li>
-            <li>
-              <Help>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Need Help?
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Quick Guide (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Contact Us (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Help>
-            </li>
-            <hr
-              style={
-                Object {
-                  "margin": 0,
-                }
-              }
-            />
-            <Item
-              to="/account/logout"
-            >
-              <styled.div>
-                <div
-                  className="sc-Axmtr gvBswO"
-                >
-                  <Link
-                    href="/account/logout"
-                  >
-                    <LinkComponent
-                      className="sc-AxheI IQtvd"
-                      href="/account/logout"
-                    >
-                      <Link
-                        href="/account/logout"
-                      >
-                        <a
-                          className="sc-AxheI IQtvd"
-                          href="/account/logout"
-                          onClick={[Function]}
-                          onMouseEnter={[Function]}
-                          target="_self"
-                        >
-                          Logout
-                        </a>
-                      </Link>
-                    </LinkComponent>
-                  </Link>
-                </div>
-              </styled.div>
-            </Item>
-          </ul>
-        </ul>
-      </div>
-    </div>
-  </Menu>
-</Provider>
-`;
-
-exports[`<Menu /> matches snapshot 12`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
   <Menu
-    className="aspernatur et adipisci non a non maiores"
+    className="officia ea vero et maxime harum nulla"
   >
     <div
-      className="aspernatur et adipisci non a non maiores"
+      className="officia ea vero et maxime harum nulla"
     >
       <div
-        className="sc-AxmLO bigGZS aspernatur et adipisci non a non maiores"
+        className="sc-AxmLO bigGZS officia ea vero et maxime harum nulla"
       >
         <ul>
           <ul
@@ -3593,6 +3356,300 @@ exports[`<Menu /> matches snapshot 12`] = `
 </Provider>
 `;
 
+exports[`<Menu /> matches snapshot 12`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Menu>
+    <div>
+      <div
+        className="sc-AxmLO bigGZS"
+      >
+        <ul>
+          <ul
+            className="sc-fzozJi gFUdkl"
+          >
+            <li>
+              <Profile>
+                <styled.a
+                  href="#"
+                >
+                  <a
+                    className="sc-AxjAm kuwTYD"
+                    href="#"
+                  >
+                    <div>
+                      <div
+                        className="sc-AxirZ ivtElj"
+                      >
+                        <div>
+                          <img
+                            alt="Mrs. Mallory Bosco"
+                            height="50"
+                            onError={[Function]}
+                            src=""
+                            width="50"
+                          >
+                            <img
+                              alt="Mrs. Mallory Bosco"
+                              className="sc-AxiKw nuWWp"
+                              height="50"
+                              onError={[Function]}
+                              src=""
+                              width="50"
+                            />
+                          </img>
+                        </div>
+                        <div>
+                          <h3>
+                            Mrs. Mallory Bosco
+                          </h3>
+                          <h4>
+                            Sauce Fanatic
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        className="sc-AxhCb guHPYI"
+                      >
+                        <Button
+                          displayType="outline"
+                        >
+                          <Button
+                            className="sc-AxhUy cJvrET"
+                            displayType="outline"
+                          >
+                            <div
+                              className="sc-AxhUy cJvrET"
+                            >
+                              <button
+                                aria-disabled={false}
+                                disabled={false}
+                                type="button"
+                              >
+                                View profile (Coming Soon)
+                              </button>
+                            </div>
+                          </Button>
+                        </Button>
+                      </div>
+                    </div>
+                  </a>
+                </styled.a>
+              </Profile>
+            </li>
+            <li>
+              <Account>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Account
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/account/settings"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/account/settings"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/account/settings"
+                        >
+                          <Link
+                            href="/account/settings"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/account/settings"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Settings
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Profile (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Account>
+            </li>
+            <li>
+              <Help>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Need Help?
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Quick Guide (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Contact Us (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Help>
+            </li>
+            <hr
+              style={
+                Object {
+                  "margin": 0,
+                }
+              }
+            />
+            <Item
+              to="/account/logout"
+            >
+              <styled.div>
+                <div
+                  className="sc-Axmtr gvBswO"
+                >
+                  <Link
+                    href="/account/logout"
+                  >
+                    <LinkComponent
+                      className="sc-AxheI IQtvd"
+                      href="/account/logout"
+                    >
+                      <Link
+                        href="/account/logout"
+                      >
+                        <a
+                          className="sc-AxheI IQtvd"
+                          href="/account/logout"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Link>
+                </div>
+              </styled.div>
+            </Item>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </Menu>
+</Provider>
+`;
+
 exports[`<Menu /> matches snapshot 13`] = `
 <Provider
   store={
@@ -3606,14 +3663,10 @@ exports[`<Menu /> matches snapshot 13`] = `
     }
   }
 >
-  <Menu
-    className="sed cupiditate nobis sit eum nam quo"
-  >
-    <div
-      className="sed cupiditate nobis sit eum nam quo"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS sed cupiditate nobis sit eum nam quo"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -3904,14 +3957,10 @@ exports[`<Menu /> matches snapshot 14`] = `
     }
   }
 >
-  <Menu
-    className="natus occaecati dolorum voluptas quos et ipsam"
-  >
-    <div
-      className="natus occaecati dolorum voluptas quos et ipsam"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS natus occaecati dolorum voluptas quos et ipsam"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -4202,14 +4251,10 @@ exports[`<Menu /> matches snapshot 15`] = `
     }
   }
 >
-  <Menu
-    className="ex a suscipit et voluptates in mollitia"
-  >
-    <div
-      className="ex a suscipit et voluptates in mollitia"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS ex a suscipit et voluptates in mollitia"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -4500,10 +4545,312 @@ exports[`<Menu /> matches snapshot 16`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="eos molestias sapiente voluptatem rem magnam molestiae"
+  >
+    <div
+      className="eos molestias sapiente voluptatem rem magnam molestiae"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS eos molestias sapiente voluptatem rem magnam molestiae"
+      >
+        <ul>
+          <ul
+            className="sc-fzozJi gFUdkl"
+          >
+            <li>
+              <Profile>
+                <styled.a
+                  href="#"
+                >
+                  <a
+                    className="sc-AxjAm kuwTYD"
+                    href="#"
+                  >
+                    <div>
+                      <div
+                        className="sc-AxirZ ivtElj"
+                      >
+                        <div>
+                          <img
+                            alt="Mrs. Keaton Rice"
+                            height="50"
+                            onError={[Function]}
+                            src=""
+                            width="50"
+                          >
+                            <img
+                              alt="Mrs. Keaton Rice"
+                              className="sc-AxiKw nuWWp"
+                              height="50"
+                              onError={[Function]}
+                              src=""
+                              width="50"
+                            />
+                          </img>
+                        </div>
+                        <div>
+                          <h3>
+                            Mrs. Keaton Rice
+                          </h3>
+                          <h4>
+                            Sauce Fanatic
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        className="sc-AxhCb guHPYI"
+                      >
+                        <Button
+                          displayType="outline"
+                        >
+                          <Button
+                            className="sc-AxhUy cJvrET"
+                            displayType="outline"
+                          >
+                            <div
+                              className="sc-AxhUy cJvrET"
+                            >
+                              <button
+                                aria-disabled={false}
+                                disabled={false}
+                                type="button"
+                              >
+                                View profile (Coming Soon)
+                              </button>
+                            </div>
+                          </Button>
+                        </Button>
+                      </div>
+                    </div>
+                  </a>
+                </styled.a>
+              </Profile>
+            </li>
+            <li>
+              <Account>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Account
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/account/settings"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/account/settings"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/account/settings"
+                        >
+                          <Link
+                            href="/account/settings"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/account/settings"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Settings
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Profile (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Account>
+            </li>
+            <li>
+              <Help>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Need Help?
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Quick Guide (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Contact Us (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Help>
+            </li>
+            <hr
+              style={
+                Object {
+                  "margin": 0,
+                }
+              }
+            />
+            <Item
+              to="/account/logout"
+            >
+              <styled.div>
+                <div
+                  className="sc-Axmtr gvBswO"
+                >
+                  <Link
+                    href="/account/logout"
+                  >
+                    <LinkComponent
+                      className="sc-AxheI IQtvd"
+                      href="/account/logout"
+                    >
+                      <Link
+                        href="/account/logout"
+                      >
+                        <a
+                          className="sc-AxheI IQtvd"
+                          href="/account/logout"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Link>
+                </div>
+              </styled.div>
+            </Item>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </Menu>
+</Provider>
+`;
+
+exports[`<Menu /> matches snapshot 17`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Menu
+    className="laborum vel eum expedita sit qui fuga"
+  >
+    <div
+      className="laborum vel eum expedita sit qui fuga"
+    >
+      <div
+        className="sc-AxmLO bigGZS laborum vel eum expedita sit qui fuga"
       >
         <ul>
           <ul
@@ -4781,7 +5128,7 @@ exports[`<Menu /> matches snapshot 16`] = `
 </Provider>
 `;
 
-exports[`<Menu /> matches snapshot 17`] = `
+exports[`<Menu /> matches snapshot 18`] = `
 <Provider
   store={
     Object {
@@ -4798,304 +5145,6 @@ exports[`<Menu /> matches snapshot 17`] = `
     <div>
       <div
         className="sc-AxmLO bigGZS"
-      >
-        <ul>
-          <ul
-            className="sc-fzozJi gFUdkl"
-          >
-            <li>
-              <Profile>
-                <styled.a
-                  href="#"
-                >
-                  <a
-                    className="sc-AxjAm kuwTYD"
-                    href="#"
-                  >
-                    <div>
-                      <div
-                        className="sc-AxirZ ivtElj"
-                      >
-                        <div>
-                          <img
-                            alt="Miss Elwyn Hilpert"
-                            height="50"
-                            onError={[Function]}
-                            src="http://Hamill.name/"
-                            width="50"
-                          >
-                            <img
-                              alt="Miss Elwyn Hilpert"
-                              className="sc-AxiKw nuWWp"
-                              height="50"
-                              onError={[Function]}
-                              src="http://Hamill.name/"
-                              width="50"
-                            />
-                          </img>
-                        </div>
-                        <div>
-                          <h3>
-                            Miss Elwyn Hilpert
-                          </h3>
-                          <h4>
-                            Sauce Fanatic
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div
-                        className="sc-AxhCb guHPYI"
-                      >
-                        <Button
-                          displayType="outline"
-                        >
-                          <Button
-                            className="sc-AxhUy cJvrET"
-                            displayType="outline"
-                          >
-                            <div
-                              className="sc-AxhUy cJvrET"
-                            >
-                              <button
-                                aria-disabled={false}
-                                disabled={false}
-                                type="button"
-                              >
-                                View profile (Coming Soon)
-                              </button>
-                            </div>
-                          </Button>
-                        </Button>
-                      </div>
-                    </div>
-                  </a>
-                </styled.a>
-              </Profile>
-            </li>
-            <li>
-              <Account>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Account
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/account/settings"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/account/settings"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/account/settings"
-                        >
-                          <Link
-                            href="/account/settings"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/account/settings"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Settings
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Profile (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Account>
-            </li>
-            <li>
-              <Help>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Need Help?
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Quick Guide (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Contact Us (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Help>
-            </li>
-            <hr
-              style={
-                Object {
-                  "margin": 0,
-                }
-              }
-            />
-            <Item
-              to="/account/logout"
-            >
-              <styled.div>
-                <div
-                  className="sc-Axmtr gvBswO"
-                >
-                  <Link
-                    href="/account/logout"
-                  >
-                    <LinkComponent
-                      className="sc-AxheI IQtvd"
-                      href="/account/logout"
-                    >
-                      <Link
-                        href="/account/logout"
-                      >
-                        <a
-                          className="sc-AxheI IQtvd"
-                          href="/account/logout"
-                          onClick={[Function]}
-                          onMouseEnter={[Function]}
-                          target="_self"
-                        >
-                          Logout
-                        </a>
-                      </Link>
-                    </LinkComponent>
-                  </Link>
-                </div>
-              </styled.div>
-            </Item>
-          </ul>
-        </ul>
-      </div>
-    </div>
-  </Menu>
-</Provider>
-`;
-
-exports[`<Menu /> matches snapshot 18`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Menu
-    className="officia assumenda blanditiis aliquam quidem est impedit"
-  >
-    <div
-      className="officia assumenda blanditiis aliquam quidem est impedit"
-    >
-      <div
-        className="sc-AxmLO bigGZS officia assumenda blanditiis aliquam quidem est impedit"
       >
         <ul>
           <ul
@@ -5386,10 +5435,14 @@ exports[`<Menu /> matches snapshot 19`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="alias nam consequuntur sunt et consequuntur deserunt"
+  >
+    <div
+      className="alias nam consequuntur sunt et consequuntur deserunt"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS alias nam consequuntur sunt et consequuntur deserunt"
       >
         <ul>
           <ul
@@ -5410,14 +5463,14 @@ exports[`<Menu /> matches snapshot 19`] = `
                       >
                         <div>
                           <img
-                            alt="Mrs. Lavina Mayert"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Mrs. Lavina Mayert"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -5428,7 +5481,7 @@ exports[`<Menu /> matches snapshot 19`] = `
                         </div>
                         <div>
                           <h3>
-                            Mrs. Lavina Mayert
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -5680,14 +5733,10 @@ exports[`<Menu /> matches snapshot 20`] = `
     }
   }
 >
-  <Menu
-    className="occaecati voluptate quis consequatur qui velit harum"
-  >
-    <div
-      className="occaecati voluptate quis consequatur qui velit harum"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS occaecati voluptate quis consequatur qui velit harum"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -5979,13 +6028,352 @@ exports[`<Menu /> matches snapshot 21`] = `
   }
 >
   <Menu
-    className="expedita sed incidunt ipsum quia facilis quidem"
+    className="minus qui dolor accusamus magni sed quo"
   >
     <div
-      className="expedita sed incidunt ipsum quia facilis quidem"
+      className="minus qui dolor accusamus magni sed quo"
     >
       <div
-        className="sc-AxmLO bigGZS expedita sed incidunt ipsum quia facilis quidem"
+        className="sc-AxmLO bigGZS minus qui dolor accusamus magni sed quo"
+      >
+        <ul>
+          <ul
+            className="sc-fzozJi gFUdkl"
+          >
+            <li>
+              <Profile>
+                <styled.a
+                  href="#"
+                >
+                  <a
+                    className="sc-AxjAm kuwTYD"
+                    href="#"
+                  >
+                    <div>
+                      <div
+                        className="sc-AxirZ ivtElj"
+                      >
+                        <div>
+                          <img
+                            alt="Ms. Neil Hansen"
+                            height="50"
+                            onError={[Function]}
+                            src=""
+                            width="50"
+                          >
+                            <img
+                              alt="Ms. Neil Hansen"
+                              className="sc-AxiKw nuWWp"
+                              height="50"
+                              onError={[Function]}
+                              src=""
+                              width="50"
+                            />
+                          </img>
+                        </div>
+                        <div>
+                          <h3>
+                            Ms. Neil Hansen
+                          </h3>
+                          <h4>
+                            Sauce Fanatic
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        className="sc-AxhCb guHPYI"
+                      >
+                        <Button
+                          displayType="outline"
+                        >
+                          <Button
+                            className="sc-AxhUy cJvrET"
+                            displayType="outline"
+                          >
+                            <div
+                              className="sc-AxhUy cJvrET"
+                            >
+                              <button
+                                aria-disabled={false}
+                                disabled={false}
+                                type="button"
+                              >
+                                View profile (Coming Soon)
+                              </button>
+                            </div>
+                          </Button>
+                        </Button>
+                      </div>
+                    </div>
+                  </a>
+                </styled.a>
+              </Profile>
+            </li>
+            <li>
+              <Account>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Account
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/account/settings"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/account/settings"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/account/settings"
+                        >
+                          <Link
+                            href="/account/settings"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/account/settings"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Settings
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Profile (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Account>
+            </li>
+            <li>
+              <Help>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Need Help?
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Quick Guide (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Contact Us (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Help>
+            </li>
+            <li>
+              <Admin>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Admin
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/admin/approvesaucesubmissions"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/admin/approvesaucesubmissions"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/admin/approvesaucesubmissions"
+                        >
+                          <Link
+                            href="/admin/approvesaucesubmissions"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/admin/approvesaucesubmissions"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Approve Submissions
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Admin>
+            </li>
+            <hr
+              style={
+                Object {
+                  "margin": 0,
+                }
+              }
+            />
+            <Item
+              to="/account/logout"
+            >
+              <styled.div>
+                <div
+                  className="sc-Axmtr gvBswO"
+                >
+                  <Link
+                    href="/account/logout"
+                  >
+                    <LinkComponent
+                      className="sc-AxheI IQtvd"
+                      href="/account/logout"
+                    >
+                      <Link
+                        href="/account/logout"
+                      >
+                        <a
+                          className="sc-AxheI IQtvd"
+                          href="/account/logout"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Link>
+                </div>
+              </styled.div>
+            </Item>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </Menu>
+</Provider>
+`;
+
+exports[`<Menu /> matches snapshot 22`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Menu>
+    <div>
+      <div
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -6263,304 +6651,6 @@ exports[`<Menu /> matches snapshot 21`] = `
 </Provider>
 `;
 
-exports[`<Menu /> matches snapshot 22`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Menu
-    className="est consectetur error qui voluptatibus temporibus necessitatibus"
-  >
-    <div
-      className="est consectetur error qui voluptatibus temporibus necessitatibus"
-    >
-      <div
-        className="sc-AxmLO bigGZS est consectetur error qui voluptatibus temporibus necessitatibus"
-      >
-        <ul>
-          <ul
-            className="sc-fzozJi gFUdkl"
-          >
-            <li>
-              <Profile>
-                <styled.a
-                  href="#"
-                >
-                  <a
-                    className="sc-AxjAm kuwTYD"
-                    href="#"
-                  >
-                    <div>
-                      <div
-                        className="sc-AxirZ ivtElj"
-                      >
-                        <div>
-                          <img
-                            alt="Ms. Chelsey Reichel"
-                            height="50"
-                            onError={[Function]}
-                            src=""
-                            width="50"
-                          >
-                            <img
-                              alt="Ms. Chelsey Reichel"
-                              className="sc-AxiKw nuWWp"
-                              height="50"
-                              onError={[Function]}
-                              src=""
-                              width="50"
-                            />
-                          </img>
-                        </div>
-                        <div>
-                          <h3>
-                            Ms. Chelsey Reichel
-                          </h3>
-                          <h4>
-                            Sauce Fanatic
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div
-                        className="sc-AxhCb guHPYI"
-                      >
-                        <Button
-                          displayType="outline"
-                        >
-                          <Button
-                            className="sc-AxhUy cJvrET"
-                            displayType="outline"
-                          >
-                            <div
-                              className="sc-AxhUy cJvrET"
-                            >
-                              <button
-                                aria-disabled={false}
-                                disabled={false}
-                                type="button"
-                              >
-                                View profile (Coming Soon)
-                              </button>
-                            </div>
-                          </Button>
-                        </Button>
-                      </div>
-                    </div>
-                  </a>
-                </styled.a>
-              </Profile>
-            </li>
-            <li>
-              <Account>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Account
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/account/settings"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/account/settings"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/account/settings"
-                        >
-                          <Link
-                            href="/account/settings"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/account/settings"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Settings
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Profile (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Account>
-            </li>
-            <li>
-              <Help>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Need Help?
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Quick Guide (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Contact Us (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Help>
-            </li>
-            <hr
-              style={
-                Object {
-                  "margin": 0,
-                }
-              }
-            />
-            <Item
-              to="/account/logout"
-            >
-              <styled.div>
-                <div
-                  className="sc-Axmtr gvBswO"
-                >
-                  <Link
-                    href="/account/logout"
-                  >
-                    <LinkComponent
-                      className="sc-AxheI IQtvd"
-                      href="/account/logout"
-                    >
-                      <Link
-                        href="/account/logout"
-                      >
-                        <a
-                          className="sc-AxheI IQtvd"
-                          href="/account/logout"
-                          onClick={[Function]}
-                          onMouseEnter={[Function]}
-                          target="_self"
-                        >
-                          Logout
-                        </a>
-                      </Link>
-                    </LinkComponent>
-                  </Link>
-                </div>
-              </styled.div>
-            </Item>
-          </ul>
-        </ul>
-      </div>
-    </div>
-  </Menu>
-</Provider>
-`;
-
 exports[`<Menu /> matches snapshot 23`] = `
 <Provider
   store={
@@ -6574,14 +6664,10 @@ exports[`<Menu /> matches snapshot 23`] = `
     }
   }
 >
-  <Menu
-    className="cum qui perferendis qui quae dolorem voluptatem"
-  >
-    <div
-      className="cum qui perferendis qui quae dolorem voluptatem"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS cum qui perferendis qui quae dolorem voluptatem"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -6872,10 +6958,14 @@ exports[`<Menu /> matches snapshot 24`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="amet quia recusandae repellendus unde veritatis voluptatem"
+  >
+    <div
+      className="amet quia recusandae repellendus unde veritatis voluptatem"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS amet quia recusandae repellendus unde veritatis voluptatem"
       >
         <ul>
           <ul
@@ -7106,51 +7196,6 @@ exports[`<Menu /> matches snapshot 24`] = `
                 </Item>
               </Help>
             </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
-            </li>
             <hr
               style={
                 Object {
@@ -7235,14 +7280,14 @@ exports[`<Menu /> matches snapshot 25`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Ms. Lauriane Brekke"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Ms. Lauriane Brekke"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -7253,7 +7298,7 @@ exports[`<Menu /> matches snapshot 25`] = `
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Ms. Lauriane Brekke
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -7529,14 +7574,14 @@ exports[`<Menu /> matches snapshot 26`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Ms. Jazmyn Barrows"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Ms. Jazmyn Barrows"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -7547,7 +7592,7 @@ exports[`<Menu /> matches snapshot 26`] = `
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Ms. Jazmyn Barrows
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -7787,6 +7832,647 @@ exports[`<Menu /> matches snapshot 26`] = `
 `;
 
 exports[`<Menu /> matches snapshot 27`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Menu
+    className="optio debitis quidem voluptatem optio minima ipsum"
+  >
+    <div
+      className="optio debitis quidem voluptatem optio minima ipsum"
+    >
+      <div
+        className="sc-AxmLO bigGZS optio debitis quidem voluptatem optio minima ipsum"
+      >
+        <ul>
+          <ul
+            className="sc-fzozJi gFUdkl"
+          >
+            <li>
+              <Profile>
+                <styled.a
+                  href="#"
+                >
+                  <a
+                    className="sc-AxjAm kuwTYD"
+                    href="#"
+                  >
+                    <div>
+                      <div
+                        className="sc-AxirZ ivtElj"
+                      >
+                        <div>
+                          <img
+                            alt="Ms. Clementine Williamson"
+                            height="50"
+                            onError={[Function]}
+                            src="http://www.Morar.io/"
+                            width="50"
+                          >
+                            <img
+                              alt="Ms. Clementine Williamson"
+                              className="sc-AxiKw nuWWp"
+                              height="50"
+                              onError={[Function]}
+                              src="http://www.Morar.io/"
+                              width="50"
+                            />
+                          </img>
+                        </div>
+                        <div>
+                          <h3>
+                            Ms. Clementine Williamson
+                          </h3>
+                          <h4>
+                            Sauce Fanatic
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        className="sc-AxhCb guHPYI"
+                      >
+                        <Button
+                          displayType="outline"
+                        >
+                          <Button
+                            className="sc-AxhUy cJvrET"
+                            displayType="outline"
+                          >
+                            <div
+                              className="sc-AxhUy cJvrET"
+                            >
+                              <button
+                                aria-disabled={false}
+                                disabled={false}
+                                type="button"
+                              >
+                                View profile (Coming Soon)
+                              </button>
+                            </div>
+                          </Button>
+                        </Button>
+                      </div>
+                    </div>
+                  </a>
+                </styled.a>
+              </Profile>
+            </li>
+            <li>
+              <Account>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Account
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/account/settings"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/account/settings"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/account/settings"
+                        >
+                          <Link
+                            href="/account/settings"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/account/settings"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Settings
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Profile (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Account>
+            </li>
+            <li>
+              <Help>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Need Help?
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Quick Guide (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Contact Us (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Help>
+            </li>
+            <hr
+              style={
+                Object {
+                  "margin": 0,
+                }
+              }
+            />
+            <Item
+              to="/account/logout"
+            >
+              <styled.div>
+                <div
+                  className="sc-Axmtr gvBswO"
+                >
+                  <Link
+                    href="/account/logout"
+                  >
+                    <LinkComponent
+                      className="sc-AxheI IQtvd"
+                      href="/account/logout"
+                    >
+                      <Link
+                        href="/account/logout"
+                      >
+                        <a
+                          className="sc-AxheI IQtvd"
+                          href="/account/logout"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Link>
+                </div>
+              </styled.div>
+            </Item>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </Menu>
+</Provider>
+`;
+
+exports[`<Menu /> matches snapshot 28`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Menu
+    className="exercitationem quod maxime iure tempora eligendi eveniet"
+  >
+    <div
+      className="exercitationem quod maxime iure tempora eligendi eveniet"
+    >
+      <div
+        className="sc-AxmLO bigGZS exercitationem quod maxime iure tempora eligendi eveniet"
+      >
+        <ul>
+          <ul
+            className="sc-fzozJi gFUdkl"
+          >
+            <li>
+              <Profile>
+                <styled.a
+                  href="#"
+                >
+                  <a
+                    className="sc-AxjAm kuwTYD"
+                    href="#"
+                  >
+                    <div>
+                      <div
+                        className="sc-AxirZ ivtElj"
+                      >
+                        <div>
+                          <img
+                            alt="Me"
+                            height="50"
+                            onError={[Function]}
+                            src="http://www.Percival.org/"
+                            width="50"
+                          >
+                            <img
+                              alt="Me"
+                              className="sc-AxiKw nuWWp"
+                              height="50"
+                              onError={[Function]}
+                              src="http://www.Percival.org/"
+                              width="50"
+                            />
+                          </img>
+                        </div>
+                        <div>
+                          <h3>
+                            Me
+                          </h3>
+                          <h4>
+                            Sauce Fanatic
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        className="sc-AxhCb guHPYI"
+                      >
+                        <Button
+                          displayType="outline"
+                        >
+                          <Button
+                            className="sc-AxhUy cJvrET"
+                            displayType="outline"
+                          >
+                            <div
+                              className="sc-AxhUy cJvrET"
+                            >
+                              <button
+                                aria-disabled={false}
+                                disabled={false}
+                                type="button"
+                              >
+                                View profile (Coming Soon)
+                              </button>
+                            </div>
+                          </Button>
+                        </Button>
+                      </div>
+                    </div>
+                  </a>
+                </styled.a>
+              </Profile>
+            </li>
+            <li>
+              <Account>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Account
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/account/settings"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/account/settings"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/account/settings"
+                        >
+                          <Link
+                            href="/account/settings"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/account/settings"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Settings
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Profile (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Account>
+            </li>
+            <li>
+              <Help>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Need Help?
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Quick Guide (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Contact Us (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Help>
+            </li>
+            <li>
+              <Admin>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Admin
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/admin/approvesaucesubmissions"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/admin/approvesaucesubmissions"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/admin/approvesaucesubmissions"
+                        >
+                          <Link
+                            href="/admin/approvesaucesubmissions"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/admin/approvesaucesubmissions"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Approve Submissions
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Admin>
+            </li>
+            <hr
+              style={
+                Object {
+                  "margin": 0,
+                }
+              }
+            />
+            <Item
+              to="/account/logout"
+            >
+              <styled.div>
+                <div
+                  className="sc-Axmtr gvBswO"
+                >
+                  <Link
+                    href="/account/logout"
+                  >
+                    <LinkComponent
+                      className="sc-AxheI IQtvd"
+                      href="/account/logout"
+                    >
+                      <Link
+                        href="/account/logout"
+                      >
+                        <a
+                          className="sc-AxheI IQtvd"
+                          href="/account/logout"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Link>
+                </div>
+              </styled.div>
+            </Item>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </Menu>
+</Provider>
+`;
+
+exports[`<Menu /> matches snapshot 29`] = `
 <Provider
   store={
     Object {
@@ -8080,602 +8766,6 @@ exports[`<Menu /> matches snapshot 27`] = `
 </Provider>
 `;
 
-exports[`<Menu /> matches snapshot 28`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Menu
-    className="vel eligendi et debitis illum amet amet"
-  >
-    <div
-      className="vel eligendi et debitis illum amet amet"
-    >
-      <div
-        className="sc-AxmLO bigGZS vel eligendi et debitis illum amet amet"
-      >
-        <ul>
-          <ul
-            className="sc-fzozJi gFUdkl"
-          >
-            <li>
-              <Profile>
-                <styled.a
-                  href="#"
-                >
-                  <a
-                    className="sc-AxjAm kuwTYD"
-                    href="#"
-                  >
-                    <div>
-                      <div
-                        className="sc-AxirZ ivtElj"
-                      >
-                        <div>
-                          <img
-                            alt="Me"
-                            height="50"
-                            onError={[Function]}
-                            src="http://www.Shyann.org/"
-                            width="50"
-                          >
-                            <img
-                              alt="Me"
-                              className="sc-AxiKw nuWWp"
-                              height="50"
-                              onError={[Function]}
-                              src="http://www.Shyann.org/"
-                              width="50"
-                            />
-                          </img>
-                        </div>
-                        <div>
-                          <h3>
-                            Me
-                          </h3>
-                          <h4>
-                            Sauce Fanatic
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div
-                        className="sc-AxhCb guHPYI"
-                      >
-                        <Button
-                          displayType="outline"
-                        >
-                          <Button
-                            className="sc-AxhUy cJvrET"
-                            displayType="outline"
-                          >
-                            <div
-                              className="sc-AxhUy cJvrET"
-                            >
-                              <button
-                                aria-disabled={false}
-                                disabled={false}
-                                type="button"
-                              >
-                                View profile (Coming Soon)
-                              </button>
-                            </div>
-                          </Button>
-                        </Button>
-                      </div>
-                    </div>
-                  </a>
-                </styled.a>
-              </Profile>
-            </li>
-            <li>
-              <Account>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Account
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/account/settings"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/account/settings"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/account/settings"
-                        >
-                          <Link
-                            href="/account/settings"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/account/settings"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Settings
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Profile (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Account>
-            </li>
-            <li>
-              <Help>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Need Help?
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Quick Guide (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Contact Us (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Help>
-            </li>
-            <hr
-              style={
-                Object {
-                  "margin": 0,
-                }
-              }
-            />
-            <Item
-              to="/account/logout"
-            >
-              <styled.div>
-                <div
-                  className="sc-Axmtr gvBswO"
-                >
-                  <Link
-                    href="/account/logout"
-                  >
-                    <LinkComponent
-                      className="sc-AxheI IQtvd"
-                      href="/account/logout"
-                    >
-                      <Link
-                        href="/account/logout"
-                      >
-                        <a
-                          className="sc-AxheI IQtvd"
-                          href="/account/logout"
-                          onClick={[Function]}
-                          onMouseEnter={[Function]}
-                          target="_self"
-                        >
-                          Logout
-                        </a>
-                      </Link>
-                    </LinkComponent>
-                  </Link>
-                </div>
-              </styled.div>
-            </Item>
-          </ul>
-        </ul>
-      </div>
-    </div>
-  </Menu>
-</Provider>
-`;
-
-exports[`<Menu /> matches snapshot 29`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Menu
-    className="inventore voluptas eius magni recusandae odio ea"
-  >
-    <div
-      className="inventore voluptas eius magni recusandae odio ea"
-    >
-      <div
-        className="sc-AxmLO bigGZS inventore voluptas eius magni recusandae odio ea"
-      >
-        <ul>
-          <ul
-            className="sc-fzozJi gFUdkl"
-          >
-            <li>
-              <Profile>
-                <styled.a
-                  href="#"
-                >
-                  <a
-                    className="sc-AxjAm kuwTYD"
-                    href="#"
-                  >
-                    <div>
-                      <div
-                        className="sc-AxirZ ivtElj"
-                      >
-                        <div>
-                          <img
-                            alt="Me"
-                            height="50"
-                            onError={[Function]}
-                            src="http://Zena.io/"
-                            width="50"
-                          >
-                            <img
-                              alt="Me"
-                              className="sc-AxiKw nuWWp"
-                              height="50"
-                              onError={[Function]}
-                              src="http://Zena.io/"
-                              width="50"
-                            />
-                          </img>
-                        </div>
-                        <div>
-                          <h3>
-                            Me
-                          </h3>
-                          <h4>
-                            Sauce Fanatic
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div
-                        className="sc-AxhCb guHPYI"
-                      >
-                        <Button
-                          displayType="outline"
-                        >
-                          <Button
-                            className="sc-AxhUy cJvrET"
-                            displayType="outline"
-                          >
-                            <div
-                              className="sc-AxhUy cJvrET"
-                            >
-                              <button
-                                aria-disabled={false}
-                                disabled={false}
-                                type="button"
-                              >
-                                View profile (Coming Soon)
-                              </button>
-                            </div>
-                          </Button>
-                        </Button>
-                      </div>
-                    </div>
-                  </a>
-                </styled.a>
-              </Profile>
-            </li>
-            <li>
-              <Account>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Account
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/account/settings"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/account/settings"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/account/settings"
-                        >
-                          <Link
-                            href="/account/settings"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/account/settings"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Settings
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Profile (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Account>
-            </li>
-            <li>
-              <Help>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Need Help?
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Quick Guide (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Contact Us (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Help>
-            </li>
-            <hr
-              style={
-                Object {
-                  "margin": 0,
-                }
-              }
-            />
-            <Item
-              to="/account/logout"
-            >
-              <styled.div>
-                <div
-                  className="sc-Axmtr gvBswO"
-                >
-                  <Link
-                    href="/account/logout"
-                  >
-                    <LinkComponent
-                      className="sc-AxheI IQtvd"
-                      href="/account/logout"
-                    >
-                      <Link
-                        href="/account/logout"
-                      >
-                        <a
-                          className="sc-AxheI IQtvd"
-                          href="/account/logout"
-                          onClick={[Function]}
-                          onMouseEnter={[Function]}
-                          target="_self"
-                        >
-                          Logout
-                        </a>
-                      </Link>
-                    </LinkComponent>
-                  </Link>
-                </div>
-              </styled.div>
-            </Item>
-          </ul>
-        </ul>
-      </div>
-    </div>
-  </Menu>
-</Provider>
-`;
-
 exports[`<Menu /> matches snapshot 30`] = `
 <Provider
   store={
@@ -8689,14 +8779,10 @@ exports[`<Menu /> matches snapshot 30`] = `
     }
   }
 >
-  <Menu
-    className="sunt qui magni earum et rerum earum"
-  >
-    <div
-      className="sunt qui magni earum et rerum earum"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS sunt qui magni earum et rerum earum"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -8717,25 +8803,25 @@ exports[`<Menu /> matches snapshot 30`] = `
                       >
                         <div>
                           <img
-                            alt="Mrs. Concepcion Marvin"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Huel.me/"
+                            src=""
                             width="50"
                           >
                             <img
-                              alt="Mrs. Concepcion Marvin"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Huel.me/"
+                              src=""
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Mrs. Concepcion Marvin
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -8926,51 +9012,6 @@ exports[`<Menu /> matches snapshot 30`] = `
                   </styled.div>
                 </Item>
               </Help>
-            </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
             </li>
             <hr
               style={
@@ -9266,6 +9307,51 @@ exports[`<Menu /> matches snapshot 31`] = `
                 </Item>
               </Help>
             </li>
+            <li>
+              <Admin>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Admin
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/admin/approvesaucesubmissions"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/admin/approvesaucesubmissions"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/admin/approvesaucesubmissions"
+                        >
+                          <Link
+                            href="/admin/approvesaucesubmissions"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/admin/approvesaucesubmissions"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Approve Submissions
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Admin>
+            </li>
             <hr
               style={
                 Object {
@@ -9327,13 +9413,13 @@ exports[`<Menu /> matches snapshot 32`] = `
   }
 >
   <Menu
-    className="unde provident natus odit voluptas et ullam"
+    className="quam voluptatum ex qui consequatur ut quis"
   >
     <div
-      className="unde provident natus odit voluptas et ullam"
+      className="quam voluptatum ex qui consequatur ut quis"
     >
       <div
-        className="sc-AxmLO bigGZS unde provident natus odit voluptas et ullam"
+        className="sc-AxmLO bigGZS quam voluptatum ex qui consequatur ut quis"
       >
         <ul>
           <ul
@@ -9354,25 +9440,25 @@ exports[`<Menu /> matches snapshot 32`] = `
                       >
                         <div>
                           <img
-                            alt="Mrs. Stan Hodkiewicz"
+                            alt="Mrs. Dameon Gorczany"
                             height="50"
                             onError={[Function]}
-                            src="http://Leannon.tv/"
+                            src=""
                             width="50"
                           >
                             <img
-                              alt="Mrs. Stan Hodkiewicz"
+                              alt="Mrs. Dameon Gorczany"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://Leannon.tv/"
+                              src=""
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Mrs. Stan Hodkiewicz
+                            Mrs. Dameon Gorczany
                           </h3>
                           <h4>
                             Sauce Fanatic
