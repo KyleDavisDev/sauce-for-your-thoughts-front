@@ -1,3 +1,4 @@
+import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
 
@@ -36,5 +37,9 @@ describe("<AuthorBlock />", () => {
     });
   });
 
-  it("renders", () => {});
+  it("renders", () => {
+    wrappers.forEach((wrapper, ind) => {
+      expect(wrapper.exists()).toBeTruthy();
+    });
+  });
 });
