@@ -15,7 +15,7 @@ import { Provider } from "react-redux";
 import {
   IReview,
   IReviewSection,
-  IReviewsState
+  IReviewState
 } from "../../redux/reviews/types";
 
 export const ITERATION_SIZE = 32;
@@ -64,26 +64,31 @@ export const fakeSauce = (): ISauce => ({
 export const generateFakeSauces = (): ISauce[] =>
   new Array(casual.integer(1, 15)).fill(null).map(fakeSauce);
 
-export const fakeReview = (): IReview => {
-  // reviewID: string;
-  // author: string; // User's displayName
-  // sauce: string; // Sauce's slug
-  // created: number;
-  // overall: IReviewSection; // Only review bit that is required
-  // label?: IReviewSection;
-  // aroma?: IReviewSection;
-  // taste?: IReviewSection;
-  // heat?: IReviewSection;
-  // note?: IReviewSection;
-  // _addedToStore?: number;
+export const fakeReviewItem = () => {
+  return {
+    rating: casual.integer(0, 5),
+    txt: casual.random_element([undefined, casual.sentence])
+  };
+};
 
+export const fakeReview = (): IReview => {
   return {
     reviewID: generateValidPassword(),
     author: casual.name,
     sauce: casual.name,
     created: casual.unix_time,
-    overall: { rating: 5, txt: "" }
+    overall: fakeReviewItem(),
+    label: casual.random_element([undefined, fakeReviewItem()]),
+    aroma: casual.random_element([undefined, fakeReviewItem()]),
+    taste: casual.random_element([undefined, fakeReviewItem()]),
+    heat: casual.random_element([undefined, fakeReviewItem()]),
+    note: casual.random_element([undefined, fakeReviewItem()]),
+    _addedToStore: casual.random_element([undefined, casual.unix_time])
   };
+};
+
+export const generateFakeReviews = (): IReview[] => {
+  return new Array(casual.integer(1, 15)).fill(null).map(fakeReview);
 };
 
 const selectRandomSlugs = (slugs: string[]): undefined | string[] => {
@@ -137,10 +142,22 @@ export const fakeUsersState = (): IUserState => ({
   allDisplayNames: undefined
 });
 
-export const fakeReviewState = (): IReviewsState => {
-  const allReviewIDs = [];
+export const fakeReviewState = (): IReviewState => {
+  // 1) Create reviews
+  const reviews: IReview[] = generateFakeReviews();
 
-  const byReviewID = {};
+  // 2) Sort reviews into appropriate areas
+  const allReviewIDs: string[] = [];
+  const byReviewID: { [key: string]: IReview } = {};
+  reviews.forEach(review => {
+    const id = review.reviewID;
+
+    // Push id into reviews array
+    allReviewIDs.push(id);
+
+    // Push review into reviews obj
+    byReviewID.id = review;
+  });
 
   return { allReviewIDs, byReviewID };
 };
@@ -186,7 +203,7 @@ const isClassComponent = (component): boolean => {
   );
 };
 
-// Ensure compatability with transformed code
+// Ensure compatibility with transformed code
 const isFunctionComponent = (component): boolean => {
   return (
     typeof component === "function" &&
