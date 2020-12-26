@@ -4,7 +4,7 @@ import {
   REVIEWS_ADDED,
   REVIEWS_UPDATED,
   IReview,
-  IReviewsState,
+  IReviewState,
   REVIEWS_CLEARED,
   REVIEWS_UPDATED_DISPLAYNAME,
   IReviewToServer,
@@ -22,7 +22,7 @@ import { AxiosResponse } from "axios";
 export const addedReviews = ({
   reviews
 }: {
-  reviews: IReviewsState;
+  reviews: IReviewState;
 }): IReviewsAction => {
   return {
     type: REVIEWS_ADDED,
@@ -89,7 +89,7 @@ export const addReview = (
     reviews: [review]
   });
   // Create obj to redux
-  const normalizedReviews: IReviewsState = { byReviewID, allReviewIDs };
+  const normalizedReviews: IReviewState = { byReviewID, allReviewIDs };
   // Push reviews to redux
   dispatch(addedReviews({ reviews: normalizedReviews }));
 
@@ -136,7 +136,7 @@ export const getReview = (
     reviews: [review]
   });
   // Create obj to redux
-  const normalizedReviews: IReviewsState = { byReviewID, allReviewIDs };
+  const normalizedReviews: IReviewState = { byReviewID, allReviewIDs };
   // Push reviews to redux
   dispatch(addedReviews({ reviews: normalizedReviews }));
 
@@ -164,7 +164,7 @@ export const getReviewsBySlug = ({
   });
 
   // Create obj to redux
-  const normalizedReviews: IReviewsState = { byReviewID, allReviewIDs };
+  const normalizedReviews: IReviewState = { byReviewID, allReviewIDs };
   // Push reviews to redux
   dispatch(addedReviews({ reviews: normalizedReviews }));
 
