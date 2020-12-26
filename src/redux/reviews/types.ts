@@ -50,7 +50,7 @@ export interface IReviewAPI {
 }
 
 // Used for redux state
-export interface IReviewsState {
+export interface IReviewState {
   allReviewIDs: string[];
   byReviewID: { [key: string]: IReview };
 }
