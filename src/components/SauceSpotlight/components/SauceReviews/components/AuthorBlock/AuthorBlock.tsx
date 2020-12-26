@@ -22,8 +22,6 @@ const AuthorBlock: React.FC<IAuthorBlock> = props => {
     store.users.byDisplayName ? store.users.byDisplayName[authorName] : null
   );
 
-  if (!author) return <p>{_noAuthor}</p>;
-
   const dateOptions = {
     day: "numeric",
     year: "numeric",
@@ -34,8 +32,14 @@ const AuthorBlock: React.FC<IAuthorBlock> = props => {
     <StyledContainer>
       <i>Reviewer:</i>
       <StyledReviewer>
-        {author.displayName}
-        <StyledAvatar src={author.avatarURL} />
+        {author ? (
+          <>
+            {author.displayName}
+            <StyledAvatar src={author.avatarURL} />
+          </>
+        ) : (
+          _noAuthor
+        )}
       </StyledReviewer>
       on
       {humanReadableDate()}
