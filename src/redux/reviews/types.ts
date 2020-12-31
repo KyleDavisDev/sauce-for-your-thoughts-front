@@ -20,9 +20,9 @@ export interface IReviewsAction {
   displayName?: string;
 }
 
-export interface IReview {
+// Base review object
+interface BaseReview {
   reviewID: string;
-  author: string; // User's displayName
   sauce: string; // Sauce's slug
   created: number;
   overall: IReviewSection; // Only review bit that is required
@@ -31,22 +31,15 @@ export interface IReview {
   taste?: IReviewSection;
   heat?: IReviewSection;
   note?: IReviewSection;
-  _addedToStore?: number;
+  _addedToStore?: number; // unix time when the item was added to redux store
 }
 
-export interface IReviewAPI {
-  _id?: number | string;
-  _addedToStore?: number;
-  reviewID?: string;
-  author: IUser; // User's displayName
-  sauce: string; // Sauce's slug
-  created: number;
-  overall: IReviewSection; // Only review bit that is required
-  label?: IReviewSection;
-  aroma?: IReviewSection;
-  taste?: IReviewSection;
-  heat?: IReviewSection;
-  note?: IReviewSection;
+export interface IReview extends BaseReview {
+  author: string; // User's displayName
+}
+
+export interface IReviewAPI extends BaseReview {
+  author: IUser;
 }
 
 // Used for redux state
