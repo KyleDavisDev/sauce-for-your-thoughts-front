@@ -5,8 +5,13 @@ import Navigation from "./Navigation";
 import { Provider } from "react-redux";
 import { fakeStore, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
 import { MockStoreEnhanced } from "redux-mock-store";
+import { AppState } from "../../redux/configureStore";
 
 describe("<Navigation />", () => {
+  // defaults from component
+  const _sauceRedirect = "/account/login?return=/sauce/add";
+  const _sauceAdd = "/sauce/add";
+
   let wrappers: Array<enzyme.ReactWrapper<
     any,
     Readonly<{}>,
@@ -58,9 +63,22 @@ describe("<Navigation />", () => {
     });
   });
 
-  it("renders a several li elements ", () => {
+  it("renders a several li elements", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("ul li").length).toBeGreaterThan(0);
+    });
+  });
+
+  it("renders a redirect link if user not logged in", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // check if person is logged in
+      const reduxStore = mockStores[ind].getState() as AppState;
+      const token = reduxStore.users.self?.token;
+      if (token) return;
+
+      expect(
+        wrapper.find(`Link[href='${_sauceRedirect}']`).exists()
+      ).toBeTruthy();
     });
   });
 });
