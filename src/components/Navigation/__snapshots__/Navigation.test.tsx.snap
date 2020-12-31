@@ -14,9 +14,9 @@ exports[`<Navigation /> matches snapshot 1`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -71,15 +71,15 @@ exports[`<Navigation /> matches snapshot 1`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -103,8 +103,8 @@ exports[`<Navigation /> matches snapshot 1`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -113,7 +113,7 @@ exports[`<Navigation /> matches snapshot 1`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -122,18 +122,18 @@ exports[`<Navigation /> matches snapshot 1`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -143,21 +143,21 @@ exports[`<Navigation /> matches snapshot 1`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -167,21 +167,21 @@ exports[`<Navigation /> matches snapshot 1`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -191,12 +191,12 @@ exports[`<Navigation /> matches snapshot 1`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -215,9 +215,9 @@ exports[`<Navigation /> matches snapshot 2`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -272,15 +272,15 @@ exports[`<Navigation /> matches snapshot 2`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -304,8 +304,8 @@ exports[`<Navigation /> matches snapshot 2`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -314,7 +314,7 @@ exports[`<Navigation /> matches snapshot 2`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -323,18 +323,18 @@ exports[`<Navigation /> matches snapshot 2`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -344,21 +344,21 @@ exports[`<Navigation /> matches snapshot 2`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -368,21 +368,21 @@ exports[`<Navigation /> matches snapshot 2`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauce/add"
                 >
                   <Link
                     href="/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -392,12 +392,12 @@ exports[`<Navigation /> matches snapshot 2`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -416,9 +416,9 @@ exports[`<Navigation /> matches snapshot 3`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -473,15 +473,15 @@ exports[`<Navigation /> matches snapshot 3`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -505,8 +505,8 @@ exports[`<Navigation /> matches snapshot 3`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -515,7 +515,7 @@ exports[`<Navigation /> matches snapshot 3`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -524,18 +524,18 @@ exports[`<Navigation /> matches snapshot 3`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -545,21 +545,21 @@ exports[`<Navigation /> matches snapshot 3`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -569,21 +569,21 @@ exports[`<Navigation /> matches snapshot 3`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -593,12 +593,12 @@ exports[`<Navigation /> matches snapshot 3`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -617,9 +617,9 @@ exports[`<Navigation /> matches snapshot 4`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -674,15 +674,15 @@ exports[`<Navigation /> matches snapshot 4`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -706,8 +706,8 @@ exports[`<Navigation /> matches snapshot 4`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -716,7 +716,7 @@ exports[`<Navigation /> matches snapshot 4`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -725,18 +725,18 @@ exports[`<Navigation /> matches snapshot 4`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -746,21 +746,21 @@ exports[`<Navigation /> matches snapshot 4`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -770,21 +770,21 @@ exports[`<Navigation /> matches snapshot 4`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -794,12 +794,12 @@ exports[`<Navigation /> matches snapshot 4`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -818,9 +818,9 @@ exports[`<Navigation /> matches snapshot 5`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -875,15 +875,15 @@ exports[`<Navigation /> matches snapshot 5`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -907,8 +907,8 @@ exports[`<Navigation /> matches snapshot 5`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -917,7 +917,7 @@ exports[`<Navigation /> matches snapshot 5`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -926,18 +926,18 @@ exports[`<Navigation /> matches snapshot 5`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -947,21 +947,21 @@ exports[`<Navigation /> matches snapshot 5`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -971,21 +971,21 @@ exports[`<Navigation /> matches snapshot 5`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauce/add"
                 >
                   <Link
                     href="/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -995,12 +995,12 @@ exports[`<Navigation /> matches snapshot 5`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -1019,9 +1019,9 @@ exports[`<Navigation /> matches snapshot 6`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -1076,15 +1076,15 @@ exports[`<Navigation /> matches snapshot 6`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -1108,8 +1108,8 @@ exports[`<Navigation /> matches snapshot 6`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -1118,7 +1118,7 @@ exports[`<Navigation /> matches snapshot 6`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -1127,18 +1127,18 @@ exports[`<Navigation /> matches snapshot 6`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1148,21 +1148,21 @@ exports[`<Navigation /> matches snapshot 6`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1172,21 +1172,21 @@ exports[`<Navigation /> matches snapshot 6`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1196,12 +1196,12 @@ exports[`<Navigation /> matches snapshot 6`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -1220,9 +1220,9 @@ exports[`<Navigation /> matches snapshot 7`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -1277,15 +1277,15 @@ exports[`<Navigation /> matches snapshot 7`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -1309,8 +1309,8 @@ exports[`<Navigation /> matches snapshot 7`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -1319,7 +1319,7 @@ exports[`<Navigation /> matches snapshot 7`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -1328,18 +1328,18 @@ exports[`<Navigation /> matches snapshot 7`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1349,21 +1349,21 @@ exports[`<Navigation /> matches snapshot 7`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1373,21 +1373,21 @@ exports[`<Navigation /> matches snapshot 7`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1397,12 +1397,12 @@ exports[`<Navigation /> matches snapshot 7`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -1421,9 +1421,9 @@ exports[`<Navigation /> matches snapshot 8`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -1478,15 +1478,15 @@ exports[`<Navigation /> matches snapshot 8`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -1510,8 +1510,8 @@ exports[`<Navigation /> matches snapshot 8`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -1520,7 +1520,7 @@ exports[`<Navigation /> matches snapshot 8`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -1529,18 +1529,18 @@ exports[`<Navigation /> matches snapshot 8`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1550,21 +1550,21 @@ exports[`<Navigation /> matches snapshot 8`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1574,21 +1574,21 @@ exports[`<Navigation /> matches snapshot 8`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauce/add"
                 >
                   <Link
                     href="/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1598,12 +1598,12 @@ exports[`<Navigation /> matches snapshot 8`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -1622,9 +1622,9 @@ exports[`<Navigation /> matches snapshot 9`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -1679,15 +1679,15 @@ exports[`<Navigation /> matches snapshot 9`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -1711,8 +1711,8 @@ exports[`<Navigation /> matches snapshot 9`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -1721,7 +1721,7 @@ exports[`<Navigation /> matches snapshot 9`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -1730,18 +1730,18 @@ exports[`<Navigation /> matches snapshot 9`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1751,21 +1751,21 @@ exports[`<Navigation /> matches snapshot 9`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1775,21 +1775,21 @@ exports[`<Navigation /> matches snapshot 9`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1799,12 +1799,12 @@ exports[`<Navigation /> matches snapshot 9`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -1823,9 +1823,9 @@ exports[`<Navigation /> matches snapshot 10`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -1880,15 +1880,15 @@ exports[`<Navigation /> matches snapshot 10`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -1912,8 +1912,8 @@ exports[`<Navigation /> matches snapshot 10`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -1922,7 +1922,7 @@ exports[`<Navigation /> matches snapshot 10`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -1931,18 +1931,18 @@ exports[`<Navigation /> matches snapshot 10`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1952,21 +1952,21 @@ exports[`<Navigation /> matches snapshot 10`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1976,21 +1976,21 @@ exports[`<Navigation /> matches snapshot 10`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2000,12 +2000,12 @@ exports[`<Navigation /> matches snapshot 10`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -2024,9 +2024,9 @@ exports[`<Navigation /> matches snapshot 11`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -2081,15 +2081,15 @@ exports[`<Navigation /> matches snapshot 11`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -2113,8 +2113,8 @@ exports[`<Navigation /> matches snapshot 11`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -2123,7 +2123,7 @@ exports[`<Navigation /> matches snapshot 11`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -2132,18 +2132,18 @@ exports[`<Navigation /> matches snapshot 11`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2153,21 +2153,21 @@ exports[`<Navigation /> matches snapshot 11`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2177,21 +2177,21 @@ exports[`<Navigation /> matches snapshot 11`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2201,12 +2201,12 @@ exports[`<Navigation /> matches snapshot 11`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -2225,9 +2225,9 @@ exports[`<Navigation /> matches snapshot 12`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -2282,15 +2282,15 @@ exports[`<Navigation /> matches snapshot 12`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -2314,8 +2314,8 @@ exports[`<Navigation /> matches snapshot 12`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -2324,7 +2324,7 @@ exports[`<Navigation /> matches snapshot 12`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -2333,18 +2333,18 @@ exports[`<Navigation /> matches snapshot 12`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2354,21 +2354,21 @@ exports[`<Navigation /> matches snapshot 12`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2378,21 +2378,21 @@ exports[`<Navigation /> matches snapshot 12`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2402,12 +2402,12 @@ exports[`<Navigation /> matches snapshot 12`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -2426,9 +2426,9 @@ exports[`<Navigation /> matches snapshot 13`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -2483,15 +2483,15 @@ exports[`<Navigation /> matches snapshot 13`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -2515,8 +2515,8 @@ exports[`<Navigation /> matches snapshot 13`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -2525,7 +2525,7 @@ exports[`<Navigation /> matches snapshot 13`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -2534,18 +2534,18 @@ exports[`<Navigation /> matches snapshot 13`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2555,21 +2555,21 @@ exports[`<Navigation /> matches snapshot 13`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2579,21 +2579,21 @@ exports[`<Navigation /> matches snapshot 13`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2603,12 +2603,12 @@ exports[`<Navigation /> matches snapshot 13`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -2627,9 +2627,9 @@ exports[`<Navigation /> matches snapshot 14`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -2684,15 +2684,15 @@ exports[`<Navigation /> matches snapshot 14`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -2716,8 +2716,8 @@ exports[`<Navigation /> matches snapshot 14`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -2726,7 +2726,7 @@ exports[`<Navigation /> matches snapshot 14`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -2735,18 +2735,18 @@ exports[`<Navigation /> matches snapshot 14`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2756,21 +2756,21 @@ exports[`<Navigation /> matches snapshot 14`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2780,21 +2780,21 @@ exports[`<Navigation /> matches snapshot 14`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2804,12 +2804,12 @@ exports[`<Navigation /> matches snapshot 14`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -2828,9 +2828,9 @@ exports[`<Navigation /> matches snapshot 15`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -2885,15 +2885,15 @@ exports[`<Navigation /> matches snapshot 15`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -2917,8 +2917,8 @@ exports[`<Navigation /> matches snapshot 15`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -2927,7 +2927,7 @@ exports[`<Navigation /> matches snapshot 15`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -2936,18 +2936,18 @@ exports[`<Navigation /> matches snapshot 15`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2957,21 +2957,21 @@ exports[`<Navigation /> matches snapshot 15`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -2981,21 +2981,21 @@ exports[`<Navigation /> matches snapshot 15`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauce/add"
                 >
                   <Link
                     href="/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3005,12 +3005,12 @@ exports[`<Navigation /> matches snapshot 15`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -3029,9 +3029,9 @@ exports[`<Navigation /> matches snapshot 16`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -3086,15 +3086,15 @@ exports[`<Navigation /> matches snapshot 16`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -3118,8 +3118,8 @@ exports[`<Navigation /> matches snapshot 16`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -3128,7 +3128,7 @@ exports[`<Navigation /> matches snapshot 16`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -3137,18 +3137,18 @@ exports[`<Navigation /> matches snapshot 16`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3158,21 +3158,21 @@ exports[`<Navigation /> matches snapshot 16`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3182,21 +3182,21 @@ exports[`<Navigation /> matches snapshot 16`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauce/add"
                 >
                   <Link
                     href="/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3206,12 +3206,12 @@ exports[`<Navigation /> matches snapshot 16`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -3230,9 +3230,9 @@ exports[`<Navigation /> matches snapshot 17`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -3287,15 +3287,15 @@ exports[`<Navigation /> matches snapshot 17`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -3319,8 +3319,8 @@ exports[`<Navigation /> matches snapshot 17`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -3329,7 +3329,7 @@ exports[`<Navigation /> matches snapshot 17`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -3338,18 +3338,18 @@ exports[`<Navigation /> matches snapshot 17`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3359,21 +3359,21 @@ exports[`<Navigation /> matches snapshot 17`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3383,21 +3383,21 @@ exports[`<Navigation /> matches snapshot 17`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3407,12 +3407,12 @@ exports[`<Navigation /> matches snapshot 17`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -3431,9 +3431,9 @@ exports[`<Navigation /> matches snapshot 18`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -3488,15 +3488,15 @@ exports[`<Navigation /> matches snapshot 18`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -3520,8 +3520,8 @@ exports[`<Navigation /> matches snapshot 18`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -3530,7 +3530,7 @@ exports[`<Navigation /> matches snapshot 18`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -3539,18 +3539,18 @@ exports[`<Navigation /> matches snapshot 18`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3560,21 +3560,21 @@ exports[`<Navigation /> matches snapshot 18`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3584,21 +3584,21 @@ exports[`<Navigation /> matches snapshot 18`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauce/add"
                 >
                   <Link
                     href="/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3608,12 +3608,12 @@ exports[`<Navigation /> matches snapshot 18`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -3632,9 +3632,9 @@ exports[`<Navigation /> matches snapshot 19`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -3689,15 +3689,15 @@ exports[`<Navigation /> matches snapshot 19`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -3721,8 +3721,8 @@ exports[`<Navigation /> matches snapshot 19`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -3731,7 +3731,7 @@ exports[`<Navigation /> matches snapshot 19`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -3740,18 +3740,18 @@ exports[`<Navigation /> matches snapshot 19`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3761,21 +3761,21 @@ exports[`<Navigation /> matches snapshot 19`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3785,21 +3785,21 @@ exports[`<Navigation /> matches snapshot 19`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3809,12 +3809,12 @@ exports[`<Navigation /> matches snapshot 19`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -3833,9 +3833,9 @@ exports[`<Navigation /> matches snapshot 20`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -3890,15 +3890,15 @@ exports[`<Navigation /> matches snapshot 20`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -3922,8 +3922,8 @@ exports[`<Navigation /> matches snapshot 20`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -3932,7 +3932,7 @@ exports[`<Navigation /> matches snapshot 20`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -3941,18 +3941,18 @@ exports[`<Navigation /> matches snapshot 20`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3962,21 +3962,21 @@ exports[`<Navigation /> matches snapshot 20`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -3986,21 +3986,21 @@ exports[`<Navigation /> matches snapshot 20`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4010,12 +4010,12 @@ exports[`<Navigation /> matches snapshot 20`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -4034,9 +4034,9 @@ exports[`<Navigation /> matches snapshot 21`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -4091,15 +4091,15 @@ exports[`<Navigation /> matches snapshot 21`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -4123,8 +4123,8 @@ exports[`<Navigation /> matches snapshot 21`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -4133,7 +4133,7 @@ exports[`<Navigation /> matches snapshot 21`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -4142,18 +4142,18 @@ exports[`<Navigation /> matches snapshot 21`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4163,21 +4163,21 @@ exports[`<Navigation /> matches snapshot 21`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4187,21 +4187,21 @@ exports[`<Navigation /> matches snapshot 21`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4211,12 +4211,12 @@ exports[`<Navigation /> matches snapshot 21`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -4235,9 +4235,9 @@ exports[`<Navigation /> matches snapshot 22`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -4292,15 +4292,15 @@ exports[`<Navigation /> matches snapshot 22`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -4324,8 +4324,8 @@ exports[`<Navigation /> matches snapshot 22`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -4334,7 +4334,7 @@ exports[`<Navigation /> matches snapshot 22`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -4343,18 +4343,18 @@ exports[`<Navigation /> matches snapshot 22`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4364,21 +4364,21 @@ exports[`<Navigation /> matches snapshot 22`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4388,21 +4388,21 @@ exports[`<Navigation /> matches snapshot 22`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4412,12 +4412,12 @@ exports[`<Navigation /> matches snapshot 22`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -4436,9 +4436,9 @@ exports[`<Navigation /> matches snapshot 23`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -4493,15 +4493,15 @@ exports[`<Navigation /> matches snapshot 23`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -4525,8 +4525,8 @@ exports[`<Navigation /> matches snapshot 23`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -4535,7 +4535,7 @@ exports[`<Navigation /> matches snapshot 23`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -4544,18 +4544,18 @@ exports[`<Navigation /> matches snapshot 23`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4565,21 +4565,21 @@ exports[`<Navigation /> matches snapshot 23`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4589,21 +4589,21 @@ exports[`<Navigation /> matches snapshot 23`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4613,12 +4613,12 @@ exports[`<Navigation /> matches snapshot 23`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -4637,9 +4637,9 @@ exports[`<Navigation /> matches snapshot 24`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -4694,15 +4694,15 @@ exports[`<Navigation /> matches snapshot 24`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -4726,8 +4726,8 @@ exports[`<Navigation /> matches snapshot 24`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -4736,7 +4736,7 @@ exports[`<Navigation /> matches snapshot 24`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -4745,18 +4745,18 @@ exports[`<Navigation /> matches snapshot 24`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4766,21 +4766,21 @@ exports[`<Navigation /> matches snapshot 24`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4790,21 +4790,21 @@ exports[`<Navigation /> matches snapshot 24`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4814,12 +4814,12 @@ exports[`<Navigation /> matches snapshot 24`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -4838,9 +4838,9 @@ exports[`<Navigation /> matches snapshot 25`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -4895,15 +4895,15 @@ exports[`<Navigation /> matches snapshot 25`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -4927,8 +4927,8 @@ exports[`<Navigation /> matches snapshot 25`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -4937,7 +4937,7 @@ exports[`<Navigation /> matches snapshot 25`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -4946,18 +4946,18 @@ exports[`<Navigation /> matches snapshot 25`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4967,21 +4967,21 @@ exports[`<Navigation /> matches snapshot 25`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -4991,21 +4991,21 @@ exports[`<Navigation /> matches snapshot 25`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauce/add"
                 >
                   <Link
                     href="/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5015,12 +5015,12 @@ exports[`<Navigation /> matches snapshot 25`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -5039,9 +5039,9 @@ exports[`<Navigation /> matches snapshot 26`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -5096,15 +5096,15 @@ exports[`<Navigation /> matches snapshot 26`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -5128,8 +5128,8 @@ exports[`<Navigation /> matches snapshot 26`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -5138,7 +5138,7 @@ exports[`<Navigation /> matches snapshot 26`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -5147,18 +5147,18 @@ exports[`<Navigation /> matches snapshot 26`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5168,21 +5168,21 @@ exports[`<Navigation /> matches snapshot 26`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5192,21 +5192,21 @@ exports[`<Navigation /> matches snapshot 26`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5216,12 +5216,12 @@ exports[`<Navigation /> matches snapshot 26`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -5240,9 +5240,9 @@ exports[`<Navigation /> matches snapshot 27`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -5297,15 +5297,15 @@ exports[`<Navigation /> matches snapshot 27`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -5329,8 +5329,8 @@ exports[`<Navigation /> matches snapshot 27`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -5339,7 +5339,7 @@ exports[`<Navigation /> matches snapshot 27`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -5348,18 +5348,18 @@ exports[`<Navigation /> matches snapshot 27`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5369,21 +5369,21 @@ exports[`<Navigation /> matches snapshot 27`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5393,21 +5393,21 @@ exports[`<Navigation /> matches snapshot 27`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5417,12 +5417,12 @@ exports[`<Navigation /> matches snapshot 27`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -5441,9 +5441,9 @@ exports[`<Navigation /> matches snapshot 28`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -5498,15 +5498,15 @@ exports[`<Navigation /> matches snapshot 28`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -5530,8 +5530,8 @@ exports[`<Navigation /> matches snapshot 28`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -5540,7 +5540,7 @@ exports[`<Navigation /> matches snapshot 28`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -5549,18 +5549,18 @@ exports[`<Navigation /> matches snapshot 28`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5570,21 +5570,21 @@ exports[`<Navigation /> matches snapshot 28`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5594,21 +5594,21 @@ exports[`<Navigation /> matches snapshot 28`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5618,12 +5618,12 @@ exports[`<Navigation /> matches snapshot 28`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -5642,9 +5642,9 @@ exports[`<Navigation /> matches snapshot 29`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -5699,15 +5699,15 @@ exports[`<Navigation /> matches snapshot 29`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -5731,8 +5731,8 @@ exports[`<Navigation /> matches snapshot 29`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -5741,7 +5741,7 @@ exports[`<Navigation /> matches snapshot 29`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -5750,18 +5750,18 @@ exports[`<Navigation /> matches snapshot 29`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5771,21 +5771,21 @@ exports[`<Navigation /> matches snapshot 29`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5795,21 +5795,21 @@ exports[`<Navigation /> matches snapshot 29`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5819,12 +5819,12 @@ exports[`<Navigation /> matches snapshot 29`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -5843,9 +5843,9 @@ exports[`<Navigation /> matches snapshot 30`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -5900,15 +5900,15 @@ exports[`<Navigation /> matches snapshot 30`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -5932,8 +5932,8 @@ exports[`<Navigation /> matches snapshot 30`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -5942,7 +5942,7 @@ exports[`<Navigation /> matches snapshot 30`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -5951,18 +5951,18 @@ exports[`<Navigation /> matches snapshot 30`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5972,21 +5972,21 @@ exports[`<Navigation /> matches snapshot 30`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -5996,21 +5996,21 @@ exports[`<Navigation /> matches snapshot 30`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -6020,12 +6020,12 @@ exports[`<Navigation /> matches snapshot 30`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -6044,9 +6044,9 @@ exports[`<Navigation /> matches snapshot 31`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -6101,15 +6101,15 @@ exports[`<Navigation /> matches snapshot 31`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -6133,8 +6133,8 @@ exports[`<Navigation /> matches snapshot 31`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -6143,7 +6143,7 @@ exports[`<Navigation /> matches snapshot 31`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -6152,18 +6152,18 @@ exports[`<Navigation /> matches snapshot 31`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -6173,21 +6173,21 @@ exports[`<Navigation /> matches snapshot 31`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -6197,21 +6197,21 @@ exports[`<Navigation /> matches snapshot 31`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauce/add"
                 >
                   <Link
                     href="/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -6221,12 +6221,12 @@ exports[`<Navigation /> matches snapshot 31`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
@@ -6245,9 +6245,9 @@ exports[`<Navigation /> matches snapshot 32`] = `
   }
 >
   <Navigation>
-    <styled.nav>
+    <nav>
       <nav
-        className="sc-AxiKw hqgUpN"
+        className="sc-AxiKw hwTWeo"
       >
         <Link
           href="/"
@@ -6302,15 +6302,15 @@ exports[`<Navigation /> matches snapshot 32`] = `
             </Link>
           </LinkComponent>
         </Link>
-        <Styled(Button)
+        <Button
           onClick={[Function]}
         >
           <Button
-            className="sc-AxirZ sc-AxhCb kxMfgo"
+            className="sc-AxirZ sc-AxhCb cKVCuo"
             onClick={[Function]}
           >
             <div
-              className="sc-AxirZ sc-AxhCb kxMfgo"
+              className="sc-AxirZ sc-AxhCb cKVCuo"
             >
               <button
                 aria-disabled={false}
@@ -6334,8 +6334,8 @@ exports[`<Navigation /> matches snapshot 32`] = `
               </button>
             </div>
           </Button>
-        </Styled(Button)>
-        <styled.ul
+        </Button>
+        <ul
           style={
             Object {
               "display": "none",
@@ -6344,7 +6344,7 @@ exports[`<Navigation /> matches snapshot 32`] = `
           }
         >
           <ul
-            className="sc-AxhUy NEEwp"
+            className="sc-AxhUy bSKRPu"
             style={
               Object {
                 "display": "none",
@@ -6353,18 +6353,18 @@ exports[`<Navigation /> matches snapshot 32`] = `
             }
           >
             <li>
-              <Styled(Link)
+              <Link
                 href="/"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/"
                 >
                   <Link
                     href="/"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -6374,21 +6374,21 @@ exports[`<Navigation /> matches snapshot 32`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/sauces"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/sauces"
                 >
                   <Link
                     href="/sauces"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/sauces"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -6398,21 +6398,21 @@ exports[`<Navigation /> matches snapshot 32`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
             <li>
-              <Styled(Link)
+              <Link
                 href="/account/login?return=/sauce/add"
               >
                 <LinkComponent
-                  className="sc-AxjAm sc-AxgMl kLEZAQ"
+                  className="sc-AxjAm sc-AxgMl diYDNj"
                   href="/account/login?return=/sauce/add"
                 >
                   <Link
                     href="/account/login?return=/sauce/add"
                   >
                     <a
-                      className="sc-AxjAm sc-AxgMl kLEZAQ"
+                      className="sc-AxjAm sc-AxgMl diYDNj"
                       href="/account/login?return=/sauce/add"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -6422,12 +6422,12 @@ exports[`<Navigation /> matches snapshot 32`] = `
                     </a>
                   </Link>
                 </LinkComponent>
-              </Styled(Link)>
+              </Link>
             </li>
           </ul>
-        </styled.ul>
+        </ul>
       </nav>
-    </styled.nav>
+    </nav>
   </Navigation>
 </Provider>
 `;
