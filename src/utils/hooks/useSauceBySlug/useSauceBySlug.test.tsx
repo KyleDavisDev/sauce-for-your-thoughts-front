@@ -44,7 +44,7 @@ describe("useSauceBySlug hook", () => {
     "Could not find a sauce corresponding to this page. Please refresh and try again.";
 
   // May need to refer to these later so initializing out here
-  let mockStores: MockStoreEnhanced<unknown, {}>[] = [];
+  let mockStores: MockStoreEnhanced<unknown, unknown>[] = [];
 
   beforeAll(() => {
     // add our mock stores
@@ -157,11 +157,10 @@ describe("useSauceBySlug hook", () => {
         mockStores[i]
       );
 
-      // make sure empty list before
+      // Get actions immediately after mount
       const actionsBefore = mockStores[i].getActions();
-      expect(actionsBefore).toEqual([]);
 
-      // perform changes within our component
+      // call the API again
       const hook = wrapper.componentHook as IuseSauceBySlug;
       await act(async () => {
         await hook.getTheSauce();
@@ -170,23 +169,22 @@ describe("useSauceBySlug hook", () => {
       // wait for things
       await wait();
 
-      // Make sure there wasn't an action emitted
+      // Make sure that hook prevented a second action emission since nothing changed from mount to now
       const actionsAfter = mockStores[i].getActions();
-      expect(actionsAfter).toEqual([]);
+      expect(actionsBefore).toEqual(actionsAfter);
     }
   });
 
-  it("returns sauce from redux if possible", async () => {
+  it("returns sauce from redux if sauce if full", async () => {
     for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
       const reduxStore = mockStores[i].getState() as AppState;
-      if (
-        !reduxStore.sauces.bySlug ||
-        Object.keys(reduxStore.sauces.bySlug).length === 0
-      )
-        continue;
+      const { bySlug } = reduxStore.sauces;
+      if (!bySlug) continue;
+      if (Object.keys(bySlug).length === 0) continue;
 
-      // Set as a slug we know of
-      const slug = casual.random_element(reduxStore.sauces.allSlugs);
+      // Get random slug
+      const slug = casual.random_element(Object.keys(bySlug));
+      if (!bySlug[slug]._full) continue; // only checking full right now
       useRouterReturn.query = {
         s: slug
       };
@@ -208,7 +206,47 @@ describe("useSauceBySlug hook", () => {
 
       // Make sure that the sauce made it over.
       // Hook will have sauce obj in it
-      expect(hook.sauce).toEqual(reduxStore.sauces.bySlug[slug]);
+      expect(hook.sauce).toEqual(bySlug[slug]);
+    }
+  });
+
+  it("emits action if we have sauce but is not full", async () => {
+    for (let i = 0, len = ITERATION_SIZE; i < len; i++) {
+      const reduxStore = mockStores[i].getState() as AppState;
+      const { bySlug } = reduxStore.sauces;
+      if (!bySlug) continue;
+      if (Object.keys(bySlug).length === 0) continue;
+
+      // Get random slug
+      const slug = casual.random_element(Object.keys(bySlug));
+      if (bySlug[slug]._full) continue; // if full, keep going
+      useRouterReturn.query = {
+        s: slug
+      };
+
+      // mount component
+      const wrapper = mountReactHookWithReduxStore(
+        useSauceBySlug,
+        mockStores[i]
+      );
+
+      const actionsBefore = mockStores[i].getActions();
+      expect(actionsBefore).toEqual([mockSuccessPayload]);
+
+      // perform changes within our component
+      const hook = wrapper.componentHook as IuseSauceBySlug;
+      await act(async () => {
+        await hook.getTheSauce();
+      });
+
+      // wait for things
+      await wait();
+
+      // Make sure additional action was emitted
+      const actionsAfter = mockStores[i].getActions();
+      expect(actionsAfter).toEqual([mockSuccessPayload, mockSuccessPayload]);
+      //
+      // expect(hook.sauce).toEqual(bySlug[slug]);
     }
   });
 
