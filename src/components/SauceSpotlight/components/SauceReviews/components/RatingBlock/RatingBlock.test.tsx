@@ -10,7 +10,7 @@ import {
 const fakeRatingBlockProps = (): IRatingBlock => {
   return {
     txt: casual.random_element([undefined, casual.string]),
-    rating: casual.random_element([undefined, casual.integer]),
+    rating: casual.random_element([undefined, casual.integer(1, 5)]),
     name: casual.string
   };
 };
@@ -45,6 +45,15 @@ describe("<RatingBlock />", () => {
       const { name } = props[ind];
 
       expect(wrapper.text()).toContain(name);
+    });
+  });
+
+  it("renders ReactRating component if rating exists", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const { rating } = props[ind];
+      if (!rating) return;
+
+      expect(wrapper.find("RatingAPILayer").exists()).toBeTruthy();
     });
   });
 });
