@@ -65,4 +65,13 @@ describe("<RatingBlock />", () => {
       expect(wrapper.text()).toContain(rating.toString());
     });
   });
+
+  it("renders expected txt value if it exists", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const { txt } = props[ind];
+      if (!txt) return;
+
+      expect(wrapper.text()).toContain(txt);
+    });
+  });
 });
