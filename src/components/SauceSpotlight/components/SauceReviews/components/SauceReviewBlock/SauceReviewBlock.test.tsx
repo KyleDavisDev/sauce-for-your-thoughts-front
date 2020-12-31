@@ -2,31 +2,43 @@ import * as React from "react";
 import * as enzyme from "enzyme";
 
 import SauceReviewBlock, { SauceReviewBlockProps } from "./SauceReviewBlock";
-import { IReview } from "../../../../../../redux/reviews/types";
+
 import {
   fakeReview,
   ITERATION_SIZE
 } from "../../../../../../utils/testUtils/testUtils";
 
+const fakeSauceReviewBlocks = (): SauceReviewBlockProps => {
+  return {
+    review: fakeReview()
+  };
+};
+
 describe("<SauceReviewBlock />", () => {
   let wrappers: any = [];
-  let reviews: IReview[] = [];
+  let props: SauceReviewBlockProps[] = [];
 
   beforeAll(() => {
     wrappers = new Array(ITERATION_SIZE).fill(null).map(() => {
-      // Generate review
-      const review = fakeReview();
+      // Generate props
+      const fakeProp = fakeSauceReviewBlocks();
 
-      // Add review to collector
-      reviews.push(review);
+      // Add props to collector
+      props.push(fakeProp);
 
-      return enzyme.shallow(<SauceReviewBlock review={review} />);
+      return enzyme.shallow(<SauceReviewBlock {...fakeProp} />);
     });
   });
 
   it("renders", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.exists()).toBeTruthy();
+    });
+  });
+
+  it("matches snapshot", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });
