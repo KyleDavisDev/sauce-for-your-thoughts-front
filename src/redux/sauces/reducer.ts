@@ -18,7 +18,8 @@ const initialState: ISaucesState = {
   total: 0,
   saucesWithNewestReviews: [],
   newest: [],
-  featured: []
+  featured: [],
+  types: []
 };
 
 const sauceReducer: Reducer<ISaucesState> = (
