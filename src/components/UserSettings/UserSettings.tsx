@@ -18,7 +18,7 @@ const UserSettings: React.FC<UserSettingsProps> = props => {
   const _emailBtn = { name: "Update Email", href: "/account/update/email" };
   const _displayNameBtn = {
     name: "Update Display Name",
-    href: "/account/update/displayname"
+    href: "/account/update/displayName"
   };
   const _avatarBtn = { name: "Update Avatar", href: "/account/update/avatar" };
   const _passwordBtn = {
