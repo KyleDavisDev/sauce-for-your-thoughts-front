@@ -21,13 +21,13 @@ export const StyledNav = styled.nav`
     padding: 1.5em;
     display: flex;
     flex-direction: row;
-    justify-items: space-between;
 
     svg {
       padding: 0;
     }
   }
 `;
+StyledNav.displayName = "nav";
 
 export const StyledButton = styled(Button)`
   display: block;
@@ -50,7 +50,7 @@ export const StyledButton = styled(Button)`
     }
 
     svg {
-      padding: 0px;
+      padding: 0;
       fill: ${x => x.theme.navigationIconColor};
       width: 42px;
       height: 42px;
@@ -62,11 +62,12 @@ export const StyledButton = styled(Button)`
   }
 `;
 
+StyledButton.displayName = "Button";
+
 export const StyledUl = styled.ul`
-  list-decoration: none;
+  list-style: none;
   box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
   display: none;
   flex-direction: column;
   background-color: ${props => props.theme.primaryDarkThemeColor};
@@ -96,12 +97,13 @@ export const StyledUl = styled.ul`
     }
   }
 `;
+StyledUl.displayName = "ul";
 
 export const StyledLink = styled(Link)`
   color: ${x => x.theme.navigationTextColor};
   text-decoration: none;
   margin-right: 0.5em;
-  font-family: AvenirNextReg;
+  font-family: AvenirNextReg, serif;
 
   &:hover,
   &:focus {
@@ -109,3 +111,4 @@ export const StyledLink = styled(Link)`
     color: ${x => x.theme.black};
   }
 `;
+StyledLink.displayName = "Link";
