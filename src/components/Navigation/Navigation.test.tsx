@@ -81,4 +81,15 @@ describe("<Navigation />", () => {
       ).toBeTruthy();
     });
   });
+
+  it("renders a sauce add link if user is logged in", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // check if person is logged in
+      const reduxStore = mockStores[ind].getState() as AppState;
+      const token = reduxStore.users.self?.token;
+      if (!token) return;
+
+      expect(wrapper.find(`Link[href='${_sauceAdd}']`).exists()).toBeTruthy();
+    });
+  });
 });
