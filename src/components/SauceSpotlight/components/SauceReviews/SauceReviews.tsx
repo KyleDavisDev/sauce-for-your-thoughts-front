@@ -30,7 +30,7 @@ const SauceReviews: React.FC<SauceReviewsProps> = props => {
   if (!reviews || reviews.length === 0) {
     return (
       <StyledContainer>
-        <p style={{ marginTop: "0" }}>
+        <p>
           <i>{_noReviewsFoundTxt}</i>
         </p>
       </StyledContainer>
