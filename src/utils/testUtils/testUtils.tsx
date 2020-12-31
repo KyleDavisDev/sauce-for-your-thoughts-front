@@ -152,11 +152,12 @@ export const fakeUsersState = (
   const byDisplayName: { [key: string]: IUser } = {};
   const allDisplayNames: string[] = [];
   authorDisplayNames.forEach(displayName => {
+    // Create the fake user
     const user = fakeUser(displayName);
 
+    // Sort out
     allDisplayNames.push(displayName);
-
-    byDisplayName.displayName = user;
+    byDisplayName[displayName] = user;
   });
 
   // 3) Return full object
@@ -184,7 +185,7 @@ export const fakeReviewState = (sauces: ISaucesState): IReviewState => {
     allReviewIDs.push(reviewID);
 
     // Push review into reviews obj
-    byReviewID.reviewID = review;
+    byReviewID[reviewID] = review;
   });
 
   return { allReviewIDs, byReviewID };
@@ -242,13 +243,17 @@ const getStoreAuthors = ({
   reviews?: IReviewState;
   users?: IUserState;
 }): string[] => {
+  // 1) Get sauce authors
   const sauceAuthors: string[] = sauces ? getAuthorsFromSauces(sauces) : [];
 
+  // 2) Get review authors
   const reviewAuthors: string[] = reviews ? getAuthorsFromReviews(reviews) : [];
 
+  // 3) Get users
   const userAuthors: string[] =
     users && users.allDisplayNames ? users.allDisplayNames : [];
 
+  // 4) Concat list
   return [...sauceAuthors, ...reviewAuthors, ...userAuthors];
 };
 
