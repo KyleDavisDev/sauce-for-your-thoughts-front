@@ -16,25 +16,28 @@ describe("<AuthorBlock />", () => {
   let mockStores: any = [];
 
   beforeAll(() => {
-    mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
+    // Loop until we have many instances AuthorBlock component with an actual review prop
+    while (mockStores.length !== ITERATION_SIZE) {
+      // 1) Generate fake store
+      const mockStore = fakeStore();
+      const reduxState = mockStore.getState() as AppState;
 
-    wrappers = new Array(ITERATION_SIZE).fill(null).map((x, ind) => {
-      // grab redux info
-      const reduxStore = mockStores[ind];
-      const reduxState = reduxStore.getState() as AppState;
-
-      // Grab random review from redux
+      // 2) Grab random review from redux
       const { byReviewID } = reduxState.reviews;
-      if (!byReviewID) return;
-      if (Object.keys(byReviewID).length === 0) return;
+      if (!byReviewID) continue;
+      if (Object.keys(byReviewID).length === 0) continue;
       const review = casual.random_value(byReviewID);
 
-      return enzyme.mount(
-        <Provider store={reduxStore}>
-          <AuthorBlock review={review} />
-        </Provider>
+      // 3) Add to our collectors
+      mockStores.push(mockStore);
+      wrappers.push(
+        enzyme.mount(
+          <Provider store={mockStore}>
+            <AuthorBlock {...review} />
+          </Provider>
+        )
       );
-    });
+    }
   });
 
   it("renders", () => {
