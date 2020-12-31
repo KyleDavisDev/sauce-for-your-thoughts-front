@@ -13,7 +13,6 @@ import OpenBlock from "../../OpenBlock/OpenBlock";
 
 export interface SauceReviewBlockProps {
   review: IReview;
-  author?: IUser;
 }
 
 const SauceReviewBlock: React.FunctionComponent<SauceReviewBlockProps> = props => {
