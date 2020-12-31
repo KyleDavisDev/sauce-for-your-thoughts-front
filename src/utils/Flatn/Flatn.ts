@@ -6,38 +6,33 @@ import { ISauce, ISaucesState } from "../../redux/sauces/types";
 
 class Flatn {
   // flatten array of reviews
-  public static reviews({ reviews }: { reviews: IReviewAPI[] | IReview[] }) {
+  public static reviews({ reviews }: { reviews: IReviewAPI[] }) {
     const byReviewID: { [key: string]: IReview } = {};
 
     // Will assign this to reviews if need to.
     // Creating it once here will save computing time and give all reviews same value
-    const addedToStore: number = moment().unix();
+    const _addedToStore: number = moment().unix();
 
     for (let i = 0, len = reviews.length; i < len; i++) {
+      // 1) Grab review
       const review = reviews[i];
-      const hashID: string | undefined = review.reviewID;
 
-      // Make sure review has a hashID or we wont be doing anything with it
-      if (!hashID) continue;
+      // 2) Grab reviewID
+      const reviewID: string | undefined = review.reviewID;
+      if (!reviewID) continue;
 
-      // Add to obj and reassign author to match desired format
-      let author = review.author;
-      if (typeof author === "string") {
-        // do not need to do anything
-      } else {
-        // dig little deeper
-        author = author.displayName;
-      }
+      // 3) Grab authors name
+      const { displayName } = review.author;
+      if (!displayName) continue;
 
-      // push to obj
-      byReviewID[hashID] = { ...review, author };
-
-      // If review doesn't have _addedToStore prop, we will add it
-      if (!byReviewID[hashID]._addedToStore) {
-        byReviewID[hashID]._addedToStore = addedToStore;
-      }
+      // 4) Set object, make sure author has been reassigned to name, update addedToStore time
+      byReviewID[reviewID] = {
+        ...review,
+        ...{ author: displayName, _addedToStore }
+      };
     }
 
+    // Set all the id's from byReviewID into obj
     const allReviewIDs: string[] = Object.keys(byReviewID);
 
     return { allReviewIDs, byReviewID };
