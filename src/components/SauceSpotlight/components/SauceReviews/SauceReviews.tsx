@@ -40,7 +40,7 @@ const SauceReviews: React.FC<SauceReviewsProps> = props => {
   return (
     <>
       {/* Reviews */}
-      <StyledDescriptor title={`Reviews (${reviews ? reviews.length : 0})`}>
+      <StyledDescriptor title={`Reviews (${reviews.length})`}>
         The opinions expressed are solely those of the author.
       </StyledDescriptor>
       <div>
