@@ -56,4 +56,13 @@ describe("<RatingBlock />", () => {
       expect(wrapper.find("RatingAPILayer").exists()).toBeTruthy();
     });
   });
+
+  it("renders expected rating value if rating exists", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const { rating } = props[ind];
+      if (!rating) return;
+
+      expect(wrapper.text()).toContain(rating.toString());
+    });
+  });
 });
