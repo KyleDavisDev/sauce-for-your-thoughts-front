@@ -8,7 +8,8 @@ import {
   REVIEWS_CLEARED,
   REVIEWS_UPDATED_DISPLAYNAME,
   IReviewToServer,
-  IReviewRequestFromServer
+  IReviewRequestFromServer,
+  IReviewAPI
 } from "./types";
 import { MyThunkResult } from "../configureStore";
 import Flatn from "../../utils/Flatn/Flatn";
@@ -97,7 +98,7 @@ export const addReview = (
 };
 
 /** @description Edit a single review
- *  @param {IReviewToServer} data - all encompasing object
+ *  @param {IReviewToServer} data - all encompassing object
  *  @fires reviews#updatedReviews - update a specific review
  *  @returns {Promise}
  *    @returns {NULL}
@@ -105,14 +106,18 @@ export const addReview = (
 export const editReview = (
   data: IReviewToServer
 ): MyThunkResult<Promise<null>> => async dispatch => {
-  // Add review
+  // 1) Update review
   await API.review.edit(data);
 
-  // Normalize reviews
+  // 2) Shape review to expected format
+  const review = turnReviewToReviewAPI(data.review);
+
+  // 3) Normalize review
   const { byReviewID } = Flatn.reviews({
-    reviews: [data.review]
+    reviews: [review]
   });
-  // Update specific review in store
+
+  // 4) Update specific review in store
   dispatch(updatedReviews({ byReviewID }));
 
   return null;
@@ -128,10 +133,10 @@ export const editReview = (
 export const getReview = (
   data: IReviewRequestFromServer
 ): MyThunkResult<Promise<null>> => async dispatch => {
-  // Find review
+  // 1) Find review
   const review = await API.review.get(data);
 
-  // Normalize reviews
+  // 2) Normalize reviews
   const { byReviewID, allReviewIDs } = Flatn.reviews({
     reviews: [review]
   });
@@ -169,4 +174,11 @@ export const getReviewsBySlug = ({
   dispatch(addedReviews({ reviews: normalizedReviews }));
 
   return null;
+};
+
+const turnReviewToReviewAPI = (review: IReview): IReviewAPI => {
+  return {
+    ...review,
+    ...{ author: { displayName: review.author, created: 0 } }
+  };
 };
