@@ -36,15 +36,13 @@ const AuthorBlock: React.FC<IAuthorBlock> = props => {
       <StyledReviewer>
         {authorObj ? (
           <>
-            {authorObj.displayName}
-            <StyledAvatar src={authorObj.avatarURL} />
+            {authorObj.displayName} <StyledAvatar src={authorObj.avatarURL} />
           </>
         ) : (
-          _noAuthor
+          <>{_noAuthor}</>
         )}
       </StyledReviewer>
-      on
-      {humanReadableDate()}
+      on {humanReadableDate()}
     </StyledContainer>
   );
 
