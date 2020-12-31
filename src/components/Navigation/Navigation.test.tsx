@@ -39,4 +39,10 @@ describe("<Navigation />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("renders a LogoSFYT component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("LogoSFYT").exists()).toBeTruthy();
+    });
+  });
 });
