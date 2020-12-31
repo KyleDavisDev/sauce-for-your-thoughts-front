@@ -45,7 +45,7 @@ export function useSauceBySlug(slug?: string): IuseSauceBySlug {
   // assign router
   const router = useRouter();
 
-  // define function
+  // function that will be used to actually get the sauce
   const getTheSauce = async () => {
     // Prevent calling multiple times if loading
     if (loading && sauce?._full) return;
