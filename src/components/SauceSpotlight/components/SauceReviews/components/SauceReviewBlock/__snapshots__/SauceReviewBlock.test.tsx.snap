@@ -1,0 +1,1435 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SauceReviewBlock /> matches snapshot 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={742587837}
+      author="Miss Oda Tillman"
+      created={566784504}
+      heat={
+        Object {
+          "rating": 0,
+          "txt": "Illum animi vel provident dicta perferendis dolorum.",
+        }
+      }
+      label={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 0,
+          "txt": undefined,
+        }
+      }
+      reviewID="IharUbfKRC"
+      sauce="Ms. Fannie Botsford"
+      taste={
+        Object {
+          "rating": 3,
+          "txt": "Delectus vel ipsa tempora.",
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={0}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 2`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={1296235211}
+      aroma={
+        Object {
+          "rating": 1,
+          "txt": "Quam nulla est unde sit ex.",
+        }
+      }
+      author="Mr. Mario Gusikowski"
+      created={449083518}
+      heat={
+        Object {
+          "rating": 5,
+          "txt": "Quae corporis qui aut nobis.",
+        }
+      }
+      label={
+        Object {
+          "rating": 2,
+          "txt": "Autem sit aspernatur aspernatur quam eligendi.",
+        }
+      }
+      note={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 0,
+          "txt": undefined,
+        }
+      }
+      reviewID="aTEVEZnRG"
+      sauce="Mr. Mariam Kiehn"
+      taste={
+        Object {
+          "rating": 0,
+          "txt": "Eaque necessitatibus sit suscipit.",
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={0}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 3`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      aroma={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+      author="Ms. Clarissa Paucek"
+      created={1064908294}
+      heat={
+        Object {
+          "rating": 4,
+          "txt": "Quos eum voluptate sit saepe assumenda deserunt.",
+        }
+      }
+      note={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 2,
+          "txt": "Qui voluptatem cumque nihil iste.",
+        }
+      }
+      reviewID="iKhXkTXLMXFhevBh"
+      sauce="Ms. Thad Swift"
+      taste={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={2}
+      txt="Qui voluptatem cumque nihil iste."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 4`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={538338659}
+      aroma={
+        Object {
+          "rating": 3,
+          "txt": "Provident eaque atque quos.",
+        }
+      }
+      author="Miss Percival Wisozk"
+      created={1445472196}
+      heat={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 2,
+          "txt": "Esse quos minus deserunt nihil quasi minus quo.",
+        }
+      }
+      reviewID="XtdlbKQrHU"
+      sauce="Miss Jordi Smith"
+      taste={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={2}
+      txt="Esse quos minus deserunt nihil quasi minus quo."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 5`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={390872209}
+      author="Dr. Luisa Price"
+      created={1421364593}
+      label={
+        Object {
+          "rating": 1,
+          "txt": "Quia aut sint cumque sunt.",
+        }
+      }
+      note={
+        Object {
+          "rating": 2,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 2,
+          "txt": undefined,
+        }
+      }
+      reviewID="FYWzhPCfv"
+      sauce="Ms. Kira Hodkiewicz"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={2}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 6`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      aroma={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+      author="Mr. Cortney Deckow"
+      created={557314739}
+      overall={
+        Object {
+          "rating": 1,
+          "txt": "Voluptas eos quam.",
+        }
+      }
+      reviewID="JMFQdyOQzOE"
+      sauce="Dr. Coralie Dare"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={1}
+      txt="Voluptas eos quam."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 7`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={118643872}
+      author="Mrs. Lucius Ward"
+      created={496611622}
+      label={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 3,
+          "txt": "Reiciendis ut eos commodi at impedit sint perferendis in dolorem.",
+        }
+      }
+      reviewID="eHPAhXwFtCdzuASsvvtlrt"
+      sauce="Mrs. Gracie Goodwin"
+      taste={
+        Object {
+          "rating": 4,
+          "txt": "Omnis quo aut quia cumque architecto eos quos.",
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={3}
+      txt="Reiciendis ut eos commodi at impedit sint perferendis in dolorem."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 8`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      author="Miss Julio Baumbach"
+      created={1082153165}
+      heat={
+        Object {
+          "rating": 2,
+          "txt": "Et voluptas repellendus nisi corrupti quas eligendi.",
+        }
+      }
+      label={
+        Object {
+          "rating": 2,
+          "txt": "Qui qui ab officiis omnis rem officiis et placeat ipsum.",
+        }
+      }
+      note={
+        Object {
+          "rating": 1,
+          "txt": "Et ea quia sunt est aut et sunt libero.",
+        }
+      }
+      overall={
+        Object {
+          "rating": 3,
+          "txt": "Impedit dolores saepe dolor incidunt vero quia voluptatibus consequatur.",
+        }
+      }
+      reviewID="EOQDhESDEysHJxso"
+      sauce="Mrs. Edmund Corkery"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={3}
+      txt="Impedit dolores saepe dolor incidunt vero quia voluptatibus consequatur."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 9`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={246128653}
+      author="Mrs. Shea Toy"
+      created={896479631}
+      label={
+        Object {
+          "rating": 5,
+          "txt": "Sed consequatur ut sapiente molestiae dolores.",
+        }
+      }
+      overall={
+        Object {
+          "rating": 4,
+          "txt": "Nulla sit officia doloremque non sit a perferendis soluta dignissimos.",
+        }
+      }
+      reviewID="pQRaEkGucAkBlUt"
+      sauce="Ms. Shanelle Schowalter"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={4}
+      txt="Nulla sit officia doloremque non sit a perferendis soluta dignissimos."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 10`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      aroma={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+      author="Dr. Marcos McGlynn"
+      created={766352370}
+      label={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 4,
+          "txt": "Ipsam fuga rem eius est nihil sit enim itaque nostrum.",
+        }
+      }
+      reviewID="SsfaRWMaL"
+      sauce="Miss Dan Torp"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={4}
+      txt="Ipsam fuga rem eius est nihil sit enim itaque nostrum."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 11`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      author="Mr. Minerva Daniel"
+      created={466975230}
+      label={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+      note={
+        Object {
+          "rating": 0,
+          "txt": "Eum doloribus et perspiciatis sunt.",
+        }
+      }
+      overall={
+        Object {
+          "rating": 2,
+          "txt": "Eaque quis omnis ut praesentium vel.",
+        }
+      }
+      reviewID="WwkGnmdGN"
+      sauce="Miss Vernon Cole"
+      taste={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={2}
+      txt="Eaque quis omnis ut praesentium vel."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 12`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      author="Mr. Brandt Renner"
+      created={49252680}
+      label={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      note={
+        Object {
+          "rating": 0,
+          "txt": "Suscipit reiciendis in exercitationem et error tempore aspernatur soluta.",
+        }
+      }
+      overall={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      reviewID="LDLMZNYPVmcoV"
+      sauce="Ms. Mose Kautzer"
+      taste={
+        Object {
+          "rating": 2,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={1}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 13`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={25321092}
+      aroma={
+        Object {
+          "rating": 2,
+          "txt": "Dolores voluptas quidem excepturi temporibus.",
+        }
+      }
+      author="Miss Lucy Terry"
+      created={515792175}
+      heat={
+        Object {
+          "rating": 5,
+          "txt": undefined,
+        }
+      }
+      note={
+        Object {
+          "rating": 1,
+          "txt": "Eligendi excepturi fugit beatae ut ea.",
+        }
+      }
+      overall={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+      reviewID="aGfRHMCwDSyzziwR"
+      sauce="Ms. Kara Rogahn"
+      taste={
+        Object {
+          "rating": 2,
+          "txt": "Ratione saepe id officia.",
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={3}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 14`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      aroma={
+        Object {
+          "rating": 3,
+          "txt": "Nam doloribus et facere.",
+        }
+      }
+      author="Miss Eveline Mraz"
+      created={1230304273}
+      heat={
+        Object {
+          "rating": 5,
+          "txt": undefined,
+        }
+      }
+      note={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 1,
+          "txt": "Excepturi laborum veniam asperiores et consectetur animi.",
+        }
+      }
+      reviewID="QdGEoMxlkCJlEgPiaLfqEiE"
+      sauce="Mr. Amari Buckridge"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={1}
+      txt="Excepturi laborum veniam asperiores et consectetur animi."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 15`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={1014791946}
+      aroma={
+        Object {
+          "rating": 0,
+          "txt": "Culpa cum architecto nulla ut molestias nisi corporis nulla.",
+        }
+      }
+      author="Ms. Verla Hoppe"
+      created={1202132066}
+      overall={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+      reviewID="pdDIolaKZgjaofwnUiQJoWqP"
+      sauce="Dr. Lesly Lakin"
+      taste={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={4}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 16`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={1297250190}
+      aroma={
+        Object {
+          "rating": 2,
+          "txt": undefined,
+        }
+      }
+      author="Mr. Clifton Gerlach"
+      created={1060073351}
+      heat={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+      note={
+        Object {
+          "rating": 2,
+          "txt": "Quae ut dolores quam ea dolores.",
+        }
+      }
+      overall={
+        Object {
+          "rating": 5,
+          "txt": undefined,
+        }
+      }
+      reviewID="uEluhhwIJ"
+      sauce="Ms. Evalyn Doyle"
+      taste={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={5}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 17`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={1271190813}
+      author="Mr. Elmore Hessel"
+      created={1450539215}
+      note={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+      reviewID="rElBEhjORDLc"
+      sauce="Miss Brandyn Lowe"
+      taste={
+        Object {
+          "rating": 1,
+          "txt": "Voluptas delectus iure veniam est consequatur.",
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={3}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 18`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={654309079}
+      aroma={
+        Object {
+          "rating": 5,
+          "txt": "Nulla maiores pariatur amet harum maxime a.",
+        }
+      }
+      author="Ms. Adrienne Miller"
+      created={1169790978}
+      label={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 2,
+          "txt": undefined,
+        }
+      }
+      reviewID="adlHvDdUEEHoGNbzl"
+      sauce="Dr. Jensen Carroll"
+      taste={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={2}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 19`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={285647655}
+      author="Dr. Giovanna Kovacek"
+      created={886429881}
+      heat={
+        Object {
+          "rating": 1,
+          "txt": "Exercitationem excepturi eligendi facilis similique optio hic perspiciatis dolor.",
+        }
+      }
+      label={
+        Object {
+          "rating": 2,
+          "txt": "Odio id id repellat maiores iure fuga sit.",
+        }
+      }
+      overall={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+      reviewID="TyVlTriZKUPtpPj"
+      sauce="Mrs. Helga Reinger"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={4}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 20`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={1151706497}
+      aroma={
+        Object {
+          "rating": 4,
+          "txt": "Aut dolore labore vitae aperiam voluptas impedit.",
+        }
+      }
+      author="Ms. Haylie Heller"
+      created={1457527108}
+      heat={
+        Object {
+          "rating": 0,
+          "txt": "Mollitia quis dolor non id cum enim mollitia voluptas accusamus.",
+        }
+      }
+      label={
+        Object {
+          "rating": 4,
+          "txt": "Porro excepturi aperiam qui voluptatem rerum.",
+        }
+      }
+      overall={
+        Object {
+          "rating": 2,
+          "txt": "Ut nobis velit velit perspiciatis mollitia ut corrupti sunt.",
+        }
+      }
+      reviewID="BBXStuJbqxgzB"
+      sauce="Miss Arnulfo Conn"
+      taste={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={2}
+      txt="Ut nobis velit velit perspiciatis mollitia ut corrupti sunt."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 21`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      author="Mrs. Dalton Okuneva"
+      created={421088633}
+      label={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      reviewID="WWprqVLGlPFYLBTgltqLhXX"
+      sauce="Miss Trever Turner"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={1}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 22`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      author="Mrs. Laney Armstrong"
+      created={1259378523}
+      heat={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      label={
+        Object {
+          "rating": 1,
+          "txt": "Vitae magni a corrupti eveniet.",
+        }
+      }
+      note={
+        Object {
+          "rating": 0,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+      reviewID="OsWvmoXexR"
+      sauce="Dr. Jarrod Rempel"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={4}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 23`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={1456075367}
+      aroma={
+        Object {
+          "rating": 2,
+          "txt": undefined,
+        }
+      }
+      author="Dr. Caden Larkin"
+      created={491909547}
+      heat={
+        Object {
+          "rating": 5,
+          "txt": "Ducimus sunt sed totam corporis error quae laudantium quos sequi.",
+        }
+      }
+      note={
+        Object {
+          "rating": 1,
+          "txt": "Exercitationem nostrum voluptas quia nam quisquam quia nostrum rerum.",
+        }
+      }
+      overall={
+        Object {
+          "rating": 0,
+          "txt": "Vel tenetur expedita veritatis.",
+        }
+      }
+      reviewID="jDfvGWURxD"
+      sauce="Mrs. Juliana Pouros"
+      taste={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={0}
+      txt="Vel tenetur expedita veritatis."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 24`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      aroma={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+      author="Ms. Angelina Medhurst"
+      created={423850199}
+      overall={
+        Object {
+          "rating": 2,
+          "txt": "Dolores quasi iure modi.",
+        }
+      }
+      reviewID="AnYzTdIzHoXP"
+      sauce="Dr. Fanny Kiehn"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={2}
+      txt="Dolores quasi iure modi."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 25`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={242037108}
+      author="Ms. Elton Barrows"
+      created={1435780005}
+      note={
+        Object {
+          "rating": 2,
+          "txt": "Eum blanditiis ut nisi et et vel quasi.",
+        }
+      }
+      overall={
+        Object {
+          "rating": 3,
+          "txt": "Molestias perferendis doloremque qui voluptatibus.",
+        }
+      }
+      reviewID="fyXopLVYVWzL"
+      sauce="Miss Leif Gusikowski"
+      taste={
+        Object {
+          "rating": 5,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={3}
+      txt="Molestias perferendis doloremque qui voluptatibus."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 26`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={882848844}
+      author="Mrs. Arno Braun"
+      created={560465126}
+      heat={
+        Object {
+          "rating": 3,
+          "txt": "Iure velit officia in excepturi.",
+        }
+      }
+      label={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      note={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 3,
+          "txt": "Ipsam id nisi explicabo accusantium non id aliquid tempora praesentium.",
+        }
+      }
+      reviewID="SynhnEEInfKeybjQtcWwr"
+      sauce="Miss Ulises Jerde"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={3}
+      txt="Ipsam id nisi explicabo accusantium non id aliquid tempora praesentium."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 27`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      author="Mr. Benny Hand"
+      created={1099525481}
+      overall={
+        Object {
+          "rating": 5,
+          "txt": "Veritatis in nisi quia et ea velit dolorem libero.",
+        }
+      }
+      reviewID="pWBtfsrkdxPHgI"
+      sauce="Miss Aron Kautzer"
+      taste={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={5}
+      txt="Veritatis in nisi quia et ea velit dolorem libero."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 28`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      aroma={
+        Object {
+          "rating": 3,
+          "txt": "Dolorem non earum et.",
+        }
+      }
+      author="Ms. Vern Mills"
+      created={511534279}
+      label={
+        Object {
+          "rating": 3,
+          "txt": "Esse inventore enim necessitatibus nihil autem assumenda consequatur.",
+        }
+      }
+      note={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+      reviewID="fjtGMvQAHVoIQfInzXowh"
+      sauce="Ms. Nathanial Ernser"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={4}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 29`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      author="Ms. Laury Rippin"
+      created={916970399}
+      heat={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 0,
+          "txt": undefined,
+        }
+      }
+      reviewID="aGYCKCtgSjCFbugYodE"
+      sauce="Miss Juliana Armstrong"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={0}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 30`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      author="Miss Susan Ratke"
+      created={1384413345}
+      heat={
+        Object {
+          "rating": 0,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 4,
+          "txt": "Dolore quidem sunt et at earum molestiae quae.",
+        }
+      }
+      reviewID="ddFsCImiSipYpkWGhFmKEnN"
+      sauce="Miss Constance Rutherford"
+      taste={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={4}
+      txt="Dolore quidem sunt et at earum molestiae quae."
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 31`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      _addedToStore={1260699292}
+      aroma={
+        Object {
+          "rating": 2,
+          "txt": "Blanditiis omnis amet ipsa consectetur.",
+        }
+      }
+      author="Miss Alene Baumbach"
+      created={1172323789}
+      heat={
+        Object {
+          "rating": 4,
+          "txt": "Aliquam est consequuntur.",
+        }
+      }
+      label={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      note={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+      reviewID="GDFVCnRzQccEiap"
+      sauce="Mr. Kiara Reichert"
+    />
+    <RatingBlock
+      name="Overall"
+      rating={1}
+    />
+  </div>
+</div>
+`;
+
+exports[`<SauceReviewBlock /> matches snapshot 32`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <div>
+    <AuthorBlock
+      aroma={
+        Object {
+          "rating": 3,
+          "txt": undefined,
+        }
+      }
+      author="Miss Myrtice Thiel"
+      created={1029096993}
+      heat={
+        Object {
+          "rating": 4,
+          "txt": undefined,
+        }
+      }
+      overall={
+        Object {
+          "rating": 0,
+          "txt": "Fuga placeat odio est quos voluptates in.",
+        }
+      }
+      reviewID="BrndhJfZz"
+      sauce="Ms. Rossie Swaniawski"
+      taste={
+        Object {
+          "rating": 1,
+          "txt": undefined,
+        }
+      }
+    />
+    <RatingBlock
+      name="Overall"
+      rating={0}
+      txt="Fuga placeat odio est quos voluptates in."
+    />
+  </div>
+</div>
+`;
