@@ -1,16 +1,36 @@
+import "jsdom-global/register";
 import * as React from "react";
 import * as enzyme from "enzyme";
-import { MemoryRouter } from "react-router-dom";
 import Navigation from "./Navigation";
+import { Provider } from "react-redux";
+import { fakeStore, ITERATION_SIZE } from "../../utils/testUtils/testUtils";
+import { MockStoreEnhanced } from "redux-mock-store";
 
 describe("<Navigation />", () => {
-  const wrapper = enzyme.render(
-    <MemoryRouter>
-      <Navigation />
-    </MemoryRouter>
-  );
+  let wrappers: Array<enzyme.ReactWrapper<
+    any,
+    Readonly<{}>,
+    React.Component<{}, {}, any>
+  >> = [];
+  let mockStores: MockStoreEnhanced<unknown, {}>[] = [];
+
+  beforeAll(() => {
+    // add our mock stores
+    mockStores = new Array(ITERATION_SIZE).fill(null).map(fakeStore);
+
+    // add our mounts
+    wrappers = new Array(ITERATION_SIZE).fill(null).map((x, ind) => {
+      return enzyme.mount(
+        <Provider store={mockStores[ind]}>
+          <Navigation />
+        </Provider>
+      );
+    });
+  });
 
   it("renders", () => {
-    expect(wrapper).toBeTruthy();
+    wrappers.forEach(wrapper => {
+      expect(wrapper.exists()).toBeTruthy();
+    });
   });
 });
