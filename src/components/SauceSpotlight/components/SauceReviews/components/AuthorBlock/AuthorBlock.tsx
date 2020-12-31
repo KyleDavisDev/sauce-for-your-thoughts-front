@@ -16,6 +16,7 @@ export interface IAuthorBlock {
 const AuthorBlock: React.FC<IAuthorBlock> = props => {
   // defaults
   const _noAuthor = "N/A";
+  const _title = "Reviewer:";
 
   const { created, author } = props;
 
@@ -31,7 +32,7 @@ const AuthorBlock: React.FC<IAuthorBlock> = props => {
 
   return (
     <StyledContainer>
-      <i>Reviewer:</i>
+      <i>{_title}</i>
       <StyledReviewer>
         {authorObj ? (
           <>
