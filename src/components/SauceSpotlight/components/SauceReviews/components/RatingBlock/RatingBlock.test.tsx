@@ -39,4 +39,12 @@ describe("<RatingBlock />", () => {
       expect(wrapper.exists()).toMatchSnapshot();
     });
   });
+
+  it("renders expected name", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const { name } = props[ind];
+
+      expect(wrapper.text()).toContain(name);
+    });
+  });
 });
