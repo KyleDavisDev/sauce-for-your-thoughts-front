@@ -14,6 +14,7 @@ const fakeRatingBlockProps = (): IRatingBlock => {
     name: casual.string
   };
 };
+
 describe("<RatingBlock />", () => {
   let wrappers: any = [];
   let props: IRatingBlock[] = [];
@@ -30,6 +31,12 @@ describe("<RatingBlock />", () => {
   it("renders", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.exists()).toBeTruthy();
+    });
+  });
+
+  it("matches snapshot", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.exists()).toMatchSnapshot();
     });
   });
 });
