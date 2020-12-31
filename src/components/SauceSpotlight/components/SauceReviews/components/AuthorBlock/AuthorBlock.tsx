@@ -9,17 +9,18 @@ import { AppState } from "../../../../../../redux/configureStore";
 import { IReview } from "../../../../../../redux/reviews/types";
 
 export interface IAuthorBlock {
-  review: IReview;
+  created: number;
+  author: string;
 }
 
 const AuthorBlock: React.FC<IAuthorBlock> = props => {
   // defaults
   const _noAuthor = "N/A";
 
-  const { created, author: authorName } = props.review;
+  const { created, author } = props;
 
-  const author = useSelector((store: AppState) =>
-    store.users.byDisplayName ? store.users.byDisplayName[authorName] : null
+  const authorObj = useSelector((store: AppState) =>
+    store.users.byDisplayName ? store.users.byDisplayName[author] : null
   );
 
   const dateOptions = {
@@ -32,10 +33,10 @@ const AuthorBlock: React.FC<IAuthorBlock> = props => {
     <StyledContainer>
       <i>Reviewer:</i>
       <StyledReviewer>
-        {author ? (
+        {authorObj ? (
           <>
-            {author.displayName}
-            <StyledAvatar src={author.avatarURL} />
+            {authorObj.displayName}
+            <StyledAvatar src={authorObj.avatarURL} />
           </>
         ) : (
           _noAuthor
