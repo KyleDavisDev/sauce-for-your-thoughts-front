@@ -67,11 +67,31 @@ describe("<AuthorBlock />", () => {
 
   it("renders expected author name when author is able to be found", () => {
     wrappers.forEach((wrapper, ind) => {
-      // Grab the review that was passed to the component on this specific iteration
+      // 1) Get author from review
       const review: IReview = reviews[ind];
       const author = review.author;
 
-      expect(wrapper.text()).toContain(author);
+      // 2) Find author within redux
+      const reduxStore = mockStores[ind].getState() as AppState;
+      const authorObj = reduxStore.users?.byDisplayName?.[author];
+      if (!authorObj) return; // keep going
+
+      expect(wrapper.text()).toContain(authorObj.displayName);
+    });
+  });
+
+  it("renders expected default text when no author is able to be found", () => {
+    wrappers.forEach((wrapper, ind) => {
+      //  1) Get author from review
+      const review: IReview = reviews[ind];
+      const author = review.author;
+
+      // 2) Find author within redux
+      const reduxStore = mockStores[ind].getState() as AppState;
+      const authorObj = reduxStore.users?.byDisplayName?.[author];
+      if (authorObj) return; // keep going
+
+      expect(wrapper.text()).toContain(_noAuthor);
     });
   });
 });
