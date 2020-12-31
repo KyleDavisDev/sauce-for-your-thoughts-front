@@ -54,7 +54,7 @@ export interface ISaucesState {
   saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
   newest?: string[];
   featured?: string[];
-  types: string[];
+  types?: string[];
   orders?: string[];
 }
 
