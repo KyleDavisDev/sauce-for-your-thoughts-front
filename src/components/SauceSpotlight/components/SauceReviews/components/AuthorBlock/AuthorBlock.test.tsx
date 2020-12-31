@@ -10,6 +10,7 @@ import {
 } from "../../../../../../utils/testUtils/testUtils";
 import { Provider } from "react-redux";
 import { AppState } from "../../../../../../redux/configureStore";
+import { IReview } from "../../../../../../redux/reviews/types";
 
 describe("<AuthorBlock />", () => {
   // defaults from component
@@ -18,6 +19,7 @@ describe("<AuthorBlock />", () => {
 
   let wrappers: any = [];
   let mockStores: any = [];
+  let reviews: any = [];
 
   beforeAll(() => {
     // Loop until we have many instances AuthorBlock component with an actual review prop
@@ -30,7 +32,7 @@ describe("<AuthorBlock />", () => {
       const { byReviewID } = reduxState.reviews;
       if (!byReviewID) continue;
       if (Object.keys(byReviewID).length === 0) continue;
-      const review = casual.random_value(byReviewID);
+      const review: IReview = casual.random_value(byReviewID);
 
       // 3) Add to our collectors
       mockStores.push(mockStore);
@@ -41,6 +43,7 @@ describe("<AuthorBlock />", () => {
           </Provider>
         )
       );
+      reviews.push(review);
     }
   });
 
@@ -59,6 +62,16 @@ describe("<AuthorBlock />", () => {
   it("renders expected title", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.text()).toContain(_title);
+    });
+  });
+
+  it("renders expected author name when author is able to be found", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // Grab the review that was passed to the component on this specific iteration
+      const review: IReview = reviews[ind];
+      const author = review.author;
+
+      expect(wrapper.text()).toContain(author);
     });
   });
 });
