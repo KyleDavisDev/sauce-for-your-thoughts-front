@@ -14,7 +14,9 @@ import { AppState } from "../../redux/configureStore";
 
 const Navigation: React.FunctionComponent<{}> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const isLoggedIn = useSelector((store: AppState) => !!store.users.self.token);
+  const isLoggedIn = useSelector(
+    (store: AppState) => !!store.users.self?.token
+  );
 
   return (
     <StyledNav>
@@ -37,17 +39,14 @@ const Navigation: React.FunctionComponent<{}> = () => {
           <StyledLink href="/sauces">Sauces</StyledLink>
         </li>
         <li>
-          <StyledLink
-            href={
-              isLoggedIn ? "/sauce/add" : "/account/login?return=/sauce/add"
-            }
-          >
-            Add Sauce
-          </StyledLink>
+          {isLoggedIn ? (
+            <StyledLink href="/sauce/add">Add Sauce</StyledLink>
+          ) : (
+            <StyledLink href="/account/login?return=/sauce/add">
+              Add Sauce
+            </StyledLink>
+          )}
         </li>
-        {/* <li>
-            <span>icon here</span>
-          </li> */}
       </StyledUl>
     </StyledNav>
   );
