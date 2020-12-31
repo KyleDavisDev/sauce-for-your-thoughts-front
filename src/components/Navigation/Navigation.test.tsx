@@ -45,4 +45,22 @@ describe("<Navigation />", () => {
       expect(wrapper.find("LogoSFYT").exists()).toBeTruthy();
     });
   });
+
+  it("renders a Bar component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("Bar").exists()).toBeTruthy();
+    });
+  });
+
+  it("renders a ul element", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("ul").exists()).toBeTruthy();
+    });
+  });
+
+  it("renders a several li elements ", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("ul li").length).toBeGreaterThan(0);
+    });
+  });
 });
