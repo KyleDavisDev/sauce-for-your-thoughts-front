@@ -12,11 +12,7 @@ import { IUser, IUserState } from "../../redux/users/types";
 import { IErrReturn } from "../Err/Err";
 import { act } from "react-dom/test-utils";
 import { Provider } from "react-redux";
-import {
-  IReview,
-  IReviewSection,
-  IReviewState
-} from "../../redux/reviews/types";
+import { IReview, IReviewState } from "../../redux/reviews/types";
 
 export const ITERATION_SIZE = 32;
 const REACT_REGEX = /react(\d+)?./i;
@@ -53,7 +49,7 @@ export const fakeSauce = (): ISauce => ({
   ]),
   reviews: casual.random_element([
     undefined,
-    new Array(casual.integer(0, 10)).fill(null).map(x => casual.word)
+    new Array(casual.integer(0, 10)).fill(null).map(casual._uuid)
   ]),
   city: casual.random_element([undefined, casual.city]),
   state: casual.random_element([undefined, casual.state]),
@@ -71,10 +67,10 @@ export const fakeReviewItem = () => {
   };
 };
 
-export const fakeReview = (): IReview => {
+export const fakeReview = (reviewID?: string, author?: string): IReview => {
   return {
-    reviewID: generateValidPassword(),
-    author: casual.name,
+    reviewID: reviewID ?? generateValidPassword(),
+    author: author ?? casual.name,
     sauce: casual.name,
     created: casual.unix_time,
     overall: fakeReviewItem(),
@@ -88,26 +84,24 @@ export const fakeReview = (): IReview => {
 };
 
 export const generateFakeReviews = (): IReview[] => {
-  return new Array(casual.integer(1, 15)).fill(null).map(fakeReview);
+  return new Array(casual.integer(1, 15)).fill(null).map(x => fakeReview());
 };
 
-const selectRandomSlugs = (slugs: string[]): undefined | string[] => {
-  return casual.random_element([
-    undefined,
-    slugs.length > 0
-      ? slugs.filter(slug => {
-          if (casual.random < 0.4) return slug;
-          return;
-        })
-      : []
-  ]);
+const selectRandomSlugs = (slugs: string[]): string[] => {
+  return slugs.filter(slug => {
+    if (casual.random < 0.4) return false;
+    return slug;
+  });
 };
 
 export const fakeSaucesState = (): ISaucesState => {
   const sauces: ISauce[] = generateFakeSauces();
   const { allSlugs, bySlug } = Flatn.saucesArr({ sauces });
 
-  const featured = selectRandomSlugs(allSlugs);
+  const featured = casual.random_element([
+    undefined,
+    selectRandomSlugs(allSlugs)
+  ]);
 
   const saucesWithNewestReviews = bySlug
     ? allSlugs.map(slug => {
@@ -129,14 +123,6 @@ export const fakeSaucesState = (): ISaucesState => {
 };
 
 export const fakeUser = (displayName?: string): IUser => {
-  // _id?: number;
-  // _addedToStore?: number; // Unix time for when added to redux
-  // reviews?: string[];
-  // created: number;
-  // displayName: string;
-  // email?: string;
-  // avatarURL?: string;
-
   return {
     created: casual.unix_time,
     displayName: displayName ?? casual.full_name,
@@ -154,19 +140,19 @@ export const fakeSelf = () => {
   };
 };
 
-export const fakeUsersState = ({
-  authors
-}: {
-  authors: string[];
-}): IUserState => {
+export const fakeUsersState = (
+  sauces: ISaucesState,
+  reviews: IReviewState
+): IUserState => {
+  // 1) Get store users
   // 1) Generate fake users
-  const _users = authors.map(x => fakeUser(x));
+  const authorDisplayNames = getStoreAuthors({ sauces, reviews });
 
   // 2) Sort users into appropriate places
   const byDisplayName: { [key: string]: IUser } = {};
   const allDisplayNames: string[] = [];
-  _users.forEach(user => {
-    const { displayName } = user;
+  authorDisplayNames.forEach(displayName => {
+    const user = fakeUser(displayName);
 
     allDisplayNames.push(displayName);
 
@@ -181,47 +167,89 @@ export const fakeUsersState = ({
   };
 };
 
-export const fakeReviewState = ({
-  reviewIDs,
-  authors
-}: {
-  reviewIDs: string[];
-  authors: string[];
-}): IReviewState => {
-  // 1) Create reviews
-  const _reviews: IReview[] = generateFakeReviews();
+export const fakeReviewState = (sauces: ISaucesState): IReviewState => {
+  // 1) Create reviews -- Each sauce could have [0-n] reviews
+  const reviewIDs = getReviewIDsFromSauces(sauces);
+  const reviews: IReview[] = reviewIDs.map(id => {
+    return fakeReview(id);
+  });
 
   // 2) Sort reviews into appropriate areas
   const allReviewIDs: string[] = [];
   const byReviewID: { [key: string]: IReview } = {};
-  _reviews.forEach(review => {
-    const id = review.reviewID;
+  reviews.forEach(review => {
+    const { reviewID } = review;
 
     // Push id into reviews array
-    allReviewIDs.push(id);
+    allReviewIDs.push(reviewID);
 
     // Push review into reviews obj
-    byReviewID.id = review;
+    byReviewID.reviewID = review;
   });
 
   return { allReviewIDs, byReviewID };
 };
 
-// Loop through sauces obj and grab the authors from each of the sauces
 const getAuthorsFromSauces = (sauces: ISaucesState): string[] => {
   const authors: string[] = [];
 
   for (let i = 0, len = sauces.allSlugs.length; i < len; i++) {
-    // Get the sauce
+    // 1) Get the sauce
     const slug = sauces.allSlugs[i];
     const sauce = sauces.bySlug?.[slug];
     if (!sauce) continue;
 
-    // If we are here, then sauce is valid and we can grab the author
-    authors.push(sauce.author);
+    // 2) Sauce is good, grab author
+    const author = sauce.author;
+    if (!author) continue;
+    if (author.length === 0) continue;
+
+    // 3) Author is good, push to our collector
+    authors.push(author);
   }
 
   return authors;
+};
+
+const getAuthorsFromReviews = (reviews: IReviewState): string[] => {
+  const authors: string[] = [];
+
+  for (let i = 0, len = reviews.allReviewIDs.length; i < len; i++) {
+    // 1) Get the review
+    const reviewID = reviews.allReviewIDs[i];
+    const review = reviews.byReviewID?.[reviewID];
+    if (!review) continue;
+
+    // 2) Review is good, grab author
+    const author = review.author;
+    if (!author) continue;
+    if (author.length === 0) continue;
+
+    // 3) Author is good, push to our collector
+    authors.push(author);
+  }
+
+  return authors;
+};
+
+// Look through store and grab authors
+const getStoreAuthors = ({
+  sauces,
+  reviews,
+  users
+}: {
+  sauces?: ISaucesState;
+  reviews?: IReviewState;
+  users?: IUserState;
+}): string[] => {
+  const sauceAuthors: string[] = sauces ? getAuthorsFromSauces(sauces) : [];
+
+  const reviewAuthors: string[] = reviews ? getAuthorsFromReviews(reviews) : [];
+
+  const userAuthors: string[] =
+    users && users.allDisplayNames ? users.allDisplayNames : [];
+
+  return [...sauceAuthors, ...reviewAuthors, ...userAuthors];
 };
 
 const getReviewIDsFromSauces = (sauces: ISaucesState): string[] => {
@@ -253,15 +281,11 @@ export const fakeStore = () => {
   // 2) Populate store
   // 2.1) Generate Sauces State -- Many items will use this state later
   const sauces = fakeSaucesState();
-  // 2.2) All of the authors of the sauces should exist in our UserState so go in and grab authors
-  const _authors = getAuthorsFromSauces(sauces);
-  // 2.3) All of the reviews of the sauces should exist in our ReviewState so go in and grab reviews
-  const _reviewIDs = getReviewIDsFromSauces(sauces);
-  // 2.4) Generate Users State based on the authors of the sauces
-  const users = fakeUsersState({ authors: _authors });
-  // 2.4) Generate Reviews State based on the authorship and review ID
-  const reviews = fakeReviewState({ reviewIDs: _reviewIDs, authors: _authors });
-  // 2.5) Combine it all to create the total store
+  // 2.2) Generate Reviews State based on Sauces State
+  const reviews = fakeReviewState(sauces);
+  // 2.3) Generate Users State based on previous states
+  const users = fakeUsersState(sauces, reviews);
+  // 2.4) Combine it all to create the total store
   const store: AppState = { sauces, users, reviews };
 
   // 3) Return configured store
