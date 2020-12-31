@@ -12,6 +12,10 @@ import { Provider } from "react-redux";
 import { AppState } from "../../../../../../redux/configureStore";
 
 describe("<AuthorBlock />", () => {
+  // defaults from component
+  const _noAuthor = "N/A";
+  const _title = "Reviewer:";
+
   let wrappers: any = [];
   let mockStores: any = [];
 
@@ -49,6 +53,12 @@ describe("<AuthorBlock />", () => {
   it("matches snapshot", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  it("renders expected title", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.text()).toContain(_title);
     });
   });
 });
