@@ -14,13 +14,13 @@ exports[`<Menu /> matches snapshot 1`] = `
   }
 >
   <Menu
-    className="enim illo debitis quia mollitia quis quasi"
+    className="est delectus sed quibusdam molestiae in officia"
   >
     <div
-      className="enim illo debitis quia mollitia quis quasi"
+      className="est delectus sed quibusdam molestiae in officia"
     >
       <div
-        className="sc-AxmLO bigGZS enim illo debitis quia mollitia quis quasi"
+        className="sc-AxmLO bigGZS est delectus sed quibusdam molestiae in officia"
       >
         <ul>
           <ul
@@ -75,11 +75,11 @@ exports[`<Menu /> matches snapshot 1`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -338,7 +338,7 @@ exports[`<Menu /> matches snapshot 2`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Williamson.me/"
+                            src=""
                             width="50"
                           >
                             <img
@@ -346,7 +346,7 @@ exports[`<Menu /> matches snapshot 2`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Williamson.me/"
+                              src=""
                               width="50"
                             />
                           </img>
@@ -369,11 +369,11 @@ exports[`<Menu /> matches snapshot 2`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -605,14 +605,10 @@ exports[`<Menu /> matches snapshot 3`] = `
     }
   }
 >
-  <Menu
-    className="rem molestiae et aut quos accusamus praesentium"
-  >
-    <div
-      className="rem molestiae et aut quos accusamus praesentium"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS rem molestiae et aut quos accusamus praesentium"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -633,14 +629,14 @@ exports[`<Menu /> matches snapshot 3`] = `
                       >
                         <div>
                           <img
-                            alt="Ms. Alysha Jerde"
+                            alt="Ms. Dominic Reynolds"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Ms. Alysha Jerde"
+                              alt="Ms. Dominic Reynolds"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -651,7 +647,7 @@ exports[`<Menu /> matches snapshot 3`] = `
                         </div>
                         <div>
                           <h3>
-                            Ms. Alysha Jerde
+                            Ms. Dominic Reynolds
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -667,11 +663,11 @@ exports[`<Menu /> matches snapshot 3`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -904,13 +900,13 @@ exports[`<Menu /> matches snapshot 4`] = `
   }
 >
   <Menu
-    className="voluptate soluta quam deleniti ex culpa quisquam"
+    className="culpa aliquid earum ducimus dolor officia animi"
   >
     <div
-      className="voluptate soluta quam deleniti ex culpa quisquam"
+      className="culpa aliquid earum ducimus dolor officia animi"
     >
       <div
-        className="sc-AxmLO bigGZS voluptate soluta quam deleniti ex culpa quisquam"
+        className="sc-AxmLO bigGZS culpa aliquid earum ducimus dolor officia animi"
       >
         <ul>
           <ul
@@ -965,11 +961,11 @@ exports[`<Menu /> matches snapshot 4`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -1202,13 +1198,13 @@ exports[`<Menu /> matches snapshot 5`] = `
   }
 >
   <Menu
-    className="laboriosam eum non quia odio labore consectetur"
+    className="dolore architecto vitae magni sit praesentium officia"
   >
     <div
-      className="laboriosam eum non quia odio labore consectetur"
+      className="dolore architecto vitae magni sit praesentium officia"
     >
       <div
-        className="sc-AxmLO bigGZS laboriosam eum non quia odio labore consectetur"
+        className="sc-AxmLO bigGZS dolore architecto vitae magni sit praesentium officia"
       >
         <ul>
           <ul
@@ -1232,7 +1228,7 @@ exports[`<Menu /> matches snapshot 5`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://Sammy.com/"
+                            src=""
                             width="50"
                           >
                             <img
@@ -1240,7 +1236,7 @@ exports[`<Menu /> matches snapshot 5`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://Sammy.com/"
+                              src=""
                               width="50"
                             />
                           </img>
@@ -1263,11 +1259,11 @@ exports[`<Menu /> matches snapshot 5`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -1544,10 +1540,14 @@ exports[`<Menu /> matches snapshot 6`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="pariatur adipisci optio beatae tempora et molestias"
+  >
+    <div
+      className="pariatur adipisci optio beatae tempora et molestias"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS pariatur adipisci optio beatae tempora et molestias"
       >
         <ul>
           <ul
@@ -1602,11 +1602,11 @@ exports[`<Menu /> matches snapshot 6`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -1838,14 +1838,10 @@ exports[`<Menu /> matches snapshot 7`] = `
     }
   }
 >
-  <Menu
-    className="saepe dicta dolore nam magni nulla omnis"
-  >
-    <div
-      className="saepe dicta dolore nam magni nulla omnis"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS saepe dicta dolore nam magni nulla omnis"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -1900,11 +1896,11 @@ exports[`<Menu /> matches snapshot 7`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -2136,14 +2132,10 @@ exports[`<Menu /> matches snapshot 8`] = `
     }
   }
 >
-  <Menu
-    className="fuga reprehenderit et molestiae quos omnis voluptatibus"
-  >
-    <div
-      className="fuga reprehenderit et molestiae quos omnis voluptatibus"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS fuga reprehenderit et molestiae quos omnis voluptatibus"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -2164,25 +2156,25 @@ exports[`<Menu /> matches snapshot 8`] = `
                       >
                         <div>
                           <img
-                            alt="Ms. Ottis Haag"
+                            alt="Mrs. Eleonore Terry"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Pollich.io/"
+                            src="http://www.Turner.io/"
                             width="50"
                           >
                             <img
-                              alt="Ms. Ottis Haag"
+                              alt="Mrs. Eleonore Terry"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Pollich.io/"
+                              src="http://www.Turner.io/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Ms. Ottis Haag
+                            Mrs. Eleonore Terry
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -2198,11 +2190,897 @@ exports[`<Menu /> matches snapshot 8`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
+                            >
+                              <button
+                                aria-disabled={false}
+                                disabled={false}
+                                type="button"
+                              >
+                                View profile (Coming Soon)
+                              </button>
+                            </div>
+                          </Button>
+                        </Button>
+                      </div>
+                    </div>
+                  </a>
+                </styled.a>
+              </Profile>
+            </li>
+            <li>
+              <Account>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Account
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/account/settings"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/account/settings"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/account/settings"
+                        >
+                          <Link
+                            href="/account/settings"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/account/settings"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Settings
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Profile (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Account>
+            </li>
+            <li>
+              <Help>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Need Help?
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Quick Guide (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Contact Us (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Help>
+            </li>
+            <hr
+              style={
+                Object {
+                  "margin": 0,
+                }
+              }
+            />
+            <Item
+              to="/account/logout"
+            >
+              <styled.div>
+                <div
+                  className="sc-Axmtr gvBswO"
+                >
+                  <Link
+                    href="/account/logout"
+                  >
+                    <LinkComponent
+                      className="sc-AxheI IQtvd"
+                      href="/account/logout"
+                    >
+                      <Link
+                        href="/account/logout"
+                      >
+                        <a
+                          className="sc-AxheI IQtvd"
+                          href="/account/logout"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Link>
+                </div>
+              </styled.div>
+            </Item>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </Menu>
+</Provider>
+`;
+
+exports[`<Menu /> matches snapshot 9`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Menu
+    className="nobis officiis ipsum ad ut eum et"
+  >
+    <div
+      className="nobis officiis ipsum ad ut eum et"
+    >
+      <div
+        className="sc-AxmLO bigGZS nobis officiis ipsum ad ut eum et"
+      >
+        <ul>
+          <ul
+            className="sc-fzozJi gFUdkl"
+          >
+            <li>
+              <Profile>
+                <styled.a
+                  href="#"
+                >
+                  <a
+                    className="sc-AxjAm kuwTYD"
+                    href="#"
+                  >
+                    <div>
+                      <div
+                        className="sc-AxirZ ivtElj"
+                      >
+                        <div>
+                          <img
+                            alt="Me"
+                            height="50"
+                            onError={[Function]}
+                            src=""
+                            width="50"
+                          >
+                            <img
+                              alt="Me"
+                              className="sc-AxiKw nuWWp"
+                              height="50"
+                              onError={[Function]}
+                              src=""
+                              width="50"
+                            />
+                          </img>
+                        </div>
+                        <div>
+                          <h3>
+                            Me
+                          </h3>
+                          <h4>
+                            Sauce Fanatic
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        className="sc-AxhCb guHPYI"
+                      >
+                        <Button
+                          displayType="outline"
+                        >
+                          <Button
+                            className="sc-AxhUy lhFQOV"
+                            displayType="outline"
+                          >
+                            <div
+                              className="sc-AxhUy lhFQOV"
+                            >
+                              <button
+                                aria-disabled={false}
+                                disabled={false}
+                                type="button"
+                              >
+                                View profile (Coming Soon)
+                              </button>
+                            </div>
+                          </Button>
+                        </Button>
+                      </div>
+                    </div>
+                  </a>
+                </styled.a>
+              </Profile>
+            </li>
+            <li>
+              <Account>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Account
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/account/settings"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/account/settings"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/account/settings"
+                        >
+                          <Link
+                            href="/account/settings"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/account/settings"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Settings
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Profile (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Account>
+            </li>
+            <li>
+              <Help>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Need Help?
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Quick Guide (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Contact Us (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Help>
+            </li>
+            <hr
+              style={
+                Object {
+                  "margin": 0,
+                }
+              }
+            />
+            <Item
+              to="/account/logout"
+            >
+              <styled.div>
+                <div
+                  className="sc-Axmtr gvBswO"
+                >
+                  <Link
+                    href="/account/logout"
+                  >
+                    <LinkComponent
+                      className="sc-AxheI IQtvd"
+                      href="/account/logout"
+                    >
+                      <Link
+                        href="/account/logout"
+                      >
+                        <a
+                          className="sc-AxheI IQtvd"
+                          href="/account/logout"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Link>
+                </div>
+              </styled.div>
+            </Item>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </Menu>
+</Provider>
+`;
+
+exports[`<Menu /> matches snapshot 10`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Menu>
+    <div>
+      <div
+        className="sc-AxmLO bigGZS"
+      >
+        <ul>
+          <ul
+            className="sc-fzozJi gFUdkl"
+          >
+            <li>
+              <Profile>
+                <styled.a
+                  href="#"
+                >
+                  <a
+                    className="sc-AxjAm kuwTYD"
+                    href="#"
+                  >
+                    <div>
+                      <div
+                        className="sc-AxirZ ivtElj"
+                      >
+                        <div>
+                          <img
+                            alt="Me"
+                            height="50"
+                            onError={[Function]}
+                            src=""
+                            width="50"
+                          >
+                            <img
+                              alt="Me"
+                              className="sc-AxiKw nuWWp"
+                              height="50"
+                              onError={[Function]}
+                              src=""
+                              width="50"
+                            />
+                          </img>
+                        </div>
+                        <div>
+                          <h3>
+                            Me
+                          </h3>
+                          <h4>
+                            Sauce Fanatic
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        className="sc-AxhCb guHPYI"
+                      >
+                        <Button
+                          displayType="outline"
+                        >
+                          <Button
+                            className="sc-AxhUy lhFQOV"
+                            displayType="outline"
+                          >
+                            <div
+                              className="sc-AxhUy lhFQOV"
+                            >
+                              <button
+                                aria-disabled={false}
+                                disabled={false}
+                                type="button"
+                              >
+                                View profile (Coming Soon)
+                              </button>
+                            </div>
+                          </Button>
+                        </Button>
+                      </div>
+                    </div>
+                  </a>
+                </styled.a>
+              </Profile>
+            </li>
+            <li>
+              <Account>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Account
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/account/settings"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/account/settings"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/account/settings"
+                        >
+                          <Link
+                            href="/account/settings"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/account/settings"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Settings
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Profile (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Account>
+            </li>
+            <li>
+              <Help>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Need Help?
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Quick Guide (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Contact Us (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Help>
+            </li>
+            <hr
+              style={
+                Object {
+                  "margin": 0,
+                }
+              }
+            />
+            <Item
+              to="/account/logout"
+            >
+              <styled.div>
+                <div
+                  className="sc-Axmtr gvBswO"
+                >
+                  <Link
+                    href="/account/logout"
+                  >
+                    <LinkComponent
+                      className="sc-AxheI IQtvd"
+                      href="/account/logout"
+                    >
+                      <Link
+                        href="/account/logout"
+                      >
+                        <a
+                          className="sc-AxheI IQtvd"
+                          href="/account/logout"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Link>
+                </div>
+              </styled.div>
+            </Item>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </Menu>
+</Provider>
+`;
+
+exports[`<Menu /> matches snapshot 11`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Menu>
+    <div>
+      <div
+        className="sc-AxmLO bigGZS"
+      >
+        <ul>
+          <ul
+            className="sc-fzozJi gFUdkl"
+          >
+            <li>
+              <Profile>
+                <styled.a
+                  href="#"
+                >
+                  <a
+                    className="sc-AxjAm kuwTYD"
+                    href="#"
+                  >
+                    <div>
+                      <div
+                        className="sc-AxirZ ivtElj"
+                      >
+                        <div>
+                          <img
+                            alt="Me"
+                            height="50"
+                            onError={[Function]}
+                            src=""
+                            width="50"
+                          >
+                            <img
+                              alt="Me"
+                              className="sc-AxiKw nuWWp"
+                              height="50"
+                              onError={[Function]}
+                              src=""
+                              width="50"
+                            />
+                          </img>
+                        </div>
+                        <div>
+                          <h3>
+                            Me
+                          </h3>
+                          <h4>
+                            Sauce Fanatic
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        className="sc-AxhCb guHPYI"
+                      >
+                        <Button
+                          displayType="outline"
+                        >
+                          <Button
+                            className="sc-AxhUy lhFQOV"
+                            displayType="outline"
+                          >
+                            <div
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -2466,896 +3344,6 @@ exports[`<Menu /> matches snapshot 8`] = `
 </Provider>
 `;
 
-exports[`<Menu /> matches snapshot 9`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Menu>
-    <div>
-      <div
-        className="sc-AxmLO bigGZS"
-      >
-        <ul>
-          <ul
-            className="sc-fzozJi gFUdkl"
-          >
-            <li>
-              <Profile>
-                <styled.a
-                  href="#"
-                >
-                  <a
-                    className="sc-AxjAm kuwTYD"
-                    href="#"
-                  >
-                    <div>
-                      <div
-                        className="sc-AxirZ ivtElj"
-                      >
-                        <div>
-                          <img
-                            alt="Me"
-                            height="50"
-                            onError={[Function]}
-                            src="http://www.Nickolas.tv/"
-                            width="50"
-                          >
-                            <img
-                              alt="Me"
-                              className="sc-AxiKw nuWWp"
-                              height="50"
-                              onError={[Function]}
-                              src="http://www.Nickolas.tv/"
-                              width="50"
-                            />
-                          </img>
-                        </div>
-                        <div>
-                          <h3>
-                            Me
-                          </h3>
-                          <h4>
-                            Sauce Fanatic
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div
-                        className="sc-AxhCb guHPYI"
-                      >
-                        <Button
-                          displayType="outline"
-                        >
-                          <Button
-                            className="sc-AxhUy cJvrET"
-                            displayType="outline"
-                          >
-                            <div
-                              className="sc-AxhUy cJvrET"
-                            >
-                              <button
-                                aria-disabled={false}
-                                disabled={false}
-                                type="button"
-                              >
-                                View profile (Coming Soon)
-                              </button>
-                            </div>
-                          </Button>
-                        </Button>
-                      </div>
-                    </div>
-                  </a>
-                </styled.a>
-              </Profile>
-            </li>
-            <li>
-              <Account>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Account
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/account/settings"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/account/settings"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/account/settings"
-                        >
-                          <Link
-                            href="/account/settings"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/account/settings"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Settings
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Profile (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Account>
-            </li>
-            <li>
-              <Help>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Need Help?
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Quick Guide (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Contact Us (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Help>
-            </li>
-            <hr
-              style={
-                Object {
-                  "margin": 0,
-                }
-              }
-            />
-            <Item
-              to="/account/logout"
-            >
-              <styled.div>
-                <div
-                  className="sc-Axmtr gvBswO"
-                >
-                  <Link
-                    href="/account/logout"
-                  >
-                    <LinkComponent
-                      className="sc-AxheI IQtvd"
-                      href="/account/logout"
-                    >
-                      <Link
-                        href="/account/logout"
-                      >
-                        <a
-                          className="sc-AxheI IQtvd"
-                          href="/account/logout"
-                          onClick={[Function]}
-                          onMouseEnter={[Function]}
-                          target="_self"
-                        >
-                          Logout
-                        </a>
-                      </Link>
-                    </LinkComponent>
-                  </Link>
-                </div>
-              </styled.div>
-            </Item>
-          </ul>
-        </ul>
-      </div>
-    </div>
-  </Menu>
-</Provider>
-`;
-
-exports[`<Menu /> matches snapshot 10`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Menu
-    className="rerum fugit qui dolores iste ab ut"
-  >
-    <div
-      className="rerum fugit qui dolores iste ab ut"
-    >
-      <div
-        className="sc-AxmLO bigGZS rerum fugit qui dolores iste ab ut"
-      >
-        <ul>
-          <ul
-            className="sc-fzozJi gFUdkl"
-          >
-            <li>
-              <Profile>
-                <styled.a
-                  href="#"
-                >
-                  <a
-                    className="sc-AxjAm kuwTYD"
-                    href="#"
-                  >
-                    <div>
-                      <div
-                        className="sc-AxirZ ivtElj"
-                      >
-                        <div>
-                          <img
-                            alt="Miss Regan Heidenreich"
-                            height="50"
-                            onError={[Function]}
-                            src=""
-                            width="50"
-                          >
-                            <img
-                              alt="Miss Regan Heidenreich"
-                              className="sc-AxiKw nuWWp"
-                              height="50"
-                              onError={[Function]}
-                              src=""
-                              width="50"
-                            />
-                          </img>
-                        </div>
-                        <div>
-                          <h3>
-                            Miss Regan Heidenreich
-                          </h3>
-                          <h4>
-                            Sauce Fanatic
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div
-                        className="sc-AxhCb guHPYI"
-                      >
-                        <Button
-                          displayType="outline"
-                        >
-                          <Button
-                            className="sc-AxhUy cJvrET"
-                            displayType="outline"
-                          >
-                            <div
-                              className="sc-AxhUy cJvrET"
-                            >
-                              <button
-                                aria-disabled={false}
-                                disabled={false}
-                                type="button"
-                              >
-                                View profile (Coming Soon)
-                              </button>
-                            </div>
-                          </Button>
-                        </Button>
-                      </div>
-                    </div>
-                  </a>
-                </styled.a>
-              </Profile>
-            </li>
-            <li>
-              <Account>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Account
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/account/settings"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/account/settings"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/account/settings"
-                        >
-                          <Link
-                            href="/account/settings"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/account/settings"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Settings
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Profile (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Account>
-            </li>
-            <li>
-              <Help>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Need Help?
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Quick Guide (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Contact Us (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Help>
-            </li>
-            <hr
-              style={
-                Object {
-                  "margin": 0,
-                }
-              }
-            />
-            <Item
-              to="/account/logout"
-            >
-              <styled.div>
-                <div
-                  className="sc-Axmtr gvBswO"
-                >
-                  <Link
-                    href="/account/logout"
-                  >
-                    <LinkComponent
-                      className="sc-AxheI IQtvd"
-                      href="/account/logout"
-                    >
-                      <Link
-                        href="/account/logout"
-                      >
-                        <a
-                          className="sc-AxheI IQtvd"
-                          href="/account/logout"
-                          onClick={[Function]}
-                          onMouseEnter={[Function]}
-                          target="_self"
-                        >
-                          Logout
-                        </a>
-                      </Link>
-                    </LinkComponent>
-                  </Link>
-                </div>
-              </styled.div>
-            </Item>
-          </ul>
-        </ul>
-      </div>
-    </div>
-  </Menu>
-</Provider>
-`;
-
-exports[`<Menu /> matches snapshot 11`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Menu
-    className="officia ea vero et maxime harum nulla"
-  >
-    <div
-      className="officia ea vero et maxime harum nulla"
-    >
-      <div
-        className="sc-AxmLO bigGZS officia ea vero et maxime harum nulla"
-      >
-        <ul>
-          <ul
-            className="sc-fzozJi gFUdkl"
-          >
-            <li>
-              <Profile>
-                <styled.a
-                  href="#"
-                >
-                  <a
-                    className="sc-AxjAm kuwTYD"
-                    href="#"
-                  >
-                    <div>
-                      <div
-                        className="sc-AxirZ ivtElj"
-                      >
-                        <div>
-                          <img
-                            alt="Me"
-                            height="50"
-                            onError={[Function]}
-                            src=""
-                            width="50"
-                          >
-                            <img
-                              alt="Me"
-                              className="sc-AxiKw nuWWp"
-                              height="50"
-                              onError={[Function]}
-                              src=""
-                              width="50"
-                            />
-                          </img>
-                        </div>
-                        <div>
-                          <h3>
-                            Me
-                          </h3>
-                          <h4>
-                            Sauce Fanatic
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div
-                        className="sc-AxhCb guHPYI"
-                      >
-                        <Button
-                          displayType="outline"
-                        >
-                          <Button
-                            className="sc-AxhUy cJvrET"
-                            displayType="outline"
-                          >
-                            <div
-                              className="sc-AxhUy cJvrET"
-                            >
-                              <button
-                                aria-disabled={false}
-                                disabled={false}
-                                type="button"
-                              >
-                                View profile (Coming Soon)
-                              </button>
-                            </div>
-                          </Button>
-                        </Button>
-                      </div>
-                    </div>
-                  </a>
-                </styled.a>
-              </Profile>
-            </li>
-            <li>
-              <Account>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Account
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/account/settings"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/account/settings"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/account/settings"
-                        >
-                          <Link
-                            href="/account/settings"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/account/settings"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Settings
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Profile (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Account>
-            </li>
-            <li>
-              <Help>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Need Help?
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Quick Guide (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Contact Us (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Help>
-            </li>
-            <hr
-              style={
-                Object {
-                  "margin": 0,
-                }
-              }
-            />
-            <Item
-              to="/account/logout"
-            >
-              <styled.div>
-                <div
-                  className="sc-Axmtr gvBswO"
-                >
-                  <Link
-                    href="/account/logout"
-                  >
-                    <LinkComponent
-                      className="sc-AxheI IQtvd"
-                      href="/account/logout"
-                    >
-                      <Link
-                        href="/account/logout"
-                      >
-                        <a
-                          className="sc-AxheI IQtvd"
-                          href="/account/logout"
-                          onClick={[Function]}
-                          onMouseEnter={[Function]}
-                          target="_self"
-                        >
-                          Logout
-                        </a>
-                      </Link>
-                    </LinkComponent>
-                  </Link>
-                </div>
-              </styled.div>
-            </Item>
-          </ul>
-        </ul>
-      </div>
-    </div>
-  </Menu>
-</Provider>
-`;
-
 exports[`<Menu /> matches snapshot 12`] = `
 <Provider
   store={
@@ -3393,14 +3381,14 @@ exports[`<Menu /> matches snapshot 12`] = `
                       >
                         <div>
                           <img
-                            alt="Mrs. Mallory Bosco"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Mrs. Mallory Bosco"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -3411,7 +3399,7 @@ exports[`<Menu /> matches snapshot 12`] = `
                         </div>
                         <div>
                           <h3>
-                            Mrs. Mallory Bosco
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -3427,11 +3415,11 @@ exports[`<Menu /> matches snapshot 12`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -3663,10 +3651,14 @@ exports[`<Menu /> matches snapshot 13`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="earum qui commodi iusto in praesentium ut"
+  >
+    <div
+      className="earum qui commodi iusto in praesentium ut"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS earum qui commodi iusto in praesentium ut"
       >
         <ul>
           <ul
@@ -3721,11 +3713,11 @@ exports[`<Menu /> matches snapshot 13`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -4015,11 +4007,11 @@ exports[`<Menu /> matches snapshot 14`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -4191,6 +4183,51 @@ exports[`<Menu /> matches snapshot 14`] = `
                 </Item>
               </Help>
             </li>
+            <li>
+              <Admin>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Admin
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/admin/approvesaucesubmissions"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/admin/approvesaucesubmissions"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/admin/approvesaucesubmissions"
+                        >
+                          <Link
+                            href="/admin/approvesaucesubmissions"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/admin/approvesaucesubmissions"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Approve Submissions
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Admin>
+            </li>
             <hr
               style={
                 Object {
@@ -4251,10 +4288,14 @@ exports[`<Menu /> matches snapshot 15`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="eum corporis accusantium laborum quis iusto natus"
+  >
+    <div
+      className="eum corporis accusantium laborum quis iusto natus"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS eum corporis accusantium laborum quis iusto natus"
       >
         <ul>
           <ul
@@ -4278,7 +4319,7 @@ exports[`<Menu /> matches snapshot 15`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://www.Elyssa.com/"
                             width="50"
                           >
                             <img
@@ -4286,7 +4327,7 @@ exports[`<Menu /> matches snapshot 15`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://www.Elyssa.com/"
                               width="50"
                             />
                           </img>
@@ -4309,11 +4350,11 @@ exports[`<Menu /> matches snapshot 15`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -4545,14 +4586,10 @@ exports[`<Menu /> matches snapshot 16`] = `
     }
   }
 >
-  <Menu
-    className="eos molestias sapiente voluptatem rem magnam molestiae"
-  >
-    <div
-      className="eos molestias sapiente voluptatem rem magnam molestiae"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS eos molestias sapiente voluptatem rem magnam molestiae"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -4573,25 +4610,25 @@ exports[`<Menu /> matches snapshot 16`] = `
                       >
                         <div>
                           <img
-                            alt="Mrs. Keaton Rice"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://www.Lavada.ca/"
                             width="50"
                           >
                             <img
-                              alt="Mrs. Keaton Rice"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://www.Lavada.ca/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Mrs. Keaton Rice
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -4607,11 +4644,11 @@ exports[`<Menu /> matches snapshot 16`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -4843,14 +4880,10 @@ exports[`<Menu /> matches snapshot 17`] = `
     }
   }
 >
-  <Menu
-    className="laborum vel eum expedita sit qui fuga"
-  >
-    <div
-      className="laborum vel eum expedita sit qui fuga"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS laborum vel eum expedita sit qui fuga"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -4871,25 +4904,25 @@ exports[`<Menu /> matches snapshot 17`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Ms. Monserrate Weber"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://www.Bosco.io/"
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Ms. Monserrate Weber"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://www.Bosco.io/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Ms. Monserrate Weber
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -4905,11 +4938,11 @@ exports[`<Menu /> matches snapshot 17`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -5141,10 +5174,14 @@ exports[`<Menu /> matches snapshot 18`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="quos commodi facilis odio qui aperiam perspiciatis"
+  >
+    <div
+      className="quos commodi facilis odio qui aperiam perspiciatis"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS quos commodi facilis odio qui aperiam perspiciatis"
       >
         <ul>
           <ul
@@ -5199,11 +5236,11 @@ exports[`<Menu /> matches snapshot 18`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -5436,13 +5473,13 @@ exports[`<Menu /> matches snapshot 19`] = `
   }
 >
   <Menu
-    className="alias nam consequuntur sunt et consequuntur deserunt"
+    className="dolore voluptate provident tempora id deserunt est"
   >
     <div
-      className="alias nam consequuntur sunt et consequuntur deserunt"
+      className="dolore voluptate provident tempora id deserunt est"
     >
       <div
-        className="sc-AxmLO bigGZS alias nam consequuntur sunt et consequuntur deserunt"
+        className="sc-AxmLO bigGZS dolore voluptate provident tempora id deserunt est"
       >
         <ul>
           <ul
@@ -5497,11 +5534,11 @@ exports[`<Menu /> matches snapshot 19`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -5791,11 +5828,11 @@ exports[`<Menu /> matches snapshot 20`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -6028,13 +6065,13 @@ exports[`<Menu /> matches snapshot 21`] = `
   }
 >
   <Menu
-    className="minus qui dolor accusamus magni sed quo"
+    className="voluptas molestias tempore ut eos totam voluptatem"
   >
     <div
-      className="minus qui dolor accusamus magni sed quo"
+      className="voluptas molestias tempore ut eos totam voluptatem"
     >
       <div
-        className="sc-AxmLO bigGZS minus qui dolor accusamus magni sed quo"
+        className="sc-AxmLO bigGZS voluptas molestias tempore ut eos totam voluptatem"
       >
         <ul>
           <ul
@@ -6055,14 +6092,14 @@ exports[`<Menu /> matches snapshot 21`] = `
                       >
                         <div>
                           <img
-                            alt="Ms. Neil Hansen"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Ms. Neil Hansen"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -6073,7 +6110,7 @@ exports[`<Menu /> matches snapshot 21`] = `
                         </div>
                         <div>
                           <h3>
-                            Ms. Neil Hansen
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -6089,11 +6126,11 @@ exports[`<Menu /> matches snapshot 21`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -6265,51 +6302,6 @@ exports[`<Menu /> matches snapshot 21`] = `
                 </Item>
               </Help>
             </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
-            </li>
             <hr
               style={
                 Object {
@@ -6428,11 +6420,11 @@ exports[`<Menu /> matches snapshot 22`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -6691,7 +6683,7 @@ exports[`<Menu /> matches snapshot 23`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://www.Kilback.com/"
                             width="50"
                           >
                             <img
@@ -6699,7 +6691,7 @@ exports[`<Menu /> matches snapshot 23`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://www.Kilback.com/"
                               width="50"
                             />
                           </img>
@@ -6722,11 +6714,11 @@ exports[`<Menu /> matches snapshot 23`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -6898,6 +6890,51 @@ exports[`<Menu /> matches snapshot 23`] = `
                 </Item>
               </Help>
             </li>
+            <li>
+              <Admin>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Admin
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/admin/approvesaucesubmissions"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/admin/approvesaucesubmissions"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/admin/approvesaucesubmissions"
+                        >
+                          <Link
+                            href="/admin/approvesaucesubmissions"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/admin/approvesaucesubmissions"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Approve Submissions
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Admin>
+            </li>
             <hr
               style={
                 Object {
@@ -6958,14 +6995,10 @@ exports[`<Menu /> matches snapshot 24`] = `
     }
   }
 >
-  <Menu
-    className="amet quia recusandae repellendus unde veritatis voluptatem"
-  >
-    <div
-      className="amet quia recusandae repellendus unde veritatis voluptatem"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS amet quia recusandae repellendus unde veritatis voluptatem"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -7020,11 +7053,11 @@ exports[`<Menu /> matches snapshot 24`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -7256,10 +7289,14 @@ exports[`<Menu /> matches snapshot 25`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="sunt ad est aut consectetur dignissimos rerum"
+  >
+    <div
+      className="sunt ad est aut consectetur dignissimos rerum"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS sunt ad est aut consectetur dignissimos rerum"
       >
         <ul>
           <ul
@@ -7280,25 +7317,25 @@ exports[`<Menu /> matches snapshot 25`] = `
                       >
                         <div>
                           <img
-                            alt="Ms. Lauriane Brekke"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://www.Gerhold.com/"
                             width="50"
                           >
                             <img
-                              alt="Ms. Lauriane Brekke"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://www.Gerhold.com/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Ms. Lauriane Brekke
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -7314,11 +7351,11 @@ exports[`<Menu /> matches snapshot 25`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -7490,6 +7527,51 @@ exports[`<Menu /> matches snapshot 25`] = `
                 </Item>
               </Help>
             </li>
+            <li>
+              <Admin>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Admin
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/admin/approvesaucesubmissions"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/admin/approvesaucesubmissions"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/admin/approvesaucesubmissions"
+                        >
+                          <Link
+                            href="/admin/approvesaucesubmissions"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/admin/approvesaucesubmissions"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Approve Submissions
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Admin>
+            </li>
             <hr
               style={
                 Object {
@@ -7550,10 +7632,14 @@ exports[`<Menu /> matches snapshot 26`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="laudantium qui placeat et ut dolor incidunt"
+  >
+    <div
+      className="laudantium qui placeat et ut dolor incidunt"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS laudantium qui placeat et ut dolor incidunt"
       >
         <ul>
           <ul
@@ -7574,14 +7660,14 @@ exports[`<Menu /> matches snapshot 26`] = `
                       >
                         <div>
                           <img
-                            alt="Ms. Jazmyn Barrows"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Ms. Jazmyn Barrows"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -7592,7 +7678,7 @@ exports[`<Menu /> matches snapshot 26`] = `
                         </div>
                         <div>
                           <h3>
-                            Ms. Jazmyn Barrows
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -7608,11 +7694,11 @@ exports[`<Menu /> matches snapshot 26`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -7845,13 +7931,13 @@ exports[`<Menu /> matches snapshot 27`] = `
   }
 >
   <Menu
-    className="optio debitis quidem voluptatem optio minima ipsum"
+    className="est error quo et molestias quia velit"
   >
     <div
-      className="optio debitis quidem voluptatem optio minima ipsum"
+      className="est error quo et molestias quia velit"
     >
       <div
-        className="sc-AxmLO bigGZS optio debitis quidem voluptatem optio minima ipsum"
+        className="sc-AxmLO bigGZS est error quo et molestias quia velit"
       >
         <ul>
           <ul
@@ -7872,25 +7958,25 @@ exports[`<Menu /> matches snapshot 27`] = `
                       >
                         <div>
                           <img
-                            alt="Ms. Clementine Williamson"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Morar.io/"
+                            src=""
                             width="50"
                           >
                             <img
-                              alt="Ms. Clementine Williamson"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Morar.io/"
+                              src=""
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Ms. Clementine Williamson
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -7906,11 +7992,11 @@ exports[`<Menu /> matches snapshot 27`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -8143,13 +8229,13 @@ exports[`<Menu /> matches snapshot 28`] = `
   }
 >
   <Menu
-    className="exercitationem quod maxime iure tempora eligendi eveniet"
+    className="consequatur porro mollitia minima qui accusamus accusantium"
   >
     <div
-      className="exercitationem quod maxime iure tempora eligendi eveniet"
+      className="consequatur porro mollitia minima qui accusamus accusantium"
     >
       <div
-        className="sc-AxmLO bigGZS exercitationem quod maxime iure tempora eligendi eveniet"
+        className="sc-AxmLO bigGZS consequatur porro mollitia minima qui accusamus accusantium"
       >
         <ul>
           <ul
@@ -8173,7 +8259,7 @@ exports[`<Menu /> matches snapshot 28`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Percival.org/"
+                            src=""
                             width="50"
                           >
                             <img
@@ -8181,7 +8267,7 @@ exports[`<Menu /> matches snapshot 28`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Percival.org/"
+                              src=""
                               width="50"
                             />
                           </img>
@@ -8204,11 +8290,11 @@ exports[`<Menu /> matches snapshot 28`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -8380,51 +8466,6 @@ exports[`<Menu /> matches snapshot 28`] = `
                 </Item>
               </Help>
             </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
-            </li>
             <hr
               style={
                 Object {
@@ -8485,10 +8526,14 @@ exports[`<Menu /> matches snapshot 29`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="doloribus aut ut similique ut provident expedita"
+  >
+    <div
+      className="doloribus aut ut similique ut provident expedita"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS doloribus aut ut similique ut provident expedita"
       >
         <ul>
           <ul
@@ -8543,11 +8588,11 @@ exports[`<Menu /> matches snapshot 29`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -8779,10 +8824,14 @@ exports[`<Menu /> matches snapshot 30`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="deserunt ut et vitae nisi consequatur sed"
+  >
+    <div
+      className="deserunt ut et vitae nisi consequatur sed"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS deserunt ut et vitae nisi consequatur sed"
       >
         <ul>
           <ul
@@ -8837,11 +8886,11 @@ exports[`<Menu /> matches snapshot 30`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -9073,10 +9122,14 @@ exports[`<Menu /> matches snapshot 31`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="ipsum consequatur velit reprehenderit in aliquid earum"
+  >
+    <div
+      className="ipsum consequatur velit reprehenderit in aliquid earum"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS ipsum consequatur velit reprehenderit in aliquid earum"
       >
         <ul>
           <ul
@@ -9131,11 +9184,11 @@ exports[`<Menu /> matches snapshot 31`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -9307,51 +9360,6 @@ exports[`<Menu /> matches snapshot 31`] = `
                 </Item>
               </Help>
             </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
-            </li>
             <hr
               style={
                 Object {
@@ -9412,14 +9420,10 @@ exports[`<Menu /> matches snapshot 32`] = `
     }
   }
 >
-  <Menu
-    className="quam voluptatum ex qui consequatur ut quis"
-  >
-    <div
-      className="quam voluptatum ex qui consequatur ut quis"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS quam voluptatum ex qui consequatur ut quis"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -9440,14 +9444,14 @@ exports[`<Menu /> matches snapshot 32`] = `
                       >
                         <div>
                           <img
-                            alt="Mrs. Dameon Gorczany"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Mrs. Dameon Gorczany"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -9458,7 +9462,7 @@ exports[`<Menu /> matches snapshot 32`] = `
                         </div>
                         <div>
                           <h3>
-                            Mrs. Dameon Gorczany
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -9474,11 +9478,11 @@ exports[`<Menu /> matches snapshot 32`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}

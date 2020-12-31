@@ -51,11 +51,11 @@ exports[`<UserSettings /> matches snapshot 1`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -86,7 +86,7 @@ exports[`<UserSettings /> matches snapshot 1`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -98,18 +98,18 @@ exports[`<UserSettings /> matches snapshot 1`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -118,11 +118,11 @@ exports[`<UserSettings /> matches snapshot 1`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -185,11 +185,11 @@ exports[`<UserSettings /> matches snapshot 1`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -252,11 +252,11 @@ exports[`<UserSettings /> matches snapshot 1`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -286,6 +286,55 @@ exports[`<UserSettings /> matches snapshot 1`] = `
             </div>
           </div>
         </ButtonRedirect>
+        <RequestConfirmation
+          setFlashMessage={[Function]}
+        >
+          <div>
+            <div
+              className="sc-fzpans cudeBW"
+            >
+              <h4>
+                Request Email Confirmation
+              </h4>
+              <Button
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <Button
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  >
+                    <button
+                      aria-disabled={false}
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Request
+                       Email Confirmation 
+                      <ArrowRight>
+                        <svg
+                          viewBox="0 0 63 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
+                          />
+                        </svg>
+                      </ArrowRight>
+                    </button>
+                  </div>
+                </Button>
+              </Button>
+            </div>
+          </div>
+        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -308,12 +357,12 @@ exports[`<UserSettings /> matches snapshot 1`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -397,11 +446,11 @@ exports[`<UserSettings /> matches snapshot 2`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -432,7 +481,7 @@ exports[`<UserSettings /> matches snapshot 2`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -444,18 +493,18 @@ exports[`<UserSettings /> matches snapshot 2`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -464,11 +513,11 @@ exports[`<UserSettings /> matches snapshot 2`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -531,11 +580,11 @@ exports[`<UserSettings /> matches snapshot 2`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -598,11 +647,11 @@ exports[`<UserSettings /> matches snapshot 2`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -632,6 +681,55 @@ exports[`<UserSettings /> matches snapshot 2`] = `
             </div>
           </div>
         </ButtonRedirect>
+        <RequestConfirmation
+          setFlashMessage={[Function]}
+        >
+          <div>
+            <div
+              className="sc-fzpans cudeBW"
+            >
+              <h4>
+                Request Email Confirmation
+              </h4>
+              <Button
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <Button
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  >
+                    <button
+                      aria-disabled={false}
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Request
+                       Email Confirmation 
+                      <ArrowRight>
+                        <svg
+                          viewBox="0 0 63 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
+                          />
+                        </svg>
+                      </ArrowRight>
+                    </button>
+                  </div>
+                </Button>
+              </Button>
+            </div>
+          </div>
+        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -654,12 +752,12 @@ exports[`<UserSettings /> matches snapshot 2`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -743,11 +841,11 @@ exports[`<UserSettings /> matches snapshot 3`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -778,7 +876,7 @@ exports[`<UserSettings /> matches snapshot 3`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -790,18 +888,18 @@ exports[`<UserSettings /> matches snapshot 3`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -810,11 +908,11 @@ exports[`<UserSettings /> matches snapshot 3`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -877,11 +975,11 @@ exports[`<UserSettings /> matches snapshot 3`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -944,11 +1042,11 @@ exports[`<UserSettings /> matches snapshot 3`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -994,13 +1092,13 @@ exports[`<UserSettings /> matches snapshot 3`] = `
                 type="button"
               >
                 <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
                   <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
                   >
                     <button
                       aria-disabled={false}
@@ -1049,12 +1147,12 @@ exports[`<UserSettings /> matches snapshot 3`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -1138,11 +1236,11 @@ exports[`<UserSettings /> matches snapshot 4`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -1173,7 +1271,7 @@ exports[`<UserSettings /> matches snapshot 4`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -1185,18 +1283,18 @@ exports[`<UserSettings /> matches snapshot 4`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -1205,11 +1303,11 @@ exports[`<UserSettings /> matches snapshot 4`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -1272,11 +1370,11 @@ exports[`<UserSettings /> matches snapshot 4`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -1339,11 +1437,11 @@ exports[`<UserSettings /> matches snapshot 4`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -1373,6 +1471,55 @@ exports[`<UserSettings /> matches snapshot 4`] = `
             </div>
           </div>
         </ButtonRedirect>
+        <RequestConfirmation
+          setFlashMessage={[Function]}
+        >
+          <div>
+            <div
+              className="sc-fzpans cudeBW"
+            >
+              <h4>
+                Request Email Confirmation
+              </h4>
+              <Button
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <Button
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  >
+                    <button
+                      aria-disabled={false}
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Request
+                       Email Confirmation 
+                      <ArrowRight>
+                        <svg
+                          viewBox="0 0 63 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
+                          />
+                        </svg>
+                      </ArrowRight>
+                    </button>
+                  </div>
+                </Button>
+              </Button>
+            </div>
+          </div>
+        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -1395,12 +1542,12 @@ exports[`<UserSettings /> matches snapshot 4`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -1484,11 +1631,11 @@ exports[`<UserSettings /> matches snapshot 5`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -1519,7 +1666,7 @@ exports[`<UserSettings /> matches snapshot 5`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -1531,18 +1678,18 @@ exports[`<UserSettings /> matches snapshot 5`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -1551,11 +1698,11 @@ exports[`<UserSettings /> matches snapshot 5`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -1618,11 +1765,11 @@ exports[`<UserSettings /> matches snapshot 5`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -1685,11 +1832,11 @@ exports[`<UserSettings /> matches snapshot 5`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -1735,13 +1882,13 @@ exports[`<UserSettings /> matches snapshot 5`] = `
                 type="button"
               >
                 <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
                   <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
                   >
                     <button
                       aria-disabled={false}
@@ -1790,12 +1937,12 @@ exports[`<UserSettings /> matches snapshot 5`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -1879,11 +2026,11 @@ exports[`<UserSettings /> matches snapshot 6`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -1914,7 +2061,7 @@ exports[`<UserSettings /> matches snapshot 6`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -1926,18 +2073,18 @@ exports[`<UserSettings /> matches snapshot 6`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -1946,11 +2093,11 @@ exports[`<UserSettings /> matches snapshot 6`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -2013,11 +2160,11 @@ exports[`<UserSettings /> matches snapshot 6`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -2080,11 +2227,11 @@ exports[`<UserSettings /> matches snapshot 6`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -2114,6 +2261,55 @@ exports[`<UserSettings /> matches snapshot 6`] = `
             </div>
           </div>
         </ButtonRedirect>
+        <RequestConfirmation
+          setFlashMessage={[Function]}
+        >
+          <div>
+            <div
+              className="sc-fzpans cudeBW"
+            >
+              <h4>
+                Request Email Confirmation
+              </h4>
+              <Button
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <Button
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  >
+                    <button
+                      aria-disabled={false}
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Request
+                       Email Confirmation 
+                      <ArrowRight>
+                        <svg
+                          viewBox="0 0 63 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
+                          />
+                        </svg>
+                      </ArrowRight>
+                    </button>
+                  </div>
+                </Button>
+              </Button>
+            </div>
+          </div>
+        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -2136,12 +2332,12 @@ exports[`<UserSettings /> matches snapshot 6`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -2225,11 +2421,11 @@ exports[`<UserSettings /> matches snapshot 7`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -2260,7 +2456,7 @@ exports[`<UserSettings /> matches snapshot 7`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -2272,18 +2468,18 @@ exports[`<UserSettings /> matches snapshot 7`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -2292,11 +2488,11 @@ exports[`<UserSettings /> matches snapshot 7`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -2359,11 +2555,11 @@ exports[`<UserSettings /> matches snapshot 7`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -2426,11 +2622,11 @@ exports[`<UserSettings /> matches snapshot 7`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -2460,6 +2656,55 @@ exports[`<UserSettings /> matches snapshot 7`] = `
             </div>
           </div>
         </ButtonRedirect>
+        <RequestConfirmation
+          setFlashMessage={[Function]}
+        >
+          <div>
+            <div
+              className="sc-fzpans cudeBW"
+            >
+              <h4>
+                Request Email Confirmation
+              </h4>
+              <Button
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <Button
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  >
+                    <button
+                      aria-disabled={false}
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Request
+                       Email Confirmation 
+                      <ArrowRight>
+                        <svg
+                          viewBox="0 0 63 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
+                          />
+                        </svg>
+                      </ArrowRight>
+                    </button>
+                  </div>
+                </Button>
+              </Button>
+            </div>
+          </div>
+        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -2482,12 +2727,12 @@ exports[`<UserSettings /> matches snapshot 7`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -2571,11 +2816,11 @@ exports[`<UserSettings /> matches snapshot 8`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -2606,7 +2851,7 @@ exports[`<UserSettings /> matches snapshot 8`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -2618,18 +2863,18 @@ exports[`<UserSettings /> matches snapshot 8`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -2638,11 +2883,11 @@ exports[`<UserSettings /> matches snapshot 8`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -2705,11 +2950,11 @@ exports[`<UserSettings /> matches snapshot 8`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -2772,11 +3017,11 @@ exports[`<UserSettings /> matches snapshot 8`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -2822,13 +3067,13 @@ exports[`<UserSettings /> matches snapshot 8`] = `
                 type="button"
               >
                 <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
                   <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
                   >
                     <button
                       aria-disabled={false}
@@ -2877,12 +3122,12 @@ exports[`<UserSettings /> matches snapshot 8`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -2966,11 +3211,11 @@ exports[`<UserSettings /> matches snapshot 9`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -3001,7 +3246,7 @@ exports[`<UserSettings /> matches snapshot 9`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -3013,18 +3258,18 @@ exports[`<UserSettings /> matches snapshot 9`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -3033,11 +3278,11 @@ exports[`<UserSettings /> matches snapshot 9`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -3100,11 +3345,11 @@ exports[`<UserSettings /> matches snapshot 9`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -3167,11 +3412,11 @@ exports[`<UserSettings /> matches snapshot 9`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -3217,13 +3462,13 @@ exports[`<UserSettings /> matches snapshot 9`] = `
                 type="button"
               >
                 <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
                   <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
                   >
                     <button
                       aria-disabled={false}
@@ -3272,12 +3517,12 @@ exports[`<UserSettings /> matches snapshot 9`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -3361,11 +3606,11 @@ exports[`<UserSettings /> matches snapshot 10`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -3396,7 +3641,7 @@ exports[`<UserSettings /> matches snapshot 10`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -3408,18 +3653,18 @@ exports[`<UserSettings /> matches snapshot 10`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -3428,11 +3673,11 @@ exports[`<UserSettings /> matches snapshot 10`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -3495,11 +3740,11 @@ exports[`<UserSettings /> matches snapshot 10`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -3562,11 +3807,11 @@ exports[`<UserSettings /> matches snapshot 10`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -3596,55 +3841,6 @@ exports[`<UserSettings /> matches snapshot 10`] = `
             </div>
           </div>
         </ButtonRedirect>
-        <RequestConfirmation
-          setFlashMessage={[Function]}
-        >
-          <div>
-            <div
-              className="sc-fzpans cudeBW"
-            >
-              <h4>
-                Request Email Confirmation
-              </h4>
-              <Button
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
-                  disabled={false}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
-                  >
-                    <button
-                      aria-disabled={false}
-                      disabled={false}
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      Request
-                       Email Confirmation 
-                      <ArrowRight>
-                        <svg
-                          viewBox="0 0 63 32"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
-                          />
-                        </svg>
-                      </ArrowRight>
-                    </button>
-                  </div>
-                </Button>
-              </Button>
-            </div>
-          </div>
-        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -3667,12 +3863,12 @@ exports[`<UserSettings /> matches snapshot 10`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -3756,11 +3952,11 @@ exports[`<UserSettings /> matches snapshot 11`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -3791,7 +3987,7 @@ exports[`<UserSettings /> matches snapshot 11`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -3803,18 +3999,18 @@ exports[`<UserSettings /> matches snapshot 11`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -3823,11 +4019,11 @@ exports[`<UserSettings /> matches snapshot 11`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -3890,11 +4086,11 @@ exports[`<UserSettings /> matches snapshot 11`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -3957,11 +4153,11 @@ exports[`<UserSettings /> matches snapshot 11`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -4013,12 +4209,12 @@ exports[`<UserSettings /> matches snapshot 11`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -4102,11 +4298,11 @@ exports[`<UserSettings /> matches snapshot 12`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -4137,7 +4333,7 @@ exports[`<UserSettings /> matches snapshot 12`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -4149,18 +4345,18 @@ exports[`<UserSettings /> matches snapshot 12`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -4169,11 +4365,11 @@ exports[`<UserSettings /> matches snapshot 12`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -4236,11 +4432,11 @@ exports[`<UserSettings /> matches snapshot 12`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -4303,11 +4499,11 @@ exports[`<UserSettings /> matches snapshot 12`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -4353,13 +4549,13 @@ exports[`<UserSettings /> matches snapshot 12`] = `
                 type="button"
               >
                 <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
                   <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
                   >
                     <button
                       aria-disabled={false}
@@ -4408,12 +4604,12 @@ exports[`<UserSettings /> matches snapshot 12`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -4497,11 +4693,11 @@ exports[`<UserSettings /> matches snapshot 13`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -4532,7 +4728,7 @@ exports[`<UserSettings /> matches snapshot 13`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -4544,18 +4740,18 @@ exports[`<UserSettings /> matches snapshot 13`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -4564,11 +4760,11 @@ exports[`<UserSettings /> matches snapshot 13`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -4631,11 +4827,11 @@ exports[`<UserSettings /> matches snapshot 13`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -4698,11 +4894,11 @@ exports[`<UserSettings /> matches snapshot 13`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -4748,13 +4944,13 @@ exports[`<UserSettings /> matches snapshot 13`] = `
                 type="button"
               >
                 <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
                   <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
                   >
                     <button
                       aria-disabled={false}
@@ -4803,12 +4999,12 @@ exports[`<UserSettings /> matches snapshot 13`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -4892,11 +5088,11 @@ exports[`<UserSettings /> matches snapshot 14`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -4927,7 +5123,7 @@ exports[`<UserSettings /> matches snapshot 14`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -4939,18 +5135,18 @@ exports[`<UserSettings /> matches snapshot 14`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -4959,11 +5155,11 @@ exports[`<UserSettings /> matches snapshot 14`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -5026,11 +5222,11 @@ exports[`<UserSettings /> matches snapshot 14`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -5093,11 +5289,11 @@ exports[`<UserSettings /> matches snapshot 14`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -5127,6 +5323,55 @@ exports[`<UserSettings /> matches snapshot 14`] = `
             </div>
           </div>
         </ButtonRedirect>
+        <RequestConfirmation
+          setFlashMessage={[Function]}
+        >
+          <div>
+            <div
+              className="sc-fzpans cudeBW"
+            >
+              <h4>
+                Request Email Confirmation
+              </h4>
+              <Button
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <Button
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  >
+                    <button
+                      aria-disabled={false}
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Request
+                       Email Confirmation 
+                      <ArrowRight>
+                        <svg
+                          viewBox="0 0 63 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
+                          />
+                        </svg>
+                      </ArrowRight>
+                    </button>
+                  </div>
+                </Button>
+              </Button>
+            </div>
+          </div>
+        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -5149,12 +5394,12 @@ exports[`<UserSettings /> matches snapshot 14`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -5238,11 +5483,11 @@ exports[`<UserSettings /> matches snapshot 15`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -5273,7 +5518,7 @@ exports[`<UserSettings /> matches snapshot 15`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -5285,18 +5530,18 @@ exports[`<UserSettings /> matches snapshot 15`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -5305,11 +5550,11 @@ exports[`<UserSettings /> matches snapshot 15`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -5372,11 +5617,11 @@ exports[`<UserSettings /> matches snapshot 15`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -5439,11 +5684,11 @@ exports[`<UserSettings /> matches snapshot 15`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -5473,6 +5718,55 @@ exports[`<UserSettings /> matches snapshot 15`] = `
             </div>
           </div>
         </ButtonRedirect>
+        <RequestConfirmation
+          setFlashMessage={[Function]}
+        >
+          <div>
+            <div
+              className="sc-fzpans cudeBW"
+            >
+              <h4>
+                Request Email Confirmation
+              </h4>
+              <Button
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <Button
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  >
+                    <button
+                      aria-disabled={false}
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Request
+                       Email Confirmation 
+                      <ArrowRight>
+                        <svg
+                          viewBox="0 0 63 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
+                          />
+                        </svg>
+                      </ArrowRight>
+                    </button>
+                  </div>
+                </Button>
+              </Button>
+            </div>
+          </div>
+        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -5495,12 +5789,12 @@ exports[`<UserSettings /> matches snapshot 15`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -5584,11 +5878,11 @@ exports[`<UserSettings /> matches snapshot 16`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -5619,7 +5913,7 @@ exports[`<UserSettings /> matches snapshot 16`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -5631,18 +5925,18 @@ exports[`<UserSettings /> matches snapshot 16`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -5651,11 +5945,11 @@ exports[`<UserSettings /> matches snapshot 16`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -5718,11 +6012,11 @@ exports[`<UserSettings /> matches snapshot 16`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -5785,11 +6079,11 @@ exports[`<UserSettings /> matches snapshot 16`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -5841,12 +6135,12 @@ exports[`<UserSettings /> matches snapshot 16`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -5930,11 +6224,11 @@ exports[`<UserSettings /> matches snapshot 17`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -5965,7 +6259,7 @@ exports[`<UserSettings /> matches snapshot 17`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -5977,18 +6271,18 @@ exports[`<UserSettings /> matches snapshot 17`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -5997,11 +6291,11 @@ exports[`<UserSettings /> matches snapshot 17`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -6064,11 +6358,11 @@ exports[`<UserSettings /> matches snapshot 17`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -6131,11 +6425,11 @@ exports[`<UserSettings /> matches snapshot 17`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -6187,12 +6481,12 @@ exports[`<UserSettings /> matches snapshot 17`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -6276,11 +6570,11 @@ exports[`<UserSettings /> matches snapshot 18`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -6311,7 +6605,7 @@ exports[`<UserSettings /> matches snapshot 18`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -6323,18 +6617,18 @@ exports[`<UserSettings /> matches snapshot 18`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -6343,11 +6637,11 @@ exports[`<UserSettings /> matches snapshot 18`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -6410,11 +6704,11 @@ exports[`<UserSettings /> matches snapshot 18`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -6477,11 +6771,11 @@ exports[`<UserSettings /> matches snapshot 18`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -6533,12 +6827,12 @@ exports[`<UserSettings /> matches snapshot 18`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -6622,11 +6916,11 @@ exports[`<UserSettings /> matches snapshot 19`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -6657,7 +6951,7 @@ exports[`<UserSettings /> matches snapshot 19`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -6669,18 +6963,18 @@ exports[`<UserSettings /> matches snapshot 19`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -6689,11 +6983,11 @@ exports[`<UserSettings /> matches snapshot 19`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -6756,11 +7050,11 @@ exports[`<UserSettings /> matches snapshot 19`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -6823,11 +7117,11 @@ exports[`<UserSettings /> matches snapshot 19`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -6873,13 +7167,13 @@ exports[`<UserSettings /> matches snapshot 19`] = `
                 type="button"
               >
                 <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
                   <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
                   >
                     <button
                       aria-disabled={false}
@@ -6928,12 +7222,12 @@ exports[`<UserSettings /> matches snapshot 19`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -7017,11 +7311,11 @@ exports[`<UserSettings /> matches snapshot 20`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -7052,7 +7346,7 @@ exports[`<UserSettings /> matches snapshot 20`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -7064,18 +7358,18 @@ exports[`<UserSettings /> matches snapshot 20`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -7084,11 +7378,11 @@ exports[`<UserSettings /> matches snapshot 20`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -7151,11 +7445,11 @@ exports[`<UserSettings /> matches snapshot 20`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -7218,11 +7512,11 @@ exports[`<UserSettings /> matches snapshot 20`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -7252,55 +7546,6 @@ exports[`<UserSettings /> matches snapshot 20`] = `
             </div>
           </div>
         </ButtonRedirect>
-        <RequestConfirmation
-          setFlashMessage={[Function]}
-        >
-          <div>
-            <div
-              className="sc-fzpans cudeBW"
-            >
-              <h4>
-                Request Email Confirmation
-              </h4>
-              <Button
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
-                  disabled={false}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
-                  >
-                    <button
-                      aria-disabled={false}
-                      disabled={false}
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      Request
-                       Email Confirmation 
-                      <ArrowRight>
-                        <svg
-                          viewBox="0 0 63 32"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
-                          />
-                        </svg>
-                      </ArrowRight>
-                    </button>
-                  </div>
-                </Button>
-              </Button>
-            </div>
-          </div>
-        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -7323,12 +7568,12 @@ exports[`<UserSettings /> matches snapshot 20`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -7412,11 +7657,11 @@ exports[`<UserSettings /> matches snapshot 21`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -7447,7 +7692,7 @@ exports[`<UserSettings /> matches snapshot 21`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -7459,18 +7704,18 @@ exports[`<UserSettings /> matches snapshot 21`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -7479,11 +7724,11 @@ exports[`<UserSettings /> matches snapshot 21`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -7546,11 +7791,11 @@ exports[`<UserSettings /> matches snapshot 21`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -7613,11 +7858,11 @@ exports[`<UserSettings /> matches snapshot 21`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -7647,6 +7892,55 @@ exports[`<UserSettings /> matches snapshot 21`] = `
             </div>
           </div>
         </ButtonRedirect>
+        <RequestConfirmation
+          setFlashMessage={[Function]}
+        >
+          <div>
+            <div
+              className="sc-fzpans cudeBW"
+            >
+              <h4>
+                Request Email Confirmation
+              </h4>
+              <Button
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <Button
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  >
+                    <button
+                      aria-disabled={false}
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Request
+                       Email Confirmation 
+                      <ArrowRight>
+                        <svg
+                          viewBox="0 0 63 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
+                          />
+                        </svg>
+                      </ArrowRight>
+                    </button>
+                  </div>
+                </Button>
+              </Button>
+            </div>
+          </div>
+        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -7669,12 +7963,12 @@ exports[`<UserSettings /> matches snapshot 21`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -7758,11 +8052,11 @@ exports[`<UserSettings /> matches snapshot 22`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -7793,7 +8087,7 @@ exports[`<UserSettings /> matches snapshot 22`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -7805,18 +8099,18 @@ exports[`<UserSettings /> matches snapshot 22`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -7825,11 +8119,11 @@ exports[`<UserSettings /> matches snapshot 22`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -7892,11 +8186,11 @@ exports[`<UserSettings /> matches snapshot 22`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -7959,11 +8253,11 @@ exports[`<UserSettings /> matches snapshot 22`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -7993,55 +8287,6 @@ exports[`<UserSettings /> matches snapshot 22`] = `
             </div>
           </div>
         </ButtonRedirect>
-        <RequestConfirmation
-          setFlashMessage={[Function]}
-        >
-          <div>
-            <div
-              className="sc-fzpans cudeBW"
-            >
-              <h4>
-                Request Email Confirmation
-              </h4>
-              <Button
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
-                  disabled={false}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
-                  >
-                    <button
-                      aria-disabled={false}
-                      disabled={false}
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      Request
-                       Email Confirmation 
-                      <ArrowRight>
-                        <svg
-                          viewBox="0 0 63 32"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
-                          />
-                        </svg>
-                      </ArrowRight>
-                    </button>
-                  </div>
-                </Button>
-              </Button>
-            </div>
-          </div>
-        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -8064,12 +8309,12 @@ exports[`<UserSettings /> matches snapshot 22`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -8153,11 +8398,11 @@ exports[`<UserSettings /> matches snapshot 23`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -8188,7 +8433,7 @@ exports[`<UserSettings /> matches snapshot 23`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -8200,18 +8445,18 @@ exports[`<UserSettings /> matches snapshot 23`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -8220,11 +8465,11 @@ exports[`<UserSettings /> matches snapshot 23`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -8287,11 +8532,11 @@ exports[`<UserSettings /> matches snapshot 23`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -8354,11 +8599,11 @@ exports[`<UserSettings /> matches snapshot 23`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -8388,6 +8633,55 @@ exports[`<UserSettings /> matches snapshot 23`] = `
             </div>
           </div>
         </ButtonRedirect>
+        <RequestConfirmation
+          setFlashMessage={[Function]}
+        >
+          <div>
+            <div
+              className="sc-fzpans cudeBW"
+            >
+              <h4>
+                Request Email Confirmation
+              </h4>
+              <Button
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <Button
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  >
+                    <button
+                      aria-disabled={false}
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Request
+                       Email Confirmation 
+                      <ArrowRight>
+                        <svg
+                          viewBox="0 0 63 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
+                          />
+                        </svg>
+                      </ArrowRight>
+                    </button>
+                  </div>
+                </Button>
+              </Button>
+            </div>
+          </div>
+        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -8410,12 +8704,12 @@ exports[`<UserSettings /> matches snapshot 23`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -8499,11 +8793,11 @@ exports[`<UserSettings /> matches snapshot 24`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -8534,7 +8828,7 @@ exports[`<UserSettings /> matches snapshot 24`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -8546,18 +8840,18 @@ exports[`<UserSettings /> matches snapshot 24`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -8566,11 +8860,11 @@ exports[`<UserSettings /> matches snapshot 24`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -8633,11 +8927,11 @@ exports[`<UserSettings /> matches snapshot 24`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -8700,11 +8994,11 @@ exports[`<UserSettings /> matches snapshot 24`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -8734,55 +9028,6 @@ exports[`<UserSettings /> matches snapshot 24`] = `
             </div>
           </div>
         </ButtonRedirect>
-        <RequestConfirmation
-          setFlashMessage={[Function]}
-        >
-          <div>
-            <div
-              className="sc-fzpans cudeBW"
-            >
-              <h4>
-                Request Email Confirmation
-              </h4>
-              <Button
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
-                  disabled={false}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
-                  >
-                    <button
-                      aria-disabled={false}
-                      disabled={false}
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      Request
-                       Email Confirmation 
-                      <ArrowRight>
-                        <svg
-                          viewBox="0 0 63 32"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
-                          />
-                        </svg>
-                      </ArrowRight>
-                    </button>
-                  </div>
-                </Button>
-              </Button>
-            </div>
-          </div>
-        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -8805,12 +9050,12 @@ exports[`<UserSettings /> matches snapshot 24`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -8894,11 +9139,11 @@ exports[`<UserSettings /> matches snapshot 25`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -8929,7 +9174,7 @@ exports[`<UserSettings /> matches snapshot 25`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -8941,18 +9186,18 @@ exports[`<UserSettings /> matches snapshot 25`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -8961,11 +9206,11 @@ exports[`<UserSettings /> matches snapshot 25`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -9028,11 +9273,11 @@ exports[`<UserSettings /> matches snapshot 25`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -9095,11 +9340,11 @@ exports[`<UserSettings /> matches snapshot 25`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -9129,6 +9374,55 @@ exports[`<UserSettings /> matches snapshot 25`] = `
             </div>
           </div>
         </ButtonRedirect>
+        <RequestConfirmation
+          setFlashMessage={[Function]}
+        >
+          <div>
+            <div
+              className="sc-fzpans cudeBW"
+            >
+              <h4>
+                Request Email Confirmation
+              </h4>
+              <Button
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <Button
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  >
+                    <button
+                      aria-disabled={false}
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Request
+                       Email Confirmation 
+                      <ArrowRight>
+                        <svg
+                          viewBox="0 0 63 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
+                          />
+                        </svg>
+                      </ArrowRight>
+                    </button>
+                  </div>
+                </Button>
+              </Button>
+            </div>
+          </div>
+        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -9151,12 +9445,12 @@ exports[`<UserSettings /> matches snapshot 25`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -9240,11 +9534,11 @@ exports[`<UserSettings /> matches snapshot 26`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -9275,7 +9569,7 @@ exports[`<UserSettings /> matches snapshot 26`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -9287,18 +9581,18 @@ exports[`<UserSettings /> matches snapshot 26`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -9307,11 +9601,11 @@ exports[`<UserSettings /> matches snapshot 26`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -9374,11 +9668,11 @@ exports[`<UserSettings /> matches snapshot 26`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -9441,11 +9735,11 @@ exports[`<UserSettings /> matches snapshot 26`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -9475,55 +9769,6 @@ exports[`<UserSettings /> matches snapshot 26`] = `
             </div>
           </div>
         </ButtonRedirect>
-        <RequestConfirmation
-          setFlashMessage={[Function]}
-        >
-          <div>
-            <div
-              className="sc-fzpans cudeBW"
-            >
-              <h4>
-                Request Email Confirmation
-              </h4>
-              <Button
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
-                  disabled={false}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
-                  >
-                    <button
-                      aria-disabled={false}
-                      disabled={false}
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      Request
-                       Email Confirmation 
-                      <ArrowRight>
-                        <svg
-                          viewBox="0 0 63 32"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
-                          />
-                        </svg>
-                      </ArrowRight>
-                    </button>
-                  </div>
-                </Button>
-              </Button>
-            </div>
-          </div>
-        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -9546,12 +9791,12 @@ exports[`<UserSettings /> matches snapshot 26`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -9635,11 +9880,11 @@ exports[`<UserSettings /> matches snapshot 27`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -9670,7 +9915,7 @@ exports[`<UserSettings /> matches snapshot 27`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -9682,18 +9927,18 @@ exports[`<UserSettings /> matches snapshot 27`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -9702,11 +9947,11 @@ exports[`<UserSettings /> matches snapshot 27`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -9769,11 +10014,11 @@ exports[`<UserSettings /> matches snapshot 27`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -9836,11 +10081,11 @@ exports[`<UserSettings /> matches snapshot 27`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -9870,6 +10115,55 @@ exports[`<UserSettings /> matches snapshot 27`] = `
             </div>
           </div>
         </ButtonRedirect>
+        <RequestConfirmation
+          setFlashMessage={[Function]}
+        >
+          <div>
+            <div
+              className="sc-fzpans cudeBW"
+            >
+              <h4>
+                Request Email Confirmation
+              </h4>
+              <Button
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <Button
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  >
+                    <button
+                      aria-disabled={false}
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Request
+                       Email Confirmation 
+                      <ArrowRight>
+                        <svg
+                          viewBox="0 0 63 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
+                          />
+                        </svg>
+                      </ArrowRight>
+                    </button>
+                  </div>
+                </Button>
+              </Button>
+            </div>
+          </div>
+        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -9892,12 +10186,12 @@ exports[`<UserSettings /> matches snapshot 27`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -9981,11 +10275,11 @@ exports[`<UserSettings /> matches snapshot 28`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -10016,7 +10310,7 @@ exports[`<UserSettings /> matches snapshot 28`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -10028,18 +10322,18 @@ exports[`<UserSettings /> matches snapshot 28`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -10048,11 +10342,11 @@ exports[`<UserSettings /> matches snapshot 28`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -10115,11 +10409,11 @@ exports[`<UserSettings /> matches snapshot 28`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -10182,11 +10476,11 @@ exports[`<UserSettings /> matches snapshot 28`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -10238,12 +10532,12 @@ exports[`<UserSettings /> matches snapshot 28`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -10327,11 +10621,11 @@ exports[`<UserSettings /> matches snapshot 29`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -10362,7 +10656,7 @@ exports[`<UserSettings /> matches snapshot 29`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -10374,18 +10668,18 @@ exports[`<UserSettings /> matches snapshot 29`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -10394,11 +10688,11 @@ exports[`<UserSettings /> matches snapshot 29`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -10461,11 +10755,11 @@ exports[`<UserSettings /> matches snapshot 29`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -10528,11 +10822,11 @@ exports[`<UserSettings /> matches snapshot 29`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -10562,6 +10856,55 @@ exports[`<UserSettings /> matches snapshot 29`] = `
             </div>
           </div>
         </ButtonRedirect>
+        <RequestConfirmation
+          setFlashMessage={[Function]}
+        >
+          <div>
+            <div
+              className="sc-fzpans cudeBW"
+            >
+              <h4>
+                Request Email Confirmation
+              </h4>
+              <Button
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <Button
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
+                  >
+                    <button
+                      aria-disabled={false}
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Request
+                       Email Confirmation 
+                      <ArrowRight>
+                        <svg
+                          viewBox="0 0 63 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M61.5 13.7L48.8 1c-1.2-1.2-3.1-1.2-4.2 0-1.2 1.2-1.2 3.1 0 4.2l7.8 7.8H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h49l-7.4 7.4c-1.2 1.2-1.2 3.1 0 4.2 1.2 1.2 3.1 1.2 4.2 0l12.7-12.7c.6-.5.9-1.3.9-2.1s-.3-1.5-.9-2.1z"
+                          />
+                        </svg>
+                      </ArrowRight>
+                    </button>
+                  </div>
+                </Button>
+              </Button>
+            </div>
+          </div>
+        </RequestConfirmation>
         <Link
           href="/"
         >
@@ -10584,12 +10927,12 @@ exports[`<UserSettings /> matches snapshot 29`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -10673,11 +11016,11 @@ exports[`<UserSettings /> matches snapshot 30`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -10708,7 +11051,7 @@ exports[`<UserSettings /> matches snapshot 30`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -10720,18 +11063,18 @@ exports[`<UserSettings /> matches snapshot 30`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -10740,11 +11083,11 @@ exports[`<UserSettings /> matches snapshot 30`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -10807,11 +11150,11 @@ exports[`<UserSettings /> matches snapshot 30`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -10874,11 +11217,11 @@ exports[`<UserSettings /> matches snapshot 30`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -10924,13 +11267,13 @@ exports[`<UserSettings /> matches snapshot 30`] = `
                 type="button"
               >
                 <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
                   <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
                   >
                     <button
                       aria-disabled={false}
@@ -10979,12 +11322,12 @@ exports[`<UserSettings /> matches snapshot 30`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -11068,11 +11411,11 @@ exports[`<UserSettings /> matches snapshot 31`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -11103,7 +11446,7 @@ exports[`<UserSettings /> matches snapshot 31`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -11115,18 +11458,18 @@ exports[`<UserSettings /> matches snapshot 31`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -11135,11 +11478,11 @@ exports[`<UserSettings /> matches snapshot 31`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -11202,11 +11545,11 @@ exports[`<UserSettings /> matches snapshot 31`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -11269,11 +11612,11 @@ exports[`<UserSettings /> matches snapshot 31`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -11319,13 +11662,13 @@ exports[`<UserSettings /> matches snapshot 31`] = `
                 type="button"
               >
                 <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
                   <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
                   >
                     <button
                       aria-disabled={false}
@@ -11374,12 +11717,12 @@ exports[`<UserSettings /> matches snapshot 31`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}
@@ -11463,11 +11806,11 @@ exports[`<UserSettings /> matches snapshot 32`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -11498,7 +11841,7 @@ exports[`<UserSettings /> matches snapshot 32`] = `
           </div>
         </ButtonRedirect>
         <ButtonRedirect
-          href="/account/update/displayname"
+          href="/account/update/displayName"
           key="1-Update Display Name"
           name="Update Display Name"
         >
@@ -11510,18 +11853,18 @@ exports[`<UserSettings /> matches snapshot 32`] = `
                 Update Display Name
               </h4>
               <Link
-                href="/account/update/displayname"
+                href="/account/update/displayName"
               >
                 <LinkComponent
                   className="sc-AxjAm kGmApj"
-                  href="/account/update/displayname"
+                  href="/account/update/displayName"
                 >
                   <Link
-                    href="/account/update/displayname"
+                    href="/account/update/displayName"
                   >
                     <a
                       className="sc-AxjAm kGmApj"
-                      href="/account/update/displayname"
+                      href="/account/update/displayName"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                       target="_self"
@@ -11530,11 +11873,11 @@ exports[`<UserSettings /> matches snapshot 32`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -11597,11 +11940,11 @@ exports[`<UserSettings /> matches snapshot 32`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -11664,11 +12007,11 @@ exports[`<UserSettings /> matches snapshot 32`] = `
                         type="button"
                       >
                         <Button
-                          className="sc-AxirZ sc-fzoLsD eFHIoh"
+                          className="sc-AxirZ sc-fzoLsD dcAcqf"
                           type="button"
                         >
                           <div
-                            className="sc-AxirZ sc-fzoLsD eFHIoh"
+                            className="sc-AxirZ sc-fzoLsD dcAcqf"
                           >
                             <button
                               aria-disabled={false}
@@ -11714,13 +12057,13 @@ exports[`<UserSettings /> matches snapshot 32`] = `
                 type="button"
               >
                 <Button
-                  className="sc-AxirZ sc-fzoLsD eFHIoh"
+                  className="sc-AxirZ sc-fzoLsD dcAcqf"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
                   <div
-                    className="sc-AxirZ sc-fzoLsD eFHIoh"
+                    className="sc-AxirZ sc-fzoLsD dcAcqf"
                   >
                     <button
                       aria-disabled={false}
@@ -11769,12 +12112,12 @@ exports[`<UserSettings /> matches snapshot 32`] = `
                   type="button"
                 >
                   <Button
-                    className="sc-AxirZ sc-AxmLO bDgfFe"
+                    className="sc-AxirZ sc-AxmLO iqkiuk"
                     displayType="outline"
                     type="button"
                   >
                     <div
-                      className="sc-AxirZ sc-AxmLO bDgfFe"
+                      className="sc-AxirZ sc-AxmLO iqkiuk"
                     >
                       <button
                         aria-disabled={false}

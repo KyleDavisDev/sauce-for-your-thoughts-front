@@ -2,7 +2,7 @@
 
 exports[`<Button> matches snapshot 1`] = `
 <Button
-  className="sc-AxjAm bKCvEV atque et non explicabo dolores ipsam laboriosam"
+  className="sc-AxjAm hNxlwf atque et non explicabo dolores ipsam laboriosam"
   disabled={false}
   displayType="outline"
   onClick={[MockFunction]}
@@ -14,7 +14,7 @@ exports[`<Button> matches snapshot 1`] = `
 
 exports[`<Button> matches snapshot 2`] = `
 <Button
-  className="sc-AxjAm iiZAfZ odit animi in ut occaecati at odit"
+  className="sc-AxjAm gDcLdb odit animi in ut occaecati at odit"
   disabled={false}
   displayType="solid"
   onClick={[MockFunction]}
@@ -30,7 +30,7 @@ exports[`<Button> matches snapshot 2`] = `
 
 exports[`<Button> matches snapshot 3`] = `
 <Button
-  className="sc-AxjAm iiZAfZ non quis quis nobis repudiandae aliquam molestiae"
+  className="sc-AxjAm gDcLdb non quis quis nobis repudiandae aliquam molestiae"
   disabled={false}
   displayType="solid"
   onClick={[MockFunction]}
@@ -42,7 +42,7 @@ exports[`<Button> matches snapshot 3`] = `
 
 exports[`<Button> matches snapshot 4`] = `
 <Button
-  className="sc-AxjAm gKYImC consequatur ipsam sed nobis excepturi saepe autem"
+  className="sc-AxjAm dfFHig consequatur ipsam sed nobis excepturi saepe autem"
   disabled={true}
   displayType="outline"
   onClick={[MockFunction]}
@@ -58,7 +58,7 @@ exports[`<Button> matches snapshot 4`] = `
 
 exports[`<Button> matches snapshot 5`] = `
 <Button
-  className="sc-AxjAm bKCvEV quia cumque architecto eos quos tenetur voluptas"
+  className="sc-AxjAm hNxlwf quia cumque architecto eos quos tenetur voluptas"
   disabled={false}
   displayType="outline"
   onClick={[MockFunction]}
@@ -70,7 +70,7 @@ exports[`<Button> matches snapshot 5`] = `
 
 exports[`<Button> matches snapshot 6`] = `
 <Button
-  className="sc-AxjAm gKYImC quas eligendi ut officiis sed illum et"
+  className="sc-AxjAm dfFHig quas eligendi ut officiis sed illum et"
   disabled={true}
   displayType="outline"
   onClick={[MockFunction]}
@@ -86,7 +86,7 @@ exports[`<Button> matches snapshot 6`] = `
 
 exports[`<Button> matches snapshot 7`] = `
 <Button
-  className="sc-AxjAm gKYImC fuga rem eius est nihil sit enim"
+  className="sc-AxjAm dfFHig fuga rem eius est nihil sit enim"
   disabled={true}
   displayType="outline"
   onClick={[MockFunction]}
@@ -98,7 +98,7 @@ exports[`<Button> matches snapshot 7`] = `
 
 exports[`<Button> matches snapshot 8`] = `
 <Button
-  className="sc-AxjAm gKYImC odit quo enim facere illo nemo iusto"
+  className="sc-AxjAm dfFHig odit quo enim facere illo nemo iusto"
   disabled={true}
   displayType="outline"
   onClick={[MockFunction]}
@@ -110,7 +110,7 @@ exports[`<Button> matches snapshot 8`] = `
 
 exports[`<Button> matches snapshot 9`] = `
 <Button
-  className="sc-AxjAm isKaRq error tempore aspernatur soluta possimus voluptas sed"
+  className="sc-AxjAm bzkabI error tempore aspernatur soluta possimus voluptas sed"
   disabled={true}
   displayType="solid"
   onClick={[MockFunction]}
@@ -126,7 +126,7 @@ exports[`<Button> matches snapshot 9`] = `
 
 exports[`<Button> matches snapshot 10`] = `
 <Button
-  className="sc-AxjAm bKCvEV repudiandae qui ex unde veniam soluta qui"
+  className="sc-AxjAm hNxlwf repudiandae qui ex unde veniam soluta qui"
   disabled={false}
   displayType="outline"
   onClick={[MockFunction]}
@@ -142,7 +142,7 @@ exports[`<Button> matches snapshot 10`] = `
 
 exports[`<Button> matches snapshot 11`] = `
 <Button
-  className="sc-AxjAm isKaRq magni ea laudantium hic quo corporis minima"
+  className="sc-AxjAm bzkabI magni ea laudantium hic quo corporis minima"
   disabled={true}
   displayType="solid"
   onClick={[MockFunction]}
@@ -154,7 +154,7 @@ exports[`<Button> matches snapshot 11`] = `
 
 exports[`<Button> matches snapshot 12`] = `
 <Button
-  className="sc-AxjAm gKYImC eos iste aut inventore optio tempora excepturi"
+  className="sc-AxjAm dfFHig eos iste aut inventore optio tempora excepturi"
   disabled={true}
   displayType="outline"
   onClick={[MockFunction]}
@@ -166,7 +166,7 @@ exports[`<Button> matches snapshot 12`] = `
 
 exports[`<Button> matches snapshot 13`] = `
 <Button
-  className="sc-AxjAm isKaRq iure quos sed quibusdam voluptatem ducimus est"
+  className="sc-AxjAm bzkabI iure quos sed quibusdam voluptatem ducimus est"
   disabled={true}
   displayType="solid"
   onClick={[MockFunction]}
@@ -178,7 +178,7 @@ exports[`<Button> matches snapshot 13`] = `
 
 exports[`<Button> matches snapshot 14`] = `
 <Button
-  className="sc-AxjAm isKaRq veniam perferendis est aliquam consequuntur omnis velit"
+  className="sc-AxjAm bzkabI veniam perferendis est aliquam consequuntur omnis velit"
   disabled={true}
   displayType="solid"
   onClick={[MockFunction]}
@@ -194,7 +194,7 @@ exports[`<Button> matches snapshot 14`] = `
 
 exports[`<Button> matches snapshot 15`] = `
 <Button
-  className="sc-AxjAm iiZAfZ sit illo consequatur itaque vero repellendus ex"
+  className="sc-AxjAm gDcLdb sit illo consequatur itaque vero repellendus ex"
   disabled={false}
   displayType="solid"
   onClick={[MockFunction]}
@@ -206,7 +206,7 @@ exports[`<Button> matches snapshot 15`] = `
 
 exports[`<Button> matches snapshot 16`] = `
 <Button
-  className="sc-AxjAm bKCvEV ea veniam optio magnam dolor exercitationem vitae"
+  className="sc-AxjAm hNxlwf ea veniam optio magnam dolor exercitationem vitae"
   disabled={false}
   displayType="outline"
   onClick={[MockFunction]}
@@ -218,7 +218,7 @@ exports[`<Button> matches snapshot 16`] = `
 
 exports[`<Button> matches snapshot 17`] = `
 <Button
-  className="sc-AxjAm isKaRq quae laudantium quos sequi et non quis"
+  className="sc-AxjAm bzkabI quae laudantium quos sequi et non quis"
   disabled={true}
   displayType="solid"
   onClick={[MockFunction]}
@@ -234,7 +234,7 @@ exports[`<Button> matches snapshot 17`] = `
 
 exports[`<Button> matches snapshot 18`] = `
 <Button
-  className="sc-AxjAm isKaRq est id corporis reiciendis laborum enim molestias"
+  className="sc-AxjAm bzkabI est id corporis reiciendis laborum enim molestias"
   disabled={true}
   displayType="solid"
   onClick={[MockFunction]}
@@ -246,7 +246,7 @@ exports[`<Button> matches snapshot 18`] = `
 
 exports[`<Button> matches snapshot 19`] = `
 <Button
-  className="sc-AxjAm isKaRq veniam quia animi autem ducimus cum neque"
+  className="sc-AxjAm bzkabI veniam quia animi autem ducimus cum neque"
   disabled={true}
   displayType="solid"
   onClick={[MockFunction]}
@@ -262,7 +262,7 @@ exports[`<Button> matches snapshot 19`] = `
 
 exports[`<Button> matches snapshot 20`] = `
 <Button
-  className="sc-AxjAm isKaRq non autem et quae labore rerum qui"
+  className="sc-AxjAm bzkabI non autem et quae labore rerum qui"
   disabled={true}
   displayType="solid"
   onClick={[MockFunction]}
@@ -274,7 +274,7 @@ exports[`<Button> matches snapshot 20`] = `
 
 exports[`<Button> matches snapshot 21`] = `
 <Button
-  className="sc-AxjAm isKaRq architecto ut quisquam ipsam sint possimus dignissimos"
+  className="sc-AxjAm bzkabI architecto ut quisquam ipsam sint possimus dignissimos"
   disabled={true}
   displayType="solid"
   onClick={[MockFunction]}
@@ -286,7 +286,7 @@ exports[`<Button> matches snapshot 21`] = `
 
 exports[`<Button> matches snapshot 22`] = `
 <Button
-  className="sc-AxjAm iiZAfZ earum molestiae quae et qui accusamus architecto"
+  className="sc-AxjAm gDcLdb earum molestiae quae et qui accusamus architecto"
   disabled={false}
   displayType="solid"
   onClick={[MockFunction]}
@@ -302,7 +302,7 @@ exports[`<Button> matches snapshot 22`] = `
 
 exports[`<Button> matches snapshot 23`] = `
 <Button
-  className="sc-AxjAm gKYImC ipsa consectetur repellat qui fugiat velit est"
+  className="sc-AxjAm dfFHig ipsa consectetur repellat qui fugiat velit est"
   disabled={true}
   displayType="outline"
   onClick={[MockFunction]}
@@ -314,7 +314,7 @@ exports[`<Button> matches snapshot 23`] = `
 
 exports[`<Button> matches snapshot 24`] = `
 <Button
-  className="sc-AxjAm isKaRq debitis quisquam rerum aliquid molestias ipsam et"
+  className="sc-AxjAm bzkabI debitis quisquam rerum aliquid molestias ipsam et"
   disabled={true}
   displayType="solid"
   onClick={[MockFunction]}
@@ -330,7 +330,7 @@ exports[`<Button> matches snapshot 24`] = `
 
 exports[`<Button> matches snapshot 25`] = `
 <Button
-  className="sc-AxjAm bKCvEV harum cumque et totam neque mollitia et"
+  className="sc-AxjAm hNxlwf harum cumque et totam neque mollitia et"
   disabled={false}
   displayType="outline"
   onClick={[MockFunction]}
@@ -346,7 +346,7 @@ exports[`<Button> matches snapshot 25`] = `
 
 exports[`<Button> matches snapshot 26`] = `
 <Button
-  className="sc-AxjAm iiZAfZ hic sit dolorem voluptatem provident fugit mollitia"
+  className="sc-AxjAm gDcLdb hic sit dolorem voluptatem provident fugit mollitia"
   disabled={false}
   displayType="solid"
   onClick={[MockFunction]}
@@ -362,7 +362,7 @@ exports[`<Button> matches snapshot 26`] = `
 
 exports[`<Button> matches snapshot 27`] = `
 <Button
-  className="sc-AxjAm iiZAfZ et aperiam eaque vel minima sint tenetur"
+  className="sc-AxjAm gDcLdb et aperiam eaque vel minima sint tenetur"
   disabled={false}
   displayType="solid"
   onClick={[MockFunction]}
@@ -378,7 +378,7 @@ exports[`<Button> matches snapshot 27`] = `
 
 exports[`<Button> matches snapshot 28`] = `
 <Button
-  className="sc-AxjAm isKaRq ipsa illo deleniti adipisci eos odit provident"
+  className="sc-AxjAm bzkabI ipsa illo deleniti adipisci eos odit provident"
   disabled={true}
   displayType="solid"
   onClick={[MockFunction]}
@@ -390,7 +390,7 @@ exports[`<Button> matches snapshot 28`] = `
 
 exports[`<Button> matches snapshot 29`] = `
 <Button
-  className="sc-AxjAm bKCvEV maxime et cum aliquid atque aut sit"
+  className="sc-AxjAm hNxlwf maxime et cum aliquid atque aut sit"
   disabled={false}
   displayType="outline"
   onClick={[MockFunction]}
@@ -406,7 +406,7 @@ exports[`<Button> matches snapshot 29`] = `
 
 exports[`<Button> matches snapshot 30`] = `
 <Button
-  className="sc-AxjAm bKCvEV corrupti perferendis esse voluptate cum delectus voluptas"
+  className="sc-AxjAm hNxlwf corrupti perferendis esse voluptate cum delectus voluptas"
   disabled={false}
   displayType="outline"
   onClick={[MockFunction]}
@@ -418,7 +418,7 @@ exports[`<Button> matches snapshot 30`] = `
 
 exports[`<Button> matches snapshot 31`] = `
 <Button
-  className="sc-AxjAm iiZAfZ quas sed ea excepturi laboriosam culpa dicta"
+  className="sc-AxjAm gDcLdb quas sed ea excepturi laboriosam culpa dicta"
   disabled={false}
   displayType="solid"
   onClick={[MockFunction]}
@@ -430,7 +430,7 @@ exports[`<Button> matches snapshot 31`] = `
 
 exports[`<Button> matches snapshot 32`] = `
 <Button
-  className="sc-AxjAm iiZAfZ consequuntur ab iusto et non optio iusto"
+  className="sc-AxjAm gDcLdb consequuntur ab iusto et non optio iusto"
   disabled={false}
   displayType="solid"
   onClick={[MockFunction]}
