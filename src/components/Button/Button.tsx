@@ -36,10 +36,11 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 };
 
 const StyledButton = styled(Button)`
+  display: inline-block;
   button {
     font-size: 1rem;
     text-decoration: none;
-    font-family: FuturaMedium;
+    font-family: FuturaMedium, serif;
     padding: 0.5em 1em;
     transition: all 0.2s ease;
     background-color: ${props =>
@@ -105,7 +106,6 @@ const StyledButton = styled(Button)`
       width: 20px;
       padding-left: 10px;
       transition: all 0.2s ease;
-      fill: inherit;
     }
   }
 `;
