@@ -95,4 +95,23 @@ describe("<SauceReviewBlock />", () => {
       expect(wrapper.find("OpenBlock").prop("review")).toEqual(review);
     });
   });
+
+  it("passes expected params to RatingBlock component", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const { review } = props[ind];
+
+      // if the component can't be found, then simulate a click
+      if (!wrapper.find("RatingBlock").exists()) {
+        wrapper.find("Button").simulate("click");
+      }
+
+      expect(wrapper.find("RatingBlock").prop("name")).toEqual("Overall");
+      expect(wrapper.find("RatingBlock").prop("txt")).toEqual(
+        review.overall.txt
+      );
+      expect(wrapper.find("RatingBlock").prop("rating")).toEqual(
+        review.overall.rating
+      );
+    });
+  });
 });
