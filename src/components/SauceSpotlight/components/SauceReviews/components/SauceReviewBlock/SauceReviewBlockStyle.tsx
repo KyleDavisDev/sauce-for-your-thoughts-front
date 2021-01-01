@@ -45,7 +45,7 @@ export const StyledButton = styled(Button)`
     cursor: pointer;
   }
 `;
-StyledButton.displayName = "button";
+StyledButton.displayName = "Button";
 
 export const StyledContentContainer = styled.div`
   padding: 1em;

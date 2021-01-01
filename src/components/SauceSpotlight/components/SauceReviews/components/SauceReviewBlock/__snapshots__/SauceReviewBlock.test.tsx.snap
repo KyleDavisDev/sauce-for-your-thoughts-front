@@ -2,11 +2,11 @@
 
 exports[`<SauceReviewBlock /> matches snapshot 1`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={742587837}
@@ -49,11 +49,11 @@ exports[`<SauceReviewBlock /> matches snapshot 1`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 2`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={1296235211}
@@ -108,11 +108,11 @@ exports[`<SauceReviewBlock /> matches snapshot 2`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 3`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       aroma={
@@ -161,11 +161,11 @@ exports[`<SauceReviewBlock /> matches snapshot 3`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 4`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={538338659}
@@ -209,11 +209,11 @@ exports[`<SauceReviewBlock /> matches snapshot 4`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 5`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={390872209}
@@ -250,11 +250,11 @@ exports[`<SauceReviewBlock /> matches snapshot 5`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 6`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       aroma={
@@ -285,11 +285,11 @@ exports[`<SauceReviewBlock /> matches snapshot 6`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 7`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={118643872}
@@ -327,11 +327,11 @@ exports[`<SauceReviewBlock /> matches snapshot 7`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 8`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       author="Miss Julio Baumbach"
@@ -374,11 +374,11 @@ exports[`<SauceReviewBlock /> matches snapshot 8`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 9`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={246128653}
@@ -410,11 +410,11 @@ exports[`<SauceReviewBlock /> matches snapshot 9`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 10`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       aroma={
@@ -451,11 +451,11 @@ exports[`<SauceReviewBlock /> matches snapshot 10`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 11`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       author="Mr. Minerva Daniel"
@@ -498,11 +498,11 @@ exports[`<SauceReviewBlock /> matches snapshot 11`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 12`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       author="Mr. Brandt Renner"
@@ -544,11 +544,11 @@ exports[`<SauceReviewBlock /> matches snapshot 12`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 13`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={25321092}
@@ -597,11 +597,11 @@ exports[`<SauceReviewBlock /> matches snapshot 13`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 14`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       aroma={
@@ -644,11 +644,11 @@ exports[`<SauceReviewBlock /> matches snapshot 14`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 15`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={1014791946}
@@ -685,11 +685,11 @@ exports[`<SauceReviewBlock /> matches snapshot 15`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 16`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={1297250190}
@@ -738,11 +738,11 @@ exports[`<SauceReviewBlock /> matches snapshot 16`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 17`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={1271190813}
@@ -779,11 +779,11 @@ exports[`<SauceReviewBlock /> matches snapshot 17`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 18`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={654309079}
@@ -826,11 +826,11 @@ exports[`<SauceReviewBlock /> matches snapshot 18`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 19`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={285647655}
@@ -867,11 +867,11 @@ exports[`<SauceReviewBlock /> matches snapshot 19`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 20`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={1151706497}
@@ -921,11 +921,11 @@ exports[`<SauceReviewBlock /> matches snapshot 20`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 21`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       author="Mrs. Dalton Okuneva"
@@ -955,11 +955,11 @@ exports[`<SauceReviewBlock /> matches snapshot 21`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 22`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       author="Mrs. Laney Armstrong"
@@ -1001,11 +1001,11 @@ exports[`<SauceReviewBlock /> matches snapshot 22`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 23`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={1456075367}
@@ -1055,11 +1055,11 @@ exports[`<SauceReviewBlock /> matches snapshot 23`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 24`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       aroma={
@@ -1090,11 +1090,11 @@ exports[`<SauceReviewBlock /> matches snapshot 24`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 25`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={242037108}
@@ -1132,11 +1132,11 @@ exports[`<SauceReviewBlock /> matches snapshot 25`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 26`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={882848844}
@@ -1180,11 +1180,11 @@ exports[`<SauceReviewBlock /> matches snapshot 26`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 27`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       author="Mr. Benny Hand"
@@ -1215,11 +1215,11 @@ exports[`<SauceReviewBlock /> matches snapshot 27`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 28`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       aroma={
@@ -1261,11 +1261,11 @@ exports[`<SauceReviewBlock /> matches snapshot 28`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 29`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       author="Ms. Laury Rippin"
@@ -1295,11 +1295,11 @@ exports[`<SauceReviewBlock /> matches snapshot 29`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 30`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       author="Miss Susan Ratke"
@@ -1336,11 +1336,11 @@ exports[`<SauceReviewBlock /> matches snapshot 30`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 31`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       _addedToStore={1260699292}
@@ -1389,11 +1389,11 @@ exports[`<SauceReviewBlock /> matches snapshot 31`] = `
 
 exports[`<SauceReviewBlock /> matches snapshot 32`] = `
 <div>
-  <button
+  <Button
     onClick={[Function]}
   >
     +
-  </button>
+  </Button>
   <div>
     <AuthorBlock
       aroma={
