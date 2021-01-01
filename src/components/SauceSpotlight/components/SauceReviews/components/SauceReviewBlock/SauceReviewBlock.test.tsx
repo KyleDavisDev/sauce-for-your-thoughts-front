@@ -69,4 +69,17 @@ describe("<SauceReviewBlock />", () => {
       expect(wrapper.find("RatingBlock").exists()).toBeTruthy();
     });
   });
+
+  it("renders a OpenBlock component after Button component has been clicked", () => {
+    wrappers.forEach(wrapper => {
+      // no component
+      expect(wrapper.find("OpenBlock").exists()).toBeFalsy();
+
+      // simulate click
+      wrapper.find("Button").simulate("click");
+
+      // Can find the button now
+      expect(wrapper.find("OpenBlock").exists()).toBeTruthy();
+    });
+  });
 });
