@@ -82,4 +82,17 @@ describe("<SauceReviewBlock />", () => {
       expect(wrapper.find("OpenBlock").exists()).toBeTruthy();
     });
   });
+
+  it("passes expected params to OpenBlock component", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const { review } = props[ind];
+
+      // if the component can't be found, then simulate a click
+      if (!wrapper.find("OpenBlock").exists()) {
+        wrapper.find("Button").simulate("click");
+      }
+
+      expect(wrapper.find("OpenBlock").prop("review")).toEqual(review);
+    });
+  });
 });
