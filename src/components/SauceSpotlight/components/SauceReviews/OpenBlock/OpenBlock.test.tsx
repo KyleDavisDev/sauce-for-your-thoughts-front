@@ -73,4 +73,20 @@ describe("<OpenBlock />", () => {
       expect(wrapper.find("RatingBlock[name='Taste']").exists()).toBeTruthy();
     });
   });
+
+  it("renders a RatingBlock component for Label if Label is valid", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // Grab label
+      const {
+        review: { label }
+      } = props[ind];
+
+      // Make sure label is legit
+      if (!label) return;
+      if (label.rating === 0 && label.txt.length === 0) return;
+
+      // Find component
+      expect(wrapper.find("RatingBlock[name='Label']").exists()).toBeTruthy();
+    });
+  });
 });
