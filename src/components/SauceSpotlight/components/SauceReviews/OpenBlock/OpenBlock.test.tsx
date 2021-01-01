@@ -41,4 +41,10 @@ describe("<OpenBlock />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("renders a RatingBlock component for Overall", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("RatingBlock[name='Overall']").exists()).toBeTruthy();
+    });
+  });
 });
