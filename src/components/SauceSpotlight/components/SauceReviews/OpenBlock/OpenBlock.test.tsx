@@ -58,6 +58,21 @@ describe("<OpenBlock />", () => {
     });
   });
 
+  it("does not render a RatingBlock component for Aroma if Aroma is invalid", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // Grab aroma
+      const {
+        review: { aroma }
+      } = props[ind];
+
+      // Make sure aroma is invalid
+      if (aroma && (aroma?.rating > 0 || aroma?.txt?.length > 0)) return;
+
+      // Look for component -- should not find it
+      expect(wrapper.find("RatingBlock[name='Aroma']").exists()).toBeFalsy();
+    });
+  });
+
   it("renders a RatingBlock component for Taste if Taste is valid", () => {
     wrappers.forEach((wrapper, ind) => {
       // Grab taste
