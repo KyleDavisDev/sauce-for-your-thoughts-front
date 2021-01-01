@@ -42,9 +42,19 @@ describe("<OpenBlock />", () => {
     });
   });
 
-  it("renders a RatingBlock component for Overall", () => {
-    wrappers.forEach(wrapper => {
-      expect(wrapper.find("RatingBlock[name='Overall']").exists()).toBeTruthy();
+  it("renders a RatingBlock component for Aroma if Aroma is valid", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // Grab aroma
+      const {
+        review: { aroma }
+      } = props[ind];
+
+      // Make sure aroma is legit
+      if (!aroma) return;
+      if (aroma.rating === 0 && aroma.txt.length === 0) return;
+
+      // Find component
+      expect(wrapper.find("RatingBlock[name='Aroma']").exists()).toBeTruthy();
     });
   });
 });
