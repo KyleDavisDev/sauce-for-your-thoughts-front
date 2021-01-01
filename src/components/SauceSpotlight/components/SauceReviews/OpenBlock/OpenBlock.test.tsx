@@ -57,4 +57,20 @@ describe("<OpenBlock />", () => {
       expect(wrapper.find("RatingBlock[name='Aroma']").exists()).toBeTruthy();
     });
   });
+
+  it("renders a RatingBlock component for Taste if Taste is valid", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // Grab taste
+      const {
+        review: { taste }
+      } = props[ind];
+
+      // Make sure taste is legit
+      if (!taste) return;
+      if (taste.rating === 0 && taste.txt.length === 0) return;
+
+      // Find component
+      expect(wrapper.find("RatingBlock[name='Taste']").exists()).toBeTruthy();
+    });
+  });
 });
