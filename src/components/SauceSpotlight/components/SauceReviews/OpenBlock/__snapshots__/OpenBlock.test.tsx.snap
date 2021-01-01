@@ -1,0 +1,633 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OpenBlock /> matches snapshot 1`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={0}
+  />
+  <RatingBlock
+    name="Taste"
+    rating={3}
+    txt="Delectus vel ipsa tempora."
+  />
+  <RatingBlock
+    name="Label"
+    rating={3}
+  />
+  <RatingBlock
+    name="Heat"
+    rating={0}
+    txt="Illum animi vel provident dicta perferendis dolorum."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 2`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={0}
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={1}
+    txt="Quam nulla est unde sit ex."
+  />
+  <RatingBlock
+    name="Taste"
+    rating={0}
+    txt="Eaque necessitatibus sit suscipit."
+  />
+  <RatingBlock
+    name="Label"
+    rating={2}
+    txt="Autem sit aspernatur aspernatur quam eligendi."
+  />
+  <RatingBlock
+    name="Heat"
+    rating={5}
+    txt="Quae corporis qui aut nobis."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 3`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={2}
+    txt="Qui voluptatem cumque nihil iste."
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={3}
+  />
+  <RatingBlock
+    name="Taste"
+    rating={1}
+  />
+  <RatingBlock
+    name="Heat"
+    rating={4}
+    txt="Quos eum voluptate sit saepe assumenda deserunt."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 4`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={2}
+    txt="Esse quos minus deserunt nihil quasi minus quo."
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={3}
+    txt="Provident eaque atque quos."
+  />
+  <RatingBlock
+    name="Taste"
+    rating={3}
+  />
+  <RatingBlock
+    name="Heat"
+    rating={1}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 5`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={2}
+  />
+  <RatingBlock
+    name="Label"
+    rating={1}
+    txt="Quia aut sint cumque sunt."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 6`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={1}
+    txt="Voluptas eos quam."
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={4}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 7`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={3}
+    txt="Reiciendis ut eos commodi at impedit sint perferendis in dolorem."
+  />
+  <RatingBlock
+    name="Taste"
+    rating={4}
+    txt="Omnis quo aut quia cumque architecto eos quos."
+  />
+  <RatingBlock
+    name="Label"
+    rating={4}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 8`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={3}
+    txt="Impedit dolores saepe dolor incidunt vero quia voluptatibus consequatur."
+  />
+  <RatingBlock
+    name="Label"
+    rating={2}
+    txt="Qui qui ab officiis omnis rem officiis et placeat ipsum."
+  />
+  <RatingBlock
+    name="Heat"
+    rating={2}
+    txt="Et voluptas repellendus nisi corrupti quas eligendi."
+  />
+  <RatingBlock
+    name="Note"
+    txt="Et ea quia sunt est aut et sunt libero."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 9`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={4}
+    txt="Nulla sit officia doloremque non sit a perferendis soluta dignissimos."
+  />
+  <RatingBlock
+    name="Label"
+    rating={5}
+    txt="Sed consequatur ut sapiente molestiae dolores."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 10`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={4}
+    txt="Ipsam fuga rem eius est nihil sit enim itaque nostrum."
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={3}
+  />
+  <RatingBlock
+    name="Label"
+    rating={3}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 11`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={2}
+    txt="Eaque quis omnis ut praesentium vel."
+  />
+  <RatingBlock
+    name="Taste"
+    rating={3}
+  />
+  <RatingBlock
+    name="Label"
+    rating={4}
+  />
+  <RatingBlock
+    name="Note"
+    txt="Eum doloribus et perspiciatis sunt."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 12`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={1}
+  />
+  <RatingBlock
+    name="Taste"
+    rating={2}
+  />
+  <RatingBlock
+    name="Label"
+    rating={1}
+  />
+  <RatingBlock
+    name="Note"
+    txt="Suscipit reiciendis in exercitationem et error tempore aspernatur soluta."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 13`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={3}
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={2}
+    txt="Dolores voluptas quidem excepturi temporibus."
+  />
+  <RatingBlock
+    name="Taste"
+    rating={2}
+    txt="Ratione saepe id officia."
+  />
+  <RatingBlock
+    name="Heat"
+    rating={5}
+  />
+  <RatingBlock
+    name="Note"
+    txt="Eligendi excepturi fugit beatae ut ea."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 14`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={1}
+    txt="Excepturi laborum veniam asperiores et consectetur animi."
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={3}
+    txt="Nam doloribus et facere."
+  />
+  <RatingBlock
+    name="Heat"
+    rating={5}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 15`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={4}
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={0}
+    txt="Culpa cum architecto nulla ut molestias nisi corporis nulla."
+  />
+  <RatingBlock
+    name="Taste"
+    rating={1}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 16`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={5}
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={2}
+  />
+  <RatingBlock
+    name="Taste"
+    rating={3}
+  />
+  <RatingBlock
+    name="Heat"
+    rating={4}
+  />
+  <RatingBlock
+    name="Note"
+    txt="Quae ut dolores quam ea dolores."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 17`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={3}
+  />
+  <RatingBlock
+    name="Taste"
+    rating={1}
+    txt="Voluptas delectus iure veniam est consequatur."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 18`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={2}
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={5}
+    txt="Nulla maiores pariatur amet harum maxime a."
+  />
+  <RatingBlock
+    name="Taste"
+    rating={4}
+  />
+  <RatingBlock
+    name="Label"
+    rating={4}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 19`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={4}
+  />
+  <RatingBlock
+    name="Label"
+    rating={2}
+    txt="Odio id id repellat maiores iure fuga sit."
+  />
+  <RatingBlock
+    name="Heat"
+    rating={1}
+    txt="Exercitationem excepturi eligendi facilis similique optio hic perspiciatis dolor."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 20`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={2}
+    txt="Ut nobis velit velit perspiciatis mollitia ut corrupti sunt."
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={4}
+    txt="Aut dolore labore vitae aperiam voluptas impedit."
+  />
+  <RatingBlock
+    name="Taste"
+    rating={4}
+  />
+  <RatingBlock
+    name="Label"
+    rating={4}
+    txt="Porro excepturi aperiam qui voluptatem rerum."
+  />
+  <RatingBlock
+    name="Heat"
+    rating={0}
+    txt="Mollitia quis dolor non id cum enim mollitia voluptas accusamus."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 21`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={1}
+  />
+  <RatingBlock
+    name="Label"
+    rating={4}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 22`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={4}
+  />
+  <RatingBlock
+    name="Label"
+    rating={1}
+    txt="Vitae magni a corrupti eveniet."
+  />
+  <RatingBlock
+    name="Heat"
+    rating={1}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 23`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={0}
+    txt="Vel tenetur expedita veritatis."
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={2}
+  />
+  <RatingBlock
+    name="Taste"
+    rating={1}
+  />
+  <RatingBlock
+    name="Heat"
+    rating={5}
+    txt="Ducimus sunt sed totam corporis error quae laudantium quos sequi."
+  />
+  <RatingBlock
+    name="Note"
+    txt="Exercitationem nostrum voluptas quia nam quisquam quia nostrum rerum."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 24`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={2}
+    txt="Dolores quasi iure modi."
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={3}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 25`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={3}
+    txt="Molestias perferendis doloremque qui voluptatibus."
+  />
+  <RatingBlock
+    name="Taste"
+    rating={5}
+  />
+  <RatingBlock
+    name="Note"
+    txt="Eum blanditiis ut nisi et et vel quasi."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 26`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={3}
+    txt="Ipsam id nisi explicabo accusantium non id aliquid tempora praesentium."
+  />
+  <RatingBlock
+    name="Label"
+    rating={1}
+  />
+  <RatingBlock
+    name="Heat"
+    rating={3}
+    txt="Iure velit officia in excepturi."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 27`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={5}
+    txt="Veritatis in nisi quia et ea velit dolorem libero."
+  />
+  <RatingBlock
+    name="Taste"
+    rating={3}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 28`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={4}
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={3}
+    txt="Dolorem non earum et."
+  />
+  <RatingBlock
+    name="Label"
+    rating={3}
+    txt="Esse inventore enim necessitatibus nihil autem assumenda consequatur."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 29`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={0}
+  />
+  <RatingBlock
+    name="Heat"
+    rating={1}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 30`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={4}
+    txt="Dolore quidem sunt et at earum molestiae quae."
+  />
+  <RatingBlock
+    name="Taste"
+    rating={4}
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 31`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={1}
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={2}
+    txt="Blanditiis omnis amet ipsa consectetur."
+  />
+  <RatingBlock
+    name="Label"
+    rating={1}
+  />
+  <RatingBlock
+    name="Heat"
+    rating={4}
+    txt="Aliquam est consequuntur."
+  />
+</div>
+`;
+
+exports[`<OpenBlock /> matches snapshot 32`] = `
+<div>
+  <RatingBlock
+    name="Overall"
+    rating={0}
+    txt="Fuga placeat odio est quos voluptates in."
+  />
+  <RatingBlock
+    name="Aroma"
+    rating={3}
+  />
+  <RatingBlock
+    name="Taste"
+    rating={1}
+  />
+  <RatingBlock
+    name="Heat"
+    rating={4}
+  />
+</div>
+`;
