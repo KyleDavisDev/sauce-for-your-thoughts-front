@@ -89,4 +89,20 @@ describe("<OpenBlock />", () => {
       expect(wrapper.find("RatingBlock[name='Label']").exists()).toBeTruthy();
     });
   });
+
+  it("renders a RatingBlock component for Heat if Heat is valid", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // Grab heat
+      const {
+        review: { heat }
+      } = props[ind];
+
+      // Make sure heat is legit
+      if (!heat) return;
+      if (heat.rating === 0 && heat.txt.length === 0) return;
+
+      // Find component
+      expect(wrapper.find("RatingBlock[name='Heat']").exists()).toBeTruthy();
+    });
+  });
 });
