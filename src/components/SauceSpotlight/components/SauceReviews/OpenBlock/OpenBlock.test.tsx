@@ -120,6 +120,21 @@ describe("<OpenBlock />", () => {
     });
   });
 
+  it("does not render a RatingBlock component for Label if Label is invalid", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // Grab label
+      const {
+        review: { label }
+      } = props[ind];
+
+      // Make sure label is invalid
+      if (label && (label?.rating > 0 || label?.txt?.length > 0)) return;
+
+      // Look for component -- should not find it
+      expect(wrapper.find("RatingBlock[name='Label']").exists()).toBeFalsy();
+    });
+  });
+
   it("renders a RatingBlock component for Heat if Heat is valid", () => {
     wrappers.forEach((wrapper, ind) => {
       // Grab heat
