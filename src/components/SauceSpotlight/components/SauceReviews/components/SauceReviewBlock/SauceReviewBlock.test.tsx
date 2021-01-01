@@ -53,4 +53,10 @@ describe("<SauceReviewBlock />", () => {
       expect(wrapper.find("AuthorBlock").exists()).toBeTruthy();
     });
   });
+
+  it("renders a RatingBlock component by default", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("RatingBlock").exists()).toBeTruthy();
+    });
+  });
 });
