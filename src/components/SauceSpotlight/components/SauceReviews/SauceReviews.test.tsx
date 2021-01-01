@@ -40,7 +40,7 @@ describe("<SauceReviews />", () => {
 
   it("matches snapshot", () => {
     wrappers.forEach(wrapper => {
-      expect(wrapper.exists()).toBeTruthy();
+      expect(wrapper.exists()).toMatchSnapshot();
     });
   });
 });
