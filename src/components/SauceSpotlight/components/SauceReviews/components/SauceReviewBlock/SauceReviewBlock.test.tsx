@@ -41,4 +41,16 @@ describe("<SauceReviewBlock />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it("renders a Button component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("Button").exists()).toBeTruthy();
+    });
+  });
+
+  it("renders an AuthorBlock component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("AuthorBlock").exists()).toBeTruthy();
+    });
+  });
 });
