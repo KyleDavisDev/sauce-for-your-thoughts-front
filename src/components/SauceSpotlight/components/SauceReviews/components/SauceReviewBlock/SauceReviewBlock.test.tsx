@@ -54,6 +54,16 @@ describe("<SauceReviewBlock />", () => {
     });
   });
 
+  it("passes expected params to the AuthorBlock component", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const { created, author } = props[ind].review;
+
+      const authorBlock = wrapper.find("AuthorBlock");
+      expect(authorBlock.prop("created")).toEqual(created);
+      expect(authorBlock.prop("author")).toEqual(author);
+    });
+  });
+
   it("renders a RatingBlock component by default", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("RatingBlock").exists()).toBeTruthy();
