@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import { IUser } from "../../../../../../redux/users/types";
 import { IReview } from "../../../../../../redux/reviews/types";
 import {
   StyledButton,
