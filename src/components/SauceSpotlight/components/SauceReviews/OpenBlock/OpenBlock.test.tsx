@@ -51,7 +51,7 @@ describe("<OpenBlock />", () => {
 
       // Make sure aroma is legit
       if (!aroma) return;
-      if (aroma.rating === 0 && aroma.txt.length === 0) return;
+      if (aroma.rating === 0 && (!aroma.txt || aroma.txt.length === 0)) return;
 
       // Find component
       expect(wrapper.find("RatingBlock[name='Aroma']").exists()).toBeTruthy();
@@ -67,7 +67,7 @@ describe("<OpenBlock />", () => {
 
       // Make sure taste is legit
       if (!taste) return;
-      if (taste.rating === 0 && taste.txt.length === 0) return;
+      if (taste.rating === 0 && (!taste.txt || taste.txt.length === 0)) return;
 
       // Find component
       expect(wrapper.find("RatingBlock[name='Taste']").exists()).toBeTruthy();
@@ -83,7 +83,7 @@ describe("<OpenBlock />", () => {
 
       // Make sure label is legit
       if (!label) return;
-      if (label.rating === 0 && label.txt.length === 0) return;
+      if (label.rating === 0 && (!label.txt || label.txt.length === 0)) return;
 
       // Find component
       expect(wrapper.find("RatingBlock[name='Label']").exists()).toBeTruthy();
@@ -99,10 +99,27 @@ describe("<OpenBlock />", () => {
 
       // Make sure heat is legit
       if (!heat) return;
-      if (heat.rating === 0 && heat.txt.length === 0) return;
+      if (heat.rating === 0 && (!heat.txt || heat.txt.length === 0)) return;
 
       // Find component
       expect(wrapper.find("RatingBlock[name='Heat']").exists()).toBeTruthy();
+    });
+  });
+
+  it("renders a RatingBlock component for Note if Note is valid", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // Grab note
+      const {
+        review: { note }
+      } = props[ind];
+
+      // Make sure note is legit
+      if (!note) return;
+      if (!note.txt) return;
+      if (note.txt.length === 0) return;
+
+      // Find component
+      expect(wrapper.find("RatingBlock[name='Note']").exists()).toBeTruthy();
     });
   });
 });
