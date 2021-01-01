@@ -182,4 +182,19 @@ describe("<OpenBlock />", () => {
       expect(wrapper.find("RatingBlock[name='Note']").exists()).toBeTruthy();
     });
   });
+
+  it("does not render a RatingBlock component for Note if Note is invalid", () => {
+    wrappers.forEach((wrapper, ind) => {
+      // Grab note
+      const {
+        review: { note }
+      } = props[ind];
+
+      // Make sure note is invalid
+      if (note && note?.txt?.length > 0) return;
+
+      // Look for component -- should not find it
+      expect(wrapper.find("RatingBlock[name='Note']").exists()).toBeFalsy();
+    });
+  });
 });
