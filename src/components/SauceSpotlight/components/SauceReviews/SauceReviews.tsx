@@ -16,6 +16,8 @@ const SauceReviews: React.FC<SauceReviewsProps> = props => {
   const _loadingTxt = "loading...";
   const _noReviewsFoundTxt =
     "No reviews found! Have you tried this sauce? Add a review!";
+  const _noResponsiblityText =
+    "The opinions expressed are solely those of the author.";
 
   const { reviews, loading, error } = props;
 
@@ -41,7 +43,7 @@ const SauceReviews: React.FC<SauceReviewsProps> = props => {
     <>
       {/* Reviews */}
       <StyledDescriptor title={`Reviews (${reviews.length})`}>
-        The opinions expressed are solely those of the author.
+        {_noResponsiblityText}
       </StyledDescriptor>
       <div>
         {reviews.map(review => {
