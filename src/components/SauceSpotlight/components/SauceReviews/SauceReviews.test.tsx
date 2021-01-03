@@ -7,11 +7,13 @@ import {
   fakeReview,
   ITERATION_SIZE
 } from "../../../../utils/testUtils/testUtils";
-import { FlashMessageProps } from "../../../FlashMessage/FlashMessage";
 
+const reviews = new Array(casual.integer(0, 10))
+  .fill(null)
+  .map(() => fakeReview());
 const fakeSauceReviewBlocks = (): SauceReviewsProps => {
   return {
-    reviews: [fakeReview()],
+    reviews: casual.random_element([undefined, reviews]),
     loading: casual.boolean,
     error: { isVisible: casual.boolean, text: casual.string }
   };
@@ -68,6 +70,18 @@ describe("<SauceReviews />", () => {
       if (!error.isVisible) return; // skip non-visible errors
 
       expect(wrapper.text()).toContain(error.text);
+    });
+  });
+
+  it("renders no review text if there are no reviews", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const { loading, error, reviews } = props[ind];
+
+      if (loading) return; // skip loading components
+      if (error.isVisible) return; // skip visible errors
+      if (reviews) return; // skip reviews
+
+      expect(wrapper.text()).toContain(_noReviewsFoundTxt);
     });
   });
 });
