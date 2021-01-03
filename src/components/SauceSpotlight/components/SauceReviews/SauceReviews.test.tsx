@@ -17,6 +17,11 @@ const fakeSauceReviewBlocks = (): SauceReviewsProps => {
 };
 
 describe("<SauceReviews />", () => {
+  // defaults from component
+  const _loadingTxt = "loading...";
+  const _noReviewsFoundTxt =
+    "No reviews found! Have you tried this sauce? Add a review!";
+
   let wrappers: any = [];
   let props: SauceReviewsProps[] = [];
 
@@ -41,6 +46,16 @@ describe("<SauceReviews />", () => {
   it("matches snapshot", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.exists()).toMatchSnapshot();
+    });
+  });
+
+  it("renders loading text when loading is true", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const { loading } = props[ind];
+
+      if (!loading) return;
+
+      expect(wrapper.text()).toContain(_loadingTxt);
     });
   });
 });
