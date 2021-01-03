@@ -24,6 +24,8 @@ describe("<SauceReviews />", () => {
   const _loadingTxt = "loading...";
   const _noReviewsFoundTxt =
     "No reviews found! Have you tried this sauce? Add a review!";
+  const _noResponsiblityText =
+    "The opinions expressed are solely those of the author.";
 
   let wrappers: any = [];
   let props: SauceReviewsProps[] = [];
@@ -95,6 +97,19 @@ describe("<SauceReviews />", () => {
       if (reviews.length === 0) return; // skip empty set of reviews
 
       expect(wrapper.find("SauceReviewBlock").length).toEqual(reviews.length);
+    });
+  });
+
+  it("renders Descriptor component when we have reviews", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const { loading, error, reviews } = props[ind];
+
+      if (loading) return; // skip loading components
+      if (error.isVisible) return; // skip visible errors
+      if (!reviews) return; // skip non-reviews
+      if (reviews.length === 0) return; // skip empty set of reviews
+
+      expect(wrapper.find("Descriptor")).toBeTruthy();
     });
   });
 });
