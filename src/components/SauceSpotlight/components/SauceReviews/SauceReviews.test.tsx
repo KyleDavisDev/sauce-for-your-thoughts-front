@@ -84,4 +84,17 @@ describe("<SauceReviews />", () => {
       expect(wrapper.text()).toContain(_noReviewsFoundTxt);
     });
   });
+
+  it("renders SauceReviewBlock component for each review", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const { loading, error, reviews } = props[ind];
+
+      if (loading) return; // skip loading components
+      if (error.isVisible) return; // skip visible errors
+      if (!reviews) return; // skip non-reviews
+      if (reviews.length === 0) return; // skip empty set of reviews
+
+      expect(wrapper.find("SauceReviewBlock").length).toEqual(reviews.length);
+    });
+  });
 });
