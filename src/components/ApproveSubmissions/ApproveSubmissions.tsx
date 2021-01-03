@@ -36,7 +36,7 @@ interface SaucesFromAPI {
   hidden?: boolean;
 }
 
-const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
+const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = () => {
   // init state
   const [sauces, setSauces] = React.useState<SaucesFromAPI[]>([]);
   const [hasQueried, setHasQueried] = React.useState<boolean>(false);
@@ -46,7 +46,7 @@ const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
   const router = useRouter();
 
   // grab token
-  const token = useSelector((store: AppState) => store.users.self.token);
+  const token = useSelector((store: AppState) => store.users.self?.token);
 
   React.useEffect(() => {
     if (!token || token.length === 0) {
@@ -101,9 +101,15 @@ const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
             >
               <StyledImageHolder>
                 {sauce && sauce.photo ? (
-                  <img src={`${sauce.photo}`} />
+                  <img
+                    src={`${sauce.photo}`}
+                    alt={`${sauce.name} user-uploaded image`}
+                  />
                 ) : (
-                  <img src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y_bktfsa.png" />
+                  <img
+                    src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y_bktfsa.png"
+                    alt={"standard sauce image"}
+                  />
                 )}
               </StyledImageHolder>
               <StyledSauceContent>
@@ -145,10 +151,10 @@ const ApproveSubmissions: React.FC<IApproveSubmissionsProps> = props => {
                   <Button>Edit</Button>
                 </Link>
 
-                <Button onClick={e => onDeclineClick(sauce.sauceID)}>
+                <Button onClick={() => onDeclineClick(sauce.sauceID)}>
                   Decline
                 </Button>
-                <Button onClick={e => onApproveClick(sauce.sauceID)}>
+                <Button onClick={() => onApproveClick(sauce.sauceID)}>
                   Approve
                 </Button>
               </StyledButtonContainer>
