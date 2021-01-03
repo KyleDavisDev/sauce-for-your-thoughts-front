@@ -83,3 +83,15 @@ export const TYPES_ADDED = "TYPES_ADDED";
 
 // Collection of possible sauces Action Types
 export type SaucesActionTypes = IAddSaucesAction;
+
+export const DEFAULT_TYPES_OF_SAUCES = [
+  "All",
+  "Hot Sauce",
+  "Marinade",
+  "BBQ Sauce",
+  "Salsa",
+  "Gravy",
+  "Meat Sauce",
+  "Wing Sauce",
+  "Curry"
+];
