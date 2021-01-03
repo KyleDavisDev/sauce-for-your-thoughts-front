@@ -24,7 +24,7 @@ describe("<SauceReviews />", () => {
   const _loadingTxt = "loading...";
   const _noReviewsFoundTxt =
     "No reviews found! Have you tried this sauce? Add a review!";
-  const _noResponsiblityText =
+  const _noResponsibilityText =
     "The opinions expressed are solely those of the author.";
 
   let wrappers: any = [];
@@ -110,6 +110,19 @@ describe("<SauceReviews />", () => {
       if (reviews.length === 0) return; // skip empty set of reviews
 
       expect(wrapper.find("Descriptor")).toBeTruthy();
+    });
+  });
+
+  it("renders passes non-responsibility text to Descriptor component", () => {
+    wrappers.forEach((wrapper, ind) => {
+      const { loading, error, reviews } = props[ind];
+
+      if (loading) return; // skip loading components
+      if (error.isVisible) return; // skip visible errors
+      if (!reviews) return; // skip non-reviews
+      if (reviews.length === 0) return; // skip empty set of reviews
+
+      expect(wrapper.find("Descriptor").text()).toEqual(_noResponsibilityText);
     });
   });
 });
