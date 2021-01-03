@@ -2,7 +2,7 @@ import { IReview } from "../../redux/reviews/types";
 
 export const dummyData: IReview[] = [
   {
-    _id: "58c6a8aafb4d61115815f8b4",
+    reviewID: "58c6a8aafb4d61115815f8b4",
     created: 1575642773,
     sauce: "5",
     author: "1",
@@ -24,7 +24,7 @@ export const dummyData: IReview[] = [
     taste: { rating: 4, txt: "here is some test text" }
   },
   {
-    _id: "58c6a8b8fb4d61115815f8b5",
+    reviewID: "58c6a8b8fb4d61115815f8b5",
     created: 1575642773,
     sauce: "5",
     author: "2",
@@ -34,7 +34,7 @@ export const dummyData: IReview[] = [
     heat: { rating: 5, txt: "On the mild side, but balanced well" }
   },
   {
-    _id: "58c6a8cefb4d61115815f8b6",
+    reviewID: "58c6a8cefb4d61115815f8b6",
     created: 1575642773,
     sauce: "5",
     author: "3",
@@ -50,7 +50,7 @@ export const dummyData: IReview[] = [
     note: { rating: 5, txt: "On the mild side, but balanced well" }
   },
   {
-    _id: "58c6a8e5fb4d61115815f8b7",
+    reviewID: "58c6a8e5fb4d61115815f8b7",
     created: 1575642773,
     sauce: "5",
     author: "4",
@@ -73,7 +73,7 @@ export const dummyData: IReview[] = [
     note: { rating: 4, txt: "here is some test text" }
   },
   {
-    _id: "58c6a8f6fb4d61115815f8b8",
+    reviewID: "58c6a8f6fb4d61115815f8b8",
     created: 1575642773,
     sauce: "5",
     author: "122",
