@@ -11,6 +11,7 @@ import {
   StyledInput,
   StyledButton
 } from "./FilterBarStyle";
+import { DEFAULT_TYPES_OF_SAUCES } from "../../../redux/sauces/types";
 
 export interface FilterBarProps {
   onSubmit: ({
@@ -34,7 +35,10 @@ const FilterBar: React.FunctionComponent<FilterBarProps> = props => {
   // get info from redux
   const { types, orders, limits } = useSelector((store: AppState) => {
     // 1. Find types and create object
-    const _types = { options: store.sauces.types, selected: params.type };
+    const _types = {
+      options: store.sauces.types ?? DEFAULT_TYPES_OF_SAUCES,
+      selected: params.type
+    };
 
     // 2. Find orders and create object
     const _orders = { options: store.sauces.orders, selected: params.order };
@@ -78,7 +82,7 @@ const FilterBar: React.FunctionComponent<FilterBarProps> = props => {
         />
 
         <StyledSelect
-          id="limi"
+          id="limit"
           showLabel={true}
           label={"Limit"}
           name={"limit"}
