@@ -11,18 +11,20 @@ import {
   StyledInput,
   StyledButton
 } from "./BodyStyle";
+import { DEFAULT_TYPES_OF_SAUCES } from "../../../redux/sauces/types";
 
 export interface IBodyProps {}
 
-const Body: React.FunctionComponent<IBodyProps> = props => {
+const Body: React.FunctionComponent<IBodyProps> = () => {
   // component constants
   const _defaultTitleText = "Find your perfect sauce";
 
   const [search, setSearch] = React.useState("");
   const [selectedValue, setSelectedValue] = React.useState("all");
-  const types = useSelector((store: AppState) => {
+  let types = useSelector((store: AppState) => {
     return store.sauces.types;
   });
+  if (!types || types.length === 0) types = DEFAULT_TYPES_OF_SAUCES;
 
   // assign router
   const router = useRouter();
@@ -65,7 +67,7 @@ const Body: React.FunctionComponent<IBodyProps> = props => {
     }
 
     // take person to sauces page w/ prefilled search query
-    router.push(query);
+    await router.push(query);
     return null;
   }
 };
