@@ -30,10 +30,10 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
   // grab info from redux
   const [oldDisplayName, token] = useSelector((store: AppState) => {
     // 1) Find display name
-    const _displayName = store.users.self.displayName;
+    const _displayName = store.users.self?.displayName;
 
     // 2) Find token
-    const _token = store.users.self.token;
+    const _token = store.users.self?.token;
 
     return [_displayName, _token];
   });
@@ -61,6 +61,7 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
         )}
         <form onSubmit={e => onSubmit(e)} style={{ width: "100%" }}>
           <TextInput
+            id={"displayName"}
             type="text"
             onChange={e => setDisplayName(e.target.value)}
             value={displayName}
@@ -71,6 +72,7 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
             requirementText={"Must be at least 6 characters long."}
           />
           <TextInput
+            id={"confirmDisplayName"}
             type="text"
             onChange={e => setConfirmDisplayName(e.target.value)}
             value={confirmDisplayName}
@@ -82,6 +84,7 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
             requirementText={"Must match above."}
           />
           <TextInput
+            id={"password"}
             type="password"
             onChange={e => setPassword(e.target.value)}
             value={password}
@@ -93,7 +96,7 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
           />
 
           <StyledButtonHolder>
-            <Link href="/account/settings">
+            <Link href={"/account/settings"}>
               <Button type="button" displayType="outline">
                 <ArrowLeft /> Settings
               </Button>
@@ -147,7 +150,7 @@ const UpdateDisplayName: React.FC<UpdateDisplayNameProps> = () => {
 
     // Quick sanity check
     if (!token || !oldDisplayName) {
-      router.push("/account/login?return=/account/update/displayName");
+      await router.push("/account/login?return=/account/update/displayName");
       return;
     }
 
