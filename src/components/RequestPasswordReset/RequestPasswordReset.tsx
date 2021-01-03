@@ -39,6 +39,7 @@ const RequestPasswordReset: React.SFC<RequestPasswordResetProps> = () => {
             name={"email"}
             value={email}
             required={true}
+            id={"email"}
           />
           <StyledButton type="submit">Send</StyledButton>
         </form>
