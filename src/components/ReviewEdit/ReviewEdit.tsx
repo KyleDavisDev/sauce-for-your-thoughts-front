@@ -32,7 +32,7 @@ import { AppState } from "../../redux/configureStore";
 
 export interface ReviewEditProps {}
 
-const ReviewEdit: React.FunctionComponent<ReviewEditProps> = props => {
+const ReviewEdit: React.FunctionComponent<ReviewEditProps> = () => {
   // assign router
   const router = useRouter();
 
@@ -67,14 +67,11 @@ const ReviewEdit: React.FunctionComponent<ReviewEditProps> = props => {
 
     // 3. Grab the ID that matches this specific sauce and user
     const _reviewID = Object.keys(_byReviewID).find(key => {
-      // Match author and sauce
-      if (
+      // do we have a match?
+      return (
         _byReviewID[key].author === _displayName &&
         _byReviewID[key].sauce === slug
-      ) {
-        return true;
-      }
-      return false;
+      );
     });
     if (!_reviewID) {
       return [null, _token];
@@ -354,8 +351,9 @@ const ReviewEdit: React.FunctionComponent<ReviewEditProps> = props => {
           overall,
           label,
           note,
-          author: "", // Server will overwrite this
           sauce: slug,
+          reviewID: "", // Server will overwrite this
+          author: "", // Server will overwrite this
           created: 0 // Server will overwrite this
         }
       };
