@@ -42,7 +42,9 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     isDragAccept,
     isDragReject,
     acceptedFiles
-  } = useDropzone({ accept: "image/*" });
+  } = useDropzone({
+    accept: "image/*"
+  });
 
   // get params from props
   const { isImageLocked, setPhoto, setPhotoType, photo } = props;
@@ -51,7 +53,9 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
   React.useEffect(() => {
     async function getFile() {
       const reader = new FileReader();
-      reader.addEventListener("load", () => setUpImg(reader.result));
+      reader.addEventListener("load", () => {
+        setUpImg(reader.result);
+      });
       reader.readAsDataURL(acceptedFiles[0]);
     }
 
@@ -161,9 +165,9 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
               <input {...getInputProps()} />
               <div>Drag-n-drop a file or click to add an image</div>
               <div>Accepted file types: .jpeg, .jpg, .png, .webp</div>
-              <div>
-                Max file size: <strong>3MB</strong>
-              </div>
+              {/*<div>*/}
+              {/*  Max file size: <strong>1.5MB</strong>*/}
+              {/*</div>*/}
             </StyledOutline>
           </div>
         )}
