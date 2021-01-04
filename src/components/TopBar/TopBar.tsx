@@ -11,8 +11,6 @@ const TopBar: React.FC = () => {
     return state.users.self ?? {};
   });
 
-  console.log(token, displayName, avatarURL);
-
   return (
     <header>
       <StyledDiv>{token ? <LoggedInBar /> : <LoggedOutBar />}</StyledDiv>

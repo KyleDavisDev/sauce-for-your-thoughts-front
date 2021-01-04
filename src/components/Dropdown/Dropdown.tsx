@@ -80,7 +80,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
       if (!name) {
         // try assigning again
         const tmp = child.type as { name?: string; displayName?: string };
-        name = tmp.name || tmp.displayName;
+        name = tmp.displayName || tmp.name; // Order matters here since displayName is likely what we want
       }
       // if we still don't have a name, get out
       if (!name) return;
@@ -98,7 +98,6 @@ const Dropdown: React.FC<DropdownProps> = props => {
       }
     });
 
-    console.log(_toggleChild, _menuChild, props.children);
     return [_toggleChild, _menuChild];
   }
 
