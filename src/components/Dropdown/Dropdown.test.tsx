@@ -8,12 +8,17 @@ import {
   ITERATION_SIZE
 } from "../../utils/testUtils/testUtils";
 
-const fakeToggle = () =>
-  React.createElement(
+const fakeToggle = () => {
+  // TODO: Configure to generate a Functional Component for testing instead of element
+  // const tmp:React.FC = () => <div>tmp</div>
+  // tmp.displayName = "yo"
+
+  return React.createElement(
     "div",
     { name: "Toggle", key: casual.uuid },
     fakeJSXElement()
   );
+};
 
 const fakeMenu = () =>
   React.createElement(
