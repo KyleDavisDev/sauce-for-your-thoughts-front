@@ -98,6 +98,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
       }
     });
 
+    console.log(_toggleChild, _menuChild, props.children);
     return [_toggleChild, _menuChild];
   }
 
