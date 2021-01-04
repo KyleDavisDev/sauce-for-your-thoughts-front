@@ -22,7 +22,6 @@ const Toggle: React.FC<ToggleProps> = props => {
     self && self.displayName ? self.displayName : _defaultDisplayName;
   const avatarURL = self && self.avatarURL ? self.avatarURL : _defaultAvatarURL;
 
-  console.log(self, displayName, avatarURL);
   return (
     <StyledButton className={props.className} onClick={props.onClick}>
       <ChevronDown />
