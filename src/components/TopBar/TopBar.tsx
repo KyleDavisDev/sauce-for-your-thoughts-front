@@ -7,8 +7,8 @@ import LoggedOutBar from "./components/LoggedOutBar/LoggedOutBar";
 import { StyledDiv } from "./TopBarStyle";
 
 const TopBar: React.FC = () => {
-  const { token, displayName, avatarURL } = useSelector((state: AppState) => {
-    return state.users.self ?? {};
+  const token = useSelector((state: AppState) => {
+    return state.users.self?.token;
   });
 
   return (

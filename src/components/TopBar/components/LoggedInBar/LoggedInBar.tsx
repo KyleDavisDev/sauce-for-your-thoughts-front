@@ -6,7 +6,7 @@ import Menu from "./components/Menu/Menu";
 
 interface ILoggedInBarProps {}
 
-const LoggedInBar: React.FunctionComponent<ILoggedInBarProps> = props => {
+const LoggedInBar: React.FunctionComponent<ILoggedInBarProps> = () => {
   return (
     <DropDown>
       <Toggle />
