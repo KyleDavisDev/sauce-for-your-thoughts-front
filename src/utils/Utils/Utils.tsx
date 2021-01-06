@@ -31,6 +31,29 @@ class Utils {
     return Object.prototype.toString.call(input) === "[object Number]";
   }
 
+  /** @description Checks if input is a class component
+   *  @param {any} component - any input
+   *  @returns {Boolean}
+   */
+  public static isClassComponent = (component): boolean => {
+    return (
+      typeof component === "function" &&
+      component.prototype &&
+      !!component.prototype.isReactComponent
+    );
+  };
+
+  /** @description Checks if input is a functional component
+   *  @param {any} component - any input
+   *  @returns {Boolean}
+   */
+  public static isFunctionComponent = (component): boolean => {
+    return (
+      typeof component === "object" &&
+      !(component.prototype && component.prototype.isReactComponent)
+    );
+  };
+
   /** @description Converts PascalCase JSON to camelCase
    *  @param {any} o - array/obj/string/etc
    *  @return {any} o - camelCased'd o
