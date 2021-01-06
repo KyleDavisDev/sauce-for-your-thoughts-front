@@ -4,20 +4,13 @@ import * as enzyme from "enzyme";
 import Dropdown, { DropdownProps } from "./Dropdown";
 import {
   casual,
+  fakeFunctionalComponent,
   fakeJSXElement,
   ITERATION_SIZE
 } from "../../utils/testUtils/testUtils";
 
 const fakeToggle = () => {
-  // TODO: Configure to generate a Functional Component for testing instead of element
-  // const tmp:React.FC = () => <div>tmp</div>
-  // tmp.displayName = "yo"
-
-  return React.createElement(
-    "div",
-    { name: "Toggle", key: casual.uuid },
-    fakeJSXElement()
-  );
+  return fakeFunctionalComponent({ displayName: "Toggle" });
 };
 
 const fakeMenu = () =>
