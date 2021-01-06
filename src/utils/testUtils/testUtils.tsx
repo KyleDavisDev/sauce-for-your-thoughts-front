@@ -304,6 +304,18 @@ export const fakeJSXElement = (): JSX.Element => {
   ]);
 };
 
+interface IFakeFunctionalComponent {
+  displayName?: string;
+}
+export const fakeFunctionalComponent = ({
+  displayName
+}: IFakeFunctionalComponent) => {
+  const functionComponent: React.FC = () => <div>{casual.sentence}</div>;
+  functionComponent.displayName = displayName;
+
+  return functionComponent;
+};
+
 const wait = (amount = 0) =>
   new Promise(resolve => setTimeout(resolve, amount));
 
