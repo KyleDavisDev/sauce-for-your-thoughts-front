@@ -1,17 +1,14 @@
 import * as React from "react";
 
-import DropDown from "../../../Dropdown/Dropdown";
-import Toggle from "./components/Toggle/Toggle";
-import Menu from "./components/Menu/Menu";
+import UserDropdown from "./components/UserDropdown/UserDropdown";
 
 interface ILoggedInBarProps {}
 
 const LoggedInBar: React.FunctionComponent<ILoggedInBarProps> = () => {
   return (
-    <DropDown>
-      <Toggle />
-      <Menu />
-    </DropDown>
+    <>
+      <UserDropdown />
+    </>
   );
 };
 
