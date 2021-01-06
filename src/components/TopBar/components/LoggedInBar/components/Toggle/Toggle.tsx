@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 export interface ToggleProps {
   className?: string;
-  onClick?: () => any;
+  onClick?: (e: any) => void;
 }
 
 const Toggle: React.FC<ToggleProps> = props => {
