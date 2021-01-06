@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import styled from "../../theme/styled-components";
+import Utils from "../../utils/Utils/Utils";
 
 const StyledDiv = styled.div`
   position: relative;
@@ -9,7 +10,7 @@ const StyledDiv = styled.div`
 StyledDiv.displayName = "div";
 
 export interface DropdownProps {
-  children: Array<React.ReactElement>;
+  children: Array<React.ReactElement | React.FC>;
   className?: string;
 }
 
@@ -63,6 +64,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
   return (
     <StyledDiv className={props.className} ref={dropDownRef}>
       {ToggleChild}
+      {/*<Toggle*/}
       {isActive && MenuChild}
     </StyledDiv>
   );
@@ -75,18 +77,14 @@ const Dropdown: React.FC<DropdownProps> = props => {
       // Quick escape if we have assignment
       if (_toggleChild !== null && _menuChild !== null) return;
 
-      // grab name of child wherever it's set
-      let name = child.props.name || child.props.displayName;
-      if (!name) {
-        // try assigning again
-        const tmp = child.type as { name?: string; displayName?: string };
-        name = tmp.displayName || tmp.name; // Order matters here since displayName is likely what we want
-      }
-      // if we still don't have a name, get out
+      const name = getChildName(child);
       if (!name) return;
 
+      // TODO: Figure out how to handle React.FC
+      // force conversion to ReactElement
+      const childElem = child as React.ReactElement;
       if (name === "Toggle" && _toggleChild === null) {
-        _toggleChild = React.cloneElement(child, {
+        _toggleChild = React.cloneElement(childElem, {
           onClick: (event: React.MouseEvent) => {
             onToggleClick(event); // pass onclick to child
           }
@@ -94,7 +92,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
       }
 
       if (name === "Menu" && _menuChild === null) {
-        _menuChild = React.cloneElement(child, {});
+        _menuChild = React.cloneElement(childElem, {});
       }
     });
 
@@ -106,6 +104,29 @@ const Dropdown: React.FC<DropdownProps> = props => {
 
     // Show or hide BodyChild based on state
     setIsActive(!isActive);
+  }
+
+  function getChildName(
+    child: React.FC | React.ReactElement
+  ): string | undefined {
+    let name: string | undefined = undefined;
+
+    const isClassComponent = Utils.isClassComponent(child);
+    if (isClassComponent) {
+      const tmp = child as React.ReactElement;
+      name = tmp.props.name || tmp.props.displayName;
+
+      return name;
+    }
+
+    const isFunctionComponent = Utils.isFunctionComponent(child);
+    if (isFunctionComponent) {
+      name = (child as React.FC).displayName;
+
+      return name;
+    }
+
+    return name;
   }
 };
 
