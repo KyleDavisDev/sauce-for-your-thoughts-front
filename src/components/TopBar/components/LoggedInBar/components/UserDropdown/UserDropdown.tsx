@@ -44,14 +44,17 @@ const UserDropdown: React.FC<UserDropdownProps> = props => {
 
   // assign and remove window click event
   React.useEffect(() => {
-    // Needs to be removed when component unmounts
-    window.addEventListener("click", onWindowClick);
+    if (isOpen) {
+      window.addEventListener("click", onWindowClick);
+    } else {
+      window.removeEventListener("click", onWindowClick);
+    }
 
     return () => {
-      // Needs to be removed when component unmounts
+      // Make sure that listener is removed
       window.removeEventListener("click", onWindowClick);
     };
-  }, [onWindowClick]);
+  }, [onWindowClick, isOpen]);
 
   return (
     <StyledDiv ref={dropDownRef}>
