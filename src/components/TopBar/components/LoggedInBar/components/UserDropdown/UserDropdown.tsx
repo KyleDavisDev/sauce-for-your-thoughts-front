@@ -67,7 +67,6 @@ const UserDropdown: React.FC<UserDropdownProps> = () => {
   function onToggleClick(event?: React.MouseEvent): void {
     if (event) event.preventDefault();
 
-    // Show or hide BodyChild based on state
     setIsOpen(!isOpen);
   }
 };
