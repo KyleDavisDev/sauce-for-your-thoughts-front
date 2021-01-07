@@ -12,7 +12,7 @@ StyledDiv.displayName = "div";
 
 export interface UserDropdownProps {}
 
-const UserDropdown: React.FC<UserDropdownProps> = props => {
+const UserDropdown: React.FC<UserDropdownProps> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const dropDownRef = React.useRef(null);
@@ -39,7 +39,7 @@ const UserDropdown: React.FC<UserDropdownProps> = props => {
 
       setIsOpen(false); // Close dropdown
     },
-    [isOpen, props.children]
+    [isOpen]
   );
 
   // assign and remove window click event
