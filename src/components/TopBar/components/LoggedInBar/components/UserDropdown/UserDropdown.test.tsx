@@ -30,4 +30,16 @@ describe("<UserDropdown />", () => {
       expect(wrapper.find("Toggle").exists()).toBeTruthy();
     });
   });
+
+  it("renders Toggle component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("Toggle").exists()).toBeTruthy();
+    });
+  });
+
+  it("does not render Menu component initially", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("Menu").exists()).toBeFalsy();
+    });
+  });
 });
