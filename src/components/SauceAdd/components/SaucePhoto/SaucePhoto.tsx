@@ -47,7 +47,7 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
   });
 
   // get params from props
-  const { setPhoto, setPhotoType, photo } = props;
+  const { setPhoto, photo } = props;
 
   // When file(s) are uploaded, update state
   React.useEffect(() => {
@@ -75,7 +75,7 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     }
 
     // if file provided from parent, go here
-    if (photo && photo !== null && acceptedFiles.length === 0 && !upImg) {
+    if (photo && acceptedFiles.length === 0 && !upImg) {
       acceptedFiles[0] = photo;
       assignFileToState();
 
@@ -216,7 +216,7 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     const canvas: any = previewCanvasRef.current;
     canvas.toBlob(
       blob => {
-        var _file = new File([blob], "name", { type: "image/png" });
+        const _file = new File([blob], "name", { type: "image/png" });
         setPhoto(_file); // send on up!
       },
       "image/png",
