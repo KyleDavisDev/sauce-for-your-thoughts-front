@@ -59,4 +59,13 @@ describe("<UserDropdown />", () => {
       expect(wrapper.find("Menu").exists()).toBeTruthy();
     });
   });
+
+  it("closes Menu component after Toggle is clicked twice", () => {
+    wrappers.forEach(wrapper => {
+      wrapper.find("Toggle").simulate("click");
+      wrapper.find("Toggle").simulate("click");
+
+      expect(wrapper.find("Menu").exists()).toBeFalsy();
+    });
+  });
 });
