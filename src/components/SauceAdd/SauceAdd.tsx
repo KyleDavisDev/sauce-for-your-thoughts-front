@@ -155,9 +155,7 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
             <SaucePhoto
               photo={photo}
               setPhotoType={e => setPhotoType(e)}
-              isImageLocked={isImageLocked}
-              onImageLock={onImageLock}
-              onClearImageClick={onClearImageClick}
+              enabled={isImageLocked}
               setPhoto={e => setPhoto(e)}
             />
 
@@ -262,11 +260,6 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
         type: "warning"
       });
     }
-  }
-
-  function onImageLock(lock: boolean): void {
-    // Update state
-    setIsImageLocked(lock);
   }
 
   function onClearImageClick(): void {
