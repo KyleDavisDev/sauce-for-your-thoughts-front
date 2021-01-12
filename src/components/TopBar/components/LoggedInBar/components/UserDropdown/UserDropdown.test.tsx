@@ -13,6 +13,15 @@ describe("<UserDropdown />", () => {
     });
   });
 
+  afterEach(() => {
+    // Close Menu if open
+    wrappers.forEach(wrapper => {
+      if (wrapper.find("Menu").exists()) {
+        wrapper.find("Toggle").simulate("click");
+      }
+    });
+  });
+
   it("renders", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.exists()).toBeTruthy();
@@ -40,6 +49,14 @@ describe("<UserDropdown />", () => {
   it("does not render Menu component initially", () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find("Menu").exists()).toBeFalsy();
+    });
+  });
+
+  it("renders Menu component after Toggle is clicked", () => {
+    wrappers.forEach(wrapper => {
+      wrapper.find("Toggle").simulate("click");
+
+      expect(wrapper.find("Menu").exists()).toBeTruthy();
     });
   });
 });
