@@ -24,4 +24,10 @@ describe("<UserDropdown />", () => {
       expect(wrapper.exists()).toMatchSnapshot();
     });
   });
+
+  it("renders Toggle component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("Toggle").exists()).toBeTruthy();
+    });
+  });
 });
