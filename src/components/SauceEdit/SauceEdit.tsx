@@ -280,9 +280,7 @@ const SauceEdit: React.FunctionComponent<SauceEditProps> = () => {
                 <SaucePhoto
                   photo={photo}
                   setPhotoType={e => setPhotoType(e)}
-                  isImageLocked={isImageLocked}
-                  onImageLock={onImageLock}
-                  onClearImageClick={onClearImageClick}
+                  enabled={false}
                   setPhoto={e => setPhoto(e)}
                 />
 
