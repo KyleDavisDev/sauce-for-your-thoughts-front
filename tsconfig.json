@@ -24,8 +24,8 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
   },
-  "include": ["./src/**/*", "./@types/**/*"],
+  "include": ["./","./src/**/*", "./@types/**/*"],
   "exclude": ["node_modules"]
 }
