@@ -73,7 +73,7 @@ describe("<TypesOfSauces />", () => {
       const reduxTypes = reduxState.sauces.types;
 
       // compare
-      expect(items?.length).toEqual(reduxTypes.length);
+      expect(items?.length).toEqual(reduxTypes?.length);
     });
   });
 

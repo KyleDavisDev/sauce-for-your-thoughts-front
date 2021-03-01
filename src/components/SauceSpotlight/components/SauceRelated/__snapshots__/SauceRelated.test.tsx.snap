@@ -1,0 +1,535 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SauceRelated /> matches snapshot 1`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 2`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 3`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 4`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 5`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 6`] = `
+<Fragment>
+  <p>
+    Could not find any related sauces!
+  </p>
+</Fragment>
+`;
+
+exports[`<SauceRelated /> matches snapshot 7`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 8`] = `
+<Fragment>
+  <List
+    items={
+      Array [
+        Object {
+          "id": "0-Mrs. Nathan McKenzie",
+          "link": "/sauce/view?s=5be0a11b-6062-4861-a6fe-5454cdcb56c7",
+          "text": "Mrs. Nathan McKenzie",
+        },
+        Object {
+          "id": "1-Mrs. Jeanie Beatty",
+          "link": "/sauce/view?s=d66fbc77-cf53-4292-8efb-2fb158c8cbdf",
+          "text": "Mrs. Jeanie Beatty",
+        },
+        Object {
+          "id": "2-Ms. Savanah Reichert",
+          "link": "/sauce/view?s=a610b540-5919-4a3c-bbda-bb48991f755f",
+          "text": "Ms. Savanah Reichert",
+        },
+        Object {
+          "id": "3-Miss Finn Flatley",
+          "link": "/sauce/view?s=d107e340-ed01-412b-9a71-bd956f48b07c",
+          "text": "Miss Finn Flatley",
+        },
+        Object {
+          "id": "4-Ms. Clark Johns",
+          "link": "/sauce/view?s=80de5331-3519-4127-a455-e002d2b9cbd4",
+          "text": "Ms. Clark Johns",
+        },
+        Object {
+          "id": "5-Miss Clyde Schulist",
+          "link": "/sauce/view?s=c2253f52-83e2-46c4-959e-9bd43bcb2530",
+          "text": "Miss Clyde Schulist",
+        },
+        Object {
+          "id": "6-Miss Morgan Boyle",
+          "link": "/sauce/view?s=3ce2b036-10f7-439d-8760-ac999dd91f92",
+          "text": "Miss Morgan Boyle",
+        },
+        Object {
+          "id": "7-Mrs. Rickie Cassin",
+          "link": "/sauce/view?s=a6420ffa-2e00-4e24-b502-2820d0c45802",
+          "text": "Mrs. Rickie Cassin",
+        },
+        Object {
+          "id": "8-Ms. Odell Olson",
+          "link": "/sauce/view?s=d920d508-01e7-42bf-93b1-90d05e3462bb",
+          "text": "Ms. Odell Olson",
+        },
+        Object {
+          "id": "9-Mrs. Phoebe Tremblay",
+          "link": "/sauce/view?s=6d04a30b-78ba-4699-99e8-ec3998b2826a",
+          "text": "Mrs. Phoebe Tremblay",
+        },
+        Object {
+          "id": "10-Mrs. Clair Streich",
+          "link": "/sauce/view?s=e2c014ec-4ecc-4b04-95f5-d814342efb0f",
+          "text": "Mrs. Clair Streich",
+        },
+        Object {
+          "id": "11-Ms. Shana Cole",
+          "link": "/sauce/view?s=47a4fc35-8583-4029-bac7-7328fdb1f923",
+          "text": "Ms. Shana Cole",
+        },
+        Object {
+          "id": "12-Mrs. Trycia Goldner",
+          "link": "/sauce/view?s=8eeba1d6-4706-419f-b1ba-00d37704a486",
+          "text": "Mrs. Trycia Goldner",
+        },
+        Object {
+          "id": "13-Dr. Dameon Schmidt",
+          "link": "/sauce/view?s=5e7d44d5-38b9-44b6-a917-2d6b0ed2c6e4",
+          "text": "Dr. Dameon Schmidt",
+        },
+        Object {
+          "id": "14-Ms. Kay Mann",
+          "link": "/sauce/view?s=ea473ff1-a1b0-404f-8500-53f89a06d88b",
+          "text": "Ms. Kay Mann",
+        },
+        Object {
+          "id": "15-Ms. Imogene Deckow",
+          "link": "/sauce/view?s=0d7843ea-b70e-4f7a-911e-a0c0b099bbd1",
+          "text": "Ms. Imogene Deckow",
+        },
+        Object {
+          "id": "16-Mrs. Steve Satterfield",
+          "link": "/sauce/view?s=ef65e0df-2281-4d7f-9c33-c90dff53d97a",
+          "text": "Mrs. Steve Satterfield",
+        },
+        Object {
+          "id": "17-Mr. Deron Barton",
+          "link": "/sauce/view?s=019039fa-9d0c-4e83-9fe7-22fc9a35a82a",
+          "text": "Mr. Deron Barton",
+        },
+        Object {
+          "id": "18-Mrs. Alia Dietrich",
+          "link": "/sauce/view?s=e8f28165-59b8-4a7f-8944-0329b4acef68",
+          "text": "Mrs. Alia Dietrich",
+        },
+        Object {
+          "id": "19-Ms. Samir Mueller",
+          "link": "/sauce/view?s=0256f69a-2ca7-4950-95f1-d867f92828c5",
+          "text": "Ms. Samir Mueller",
+        },
+        Object {
+          "id": "20-Mrs. Nelson Jacobi",
+          "link": "/sauce/view?s=c9e183ff-ca9d-4561-9909-2157a1ac442e",
+          "text": "Mrs. Nelson Jacobi",
+        },
+        Object {
+          "id": "21-Mrs. Cecil Leuschke",
+          "link": "/sauce/view?s=1837d3c4-833d-41b9-9994-8a91176baf67",
+          "text": "Mrs. Cecil Leuschke",
+        },
+        Object {
+          "id": "22-Ms. Arnoldo Cummings",
+          "link": "/sauce/view?s=9af37d20-eaf9-41e6-90bd-6b54b28c76d0",
+          "text": "Ms. Arnoldo Cummings",
+        },
+        Object {
+          "id": "23-Mrs. Brice Littel",
+          "link": "/sauce/view?s=a76b4fd9-286c-492a-bf64-f03c6e2cadc2",
+          "text": "Mrs. Brice Littel",
+        },
+        Object {
+          "id": "24-Miss Gladyce Klein",
+          "link": "/sauce/view?s=fb339c1a-10cf-4d97-8803-47539aef8636",
+          "text": "Miss Gladyce Klein",
+        },
+        Object {
+          "id": "25-Dr. Renee Frami",
+          "link": "/sauce/view?s=4753f1ba-e90c-4169-b648-c0485a89c2d4",
+          "text": "Dr. Renee Frami",
+        },
+        Object {
+          "id": "26-Ms. Jasmin Brekke",
+          "link": "/sauce/view?s=b6b7c116-e02e-4458-a4a4-cebcb5577c76",
+          "text": "Ms. Jasmin Brekke",
+        },
+        Object {
+          "id": "27-Ms. Shad Bechtelar",
+          "link": "/sauce/view?s=d1b8b283-457b-48ac-b908-7d42d46027e9",
+          "text": "Ms. Shad Bechtelar",
+        },
+        Object {
+          "id": "28-Miss Helene Lang",
+          "link": "/sauce/view?s=c250053f-27d5-4057-a1b9-9b4784db6a88",
+          "text": "Miss Helene Lang",
+        },
+        Object {
+          "id": "29-Dr. Amalia Kassulke",
+          "link": "/sauce/view?s=321b37a5-36b4-4a32-a7b7-4d345dd7acc4",
+          "text": "Dr. Amalia Kassulke",
+        },
+        Object {
+          "id": "30-Miss Cristian Schaden",
+          "link": "/sauce/view?s=d98fc290-bace-44bb-9bdb-950077d4f305",
+          "text": "Miss Cristian Schaden",
+        },
+        Object {
+          "id": "31-Ms. Payton Botsford",
+          "link": "/sauce/view?s=f7037147-be29-4219-9b02-340b05718271",
+          "text": "Ms. Payton Botsford",
+        },
+      ]
+    }
+    title="Related Sauces"
+  />
+</Fragment>
+`;
+
+exports[`<SauceRelated /> matches snapshot 9`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 10`] = `
+<Fragment>
+  <p>
+    Could not find any related sauces!
+  </p>
+</Fragment>
+`;
+
+exports[`<SauceRelated /> matches snapshot 11`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 12`] = `
+<p>
+  culpa commodi harum repellendus vitae omnis voluptatem
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 13`] = `
+<Fragment>
+  <p>
+    Could not find any related sauces!
+  </p>
+</Fragment>
+`;
+
+exports[`<SauceRelated /> matches snapshot 14`] = `
+<Fragment>
+  <p>
+    Could not find any related sauces!
+  </p>
+</Fragment>
+`;
+
+exports[`<SauceRelated /> matches snapshot 15`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 16`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 17`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 18`] = `
+<Fragment>
+  <List
+    items={
+      Array [
+        Object {
+          "id": "0-Mrs. Camila Frami",
+          "link": "/sauce/view?s=314b3534-07ed-4e4a-98ad-42e8381aa5b1",
+          "text": "Mrs. Camila Frami",
+        },
+        Object {
+          "id": "1-Mr. Presley Orn",
+          "link": "/sauce/view?s=a5e857d3-9805-4637-b8c4-c0f85ae9a02f",
+          "text": "Mr. Presley Orn",
+        },
+        Object {
+          "id": "2-Dr. Guy Weimann",
+          "link": "/sauce/view?s=676bdc6d-206b-43b5-baed-55b476f73cbe",
+          "text": "Dr. Guy Weimann",
+        },
+        Object {
+          "id": "3-Dr. Willow Herman",
+          "link": "/sauce/view?s=fe39aa17-aafb-436d-b5a8-facc45a19d61",
+          "text": "Dr. Willow Herman",
+        },
+        Object {
+          "id": "4-Dr. Glennie Franecki",
+          "link": "/sauce/view?s=4c42c07e-10ab-4ee9-8bfa-4fa6056eee6d",
+          "text": "Dr. Glennie Franecki",
+        },
+        Object {
+          "id": "5-Mrs. Davion Klein",
+          "link": "/sauce/view?s=de473aa4-0abe-4ea7-8fd9-7b49dac33bf4",
+          "text": "Mrs. Davion Klein",
+        },
+        Object {
+          "id": "6-Mrs. Murray Kohler",
+          "link": "/sauce/view?s=2f58b933-db7a-4efe-88a5-28d6855203ca",
+          "text": "Mrs. Murray Kohler",
+        },
+        Object {
+          "id": "7-Ms. Antonetta Krajcik",
+          "link": "/sauce/view?s=47d65f3b-fbef-481d-adbc-2ba4093d5560",
+          "text": "Ms. Antonetta Krajcik",
+        },
+        Object {
+          "id": "8-Mr. Mattie Witting",
+          "link": "/sauce/view?s=b439d739-9063-44b0-ae69-9ca7e840947c",
+          "text": "Mr. Mattie Witting",
+        },
+        Object {
+          "id": "9-Miss Hilma Kreiger",
+          "link": "/sauce/view?s=0b45d106-c211-4a82-a70b-53c0d32b057c",
+          "text": "Miss Hilma Kreiger",
+        },
+        Object {
+          "id": "10-Mrs. Wilson Miller",
+          "link": "/sauce/view?s=3c2e8c09-d4cf-47bb-b85c-bbee8ad4943b",
+          "text": "Mrs. Wilson Miller",
+        },
+        Object {
+          "id": "11-Ms. Kelton Yundt",
+          "link": "/sauce/view?s=0542eafe-cd97-42bc-a4f5-5d3954d12806",
+          "text": "Ms. Kelton Yundt",
+        },
+        Object {
+          "id": "12-Mrs. Pietro Bartoletti",
+          "link": "/sauce/view?s=973a1d7b-2d6f-477c-8e95-c85fc4515bcc",
+          "text": "Mrs. Pietro Bartoletti",
+        },
+        Object {
+          "id": "13-Miss Orval Hansen",
+          "link": "/sauce/view?s=8cb18505-74f6-4a7b-bd46-7f87edb71f3a",
+          "text": "Miss Orval Hansen",
+        },
+        Object {
+          "id": "14-Ms. Kennedi Turner",
+          "link": "/sauce/view?s=f8dbfbca-604a-41ed-96e9-442a81b79d4f",
+          "text": "Ms. Kennedi Turner",
+        },
+        Object {
+          "id": "15-Ms. Rahsaan Ziemann",
+          "link": "/sauce/view?s=1d228422-25b5-412b-bbb4-fa2a4d12a1d3",
+          "text": "Ms. Rahsaan Ziemann",
+        },
+        Object {
+          "id": "16-Dr. Chyna Predovic",
+          "link": "/sauce/view?s=666e1fb7-d387-447d-b00b-4619bb1021cd",
+          "text": "Dr. Chyna Predovic",
+        },
+        Object {
+          "id": "17-Miss Eldridge Homenick",
+          "link": "/sauce/view?s=7331d883-5226-4400-80da-d3e9b2445239",
+          "text": "Miss Eldridge Homenick",
+        },
+        Object {
+          "id": "18-Ms. Mustafa Ebert",
+          "link": "/sauce/view?s=3abc0d62-75b3-45dc-a2e3-f4090970a877",
+          "text": "Ms. Mustafa Ebert",
+        },
+        Object {
+          "id": "19-Ms. Alana Stracke",
+          "link": "/sauce/view?s=1c16dbb9-68be-4f4d-b7c1-77e7207c1728",
+          "text": "Ms. Alana Stracke",
+        },
+        Object {
+          "id": "20-Mr. Malcolm Legros",
+          "link": "/sauce/view?s=704d97cc-bfcf-4a1a-b7f2-91497654ca59",
+          "text": "Mr. Malcolm Legros",
+        },
+        Object {
+          "id": "21-Dr. Reilly Witting",
+          "link": "/sauce/view?s=3ae976b8-2026-4929-b857-5517cd8dae15",
+          "text": "Dr. Reilly Witting",
+        },
+        Object {
+          "id": "22-Ms. Dina Kunde",
+          "link": "/sauce/view?s=032719ac-6977-4879-8cf1-8d56ed47a646",
+          "text": "Ms. Dina Kunde",
+        },
+        Object {
+          "id": "23-Ms. Ines Lehner",
+          "link": "/sauce/view?s=94e91ce1-a59a-4ad7-9e78-4f4af3d45c0e",
+          "text": "Ms. Ines Lehner",
+        },
+        Object {
+          "id": "24-Mrs. Kane Fisher",
+          "link": "/sauce/view?s=e599384e-7def-49b7-b087-3db796b0a599",
+          "text": "Mrs. Kane Fisher",
+        },
+        Object {
+          "id": "25-Miss Joesph Luettgen",
+          "link": "/sauce/view?s=3a1e0375-5f24-48db-8eba-d53d84a1de61",
+          "text": "Miss Joesph Luettgen",
+        },
+        Object {
+          "id": "26-Mrs. Dallas Mayer",
+          "link": "/sauce/view?s=69eca95d-4b06-4079-98a5-819a66134ca3",
+          "text": "Mrs. Dallas Mayer",
+        },
+        Object {
+          "id": "27-Mrs. Lela Altenwerth",
+          "link": "/sauce/view?s=8104ef10-192f-40f6-ad2e-46d81d4cfc85",
+          "text": "Mrs. Lela Altenwerth",
+        },
+        Object {
+          "id": "28-Mr. Marjorie Bailey",
+          "link": "/sauce/view?s=083fe555-39ec-4556-8211-ff477da8003f",
+          "text": "Mr. Marjorie Bailey",
+        },
+        Object {
+          "id": "29-Ms. Berta Keebler",
+          "link": "/sauce/view?s=b7896358-60f1-407c-9bc6-c2b05b076f11",
+          "text": "Ms. Berta Keebler",
+        },
+        Object {
+          "id": "30-Miss Elmo Cassin",
+          "link": "/sauce/view?s=ee624d82-53b0-458c-9369-4a64be1ad85f",
+          "text": "Miss Elmo Cassin",
+        },
+        Object {
+          "id": "31-Mr. Archibald Hayes",
+          "link": "/sauce/view?s=ac400624-1f7a-4b91-abad-40a5187c204a",
+          "text": "Mr. Archibald Hayes",
+        },
+      ]
+    }
+    title="Related Sauces"
+  />
+</Fragment>
+`;
+
+exports[`<SauceRelated /> matches snapshot 19`] = `
+<p>
+  quas aliquid voluptas error non tempora ex
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 20`] = `
+<Fragment>
+  <p>
+    Could not find any related sauces!
+  </p>
+</Fragment>
+`;
+
+exports[`<SauceRelated /> matches snapshot 21`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 22`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 23`] = `
+<p>
+  inventore labore sit vel perferendis ut amet
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 24`] = `
+<p>
+  sit consequatur autem cum est libero voluptatem
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 25`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 26`] = `
+<p>
+  beatae architecto vel sint repellat architecto fugit
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 27`] = `
+<p>
+  dolore molestias quasi expedita est delectus id
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 28`] = `
+<p>
+  id corrupti voluptate facilis assumenda quis ut
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 29`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 30`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 31`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceRelated /> matches snapshot 32`] = `
+<p>
+  loading...
+</p>
+`;

@@ -155,9 +155,7 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
             <SaucePhoto
               photo={photo}
               setPhotoType={e => setPhotoType(e)}
-              isImageLocked={isImageLocked}
-              onImageLock={onImageLock}
-              onClearImageClick={onClearImageClick}
+              enabled={isImageLocked}
               setPhoto={e => setPhoto(e)}
             />
 
@@ -221,7 +219,7 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
 
     // Construct FormData since we are passing image file
     const formData = new FormData();
-    // Create expected suace object
+    // Create expected sauce object
     const sauce: ISauce = {
       author,
       created: 0,
@@ -264,12 +262,7 @@ const SauceAdd: React.FunctionComponent<SauceAddProps> = () => {
     }
   }
 
-  function onImageLock(lock: boolean): void {
-    // Update state
-    setIsImageLocked(lock);
-  }
-
-  function onClearImageClick(event: React.MouseEvent<HTMLButtonElement>): void {
+  function onClearImageClick(): void {
     setIsImageLocked(false);
     setPhoto(undefined);
   }

@@ -5,35 +5,29 @@ import LoggedInBar from "./LoggedInBar";
 import { ITERATION_SIZE } from "../../../../utils/testUtils/testUtils";
 
 describe("<LoggedInBar />", () => {
-  it("renders", () => {
-    new Array(ITERATION_SIZE).fill(null).map(() => {
-      const wrapper = enzyme.shallow(<LoggedInBar />);
+  let wrappers: any = [];
 
+  beforeAll(() => {
+    wrappers = new Array(ITERATION_SIZE).fill(null).map(() => {
+      return enzyme.shallow(<LoggedInBar />);
+    });
+  });
+
+  it("renders", () => {
+    wrappers.forEach(wrapper => {
       expect(wrapper).toBeTruthy();
     });
   });
 
   it("matches snapshot", () => {
-    new Array(ITERATION_SIZE).fill(null).map(() => {
-      const wrapper = enzyme.shallow(<LoggedInBar />);
-
+    wrappers.forEach(wrapper => {
       expect(wrapper).toMatchSnapshot();
     });
   });
 
-  it("renders Toggle component", () => {
-    new Array(ITERATION_SIZE).fill(null).map(() => {
-      const wrapper = enzyme.shallow(<LoggedInBar />);
-
-      expect(wrapper.find("Toggle").exists()).toBeTruthy();
-    });
-  });
-
-  it("renders Menu component", () => {
-    new Array(ITERATION_SIZE).fill(null).map(() => {
-      const wrapper = enzyme.shallow(<LoggedInBar />);
-
-      expect(wrapper.find("Menu").exists()).toBeTruthy();
+  it("renders UserDropdown component", () => {
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find("UserDropdown").exists()).toBeTruthy();
     });
   });
 });

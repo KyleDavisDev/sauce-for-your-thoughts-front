@@ -13,7 +13,6 @@ describe("<TopBar />", () => {
 
   beforeAll(() => {
     mockStores.forEach(mockStore => {
-      // add mounted component to array
       wrappers.push(
         enzyme.mount(
           <Provider store={mockStore}>

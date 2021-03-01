@@ -1,5 +1,7 @@
 import * as React from "react";
+import Compressor from "compressorjs";
 import { useDropzone } from "react-dropzone";
+
 import { Button } from "../../../Button/Button";
 
 import {
@@ -11,13 +13,10 @@ import {
 import { StyledOutline, StyledReactCrop } from "./SaucePhotoStyle";
 
 export interface ISaucePhotoProps {
-  onImageLock: (lock: boolean) => void;
-  onClearImageClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onImageRemove?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  setPhoto: (e: File) => void;
+  setPhoto: (e: File | undefined) => void;
   setPhotoType: (e: string) => void;
-
-  isImageLocked: boolean;
+  enabled?: boolean;
   photo?: File;
 }
 
@@ -33,6 +32,7 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
   const [upImg, setUpImg] = React.useState<any>();
   const imgRef = React.useRef(null);
   const previewCanvasRef = React.useRef(null);
+  const [isImageLocked, setIsImageLocked] = React.useState(!!props.enabled);
 
   // Initialize params for Dropzone
   const {
@@ -42,33 +42,48 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
     isDragAccept,
     isDragReject,
     acceptedFiles
-  } = useDropzone({ accept: "image/*" });
+  } = useDropzone({
+    accept: "image/*"
+  });
 
   // get params from props
-  const { isImageLocked, setPhoto, setPhotoType, photo } = props;
+  const { setPhoto, photo } = props;
 
   // When file(s) are uploaded, update state
   React.useEffect(() => {
-    async function getFile() {
-      const reader = new FileReader();
-      reader.addEventListener("load", () => setUpImg(reader.result));
-      reader.readAsDataURL(acceptedFiles[0]);
+    async function assignFileToState() {
+      const file = acceptedFiles[0] as File;
+
+      new Compressor(file, {
+        quality: 0.6,
+        convertSize: 2000000,
+        success(result) {
+          // Correcting package's type as per documentation
+          const res = result as File | Blob;
+          const objectURL = URL.createObjectURL(res);
+          setUpImg(objectURL);
+        },
+        error(err) {
+          console.log(err.message);
+        }
+      });
     }
 
     // if file uploaded, we go here
     if (acceptedFiles.length > 0) {
-      getFile();
+      assignFileToState();
     }
 
     // if file provided from parent, go here
-    if (photo && photo !== null && acceptedFiles.length === 0 && !upImg) {
+    if (photo && acceptedFiles.length === 0 && !upImg) {
       acceptedFiles[0] = photo;
-      getFile();
+      assignFileToState();
 
       setCrop({
         unit: "%",
         width: 100,
-        height: 100
+        height: 100,
+        aspect: 2 / 3
       });
     }
   }, [acceptedFiles, photo]);
@@ -107,21 +122,24 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
       crop.width * dpr,
       crop.height * dpr
     );
-
-    canvas.toBlob(
-      blob => {
-        // var _file = blobToFile(blob, "image.jpg");
-        var _file = new File([blob], "name", { type: "image/png" });
-        setPhoto(_file);
-      },
-      "image/png",
-      1
-    );
   }, [completedCrop]);
 
-  const onLoad = React.useCallback(img => {
-    imgRef.current = img;
-  }, []);
+  const onImageLoaded = React.useCallback(
+    img => {
+      if (isImageLocked) return;
+      imgRef.current = img;
+
+      setCrop({
+        unit: "%",
+        width: 100,
+        height: 100,
+        aspect: 2 / 3
+      });
+
+      return false; // Return false if you set crop state in here.
+    },
+    [isImageLocked]
+  );
 
   return (
     <StyledRow>
@@ -135,12 +153,12 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
           <>
             <StyledReactCrop
               src={upImg}
+              onImageLoaded={onImageLoaded}
               crop={crop}
-              ruleOfThirds
-              onChange={(c: any) => setCrop(c)}
-              disabled={isImageLocked}
-              onImageLoaded={onLoad}
+              onChange={c => setCrop(c)}
               onComplete={c => setCompletedCrop(c)}
+              ruleOfThirds
+              disabled={isImageLocked}
             />
             <div>
               <canvas
@@ -161,36 +179,60 @@ const SaucePhoto: React.FunctionComponent<ISaucePhotoProps> = props => {
               <input {...getInputProps()} />
               <div>Drag-n-drop a file or click to add an image</div>
               <div>Accepted file types: .jpeg, .jpg, .png, .webp</div>
-              <div>
-                Max file size: <strong>3MB</strong>
-              </div>
+              {/*<div>*/}
+              {/*  Max file size: <strong>1.5MB</strong>*/}
+              {/*</div>*/}
             </StyledOutline>
           </div>
         )}
 
-        <StyledImageButtonContainer>
-          <Button onClick={onImageLock}>
-            {isImageLocked ? "Unlock Image" : "Lock Image"}
-          </Button>
+        {upImg && (
+          <StyledImageButtonContainer>
+            {isImageLocked ? (
+              <Button displayType="solid" onClick={onImageRemove}>
+                Remove Image
+              </Button>
+            ) : (
+              <Button displayType="solid" onClick={onImageLock}>
+                Save Image
+              </Button>
+            )}
 
-          <Button onClick={props.onClearImageClick}>Clear Image</Button>
-        </StyledImageButtonContainer>
+            <Button displayType="outline" onClick={onClearImageClick}>
+              Clear Image
+            </Button>
+          </StyledImageButtonContainer>
+        )}
       </StyledPhotoContainer>
     </StyledRow>
   );
 
   function onImageLock(): void {
-    props.onImageLock(!isImageLocked);
+    sendBlobToParent();
+    setIsImageLocked(!isImageLocked);
   }
 
-  function blobToFile(theBlob: Blob, fileName: string): File {
-    var b: any = theBlob;
-    //A Blob() is almost a File() - it's just missing the two properties below which we will add
-    b.lastModifiedDate = new Date();
-    b.name = fileName;
+  function sendBlobToParent(): void {
+    const canvas: any = previewCanvasRef.current;
+    canvas.toBlob(
+      blob => {
+        const _file = new File([blob], "name", { type: "image/png" });
+        setPhoto(_file); // send on up!
+      },
+      "image/png",
+      1
+    );
+  }
 
-    //Cast to a File() type
-    return theBlob as File;
+  function onImageRemove(): void {
+    setUpImg(undefined);
+    setIsImageLocked(!isImageLocked);
+  }
+
+  function onClearImageClick(): void {
+    setIsImageLocked(false);
+    setPhoto(undefined);
+    setUpImg(undefined);
   }
 };
 

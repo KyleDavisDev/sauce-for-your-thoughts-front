@@ -10,7 +10,11 @@ import {
   IUserUpdateAvatar,
   IUserResetPassword
 } from "../../redux/users/types";
-import { IReview, IReviewToServer } from "../../redux/reviews/types";
+import {
+  IReview,
+  IReviewAPI,
+  IReviewToServer
+} from "../../redux/reviews/types";
 import Err, { IErrReturn } from "../Err/Err";
 import { UserInfo } from "./types";
 
@@ -817,10 +821,10 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    add: (data: IReviewToServer): Promise<IReview> =>
+    add: (data: IReviewToServer): Promise<IReviewAPI> =>
       axios.post(`${host}/api/review/add`, data).then((res: any) => {
         if (res.data.isGood) {
-          const review = res.data.review as IReview;
+          const review = res.data.review as IReviewAPI;
           return review;
         }
 
@@ -840,10 +844,10 @@ export const API = {
      *
      *  @reject {String} error message
      */
-    get: (data: { sauce: { slug: string } }): Promise<IReview> =>
+    get: (data: { sauce: { slug: string } }): Promise<IReviewAPI> =>
       axios.post(`${host}/api/review/get`, data).then((res: any) => {
         if (res.data.isGood) {
-          const review = res.data.review as IReview;
+          const review = res.data.review as IReviewAPI;
           return review;
         }
 

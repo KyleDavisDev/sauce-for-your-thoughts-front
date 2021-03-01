@@ -27,25 +27,25 @@ exports[`<Profile /> matches snapshot 1`] = `
           >
             <div>
               <img
-                alt="Dr. Lew Wisozk"
+                alt="Me"
                 height="50"
                 onError={[Function]}
-                src="http://www.Schultz.tv/"
+                src="http://Evelyn.com/"
                 width="50"
               >
                 <img
-                  alt="Dr. Lew Wisozk"
+                  alt="Me"
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
-                  src="http://www.Schultz.tv/"
+                  src="http://Evelyn.com/"
                   width="50"
                 />
               </img>
             </div>
             <div>
               <h3>
-                Dr. Lew Wisozk
+                Me
               </h3>
               <h4>
                 Sauce Fanatic
@@ -61,11 +61,11 @@ exports[`<Profile /> matches snapshot 1`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -146,11 +146,11 @@ exports[`<Profile /> matches snapshot 2`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -197,25 +197,25 @@ exports[`<Profile /> matches snapshot 3`] = `
           >
             <div>
               <img
-                alt="Me"
+                alt="Mrs. Flavie VonRueden"
                 height="50"
                 onError={[Function]}
-                src=""
+                src="http://Altenwerth.biz/"
                 width="50"
               >
                 <img
-                  alt="Me"
+                  alt="Mrs. Flavie VonRueden"
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
-                  src=""
+                  src="http://Altenwerth.biz/"
                   width="50"
                 />
               </img>
             </div>
             <div>
               <h3>
-                Me
+                Mrs. Flavie VonRueden
               </h3>
               <h4>
                 Sauce Fanatic
@@ -231,11 +231,11 @@ exports[`<Profile /> matches snapshot 3`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -316,11 +316,11 @@ exports[`<Profile /> matches snapshot 4`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -367,14 +367,14 @@ exports[`<Profile /> matches snapshot 5`] = `
           >
             <div>
               <img
-                alt="Me"
+                alt="Mrs. Emmanuelle Howe"
                 height="50"
                 onError={[Function]}
                 src=""
                 width="50"
               >
                 <img
-                  alt="Me"
+                  alt="Mrs. Emmanuelle Howe"
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
@@ -385,7 +385,7 @@ exports[`<Profile /> matches snapshot 5`] = `
             </div>
             <div>
               <h3>
-                Me
+                Mrs. Emmanuelle Howe
               </h3>
               <h4>
                 Sauce Fanatic
@@ -401,11 +401,11 @@ exports[`<Profile /> matches snapshot 5`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -486,11 +486,11 @@ exports[`<Profile /> matches snapshot 6`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -511,6 +511,91 @@ exports[`<Profile /> matches snapshot 6`] = `
 `;
 
 exports[`<Profile /> matches snapshot 7`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Profile>
+    <styled.a
+      href="#"
+    >
+      <a
+        className="sc-AxjAm kuwTYD"
+        href="#"
+      >
+        <div>
+          <div
+            className="sc-AxirZ ivtElj"
+          >
+            <div>
+              <img
+                alt="Ms. Bradly Bode"
+                height="50"
+                onError={[Function]}
+                src="http://Terrance.co.uk/"
+                width="50"
+              >
+                <img
+                  alt="Ms. Bradly Bode"
+                  className="sc-AxiKw nuWWp"
+                  height="50"
+                  onError={[Function]}
+                  src="http://Terrance.co.uk/"
+                  width="50"
+                />
+              </img>
+            </div>
+            <div>
+              <h3>
+                Ms. Bradly Bode
+              </h3>
+              <h4>
+                Sauce Fanatic
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            className="sc-AxhCb guHPYI"
+          >
+            <Button
+              displayType="outline"
+            >
+              <Button
+                className="sc-AxhUy lhFQOV"
+                displayType="outline"
+              >
+                <div
+                  className="sc-AxhUy lhFQOV"
+                >
+                  <button
+                    aria-disabled={false}
+                    disabled={false}
+                    type="button"
+                  >
+                    View profile (Coming Soon)
+                  </button>
+                </div>
+              </Button>
+            </Button>
+          </div>
+        </div>
+      </a>
+    </styled.a>
+  </Profile>
+</Provider>
+`;
+
+exports[`<Profile /> matches snapshot 8`] = `
 <Provider
   store={
     Object {
@@ -571,96 +656,11 @@ exports[`<Profile /> matches snapshot 7`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
-                >
-                  <button
-                    aria-disabled={false}
-                    disabled={false}
-                    type="button"
-                  >
-                    View profile (Coming Soon)
-                  </button>
-                </div>
-              </Button>
-            </Button>
-          </div>
-        </div>
-      </a>
-    </styled.a>
-  </Profile>
-</Provider>
-`;
-
-exports[`<Profile /> matches snapshot 8`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Profile>
-    <styled.a
-      href="#"
-    >
-      <a
-        className="sc-AxjAm kuwTYD"
-        href="#"
-      >
-        <div>
-          <div
-            className="sc-AxirZ ivtElj"
-          >
-            <div>
-              <img
-                alt="Me"
-                height="50"
-                onError={[Function]}
-                src="http://www.Williamson.biz/"
-                width="50"
-              >
-                <img
-                  alt="Me"
-                  className="sc-AxiKw nuWWp"
-                  height="50"
-                  onError={[Function]}
-                  src="http://www.Williamson.biz/"
-                  width="50"
-                />
-              </img>
-            </div>
-            <div>
-              <h3>
-                Me
-              </h3>
-              <h4>
-                Sauce Fanatic
-              </h4>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div
-            className="sc-AxhCb guHPYI"
-          >
-            <Button
-              displayType="outline"
-            >
-              <Button
-                className="sc-AxhUy cJvrET"
-                displayType="outline"
-              >
-                <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -741,11 +741,11 @@ exports[`<Profile /> matches snapshot 9`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -792,25 +792,25 @@ exports[`<Profile /> matches snapshot 10`] = `
           >
             <div>
               <img
-                alt="Mr. Era Armstrong"
+                alt="Me"
                 height="50"
                 onError={[Function]}
-                src="http://www.Hoppe.biz/"
+                src=""
                 width="50"
               >
                 <img
-                  alt="Mr. Era Armstrong"
+                  alt="Me"
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
-                  src="http://www.Hoppe.biz/"
+                  src=""
                   width="50"
                 />
               </img>
             </div>
             <div>
               <h3>
-                Mr. Era Armstrong
+                Me
               </h3>
               <h4>
                 Sauce Fanatic
@@ -826,11 +826,11 @@ exports[`<Profile /> matches snapshot 10`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -880,7 +880,7 @@ exports[`<Profile /> matches snapshot 11`] = `
                 alt="Me"
                 height="50"
                 onError={[Function]}
-                src="http://www.Jamar.us/"
+                src=""
                 width="50"
               >
                 <img
@@ -888,7 +888,7 @@ exports[`<Profile /> matches snapshot 11`] = `
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
-                  src="http://www.Jamar.us/"
+                  src=""
                   width="50"
                 />
               </img>
@@ -911,11 +911,11 @@ exports[`<Profile /> matches snapshot 11`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -962,14 +962,14 @@ exports[`<Profile /> matches snapshot 12`] = `
           >
             <div>
               <img
-                alt="Mrs. Kevin Schmeler"
+                alt="Me"
                 height="50"
                 onError={[Function]}
                 src=""
                 width="50"
               >
                 <img
-                  alt="Mrs. Kevin Schmeler"
+                  alt="Me"
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
@@ -980,7 +980,7 @@ exports[`<Profile /> matches snapshot 12`] = `
             </div>
             <div>
               <h3>
-                Mrs. Kevin Schmeler
+                Me
               </h3>
               <h4>
                 Sauce Fanatic
@@ -996,11 +996,11 @@ exports[`<Profile /> matches snapshot 12`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -1050,7 +1050,7 @@ exports[`<Profile /> matches snapshot 13`] = `
                 alt="Me"
                 height="50"
                 onError={[Function]}
-                src="http://Lemke.biz/"
+                src=""
                 width="50"
               >
                 <img
@@ -1058,7 +1058,7 @@ exports[`<Profile /> matches snapshot 13`] = `
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
-                  src="http://Lemke.biz/"
+                  src=""
                   width="50"
                 />
               </img>
@@ -1081,11 +1081,11 @@ exports[`<Profile /> matches snapshot 13`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -1166,11 +1166,11 @@ exports[`<Profile /> matches snapshot 14`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -1220,7 +1220,7 @@ exports[`<Profile /> matches snapshot 15`] = `
                 alt="Me"
                 height="50"
                 onError={[Function]}
-                src="http://Enoch.net/"
+                src=""
                 width="50"
               >
                 <img
@@ -1228,7 +1228,7 @@ exports[`<Profile /> matches snapshot 15`] = `
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
-                  src="http://Enoch.net/"
+                  src=""
                   width="50"
                 />
               </img>
@@ -1251,11 +1251,11 @@ exports[`<Profile /> matches snapshot 15`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -1336,11 +1336,11 @@ exports[`<Profile /> matches snapshot 16`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -1421,11 +1421,11 @@ exports[`<Profile /> matches snapshot 17`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -1472,25 +1472,25 @@ exports[`<Profile /> matches snapshot 18`] = `
           >
             <div>
               <img
-                alt="Mrs. Virginie Renner"
+                alt="Me"
                 height="50"
                 onError={[Function]}
-                src=""
+                src="http://Yost.biz/"
                 width="50"
               >
                 <img
-                  alt="Mrs. Virginie Renner"
+                  alt="Me"
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
-                  src=""
+                  src="http://Yost.biz/"
                   width="50"
                 />
               </img>
             </div>
             <div>
               <h3>
-                Mrs. Virginie Renner
+                Me
               </h3>
               <h4>
                 Sauce Fanatic
@@ -1506,11 +1506,11 @@ exports[`<Profile /> matches snapshot 18`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -1557,14 +1557,14 @@ exports[`<Profile /> matches snapshot 19`] = `
           >
             <div>
               <img
-                alt="Miss Velva Wiza"
+                alt="Me"
                 height="50"
                 onError={[Function]}
                 src=""
                 width="50"
               >
                 <img
-                  alt="Miss Velva Wiza"
+                  alt="Me"
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
@@ -1575,7 +1575,7 @@ exports[`<Profile /> matches snapshot 19`] = `
             </div>
             <div>
               <h3>
-                Miss Velva Wiza
+                Me
               </h3>
               <h4>
                 Sauce Fanatic
@@ -1591,11 +1591,11 @@ exports[`<Profile /> matches snapshot 19`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -1642,25 +1642,25 @@ exports[`<Profile /> matches snapshot 20`] = `
           >
             <div>
               <img
-                alt="Mr. Gerhard Lemke"
+                alt="Me"
                 height="50"
                 onError={[Function]}
-                src=""
+                src="http://Jaycee.biz/"
                 width="50"
               >
                 <img
-                  alt="Mr. Gerhard Lemke"
+                  alt="Me"
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
-                  src=""
+                  src="http://Jaycee.biz/"
                   width="50"
                 />
               </img>
             </div>
             <div>
               <h3>
-                Mr. Gerhard Lemke
+                Me
               </h3>
               <h4>
                 Sauce Fanatic
@@ -1676,11 +1676,11 @@ exports[`<Profile /> matches snapshot 20`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -1761,11 +1761,11 @@ exports[`<Profile /> matches snapshot 21`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -1815,7 +1815,7 @@ exports[`<Profile /> matches snapshot 22`] = `
                 alt="Me"
                 height="50"
                 onError={[Function]}
-                src=""
+                src="http://Lew.us/"
                 width="50"
               >
                 <img
@@ -1823,7 +1823,7 @@ exports[`<Profile /> matches snapshot 22`] = `
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
-                  src=""
+                  src="http://Lew.us/"
                   width="50"
                 />
               </img>
@@ -1846,11 +1846,11 @@ exports[`<Profile /> matches snapshot 22`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -1931,11 +1931,11 @@ exports[`<Profile /> matches snapshot 23`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -1982,14 +1982,14 @@ exports[`<Profile /> matches snapshot 24`] = `
           >
             <div>
               <img
-                alt="Me"
+                alt="Mrs. Deion Schaefer"
                 height="50"
                 onError={[Function]}
                 src=""
                 width="50"
               >
                 <img
-                  alt="Me"
+                  alt="Mrs. Deion Schaefer"
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
@@ -2000,7 +2000,7 @@ exports[`<Profile /> matches snapshot 24`] = `
             </div>
             <div>
               <h3>
-                Me
+                Mrs. Deion Schaefer
               </h3>
               <h4>
                 Sauce Fanatic
@@ -2016,11 +2016,11 @@ exports[`<Profile /> matches snapshot 24`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -2101,11 +2101,11 @@ exports[`<Profile /> matches snapshot 25`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -2186,11 +2186,11 @@ exports[`<Profile /> matches snapshot 26`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -2211,91 +2211,6 @@ exports[`<Profile /> matches snapshot 26`] = `
 `;
 
 exports[`<Profile /> matches snapshot 27`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Profile>
-    <styled.a
-      href="#"
-    >
-      <a
-        className="sc-AxjAm kuwTYD"
-        href="#"
-      >
-        <div>
-          <div
-            className="sc-AxirZ ivtElj"
-          >
-            <div>
-              <img
-                alt="Dr. Stephania Terry"
-                height="50"
-                onError={[Function]}
-                src="http://www.Ora.ca/"
-                width="50"
-              >
-                <img
-                  alt="Dr. Stephania Terry"
-                  className="sc-AxiKw nuWWp"
-                  height="50"
-                  onError={[Function]}
-                  src="http://www.Ora.ca/"
-                  width="50"
-                />
-              </img>
-            </div>
-            <div>
-              <h3>
-                Dr. Stephania Terry
-              </h3>
-              <h4>
-                Sauce Fanatic
-              </h4>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div
-            className="sc-AxhCb guHPYI"
-          >
-            <Button
-              displayType="outline"
-            >
-              <Button
-                className="sc-AxhUy cJvrET"
-                displayType="outline"
-              >
-                <div
-                  className="sc-AxhUy cJvrET"
-                >
-                  <button
-                    aria-disabled={false}
-                    disabled={false}
-                    type="button"
-                  >
-                    View profile (Coming Soon)
-                  </button>
-                </div>
-              </Button>
-            </Button>
-          </div>
-        </div>
-      </a>
-    </styled.a>
-  </Profile>
-</Provider>
-`;
-
-exports[`<Profile /> matches snapshot 28`] = `
 <Provider
   store={
     Object {
@@ -2356,11 +2271,96 @@ exports[`<Profile /> matches snapshot 28`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
+                >
+                  <button
+                    aria-disabled={false}
+                    disabled={false}
+                    type="button"
+                  >
+                    View profile (Coming Soon)
+                  </button>
+                </div>
+              </Button>
+            </Button>
+          </div>
+        </div>
+      </a>
+    </styled.a>
+  </Profile>
+</Provider>
+`;
+
+exports[`<Profile /> matches snapshot 28`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Profile>
+    <styled.a
+      href="#"
+    >
+      <a
+        className="sc-AxjAm kuwTYD"
+        href="#"
+      >
+        <div>
+          <div
+            className="sc-AxirZ ivtElj"
+          >
+            <div>
+              <img
+                alt="Mrs. Jessica Hand"
+                height="50"
+                onError={[Function]}
+                src=""
+                width="50"
+              >
+                <img
+                  alt="Mrs. Jessica Hand"
+                  className="sc-AxiKw nuWWp"
+                  height="50"
+                  onError={[Function]}
+                  src=""
+                  width="50"
+                />
+              </img>
+            </div>
+            <div>
+              <h3>
+                Mrs. Jessica Hand
+              </h3>
+              <h4>
+                Sauce Fanatic
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            className="sc-AxhCb guHPYI"
+          >
+            <Button
+              displayType="outline"
+            >
+              <Button
+                className="sc-AxhUy lhFQOV"
+                displayType="outline"
+              >
+                <div
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -2407,25 +2407,25 @@ exports[`<Profile /> matches snapshot 29`] = `
           >
             <div>
               <img
-                alt="Ms. Reece Simonis"
+                alt="Me"
                 height="50"
                 onError={[Function]}
-                src="http://Armani.org/"
+                src="http://Moore.org/"
                 width="50"
               >
                 <img
-                  alt="Ms. Reece Simonis"
+                  alt="Me"
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
-                  src="http://Armani.org/"
+                  src="http://Moore.org/"
                   width="50"
                 />
               </img>
             </div>
             <div>
               <h3>
-                Ms. Reece Simonis
+                Me
               </h3>
               <h4>
                 Sauce Fanatic
@@ -2441,11 +2441,11 @@ exports[`<Profile /> matches snapshot 29`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -2492,25 +2492,25 @@ exports[`<Profile /> matches snapshot 30`] = `
           >
             <div>
               <img
-                alt="Miss Colin Kunde"
+                alt="Me"
                 height="50"
                 onError={[Function]}
-                src="http://www.Schmidt.org/"
+                src=""
                 width="50"
               >
                 <img
-                  alt="Miss Colin Kunde"
+                  alt="Me"
                   className="sc-AxiKw nuWWp"
                   height="50"
                   onError={[Function]}
-                  src="http://www.Schmidt.org/"
+                  src=""
                   width="50"
                 />
               </img>
             </div>
             <div>
               <h3>
-                Miss Colin Kunde
+                Me
               </h3>
               <h4>
                 Sauce Fanatic
@@ -2526,11 +2526,11 @@ exports[`<Profile /> matches snapshot 30`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -2611,11 +2611,11 @@ exports[`<Profile /> matches snapshot 31`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}
@@ -2696,11 +2696,11 @@ exports[`<Profile /> matches snapshot 32`] = `
               displayType="outline"
             >
               <Button
-                className="sc-AxhUy cJvrET"
+                className="sc-AxhUy lhFQOV"
                 displayType="outline"
               >
                 <div
-                  className="sc-AxhUy cJvrET"
+                  className="sc-AxhUy lhFQOV"
                 >
                   <button
                     aria-disabled={false}

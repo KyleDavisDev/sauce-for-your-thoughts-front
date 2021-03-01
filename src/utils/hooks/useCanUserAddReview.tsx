@@ -14,7 +14,7 @@ export function useCanUserAddReview(): [boolean, IErrParams] {
     msg: "",
     status: 0
   });
-  const token = useSelector((store: AppState) => store.users.self.token);
+  const token = useSelector((store: AppState) => store.users.self?.token);
 
   // assign router
   const router = useRouter();
@@ -24,8 +24,9 @@ export function useCanUserAddReview(): [boolean, IErrParams] {
     if (!token || token.length === 0) {
       setError({
         isGood: false,
-        msg: "Oops! Looks like we were unable to determine who you are.",
-        status: 401 // unauthorized
+        msg:
+          "Oops! Looks like you need to log in first. Redirecting you now...",
+        status: 403 // forbidden
       });
       setCanUserAddReview(false);
       return;

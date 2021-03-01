@@ -3,11 +3,11 @@ import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk, { ThunkAction, ThunkDispatch } from "redux-thunk";
 import flashMessage from "./flashMessage/reducer";
 import reviews from "./reviews/reducer";
-import { IReview } from "./reviews/types";
+import { IReview, IReviewState } from "./reviews/types";
 import sauces from "./sauces/reducer";
 import users from "./users/reducer";
 import { IUser, IUserState } from "./users/types";
-import { ISaucesState } from "./sauces/types";
+import { DEFAULT_TYPES_OF_SAUCES, ISaucesState } from "./sauces/types";
 
 const rootReducer = combineReducers({
   flashMessage,
@@ -18,11 +18,8 @@ const rootReducer = combineReducers({
 
 export interface AppState {
   sauces: ISaucesState;
-  users: IUserState,
-  reviews: {
-    byReviewID?: { [key: string]: IReview };
-    allReviewIDs?: string[];
-  };
+  users: IUserState;
+  reviews: IReviewState;
 }
 
 export const configureStore = (initState?: AppState) => {
@@ -34,17 +31,7 @@ export const configureStore = (initState?: AppState) => {
             bySlug: {},
             total: 0,
             query: {},
-            types: [
-              "All",
-              "Hot Sauce",
-              "Marinade",
-              "BBQ Sauce",
-              "Salsa",
-              "Gravy",
-              "Meat Sauce",
-              "Wing Sauce",
-              "Curry"
-            ],
+            types: DEFAULT_TYPES_OF_SAUCES,
             orders: ["Newest", "Name", "Times Reviewed", "Avg Rating"],
             saucesWithNewestReviews: [],
             newest: [],

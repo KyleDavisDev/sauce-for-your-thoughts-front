@@ -1,0 +1,2318 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AuthorBlock /> matches snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    author="Miss Joaquin Crooks"
+    created={1301844890}
+    overall={
+      Object {
+        "rating": 2,
+        "txt": "Sit dolorem quod consequuntur impedit.",
+      }
+    }
+    reviewID="d88b96f9-e37c-404f-bac5-5c2bc4e31912"
+    sauce="Dr. Carol Sanford"
+    taste={
+      Object {
+        "rating": 1,
+        "txt": "Necessitatibus consequatur aut sit omnis quia totam magni adipisci.",
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Miss Joaquin Crooks
+             
+            <img
+              src="http://Kautzer.info/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Kautzer.info/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        April 3, 2011
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 2`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={706432387}
+    aroma={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+    author="Dr. Kristian Beatty"
+    created={969235273}
+    heat={
+      Object {
+        "rating": 4,
+        "txt": "Est velit dolor.",
+      }
+    }
+    label={
+      Object {
+        "rating": 1,
+        "txt": "Quis nihil rerum porro aut quas assumenda et ut est.",
+      }
+    }
+    overall={
+      Object {
+        "rating": 1,
+        "txt": "Voluptatem eius qui ratione delectus dicta consequuntur et.",
+      }
+    }
+    reviewID="cb687f57-0692-4e8e-bddb-aa49fe8b3acc"
+    sauce="Miss Jarrett Carroll"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Dr. Kristian Beatty
+             
+            <img
+              src="http://www.Wilderman.com/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://www.Wilderman.com/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        September 17, 2000
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 3`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    author="Miss Daniela Brown"
+    created={98193287}
+    heat={
+      Object {
+        "rating": 3,
+        "txt": "Porro ea qui quis aliquam voluptatum.",
+      }
+    }
+    label={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 4,
+        "txt": "Tenetur similique qui tempora facilis ea quidem.",
+      }
+    }
+    reviewID="2489b24a-c4ec-4539-bdc7-b43ba2fe96ef"
+    sauce="Miss Edison Rosenbaum"
+    taste={
+      Object {
+        "rating": 5,
+        "txt": undefined,
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Miss Daniela Brown
+             
+            <img
+              src="http://Lang.net/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Lang.net/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        February 10, 1973
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 4`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={71020379}
+    aroma={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+    author="Mr. Junior Hegmann"
+    created={408380850}
+    label={
+      Object {
+        "rating": 3,
+        "txt": "Ad eius molestiae iure nobis dolorum et culpa.",
+      }
+    }
+    note={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+    reviewID="138fdf02-5803-458f-8081-6e773231ab3d"
+    sauce="Dr. Ernie Leuschke"
+    taste={
+      Object {
+        "rating": 4,
+        "txt": "Eligendi corrupti veritatis optio.",
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Mr. Junior Hegmann
+             
+            <img
+              src="http://www.Louvenia.biz/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://www.Louvenia.biz/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        December 10, 1982
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 5`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={713841821}
+    aroma={
+      Object {
+        "rating": 4,
+        "txt": "Dignissimos nulla laudantium voluptas harum.",
+      }
+    }
+    author="Dr. Norbert Ferry"
+    created={540501998}
+    heat={
+      Object {
+        "rating": 2,
+        "txt": "Animi quam quis quis et eius.",
+      }
+    }
+    note={
+      Object {
+        "rating": 2,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    reviewID="bf9258a5-da60-48fb-9836-35a38bfe2707"
+    sauce="Dr. Maia Haley"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Dr. Norbert Ferry
+             
+            <img
+              src="http://Teresa.io/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Teresa.io/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        February 16, 1987
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 6`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={1172352999}
+    aroma={
+      Object {
+        "rating": 4,
+        "txt": "Minima ea commodi repellendus.",
+      }
+    }
+    author="Ms. Vita Kreiger"
+    created={411220492}
+    overall={
+      Object {
+        "rating": 2,
+        "txt": "Dolorum reprehenderit ducimus consequatur voluptatem tenetur placeat.",
+      }
+    }
+    reviewID="0571f9f5-9dee-4f0b-9a15-8afefa505ec8"
+    sauce="Ms. Gerald Legros"
+    taste={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Ms. Vita Kreiger
+             
+            <img
+              src="http://Luettgen.io/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Luettgen.io/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        January 12, 1983
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 7`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    aroma={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+    author="Miss Troy Wintheiser"
+    created={954763387}
+    heat={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+    note={
+      Object {
+        "rating": 1,
+        "txt": "Tempore praesentium placeat nisi porro consequatur necessitatibus quis culpa.",
+      }
+    }
+    overall={
+      Object {
+        "rating": 2,
+        "txt": undefined,
+      }
+    }
+    reviewID="141ae9d8-ee7f-4e09-a255-f61882029aff"
+    sauce="Mrs. Laurel Stamm"
+    taste={
+      Object {
+        "rating": 2,
+        "txt": undefined,
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Miss Troy Wintheiser
+             
+            <img
+              src="http://www.Mackenzie.io/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://www.Mackenzie.io/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        April 3, 2000
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 8`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    author="Dr. Lily Grady"
+    created={1290828026}
+    label={
+      Object {
+        "rating": 3,
+        "txt": "Harum esse sed qui a.",
+      }
+    }
+    overall={
+      Object {
+        "rating": 3,
+        "txt": "Commodi et voluptatem.",
+      }
+    }
+    reviewID="59273902-fbdf-4c29-8adc-b2d894e29ec5"
+    sauce="Mrs. Alanna Considine"
+    taste={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Dr. Lily Grady
+             
+            <img
+              src="http://Ashley.io/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Ashley.io/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        November 26, 2010
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 9`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    aroma={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    author="Mr. Savanah Jones"
+    created={430298048}
+    heat={
+      Object {
+        "rating": 0,
+        "txt": undefined,
+      }
+    }
+    note={
+      Object {
+        "rating": 2,
+        "txt": "Quod vel sit sed voluptas labore autem.",
+      }
+    }
+    overall={
+      Object {
+        "rating": 2,
+        "txt": "Magni est aut nemo similique quo repellendus atque.",
+      }
+    }
+    reviewID="3de96de5-2af9-4811-a215-da201325199f"
+    sauce="Mr. Adrienne Hoeger"
+    taste={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Mr. Savanah Jones
+             
+            <img
+              src="http://Beier.tv/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Beier.tv/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        August 21, 1983
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 10`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={1043769520}
+    aroma={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+    author="Miss Arielle Kunze"
+    created={642583769}
+    label={
+      Object {
+        "rating": 2,
+        "txt": "Voluptatem distinctio odit voluptatibus quia nisi.",
+      }
+    }
+    note={
+      Object {
+        "rating": 0,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 2,
+        "txt": undefined,
+      }
+    }
+    reviewID="538ab847-956c-4edd-8b3e-3eb9b3ec3180"
+    sauce="Ms. Beau Harris"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Miss Arielle Kunze
+             
+            <img
+              src="http://www.Glover.com/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://www.Glover.com/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        May 13, 1990
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 11`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    aroma={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+    author="Mrs. Dorthy Raynor"
+    created={1334016316}
+    heat={
+      Object {
+        "rating": 1,
+        "txt": "Aut similique iure sit ipsam a quibusdam.",
+      }
+    }
+    overall={
+      Object {
+        "rating": 0,
+        "txt": "Et quis sit illo dolorem ut maiores.",
+      }
+    }
+    reviewID="a672eda9-7ec6-43c9-abf2-3fac269e26d7"
+    sauce="Dr. Adelia Kemmer"
+    taste={
+      Object {
+        "rating": 5,
+        "txt": "Necessitatibus sit non nemo qui esse aliquid.",
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Mrs. Dorthy Raynor
+             
+            <img
+              src="http://www.Margot.ca/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://www.Margot.ca/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        April 9, 2012
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 12`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    author="Mr. Cheyanne Weissnat"
+    created={159204056}
+    heat={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+    label={
+      Object {
+        "rating": 2,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 0,
+        "txt": "Aspernatur consequatur voluptatem omnis beatae officiis suscipit.",
+      }
+    }
+    reviewID="3517ddbc-51ba-4ee1-b1c5-8c92b7fac29e"
+    sauce="Mrs. Riley Sipes"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Mr. Cheyanne Weissnat
+             
+            <img
+              src="http://Urban.ca/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Urban.ca/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        January 17, 1975
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 13`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={67581326}
+    aroma={
+      Object {
+        "rating": 1,
+        "txt": "Expedita itaque odit ratione nihil.",
+      }
+    }
+    author="Miss Addie Pfeffer"
+    created={62862160}
+    label={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 2,
+        "txt": undefined,
+      }
+    }
+    reviewID="0e1786ed-5eba-4010-96a5-9540def7496a"
+    sauce="Miss Connie Veum"
+    taste={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Miss Addie Pfeffer
+             
+            <img
+              src="http://www.Waelchi.org/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://www.Waelchi.org/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        December 29, 1971
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 14`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    aroma={
+      Object {
+        "rating": 0,
+        "txt": undefined,
+      }
+    }
+    author="Mr. Juliet Herman"
+    created={640156055}
+    heat={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+    reviewID="bdb97629-1cd7-425f-8f4a-1dff405bd8a1"
+    sauce="Ms. Dallas Parisian"
+    taste={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Mr. Juliet Herman
+             
+            <img
+              src="http://Okuneva.biz/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Okuneva.biz/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        April 15, 1990
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 15`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    author="Mrs. Doug Maggio"
+    created={799889130}
+    overall={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+    reviewID="251f5eac-ef02-48a6-b10b-780869d796fd"
+    sauce="Ms. Jamar Huel"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Mrs. Doug Maggio
+             
+            <img
+              src="http://www.Okuneva.me/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://www.Okuneva.me/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        May 7, 1995
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 16`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={798442573}
+    author="Miss Nils Kohler"
+    created={619375458}
+    heat={
+      Object {
+        "rating": 4,
+        "txt": "Non magni qui consequatur corporis est et nobis dolor.",
+      }
+    }
+    label={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    note={
+      Object {
+        "rating": 2,
+        "txt": "Harum quibusdam error rerum voluptas aut est quia.",
+      }
+    }
+    overall={
+      Object {
+        "rating": 0,
+        "txt": undefined,
+      }
+    }
+    reviewID="e4e4a2fe-9abb-4b54-b0e2-d1aa157af9c9"
+    sauce="Mrs. Adolfo Will"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Miss Nils Kohler
+             
+            <img
+              src="http://Heloise.info/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Heloise.info/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        August 17, 1989
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 17`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    author="Miss Gregorio Lehner"
+    created={1183822169}
+    label={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 2,
+        "txt": undefined,
+      }
+    }
+    reviewID="2d606751-9bea-4a65-87d3-e55648cd4522"
+    sauce="Mrs. Savanah Mante"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Miss Gregorio Lehner
+             
+            <img
+              src="http://Walker.org/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Walker.org/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        July 7, 2007
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 18`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    author="Mrs. Loren Kuhic"
+    created={1366613538}
+    heat={
+      Object {
+        "rating": 1,
+        "txt": "Excepturi aperiam voluptatum voluptate.",
+      }
+    }
+    note={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+    reviewID="7d4282b9-f2db-42ff-830c-318d41d28c32"
+    sauce="Dr. Alexie Shields"
+    taste={
+      Object {
+        "rating": 0,
+        "txt": "Ex expedita nulla nulla tenetur.",
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Mrs. Loren Kuhic
+             
+            <img
+              src="http://Zechariah.biz/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Zechariah.biz/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        April 22, 2013
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 19`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    author="Mrs. Nellie Bernhard"
+    created={1422377664}
+    heat={
+      Object {
+        "rating": 0,
+        "txt": undefined,
+      }
+    }
+    label={
+      Object {
+        "rating": 1,
+        "txt": "Nam quia quia assumenda laborum repudiandae enim quia nam.",
+      }
+    }
+    note={
+      Object {
+        "rating": 2,
+        "txt": "Corporis consequatur quod suscipit corrupti sint aperiam vel ipsum aut.",
+      }
+    }
+    overall={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    reviewID="4989da15-e81b-4e51-994b-48b07c47471c"
+    sauce="Ms. Elda Quitzon"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Mrs. Nellie Bernhard
+             
+            <img
+              src="http://Bogan.org/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Bogan.org/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        January 27, 2015
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 20`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={292530214}
+    aroma={
+      Object {
+        "rating": 3,
+        "txt": "Amet iure et deleniti id eos aliquam nisi harum.",
+      }
+    }
+    author="Mrs. Sophia Green"
+    created={1186802685}
+    heat={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    label={
+      Object {
+        "rating": 1,
+        "txt": "Qui minus nihil eveniet totam ut accusantium.",
+      }
+    }
+    overall={
+      Object {
+        "rating": 2,
+        "txt": "Aut deleniti nostrum hic fugiat.",
+      }
+    }
+    reviewID="9b15bf78-5034-4f26-8307-fcfb2c7d6098"
+    sauce="Mrs. Dean Auer"
+    taste={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Mrs. Sophia Green
+             
+            <img
+              src="http://Daniel.com/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Daniel.com/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        August 10, 2007
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 21`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    aroma={
+      Object {
+        "rating": 2,
+        "txt": "Harum voluptatum sed et et.",
+      }
+    }
+    author="Ms. Osborne Murazik"
+    created={1417937844}
+    heat={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 5,
+        "txt": undefined,
+      }
+    }
+    reviewID="0f3eacde-02c1-4d2f-b84d-29663046294b"
+    sauce="Mrs. Fern Bauch"
+    taste={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Ms. Osborne Murazik
+             
+            <img
+              src="http://Jerry.com/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Jerry.com/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        December 7, 2014
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 22`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={1427329783}
+    aroma={
+      Object {
+        "rating": 0,
+        "txt": undefined,
+      }
+    }
+    author="Miss Marcella Thompson"
+    created={1358827622}
+    label={
+      Object {
+        "rating": 5,
+        "txt": "Qui officia asperiores asperiores.",
+      }
+    }
+    note={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+    reviewID="697b255e-9c58-4d5a-9d04-9b762174ab1f"
+    sauce="Dr. Zackary Feil"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Miss Marcella Thompson
+             
+            <img
+              src="http://www.Luettgen.us/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://www.Luettgen.us/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        January 21, 2013
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 23`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={845724171}
+    author="Mrs. Aurelia Cormier"
+    created={410394367}
+    heat={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 3,
+        "txt": "Et nihil animi quis iusto tempore numquam est laboriosam.",
+      }
+    }
+    reviewID="8880d454-6a06-4a5c-935c-4ac428835141"
+    sauce="Mrs. Saige Hegmann"
+    taste={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Mrs. Aurelia Cormier
+             
+            <img
+              src="http://Liam.io/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Liam.io/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        January 2, 1983
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 24`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={862068332}
+    aroma={
+      Object {
+        "rating": 2,
+        "txt": undefined,
+      }
+    }
+    author="Mr. Marie Becker"
+    created={36826408}
+    heat={
+      Object {
+        "rating": 2,
+        "txt": undefined,
+      }
+    }
+    label={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 4,
+        "txt": "Voluptas quasi facilis est cumque omnis eos occaecati et eum.",
+      }
+    }
+    reviewID="40d42c9e-ab24-4d48-98ca-8ddd3b2bc26b"
+    sauce="Mrs. Ressie Wyman"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Mr. Marie Becker
+             
+            <img
+              src="http://Maximus.ca/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Maximus.ca/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        March 2, 1971
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 25`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    aroma={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+    author="Ms. August Wintheiser"
+    created={1045943532}
+    label={
+      Object {
+        "rating": 1,
+        "txt": "Quidem praesentium sequi dolore provident quae veritatis quae.",
+      }
+    }
+    overall={
+      Object {
+        "rating": 0,
+        "txt": "Quibusdam aut nisi nemo fugiat autem.",
+      }
+    }
+    reviewID="9ebc97b9-ac14-4348-b412-fffa6d4f0f08"
+    sauce="Miss Zoie Jaskolski"
+    taste={
+      Object {
+        "rating": 2,
+        "txt": undefined,
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Ms. August Wintheiser
+             
+            <img
+              src="http://www.Clair.biz/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://www.Clair.biz/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        February 22, 2003
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 26`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    author="Mr. Jack Gibson"
+    created={532832429}
+    heat={
+      Object {
+        "rating": 2,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 5,
+        "txt": undefined,
+      }
+    }
+    reviewID="eb049398-3d27-4a52-a70a-676ba4f9bca6"
+    sauce="Miss Marshall Murray"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Mr. Jack Gibson
+             
+            <img
+              src="http://Lynch.net/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Lynch.net/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        November 19, 1986
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 27`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={207586141}
+    author="Ms. Jessy Stark"
+    created={1034867219}
+    label={
+      Object {
+        "rating": 5,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 2,
+        "txt": "Quidem voluptatum commodi molestiae.",
+      }
+    }
+    reviewID="411b711b-d4a2-46c6-916f-fbdba5559618"
+    sauce="Miss Gunnar Smith"
+    taste={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Ms. Jessy Stark
+             
+            <img
+              src="http://www.Bruen.co.uk/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://www.Bruen.co.uk/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        October 17, 2002
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 28`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    author="Ms. Burdette Hahn"
+    created={104192418}
+    note={
+      Object {
+        "rating": 2,
+        "txt": "Distinctio repellat veniam velit quo.",
+      }
+    }
+    overall={
+      Object {
+        "rating": 5,
+        "txt": "Officiis quia in quia.",
+      }
+    }
+    reviewID="b98bf44e-fe66-4f0a-a69f-d868b5f3e058"
+    sauce="Miss Sylvia Rogahn"
+    taste={
+      Object {
+        "rating": 5,
+        "txt": "Beatae quia nisi.",
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Ms. Burdette Hahn
+             
+            <img
+              src="http://www.Cummerata.co.uk/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://www.Cummerata.co.uk/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        April 20, 1973
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 29`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={839308802}
+    aroma={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    author="Ms. Octavia Waters"
+    created={1271029240}
+    heat={
+      Object {
+        "rating": 2,
+        "txt": "Quia qui voluptatem in placeat exercitationem sit doloribus labore.",
+      }
+    }
+    overall={
+      Object {
+        "rating": 1,
+        "txt": "Omnis architecto aliquid odio unde totam distinctio autem accusantium.",
+      }
+    }
+    reviewID="fba4047f-ebf0-4f9b-ad84-77e32a5dbb6c"
+    sauce="Mrs. Ethelyn Corwin"
+    taste={
+      Object {
+        "rating": 4,
+        "txt": "Non enim aliquam ullam sunt vero.",
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Ms. Octavia Waters
+             
+            <img
+              src="http://Adela.net/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Adela.net/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        April 11, 2010
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 30`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={652920482}
+    author="Miss Kiel Brakus"
+    created={494129604}
+    heat={
+      Object {
+        "rating": 5,
+        "txt": undefined,
+      }
+    }
+    label={
+      Object {
+        "rating": 3,
+        "txt": undefined,
+      }
+    }
+    note={
+      Object {
+        "rating": 5,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 0,
+        "txt": undefined,
+      }
+    }
+    reviewID="2949507a-1eb3-4542-8c45-ea69b0a25556"
+    sauce="Dr. Christophe Satterfield"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Miss Kiel Brakus
+             
+            <img
+              src="http://Loma.net/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Loma.net/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        August 28, 1985
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 31`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    author="Miss Sherwood Schumm"
+    created={1424223564}
+    label={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    note={
+      Object {
+        "rating": 1,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 5,
+        "txt": undefined,
+      }
+    }
+    reviewID="6a5d8989-a664-41fc-a5ff-2d3dcbe7780e"
+    sauce="Ms. Nikolas Crooks"
+    taste={
+      Object {
+        "rating": 1,
+        "txt": "Quia occaecati exercitationem est voluptatum non ut.",
+      }
+    }
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Miss Sherwood Schumm
+             
+            <img
+              src="http://www.Glen.com/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://www.Glen.com/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        February 17, 2015
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;
+
+exports[`<AuthorBlock /> matches snapshot 32`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AuthorBlock
+    _addedToStore={1057832920}
+    aroma={
+      Object {
+        "rating": 4,
+        "txt": "Officia inventore enim iusto quas exercitationem aperiam.",
+      }
+    }
+    author="Ms. Delphia Abshire"
+    created={784098192}
+    heat={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+    label={
+      Object {
+        "rating": 4,
+        "txt": undefined,
+      }
+    }
+    overall={
+      Object {
+        "rating": 3,
+        "txt": "Quam assumenda eum quae explicabo vitae.",
+      }
+    }
+    reviewID="5b42d969-171d-47e8-b99c-d1e5c73b7db1"
+    sauce="Miss Caleigh Waters"
+  >
+    <div>
+      <div
+        className="sc-AxirZ jigHkS"
+      >
+        <i>
+          Reviewer:
+        </i>
+        <div>
+          <div
+            className="sc-AxiKw ibgpNf"
+          >
+            Ms. Delphia Abshire
+             
+            <img
+              src="http://Larson.net/"
+            >
+              <img
+                className="sc-AxjAm eaIXym"
+                src="http://Larson.net/"
+              />
+            </img>
+          </div>
+        </div>
+        on 
+        November 5, 1994
+      </div>
+    </div>
+  </AuthorBlock>
+</Provider>
+`;

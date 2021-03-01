@@ -13,8 +13,14 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../redux/configureStore";
 
 const Navigation: React.FunctionComponent<{}> = () => {
+  // defaults
+  const _sauceRedirect = "/account/login?return=/sauce/add";
+  const _sauceAdd = "/sauce/add";
+
   const [isOpen, setIsOpen] = React.useState(false);
-  const isLoggedIn = useSelector((store: AppState) => !!store.users.self.token);
+  const isLoggedIn = useSelector(
+    (store: AppState) => !!store.users.self?.token
+  );
 
   return (
     <StyledNav>
@@ -37,17 +43,12 @@ const Navigation: React.FunctionComponent<{}> = () => {
           <StyledLink href="/sauces">Sauces</StyledLink>
         </li>
         <li>
-          <StyledLink
-            href={
-              isLoggedIn ? "/sauce/add" : "/account/login?return=/sauce/add"
-            }
-          >
-            Add Sauce
-          </StyledLink>
+          {isLoggedIn ? (
+            <StyledLink href={_sauceAdd}>Add Sauce</StyledLink>
+          ) : (
+            <StyledLink href={_sauceRedirect}>Add Sauce</StyledLink>
+          )}
         </li>
-        {/* <li>
-            <span>icon here</span>
-          </li> */}
       </StyledUl>
     </StyledNav>
   );

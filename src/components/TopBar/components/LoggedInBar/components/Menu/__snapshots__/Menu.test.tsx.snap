@@ -14,13 +14,13 @@ exports[`<Menu /> matches snapshot 1`] = `
   }
 >
   <Menu
-    className="error aspernatur ducimus ut dolorem iste voluptatem"
+    className="impedit provident rerum quia nihil quis ex"
   >
     <div
-      className="error aspernatur ducimus ut dolorem iste voluptatem"
+      className="impedit provident rerum quia nihil quis ex"
     >
       <div
-        className="sc-AxmLO bigGZS error aspernatur ducimus ut dolorem iste voluptatem"
+        className="sc-AxmLO bigGZS impedit provident rerum quia nihil quis ex"
       >
         <ul>
           <ul
@@ -41,25 +41,25 @@ exports[`<Menu /> matches snapshot 1`] = `
                       >
                         <div>
                           <img
-                            alt="Dr. Lew Wisozk"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Schultz.tv/"
+                            src="http://Evelyn.com/"
                             width="50"
                           >
                             <img
-                              alt="Dr. Lew Wisozk"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Schultz.tv/"
+                              src="http://Evelyn.com/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Dr. Lew Wisozk
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -75,11 +75,11 @@ exports[`<Menu /> matches snapshot 1`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -311,14 +311,10 @@ exports[`<Menu /> matches snapshot 2`] = `
     }
   }
 >
-  <Menu
-    className="vitae fuga voluptatem consequatur pariatur sint id"
-  >
-    <div
-      className="vitae fuga voluptatem consequatur pariatur sint id"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS vitae fuga voluptatem consequatur pariatur sint id"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -373,11 +369,11 @@ exports[`<Menu /> matches snapshot 2`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -609,10 +605,14 @@ exports[`<Menu /> matches snapshot 3`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="possimus numquam molestias nisi molestiae temporibus nihil"
+  >
+    <div
+      className="possimus numquam molestias nisi molestiae temporibus nihil"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS possimus numquam molestias nisi molestiae temporibus nihil"
       >
         <ul>
           <ul
@@ -633,25 +633,25 @@ exports[`<Menu /> matches snapshot 3`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Mrs. Flavie VonRueden"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://Altenwerth.biz/"
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Mrs. Flavie VonRueden"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://Altenwerth.biz/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Mrs. Flavie VonRueden
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -667,11 +667,11 @@ exports[`<Menu /> matches snapshot 3`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -961,11 +961,11 @@ exports[`<Menu /> matches snapshot 4`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -1137,51 +1137,6 @@ exports[`<Menu /> matches snapshot 4`] = `
                 </Item>
               </Help>
             </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
-            </li>
             <hr
               style={
                 Object {
@@ -1242,14 +1197,10 @@ exports[`<Menu /> matches snapshot 5`] = `
     }
   }
 >
-  <Menu
-    className="et quis voluptas temporibus qui earum sint"
-  >
-    <div
-      className="et quis voluptas temporibus qui earum sint"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS et quis voluptas temporibus qui earum sint"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -1270,14 +1221,14 @@ exports[`<Menu /> matches snapshot 5`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Mrs. Emmanuelle Howe"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Mrs. Emmanuelle Howe"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -1288,7 +1239,7 @@ exports[`<Menu /> matches snapshot 5`] = `
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Mrs. Emmanuelle Howe
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -1304,11 +1255,11 @@ exports[`<Menu /> matches snapshot 5`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -1540,14 +1491,10 @@ exports[`<Menu /> matches snapshot 6`] = `
     }
   }
 >
-  <Menu
-    className="aut vel libero veniam ratione sint totam"
-  >
-    <div
-      className="aut vel libero veniam ratione sint totam"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS aut vel libero veniam ratione sint totam"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -1602,11 +1549,11 @@ exports[`<Menu /> matches snapshot 6`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -1862,25 +1809,25 @@ exports[`<Menu /> matches snapshot 7`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Ms. Bradly Bode"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://Terrance.co.uk/"
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Ms. Bradly Bode"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://Terrance.co.uk/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Ms. Bradly Bode
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -1896,11 +1843,11 @@ exports[`<Menu /> matches snapshot 7`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -2132,10 +2079,14 @@ exports[`<Menu /> matches snapshot 8`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="dicta voluptatibus labore odit est quasi sed"
+  >
+    <div
+      className="dicta voluptatibus labore odit est quasi sed"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS dicta voluptatibus labore odit est quasi sed"
       >
         <ul>
           <ul
@@ -2159,7 +2110,7 @@ exports[`<Menu /> matches snapshot 8`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Williamson.biz/"
+                            src=""
                             width="50"
                           >
                             <img
@@ -2167,7 +2118,7 @@ exports[`<Menu /> matches snapshot 8`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Williamson.biz/"
+                              src=""
                               width="50"
                             />
                           </img>
@@ -2190,11 +2141,11 @@ exports[`<Menu /> matches snapshot 8`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -2426,10 +2377,14 @@ exports[`<Menu /> matches snapshot 9`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="reprehenderit et eligendi rerum et esse deserunt"
+  >
+    <div
+      className="reprehenderit et eligendi rerum et esse deserunt"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS reprehenderit et eligendi rerum et esse deserunt"
       >
         <ul>
           <ul
@@ -2484,11 +2439,11 @@ exports[`<Menu /> matches snapshot 9`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -2720,10 +2675,14 @@ exports[`<Menu /> matches snapshot 10`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="animi est eius qui molestiae facere omnis"
+  >
+    <div
+      className="animi est eius qui molestiae facere omnis"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS animi est eius qui molestiae facere omnis"
       >
         <ul>
           <ul
@@ -2744,25 +2703,25 @@ exports[`<Menu /> matches snapshot 10`] = `
                       >
                         <div>
                           <img
-                            alt="Mr. Era Armstrong"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Hoppe.biz/"
+                            src=""
                             width="50"
                           >
                             <img
-                              alt="Mr. Era Armstrong"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Hoppe.biz/"
+                              src=""
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Mr. Era Armstrong
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -2778,11 +2737,11 @@ exports[`<Menu /> matches snapshot 10`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -3015,13 +2974,13 @@ exports[`<Menu /> matches snapshot 11`] = `
   }
 >
   <Menu
-    className="aliquam quae sed autem id voluptas iusto"
+    className="veniam aut at ipsam rerum modi reprehenderit"
   >
     <div
-      className="aliquam quae sed autem id voluptas iusto"
+      className="veniam aut at ipsam rerum modi reprehenderit"
     >
       <div
-        className="sc-AxmLO bigGZS aliquam quae sed autem id voluptas iusto"
+        className="sc-AxmLO bigGZS veniam aut at ipsam rerum modi reprehenderit"
       >
         <ul>
           <ul
@@ -3045,7 +3004,7 @@ exports[`<Menu /> matches snapshot 11`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Jamar.us/"
+                            src=""
                             width="50"
                           >
                             <img
@@ -3053,7 +3012,7 @@ exports[`<Menu /> matches snapshot 11`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Jamar.us/"
+                              src=""
                               width="50"
                             />
                           </img>
@@ -3076,11 +3035,11 @@ exports[`<Menu /> matches snapshot 11`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -3252,51 +3211,6 @@ exports[`<Menu /> matches snapshot 11`] = `
                 </Item>
               </Help>
             </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
-            </li>
             <hr
               style={
                 Object {
@@ -3358,13 +3272,13 @@ exports[`<Menu /> matches snapshot 12`] = `
   }
 >
   <Menu
-    className="quas reprehenderit optio modi amet aut soluta"
+    className="tempore harum eum odit omnis officia est"
   >
     <div
-      className="quas reprehenderit optio modi amet aut soluta"
+      className="tempore harum eum odit omnis officia est"
     >
       <div
-        className="sc-AxmLO bigGZS quas reprehenderit optio modi amet aut soluta"
+        className="sc-AxmLO bigGZS tempore harum eum odit omnis officia est"
       >
         <ul>
           <ul
@@ -3385,14 +3299,14 @@ exports[`<Menu /> matches snapshot 12`] = `
                       >
                         <div>
                           <img
-                            alt="Mrs. Kevin Schmeler"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Mrs. Kevin Schmeler"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -3403,7 +3317,7 @@ exports[`<Menu /> matches snapshot 12`] = `
                         </div>
                         <div>
                           <h3>
-                            Mrs. Kevin Schmeler
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -3419,11 +3333,11 @@ exports[`<Menu /> matches snapshot 12`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -3655,14 +3569,10 @@ exports[`<Menu /> matches snapshot 13`] = `
     }
   }
 >
-  <Menu
-    className="consequatur aut quasi sed ullam aspernatur autem"
-  >
-    <div
-      className="consequatur aut quasi sed ullam aspernatur autem"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS consequatur aut quasi sed ullam aspernatur autem"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -3686,7 +3596,7 @@ exports[`<Menu /> matches snapshot 13`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://Lemke.biz/"
+                            src=""
                             width="50"
                           >
                             <img
@@ -3694,7 +3604,7 @@ exports[`<Menu /> matches snapshot 13`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://Lemke.biz/"
+                              src=""
                               width="50"
                             />
                           </img>
@@ -3717,11 +3627,11 @@ exports[`<Menu /> matches snapshot 13`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -4011,11 +3921,11 @@ exports[`<Menu /> matches snapshot 14`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -4248,13 +4158,13 @@ exports[`<Menu /> matches snapshot 15`] = `
   }
 >
   <Menu
-    className="doloremque voluptatem deleniti et modi dolorum ut"
+    className="ducimus maxime reprehenderit commodi tenetur omnis nemo"
   >
     <div
-      className="doloremque voluptatem deleniti et modi dolorum ut"
+      className="ducimus maxime reprehenderit commodi tenetur omnis nemo"
     >
       <div
-        className="sc-AxmLO bigGZS doloremque voluptatem deleniti et modi dolorum ut"
+        className="sc-AxmLO bigGZS ducimus maxime reprehenderit commodi tenetur omnis nemo"
       >
         <ul>
           <ul
@@ -4278,7 +4188,7 @@ exports[`<Menu /> matches snapshot 15`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://Enoch.net/"
+                            src=""
                             width="50"
                           >
                             <img
@@ -4286,7 +4196,7 @@ exports[`<Menu /> matches snapshot 15`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://Enoch.net/"
+                              src=""
                               width="50"
                             />
                           </img>
@@ -4309,11 +4219,11 @@ exports[`<Menu /> matches snapshot 15`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -4485,51 +4395,6 @@ exports[`<Menu /> matches snapshot 15`] = `
                 </Item>
               </Help>
             </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
-            </li>
             <hr
               style={
                 Object {
@@ -4591,13 +4456,13 @@ exports[`<Menu /> matches snapshot 16`] = `
   }
 >
   <Menu
-    className="sit earum delectus vero voluptatum eligendi cum"
+    className="aut quas quisquam aut dolorem et similique"
   >
     <div
-      className="sit earum delectus vero voluptatum eligendi cum"
+      className="aut quas quisquam aut dolorem et similique"
     >
       <div
-        className="sc-AxmLO bigGZS sit earum delectus vero voluptatum eligendi cum"
+        className="sc-AxmLO bigGZS aut quas quisquam aut dolorem et similique"
       >
         <ul>
           <ul
@@ -4652,11 +4517,11 @@ exports[`<Menu /> matches snapshot 16`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -4946,11 +4811,11 @@ exports[`<Menu /> matches snapshot 17`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -5182,10 +5047,14 @@ exports[`<Menu /> matches snapshot 18`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="tempore voluptatem voluptate ut ratione tenetur perspiciatis"
+  >
+    <div
+      className="tempore voluptatem voluptate ut ratione tenetur perspiciatis"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS tempore voluptatem voluptate ut ratione tenetur perspiciatis"
       >
         <ul>
           <ul
@@ -5206,25 +5075,25 @@ exports[`<Menu /> matches snapshot 18`] = `
                       >
                         <div>
                           <img
-                            alt="Mrs. Virginie Renner"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://Yost.biz/"
                             width="50"
                           >
                             <img
-                              alt="Mrs. Virginie Renner"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://Yost.biz/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Mrs. Virginie Renner
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -5240,11 +5109,11 @@ exports[`<Menu /> matches snapshot 18`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -5476,10 +5345,14 @@ exports[`<Menu /> matches snapshot 19`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="aut quo dolorem sed atque distinctio omnis"
+  >
+    <div
+      className="aut quo dolorem sed atque distinctio omnis"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS aut quo dolorem sed atque distinctio omnis"
       >
         <ul>
           <ul
@@ -5500,14 +5373,14 @@ exports[`<Menu /> matches snapshot 19`] = `
                       >
                         <div>
                           <img
-                            alt="Miss Velva Wiza"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Miss Velva Wiza"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -5518,7 +5391,7 @@ exports[`<Menu /> matches snapshot 19`] = `
                         </div>
                         <div>
                           <h3>
-                            Miss Velva Wiza
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -5534,11 +5407,11 @@ exports[`<Menu /> matches snapshot 19`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -5770,10 +5643,14 @@ exports[`<Menu /> matches snapshot 20`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="autem vel molestiae pariatur quo doloremque ut"
+  >
+    <div
+      className="autem vel molestiae pariatur quo doloremque ut"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS autem vel molestiae pariatur quo doloremque ut"
       >
         <ul>
           <ul
@@ -5794,25 +5671,25 @@ exports[`<Menu /> matches snapshot 20`] = `
                       >
                         <div>
                           <img
-                            alt="Mr. Gerhard Lemke"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://Jaycee.biz/"
                             width="50"
                           >
                             <img
-                              alt="Mr. Gerhard Lemke"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://Jaycee.biz/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Mr. Gerhard Lemke
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -5828,11 +5705,11 @@ exports[`<Menu /> matches snapshot 20`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -6065,13 +5942,13 @@ exports[`<Menu /> matches snapshot 21`] = `
   }
 >
   <Menu
-    className="officiis ipsum est molestias sequi corporis quae"
+    className="cumque excepturi non adipisci voluptate consequuntur dolores"
   >
     <div
-      className="officiis ipsum est molestias sequi corporis quae"
+      className="cumque excepturi non adipisci voluptate consequuntur dolores"
     >
       <div
-        className="sc-AxmLO bigGZS officiis ipsum est molestias sequi corporis quae"
+        className="sc-AxmLO bigGZS cumque excepturi non adipisci voluptate consequuntur dolores"
       >
         <ul>
           <ul
@@ -6126,11 +6003,11 @@ exports[`<Menu /> matches snapshot 21`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -6363,13 +6240,13 @@ exports[`<Menu /> matches snapshot 22`] = `
   }
 >
   <Menu
-    className="voluptate tenetur veniam nemo aliquam laboriosam magnam"
+    className="et officiis corporis perspiciatis vero architecto consequatur"
   >
     <div
-      className="voluptate tenetur veniam nemo aliquam laboriosam magnam"
+      className="et officiis corporis perspiciatis vero architecto consequatur"
     >
       <div
-        className="sc-AxmLO bigGZS voluptate tenetur veniam nemo aliquam laboriosam magnam"
+        className="sc-AxmLO bigGZS et officiis corporis perspiciatis vero architecto consequatur"
       >
         <ul>
           <ul
@@ -6393,7 +6270,7 @@ exports[`<Menu /> matches snapshot 22`] = `
                             alt="Me"
                             height="50"
                             onError={[Function]}
-                            src=""
+                            src="http://Lew.us/"
                             width="50"
                           >
                             <img
@@ -6401,7 +6278,7 @@ exports[`<Menu /> matches snapshot 22`] = `
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src=""
+                              src="http://Lew.us/"
                               width="50"
                             />
                           </img>
@@ -6424,11 +6301,11 @@ exports[`<Menu /> matches snapshot 22`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -6661,13 +6538,13 @@ exports[`<Menu /> matches snapshot 23`] = `
   }
 >
   <Menu
-    className="mollitia ea modi qui debitis deleniti quos"
+    className="quam repudiandae culpa corrupti et debitis ad"
   >
     <div
-      className="mollitia ea modi qui debitis deleniti quos"
+      className="quam repudiandae culpa corrupti et debitis ad"
     >
       <div
-        className="sc-AxmLO bigGZS mollitia ea modi qui debitis deleniti quos"
+        className="sc-AxmLO bigGZS quam repudiandae culpa corrupti et debitis ad"
       >
         <ul>
           <ul
@@ -6722,11 +6599,11 @@ exports[`<Menu /> matches snapshot 23`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -6959,13 +6836,13 @@ exports[`<Menu /> matches snapshot 24`] = `
   }
 >
   <Menu
-    className="porro molestiae recusandae suscipit in ab aliquid"
+    className="cupiditate eligendi in iure iure voluptates sunt"
   >
     <div
-      className="porro molestiae recusandae suscipit in ab aliquid"
+      className="cupiditate eligendi in iure iure voluptates sunt"
     >
       <div
-        className="sc-AxmLO bigGZS porro molestiae recusandae suscipit in ab aliquid"
+        className="sc-AxmLO bigGZS cupiditate eligendi in iure iure voluptates sunt"
       >
         <ul>
           <ul
@@ -6986,14 +6863,14 @@ exports[`<Menu /> matches snapshot 24`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Mrs. Deion Schaefer"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Mrs. Deion Schaefer"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -7004,7 +6881,7 @@ exports[`<Menu /> matches snapshot 24`] = `
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Mrs. Deion Schaefer
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -7020,11 +6897,11 @@ exports[`<Menu /> matches snapshot 24`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -7196,6 +7073,51 @@ exports[`<Menu /> matches snapshot 24`] = `
                 </Item>
               </Help>
             </li>
+            <li>
+              <Admin>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Admin
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/admin/approvesaucesubmissions"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/admin/approvesaucesubmissions"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/admin/approvesaucesubmissions"
+                        >
+                          <Link
+                            href="/admin/approvesaucesubmissions"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/admin/approvesaucesubmissions"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Approve Submissions
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Admin>
+            </li>
             <hr
               style={
                 Object {
@@ -7256,10 +7178,14 @@ exports[`<Menu /> matches snapshot 25`] = `
     }
   }
 >
-  <Menu>
-    <div>
+  <Menu
+    className="ratione est aut nam cumque eos vel"
+  >
+    <div
+      className="ratione est aut nam cumque eos vel"
+    >
       <div
-        className="sc-AxmLO bigGZS"
+        className="sc-AxmLO bigGZS ratione est aut nam cumque eos vel"
       >
         <ul>
           <ul
@@ -7314,11 +7240,11 @@ exports[`<Menu /> matches snapshot 25`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -7550,14 +7476,10 @@ exports[`<Menu /> matches snapshot 26`] = `
     }
   }
 >
-  <Menu
-    className="tempora nihil non cumque est tempore totam"
-  >
-    <div
-      className="tempora nihil non cumque est tempore totam"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS tempora nihil non cumque est tempore totam"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -7612,11 +7534,11 @@ exports[`<Menu /> matches snapshot 26`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -7872,25 +7794,25 @@ exports[`<Menu /> matches snapshot 27`] = `
                       >
                         <div>
                           <img
-                            alt="Dr. Stephania Terry"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Ora.ca/"
+                            src=""
                             width="50"
                           >
                             <img
-                              alt="Dr. Stephania Terry"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Ora.ca/"
+                              src=""
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Dr. Stephania Terry
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -7906,11 +7828,11 @@ exports[`<Menu /> matches snapshot 27`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -8082,51 +8004,6 @@ exports[`<Menu /> matches snapshot 27`] = `
                 </Item>
               </Help>
             </li>
-            <li>
-              <Admin>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Admin
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/admin/approvesaucesubmissions"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/admin/approvesaucesubmissions"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/admin/approvesaucesubmissions"
-                        >
-                          <Link
-                            href="/admin/approvesaucesubmissions"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/admin/approvesaucesubmissions"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Approve Submissions
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Admin>
-            </li>
             <hr
               style={
                 Object {
@@ -8188,13 +8065,13 @@ exports[`<Menu /> matches snapshot 28`] = `
   }
 >
   <Menu
-    className="nostrum quia dolores quam et molestiae deleniti"
+    className="sit dolorem ex voluptates et sed ullam"
   >
     <div
-      className="nostrum quia dolores quam et molestiae deleniti"
+      className="sit dolorem ex voluptates et sed ullam"
     >
       <div
-        className="sc-AxmLO bigGZS nostrum quia dolores quam et molestiae deleniti"
+        className="sc-AxmLO bigGZS sit dolorem ex voluptates et sed ullam"
       >
         <ul>
           <ul
@@ -8215,14 +8092,14 @@ exports[`<Menu /> matches snapshot 28`] = `
                       >
                         <div>
                           <img
-                            alt="Me"
+                            alt="Mrs. Jessica Hand"
                             height="50"
                             onError={[Function]}
                             src=""
                             width="50"
                           >
                             <img
-                              alt="Me"
+                              alt="Mrs. Jessica Hand"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
@@ -8233,7 +8110,7 @@ exports[`<Menu /> matches snapshot 28`] = `
                         </div>
                         <div>
                           <h3>
-                            Me
+                            Mrs. Jessica Hand
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -8249,11 +8126,11 @@ exports[`<Menu /> matches snapshot 28`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -8485,308 +8362,14 @@ exports[`<Menu /> matches snapshot 29`] = `
     }
   }
 >
-  <Menu>
-    <div>
-      <div
-        className="sc-AxmLO bigGZS"
-      >
-        <ul>
-          <ul
-            className="sc-fzozJi gFUdkl"
-          >
-            <li>
-              <Profile>
-                <styled.a
-                  href="#"
-                >
-                  <a
-                    className="sc-AxjAm kuwTYD"
-                    href="#"
-                  >
-                    <div>
-                      <div
-                        className="sc-AxirZ ivtElj"
-                      >
-                        <div>
-                          <img
-                            alt="Ms. Reece Simonis"
-                            height="50"
-                            onError={[Function]}
-                            src="http://Armani.org/"
-                            width="50"
-                          >
-                            <img
-                              alt="Ms. Reece Simonis"
-                              className="sc-AxiKw nuWWp"
-                              height="50"
-                              onError={[Function]}
-                              src="http://Armani.org/"
-                              width="50"
-                            />
-                          </img>
-                        </div>
-                        <div>
-                          <h3>
-                            Ms. Reece Simonis
-                          </h3>
-                          <h4>
-                            Sauce Fanatic
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div
-                        className="sc-AxhCb guHPYI"
-                      >
-                        <Button
-                          displayType="outline"
-                        >
-                          <Button
-                            className="sc-AxhUy cJvrET"
-                            displayType="outline"
-                          >
-                            <div
-                              className="sc-AxhUy cJvrET"
-                            >
-                              <button
-                                aria-disabled={false}
-                                disabled={false}
-                                type="button"
-                              >
-                                View profile (Coming Soon)
-                              </button>
-                            </div>
-                          </Button>
-                        </Button>
-                      </div>
-                    </div>
-                  </a>
-                </styled.a>
-              </Profile>
-            </li>
-            <li>
-              <Account>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Account
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="/account/settings"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="/account/settings"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="/account/settings"
-                        >
-                          <Link
-                            href="/account/settings"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="/account/settings"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Settings
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Profile (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Account>
-            </li>
-            <li>
-              <Help>
-                <Title>
-                  <div>
-                    <div
-                      className="sc-AxgMl gqcvGf"
-                    >
-                      Need Help?
-                    </div>
-                  </div>
-                </Title>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Quick Guide (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-                <Item
-                  to="#"
-                >
-                  <styled.div>
-                    <div
-                      className="sc-Axmtr gvBswO"
-                    >
-                      <Link
-                        href="#"
-                      >
-                        <LinkComponent
-                          className="sc-AxheI IQtvd"
-                          href="#"
-                        >
-                          <Link
-                            href="#"
-                          >
-                            <a
-                              className="sc-AxheI IQtvd"
-                              href="#"
-                              onClick={[Function]}
-                              onMouseEnter={[Function]}
-                              target="_self"
-                            >
-                              Contact Us (Coming Soon)
-                            </a>
-                          </Link>
-                        </LinkComponent>
-                      </Link>
-                    </div>
-                  </styled.div>
-                </Item>
-              </Help>
-            </li>
-            <hr
-              style={
-                Object {
-                  "margin": 0,
-                }
-              }
-            />
-            <Item
-              to="/account/logout"
-            >
-              <styled.div>
-                <div
-                  className="sc-Axmtr gvBswO"
-                >
-                  <Link
-                    href="/account/logout"
-                  >
-                    <LinkComponent
-                      className="sc-AxheI IQtvd"
-                      href="/account/logout"
-                    >
-                      <Link
-                        href="/account/logout"
-                      >
-                        <a
-                          className="sc-AxheI IQtvd"
-                          href="/account/logout"
-                          onClick={[Function]}
-                          onMouseEnter={[Function]}
-                          target="_self"
-                        >
-                          Logout
-                        </a>
-                      </Link>
-                    </LinkComponent>
-                  </Link>
-                </div>
-              </styled.div>
-            </Item>
-          </ul>
-        </ul>
-      </div>
-    </div>
-  </Menu>
-</Provider>
-`;
-
-exports[`<Menu /> matches snapshot 30`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
   <Menu
-    className="qui nostrum rerum error aliquid voluptates quis"
+    className="nostrum et nulla beatae deserunt amet dolorem"
   >
     <div
-      className="qui nostrum rerum error aliquid voluptates quis"
+      className="nostrum et nulla beatae deserunt amet dolorem"
     >
       <div
-        className="sc-AxmLO bigGZS qui nostrum rerum error aliquid voluptates quis"
+        className="sc-AxmLO bigGZS nostrum et nulla beatae deserunt amet dolorem"
       >
         <ul>
           <ul
@@ -8807,25 +8390,25 @@ exports[`<Menu /> matches snapshot 30`] = `
                       >
                         <div>
                           <img
-                            alt="Miss Colin Kunde"
+                            alt="Me"
                             height="50"
                             onError={[Function]}
-                            src="http://www.Schmidt.org/"
+                            src="http://Moore.org/"
                             width="50"
                           >
                             <img
-                              alt="Miss Colin Kunde"
+                              alt="Me"
                               className="sc-AxiKw nuWWp"
                               height="50"
                               onError={[Function]}
-                              src="http://www.Schmidt.org/"
+                              src="http://Moore.org/"
                               width="50"
                             />
                           </img>
                         </div>
                         <div>
                           <h3>
-                            Miss Colin Kunde
+                            Me
                           </h3>
                           <h4>
                             Sauce Fanatic
@@ -8841,11 +8424,11 @@ exports[`<Menu /> matches snapshot 30`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -9109,7 +8692,7 @@ exports[`<Menu /> matches snapshot 30`] = `
 </Provider>
 `;
 
-exports[`<Menu /> matches snapshot 31`] = `
+exports[`<Menu /> matches snapshot 30`] = `
 <Provider
   store={
     Object {
@@ -9123,13 +8706,13 @@ exports[`<Menu /> matches snapshot 31`] = `
   }
 >
   <Menu
-    className="sunt exercitationem neque id excepturi enim rem"
+    className="officiis facere dolores laborum minus molestiae natus"
   >
     <div
-      className="sunt exercitationem neque id excepturi enim rem"
+      className="officiis facere dolores laborum minus molestiae natus"
     >
       <div
-        className="sc-AxmLO bigGZS sunt exercitationem neque id excepturi enim rem"
+        className="sc-AxmLO bigGZS officiis facere dolores laborum minus molestiae natus"
       >
         <ul>
           <ul
@@ -9184,11 +8767,309 @@ exports[`<Menu /> matches snapshot 31`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
+                            >
+                              <button
+                                aria-disabled={false}
+                                disabled={false}
+                                type="button"
+                              >
+                                View profile (Coming Soon)
+                              </button>
+                            </div>
+                          </Button>
+                        </Button>
+                      </div>
+                    </div>
+                  </a>
+                </styled.a>
+              </Profile>
+            </li>
+            <li>
+              <Account>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Account
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="/account/settings"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="/account/settings"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="/account/settings"
+                        >
+                          <Link
+                            href="/account/settings"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="/account/settings"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Settings
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Profile (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Account>
+            </li>
+            <li>
+              <Help>
+                <Title>
+                  <div>
+                    <div
+                      className="sc-AxgMl gqcvGf"
+                    >
+                      Need Help?
+                    </div>
+                  </div>
+                </Title>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Quick Guide (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+                <Item
+                  to="#"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-Axmtr gvBswO"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <LinkComponent
+                          className="sc-AxheI IQtvd"
+                          href="#"
+                        >
+                          <Link
+                            href="#"
+                          >
+                            <a
+                              className="sc-AxheI IQtvd"
+                              href="#"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              target="_self"
+                            >
+                              Contact Us (Coming Soon)
+                            </a>
+                          </Link>
+                        </LinkComponent>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Item>
+              </Help>
+            </li>
+            <hr
+              style={
+                Object {
+                  "margin": 0,
+                }
+              }
+            />
+            <Item
+              to="/account/logout"
+            >
+              <styled.div>
+                <div
+                  className="sc-Axmtr gvBswO"
+                >
+                  <Link
+                    href="/account/logout"
+                  >
+                    <LinkComponent
+                      className="sc-AxheI IQtvd"
+                      href="/account/logout"
+                    >
+                      <Link
+                        href="/account/logout"
+                      >
+                        <a
+                          className="sc-AxheI IQtvd"
+                          href="/account/logout"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          target="_self"
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                    </LinkComponent>
+                  </Link>
+                </div>
+              </styled.div>
+            </Item>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </Menu>
+</Provider>
+`;
+
+exports[`<Menu /> matches snapshot 31`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Menu
+    className="accusamus ut accusantium eum quidem excepturi et"
+  >
+    <div
+      className="accusamus ut accusantium eum quidem excepturi et"
+    >
+      <div
+        className="sc-AxmLO bigGZS accusamus ut accusantium eum quidem excepturi et"
+      >
+        <ul>
+          <ul
+            className="sc-fzozJi gFUdkl"
+          >
+            <li>
+              <Profile>
+                <styled.a
+                  href="#"
+                >
+                  <a
+                    className="sc-AxjAm kuwTYD"
+                    href="#"
+                  >
+                    <div>
+                      <div
+                        className="sc-AxirZ ivtElj"
+                      >
+                        <div>
+                          <img
+                            alt="Me"
+                            height="50"
+                            onError={[Function]}
+                            src=""
+                            width="50"
+                          >
+                            <img
+                              alt="Me"
+                              className="sc-AxiKw nuWWp"
+                              height="50"
+                              onError={[Function]}
+                              src=""
+                              width="50"
+                            />
+                          </img>
+                        </div>
+                        <div>
+                          <h3>
+                            Me
+                          </h3>
+                          <h4>
+                            Sauce Fanatic
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        className="sc-AxhCb guHPYI"
+                      >
+                        <Button
+                          displayType="outline"
+                        >
+                          <Button
+                            className="sc-AxhUy lhFQOV"
+                            displayType="outline"
+                          >
+                            <div
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}
@@ -9420,14 +9301,10 @@ exports[`<Menu /> matches snapshot 32`] = `
     }
   }
 >
-  <Menu
-    className="et porro tempora aut nulla est placeat"
-  >
-    <div
-      className="et porro tempora aut nulla est placeat"
-    >
+  <Menu>
+    <div>
       <div
-        className="sc-AxmLO bigGZS et porro tempora aut nulla est placeat"
+        className="sc-AxmLO bigGZS"
       >
         <ul>
           <ul
@@ -9482,11 +9359,11 @@ exports[`<Menu /> matches snapshot 32`] = `
                           displayType="outline"
                         >
                           <Button
-                            className="sc-AxhUy cJvrET"
+                            className="sc-AxhUy lhFQOV"
                             displayType="outline"
                           >
                             <div
-                              className="sc-AxhUy cJvrET"
+                              className="sc-AxhUy lhFQOV"
                             >
                               <button
                                 aria-disabled={false}

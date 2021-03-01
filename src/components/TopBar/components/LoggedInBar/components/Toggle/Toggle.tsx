@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 export interface ToggleProps {
   className?: string;
-  onClick?: () => any;
+  onClick?: (e: any) => void;
 }
 
 const Toggle: React.FC<ToggleProps> = props => {
@@ -18,10 +18,9 @@ const Toggle: React.FC<ToggleProps> = props => {
     return state.users;
   });
 
-  const {
-    displayName = _defaultDisplayName,
-    avatarURL = _defaultAvatarURL
-  } = self ? self : {};
+  const displayName =
+    self && self.displayName ? self.displayName : _defaultDisplayName;
+  const avatarURL = self && self.avatarURL ? self.avatarURL : _defaultAvatarURL;
 
   return (
     <StyledButton className={props.className} onClick={props.onClick}>

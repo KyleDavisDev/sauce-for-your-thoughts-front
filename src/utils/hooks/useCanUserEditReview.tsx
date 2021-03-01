@@ -4,7 +4,7 @@ import { API } from "../api/API";
 import { IErrReturn } from "../Err/Err";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/configureStore";
-import { IErrParams } from "../../utils/Err/Err";
+import { IErrParams } from "../Err/Err";
 
 export function useCanUserEditReview(): [boolean, IErrParams] {
   // assign values
@@ -14,7 +14,7 @@ export function useCanUserEditReview(): [boolean, IErrParams] {
     msg: "",
     status: 0
   });
-  const token = useSelector((store: AppState) => store.users.self.token);
+  const token = useSelector((store: AppState) => store.users.self?.token);
 
   // assign router
   const router = useRouter();
@@ -51,7 +51,7 @@ export function useCanUserEditReview(): [boolean, IErrParams] {
     // Find out if user is eligible to submit a review for this sauce or not
     API.review
       .canUserEdit({ data })
-      .then(res => {
+      .then(() => {
         setCanUserEditReview(true);
       })
       .catch((err: IErrReturn) => {

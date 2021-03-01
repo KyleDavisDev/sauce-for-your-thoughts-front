@@ -1,36 +1,39 @@
 import * as React from "react";
 
-import { useGetReviewsBySlug } from "../../../../utils/hooks/useGetReviewsBySlug/useGetReviewsBySlug";
-import { Button } from "../../../Button/Button";
 import SauceReviewBlock from "./components/SauceReviewBlock/SauceReviewBlock";
-import {
-  StyledContainer,
-  StyledDescriptor,
-  StyledLink
-} from "./SauceReviewsStyles";
+import { StyledContainer, StyledDescriptor } from "./SauceReviewsStyles";
+import { IReview } from "../../../../redux/reviews/types";
+import { FlashMessageProps } from "../../../FlashMessage/FlashMessage";
 
-export interface SauceReviewsProps {}
+export interface SauceReviewsProps {
+  reviews?: IReview[];
+  loading: boolean;
+  error: FlashMessageProps;
+}
 
 const SauceReviews: React.FC<SauceReviewsProps> = props => {
-  const { loading, reviews, error, getReviews } = useGetReviewsBySlug();
+  // defaults
+  const _loadingTxt = "loading...";
+  const _noReviewsFoundTxt =
+    "No reviews found! Have you tried this sauce? Add a review!";
+  const _noResponsibilityText =
+    "The opinions expressed are solely those of the author.";
 
-  React.useEffect(() => {
-    if (!loading && reviews.length === 0) getReviews();
-  }, []);
+  const { reviews, loading, error } = props;
 
   if (loading) {
-    return <p>loading...</p>;
+    return <p>{_loadingTxt}</p>;
   }
 
   if (error.isVisible) {
     return <p>{error.text}</p>;
   }
 
-  if (reviews.length === 0) {
+  if (!reviews || reviews.length === 0) {
     return (
       <StyledContainer>
-        <p style={{ marginTop: "0" }}>
-          <i>No reviews found! Have you tried this sauce? Add a review!</i>
+        <p>
+          <i>{_noReviewsFoundTxt}</i>
         </p>
       </StyledContainer>
     );
@@ -39,22 +42,13 @@ const SauceReviews: React.FC<SauceReviewsProps> = props => {
   return (
     <>
       {/* Reviews */}
-      <StyledDescriptor title={`Reviews (${reviews ? reviews.length : 0})`}>
-        The opinions expressed are soley those of the author.
+      <StyledDescriptor title={`Reviews (${reviews.length})`}>
+        {_noResponsibilityText}
       </StyledDescriptor>
       <div>
         {reviews.map(review => {
           return <SauceReviewBlock review={review} key={review.reviewID} />;
         })}
-        {/* {displayEditLink ? (
-          <StyledLink href={`/review/edit?s=${slug}`}>
-            <Button>Edit Your Review</Button>
-          </StyledLink>
-        ) : (
-          <StyledLink href={`/review/add?s=${slug}`}>
-            <Button>Add Review</Button>
-          </StyledLink>
-        )} */}
       </div>
     </>
   );

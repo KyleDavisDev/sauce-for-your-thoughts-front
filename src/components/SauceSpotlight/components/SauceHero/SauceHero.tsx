@@ -1,9 +1,8 @@
 import * as React from "react";
-import { connect } from "react-redux";
-import { AppState } from "../../../../redux/configureStore";
-import { ISauce } from "../../../../redux/sauces/types";
-import { useSauceBySlug } from "../../../../utils/hooks/useSauceBySlug/useSauceBySlug";
-import FlashMessage from "../../../FlashMessage/FlashMessage";
+
+import FlashMessage, {
+  FlashMessageProps
+} from "../../../FlashMessage/FlashMessage";
 
 import {
   StyledSauceContainer,
@@ -12,18 +11,25 @@ import {
   StyledSauceInfoContainer,
   StyledH2
 } from "./SauceHeroStyle";
+import { ISauce } from "../../../../redux/sauces/types";
 
-export interface SauceHeroProps {}
+export interface SauceHeroProps {
+  loading: boolean;
+  sauce?: ISauce;
+  error: FlashMessageProps;
+}
 
 const SauceHero: React.FunctionComponent<SauceHeroProps> = props => {
-  const { loading, sauce, error, getTheSauce } = useSauceBySlug();
+  // defaults
+  const _loadingTxt = "loading...";
+  const _noSauceTxt = "Could not find sauce!";
+  const _defaultImagePath =
+    "https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png";
 
-  React.useEffect(() => {
-    if (!loading && !sauce) getTheSauce();
-  }, []);
+  const { loading, sauce, error } = props;
 
   if (loading) {
-    return <p>loading...</p>;
+    return <p>{_loadingTxt}</p>;
   }
 
   if (error.isVisible) {
@@ -31,7 +37,7 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = props => {
   }
 
   if (!sauce) {
-    return <p>Could not find sauce!</p>;
+    return <p>{_noSauceTxt}</p>;
   }
 
   return (
@@ -51,31 +57,41 @@ const SauceHero: React.FunctionComponent<SauceHeroProps> = props => {
           {sauce.photo ? (
             <StyleImg src={`${sauce.photo}`} />
           ) : (
-            <StyleImg src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png" />
+            <StyleImg src={_defaultImagePath} />
           )}
         </ImageContainer>
         <StyledSauceInfoContainer>
           <StyledH2>{sauce.name}</StyledH2>
-          <p>
+          <p data-test-id="maker">
             <i>Maker:</i> {sauce.maker}
           </p>
           <p>
             <i>Description:</i> {sauce.description}
           </p>
-          <p>
-            <i>Ingredients:</i> {sauce.ingredients}
-          </p>
-          <p>
-            <i>Type:</i> {sauce.types ? sauce.types.join(", ") : "N/A"}
-          </p>
+
+          {sauce.ingredients && (
+            <p data-test-id="ingredients">
+              <i>Ingredients:</i> {sauce.ingredients}
+            </p>
+          )}
+
+          {sauce.types && sauce.types.length > 0 && (
+            <p data-test-id="type">
+              <i>Type:</i> {sauce.types.join(", ")}
+            </p>
+          )}
+
           {sauce.shu && (
-            <p>
+            <p data-test-id="shu">
               <i>SHU:</i> {sauce.shu} scoville
             </p>
           )}
-          <p>
-            <i>Made in:</i> {sauce.country || "Loading..."}
-          </p>
+
+          {sauce.country && (
+            <p data-test-id="country">
+              <i>Made in:</i> {sauce.country}
+            </p>
+          )}
         </StyledSauceInfoContainer>
       </StyledSauceContainer>
     </>

@@ -12,7 +12,7 @@ import {
   SAUCES_UPDATE_DISPLAYNAME,
   TYPES_ADDED
 } from "./types";
-import { IReviewsState, IReviewAPI } from "../reviews/types.js";
+import { IReviewState, IReviewAPI } from "../reviews/types.js";
 import Flatn from "../../utils/Flatn/Flatn";
 
 import { addedReviews } from "../reviews/actions";
@@ -140,7 +140,7 @@ export const getSauceBySlug = ({
       reviews
     });
     // Create obj to redux
-    const normalizedReviews: IReviewsState = { byReviewID, allReviewIDs };
+    const normalizedReviews: IReviewState = { byReviewID, allReviewIDs };
     // Push reviews to redux
     dispatch(addedReviews({ reviews: normalizedReviews }));
     // Update reviews on sauce

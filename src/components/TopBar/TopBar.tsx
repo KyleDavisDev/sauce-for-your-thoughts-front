@@ -8,7 +8,7 @@ import { StyledDiv } from "./TopBarStyle";
 
 const TopBar: React.FC = () => {
   const token = useSelector((state: AppState) => {
-    return state.users?.self?.token;
+    return state.users.self?.token;
   });
 
   return (

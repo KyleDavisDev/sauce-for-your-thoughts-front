@@ -1,6 +1,6 @@
 import { Reducer } from "redux";
 import {
-  IReviewsState,
+  IReviewState,
   IReviewsAction,
   REVIEWS_ADDED,
   REVIEWS_UPDATED,
@@ -8,15 +8,15 @@ import {
   IReview
 } from "./types";
 
-const initialState: IReviewsState = {
+const initialState: IReviewState = {
   allReviewIDs: [],
   byReviewID: {}
 };
 
-const reviewReducer: Reducer<IReviewsState> = (
-  state: IReviewsState = initialState,
+const reviewReducer: Reducer<IReviewState> = (
+  state: IReviewState = initialState,
   action: IReviewsAction
-): IReviewsState => {
+): IReviewState => {
   switch (action.type) {
     case REVIEWS_ADDED: {
       const allReviewIDs = action.allReviewIDs
@@ -32,7 +32,7 @@ const reviewReducer: Reducer<IReviewsState> = (
       const byReviewID = { ...state.byReviewID, ...action.byReviewID }; // concat new review to old
 
       // construct return object
-      const obj: IReviewsState = {
+      const obj: IReviewState = {
         byReviewID,
         allReviewIDs
       };

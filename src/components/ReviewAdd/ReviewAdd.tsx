@@ -51,6 +51,11 @@ const ReviewAdd: React.FunctionComponent<ReviewAddProps> = props => {
   const [canUserAddReview, error] = useCanUserAddReview();
   if (!error.isGood && !flashMessage.isVisible) {
     setFlashMessage({ isVisible: true, text: error.msg, type: "warning" });
+
+    // if forbidden, ask person to login
+    if (error.status === 403) {
+      router.push(`/account/login?return=${router.asPath}`);
+    }
   }
 
   return (
@@ -258,7 +263,7 @@ const ReviewAdd: React.FunctionComponent<ReviewAddProps> = props => {
           overall,
           label,
           note,
-          _id: 0, // Server will overwrite this
+          reviewID: "", // Server will overwrite this
           author: "", // Server will overwrite this
           sauce: slug,
           created: 0 // Server will overwrite this

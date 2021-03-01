@@ -1,5 +1,4 @@
 import * as React from "react";
-import shortid from "shortid";
 
 import Label from "../../../Label/Label";
 import { RadioButton } from "../../../RadioButton/RadioButton";
@@ -32,8 +31,7 @@ export default class SauceReview extends React.PureComponent<
             <Label>Add Review</Label>
 
             <RadioButton
-              id={shortid.generate()}
-              key={shortid.generate()}
+              id={"yesReview"}
               value={"Yes"}
               label={"Yes"}
               checked={this.props.addReview}
@@ -41,8 +39,7 @@ export default class SauceReview extends React.PureComponent<
               name="addReview"
             />
             <RadioButton
-              id={shortid.generate()}
-              key={shortid.generate()}
+              id={"noReview"}
               value={"No"}
               label={"No"}
               checked={!this.props.addReview}

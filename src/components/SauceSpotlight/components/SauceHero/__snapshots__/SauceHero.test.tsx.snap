@@ -1,0 +1,546 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SauceHero /> matches snapshot 1`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 2`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 3`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 4`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 5`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 6`] = `
+<Fragment>
+  <Component />
+  <div>
+    <div>
+      <img
+        src="http://www.Carroll.com/"
+      />
+    </div>
+    <div>
+      <h2>
+        Ms. Amaya Lowe
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Dr. Melvin Crona
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        sunt est aliquam ad voluptatem molestiae explicabo
+      </p>
+      <p
+        data-test-id="ingredients"
+      >
+        <i>
+          Ingredients:
+        </i>
+         
+        et vel eum veritatis dolore praesentium non
+      </p>
+      <p
+        data-test-id="shu"
+      >
+        <i>
+          SHU:
+        </i>
+         
+        464
+         scoville
+      </p>
+      <p
+        data-test-id="country"
+      >
+        <i>
+          Made in:
+        </i>
+         
+        India
+      </p>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`<SauceHero /> matches snapshot 7`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 8`] = `
+<Fragment>
+  <Component />
+  <div>
+    <div>
+      <img
+        src="http://www.Meghan.us/"
+      />
+    </div>
+    <div>
+      <h2>
+        Mrs. Trinity Champlin
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Ms. Monique Yundt
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        ab provident voluptatem ducimus nulla placeat quaerat
+      </p>
+      <p
+        data-test-id="ingredients"
+      >
+        <i>
+          Ingredients:
+        </i>
+         
+        inventore adipisci sint quaerat dolore consequatur ut
+      </p>
+      <p
+        data-test-id="shu"
+      >
+        <i>
+          SHU:
+        </i>
+         
+        47
+         scoville
+      </p>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`<SauceHero /> matches snapshot 9`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 10`] = `
+<Fragment>
+  <Component />
+  <div>
+    <div>
+      <img
+        src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png"
+      />
+    </div>
+    <div>
+      <h2>
+        Miss Audra Nikolaus
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Mrs. Issac Marvin
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        est quo debitis accusantium earum voluptatem aut
+      </p>
+      <p
+        data-test-id="ingredients"
+      >
+        <i>
+          Ingredients:
+        </i>
+         
+        earum modi eum ut distinctio dolores veniam
+      </p>
+      <p
+        data-test-id="type"
+      >
+        <i>
+          Type:
+        </i>
+         
+        quam, facere, ex, voluptatem, commodi, a, dolorem
+      </p>
+      <p
+        data-test-id="shu"
+      >
+        <i>
+          SHU:
+        </i>
+         
+        283
+         scoville
+      </p>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`<SauceHero /> matches snapshot 11`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 12`] = `
+<p>
+  culpa commodi harum repellendus vitae omnis voluptatem
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 13`] = `
+<Fragment>
+  <Component />
+  <div>
+    <div>
+      <img
+        src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png"
+      />
+    </div>
+    <div>
+      <h2>
+        Ms. Courtney Sipes
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Ms. Arvel Hills
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        culpa corrupti cumque iure iusto reprehenderit aliquam
+      </p>
+      <p
+        data-test-id="ingredients"
+      >
+        <i>
+          Ingredients:
+        </i>
+         
+        ad sed animi tempora voluptatem illo veniam
+      </p>
+      <p
+        data-test-id="shu"
+      >
+        <i>
+          SHU:
+        </i>
+         
+        481
+         scoville
+      </p>
+      <p
+        data-test-id="country"
+      >
+        <i>
+          Made in:
+        </i>
+         
+        Bangladesh
+      </p>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`<SauceHero /> matches snapshot 14`] = `
+<Fragment>
+  <Component />
+  <div>
+    <div>
+      <img
+        src="http://www.Bogisich.ca/"
+      />
+    </div>
+    <div>
+      <h2>
+        Mrs. Adrain Jacobs
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Ms. Jerrell Gusikowski
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        doloribus voluptates ratione et explicabo ea sed
+      </p>
+      <p
+        data-test-id="type"
+      >
+        <i>
+          Type:
+        </i>
+         
+        tempore, animi, blanditiis, esse, ea, omnis, eos
+      </p>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`<SauceHero /> matches snapshot 15`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 16`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 17`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 18`] = `
+<Fragment>
+  <div>
+    <div>
+      <img
+        src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png"
+      />
+    </div>
+    <div>
+      <h2>
+        Ms. Ashley Rath
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Mrs. Emery Reynolds
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        rerum quo neque sed sit recusandae eum
+      </p>
+      <p
+        data-test-id="ingredients"
+      >
+        <i>
+          Ingredients:
+        </i>
+         
+        in iste mollitia omnis quae placeat tempora
+      </p>
+      <p
+        data-test-id="type"
+      >
+        <i>
+          Type:
+        </i>
+         
+        aut, dolor, sint, et, nobis, harum, dolores
+      </p>
+      <p
+        data-test-id="shu"
+      >
+        <i>
+          SHU:
+        </i>
+         
+        89
+         scoville
+      </p>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`<SauceHero /> matches snapshot 19`] = `
+<p>
+  quas aliquid voluptas error non tempora ex
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 20`] = `
+<Fragment>
+  <Component />
+  <div>
+    <div>
+      <img
+        src="https://res.cloudinary.com/foryourthoughts/image/upload/v1565275178/sauces/ra1o7bsr9v2eurosoo5y.png"
+      />
+    </div>
+    <div>
+      <h2>
+        Mrs. Elliot Kuhic
+      </h2>
+      <p
+        data-test-id="maker"
+      >
+        <i>
+          Maker:
+        </i>
+         
+        Mr. Shana Gerlach
+      </p>
+      <p>
+        <i>
+          Description:
+        </i>
+         
+        excepturi et perferendis excepturi ex odio molestiae
+      </p>
+      <p
+        data-test-id="ingredients"
+      >
+        <i>
+          Ingredients:
+        </i>
+         
+        omnis magni voluptatem cumque voluptas dolores quibusdam
+      </p>
+      <p
+        data-test-id="type"
+      >
+        <i>
+          Type:
+        </i>
+         
+        esse, eius, voluptas, quibusdam, consequatur, dolores, iste
+      </p>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`<SauceHero /> matches snapshot 21`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 22`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 23`] = `
+<p>
+  inventore labore sit vel perferendis ut amet
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 24`] = `
+<p>
+  sit consequatur autem cum est libero voluptatem
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 25`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 26`] = `
+<p>
+  beatae architecto vel sint repellat architecto fugit
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 27`] = `
+<p>
+  dolore molestias quasi expedita est delectus id
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 28`] = `
+<p>
+  id corrupti voluptate facilis assumenda quis ut
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 29`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 30`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 31`] = `
+<p>
+  loading...
+</p>
+`;
+
+exports[`<SauceHero /> matches snapshot 32`] = `
+<p>
+  loading...
+</p>
+`;

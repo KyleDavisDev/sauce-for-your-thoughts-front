@@ -2,10 +2,10 @@ export interface ISauce {
   _id?: number;
   _addedToStore?: number; // Unix time (in seconds) added to redux store
   _full?: boolean; // Whether we have full sauce or partial
-  _related: Array<{ name: string; slug: string }>; // List of related sauces
+  _related?: Array<{ name: string; slug: string }>; // List of related sauces
   isAdminApproved?: boolean;
   name: string;
-  ingredients: string;
+  ingredients?: string;
   author: string;
   created: number; // Unix time (in seconds)
   types?: string[];
@@ -54,7 +54,7 @@ export interface ISaucesState {
   saucesWithNewestReviews?: Array<{ name: string; slug: string }>;
   newest?: string[];
   featured?: string[];
-  types: string[];
+  types?: string[];
   orders?: string[];
 }
 
@@ -83,3 +83,15 @@ export const TYPES_ADDED = "TYPES_ADDED";
 
 // Collection of possible sauces Action Types
 export type SaucesActionTypes = IAddSaucesAction;
+
+export const DEFAULT_TYPES_OF_SAUCES = [
+  "All",
+  "Hot Sauce",
+  "Marinade",
+  "BBQ Sauce",
+  "Salsa",
+  "Gravy",
+  "Meat Sauce",
+  "Wing Sauce",
+  "Curry"
+];

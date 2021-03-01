@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import Star from "../../../../../../images/icons/Star";
+import styled from "../../../../../../theme/styled-components";
 import { Button } from "../../../../../Button/Button";
 
 export const StyledContainer = styled.div`
@@ -9,8 +8,9 @@ export const StyledContainer = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   margin-bottom: 1em;
-  max-height: auto;
+  max-height: 999px;
 `;
+StyledContainer.displayName = "div";
 
 export const StyledButton = styled(Button)`
   background-color: ${props => props.theme.lightGrey};
@@ -45,60 +45,9 @@ export const StyledButton = styled(Button)`
     cursor: pointer;
   }
 `;
+StyledButton.displayName = "Button";
 
 export const StyledContentContainer = styled.div`
   padding: 1em;
 `;
-
-export const StyledCategoryContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: nowrap;
-  padding: 0 1em;
-
-  > i {
-    padding: 0 0.5em 0 0;
-  }
-`;
-
-export const StyledCategoryDescription = styled.p`
-  margin-top: 0px;
-  padding: 0 2em;
-`;
-
-export const StyledEmptyStar = styled(Star)`
-  .border {
-    fill: ${props => props.theme.primaryThemeColor};
-  }
-
-  .center {
-    fill: transparent;
-  }
-`;
-
-export const StyledFullStar = styled(Star)`
-  .border,
-  .center {
-    fill: ${props => props.theme.primaryThemeColor};
-  }
-`;
-
-export const StyledAvatar = styled.img`
-  max-width: 35px;
-  margin-left: 5px;
-  margin-right: 5px;
-`;
-
-export const StyledReviewerContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-
-export const StyledReviewer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-left: 5px;
-`;
+StyledContentContainer.displayName = "div";
