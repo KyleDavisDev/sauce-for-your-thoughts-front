@@ -51,7 +51,7 @@ export const configureStore = (initState?: AppState) => {
         }
       : initState;
 
-  if (process.env.NODE_ENV === "prod") {
+  if (process.env.NODE_ENV === "production") {
     return createStore(rootReducer, initialState, applyMiddleware(thunk));
   } else {
     return createStore(
