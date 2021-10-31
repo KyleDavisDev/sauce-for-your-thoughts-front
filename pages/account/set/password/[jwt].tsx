@@ -14,7 +14,7 @@ const SetPasswordPage: React.SFC<SetPasswordPageProps> = () => {
   const { jwt } = router.query;
   if (!jwt || Array.isArray(jwt)) {
     router.push("/");
-    return;
+    return <></>;
   }
 
   return (
