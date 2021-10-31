@@ -11,7 +11,7 @@ const Admin: React.FC<AdminProps> = props => {
   return (
     <>
       <Title>{_title}</Title>
-      <Item to="/admin/approvesaucesubmissions">Approve Submissions</Item>
+      <Item to="/admin/sauces/approve">Approve Submissions</Item>
     </>
   );
 };

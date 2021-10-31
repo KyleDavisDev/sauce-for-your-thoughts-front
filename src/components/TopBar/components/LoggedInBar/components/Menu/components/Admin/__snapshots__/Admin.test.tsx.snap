@@ -6,7 +6,7 @@ exports[`<Admin /> matches snapshot 1`] = `
     Admin
   </Title>
   <Item
-    to="/admin/approvesaucesubmissions"
+    to="/admin/sauces/approve"
   >
     Approve Submissions
   </Item>
